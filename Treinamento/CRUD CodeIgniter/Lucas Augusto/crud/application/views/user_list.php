@@ -10,9 +10,7 @@
 	<h1 class="page-header text-center">CodeIgniter Simple CRUD Tutorial</h1>
 	<div class="row">
 		<div class="col-sm-8 col-sm-offset-2">
-			<a href="<?php echo base_url(); ?>index.php/users/addnew" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add New User</a> 
-			<a href="<?php echo base_url(); ?>index.php/users/addNewStore" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add New Store</a><br><br>
-			<a href="<?php echo base_url(); ?>index.php/store/viewStoreList" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> View Store List</a><br><br>
+			<a href="<?php echo base_url(); ?>index.php/users/addnew" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add New User</a> <a href="<?php echo base_url(); ?>index.php/users/addNewStore" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add New Store</a> <a href="<?php echo base_url(); ?>index.php/store/viewStoreList" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> View Store List</a><br><br>
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>

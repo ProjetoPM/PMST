@@ -10,7 +10,9 @@
 	<h1 class="page-header text-center">CodeIgniter Simple CRUD Tutorial</h1>
 	<div class="row">
 		<div class="col-sm-8 col-sm-offset-2">
-			<a href="<?php echo base_url(); ?>index.php/users/addnew" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add New User</a> <a href="<?php echo base_url(); ?>index.php/users/addNewStore" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add New Store</a><br><br>
+			<a href="<?php echo base_url(); ?>index.php/users/addnew" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add New User</a> <a href="<?php echo base_url(); ?>index.php/users/addNewStore" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add New Store</a>
+			<span class="pull-right"><a href="<?php echo base_url(); ?>" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Return</a></span>
+			<h1 class="page-header text-center">Store List</h1>
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
@@ -28,7 +30,7 @@
 							<td><?php echo $sto->idStore; ?></td>
 							<td><?php echo $sto->name; ?></td>
 							<td><?php echo $sto->adress; ?></td>
-							<td><a href="<?php echo base_url(); ?>index.php/users/edit/<?php echo $sto->idStore; ?>" class="btn btn-success"><span class="glyphicon glyphicon-edit"></span> Edit</a> || <a href="<?php echo base_url(); ?>index.php/users/delete/<?php echo $sto->idStore; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a></td>
+							<td><a href="<?php echo base_url(); ?>index.php/store/edit/<?php echo $sto->idStore; ?>" class="btn btn-success"><span class="glyphicon glyphicon-edit"></span> Edit</a> || <a href="<?php echo base_url(); ?>index.php/store/delete/<?php echo $sto->idStore; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a></td>
 						</tr>
 						<?php
 					}

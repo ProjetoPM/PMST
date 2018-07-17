@@ -17,6 +17,28 @@ class Store extends CI_Controller {
     	$data['store'] = $this->store_model->getAllStories();
     	$this->load->view('store_list', $data);
     }
+    	public function edit($idStore){
+		$data['store'] = $this->store_model->getStore($idStore);
+		$this->load->view('editstore', $data);
+	}
+public function update($idStore){
+		$store['name'] = $this->input->post('name');
+		$store['adress'] = $this->input->post('adress');
+
+		$query = $this->store_model->updatestore($store, $idStore);
+
+		if($query){
+			header('location:'.base_url().$this->index());
+		}
+	}
+
+	public function delete($idStore){
+		$query = $this->store_model->deletestore($idStore);
+
+		if($query){
+			header('location:'.base_url().$this->index());
+		}
+	}
 
 }
 
