@@ -5,6 +5,7 @@
 	<title>CodeIgniter Simple CRUD Tutorial</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css">
 </head>
+
 <body>
 <div class="container">
 	<h1 class="page-header text-center">CodeIgniter Simple CRUD Tutorial</h1>
