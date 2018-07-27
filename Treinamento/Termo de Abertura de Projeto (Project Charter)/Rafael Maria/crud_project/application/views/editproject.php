@@ -2,23 +2,20 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Termo de Abertura do Projeto</title>
+	<title>Edit Project</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
-	<h1 class="page-header text-center"> Project Charter </h1>
+	<h1 class="page-header text-center">Edit Project</h1>
 	<div class="row">
-		<div class="col-lg-10 col-lg-offset-2">
-			
-				<span class="pull-left"><a href="<?php echo base_url(); ?>" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Back</a></span>
-				<span class="pull-right"><a href="<?php echo base_url(); ?>index.php/stakeholder/addnew" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add New Stakeholder</a></span> 
-				<span class="pull-right"><a href="<?php echo base_url(); ?>index.php/stakeholder/viewstakeholderlist" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Stakeholder List</a></span>
-				<span class="pull-right"><a href="<?php echo base_url(); ?>index.php/stakeholder/viewprojectlist" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Projects List</a></span>
-				<br></br>
-			<h3> TAP </h3>
+		<div class="col-sm-4 col-sm-offset-4">
+			<span class="pull-left"><a href="<?php echo base_url(); ?>" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Back</a></span><br></br>
+			<h3>Edit Form</h3>
 			<hr>
-			<form method="POST" action="<?php echo base_url(); ?>index.php/stakeholder/insertproject">
+				 <!-- <?php extract($project); ?> -->
+			  
+			<form method="POST" action="<?php echo base_url(); ?>index.php/stakeholder/updateproject/">
 				 <div class="form-group">
 					<label>Project Scope:</label> <!-- <input type="text" class="form-control" name="scope"> -->
 					<textarea  type="text" class="form-control" name="scope">
@@ -74,17 +71,20 @@
 				</div>	
 				<div class="form-group">
 					<label>Stackholder List:</label>
+
 					 <?php foreach ($stakelholder as $stakeholder) {
 						 ?>
+
 						<div class="checkbox">
  						 <label><input type="checkbox" value="" class="checkbox" name="stakeholder"> <?php echo $stakeholder->name; 
  						 echo " | ID = "; echo $stakeholder->stakelholder_id; ?></label> 		 
 						</div>				 	 
-				 </div>	
+				 </div>
+
 			 <?php 
 			}
-			 ?> 		
-				<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+			 ?> 	   
+				 <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-check"></span> Update</button>
 			</form>
 		</div>
 	</div>

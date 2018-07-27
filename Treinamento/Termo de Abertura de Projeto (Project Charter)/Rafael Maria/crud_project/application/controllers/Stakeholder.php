@@ -51,7 +51,7 @@ class Stakeholder extends CI_Controller {
 	}
 
 	public function edit($id){
-		$data['stakelholder'] = $this->stakeholder_model->getStakeholder($id);
+		$data['stakeholder'] = $this->stakeholder_model->getStakeholder($id);
 		$this->load->view('edit', $data);
 	}
 
@@ -74,6 +74,45 @@ class Stakeholder extends CI_Controller {
 		$stakeholder['status'] = $this->input->post('status');
 
 		$query = $this->stakeholder_model->updatestakeholder($stakeholder, $id);
+
+		if($query){
+			header('location:'.base_url().$this->index());
+		}
+	}
+
+	public function viewProjectList() {
+		$data['project_charter'] = $this->stakeholder_model->getAllProjects();
+		$this->load->view('project_list', $data);
+	}
+
+	public function editProject($id){
+		$data['project_charter'] = $this->stakeholder_model->getProject($id);
+		$this->load->view('editproject', $data);
+	}
+
+	public function deleteProject($id){
+		$query = $this->stakeholder_model->deleteproject($id);
+
+		if($query){
+			header('location:'.base_url().$this->index());
+		}
+	}
+
+	public function updateProject($id) {
+		$project['scope'] = $this->input->post('scope');
+		$project['objective'] = $this->input->post('objective');
+		$project['sucess'] = $this->input->post('sucess');
+		$project['requirements'] = $this->input->post('requirements');
+		$project['assumptions'] = $this->input->post('assumptions');
+		$project['constraints'] = $this->input->post('constraints');
+		$project['risks'] = $this->input->post('risks');
+		$project['milestone'] = $this->input->post('milestone');
+		$project['budge'] = $this->input->post('budget');
+		$project['stakeholder'] = $this->input->post('stakeholder');
+		$project['aprovalReq'] = $this->input->post('approvalreq');
+
+
+		$query = $this->stakeholder_model->updateproject($project, $id);
 
 		if($query){
 			header('location:'.base_url().$this->index());

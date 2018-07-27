@@ -10,13 +10,12 @@
 	<h1 class="page-header text-center">Edit Stakeholder</h1>
 	<div class="row">
 		<div class="col-sm-4 col-sm-offset-4">
-			<h3>Edit Form
-				<span class="pull-left"><a href="<?php echo base_url(); ?>" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Back</a></span>
-			</h3>
+			<span class="pull-left"><a href="<?php echo base_url(); ?>" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Back</a></span><br></br>
+			<h3>Edit Form</h3>
 			<hr>
-				<!-- <?php extract($data); ?> -->
+				 <?php extract($stakeholder); ?>
 			  
-			<form method="POST" action="<?php echo base_url(); ?>index.php/stakeholder/update/">
+			<form method="POST" action="<?php echo base_url(); ?>index.php/stakeholder/update/<?php echo $id ?>">
 				<div class="form-group">
           			<label>Name:</label>
           			<input type="text" class="form-control" name="name">

@@ -29,12 +29,32 @@ class Stakeholder_model extends CI_Model {
 
 	public function deletestakeholder($id){
 			$this->db->where('stakelholder.stakelholder_id', $id);
-			return $this->db->delete('stakelholder', $stakeholder);
+			return $this->db->delete('stakelholder');
 		}
 
 		public function updatestakeholder($stakeholder, $id) {
 			$this->db->where('stakelholder.stakelholder_id', $id);
-			return $this->db->update('stakelholder');
+			return $this->db->update('stakelholder', $stakeholder);
+		}
+
+		public function getAllProjects() {
+			$query = $this->db->get('project_charter');
+			return $query->result();
+	}
+
+	public function deleteproject($id){
+			$this->db->where('project_charter.project_charter_id', $id);
+			return $this->db->delete('project_charter');
+		}
+
+		public function getProject($id) {
+		$query = $this->db->get_where('project_charter',array('project_charter_id'=>$id));
+			return $query->row_array();
+	}
+
+	public function updateproject($project, $id) {
+			$this->db->where('project_charter.project_charter_id', $id);
+			return $this->db->update('project_charter', $project);
 		}
 }
  ?>
