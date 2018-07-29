@@ -73,17 +73,19 @@
 					<textarea type="text" class="form-control" name="approvalreq"></textarea>
 				</div>	
 				<div class="form-group">
-					<label>Stackholder List:</label>
+					<label>Stackholder List:</label>					
+
 					 <?php foreach ($stakelholder as $stakeholder) {
 						 ?>
 						<div class="checkbox">
  						 <label><input type="checkbox" value="" class="checkbox" name="stakeholder"> <?php echo $stakeholder->name; 
  						 echo " | ID = "; echo $stakeholder->stakelholder_id; ?></label> 		 
-						</div>				 	 
+						</div>		
+
 				 </div>	
 			 <?php 
 			}
-			 ?> 		
+			 ?> 	
 				<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
 			</form>
 		</div>
