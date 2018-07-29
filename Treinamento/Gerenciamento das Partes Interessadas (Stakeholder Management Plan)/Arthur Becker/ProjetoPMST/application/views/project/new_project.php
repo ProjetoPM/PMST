@@ -44,7 +44,7 @@
                 <!-- <input type="checkbox" name="projectStatus"> Active Project<br><br> -->
                 <div >
                     <label for="status">Status</label><br />
-                    <select name="status">
+                    <select name="status" class="form-control input-md">
                       <option value="1">Active</option>
                       <option value="0">Inactive</option>
                     </select> 

@@ -44,26 +44,12 @@
             <input id="description" name="description" type="text" placeholder="Description" class="form-control input-md" value="<?= $project[0]->description;?>" required="true">
           </div>
         </div>
-<!-- 
-        <div class="form-group">
-          <label for="status">Status</label>
-          <div >                     
-            <input id="description" 
-            name="status" 
-            type="select" 
-            placeholder="Status" 
-            class="form-control input-md" 
-            value="<?= $project[0]->status;?>" 
-            required="true">
-          </div>
-        </div> -->
-
 
          <div >
             <label for="status">Status</label><br />
-              <select name="status">
-                <option value="<?= $project[0]->status;?>">Active</option>
-                <option value="<?= $project[0]->status;?>">Inactive</option>
+              <select name="status" class="form-control input-md">
+                <option value="1">Active</option>
+                <option value="0">Inactive</option>
               </select> 
           </div> <br>
         <input id="new_project-submit" type="submit" value="Update" class="btn btn-lg btn-success btn-block">

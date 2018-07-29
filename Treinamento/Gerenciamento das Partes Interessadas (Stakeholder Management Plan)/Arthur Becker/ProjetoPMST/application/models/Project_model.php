@@ -22,21 +22,8 @@ class Project_model extends CI_Model {
 
         $module = "Project Management";
         $activity = "created new project ".$postData['title'];
-        // $this->insert_log($activity, $module);
         return array('status' => 'success', 'message' => '');
     }
-
-    // function insert_log($activity, $module){
-    //     $id = $this->session->userdata('user_id');
-
-    //     $data = array(
-    //         'fk_user_id' => $id,
-    //         'activity' => $activity,
-    //         'module' => $module,
-    //         'created_at' => date('Y\-m\-d\ H:i:s A')
-    //     );
-    //     $this->db->insert('activity_log', $data);
-    // }
 }
 
 /* End of file */

@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-lg-12">      
             
-            <form action="<?=base_url()?>stakeholder/stakeholder/" method="post">
+            <form action="<?=base_url()?>stakeholder/add_stakeholder/" method="post">
                 
 
                 <!-- Text input-->

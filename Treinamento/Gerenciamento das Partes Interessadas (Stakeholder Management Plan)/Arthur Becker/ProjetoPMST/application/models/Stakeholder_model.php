@@ -1,33 +1,63 @@
 <?php
-	class Stakelholder_model extends CI_Model {
-		function __construct(){
-			parent::__construct();
-			$this->load->database();
-		}
 
-		public function getAllStakelholder(){
-			$query = $this->db->get('stakelholder');
-			return $query->result(); 
-		}
+if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 
-		public function insertstakelholder($stakelholder){
-			return $this->db->insert('stakelholder', $stakelholder);
-		}
+class Stakeholder_model extends CI_Model {
 
-		public function getStakelholder($stakelholder_id){
-			$query = $this->db->get_where('stakelholder',array('stakelholder_id'=>$stakelholder_id));
-			return $query->row_array();
-		}
+    function __construct() {
+        parent::__construct();
+    }
 
-		public function updatestakelholder($stakelholder, $stakelholder_id){
-			$this->db->where('stakelholder.stakelholder_id', $stakelholder_id);
-			return $this->db->update('stakelholder', $stakelholder);
-		}
+    function insert_stakeholder($postData){
 
-		public function deletestakeholder($stakelholder_id){
-			$this->db->where('stakelholder.stakelholder_id', $stakelholder_id);
-			return $this->db->delete('stakelholder');
-		}
+        $data = array(
+            'name' => $postData['name'],
+            // 'interest' => $postData['interest'],
+			// 'leverage' => $postData['leverage'],
+			// 'influence' => $postData['influence'],
+			// 'impact' => $postData['impact'],
+			// 'average' => $postData['average'],
+			// 'engagement' => $postData['engagement'],
+			'roles_responsabilies' => $postData['roles_responsabilies'],
+			// 'strategy' => $postData['strategy'],
+			// 'scopeImpact' => $postData['scopeImpact'],
+			// 'comments' => $postData['comments'],
+            'status' => $postData['status'],
+        );
 
-	}
+        $this->db->insert('stakeholder', $data);
+
+        $module = "Stakeholder Management";
+        $activity = "created new stakeholder ".$postData['name'];
+        return array('status' => 'success', 'message' => '');
+    }
+
+    function insert_stakeholdermp($postData){
+
+        $data = array(
+            'name' => $postData['name'],
+            'interest' => $postData['interest'],
+            'leverage' => $postData['leverage'],
+            'influence' => $postData['influence'],
+            'impact' => $postData['impact'],
+            'average' => $postData['average'],
+            'engagement' => $postData['engagement'],
+            'roles_responsabilies' => $postData['roles_responsabilies'],
+            'strategy' => $postData['strategy'],
+            'scopeImpact' => $postData['scopeImpact'],
+            'comments' => $postData['comments'],
+            'status' => $postData['status'],
+        );
+
+        $this->db->insert('stakeholder', $data);
+
+        $module = "Stakeholder Management";
+        $activity = "created new stakeholder ".$postData['name'];
+        return array('status' => 'success', 'message' => '');
+    }
+}
+
+/* End of file */
 ?>
