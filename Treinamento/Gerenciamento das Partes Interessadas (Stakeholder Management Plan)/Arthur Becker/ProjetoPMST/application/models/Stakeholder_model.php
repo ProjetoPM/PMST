@@ -24,7 +24,7 @@
 			return $this->db->update('stakelholder', $stakelholder);
 		}
 
-		public function deleteproject($stakelholder_id){
+		public function deletestakeholder($stakelholder_id){
 			$this->db->where('stakelholder.stakelholder_id', $stakelholder_id);
 			return $this->db->delete('stakelholder');
 		}

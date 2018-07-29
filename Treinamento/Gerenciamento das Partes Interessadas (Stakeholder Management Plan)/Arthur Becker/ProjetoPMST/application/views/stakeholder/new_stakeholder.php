@@ -126,7 +126,7 @@
                   </div>
                 </div>
 
-                <input id="new_project-submit" type="submit" value="Create" class="btn btn-lg btn-success btn-block">
+                <input id="new_stakeholder-submit" type="submit" value="Create" class="btn btn-lg btn-success btn-block">
 
             </form>
 

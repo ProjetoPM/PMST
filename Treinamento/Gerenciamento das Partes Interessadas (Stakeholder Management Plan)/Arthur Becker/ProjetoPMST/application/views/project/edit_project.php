@@ -44,14 +44,28 @@
             <input id="description" name="description" type="text" placeholder="Description" class="form-control input-md" value="<?= $project[0]->description;?>" required="true">
           </div>
         </div>
-
-        <!-- Textarea -->
+<!-- 
         <div class="form-group">
-          <label for="objectives">Objectives</label>
+          <label for="status">Status</label>
           <div >                     
-            <input id="objectives" name="objectives" type="text" placeholder="Objectives" class="form-control input-md" value="<?= $project[0]->objectives;?>" required="true">
+            <input id="description" 
+            name="status" 
+            type="select" 
+            placeholder="Status" 
+            class="form-control input-md" 
+            value="<?= $project[0]->status;?>" 
+            required="true">
           </div>
-        </div>
+        </div> -->
+
+
+         <div >
+            <label for="status">Status</label><br />
+              <select name="status">
+                <option value="<?= $project[0]->status;?>">Active</option>
+                <option value="<?= $project[0]->status;?>">Inactive</option>
+              </select> 
+          </div> <br>
         <input id="new_project-submit" type="submit" value="Update" class="btn btn-lg btn-success btn-block">
 
 

@@ -64,14 +64,13 @@ class Project extends CI_Controller {
 
     public function show_projects(){
 
-            //$this->db->select('*');
-        // $dataproject['project'] = $this->db->get_where('project', array('created_by' => $this->session->userdata('user_id') ))->result();    Tava dando erro
+            $this->db->select('*');
+        // $dataproject['project'] = $this->db->get_where('project', array('created_by' => $this->session->userdata('user_id') ))->result();    
+            $dataproject['project'] = $this->db->get_where('project')->result();   
 
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
-        //O erro do topo da pag ta nesse "$dataproject" Resolver depois
-        // $this->load->view('project/my_projects', $dataproject); 
-        $this->load->view('project/my_projects');
+        $this->load->view('project/my_projects', $dataproject);
 
     }
 

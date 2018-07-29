@@ -36,7 +36,7 @@
                     <tr> 
                         <td><?= $pro -> title; ?></td> 
                         <td><?= $pro -> description; ?></td> 
-                        <td><?= $pro -> projectStatus; ?></td> 
+                        <td><?= $pro -> status; ?></td> 
                         <td>
                             <!-- Begin Update method --> 
                             <a href="<?=base_url("project/update/".$pro->project_id)?>" class="btn btn-primary btn-group" href="">Update</a> 

@@ -18,11 +18,11 @@
             <strong><?php echo $this->session->flashdata('error'); ?></strong>
         </div>
     <?php endif;?>
+
     <div class="row">
         <div class="col-lg-12">      
             
-            <!-- INICIO DA CAQUITA -->  
-                         
+            <!--  -->  
             <table class="table table-striped"> 
                 <tbody>
                     <tr> 
@@ -57,11 +57,11 @@
                         <td><?= $stak -> comments; ?></td>
                         <td>
                             <!-- Begin Update method --> 
-                            <a href="<?=base_url("Stakeholder/update/".$pro->stakeholder_id)?>" class="btn btn-primary btn-group" href="">Update</a> 
+                            <a href="<?=base_url("Stakeholder/update/".$stak->stakeholder_id)?>" class="btn btn-primary btn-group" href="">Update</a> 
                             <!-- End Update method --> 
 
                             <!-- Begin Delete method --> 
-                            <a href="<?=base_url("Stakeholder/delete/".$pro->stakeholder_id)?>" class="btn btn-danger btn-group" onclick="return confirm('Are you sure you want to delete <?= $pro -> title; ?>?');">Delete</a> 
+                            <a href="<?=base_url("Stakeholder/delete/".$stak->stakeholder_id)?>" class="btn btn-danger btn-group" onclick="return confirm('Are you sure you want to delete <?= $stak -> name; ?>?');">Delete</a> 
                             <!-- End Delete method --> 
                         </td>
 
@@ -71,7 +71,7 @@
             </table>
             
         </div>
-                        <!-- FIM DA CAQUITA -->
+                        <!--  -->
 
         </div>
         <!-- /.col-lg-12 -->
