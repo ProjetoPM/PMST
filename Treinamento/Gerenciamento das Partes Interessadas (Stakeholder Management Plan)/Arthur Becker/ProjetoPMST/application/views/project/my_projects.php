@@ -28,7 +28,7 @@
                     <tr> 
                         <th>Project Title</th> 
                         <th>Description</th> 
-                        <th>Objectives</th> 
+                        <th>Status</th> 
                         <th></th>
                   </tr>
                         <?php foreach ($project as $pro) { ?>                
@@ -36,26 +36,23 @@
                     <tr> 
                         <td><?= $pro -> title; ?></td> 
                         <td><?= $pro -> description; ?></td> 
-                        <td><?= $pro -> objectives; ?></td> 
+                        <td><?= $pro -> projectStatus; ?></td> 
                         <td>
-
                             <!-- Begin Update method --> 
                             <a href="<?=base_url("project/update/".$pro->project_id)?>" class="btn btn-primary btn-group" href="">Update</a> 
                             
                             <!-- End Update method --> 
                             <!-- Begin Delete method --> 
-                            <a href="<?=base_url("project/delete/".$pro->project_id)?>" class="btn btn-danger btn-group" onclick="return confirm('Are you sure you want to delete <?= $pro -> title; ?>?');">Delete</a> </td>
+                            <a href="<?=base_url("project/delete/".$pro->project_id)?>" class="btn btn-danger btn-group" onclick="return confirm('Are you sure you want to delete <?= $pro -> title; ?>?');">Delete</a> 
                             <!-- End Delete method --> 
-
+                        </td>
                     </tr>
+
                     <?php } ?>
                 </tbody>
             </table>
-            
         </div>
                         <!-- FIM DA CAQUITA -->
-
-
         </div>
         <!-- /.col-lg-12 -->
     </div>

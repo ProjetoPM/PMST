@@ -15,8 +15,7 @@ class Project_model extends CI_Model {
         $data = array(
             'title' => $postData['title'],
             'description' => $postData['description'],
-            'objectives' => $postData['objectives'],
-            'created_by' => $this->session->userdata('user_id')
+            'status' => $postData['status'],
         );
 
         $this->db->insert('project', $data);

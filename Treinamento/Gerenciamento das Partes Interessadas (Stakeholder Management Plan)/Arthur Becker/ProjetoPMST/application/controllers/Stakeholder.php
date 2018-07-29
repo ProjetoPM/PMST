@@ -14,10 +14,7 @@ class Stakeholder extends CI_Controller {
         $this->load->model('myproject_model');
         $data['project'] = $this->myproject_model->showproject();
 
-        $this->load->view('project', $data);
-
-
-        
+        $this->load->view('project', $data);        
     }
 
     public function __Construct() {
@@ -25,8 +22,8 @@ class Stakeholder extends CI_Controller {
         // if(!$this->session->userdata('logged_in')) {
         //     redirect(base_url());
         // }
-
-        $this->load->model('project_model');
+        $this->load->helper('url');
+        $this->load->model('stakeholder_model');
     }
 
     private function ajax_checking(){
@@ -65,11 +62,13 @@ class Stakeholder extends CI_Controller {
     public function show_stakeholders(){
 
             //$this->db->select('*');
-        $dataproject['project'] = $this->db->get_where('project', array('created_by' => $this->session->userdata('user_id') ))->result();
+        // $dataproject['project'] = $this->db->get_where('project', array('created_by' => $this->session->userdata('user_id') ))->result();
 
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
-        $this->load->view('stakeholder/my_stakeholder', $dataproject);
+        //O erro do topo da pag ta nesse "$dataproject" Resolver depois
+        // $this->load->view('stakeholder/my_stakeholder', $dataproject);
+        $this->load->view('stakeholder/my_stakeholder');
 
     }
 

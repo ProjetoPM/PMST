@@ -41,13 +41,14 @@
                   </div>
                 </div>
 
-                <!-- Textarea -->
-                <div class="form-group">
-                  <label for="objectives">Objectives</label>
-                  <div >                     
-                    <textarea class="form-control" id="objectives" name="objectives"></textarea>
-                  </div>
-                </div>
+                <!-- <input type="checkbox" name="projectStatus"> Active Project<br><br> -->
+                <div >
+                    <label for="status">Status</label><br />
+                    <select name="status">
+                      <option value="1">Active</option>
+                      <option value="0">Inactive</option>
+                    </select> 
+                </div> <br>
                 <input id="new_project-submit" type="submit" value="Create" class="btn btn-lg btn-success btn-block">
 
                 

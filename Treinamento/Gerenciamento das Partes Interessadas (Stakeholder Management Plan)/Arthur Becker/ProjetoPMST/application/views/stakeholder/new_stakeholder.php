@@ -34,7 +34,7 @@
 
                 <!-- Select's -->
                 <div class="form-group">
-                  <div class="col-sm-2" align="center">
+                  <div class="col-sm-1" align="center">
                     <label for="interest">Interest</label><br />
                     <select name="interest">
                       <option value="10%">10%</option>
@@ -46,7 +46,7 @@
                   </div>
                   <div class="col-sm-2" align="center">
                     <label for="leverage">Leverage</label><br />
-                    <select name="leverage">
+                    <select style="width: 60px;" name="leverage">
                       <option value="10%">10%</option>
                       <option value="30%">30%</option>
                       <option value="50%">50%</option>
@@ -54,9 +54,9 @@
                       <option value="90%">90%</option>
                     </select>
                   </div>
-                  <div class="col-sm-2" align="center">
+                  <div class="col-sm-1" align="center">
                     <label for="influence">Influence</label><br />
-                    <select name="influence">
+                    <select style="width: 61px;" name="influence">
                       <option value="10%">10%</option>
                       <option value="30%">30%</option>
                       <option value="50%">50%</option>
@@ -74,7 +74,11 @@
                       <option value="90%">90%</option>
                     </select>
                   </div>
-                  <div class="col-sm-2" align="center">
+                  <div class="col-sm-1" align="center">
+                    <label for="average">Average</label><br/>
+                    <input type="text" alt="" style="width: 55px; text-align:center;  height:19px; background-color: #D9D9F3" readonly="readonly" tabindex="1"  maxlength="7" size="9" value="" id="resultado1"name="average"/><br>
+                  </div>  
+                  <div class="col-sm-3" align="center">
                     <label for="engagement">Engagement</label><br />
                     <select name="engagement">
                       <option value="Alheio">Alheio</option>
@@ -84,34 +88,41 @@
                       <option value="Resistente">Resistente</option>
                     </select>
                   </div>
-                  <div class="col-sm-2" align="center">
+                  <div class="col-sm-0" align="center">
                     <label for="status">Status</label><br />
                     <select name="status">
-                      <option value="1">On</option>
-                      <option value="0">Off</option>
+                      <option value="1">Active</option>
+                      <option value="0">Inactive</option>
                     </select> 
-                  </div>              
+                  </div>    
                 </div>
 
                 <!-- Textarea -->
                 <div class="form-group">
-                  <label for="objectives">Strategy for management</label>
+                  <label for="roles_responsabilies"><br>Roles Responsibilities</label>
                   <div >                     
-                    <textarea class="form-control" id="objectives" name="objectives"></textarea>
+                    <textarea class="form-control" id="roles_responsabilies" name="roles_responsabilies"></textarea>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label for="objectives">Scope and impact of changes</label>
+                  <label for="strategy"><br>Strategy for management</label>
                   <div >                     
-                    <textarea class="form-control" id="objectives" name="objectives"></textarea>
+                    <textarea class="form-control" id="strategy" name="strategy"></textarea>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label for="objectives">Comments</label>
+                  <label for="scopeImpact">Scope and impact of changes</label>
                   <div >                     
-                    <textarea class="form-control" id="objectives" name="objectives"></textarea>
+                    <textarea class="form-control" id="scopeImpact" name="scopeImpact"></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="comments">Comments</label>
+                  <div >                     
+                    <textarea class="form-control" id="comments" name="comments"></textarea>
                   </div>
                 </div>
 
