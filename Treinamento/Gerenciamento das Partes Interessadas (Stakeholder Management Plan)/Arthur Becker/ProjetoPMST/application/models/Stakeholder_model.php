@@ -1,32 +1,32 @@
 <?php
-	class Stakeholder_model extends CI_Model {
+	class Stakelholder_model extends CI_Model {
 		function __construct(){
 			parent::__construct();
 			$this->load->database();
 		}
 
-		public function getAllStakeholder(){
-			$query = $this->db->get('users');
+		public function getAllStakelholder(){
+			$query = $this->db->get('stakelholder');
 			return $query->result(); 
 		}
 
-		public function insertstakeholder($user){
-			return $this->db->insert('users', $user);
+		public function insertstakelholder($stakelholder){
+			return $this->db->insert('stakelholder', $stakelholder);
 		}
 
-		public function getStakeholder($id){
-			$query = $this->db->get_where('users',array('id'=>$id));
+		public function getStakelholder($stakelholder_id){
+			$query = $this->db->get_where('stakelholder',array('stakelholder_id'=>$stakelholder_id));
 			return $query->row_array();
 		}
 
-		public function updatestakeholder($user, $id){
-			$this->db->where('users.id', $id);
-			return $this->db->update('users', $user);
+		public function updatestakelholder($stakelholder, $stakelholder_id){
+			$this->db->where('stakelholder.stakelholder_id', $stakelholder_id);
+			return $this->db->update('stakelholder', $stakelholder);
 		}
 
-		public function deletestakeholder($id){
-			$this->db->where('users.id', $id);
-			return $this->db->delete('users');
+		public function deleteproject($stakelholder_id){
+			$this->db->where('stakelholder.stakelholder_id', $stakelholder_id);
+			return $this->db->delete('stakelholder');
 		}
 
 	}

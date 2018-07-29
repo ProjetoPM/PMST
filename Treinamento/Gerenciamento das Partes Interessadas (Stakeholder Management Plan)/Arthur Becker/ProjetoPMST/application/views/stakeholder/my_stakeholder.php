@@ -40,28 +40,28 @@
                         <th>Comments</th>
                         <th></th>
                   </tr>
-                        <?php foreach ($project as $pro) { ?>                
+                        <?php foreach ($stakeholder as $stak) { ?>                
                         
                     <tr> 
-                        <td><?= $pro -> name; ?></td> 
-                        <td><?= $pro -> interest; ?></td> 
-                        <td><?= $pro -> leverage; ?></td> 
-                        <td><?= $pro -> influence; ?></td>
-                        <td><?= $pro -> impact; ?></td>
-                        <td><?= $pro -> average; ?></td>
-                        <td><?= $pro -> currentEngagement; ?></td>
-                        <td><?= $pro -> expectedEngagement; ?></td>
-                        <!-- <td><?= $pro -> status; ?></td> -->
-                        <td><?= $pro -> strategy; ?></td>
-                        <td><?= $pro -> scopeImpact; ?></td>
-                        <td><?= $pro -> comments; ?></td>
+                        <td><?= $stak -> name; ?></td> 
+                        <td><?= $stak -> interest; ?></td> 
+                        <td><?= $stak -> leverage; ?></td> 
+                        <td><?= $stak -> influence; ?></td>
+                        <td><?= $stak -> impact; ?></td>
+                        <td><?= $stak -> average; ?></td>
+                        <td><?= $stak -> currentEngagement; ?></td>
+                        <td><?= $stak -> expectedEngagement; ?></td>
+                        <!-- <td><?= $stak -> status; ?></td> -->
+                        <td><?= $stak -> strategy; ?></td>
+                        <td><?= $stak -> scopeImpact; ?></td>
+                        <td><?= $stak -> comments; ?></td>
                         <td>
                             <!-- Begin Update method --> 
-                            <a href="<?=base_url("project/update/".$pro->project_id)?>" class="btn btn-primary btn-group" href="">Update</a> 
+                            <a href="<?=base_url("Stakeholder/update/".$pro->stakeholder_id)?>" class="btn btn-primary btn-group" href="">Update</a> 
                             <!-- End Update method --> 
 
                             <!-- Begin Delete method --> 
-                            <a href="<?=base_url("project/delete/".$pro->project_id)?>" class="btn btn-danger btn-group" onclick="return confirm('Are you sure you want to delete <?= $pro -> title; ?>?');">Delete</a> 
+                            <a href="<?=base_url("Stakeholder/delete/".$pro->stakeholder_id)?>" class="btn btn-danger btn-group" onclick="return confirm('Are you sure you want to delete <?= $pro -> title; ?>?');">Delete</a> 
                             <!-- End Delete method --> 
                         </td>
 

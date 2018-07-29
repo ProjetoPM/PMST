@@ -7,14 +7,16 @@ if (!defined('BASEPATH')) {
 class Stakeholder extends CI_Controller {
 
     function index() {
-        $this->db->select('*');
-        $dataproject['project'] = $this->db->get('project')->result();
-        $this->load->view('project/my_projects', $dataproject);
+        $data[stakeholder] = $this->stakeholder_model->getAllStakeholder();
+        $this->load->view('my_stakeholder.php', $data)
+        // $this->db->select('*');
+        // $dataproject['project'] = $this->db->get('project')->result();
+        // $this->load->view('project/my_projects', $dataproject);
 
-        $this->load->model('myproject_model');
-        $data['project'] = $this->myproject_model->showproject();
+        // $this->load->model('myproject_model');
+        // $data['project'] = $this->myproject_model->showproject();
 
-        $this->load->view('project', $data);        
+        // $this->load->view('project', $data);        
     }
 
     public function __Construct() {
@@ -46,15 +48,15 @@ class Stakeholder extends CI_Controller {
     }
 
 
-    function add_project(){
+    function add_stakeholder(){
             //$this->ajax_checking();
 
         $postData = $this->input->post();
-        $insert = $this->project_model->insert_project($postData);
-        if($insert['status'] == 'success'){
+        $insert = $this->stakeholder_model->insert_stakeholder($postData);
+        // if($insert['status'] == 'success'){
             $this->session->set_flashdata('success', 'Project '.$postData['title'].' has been successfully created!');
-        }
-        redirect('project/show_projects');
+        // }
+        redirect('Stakeholder/show_stakeholders');
         echo json_encode($insert);            
     }
 
@@ -68,7 +70,7 @@ class Stakeholder extends CI_Controller {
         $this->load->view('frame/sidebar_nav_view');
         //O erro do topo da pag ta nesse "$dataproject" Resolver depois
         // $this->load->view('stakeholder/my_stakeholder', $dataproject);
-        $this->load->view('stakeholder/my_stakeholder');
+        $this->load->view('stakeholder/my_stakeholder', $datastakeholder);
 
     }
 
