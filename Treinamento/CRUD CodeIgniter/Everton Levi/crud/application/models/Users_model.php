@@ -10,9 +10,14 @@
 			return $query->result(); 
 		}
 
+		
+
 		public function insertuser($user){
 			return $this->db->insert('users', $user);
 		}
+
+
+
 		public function insertStore($store){
 			return $this->db->insert('store', $store);
 		}

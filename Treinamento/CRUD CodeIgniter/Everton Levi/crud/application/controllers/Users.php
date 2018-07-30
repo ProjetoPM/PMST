@@ -6,11 +6,11 @@ class Users extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
-		$this->load->model('users_model');
+		$this->load->model('Users_model');
 	}
 
 	public function index(){
-		$data['users'] = $this->users_model->getAllUsers();
+		$data['users'] = $this->Users_model->getAllUsers();
 		$this->load->view('user_list.php', $data);
 	}
 
@@ -25,9 +25,7 @@ class Users extends CI_Controller {
 	public function insertStore(){
 		$store['nameStore'] = $this->input->post('nameStore');
 		$store['addressStore'] = $this->input->post('addressStore');
-
-		$query = $this->users_model->insertStore($store);
-
+		$query = $this->Users_model->insertStore($store);
 		if ($query) {
 			header('location'.base_url().$this->index());
 		}
@@ -38,7 +36,7 @@ class Users extends CI_Controller {
 		$user['password'] = $this->input->post('password');
 		$user['fname'] = $this->input->post('fname');
 		
-		$query = $this->users_model->insertuser($user);
+		$query = $this->Users_model->insertuser($user);
 
 		if($query){
 			header('location:'.base_url().$this->index());
@@ -47,7 +45,7 @@ class Users extends CI_Controller {
 	}
 
 	public function edit($id){
-		$data['user'] = $this->users_model->getUser($id);
+		$data['user'] = $this->Users_model->getUser($id);
 		$this->load->view('editform', $data);
 	}
 
@@ -55,17 +53,14 @@ class Users extends CI_Controller {
 		$user['username'] = $this->input->post('username');
 		$user['password'] = $this->input->post('password');
 		$user['fname'] = $this->input->post('fname');
-
-		$query = $this->users_model->updateuser($user, $id);
-
+		$query = $this->Users_model->updateuser($user, $id);
 		if($query){
 			header('location:'.base_url().$this->index());
 		}
 	}
 
 	public function delete($id){
-		$query = $this->users_model->deleteuser($id);
-
+		$query = $this->Users_model->deleteuser($id);
 		if($query){
 			header('location:'.base_url().$this->index());
 		}

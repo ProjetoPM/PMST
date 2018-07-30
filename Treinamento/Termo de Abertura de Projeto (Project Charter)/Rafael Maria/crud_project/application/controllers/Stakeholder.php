@@ -50,8 +50,8 @@ class Stakeholder extends CI_Controller {
 		$this->load->view('stakeholderadd.php');
 	}
 
-	public function edit($id){
-		$data['stakeholder'] = $this->stakeholder_model->getStakeholder($id);
+	public function edit($stakelholder_id){
+		$data['stakelholder'] = $this->stakeholder_model->getStakeholder($stakelholder_id);
 		$this->load->view('edit', $data);
 	}
 
@@ -68,12 +68,12 @@ class Stakeholder extends CI_Controller {
 		$this->load->view('stakeholder_list', $data);
 	}
 
-	public function update($id) {
+	public function update($stakelholder_id) {
 		$stakeholder['name'] = $this->input->post('name');
-		$stakeholder['roles_responsabilities'] = $this->input->post('roles_responsabilies');
+		$stakeholder['roles_responsabilies'] = $this->input->post('roles_responsabilities');
 		$stakeholder['status'] = $this->input->post('status');
 
-		$query = $this->stakeholder_model->updatestakeholder($stakeholder, $id);
+		$query = $this->stakeholder_model->updatestakeholder($stakeholder, $stakelholder_id);
 
 		if($query){
 			header('location:'.base_url().$this->index());
@@ -98,7 +98,7 @@ class Stakeholder extends CI_Controller {
 		}
 	}
 
-	public function updateProject($id) {
+	public function updateProject() {
 		$project['scope'] = $this->input->post('scope');
 		$project['objective'] = $this->input->post('objective');
 		$project['sucess'] = $this->input->post('sucess');

@@ -10,11 +10,7 @@ class Store extends CI_Controller {
 	}
 
 	public function index(){
-		//$data['store'] = $this->store_model->getAllStores();
-		//$this->load->view('user_list.php', $data);
-				//
-		//$data['users'] = $this->users_model->getAllUsers();
-		//$this->load->view('user_list.php', $data);
+		$this->load->view('addNewStakeholder.php');
 	}
 
 	public function viewStoreList(){
@@ -23,7 +19,27 @@ class Store extends CI_Controller {
 		$this->load->view('store_list.php', $data);
 	}
 
+	public function delete($idStore){
+		$query = $this->store_model->deleteStore($idStore);
+		if($query){
+			header('location:'.base_url().$this->index());
+		}
+	}
+
+	public function editStore($idStore){
+		$data['sto'] = $this->store_model->getStore($idStore);
+		$this->load->view('editStore', $data);
+	}
+
+	public function updateSto($idStore){
+		$sto['nameStore'] = $this->input->post('nameStore');
+		$sto['addressStore'] = $this->input->post('addressStore');
+		$query = $this->store_model->updateStore($sto, $idStore);
+		if($query){
+			header('location:'.base_url().$this->index());
+		}
+	}
+
+
 }
-
-
 ?>
