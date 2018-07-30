@@ -9,7 +9,7 @@
 <div class="container">
 	<h1 class="page-header text-center">Edit Project</h1>
 	<div class="row">
-		<div class="col-sm-4 col-sm-offset-4">
+		<div class="col-sm-10 col-sm-offset-2">
 			<span class="pull-left"><a href="<?php echo base_url(); ?>" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Back</a></span><br></br>
 			<h3>Edit Form</h3>
 			<hr>
@@ -69,21 +69,22 @@
 				<!-- <input type="text" class="form-control" name="approvalreq"> -->
 					<textarea type="text" class="form-control" name="approvalreq"></textarea>
 				</div>	
-				<div class="form-group">
-					<label>Stackholder List:</label>
-
+				<?php # BEGIN ERROR !!!!!!!!!!!! ?>
+			<!--	<div class="form-group">
+					<label>Stackholder List:</label>					
+					
 					 <?php foreach ($stakelholder as $stakeholder) {
 						 ?>
-
 						<div class="checkbox">
  						 <label><input type="checkbox" value="" class="checkbox" name="stakeholder"> <?php echo $stakeholder->name; 
  						 echo " | ID = "; echo $stakeholder->stakelholder_id; ?></label> 		 
-						</div>				 	 
-				 </div>
+						</div>		
 
+				 </div>	
 			 <?php 
 			}
-			 ?> 	   
+			 ?> 	-->
+			 <?php # END ERROR !!!!!!!!!!!!!!! ?>
 				 <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-check"></span> Update</button>
 			</form>
 		</div>

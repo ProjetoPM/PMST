@@ -13,9 +13,9 @@
 			<span class="pull-left"><a href="<?php echo base_url(); ?>" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Back</a></span><br></br>
 			<h3>Edit Form</h3>
 			<hr>
-				 <?php extract($stakeholder); ?>
+				<?php extract($stakelholder); ?>
 			  
-			<form method="POST" action="<?php echo base_url(); ?>index.php/stakeholder/update/<?php echo $id ?>">
+			<form method="POST" action="<?php echo base_url(); ?>index.php/stakeholder/update/ <?php echo $stakelholder_id ?>">
 				<div class="form-group">
           			<label>Name:</label>
           			<input type="text" class="form-control" name="name">

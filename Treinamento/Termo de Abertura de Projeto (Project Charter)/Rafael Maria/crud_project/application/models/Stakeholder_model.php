@@ -32,8 +32,8 @@ class Stakeholder_model extends CI_Model {
 			return $this->db->delete('stakelholder');
 		}
 
-		public function updatestakeholder($stakeholder, $id) {
-			$this->db->where('stakelholder.stakelholder_id', $id);
+		public function updatestakeholder($stakeholder, $stakelholder_id) {
+			$this->db->where('stakelholder.stakelholder_id', $stakelholder_id);
 			return $this->db->update('stakelholder', $stakeholder);
 		}
 
