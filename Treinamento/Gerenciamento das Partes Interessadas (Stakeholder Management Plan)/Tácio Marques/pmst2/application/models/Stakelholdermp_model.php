@@ -6,27 +6,27 @@
 		}
 
 		public function getAllStakelholdermp(){
-			$query = $this->db->get('stakelholder_mp');
+			$query = $this->db->get('stakeholder_mp');
 			return $query->result(); 
 		}
 
-		public function insertstakelholdermp($stakelholder_mp){
-			return $this->db->insert('stakelholder_mp', $stakelholder_mp);
+		public function insertstakelholdermp($stakeholder_mp){
+			return $this->db->insert('stakeholder_mp', $stakeholder_mp);
 		}
 
-		public function getStakelholdermp($stakelholder_mp_id){
-			$query = $this->db->get_where('stakelholder_mp',array('stakelholder_mp_id'=>$stakelholder_mp_id));
+		public function getStakelholdermp($stakeholder_mp_id){
+			$query = $this->db->get_where('stakeholder_mp',array('stakeholder_mp_id'=>$stakeholder_mp_id));
 			return $query->row_array();
 		}
 
-		public function updatestakelholdermp($stakelholder_mp, $stakelholder_mp_id){
-			$this->db->where('stakelholder_mp.stakelholder_mp_id', $stakelholder_mp_id);
-			return $this->db->update('stakelholder_mp', $stakelholder_mp);
+		public function updatestakelholdermp($stakeholder_mp, $stakeholder_mp_id){
+			$this->db->where('stakeholder_mp.stakeholder_mp_id', $stakeholder_mp_id);
+			return $this->db->update('stakeholder_mp', $stakeholder_mp);
 		}
 
-		public function deletestakelholdermp($stakelholder_mp_id){
-			$this->db->where('stakelholder_mp.stakelholder_mp_id', $stakelholder_mp_id);
-			return $this->db->delete('stakelholder_mp');
+		public function deletestakelholdermp($stakeholder_mp_id){
+			$this->db->where('stakeholder_mp.stakeholder_mp_id', $stakeholder_mp_id);
+			return $this->db->delete('stakeholder_mp');
 		}
 
 	}

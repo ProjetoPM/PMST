@@ -15,6 +15,7 @@
 <table style="width:100%" class="table table-bordered table-striped">
   <thead>
   <tr>
+      <th>ID Stakelholder</th>
       <th>Name Stakelholder</th>
       <th>Interest</th>
       <th>Power</th>
@@ -29,79 +30,84 @@
       <th>Status</th> 
   </tr>
 </thead>
-        <form method="POST">
         <tbody>
           <?php
           foreach($stakelholder as $stakeholder){
+            foreach($stakeholder_mp as $stakeholdermp){
+              if($stakeholder->stakelholder_id!=$stakeholdermp->stakelholder_id){
             ?>
             <tr>
+            <form method="POST" action="<?php echo base_url(); ?>index.php/PartesInteressadas/insert/<?php echo $id; ?>">
+              <td><input name="stakelholder_id" type="text" value="<?php echo $stakeholder->stakelholder_id; ?>" readonly="readonly" /></td>
               <td><?php echo $stakeholder->name; ?></td>
-              <td><select name=interest>
-                  <option>10%</option>
-                  <option>30%</option>
-                  <option>50%</option>
-                  <option>70%</option>
-                  <option>90%</option>
+              <td><select name="interest">
+                  <option value="10%">10%</option>
+                  <option value="30%">30%</option>
+                  <option value="50%">50%</option>
+                  <option value="70%">70%</option>
+                  <option value="90%">90%</option>
               </select></td>
-              <td><select name=power>
-                  <option>10%</option>
-                  <option>30%</option>
-                  <option>50%</option>
-                  <option>70%</option>
-                  <option>90%</option>
+              <td><select name="power">
+                  <option value="10%">10%</option>
+                  <option value="30%">30%</option>
+                  <option value="50%">50%</option>
+                  <option value="70%">70%</option>
+                  <option value="90%">90%</option>
               </select></td>
-              <td><select name=influence>
-                  <option>10%</option>
-                  <option>30%</option>
-                  <option>50%</option>
-                  <option>70%</option>
-                  <option>90%</option>
+              <td><select name="influence">
+                  <option value="10%">10%</option>
+                  <option value="30%">30%</option>
+                  <option value="50%">50%</option>
+                  <option value="70%">70%</option>
+                  <option value="90%">90%</option>
               </select></td>
-              <td><select name=impact>
-                  <option>10%</option>
-                  <option>30%</option>
-                  <option>50%</option>
-                  <option>70%</option>
-                  <option>90%</option>
+              <td><select name="impact">
+                  <option value="10%">10%</option>
+                  <option value="30%">30%</option>
+                  <option value="50%">50%</option>
+                  <option value="70%">70%</option>
+                  <option value="90%">90%</option>
               </select></td>
-              <td><select name=expectedengagement>
-                  <option>Alheio</option>
-                  <option>Apoiador</option>
-                  <option>Engajado</option>
-                  <option>Neutro</option>
-                  <option>Residente</option>
+              <td><select name="expectedengagement">
+                  <option value="Alheio">Alheio</option>
+                  <option value="Apoiador">Apoiador</option>
+                  <option value="Engajado">Engajado</option>
+                  <option value="Neutro">Neutro</option>
+                  <option value="Residente">Residente</option>
               </select></td>
-              <td><select name=currentengagement>
-                  <option>Alheio</option>
-                  <option>Apoiador</option>
-                  <option>Engajado</option>
-                  <option>Neutro</option>
-                  <option>Residente</option>
+              <td><select name="currentengagement">
+                  <option value="Alheio">Alheio</option>
+                  <option value="Apoiador">Apoiador</option>
+                  <option value="Engajado">Engajado</option>
+                  <option value="Neutro">Neutro</option>
+                  <option value="Residente">Residente</option>
               </select></td>
               <td>
                 <div class="form-group">
-                    <input type="text" class="form-control" name=strategy>
+                    <input type="text" class="form-control" name="strategy">
                 </div></td>
               <td>
                 <div class="form-group">
-                    <input type="text" class="form-control" name=scope>
+                    <input type="text" class="form-control" name="scope">
                 </div></td>
               <td>
                 <div class="form-group">
-                    <input type="text" class="form-control" name=observation>
+                    <input type="text" class="form-control" name="observation">
                 </div></td>
                 <td><?php echo $id; ?></td>
-              <td><select name=status>
-                  <option>Aberto</option>
-                  <option>Resolvido</option>
+              <td><select name="status">
+                  <option value="1">Aberto</option>
+                  <option value="0">Resolvido</option>
               </select></td>
-              <td><a href="<?php echo base_url(); ?>index.php/PartesInteressadas/insert/<?php ; ?>" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Save/Update</a></td>
+              <td><button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-check"></span>Save</button></td>
+            </form>
             </tr>
             <?php
           }
+        }
+      }
           ?>
           </tbody>
-        </form>
 </table>
 </body>
 </html>
