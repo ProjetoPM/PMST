@@ -45,13 +45,13 @@
           </div>
         </div>
 
-        <!-- Textarea -->
-        <div class="form-group">
-          <label for="objectives">Objectives</label>
-          <div >                     
-            <input id="objectives" name="objectives" type="text" placeholder="Objectives" class="form-control input-md" value="<?= $project[0]->objectives;?>" required="true">
-          </div>
-        </div>
+         <div >
+            <label for="status">Status</label><br />
+              <select name="status" class="form-control input-md">
+                <option value="1">Active</option>
+                <option value="0">Inactive</option>
+              </select> 
+          </div> <br>
         <input id="new_project-submit" type="submit" value="Update" class="btn btn-lg btn-success btn-block">
 
 

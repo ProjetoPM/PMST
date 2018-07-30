@@ -6,24 +6,20 @@ if (!defined('BASEPATH')) {
 
 class Stakeholder extends CI_Controller {
 
-    function index() {
+     function index() {
         $this->db->select('*');
-        $dataproject['project'] = $this->db->get('project')->result();
-        $this->load->view('project/my_projects', $dataproject);
+        $datastakeholder['stakeholder'] = $this->db->get('stakeholder')->result();
+        $this->load->view('stakeholder/my_stakeholder', $datastakeholder);
 
-        $this->load->model('myproject_model');
-        $data['project'] = $this->myproject_model->showproject();
+        $this->load->model('mystakeholder_model');
+        $data['stakeholder'] = $this->mystakeholder_model->show_stakeholders();
 
-        $this->load->view('project', $data);        
+        $this->load->view('stakeholder', $data);
     }
 
     public function __Construct() {
         parent::__Construct();
-        // if(!$this->session->userdata('logged_in')) {
-        //     redirect(base_url());
-        // }
-        $this->load->helper('url');
-        $this->load->model('stakeholder_model');
+        $this->load->model('Stakeholder_model');
     }
 
     private function ajax_checking(){
@@ -35,8 +31,8 @@ class Stakeholder extends CI_Controller {
     public function stakeholder_form(){
 
         $data = array(
-            'formTitle' => 'New Project',
-            'title' => 'New Project'
+            'formTitle' => 'New Stakeholder',
+            'title' => 'New Stakeholder'
         );
 
         $this->load->view('frame/header_view');
@@ -46,37 +42,35 @@ class Stakeholder extends CI_Controller {
     }
 
 
-    function add_project(){
+    function add_stakeholder(){
             //$this->ajax_checking();
 
         $postData = $this->input->post();
-        $insert = $this->project_model->insert_project($postData);
-        if($insert['status'] == 'success'){
-            $this->session->set_flashdata('success', 'Project '.$postData['title'].' has been successfully created!');
-        }
-        redirect('project/show_projects');
+        $insert = $this->Stakeholder_model->insert_stakeholder($postData);
+        // if($insert['status'] == 'success'){
+            $this->session->set_flashdata('success', 'Stakeholder '.$postData['nam
+                '].' has been successfully created!');
+        // }
+        redirect('Stakeholder/show_stakeholders');
         echo json_encode($insert);            
     }
 
 
     public function show_stakeholders(){
 
-            //$this->db->select('*');
-        // $dataproject['project'] = $this->db->get_where('project', array('created_by' => $this->session->userdata('user_id') ))->result();
+            $this->db->select('*');
+            $datastakeholder['stakeholder'] = $this->db->get_where('stakeholder')->result();
 
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
-        //O erro do topo da pag ta nesse "$dataproject" Resolver depois
-        // $this->load->view('stakeholder/my_stakeholder', $dataproject);
-        $this->load->view('stakeholder/my_stakeholder');
+        $this->load->view('stakeholder/my_stakeholder', $datastakeholder);
 
     }
 
         //<!-- Begin Delete method --> 
-    public function delete($id=null){
-
-        $this->db->where('project_id', $id);
-        if($this->db->delete('project')) {
+    public function delete($stakelholder_id){
+        $this->db->where('stakeholder_id', $id);
+        if($this->db->delete('stakeholder')) {
             redirect('');
         } else {
             redirect('');
@@ -86,15 +80,14 @@ class Stakeholder extends CI_Controller {
 
 
             //<!-- Begin Update method --> 
-    public function update($id=null){
-
-        $this->db->where('project_id', $id);
-        $dataproject['project'] = $this->db->get('project')->result();
+    public function update($stakelholder_id){
+       
+        $this->db->where('stakeholder_id', $id);
+        $datastakeholder['stakeholder'] = $this->db->get('stakeholder')->result();
 
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
-        $this->load->view('project/edit_project', $dataproject);
-
+        $this->load->view('stakeholder/edit_stakeholder', $datastakeholder);
 
     }
             //<!-- End Update method --> 
@@ -104,12 +97,12 @@ class Stakeholder extends CI_Controller {
 
         $postData = $this->input->post();
 
-        $this->db->where('project_id', $postData['project_id']);
+        $this->db->where('stakeholder_id', $postData['stakeholder_id']);
 
-        if($this->db->update('project', $postData)){
-            $this->session->set_flashdata('success', 'Project '.$postData['title'].' has been updated created!');
+        if($this->db->update('Stakeholder', $postData)){
+            $this->session->set_flashdata('success', 'Stakeholder '.$postData['name'].' has been updated created!');
         }
-        redirect('project/show_projects');
+        redirect('stakelholder/show_stakeholders');
         //echo json_encode($insert);            
     }
 }

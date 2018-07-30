@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-lg-12">      
             
-            <form action="<?=base_url()?>stakeholder/stakeholder/" method="post">
+            <form action="<?=base_url()?>stakeholder/add_stakeholder/" method="post">
                 
 
                 <!-- Text input-->
@@ -45,8 +45,8 @@
                     </select>
                   </div>
                   <div class="col-sm-2" align="center">
-                    <label for="leverage">Leverage</label><br />
-                    <select style="width: 60px;" name="leverage">
+                    <label for="power">Power</label><br />
+                    <select style="width: 60px;" name="power">
                       <option value="10%">10%</option>
                       <option value="30%">30%</option>
                       <option value="50%">50%</option>
@@ -126,7 +126,7 @@
                   </div>
                 </div>
 
-                <input id="new_project-submit" type="submit" value="Create" class="btn btn-lg btn-success btn-block">
+                <input id="new_stakeholder-submit" type="submit" value="Create" class="btn btn-lg btn-success btn-block">
 
             </form>
 
