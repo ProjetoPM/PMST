@@ -45,8 +45,8 @@
                     </select>
                   </div>
                   <div class="col-sm-2" align="center">
-                    <label for="leverage">Leverage</label><br />
-                    <select style="width: 60px;" name="leverage">
+                    <label for="power">Power</label><br />
+                    <select style="width: 60px;" name="power">
                       <option value="10%">10%</option>
                       <option value="30%">30%</option>
                       <option value="50%">50%</option>

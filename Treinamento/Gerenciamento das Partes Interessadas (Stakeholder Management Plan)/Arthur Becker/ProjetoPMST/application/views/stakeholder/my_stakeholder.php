@@ -28,7 +28,7 @@
                     <tr> 
                         <th>Name</th> 
                         <th>Interest</th> 
-                        <th>Leverage</th> 
+                        <th>Power</th> 
                         <th>Influence</th>
                         <th>Impact</th>
                         <th>Weighted Importance</th>
@@ -45,7 +45,7 @@
                     <tr> 
                         <td><?= $stak -> name; ?></td> 
                         <td><?= $stak -> interest; ?></td> 
-                        <td><?= $stak -> leverage; ?></td> 
+                        <td><?= $stak -> power; ?></td> 
                         <td><?= $stak -> influence; ?></td>
                         <td><?= $stak -> impact; ?></td>
                         <td><?= $stak -> average; ?></td>

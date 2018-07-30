@@ -15,7 +15,7 @@ class Stakeholder_model extends CI_Model {
         $data = array(
             'name' => $postData['name'],
             // 'interest' => $postData['interest'],
-			// 'leverage' => $postData['leverage'],
+			// 'power' => $postData['power'],
 			// 'influence' => $postData['influence'],
 			// 'impact' => $postData['impact'],
 			// 'average' => $postData['average'],
@@ -39,7 +39,7 @@ class Stakeholder_model extends CI_Model {
         $data = array(
             'name' => $postData['name'],
             'interest' => $postData['interest'],
-            'leverage' => $postData['leverage'],
+            'power' => $postData['power'],
             'influence' => $postData['influence'],
             'impact' => $postData['impact'],
             'average' => $postData['average'],

@@ -83,7 +83,7 @@ class Stakeholder extends CI_Controller {
     public function update($stakelholder_id){
        
         $this->db->where('stakeholder_id', $id);
-        $dataproject['stakeholder'] = $this->db->get('stakeholder')->result();
+        $datastakeholder['stakeholder'] = $this->db->get('stakeholder')->result();
 
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
