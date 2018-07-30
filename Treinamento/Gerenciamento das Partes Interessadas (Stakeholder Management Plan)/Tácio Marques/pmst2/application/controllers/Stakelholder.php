@@ -7,6 +7,7 @@ class Stakelholder extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('Stakelholder_model');
+		$this->load->model('Stakelholdermp_model');
 	}
 
 
@@ -15,11 +16,11 @@ class Stakelholder extends CI_Controller {
 		$this->load->view('addpartesI.php', $data);
 	}
 
-	public function addnew(){
-		$this->load->view('addstakeholder.php');
+	public function addnew($id){
+		$this->load->view('addstakeholder.php' $id);
 	}
 
-	public function insert(){
+	public function insert($id){
 		$stakelholder['name'] = $this->input->post('name');
 		$stakelholder['roles_responsabilies'] = $this->input->post('roles_responsabilies');
 		$stakelholder['status'] = $this->input->post('status');
@@ -27,7 +28,10 @@ class Stakelholder extends CI_Controller {
 		$query = $this->Stakelholder_model->insertstakelholder($stakelholder);
 
 		if($query){
-			$this->load->view('addpartesI.php');
+			$data['id'] = $id;
+			$data['stakeholder_mp'] = $this->Stakelholdermp_model->getAllStakelholdermp();
+			$data['stakelholder'] = $this->Stakelholder_model->getAllStakelholder();
+			$this->load->view('addpartesI.php',$data);
 		}
 
 	}

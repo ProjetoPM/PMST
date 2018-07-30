@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
+<body>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>View Projects</title>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Partes Interessadas</title>
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css">
 </head>
-<body style="background-color:#DCDCDC;">
-<div class="container">
-	<h1 class="page-header text-center">View Stakeholder Management Plan</h1>
-	<div class="row">
-		<div class="col-sm-8 col-sm-offset-2">
-			<table class="table table-bordered table-striped">
-				<thead>
+<body   style="background-color:#DCDCDC;">
+  <h1 class="page-header text-center">View Stakeholder Management Plan</h1>
+      <h3 class="page-header text-center">
+        <span class="pull-right"><a href="<?php echo base_url(); ?>" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Back</a></span>
+      </h3>
+<table style="width:100%" class="table table-bordered table-striped">
+  <thead>
 					<tr>
       				<th>ID Stakelholder</th>
       				<th>Name Stakelholder</th>
@@ -52,11 +53,10 @@
             </tr>
             <?php
           }
+        }
+      }
           ?>
-				</tbody>
-			</table>
-		</div>
-	</div>
-</div>
+          </tbody>
+</table>
 </body>
 </html>

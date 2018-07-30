@@ -79,9 +79,10 @@ class PartesInteressadas extends CI_Controller {
 		}
 	}
 
-	public function view(){
+	public function view($id){
+		$data['id'] = $id;
 		$data['stakelholder'] = $this->Stakelholder_model->getAllStakelholder();
-		$data['stakelholder_mp'] = $this->Stakelholdermp_model->getAllStakelholdermp();
+		$data['stakeholder_mp'] = $this->Stakelholdermp_model->getAllStakelholdermp();
 		$this->load->view('partesI_list', $data);
 	}
 
