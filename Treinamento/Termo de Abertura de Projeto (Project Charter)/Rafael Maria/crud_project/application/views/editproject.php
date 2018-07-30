@@ -68,23 +68,23 @@
 					<label>Project Approval Requirements:</label>
 				<!-- <input type="text" class="form-control" name="approvalreq"> -->
 					<textarea type="text" class="form-control" name="approvalreq"></textarea>
-				</div>	
-				<?php # BEGIN ERROR !!!!!!!!!!!! ?>
-			<!--	<div class="form-group">
+				</div>				 
+				
+				<div class="form-group">
 					<label>Stackholder List:</label>					
 					
 					 <?php foreach ($stakelholder as $stakeholder) {
 						 ?>
 						<div class="checkbox">
- 						 <label><input type="checkbox" value="" class="checkbox" name="stakeholder"> <?php echo $stakeholder->name; 
- 						 echo " | ID = "; echo $stakeholder->stakelholder_id; ?></label> 		 
+ 						 <label><input type="checkbox" name="stakeholder" value="<?php $stakelholder_id ?>"><?php echo "Stakeholder Name: "; ?> <?php echo $stakeholder->name; 
+ 						 echo " - ID: "; echo $stakeholder->stakelholder_id; ?></label> 		 
 						</div>		
 
 				 </div>	
 			 <?php 
 			}
-			 ?> 	-->
-			 <?php # END ERROR !!!!!!!!!!!!!!! ?>
+			 ?> 	
+			 
 				 <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-check"></span> Update</button>
 			</form>
 		</div>

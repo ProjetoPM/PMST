@@ -24,10 +24,11 @@
           			<label>Roles Responsabilities:</label>
           			<input type="text" class="form-control" name="roles_responsabilities">
         		</div>
-       			<div class="form-group">
-     				<label>Status:</label>
-          			<input type="text" class="form-control" name="status">
-        		</div>   
+       			 <div class="form-group">
+          <label>Status:</label>
+          <label class="radio-inline"><input type="radio" name="status" value="1">Ativo</label>
+          <label class="radio-inline"><input type="radio" name="status" value="0">Inativo</label>
+        </div>  
 				 <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-check"></span> Update</button>
 			</form>
 		</div>

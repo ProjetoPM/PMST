@@ -26,7 +26,8 @@
         </div>
        <div class="form-group">
           <label>Status:</label>
-          <input type="text" class="form-control" name="status">
+          <label class="radio-inline"><input type="radio" name="status" value="1">Ativo</label>
+          <label class="radio-inline"><input type="radio" name="status" value="0">Inativo</label>
         </div>      
         <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
       </form>

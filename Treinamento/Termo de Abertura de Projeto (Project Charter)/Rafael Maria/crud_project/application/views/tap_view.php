@@ -74,18 +74,19 @@
 				</div>	
 				<div class="form-group">
 					<label>Stackholder List:</label>					
-
+					<!-- <select> -->
 					 <?php foreach ($stakelholder as $stakeholder) {
 						 ?>
+						<!-- <option value="<?php $stakeholder->stakelholder_id ?>"><?php echo $stakeholder->name; echo "||"; echo $stakeholder->stakelholder_id; ?></option> -->						 						
 						<div class="checkbox">
- 						 <label><input type="checkbox" value="" class="checkbox" name="stakeholder"> <?php echo $stakeholder->name; 
- 						 echo " | ID = "; echo $stakeholder->stakelholder_id; ?></label> 		 
+ 						 <label><input type="checkbox" name="stakeholder" value="<?php $stakelholder_id ?>"><?php echo "Stakeholder Name: "; ?> <?php echo $stakeholder->name; 
+ 						 echo " - ID: "; echo $stakeholder->stakelholder_id; ?></label> 		 
 						</div>		
-
+						<!-- </select> -->
 				 </div>	
 			 <?php 
 			}
-			 ?> 	
+			 ?> 			 	
 				<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
 			</form>
 		</div>

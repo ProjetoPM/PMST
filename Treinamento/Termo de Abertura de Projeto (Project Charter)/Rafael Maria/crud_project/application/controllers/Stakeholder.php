@@ -87,7 +87,8 @@ class Stakeholder extends CI_Controller {
 
 	public function editProject($id){
 		$data['project_charter'] = $this->stakeholder_model->getProject($id);
-		$this->load->view('editproject', $data);
+		$list['stakelholder'] = $this->stakeholder_model->getAllStakeholder();
+		$this->load->view('editproject', $list);
 	}
 
 	public function deleteProject($id){
