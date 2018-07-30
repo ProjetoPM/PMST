@@ -9,7 +9,7 @@
 <body   style="background-color:#DCDCDC;">
   <h1 class="page-header text-center">Insert Stakeholder Management Plan</h1>
       <h3 class="page-header text-center">
-        <a href="<?php echo base_url(); ?>index.php/Stakelholder/addnew/ <?php echo $id; ?>" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add New Stakelholder</a>     Add New Stakeholder Management Plan<a href="<?php echo base_url(); ?>index.php/PartesInteressadas/view/ <?php echo $id; ?>" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>View Stakeholder Management Plan</a><a>
+        <a href="<?php echo base_url(); ?>index.php/Stakelholder/addnew/ " class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add New Stakelholder</a>     Add New Stakeholder Management Plan<a href="<?php echo base_url(); ?>index.php/PartesInteressadas/view/" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>View Stakeholder Management Plan</a><a>
         <span class="pull-right"><a href="<?php echo base_url(); ?>" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Back</a></span>
       </h3>
 <table style="width:100%" class="table table-bordered table-striped">
@@ -33,40 +33,40 @@
         <tbody>
           <?php
           foreach($stakelholder as $stakeholder){
-            foreach($stakeholder_mp as $stakeholdermp){
-              if($stakeholder->stakelholder_id!=$stakeholdermp->stakelholder_id){
+            //foreach($stakeholder_mp as $stakeholdermp){
+              //if($stakeholder->stakelholder_id!=$stakeholdermp->stakelholder_id){
             ?>
-            <try>
+            <tr>
             <form method="POST" action="<?php echo base_url(); ?>index.php/PartesInteressadas/insert/<?php echo $id; ?>">
               <td><input name="stakelholder_id" type="text" value="<?php echo $stakeholder->stakelholder_id; ?>" readonly="readonly" /></td>
               <td><?php echo $stakeholder->name; ?></td>
               <td><select name="interest">
-                  <option value="10%">10%</option>
-                  <option value="30%">30%</option>
-                  <option value="50%">50%</option>
-                  <option value="70%">70%</option>
-                  <option value="90%">90%</option>
+                  <option value="10">10%</option>
+                  <option value="30">30%</option>
+                  <option value="50">50%</option>
+                  <option value="70">70%</option>
+                  <option value="90">90%</option>
               </select></td>
               <td><select name="power">
-                  <option value="10%">10%</option>
-                  <option value="30%">30%</option>
-                  <option value="50%">50%</option>
-                  <option value="70%">70%</option>
-                  <option value="90%">90%</option>
+                  <option value="10">10%</option>
+                  <option value="30">30%</option>
+                  <option value="50">50%</option>
+                  <option value="70">70%</option>
+                  <option value="90">90%</option>
               </select></td>
               <td><select name="influence">
-                  <option value="10%">10%</option>
-                  <option value="30%">30%</option>
-                  <option value="50%">50%</option>
-                  <option value="70%">70%</option>
-                  <option value="90%">90%</option>
+                  <option value="10">10%</option>
+                  <option value="30">30%</option>
+                  <option value="50">50%</option>
+                  <option value="70">70%</option>
+                  <option value="90">90%</option>
               </select></td>
               <td><select name="impact">
-                  <option value="10%">10%</option>
-                  <option value="30%">30%</option>
-                  <option value="50%">50%</option>
-                  <option value="70%">70%</option>
-                  <option value="90%">90%</option>
+                  <option value="10">10%</option>
+                  <option value="30">30%</option>
+                  <option value="50">50%</option>
+                  <option value="70">70%</option>
+                  <option value="90">90%</option>
               </select></td>
               <td><select name="expectedengagement">
                   <option value="Alheio">Alheio</option>
@@ -101,10 +101,10 @@
               </select></td>
               <td><button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-check"></span>Save</button></td>
             </form>
-            </try>
+            </tr>
             <?php
-          }
-        }
+          //}
+        //}
       }
           ?>
           </tbody>

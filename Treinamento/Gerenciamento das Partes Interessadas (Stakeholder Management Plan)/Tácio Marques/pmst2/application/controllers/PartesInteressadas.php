@@ -11,8 +11,8 @@ class PartesInteressadas extends CI_Controller {
 		$this->load->model('Stakelholdermp_model');	
 	}
 
-	public function index($project_id){
-		$dado['id'] = $project_id;
+	public function index($id){
+		$dado['id'] = $id;
 		$dado['stakelholder'] = $this->Stakelholder_model->getAllStakelholder();
 		$this->load->view('addpartesI.php',$dado);
 	}
@@ -25,7 +25,7 @@ class PartesInteressadas extends CI_Controller {
 	}
 
 	public function insert($id){
-		$Stakeholder_mp['stakelholder_mp_id'] = $this->input->post('stakelholder_id');
+		$Stakeholder_mp['stakeholder_mp_id'] = $this->input->post('stakelholder_id');
 		$Stakeholder_mp['stakelholder_id'] = $this->input->post('stakelholder_id');
 		$Stakeholder_mp['interest'] = $this->input->post('interest');
 		$var1=$Stakeholder_mp['interest'];
@@ -43,11 +43,10 @@ class PartesInteressadas extends CI_Controller {
 		$Stakeholder_mp['observation'] = $this->input->post('observation');
 		$Stakeholder_mp['project_id'] = $id;
 		$Stakeholder_mp['status'] = $this->input->post('status');
-		var_dump($Stakeholder_mp);
 		$query = $this->Stakelholdermp_model->insertstakelholdermp($Stakeholder_mp);
 
 		if($query){
-			header('location:'.base_url().$this->index($project_id));
+			header('location:'.base_url().$this->index($id));
 		}
 
 	}
@@ -79,8 +78,7 @@ class PartesInteressadas extends CI_Controller {
 		}
 	}
 
-	public function view($id){
-		$data['id'] = $id;
+	public function view(){
 		$data['stakelholder'] = $this->Stakelholder_model->getAllStakelholder();
 		$data['stakeholder_mp'] = $this->Stakelholdermp_model->getAllStakelholdermp();
 		$this->load->view('partesI_list', $data);

@@ -14,7 +14,7 @@
 				<span class="pull-right"><a href="<?php echo base_url(); ?>" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Back</a></span>
 			</h3>
 			<hr>
-			<form method="POST" action="<?php echo base_url(); ?>index.php/Stakelholder/insert <?php echo $id; ?>">
+			<form method="POST" action="<?php echo base_url(); ?>index.php/Stakelholder/insert">
 				<div class="form-group">
 					<label>Name:</label>
 					<input type="text" class="form-control" name="name">

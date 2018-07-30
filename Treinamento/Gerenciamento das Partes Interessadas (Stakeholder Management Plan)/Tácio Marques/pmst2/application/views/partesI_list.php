@@ -47,7 +47,7 @@
               <td><input name="strategy" type="text" value="<?php echo $stakeholdermp->strategy; ?>" readonly="readonly" /></td>
               <td><input name="scope" type="text" value="<?php echo $stakeholdermp->scope; ?>" readonly="readonly" /></td>
               <td><input name="observation" type="text" value="<?php echo $stakeholdermp->observation; ?>" readonly="readonly" /></td>
-              <td><?php echo $id; ?></td>
+              <td><input name="project_id" type="text" value="<?php echo $stakeholdermp->project_id; ?>" readonly="readonly" /></td>
               <td><input name="status" type="text" value="<?php echo $stakeholdermp->status; ?>" readonly="readonly" /></td>
             </form>
             </tr>
