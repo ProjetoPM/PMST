@@ -10,13 +10,13 @@
                <a class="btn btn-workflow btn-lg" href="<?=base_url("metodo1/".$project[0]->project_id)?>">
                DASHBOARD
                </a>
-               <a class="btn btn-workflow btn-lg" href="<?=base_url("metodo2/".$project[0]->project_id) ?>">
-               BOTAO 2
+               <a class="btn btn-workflow btn-lg" href="<?=base_url("Human_resource/human_resource_form/".$project[0]->project_id) ?>">
+               HUMAN RESOURCE
                </a>
                <a class="btn btn-workflow btn-lg" href="<?=base_url("metodo3/".$project[0]->project_id) ?>">
                BOTAO 3
                </a>
-               <a class="btn btn-workflow btn-lg" href="">
+               <a class="btn btn-workflow btn-lg" href="<?=base_url("") ?>">
                BOTAO ETC
                </a>
             </div>

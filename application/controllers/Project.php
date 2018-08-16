@@ -290,9 +290,7 @@ class Project extends CI_Controller
         } else {
            redirect(base_url()); //Se ele não participa volta pro dashboard
         }
-    }   
-
-    
+    } 
 
 }
 ?>
