@@ -13,8 +13,8 @@
       <a class="btn btn-workflow btn-lg" href="<?=base_url("Human_resource/human_resource_form/".$project[0]->project_id) ?>">
       HUMAN RESOURCE
       </a>
-      <a class="btn btn-workflow btn-lg" href="<?=base_url("Shedule/shedule_form/".$project[0]->project_id) ?>">
-       SHEDULE
+      <a class="btn btn-workflow btn-lg" href="<?=base_url("Schedule/schedule_form/".$project[0]->project_id) ?>">
+       SCHEDULE
       </a>
       <a class="btn btn-workflow btn-lg" href="<?=base_url("metodo3/".$project[0]->project_id) ?>">
        BOTAO 3

@@ -21,23 +21,23 @@
 		<div class="row">
 			<div class="col-lg-12">      
 
-				<form action="<?=base_url()?>project/add_project/" method="post">
+				<form action="<?=base_url()?>schedule/updateSchedule/" method="post">
 
 
 					<!-- Textarea-->
 					<div class="form-group">
-						<label for="shedule_mp_id">Project Timeline Development Template</label>  
+						<label for="schedule_mp_id">Project Timeline Development Template</label>  
 						<div >
-							<textarea class="form-control" id="shedule_mp_id" name="shedule_mp_id">
+							<textarea  class="form-control" id="schedule_mp_id" name="schedule_mp_id">
 							</textarea>
 						</div>
 					</div>
-
+					
 					<!-- Textarea-->
 					<div class="form-group">
 						<label for="shedule_model">Shedule Model</label>  
 						<div >
-							<textarea class="form-control" id="shedule_model" name="shedule_model">
+							<textarea class="form-control" id="schedule_model" name="schedule_model">
 							</textarea>
 						</div>
 					</div>
@@ -62,9 +62,9 @@
 
 					<!-- Textarea-->
 					<div class="form-group">
-						<label for="shedule_maintenance">Shedule Maintenance</label>  
+						<label for="schedule_maintenance">Shedule Maintenance</label>  
 						<div >
-							<textarea class="form-control" id="shedule_maintenance" name="shedule_maintenance">
+							<textarea class="form-control" id="schedule_maintenance" name="schedule_maintenance">
 							</textarea>
 						</div>
 					</div>
@@ -82,8 +82,11 @@
 						<label for="report_format">Report Format</label>						<div >
 							<textarea class="form-control" id="report_format" name="report_format">
 							</textarea>
+							
 						</div>
 					</div>
+
+
 
 					<input id="shedule-submit" type="submit" value="Save" class="btn btn-lg btn-success btn-block">
 
