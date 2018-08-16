@@ -55,7 +55,7 @@
                     <textarea class="form-control" id="staff" name="staff"></textarea>
                   </div>
                 </div>
-                <input id="new_project-submit" type="submit" value="Save" class="btn btn-lg btn-success btn-block">
+                <input id="human_resource-submit" type="submit" value="Save" class="btn btn-lg btn-success btn-block">
 
                 
             </form>
