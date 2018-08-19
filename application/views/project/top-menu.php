@@ -19,6 +19,9 @@
                <a class="btn btn-workflow btn-lg" href="<?php base_url('GerenciarCustos/addnew/') ?>">
                BOTAO ETC
                </a>
+               <a class="btn btn-workflow btn-lg" href="<?=base_url("Charter_Quality/addnew/".$project[0]->project_id) ?>">
+               PMQ
+               </a>
             </div>
          </div>
       </div>
