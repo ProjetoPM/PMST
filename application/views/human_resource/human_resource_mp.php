@@ -23,15 +23,6 @@
             
             <form action="<?=base_url()?>project/add_project/" method="post">
                 
-
-                <!-- Text input-->
-                <!-- <div class="form-group">
-                  <label for="roles_responsibilities">Roles Responsibilities</label>  
-                  <div >
-                  <input id="roles_responsibilities" name="roles_responsibilities" type="text" placeholder="Roles responsibilities" class="form-control input-md" required="true">
-                  </div>
-                </div> -->
-
                 <!-- Textarea -->
                 <div class="form-group">
                   <label for="roles_responsibilities">Roles Responsibilities</label>
@@ -55,12 +46,11 @@
                     <textarea class="form-control" id="staff" name="staff"></textarea>
                   </div>
                 </div>
+
                 <input id="human_resource-submit" type="submit" value="Save" class="btn btn-lg btn-success btn-block">
 
-                
             </form>
-
-
+            
         </div>
         <!-- /.col-lg-12 -->
     </div>

@@ -56,33 +56,35 @@
             <?php
          }else{
             //$verific = false;
+         foreach($cost_mp as $cost){
          ?>
 
-                  <?php extract($cost_mp); ?>
+                  
          <form method="POST" action="<?php echo base_url('GerenciarCustos/insert/'); ?><?php echo $id; ?>">
             <div class="form-group">
                <label>Processos para gerenciamento dos custos do projeto:</label>
-               <input type="text" class="form-control" value="<?php echo $project_costs_m; ?>" name="project_costs_m">
+               <input type="text" class="form-control" value="<?php echo $cost->project_costs_m; ?>" name="project_costs_m">
             </div>
             <div class="form-group">
                <label>Nível de precisão necessário, limites e unidades de medida que serão utilizadas:</label>
-               <input type="text" class="form-control" value="<?php echo $accuracy_level; ?>" name="accuracy_level">
+               <input type="text" class="form-control" value="<?php echo $cost->accuracy_level; ?>" name="accuracy_level">
             </div>
             <div class="form-group">
                <label>Procedimentos organizacionais relacionados:</label>
-               <input type="text" class="form-control" value="<?php echo $organizational_procedures; ?>" name="organizational_procedures">
+               <input type="text" class="form-control" value="<?php echo $cost->organizational_procedures; ?>" name="organizational_procedures">
             </div>
             <div class="form-group">
                <label>Regras para medição de desempenho:</label>
-               <input type="text" class="form-control" value="<?php echo $measurement_rules; ?>" name="measurement_rules">
+               <input type="text" class="form-control" value="<?php echo $cost->measurement_rules; ?>" name="measurement_rules">
             </div>
             <div class="form-group">
                <label>Formato de relatórios:</label>
-               <input type="text" class="form-control" value="<?php echo $format_report; ?>" name="format_report">
+               <input type="text" class="form-control" value="<?php echo $cost->format_report; ?>" name="format_report">
             </div>
             <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-check"></span>Update</button>
           </form> 
-         <?php 
+         <?php
+         } 
       }
       ?>
 </section>

@@ -10,8 +10,8 @@ class GerenciarCustos extends CI_Controller {
 	}
 
 	public function addnew($project_id){
-		$dado['id'] = $project_id;
 		$dado['cost_mp'] = $this->Custos_model->getAllCustos();
+		$dado['id'] = $project_id;
 		//$dado['verific'] = true;
 		$this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
@@ -36,6 +36,10 @@ class GerenciarCustos extends CI_Controller {
 		if($query){
 		$this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
+        redirect('project/' . $cost_mp['project_id']);
+		}
+
+	}
 		$this->load->view('project/project_page',$id);
 			//header('location:'.base_url().$this->index($id));
 		}
