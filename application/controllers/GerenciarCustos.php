@@ -20,6 +20,17 @@ class GerenciarCustos extends CI_Controller {
 
 	public function insert($id){
 		$dado['cost_mp'] = $this->Custos_model->getAllCustos();
+<<<<<<< HEAD
+=======
+		//$dado['verific'] = true;
+		$this->load->view('frame/header_view');
+        $this->load->view('frame/sidebar_nav_view');
+	 	$this->load->view('project/cost',$dado);
+	 }
+
+	public function insert($id){
+		$dado['cost_mp'] = $this->Custos_model->getAllCustos();
+>>>>>>> master
 		if($dado['cost_mp']!=null){
 			$query = $this->Custos_model->deletecustos($id);
 		}
@@ -36,9 +47,26 @@ class GerenciarCustos extends CI_Controller {
 		if($query){
 		$this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
+<<<<<<< HEAD
         redirect('project/' . $cost_mp['project_id']);
 		}
 
 	}
+=======
+		$this->load->view('project/project_page',$id);
+			//header('location:'.base_url().$this->index($id));
+		}
+
+	}
+
+	public function delete($project_id){
+		$query = $this->Project_model->deleteproject($project_id);
+
+		if($query){
+			header('location:'.base_url().$this->index());
+		}
+	}
+
+>>>>>>> master
 }
 ?>
