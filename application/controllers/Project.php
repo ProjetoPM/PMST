@@ -290,9 +290,34 @@ class Project extends CI_Controller
         } else {
            redirect(base_url()); //Se ele não participa volta pro dashboard
         }
-    }   
+    }
 
-    
+        public function cost($id=null) {
+        
+        //validar acesso do usuario
+        $idusuario = $_SESSION['user_id'];
+        $this->db->where('user_id', $idusuario);
+        $this->db->where('project_id', $id);
+        $project['dados'] = $this->db->get('project_user')->result();
+        
+        if (count($project['dados']) > 0) {
+            $this->db->where('project_id', $id);
+            $dataproject['project'] = $this->db->get('project')->result();
+            
+            $this->db->where('project_id', $id);
+            $this->db->join('user', 'user.user_id = project_user.user_id');
+            $dataproject['members'] = $this->db->get('project_user')->result();
+            
+            $this->load->view('frame/header_view');
+            $this->load->view('frame/sidebar_nav_view');
+            
+            $this->load->view('project/cost', $dataproject);
+            
+        } else {
+           redirect(base_url()); //Se ele não participa volta pro dashboard
+        }
+
+    }
 
 }
 ?>
