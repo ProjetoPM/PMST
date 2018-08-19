@@ -14,9 +14,15 @@
 			return $this->db->insert('cost_mp', $cost_mp);
 		}
 
+<<<<<<< HEAD
 		public function deletecustos($id){
 			$this->db->where('cost_mp.project_id', $id);
 			return $this->db->delete('cost_mp');
+=======
+		public function deletecustos($project_id){
+			$this->db->where('custos_mp.project_id', $project_id);
+			return $this->db->delete('custos_mp');
+>>>>>>> master
 		}
 	}
 ?>
