@@ -11,7 +11,8 @@
 		}
 
 		public function getHumanResource(){
-			$query = $this->db->get('human_resources_mp', array('human_resources_mp_id'=>$id));
+			// $query = $this->db->get('human_resources_mp', array('human_resources_mp_id'=>$human_resources_mp_id));
+			$query = $this->db->get('human_resources_mp');
 			return $query->result(); 
 		}
 
@@ -19,10 +20,15 @@
 			return $this->db->insert('human_resources_mp', $human_resources_mp);
 		}
 
-		public function updateHumanResource($project_id, $human_resources_mp_id){
 
-		}
-		    
+		public function deleteHumanResource($id){
+			$this->db->where('human_resources_mp.project_id', $id);
+			return $this->db->delete('human_resources_mp');
+		}		
+		
+
+
+    
        
    }  
    /* End of file */
