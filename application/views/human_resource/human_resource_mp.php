@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-lg-12">      
             <?php
-                if($human_resources_mp){
+                if($human_resources_mp == NULL){
 
             ?>
             <form method="POST" action="<?php echo base_url('human_resource/insert/'); ?><?php echo $id[0]; ?>">

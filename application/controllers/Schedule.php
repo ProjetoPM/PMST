@@ -12,28 +12,53 @@ class Schedule extends CI_Controller
 		$this->load->model('Schedule_model');
 	}
 
-	function schedule_form(){
-		//chamar db da model
+	public function schedule_form($id){
+		
+		$dados['schedule_mp'] = $this->Schedule_model->getSchedule($id);
+		$dados['id'] = $id;
+		$this->db->where('project_id', $id);
+		$dados['project'] = $this->db->get('project')->result();
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
-		$this->load->view('schedule.php');
+		$this->load->view('schedule',$dados);
+		//var_dump($dados);
 	}
 
-	public function updateSchedule(){
-		$shed['schedule_model'] = $this->input->post('schedule_model');
-		$shed['accuracy_level'] = $this->input->post('accuracy_level');
-		$shed['organizational_procedures'] = $this->input->post('organizational_procedures');
-		$shed['schedule_maintenance'] = $this->input->post('schedule_maintenance');
-		$shed['performance_measurement'] = $this->input->post('performance_measurement');
-		$shed['report_format'] = $this->input->post('report_format');
+//Criar o Schedule 1 Vez
+	public function createSchedule(){
+		$postData = $this->input->post();
+  $insert = $this->Schedule_model->createSchedule($postData);
+ redirect('project/' . $postData['project_id']);
+ echo json_encode($insert);
 
-		$query =	$this->Schedule_model->updateScheduleDB($shed);
-		if ($query) {
-			header('location:'.base_url().$this->schedule_form());
+	//	$dados = $this->post('schedule_mp.schedule_model');
+	}
+
+
+// esse parametro vai ser inicializado la na view
+	public function updateSchedule($id){
+		$schedule_mp['schedule_model'] = $this->input->post('schedule_model');
+		$schedule_mp['accuracy_level'] = $this->input->post('accuracy_level');
+		$schedule_mp['organizational_procedures'] = $this->input->post('organizational_procedures');
+		$schedule_mp['schedule_maintenance'] = $this->input->post('schedule_maintenance');
+		$schedule_mp['performance_measurement'] = $this->input->post('performance_measurement');
+		$schedule_mp['report_format'] = $this->input->post('report_format');
+
+		$query =	$this->Schedule_model->updateScheduleDB($schedule_mp,$id);
+
+		$this->load->view('frame/header_view');
+		$this->load->view('frame/sidebar_nav_view');
+		redirect('project/' . $id);
+		//if ($query) {
+		//header('location:'.base_url().//$this->schedule_form());
 		}
 
+
+
 		//var_dump($shed);
-	}
+	
+
+
 
 
 
