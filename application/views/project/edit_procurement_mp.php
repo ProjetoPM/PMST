@@ -8,8 +8,8 @@
             <!-- /.row -->
         <?php extract($procurement_mp);?>          
         <div class="row">
-        <div class="col-lg-12">
-            <form action="<?=base_url()?>procurement/update/<?php echo $procurement_id;?>" method="post">
+        <div class="col-lg-6">
+            <form action="<?=base_url()?>procurement/update/<?php echo $procurement_mp_id;?>" method="post">
             	<input type="hidden" name="project_id" value="<?php echo $project_id;?>">
                 <!-- Textarea -->
                 <div class="form-group">
