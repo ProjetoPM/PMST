@@ -21,17 +21,13 @@
     <div class="row">
         <div class="col-lg-12">      
             
-            <form action="<?=base_url()?>project/add_project/" method="post">
+            <form method="POST" action="<?php echo base_url('human_resource/insert/'); ?><?php echo $id; ?>">
                 
+                <?php
+                if($human_resource_mp==null){
+                ?>
 
-                <!-- Text input-->
-                <!-- <div class="form-group">
-                  <label for="roles_responsibilities">Roles Responsibilities</label>  
-                  <div >
-                  <input id="roles_responsibilities" name="roles_responsibilities" type="text" placeholder="Roles responsibilities" class="form-control input-md" required="true">
-                  </div>
-                </div> -->
-
+                <input type="hidden" name="id" value="<?php echo $id[0];?>">
 
                 <!-- Textarea -->
                 <div class="form-group">
@@ -51,17 +47,61 @@
 
                 <!-- Textarea -->
                 <div class="form-group">
-                  <label for="staff">Staff</label>
+                  <label for="staff_mp">Staff</label>
                   <div >                     
-                    <textarea class="form-control" id="staff" name="staff"></textarea>
+                    <textarea class="form-control" id="staff_mp" name="staff_mp"></textarea>
                   </div>
                 </div>
-                <input id="human_resource-submit" type="submit" value="Save" class="btn btn-lg btn-success btn-block">
 
-                
+                <input id="human_resource-submit" type="submit" value="Save" class="btn btn-lg btn-success btn-block">
             </form>
 
+            <?php
+            }else{
+            foreach($human_resource_mp as $human_resource){
+            ?>
 
+            <form action="<?=base_url()?>human_resource/saveUpdate/" method="post">
+
+        
+            <input id="id" name="id" type="hidden" placeholder="Title" class="form-control input-md" value="<?= $human_resource_mp[0]->project_id;?>" required="true" readonly>
+
+
+              <!-- Textarea -->
+              <div class="form-group">
+                <label for="roles_responsibilities">Roles Responsibilities</label>
+                <div >                     
+                  <input id="roles_responsibilities" name="roles_responsibilities" type="text" placeholder="Roles Responsibilities" class="form-control input-md" value="<?= $human_resource_mp[0]->roles_responsibilities;?>" required="true">
+                </div>
+              </div>
+
+              <!-- Textarea -->
+              <div class="form-group">
+                <label for="organizational_chart">Organizational Chart
+                </label>
+                <div >                     
+                  <input id="organizational_chart" name="organizational_chart" type="text" placeholder=" Organizational Chart" class="form-control input-md" value="<?= $human_resource_mp[0]->organizational_chart;?>" required="true">
+                </div>
+              </div>
+
+              <!-- Textarea -->
+              <div class="form-group">
+                <label for="staff_mp">
+                    Staff_mp
+                </label>
+                <div >                     
+                  <input id="staff_mp" name="staff_mp" type="text" placeholder="Staff" class="form-control input-md" value="<?= $human_resource_mp[0]->staff_mp;?>" required="true">
+                </div>
+              </div>
+
+              <input id="new_human_resource-submit" type="submit" value="Update" class="btn btn-lg btn-success btn-block">
+
+
+            </form>
+            <?php
+            } 
+        }
+        ?>
         </div>
         <!-- /.col-lg-12 -->
     </div>
