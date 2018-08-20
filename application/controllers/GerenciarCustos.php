@@ -14,22 +14,12 @@ class GerenciarCustos extends CI_Controller {
 		$dado['id'] = $project_id;
 		//$dado['verific'] = true;
 		$this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view');
-	 	$this->load->view('project/cost',$dado);
-	 }
+		$this->load->view('frame/sidebar_nav_view');
+		$this->load->view('project/cost',$dado);
+	}
 
 	public function insert($id){
 		$dado['cost_mp'] = $this->Custos_model->getAllCustos();
-		if($dado['cost_mp']!=null){
-			foreach($dado['cost_mp'] as $cost){
-				$verific = $cost->project_id;
-				var_dump($verific);
-				if($id==$verific){
-					$query = $this->Custos_model->deletecustos($id);
-				}
-			}
-		}
-
 		$cost_mp['project_costs_m'] = $this->input->post('project_costs_m');
 		$cost_mp['accuracy_level'] = $this->input->post('accuracy_level');
 		$cost_mp['organizational_procedures'] = $this->input->post('organizational_procedures');
@@ -37,14 +27,33 @@ class GerenciarCustos extends CI_Controller {
 		$cost_mp['format_report'] = $this->input->post('format_report');
 		$cost_mp['project_id'] = $id;
 		$cost_mp['status'] = 1;
-		$query = $this->Custos_model->insertcustos($cost_mp);
-
+		$query=false;
+		if($dado['cost_mp']!=null){
+			foreach($dado['cost_mp'] as $cost){
+				$verific = $cost->project_id;
+				if($id==$verific){
+					$query = $this->Custos_model->updatecost($cost_mp, $id);
+				}
+			}
+		}
+		if($query!=true){
+			$query = $this->Custos_model->insertcustos($cost_mp);
+		}
+		
 		if($query){
-		$this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view');
-        redirect('project/' . $cost_mp['project_id']);
+			$this->load->view('frame/header_view');
+			$this->load->view('frame/sidebar_nav_view');
+			redirect('project/' . $cost_mp['project_id']);
 		}
 
 	}
+
+	public function valida_fluxo_da_view($id){
+
+		$dado['cost_mp'] = $this->Custos_model->getAllCustos();
+
+
+	}
+
 }
 ?>
