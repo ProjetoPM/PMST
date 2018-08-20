@@ -28,14 +28,9 @@
       </div>   
       <form method="POST" action="<?php echo base_url('GerenciarCustos/insert/'); ?><?php echo $id; ?>">
             <?php
-
-            foreach($cost_mp as $cost){
-            $verific = $cost->project_id;
             if($cost_mp==null){
-              if($verific!=$id){
                //$verific = true;
                ?> 
-              
             <div class="form-group">
                <label>Processos para gerenciamento dos custos do projeto:</label>
                <input type="text" class="form-control" name="project_costs_m">
@@ -59,10 +54,9 @@
             <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
             </form>
             <?php
-         }
-       }
-          elseif($verific == $id){
+         }else{
             //$verific = false;
+         foreach($cost_mp as $cost){
          ?>
 
                   
@@ -90,7 +84,6 @@
             <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-check"></span>Update</button>
           </form> 
          <?php
-            
          } 
       }
       ?>

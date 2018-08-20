@@ -21,13 +21,7 @@ class GerenciarCustos extends CI_Controller {
 	public function insert($id){
 		$dado['cost_mp'] = $this->Custos_model->getAllCustos();
 		if($dado['cost_mp']!=null){
-			foreach($dado['cost_mp'] as $cost){
-				$verific = $cost->project_id;
-				var_dump($verific);
-				if($id==$verific){
-					$query = $this->Custos_model->deletecustos($id);
-				}
-			}
+			$query = $this->Custos_model->deletecustos($id);
 		}
 
 		$cost_mp['project_costs_m'] = $this->input->post('project_costs_m');
@@ -46,10 +40,6 @@ class GerenciarCustos extends CI_Controller {
 		}
 
 	}
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 		$this->load->view('project/project_page',$id);
 			//header('location:'.base_url().$this->index($id));
 		}
@@ -64,7 +54,5 @@ class GerenciarCustos extends CI_Controller {
 		}
 	}
 
->>>>>>> master
->>>>>>> master
 }
 ?>
