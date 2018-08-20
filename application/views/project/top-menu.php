@@ -17,9 +17,9 @@
       </a>
       <a class="btn btn-workflow btn-lg" href="<?=base_url("GerenciarCustos/addnew/".$project[0]->project_id)?>">COST
       </a>
-      <a class="btn btn-workflow btn-lg" href="<?=base_url()?>/procurement/add/<?php echo $project[0]->project_id;?>">PROCUREMENT
+      <a class="btn btn-workflow btn-lg" href="<?=base_url()?>/procurement/procurement_form/<?php echo $project[0]->project_id;?>">PROCUREMENT
       </a>
-      <a class="btn btn-workflow btn-lg" href="<?=base_url()?>risk/add/<?php echo $project[0]->project_id;?>">RISKS
+      <a class="btn btn-workflow btn-lg" href="<?=base_url()?>risk/risk_form/<?php echo $project[0]->project_id;?>">RISKS
       </a>
       <a class="btn btn-workflow btn-lg" href="<?php base_url('GerenciarCustos/addnew/') ?>">
        BOTAO ETC
