@@ -6,76 +6,33 @@
         <!-- /.col-lg-12 -->
     </div>
             <!-- /.row -->          
-<!-- AQUI VAI INICIAR A VIEW DO GERENCIAMENTO DE RISCOS!!!!-->
-        
         <div class="row">
-        <div class="col-lg-12">
-            <form action="<?=base_url()?>risk/insert/" method="post">
+        <div class="col-lg-6">
+            <form action="<?=base_url()?>procurement/insert/" method="post">
             	<input type="hidden" name="project_id" value="<?php echo $project_id[0];?>">
                 <!-- Textarea -->
                 <div class="form-group">
-                  <label for="methodology">Methodology</label>
+                  <label for="products_services_obtained">Products Services Obtained</label>
                   <div >                     
-                    <textarea class="form-control" id="methodology" name="methodology"></textarea>
+                    <textarea class="form-control" id="products_services_obtained" name="products_services_obtained"></textarea>
                   </div>
                 </div>
 
                 <!-- Textarea -->
                 <div class="form-group">
-                  <label for="roles_responsibilities">Roles Responsabilities</label>
+                  <label for="team_actions">Team Actions</label>
                   <div >                     
-                    <textarea class="form-control" id="roles_responsibilities" name="roles_responsibilities"></textarea>
+                    <textarea class="form-control" id="team_actions" name="team_actions"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="performance_metrics">Performance Metrics</label>
+                  <div >                     
+                    <textarea class="form-control" id="performance_metrics" name="performance_metrics"></textarea>
                   </div>
                 </div>
 
                 <!-- Textarea -->
-                <!-- ACREDITO ESTAR FALTANDO "ORÇAMENTO" NO BANCO DE DADOS!!!! -VERIFICAR- --> 
-                <div class="form-group">
-                  <label for="probability_impact_matrix">Probability Impact Matrix</label>
-                  <div >                     
-                    <textarea class="form-control" id="probability_impact_matrix" name="probability_impact_matrix"></textarea>
-                  </div>
-                </div>
-
-                <!-- Textarea -->
-                <div class="form-group">
-                  <label for="risk_management_processes">Risk Management Processes</label>
-                  <div >                     
-                    <textarea class="form-control" id="risk_management_processes" name="risk_management_processes"></textarea>
-                  </div>
-                </div>
-
-                <!-- Textarea -->
-                <div class="form-group">
-                  <label for="risks_categories">Risks Categories</label>
-                  <div >                     
-                    <textarea class="form-control" id="risks_categories" name="risks_categories"></textarea>
-                  </div>
-                </div>
-
-                <!-- Textarea -->
-                <div class="form-group">
-                  <label for="risks_probability_impact">Risk Probability Impact</label>
-                  <div >                     
-                    <textarea class="form-control" id="risks_probability_impact" name="risks_probability_impact"></textarea>
-                  </div>
-                </div>
-
-                <!-- Textarea -->
-                <div class="form-group">
-                  <label for="reviewed_tolerances">Reviewed Tolerances</label>
-                  <div >                     
-                    <textarea class="form-control" id="reviewed_tolerances" name="reviewed_tolerances"></textarea>
-                  </div>
-                </div>
-
-                <!-- Textarea -->
-                <div class="form-group">
-                  <label for="traceability">Traceability</label>
-                  <div >                     
-                    <textarea class="form-control" id="traceability" name="traceability"></textarea>
-                  </div>
-                </div>
                 <div class="form-group">
         	        <label>Status:</label> <br></br>
 		            <input type="radio" checked name="status" value="1">
@@ -91,5 +48,4 @@
 </div>
 </div>
 
-<?php
-$this->load->view('frame/footer_view')?>            
+<?php$this->load->view('frame/footer_view')?>            
