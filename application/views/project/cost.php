@@ -6,7 +6,6 @@
 		<!-- /.col-lg-12 -->
 	</div>
 	<!-- /.row -->
-
 	<?php if($this->session->flashdata('success')):?>
 		<div class="alert alert-success">
 			<a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -91,3 +90,4 @@
 		</div>
 	</div>
 	<?php $this->load->view('frame/footer_view')?>
+	

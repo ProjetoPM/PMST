@@ -47,13 +47,5 @@ class GerenciarCustos extends CI_Controller {
 		}
 
 	}
-
-	public function valida_fluxo_da_view($id){
-
-		$dado['cost_mp'] = $this->Custos_model->getAllCustos();
-
-
-	}
-
 }
 ?>

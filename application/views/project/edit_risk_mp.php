@@ -8,7 +8,7 @@
             <!-- /.row -->
         <?php extract($risk_mp);?>          
         <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-6">
             <form action="<?=base_url()?>risk/update/<?php echo $risk_mp_id; ?>" method="post">
             	<input type="hidden" name="project_id" value="<?php echo $project_id;?>">
                 <div class="form-group">

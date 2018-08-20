@@ -48,4 +48,8 @@
 </div>
 </div>
 
-<?php$this->load->view('frame/footer_view')?>            
+<<<<<<< HEAD
+<?php $this->load->view('frame/footer_view')?>
+=======
+<?php $this->load->view('frame/footer_view')?>            
+>>>>>>> deba48088d3dd7a6de807a468a21639ae325c092
