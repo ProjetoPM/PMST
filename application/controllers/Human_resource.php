@@ -39,7 +39,8 @@ class Human_resource extends CI_Controller{
     	$human_resource_mp['roles_responsibilities'] = $this->input->post('roles_responsibilities');
     	$human_resource_mp['organizational_chart'] = $this->input->post('organizational_chart');
     	$human_resource_mp['staff_mp'] = $this->input->post('staff_mp');
-		$human_resource_mp['project_id'] = $this->input->post('project_id');
+		// $human_resource_mp['project_id'] = $this->input->post('project_id');
+        $human_resource_mp['project_id'] = $id;
 		$human_resource_mp['status'] = $this->input->post('status');
 
 		$human_resource_mp['status'] = 1;
