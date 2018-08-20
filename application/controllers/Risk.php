@@ -20,11 +20,12 @@ class Risk extends CI_Controller{
         }
     }
 
-    public function add($project_id){
-        $data['project_id'] = $project_id;
+    public function risk_form($project_id){
+        $query['risk_mp'] = $this->risk_mp_model->getRisk_mpProject_id($project_id);
+        $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view'); 
-        $this->load->view('project/risk_mp', $data);
+        $this->load->view('project/risk_mp', $query);
     }
     
     public function insert() {
@@ -49,13 +50,6 @@ class Risk extends CI_Controller{
         if($query){
             redirect('projects');
         }
-    }
-
-    public function edit($id){
-        $data['risk_mp'] = $this->risk_mp_model->getRisk_mp($id);
-        $this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view');
-        $this->load->view('edit_risk_mp.php', $data);
     }
 
     public function update($id){

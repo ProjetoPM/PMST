@@ -20,16 +20,12 @@ class Procurement extends CI_Controller{
         }
     }
 
-    public function add($project_id){
-        $query = $this->procurement_mp_model->getProcurement_mpProject_id($project_id);
-        if($query['procurement_mp_id'] != 0){
-            $this->edit($query['procurement_mp_id']);
-        }else{
-            $data['project_id'] = $project_id;
-            $this->load->view('frame/header_view');
-            $this->load->view('frame/sidebar_nav_view'); 
-            $this->load->view('project/procurement_mp', $data);
-        }
+    public function procurement_form($project_id){
+        $query['procurement_mp'] = $this->procurement_mp_model->getProcurement_mpProject_id($project_id);
+        $query['project_id'] = $project_id;
+        $this->load->view('frame/header_view');
+        $this->load->view('frame/sidebar_nav_view'); 
+        $this->load->view('project/procurement_mp', $query);
     }
     
     public function insert() {
@@ -49,11 +45,6 @@ class Procurement extends CI_Controller{
         if($query){
             redirect('projects');
         }
-    }
-
-    public function edit($id){
-        $data['procurement_mp'] = $this->procurement_mp_model->getPerocurement_mp($id);
-        $this->load->view('edit_procurement_mp.php', $data);
     }
 
     public function update($id){

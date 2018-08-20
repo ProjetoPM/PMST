@@ -12,7 +12,7 @@
 
 		public function getProcurement_mpProject_id($project_id){
 			$query = $this->db->get_where('procurement_mp', array('procurement_mp.project_id'=>$project_id));
-			return $query->row_array();
+			return $query->result();
 		}
 
 		public function insertProcurement_mp($procurement_mp){
