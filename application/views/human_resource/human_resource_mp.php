@@ -21,8 +21,10 @@
     <div class="row">
         <div class="col-lg-12">      
             
-            <form action="<?=base_url()?>project/add_project/" method="post">
+            <form action="<?=base_url()?>human_resource/insert/" method="post">
                 
+                <input type="hidden" name="project_id" value="<?php echo $project_id[0];?>">
+
                 <!-- Textarea -->
                 <div class="form-group">
                   <label for="roles_responsibilities">Roles Responsibilities</label>
@@ -41,9 +43,9 @@
 
                 <!-- Textarea -->
                 <div class="form-group">
-                  <label for="staff">Staff</label>
+                  <label for="staff_mp">Staff</label>
                   <div >                     
-                    <textarea class="form-control" id="staff" name="staff"></textarea>
+                    <textarea class="form-control" id="staff_mp" name="staff_mp"></textarea>
                   </div>
                 </div>
 

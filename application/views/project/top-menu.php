@@ -7,6 +7,7 @@
          <div class="panel-body text-justify">
             <div class="panel-body text-center">
                <h2 class="section-title mb-2 h1"><?= $project[0]->title;?></h2>
+<<<<<<< HEAD
                <a class="btn btn-workflow btn-lg" href="<?=base_url("Project/cost".$project[0]->project_id)?>">COST</a>
                <a class="btn btn-workflow btn-lg" href="<?=base_url("Dashboard/index".$project[0]->project_id)?>">DASHBOARD</a>
                <a class="btn btn-workflow btn-lg" href="<?=base_url("Charter_Quality/addnew".$project[0]->project_id) ?>">PMQ</a>
@@ -15,15 +16,36 @@
                <a class="btn btn-workflow btn-lg" href="<?=base_url()?>risk/add/<?php echo $project[0]->project_id;?>">RISKS</a> 
                <a class="btn btn-workflow btn-lg" href="<?php base_url('GerenciarCustos/addnew/') ?>">
                BOTAO ETC
+=======
+
+               <a class="btn btn-workflow btn-lg" href="<?=base_url("Dashboard/index".$project[0]->project_id)?>">
+               DASHBOARD
+               </a>
+               <a class="btn btn-workflow btn-lg" href="<?=base_url("Charter_Quality/addnew".$project[0]->project_id) ?>">
+               PMQ
+               </a>
+               <a class="btn btn-workflow btn-lg" href="<?=base_url("GerenciarCustos/addnew/".$project[0]->project_id)?>">
+               COST
+               </a>
+               <a class="btn btn-workflow btn-lg" href="<?=base_url()?>/procurement/procurement/<?php echo $project[0]->project_id;?>">
+               PROCUREMENT
+               </a>
+               <a class="btn btn-workflow btn-lg" href="<?=base_url()?>risk/add/<?php echo $project[0]->project_id;?>">
+               RISKS
+               </a>
+>>>>>>> fa31461db4fe2379d5893466f0b9e105394820f2
                <a class="btn btn-workflow btn-lg" href="<?=base_url("Human_resource/human_resource_form/".$project[0]->project_id) ?>">
                HUMAN RESOURCE
                </a>
                <a class="btn btn-workflow btn-lg" href="<?=base_url("Schedule/schedule_form/".$project[0]->project_id) ?>">
                SCHEDULE
                </a>
+<<<<<<< HEAD
                <a class="btn btn-workflow btn-lg" href="<?=base_url("Controller/Metodo/".$project[0]->project_id) ?>">
                BOTÃO 5
                </a>
+=======
+>>>>>>> fa31461db4fe2379d5893466f0b9e105394820f2
             </div>
          </div>
       </div>
