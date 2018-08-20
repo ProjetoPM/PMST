@@ -4,18 +4,64 @@ if (!defined('BASEPATH')) {
 }
 
 class Human_resource extends CI_Controller{
-	// Métodos Human Resource
-	public function human_resource_form(){
+
+	public function __Construct(){
+        parent::__Construct();
+        if (!$this->session->userdata('logged_in')) {
+            redirect(base_url());
+        }
+        $this->load->model('project_model');
+        $this->load->model('human_resource_model');
+    }
+    
+    private function ajax_checking(){
+        if (!$this->input->is_ajax_request()) {
+            redirect(base_url());
+        }
+    }
+
+	public function human_resource_form($project_id){
+		$data['project_id'] = $project_id;
 		$this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
-        $this->load->view('human_resource/human_resource_mp');
+        $this->load->view('human_resource/human_resource_mp', $data);
     }
 
     public function insert(){
-    	$dado['human_resources_mp'] = $this->Human_resource_model->getHumanResource();
-    	$this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view');
-	 	$this->load->view('human_resource/human_resource_mp',$dado);
+    	$human_resource_mp['roles_responsibilities'] = $this->input->post('roles_responsibilities');
+    	$human_resource_mp['organizational_chart'] = $this->input->post('organizational_chart');
+    	$human_resource_mp['staff_mp'] = $this->input->post('staff_mp');
+		$human_resource_mp['project_id'] = $this->input->post('project_id');
+		$human_resource_mp['status'] = $this->input->post('status');
+
+		$human_resource_mp['status'] = 1;
+    	
+    	$query = $this->human_resource_model->insertHumanResource($human_resource_mp);
+
+        if($query){
+            redirect('projects');
+        }
+    }
+
+    public function edit($id){
+    	$data['human_resource_mp'] = $this->human_resource_model->getHumanResource($id);
+        $this->load->view('human_resource/human_resource_mp', $data);
+    }
+
+    public function update($id){
+    	$human_resource_mp['roles_responsibilities'] = $this->input->post('roles_responsibilities');
+    	$human_resource_mp['organizational_chart'] = $this->input->post('organizational_chart');
+    	$human_resource_mp['staff_mp'] = $this->input->post('staff_mp');
+		$human_resource_mp['project_id'] = $this->input->post('project_id');
+		$human_resource_mp['status'] = $this->input->post('status');
+
+		$human_resource_mp['status'] = 1;
+    	
+    	$query = $this->human_resource_model->insertHumanResource($human_resource_mp);
+
+        if($query){
+            redirect('projects');
+        }
     }
 
 }
