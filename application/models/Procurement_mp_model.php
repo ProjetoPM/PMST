@@ -21,7 +21,6 @@
 		public function updateProcurement_mp($procurement_mp, $procurement_mp_id){
 			$this->db->where('procurement_mp.procurement_mp_id', $procurement_mp_id);
 			return $this->db->update('procurement_mp', $procurement_mp);
-
 		}
 	}
 ?>
