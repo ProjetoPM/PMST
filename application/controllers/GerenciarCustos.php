@@ -46,5 +46,25 @@ class GerenciarCustos extends CI_Controller {
 		}
 
 	}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+		$this->load->view('project/project_page',$id);
+			//header('location:'.base_url().$this->index($id));
+		}
+
+	}
+
+	public function delete($project_id){
+		$query = $this->Project_model->deleteproject($project_id);
+
+		if($query){
+			header('location:'.base_url().$this->index());
+		}
+	}
+
+>>>>>>> master
+>>>>>>> master
 }
 ?>
