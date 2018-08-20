@@ -21,10 +21,15 @@ class Procurement extends CI_Controller{
     }
 
     public function add($project_id){
-        $data['project_id'] = $project_id;
-        $this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view'); 
-        $this->load->view('project/procurement_mp', $data);
+        $query = $this->procurement_mp_model->getProcurement_mpProject_id($project_id);
+        if($query['procurement_mp_id'] != 0){
+            $this->edit($query['procurement_mp_id']);
+        }else{
+            $data['project_id'] = $project_id;
+            $this->load->view('frame/header_view');
+            $this->load->view('frame/sidebar_nav_view'); 
+            $this->load->view('project/procurement_mp', $data);
+        }
     }
     
     public function insert() {
@@ -39,7 +44,7 @@ class Procurement extends CI_Controller{
         }else{
             $procurement_mp['status'] = 0;
         }
-        $query = $this->risk_mp_model->insertProcurement($procurement_mp);
+        $query = $this->procurement_mp_model->insertProcurement_mp($procurement_mp);
 
         if($query){
             redirect('projects');
@@ -47,45 +52,27 @@ class Procurement extends CI_Controller{
     }
 
     public function edit($id){
-        $projects['projects'] = $this->project_model->getAllProjects();
-        $data['projectCharter'] = $this->projectCharter_model->getprojectCharter($id);
-        $todos = $data + $projects;
-        $this->load->view('updProjectCharter.php', $todos);
+        $data['procurement_mp'] = $this->procurement_mp_model->getPerocurement_mp($id);
+        $this->load->view('edit_procurement_mp.php', $data);
     }
 
     public function update($id){
-        $risk_mp['methodology'] = $this->input->post('methodology');
-        $risk_mp['roles_responsibilities'] = $this->input->post('roles_responsibilities');
-        $risk_mp['risk_management_processes'] = $this->input->post('risk_management_processes');
-        $risk_mp['risks_categories'] = $this->input->post('risks_categories');
-        $risk_mp['risks_probability_impact'] = $this->input->post('risks_probability_impact');
-        $risk_mp['probability_impact_matrix'] = $this->input->post('probability_impact_matrix');
-        $risk_mp['reviewed_tolerances'] = $this->input->post('reviewed_tolerances');
-        $risk_mp['traceability'] = $this->input->post('traceability');
-        $risk_mp['project_id'] = $this->input->post('project_id');
-        $risk_mp['status'] = $this->input->post('status');
+        $procurement_mp['products_services_obtained'] = $this->input->post('products_services_obtained');
+        $procurement_mp['team_actions'] = $this->input->post('team_actions');
+        $procurement_mp['performance_metrics'] = $this->input->post('performance_metrics');
+        $procurement_mp['project_id'] = $this->input->post('project_id');
+        $procurement_mp['status'] = $this->input->post('status');
+        
         if($this->input->post('status') == 1){
-            $risk_mp['status'] = 1;
+            $procurement_mp['status'] = 1;
         }else{
-            $risk_mp['status'] = 0;
+            $procurement_mp['status'] = 0;
         }
-        $query = $this->risk_mp_model->updateRisk($risk_mp, $id);
+        $query = $this->procurement_mp_model->updateProcurement_mp($procurement_mp, $id);
 
         if($query){
-
+            redirect('projects');
         }
-    }
-    public function updRisk($risk_mp) {
-        $this->db->where($risk_mp['risk_mp_id'], 'risk_mp_id');
-        $data = $this->db->get('risk_mp')->result();
-        if($data['risk_mp'] != null){
-            $postData = $this->input->post();
-            $insert   = $this->project_model->insert_risk($postData);    
-        }else{
-
-        }
-        
-        echo json_encode($insert);
-    }
+    }        
 }
 ?>

@@ -53,7 +53,9 @@ class Risk extends CI_Controller{
 
     public function edit($id){
         $data['risk_mp'] = $this->risk_mp_model->getRisk_mp($id);
-        $this->load->view('risk_mp.php', $data);
+        $this->load->view('frame/header_view');
+        $this->load->view('frame/sidebar_nav_view');
+        $this->load->view('edit_risk_mp.php', $data);
     }
 
     public function update($id){
@@ -72,7 +74,7 @@ class Risk extends CI_Controller{
         }else{
             $risk_mp['status'] = 0;
         }
-            $query = $this->risk_mp_model->updateRisk($risk_mp, $id);
+            $query = $this->risk_mp_model->updateRisk_mp($risk_mp, $id);
 
         if($query){
             redirect('projects');
