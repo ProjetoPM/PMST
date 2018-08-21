@@ -10,8 +10,8 @@
 						<a class="btn btn-workflow btn-lg" href="<?=base_url("Project/cost".$project[0]->project_id)?>">
 							DASHBOARD
 						</a>
-						<a class="btn btn-workflow btn-lg" href="<?=base_url("metodo3/".$project[0]->project_id) ?>">
-							BOTAO 3
+						<a class="btn btn-workflow btn-lg" href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">
+							TAP
 						</a>
 						<a class="btn btn-workflow btn-lg" href="<?=base_url("Dashboard/index".$project[0]->project_id)?>">DASHBOARD
 						</a>
