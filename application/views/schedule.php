@@ -22,7 +22,7 @@
 				<?php if($schedule_mp==null)
 				{
 					?>
-				<form method="post" action="<?php base_url('Schedule/createSchedule/');?>">
+				<form method="post" action="<?php echo base_url('schedule/createSchedule/');?>">
 
 						<input type="hidden" name="project_id" value="<?php echo $project[0]->project_id; ?>">
 
@@ -78,7 +78,7 @@
 					foreach ($schedule_mp as $schedule) {
 						?>
 
-						<form method="post" action="<?php base_url('Schedule/updateSchedule/');?><?php echo $id; ?>">
+						<form method="post" action="<?php echo base_url('schedule/updateSchedule/');?><?php echo $id; ?>">
 
 
 
@@ -126,6 +126,7 @@
 							<div class="form-group">
 								<label>Shedule Maintenance</label>  
 								<textarea class="form-control" id="schedule_maintenance" name="schedule_maintenance">
+
 									<?php  
 									echo $schedule->schedule_maintenance; 
 									?>
@@ -157,20 +158,6 @@
 
 							<button type="submit" class="btn btn-lg btn-success btn-block">Update</button> 
 						</form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
