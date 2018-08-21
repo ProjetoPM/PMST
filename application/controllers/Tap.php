@@ -11,10 +11,14 @@ class Tap extends CI_Controller{
 		$this->load->model('Tap_model');
 	}
 
-	public function addTap(){
+	public function addTap($project_id){
+		$data['project_charter'] = $this->Tap_model->insertTap($project_id);
+		$data['project_id'] = $project_id;
+		$this->db->where('project_id', $project_id);
+		$data['project_charter'] = $this->db->get('project_charter')->result();
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
-		$this->load->view('tap_view');
+		$this->load->view('project/tap_view', $data);
 	}
 
 

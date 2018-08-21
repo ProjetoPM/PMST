@@ -27,11 +27,9 @@ class Schedule extends CI_Controller
 //Criar o Schedule 1 Vez
 	public function createSchedule(){
 		$postData = $this->input->post();
-		$insert = $this->Schedule_model->createSchedule($postData);
-		redirect('project/' . $postData['project_id']);
-		echo json_encode($insert);
-	//	var_dump($postData);
-
+  $insert = $this->Schedule_model->createSchedule($postData);
+ redirect('project/' . $postData['project_id']);
+ echo json_encode($insert);
 
 	//	$dados = $this->post('schedule_mp.schedule_model');
 	}
@@ -50,12 +48,10 @@ class Schedule extends CI_Controller
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		redirect('project/' . $id.trim());
-
-		var_dump($id);
+		redirect('project/' . $id);
 		//if ($query) {
 		//header('location:'.base_url().//$this->schedule_form());
-	}
+		}
 
 
 
