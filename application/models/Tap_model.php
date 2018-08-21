@@ -11,7 +11,9 @@ class Tap_model extends CI_Model{
 	}
 
 //insere os dados da TAP no projeto
-	public function insertTap(){
+	public function insertTap($project_id){
+		$query = $this->db->get_where('project_charter', array('project_id' => $project_id));
+		return $query->result();
 
 	}
 
