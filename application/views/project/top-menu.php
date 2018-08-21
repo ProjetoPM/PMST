@@ -10,20 +10,16 @@
       <a class="btn btn-workflow btn-lg" href="<?=base_url("Project/cost".$project[0]->project_id)?>">
        DASHBOARD
       </a>
-      <a class="btn btn-workflow btn-lg" href="<?=base_url("metodo3/".$project[0]->project_id) ?>">
-       BOTAO 3
-      </a>
-      <a class="btn btn-workflow btn-lg" href="<?=base_url("Dashboard/index".$project[0]->project_id)?>">DASHBOARD
-      </a>
-      <a class="btn btn-workflow btn-lg" href="<?=base_url("GerenciarCustos/addnew/".$project[0]->project_id)?>">COST
-      </a>
+      <a class="btn btn-workflow btn-lg" href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">TAP</a>
+      <a class="btn btn-workflow btn-lg" href="<?=base_url("Dashboard/index".$project[0]->project_id)?>">DASHBOARD</a>
+      <a class="btn btn-workflow btn-lg" href="<?=base_url("GerenciarCustos/addnew/".$project[0]->project_id)?>">COST</a>
       <a class="btn btn-workflow btn-lg" href="<?=base_url()?>/procurement/procurement_form/<?php echo $project[0]->project_id;?>">PROCUREMENT
       </a>
       <a class="btn btn-workflow btn-lg" href="<?=base_url()?>risk/risk_form/<?php echo $project[0]->project_id;?>">RISKS
       </a>
       <a class="btn btn-workflow btn-lg" href="<?php base_url('GerenciarCustos/addnew/') ?>">
        BOTAO ETC
-      </a>
+      </a><br><br>
       <a class="btn btn-workflow btn-lg" href="<?=base_url("Human_resource/human_resource_form/".$project[0]->project_id) ?>">
        HUMAN RESOURCE
       </a>
@@ -32,6 +28,7 @@
       </a>
       <a class="btn btn-workflow btn-lg" href="<?=base_url()?>Charter_Quality/addnew/<?php echo $project[0]->project_id;?>">PMQ</a>
       <a class="btn btn-workflow btn-lg" href="<?=base_url()?>/communication_item/communication_form/<?php echo $project[0]->project_id;?>">COMMUNICATION ITEM</a>
+      <a class="btn btn-workflow btn-lg" href="<?=base_url("GerenciarStake/addnew/".$project[0]->project_id) ?>">STAKEHOLDER</a>
      </div>
     </div>
    </div>

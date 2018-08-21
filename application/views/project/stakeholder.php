@@ -19,49 +19,49 @@
 		<?php endif;?>
 		<div class="row">
 			<div class="col-lg-12">      
-				<h3>Cadastro de Stakeholder
+				<h3>Stakeholder Registration
 					<span class="pull-right"><a href="<?php echo base_url(); ?>" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Back</a></span>
 				</h3>
 				<div class="container-fluid">
-					<p class="text-center text-muted h5">Preencha os campos</p>
+					<p class="text-center text-muted h5">Fill in the fields</p>
 				</div>
 				<form method="POST" action="<?php echo base_url('GerenciarStake/insert/'); ?><?php echo $id; ?>">
 					<div class="form-group">
-						<label>Nome:</label>
+						<label>Name:</label>
 						<input type="text" class="form-control" name="name">
 					</div>
 					<div class="form-group">
-						<label>Tipo:</label>
+						<label>Type:</label>
 						<select name="type">
-							<option value="Externa">Externa</option>
-							<option value="Interna">Interna</option>
+							<option value="External">External</option>
+							<option value="Internal">Internal</option>
 						</select>
 					</div>
 					<div class="form-group">
-						<label>Organização:</label>
+						<label>Organization:</label>
 						<input type="text" class="form-control" name="organization">
 					</div>
 					<div class="form-group">
-						<label>Posição na organização:</label>
+						<label>Position in organization:</label>
 						<input type="text" class="form-control" name="position">
 					</div>
 					<div class="form-group">
-						<label>Principal papel no Projeto:</label>
+						<label>Main Role in the Project:</label>
 						<select name="role">
-							<option value="Cliente">Cliente</option>
-							<option value="Equipe">Equipe</option>
-							<option value="Fornecedor">Fornecedor</option>
-							<option value="Gerente do Projeto">Gerente do Projeto</option>
-							<option value="Patrocinador">Patrocinador</option>
-							<option value="Outros">Outros</option>
+							<option value="Client">Client</option>
+							<option value="Team">Team</option>
+							<option value="Provider">Provider</option>
+							<option value="Project manager">Project manager</option>
+							<option value="Sponsor">Sponsor</option>
+							<option value="Others">Others</option>
 						</select>
 					</div>
 					<div class="form-group">
-						<label>Principal Responsabilidade no Projeto:</label>
+						<label>Main Project Responsibility:</label>
 						<input type="text" class="form-control" name="responsibility">
 					</div>
 					<div class="form-group">
-						<label>Email:</label>
+						<label>E-mail:</label>
 						<input type="text" class="form-control" name="email">
 					</div>
 					<div class="form-group">
@@ -69,26 +69,26 @@
 						<input type="text" class="form-control" name="phone_number">
 					</div>
 					<div class="form-group">
-						<label>Local de Trabalho:</label>
+						<label>Workplace:</label>
 						<input type="text" class="form-control" name="work_place">
 					</div>
 					<div class="form-group">
-						<label>Requisitos Essenciais:</label>
+						<label>Essential Requirements:</label>
 						<input type="text" class="form-control" name="essential_requirements">
 					</div>
 					<div class="form-group">
-						<label>Principais Expectativas:</label>
+						<label>Main Expectations:</label>
 						<input type="text" class="form-control" name="main_expectations">
 					</div>
 					<div class="form-group">
-						<label>Fase de Maior Interesse:</label>
+						<label>Phase of Greater Interest:</label>
 						<input type="text" class="form-control" name="interest_phase">
 					</div>
 					<div class="form-group">
-						<label>Observações:</label>
+						<label>Observations:</label>
 						<input type="text" class="form-control" name="observations">
 					</div>
-					<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+					<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span>Save</button>
 				</form>
 			</section>
 		</div>
