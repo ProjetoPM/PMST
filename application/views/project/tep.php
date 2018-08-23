@@ -37,8 +37,8 @@
 								<input type="text" class="form-control" value="<?php echo $tep->client; ?>" name="client">
 							</div>
 							<div>
-									<label>Date of project closure:</label><br>
-									<input type="date" name="closing_date"><br></br>
+								<label>Date of project closure:</label><br>
+								<input type="date" value="<?php echo $tep->closing_date; ?>" name="closing_date"><br></br>
 							</div>
 							<div class="form-group">
 								<label>Main changes approved:</label>
@@ -73,9 +73,9 @@
 							<label>Client:</label>
 							<input type="text" class="form-control" name="client">
 						</div>
-						<div class="form-group">
-							<label>Date of project closure:</label>
-							<input type="text" class="form-control" name="closing_date">
+						<div>
+							<label>Date of project closure:</label><br>
+							<input type="date" name="closing_date"><br></br>
 						</div>
 						<div class="form-group">
 							<label>Main changes approved:</label>
