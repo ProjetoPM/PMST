@@ -230,7 +230,6 @@
               ?>
                 
 <!-- AQUI VAI FINALIZAR A VIEW DO GERENCIAMENTO DE RISCOS!!!! -->
-<<<<<<< HEAD
 </div>
 <div class="col-lg-6">
     <div class="dropdown">
@@ -242,9 +241,6 @@
   </div>
 </div>
 </div>
-=======
-
->>>>>>> 9ab454fc7739a1858796fb60083054a8822435cd
 <!-- /.row -->
 </div>
 <div>
