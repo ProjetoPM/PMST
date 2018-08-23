@@ -132,6 +132,7 @@
             	<input type="hidden" name="project_id" value="<?php echo $project_id[0];?>">
                 <!-- Textarea -->
                 <div class="form-group">
+                  <label for="type">Typeeeee</label>
                   <div >                     
                     <textarea class="form-control" id="type" name="type" maxlength="45"><?php echo $communication_item[0]->type?></textarea>
                   </div>
