@@ -27,26 +27,36 @@
 				</div>
 				<form method="POST" action="<?php echo base_url('GerenciarStake/insert/'); ?><?php echo $id; ?>">
 					<div class="form-group">
-						<label>Name:</label>
+						<label>Name:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Name of new stakeholder">
+									?
+								</a>
 						<input type="text" class="form-control" name="name">
 					</div>
 					<div class="form-group">
-						<label>Type:</label>
+						<label>Type:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Type of new stakeholder">
+									?
+								</a>
 						<select name="type">
 							<option value="External">External</option>
 							<option value="Internal">Internal</option>
 						</select>
 					</div>
 					<div class="form-group">
-						<label>Organization:</label>
+						<label>Organization:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Organization of new stakeholder">
+									?
+								</a>
 						<input type="text" class="form-control" name="organization">
 					</div>
 					<div class="form-group">
-						<label>Position in organization:</label>
+						<label>Position in organization:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Position in organization of new stakeholder">
+									?
+								</a>
 						<input type="text" class="form-control" name="position">
 					</div>
 					<div class="form-group">
-						<label>Main Role in the Project:</label>
+						<label>Main Role in the Project:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Role of new stakeholder in project">
+									?
+								</a>
 						<select name="role">
 							<option value="Client">Client</option>
 							<option value="Team">Team</option>
@@ -57,35 +67,51 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<label>Main Project Responsibility:</label>
+						<label>Main Project Responsibility:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Responsibility of new stakeholder in project">
+									?
+								</a>
 						<input type="text" class="form-control" name="responsibility">
 					</div>
 					<div class="form-group">
-						<label>E-mail:</label>
+						<label>E-mail:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="E-mail of new stakeholder">
+									?
+								</a>
 						<input type="text" class="form-control" name="email">
 					</div>
 					<div class="form-group">
-						<label>Fone:</label>
+						<label>Fone:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Phone of new stakeholder">
+									?
+								</a>
 						<input type="text" class="form-control" name="phone_number">
 					</div>
 					<div class="form-group">
-						<label>Workplace:</label>
+						<label>Workplace:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Workplace of new stakeholder">
+									?
+								</a>
 						<input type="text" class="form-control" name="work_place">
 					</div>
 					<div class="form-group">
-						<label>Essential Requirements:</label>
+						<label>Essential Requirements:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Essential Requirements of new stakeholder">
+									?
+								</a>
 						<input type="text" class="form-control" name="essential_requirements">
 					</div>
 					<div class="form-group">
-						<label>Main Expectations:</label>
+						<label>Main Expectations:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Expectations of new stakeholder">
+									?
+								</a>
 						<input type="text" class="form-control" name="main_expectations">
 					</div>
 					<div class="form-group">
-						<label>Phase of Greater Interest:</label>
+						<label>Phase of Greater Interest:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Phase of greater interest of new stakeholder">
+									?
+								</a>
 						<input type="text" class="form-control" name="interest_phase">
 					</div>
 					<div class="form-group">
-						<label>Observations:</label>
+						<label>Observations:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Observations of new stakeholder">
+									?
+								</a>
 						<input type="text" class="form-control" name="observations">
 					</div>
 					<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span>Save</button>
