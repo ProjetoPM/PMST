@@ -19,7 +19,7 @@
       <?php endif;?>
             <!-- /.row -->          
         <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-12">
 
 <div class="container">
   <!-- Trigger the modal with a button -->
@@ -119,7 +119,51 @@
       
     </div>
   </div>
-  
+</div>
+
+<div class="row">
+		<div class="col-sm-12">
+<br><br>
+
+
+
+	<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Content</th>
+            <th>Distribution Reason</th>
+            <th>Language</th>
+            <th>Channel</th>
+            <th>Document Format</th>
+            <th>Metod</th>
+            <th>Frequency</th>
+            <th>Allocated Resources</th>
+            <th>Format</th>
+            <th>Local</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($communication_item as $item) { ?>
+						<tr>
+							<td><?php echo $item->type; ?></td>
+							<td><?php echo $item->description; ?></td>
+							<td><?php echo $item->content;?></td>
+              <td><?php echo $item->distribution_reason; ?></td>
+							<td><?php echo $item->language;?></td>
+							<td><?php echo $item->channel;?></td>
+              <td><?php echo $item->documento_format; ?></td>
+							<td><?php echo $item->metod;?></td>
+              <td><?php echo $item->frequency; ?></td>
+							<td><?php echo $item->allocated_resources;?></td>
+							<td><?php echo $item->format;?></td>
+              <td><?php echo $item->local?></td>
+              <a href="<?php base_url(); ?>communication_item/#myModal?a=<?php echo $item->communication_item_id; ?>" class="btn btn-success"><span class="glyphicon glyphicon-edit"></span>Edit</a>
+						</tr> <?php } ?>					
+				</tbody>
+			</table> 
+      </div>
 </div>
 
 
