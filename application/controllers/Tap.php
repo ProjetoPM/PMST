@@ -12,6 +12,10 @@ class Tap extends CI_Controller{
 	}
 
 	public function addTap($project_id){
+
+		//buscando stakeholders
+		$data['query'] = $this->Tap_model->getAllStk();
+
 		$data['project_charter'] = $this->Tap_model->tap_form($project_id);
 		$data['project_id'] = $project_id;
 		$this->db->where('project_id', $project_id);
@@ -19,7 +23,10 @@ class Tap extends CI_Controller{
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
 		$this->load->view('project/tap_view', $data);
+
 	}
+
+
 
 	public function insert() {
 		$project_charter['project_description'] = $this->input->post('project_description');

@@ -17,6 +17,14 @@ class Tap_model extends CI_Model{
 
 	}
 
+
+	//buscando stakeholders
+	public function getAllStk(){
+		$data = $this->db->select('*')->from('stakeholder')->get();
+		return $data->result();
+	}
+
+
 	public function getpProject_charterProject_id($project_id) {
 		$query = $this->db->get_where('project_charter', array('project_charter_id.project_id'=>$project_id));
 		return $query->result();
