@@ -6,7 +6,7 @@
 		}
 
 		public function insertStakes($stakeholder_register){
-			return $this->db->insert('stakeholder_register', $stakeholder_register);
+			return $this->db->insert('stakeholder', $stakeholder_register);
 		}
 	}
 ?>
