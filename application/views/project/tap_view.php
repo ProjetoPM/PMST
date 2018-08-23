@@ -104,9 +104,7 @@
 								<tr>
 									<caption>
 										<div class="col-lg-2"></div>Stakeholder List</caption>
-										<th>Name</th>
-										<th>Roles and responsabilities</th>
-
+										<th>Name</th>										
 									</tr>
 								</thead>
 								<tbody>
@@ -114,8 +112,7 @@
 									foreach($query as $stk){
 										?>
 										<tr>
-											<td><?php echo $stk->name; ?></td>
-											<td><?php echo $stk->responsibility; ?></td>
+											<td><?php echo $stk->name; ?></td>											
 										</tr>
 										<?php
 									}
@@ -233,8 +230,6 @@
 											<caption>
 												<div class="col-lg-2"></div>Stakeholder List</caption>
 												<th>Name</th>
-												<th>Roles and responsabilities</th>
-
 											</tr>
 										</thead>
 										<tbody>
@@ -243,7 +238,6 @@
 												?>
 												<tr>
 													<td><?php echo $stk->name; ?></td>
-													<td><?php echo $stk->responsibility; ?></td>
 												</tr>
 												<?php
 											}

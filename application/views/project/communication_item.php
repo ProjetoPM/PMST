@@ -274,7 +274,21 @@
               ?>
                 
 <!-- AQUI VAI FINALIZAR A VIEW DO GERENCIAMENTO DE RISCOS!!!! -->
+<<<<<<< HEAD
+</div>
+<div class="col-lg-6">
+    <div class="dropdown">
+    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">	
+    Dropdown button
+    </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+  </div>
+</div>
+</div>
+=======
 
+>>>>>>> 9ab454fc7739a1858796fb60083054a8822435cd
 <!-- /.row -->
 </div>
 <div>
