@@ -1,17 +1,17 @@
 <?php
-	class Communication_item_model extends CI_Model {
+	class Communication_item_stakeholder_model extends CI_Model {
 		function __construct(){
 			parent::__construct();
 			$this->load->database();
 		}
 
-		public function getCommunication_item($id){
+		public function getCommunication_item_stakeholder($idCI, $idS){
 			$query = $this->db->get_where('communication_item',array('communication_item_id'=>$id));
 			return $query->row_array();
 		}
 
 		public function getAllCommunication_item(){
-			$query = $this->db->get('communication_item');
+			$query = $this->db->get('communicatio_item');
 			return $query->result();
 		}
 
