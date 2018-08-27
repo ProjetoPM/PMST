@@ -14,11 +14,22 @@ class Stakeholder_mp extends CI_Controller{
 	function stakeholder_mp_form(){
 		//chamar db da model
 		$query['stakeholders'] = $this->Stakeholder_mp_model->getAllStakeholders();
-
+       
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
 		$this->load->view('project/stakeholder_mp.php', $query);
 		
+	}
+
+
+//Criar o Schedule 1 Vez
+	public function createStakeholderMP(){
+		$postData = $this->input->post(); // Recebe tudo que está sendo passado pelo formulário
+  $insert = $this->Stakeholder_mp_model->createStakeholderMP($postData);
+ redirect('stakeholder_mp/stakeholder_mp_form/' . $postData['project_id']);
+ echo json_encode($insert);
+
+	//	$dados = $this->post('schedule_mp.schedule_model');
 	}
 
 	public function updateSchedule(){

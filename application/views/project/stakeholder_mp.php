@@ -23,69 +23,109 @@
       <div class="col-lg-12">      
         
         <td align="right">
-        <form action="<?=base_url()?>project/add_project/" method="post">
-
-        <div class="col-lg-3"> 
-         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-  Selecionar Stakeholder
-        </div>
+     <form method="post" action="<?php echo base_url('stakeholder_mp/createStakeholderMP/');?>">
 
 
-        <div class="col-lg-12">  
-        	<!--Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Selecionar Stakeholder</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <select name="stakeholder">
+
+  
+  <div>
+<label for="stakeholder"> Select Stakeholder</label>
+ <select name="stakeholder">
         <?php
           foreach ($stakeholders as $stakeholder) {
             //var_dump($stakeholder);
             //die();
         ?>
-          <option value="<?php echo $stakeholder->stakeholder_id;?>"> <?php echo $stakeholder->name;?></option>
+          <option name="stakeholder_id" value="<?php echo $stakeholder->stakeholder_id;?>"> <?php echo $stakeholder->name;?></option>
         <?php
           }
         ?>
       </select>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Selecionar</button>
-      </div>
     </div>
-  </div>
-</div>
             <!-- Text input-->
           <!-- Textarea -->
+               <div class="form-group">
+          <label for="interest">Interest Level</label>
+          <select name="interest">
+            <option value="10">10%</option>
+            <option value="30">30%</option>
+            <option value="50">50%</option>
+            <option value="70">70%</option>
+            <option value="90">90%</option>
+          </select>
+      </div>
+        <div class="form-group">
+          <label for="power">Power Level</label>
+          <select name="power">
+            <option value="10">10%</option>
+            <option value="30">30%</option>
+            <option value="50">50%</option>
+            <option value="70">70%</option>
+            <option value="90">90%</option>
+          </select>
+      </div>
+        <div class="form-group">
+          <label for="influence">Influence Level</label>
+          <select name="influence">
+            <option value="10">10%</option>
+            <option value="30">30%</option>
+            <option value="50">50%</option>
+            <option value="70">70%</option>
+            <option value="90">90%</option>
+          </select>
+      </div>
+        <div class="form-group">
+          <label for="impact">Impact Level</label>
+          <select name="impact">
+            <option value="10">10%</option>
+            <option value="30">30%</option>
+            <option value="50">50%</option>
+            <option value="70">70%</option>
+            <option value="90">90%</option>
+          </select>
+      </div>
+        <div class="form-group">
+          <label for="current_engagement ">Current Engagement</label>
+          <select name="current_engagement">
+             <option value="unaware">Unaware</option>
+            <option value="supportive">Supportive</option>
+            <option value="leading">Leading</option>
+            <option value="neutral">Neutral</option>
+            <option value="resistant">Resistant</option>
+          </select>
+      </div>
+       <div class="form-group">
+          <label for="expected_engagement ">Expected Engagement</label>
+          <select name="expected_engagement">
+            <option value="unaware">Unaware</option>
+            <option value="supportive">Supportive</option>
+            <option value="leading">Leading</option>
+            <option value="neutral">Neutral</option>
+            <option value="resistant">Resistant</option>
+          </select>
+      </div>
           <div class="form-group">
             <label for="description">Estratégia para Engajamento / Gerenciamento</label>
             <div >                     
-              <textarea class="form-control" id="description" name="description"></textarea>
+              <textarea class="form-control" id="description" name="strategy"></textarea>
             </div>
           </div>
 
           <div class="form-group">
             <label for="description">Escopo e Impacto das Mudanças para a PI</label>
             <div >                     
-              <textarea class="form-control" id="description" name="description"></textarea>
+              <textarea class="form-control" id="description" name="scope"></textarea>
             </div>
           </div>
 
           <div class="form-group">
             <label for="description">Observações / Interrelações com outras PI</label>
             <div >                     
-              <textarea class="form-control" id="description" name="description"></textarea>
+              <textarea class="form-control" id="description" name="observation"></textarea>
             </div>
           </div>
 
-          <input id="new_project-submit" type="submit" value="Salvar" class="btn btn-lg btn-success btn-block">
+          <input  type="submit" value="Salvar" class="btn btn-lg btn-success btn-block">
         </form>
       </div>
       <!-- /.col-lg-12 -->
