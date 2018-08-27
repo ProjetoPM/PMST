@@ -20,7 +20,10 @@
 		<div class="row">
 			<div class="col-lg-12">      
 				<h3>
-					<span class="pull-right"><a href="<?php echo base_url(); ?>" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Back</a></span>
+
+					<form action="<?php echo base_url('project/'); ?><?php echo $id; ?>" >
+					<button class="btn btn-primary pull-right" > Back</button></form>
+
 				</h3>
 				<div class="container-fluid">
 					<p class="text-center text-muted h5">Fill in the fields</p>
