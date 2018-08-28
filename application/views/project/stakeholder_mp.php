@@ -23,25 +23,28 @@
       <div class="col-lg-12">      
         
         <td align="right">
-     <form method="post" action="<?php echo base_url('stakeholder_mp/createStakeholderMP/');?>">
+     <form method="post" action="<?php echo base_url('stakeholder_mp/createStakeholderMP/');?><?php echo $project_id; ?>">
 
 
 
   
   <div>
 <label for="stakeholder"> Select Stakeholder</label>
- <select name="stakeholder">
+ <select name="stakeholder_id">
+
         <?php
           foreach ($stakeholders as $stakeholder) {
             //var_dump($stakeholder);
             //die();
         ?>
-          <option name="stakeholder_id" value="<?php echo $stakeholder->stakeholder_id;?>"> <?php echo $stakeholder->name;?></option>
+          <option name="stakeholder_id" value="<?php echo $stakeholder->stakeholder_id;?>"><?php echo $stakeholder->name;?></option>
         <?php
-          }
-        ?>
+          }?>
+            <input type="hidden" name="project_id" value="<?php echo $project_id;?>" 
+           readonly >
       </select>
     </div>
+
             <!-- Text input-->
           <!-- Textarea -->
                <div class="form-group">
