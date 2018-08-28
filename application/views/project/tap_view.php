@@ -141,13 +141,8 @@
 							<label>Enter End Date:</label><a href="#" data-toggle="tooltip" title="Date finish of your project!">?</a><br>
 							<input type="date" name="end_date" min="2025-01-02"><br></br>
 
-							<div class="form-group">
-								<label>Status:</label> <br></br>
-								<input type="radio" checked name="status" value="1">
-								<label>On</label><br>
-								<input type="radio" name="status" value="0">
-								<label>Off</label>                
-							</div>
+							<input type="hidden" name="status" value="1">
+							
 							<input id="tap-submit" type="submit" value="Save" class="btn btn-lg btn-success btn-block">
 						</form>
 
@@ -270,21 +265,7 @@
 									<input type="date" name="start_date" max="2017-12-31" value="<?php echo $project_charter[0]->start_date; ?>"><br><br>
 									<label>Enter End Date:  </label><br>
 									<input type="date" name="end_date" min="2025-01-02" value="<?php echo $project_charter[0]->end_date; ?>"><br></br>
-
-									<?php if ($project_charter[0]->status == 1){ ?>
-										<input type="radio" checked name="status" value="1">
-										<label>On </label><br>
-										<input type="radio" name="status" value="0">
-										<label>Off </label>
-
-									<?php } else { ?>
-
-										<input type="radio" name="status" value="1">
-										<label>On  </label><br>
-										<input type="radio" checked name="status" value="0">
-										<label>Off </label>
-
-									<?php } ?>
+									<input type="hidden" name="status" value="1">
 									<input id="tap-submit" type="submit" value="Save" class="btn btn-lg btn-success btn-block">
 
 								</form>
