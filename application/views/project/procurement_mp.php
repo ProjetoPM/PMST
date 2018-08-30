@@ -26,7 +26,7 @@
                   //die();
             ?>
             <form action="<?=base_url()?>procurement/update/<?php echo $procurement_mp[0]->procurement_mp_id;?>" method="post">
-            	<input type="hidden" name="project_id" value="<?php echo $project_id[0];?>">
+            	
                 <!-- Textarea -->
                 <div class="form-group">
                   <label for="products_services_obtained">Products Services Obtained</label>

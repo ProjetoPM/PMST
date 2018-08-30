@@ -11,10 +11,10 @@ class Stakeholder_mp extends CI_Controller{
 		$this->load->model('Stakeholder_mp_model');
 	}
 
-	function stakeholder_mp_form(){
+	function stakeholder_mp_form($project_id){
 		//chamar db da model
 		$query['stakeholders'] = $this->Stakeholder_mp_model->getAllStakeholders();
-       
+       	$query['project_id'] = $project_id;
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
 		$this->load->view('project/stakeholder_mp.php', $query);
@@ -24,7 +24,8 @@ class Stakeholder_mp extends CI_Controller{
 
 //Criar o Schedule 1 Vez
 	public function createStakeholderMP(){
-		$postData = $this->input->post(); // Recebe tudo que está sendo passado pelo formulário
+		$postData = $this->input->post();
+		 // Recebe tudo que está sendo passado pelo formulário
   $insert = $this->Stakeholder_mp_model->createStakeholderMP($postData);
  redirect('stakeholder_mp/stakeholder_mp_form/' . $postData['project_id']);
  echo json_encode($insert);

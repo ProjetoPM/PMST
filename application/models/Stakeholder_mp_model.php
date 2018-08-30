@@ -10,6 +10,13 @@ class Stakeholder_mp_model extends CI_Model{
 	}
 
 public function createStakeholderMP($postData){
+		$interest = $postData ['interest'];
+		$power = $postData['power'];
+		$impact = $postData['impact'];
+		$influence = $postData['influence'];
+
+		$average = ($influence + $power + $interest + $impact) / 4;
+
 		$data = array(
 			'stakeholder_id' => $postData ['stakeholder_id'],
 			'project_id' => $postData ['project_id'],
@@ -17,12 +24,13 @@ public function createStakeholderMP($postData){
 			'power' => $postData['power'],
 			'influence' => $postData['influence'],
 			'impact' => $postData['impact'],
+			'average' => $average,
 			'current_engagement' => $postData['current_engagement'],
 			'expected_engagement' => $postData['expected_engagement'],
-		'strategy' => $postData['strategy'],
-		'scope' => $postData['scope'],
-		'observation' => $postData['observation']
-		);
+		    'strategy' => $postData['strategy'],
+		    'scope' => $postData['scope'],
+		    'observation' => $postData['observation']
+	     	);
 
 
 
@@ -36,8 +44,9 @@ public function createStakeholderMP($postData){
 
 	}
 
-	public function getSchedule($id){
-		$query = $this->db->get_where('schedule_mp',array('project_id'=>$id));
+
+	public function getProjectId($id){
+		$query = $this->db->get_where('stakeholder_mp',array('project_id'=>$id));
 		return $query->result();
 	}
 }
