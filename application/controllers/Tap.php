@@ -9,14 +9,15 @@ class Tap extends CI_Controller{
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('Tap_model');
+		$this->load->model('Stakeholder_mp_model');
 	}
 
 	public function addTap($project_id){
 
 		//buscando stakeholders
-		$data['query'] = $this->Tap_model->getAllStk();
-
-		$data['project_charter'] = $this->Tap_model->tap_form($project_id);
+		$data['stakeholder'] = $this->Tap_model->getAllStk();
+		$data['stakeholder_mp'] = $this->Tap_model->getAllStk_mp();
+ 		$data['project_charter'] = $this->Tap_model->tap_form($project_id);
 		$data['project_id'] = $project_id;
 		$this->db->where('project_id', $project_id);
 		$data['project_charter'] = $this->db->get('project_charter')->result();

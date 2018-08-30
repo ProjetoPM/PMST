@@ -19,8 +19,13 @@ class Tap_model extends CI_Model{
 
 
 	//buscando stakeholders
+	public function getAllStk_mp(){
+		$data = $this->db->get('stakeholder_mp');
+		return $data->result();
+	}
+
 	public function getAllStk(){
-		$data = $this->db->select('*')->from('stakeholder')->get();
+		$data = $this->db->get('stakeholder');
 		return $data->result();
 	}
 
