@@ -27,5 +27,10 @@
 			$this->db->where('communication_item.communication_item_id', $communication_item_id);
 			return $this->db->update('communication_item', $communication_item);
 		}
+
+		public function deleteCommunication_item($id){
+			$this->db->where('communication_item.communication_item_id', $id);
+			return $this->db->delete('communication_item');
+		}
 	}
 ?>

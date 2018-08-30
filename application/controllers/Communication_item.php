@@ -42,13 +42,10 @@ class Communication_item extends CI_Controller{
         $communication_item['format'] = $this->input->post('format');
         $communication_item['local'] = $this->input->post('local');
         $communication_item['project_id'] = $this->input->post('project_id');
-        
-        if($this->input->post('status') == 1){
-            $communication_item['status'] = 1;
-        }else{
-            $communication_item['status'] = 0;
-        }
-        $query = $this->communication_item_model->insertCommunication_item($communication_item);
+        $communication_item['status'] = (int) $this->input->post('status');
+
+        $data['communication_item'] = $communication_item;
+        $query = $this->communication_item_model->insertCommunication_item($data['communication_item']);
 
         if($query){
             redirect('projects');
@@ -68,18 +65,22 @@ class Communication_item extends CI_Controller{
         $communication_item['allocated_resources'] = $this->input->post('allocated_resources');
         $communication_item['format'] = $this->input->post('format');
         $communication_item['local'] = $this->input->post('local');
-        $communication_item['project_id'] = $this->input->post('project_id');
+        $communication_item['status'] = (int) $this->input->post('status');
         
-        if($this->input->post('status') == 1){
-            $communication_item['status'] = 1;
-        }else{
-            $communication_item['status'] = 0;
-        }
-        $query = $this->communication_item_model->updateCommunication_item($communication_item, $id);
+        $data['communication_item'] = $communication_item;
+        $query = $this->communication_item_model->updateCommunication_item($data['communication_item'], $id);
 
         if($query){
             redirect('projects');
         }
-    }        
+    }
+
+    public function delete($id){
+        $query = $this->communication_item_model->deleteCommunication_item($id);
+        if($query){
+            redirect('projects');
+        }
+    }
+
 }
 ?>
