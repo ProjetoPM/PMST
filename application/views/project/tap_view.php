@@ -108,30 +108,34 @@
 							<textarea class="form-control" id="project_approval_requuirements" name="project_approval_requuirements"></textarea>
 						</div>
 					</div>
-
-					<!-- COLOCAR LISTA DE STAKEHOLDERS AQUI, BUSCAR A LISTA EM TABELA "STAKEHOLDER" -->
-					<div class="row">
-						<table class="table table-dark">
-							<thead>
-								<tr>
-									<caption>
-										<div class="col-lg-2"></div>Stakeholder List</caption>
-										<th>Name</th>										
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									foreach($query as $stk){
-										?>
+					
+		<div class="row">
+								<table class="table table-dark">
+									<thead>
 										<tr>
-											<td><?php echo $stk->name; ?></td>											
-										</tr>
-										<?php
-									}
-									?>
-								</tbody>
-							</table>
-						</div>
+											<caption>
+												<div class="col-lg-2"></div>Stakeholder List  <a href="#" data-toggle="tooltip" title="Names of skateholder listed and responsable in your project!">?</a></caption>
+												<th>Name</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+											foreach($stakeholder_mp as $stk){
+												foreach($stakeholder as $stake){
+													if($project_id==$stk->project_id && $stk->stakeholder_id==$stake->stakeholder_id){
+												?>
+												<tr>			
+													<td><?php echo $stake->name; ?></td>
+												</tr>
+												<?php
+											}
+											}
+											}
+											?>
+										</tbody>
+									</table>
+								</div>
+
 
 
 						<div class="form-group">
@@ -241,12 +245,16 @@
 										</thead>
 										<tbody>
 											<?php
-											foreach($query as $stk){
+											foreach($stakeholder_mp as $stk){
+												foreach($stakeholder as $stake){
+													if($project_id==$stk->project_id && $stk->stakeholder_id==$stake->stakeholder_id){
 												?>
-												<tr>
-													<td><?php echo $stk->name; ?></td>
+												<tr>			
+													<td><?php echo $stake->name; ?></td>
 												</tr>
 												<?php
+											}
+											}
 											}
 											?>
 										</tbody>
