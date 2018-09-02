@@ -71,16 +71,16 @@ class Communication_item extends CI_Controller{
         $query = $this->communication_item_model->updateCommunication_item($data['communication_item'], $id);
 
         if($query){
-            redirect('projects');
+           redirect('project/' . $id);
         }
     }
 
     public function delete($id){
         $query = $this->communication_item_model->deleteCommunication_item($id);
+        var_dump($query);
         if($query){
-            redirect('projects');
+            redirect('project/' . $id);
         }
     }
-
 }
 ?>
