@@ -49,6 +49,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+
+
+
+
+
+//rota definida para que a definição do idioma seja o primeiro nó da URL
+// $route['(:any)'] = 'Welcome/index';
+// $route['(:any)'] = 'Authentication/login';
+
+//para rotas adicionas, você pode utilizar algo como
+//$route['(:any)/minha-rota'] = 'Welcome/meu_metodo';
+// $route['default_controller'] = 'welcome';
+
+// Inicio Teste
+// $route['(:any)/default_controller'] = 'authentication';
+// $route['(:any)/authentication/register'] = 'authentication/register';
+// $route['(:any)/register'] = 'register/addUser';
+// $route['(:any)/projects'] = 'project/show_projects';
+// $route['(:any)/new'] = 'project/project_form';
+// $route['(:any)/project/(:num)'] = 'project/initial/$1';
+// $route['(:any)/edit/(:num)'] = 'project/update/$1';
+// $route['(:any)/researcher/(:num)'] = 'project/add_researcher_page/$1';
+// $route['(:any)/delete/(:num)'] = 'project/delete/$1';
+// Fim Teste
+
+
+
 $route['default_controller'] = 'authentication';
 $route['authentication/register'] = 'authentication/register';
 $route['register'] = 'register/addUser';
@@ -62,4 +90,3 @@ $route['delete/(:num)'] = 'project/delete/$1';
 $route['myaccount'] = 'register/show_Edit_User';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-

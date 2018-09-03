@@ -18,8 +18,11 @@
     <link rel="shortcut icon" href="<?=base_url()?>assets/images/lesse.png" type="image/x-icon">        
     <!-- CSS refatorados da dashboard principal -->
     <link href="<?=base_url()?>assets/css/style.css" rel="stylesheet">
-    
-        
+
+    <!-- Cod Elastic TextArea -->
+    <script src="<?=base_url()?>assets/js/elasticTextarea.js" type="text/javascript"></script>
+
+
     <input type="hidden"  id="base-url" value="<?=base_url()?>"/>
   </head>
   <body>

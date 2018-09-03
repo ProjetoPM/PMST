@@ -67,3 +67,53 @@
 #welcome .item_list:hover h4 {
     color: #4c3221; cursor: pointer;
 }
+
+
+/* CSS Dashbord Project */
+.grid-container {
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto;
+    /*padding: 10px;*/
+}
+
+.grid-item {
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.caixaLat, .caixaLatOpaca{
+    margin-bottom: 10px;
+    line-height: 50px;
+    text-align: center;
+    width: 160px;
+}
+
+.caixaLat{
+    background-color: #20b2aa;
+    color: #FFF;
+}
+
+.caixaLatOpaca{
+    color: #ccc ;
+}
+   
+#check{
+    display: none;
+}
+
+.mesmo-tamanho {
+    width: 100%;
+    white-space: normal;
+}
+
+/* CSS Elastic-TextArea*/
+.elasticteste{
+    min-height: 50px;
+    /*outline: 0;*/
+    resize: none;
+    line-height: 20px;
+}
