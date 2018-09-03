@@ -8,6 +8,13 @@ class Schedule extends CI_Controller
 
 	function __construct(){
 		parent::__construct();
+
+		$this->lang->load('btn','english');
+        // $this->lang->load('btn','portuguese-brazilian');
+        $this->lang->load('schedule','english');
+        // $this->lang->load('schedule','portuguese-brazilian');
+
+
 		$this->load->helper('url');
 		$this->load->model('Schedule_model');
 	}
