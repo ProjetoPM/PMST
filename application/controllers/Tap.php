@@ -7,7 +7,11 @@ class Tap extends CI_Controller{
 	
 	function __construct(){
 		parent::__construct();
-		$this->load->helper('url');
+		//$this->load->helper('url');
+		$this->lang->load('btn', 'english');
+		//$this->lang->load('btn', 'portuguese-brazilian');
+		$this->lang->load('tap', 'english');
+		//$this->lang->load('tap', 'portuguese-brazilian');
 		$this->load->model('Tap_model');
 		$this->load->model('Stakeholder_mp_model');
 	}
