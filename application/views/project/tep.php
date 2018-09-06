@@ -1,7 +1,7 @@
 <div id="page-wrapper">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header"></h1>
+			<h1 class="page-header"><?=$this->lang->line('tep-title')?></h1>
 		</div>
 		<!-- /.col-lg-12 -->
 	</div>
@@ -19,13 +19,7 @@
 		<?php endif;?>
 		<div class="row">
 			<div class="col-lg-12">      
-				<h3>
-					<form action="<?php echo base_url('project/'); ?><?php echo $id; ?>" >
-					<button class="btn btn-primary pull-right" > Back</button></form>
-				</h3>
-				<div class="container-fluid">
-					<p class="text-center text-muted h5">End of Project Term</p>
-				</div>
+				
 				<?php
 				$valida=false;
 				foreach ($project_closure_term as $tep){
@@ -270,8 +264,18 @@
 								</a>
 							<input type="text" class="form-control" name="sponsor_comments">
 						</div>
-						<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
-					</form>
+
+						<div class="col-lg-12">
+                <button id="new_human_resource-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+                    <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
+                </button> 
+              </form>
+
+              <form action="<?php echo base_url('project/'); ?><?php echo $id; ?>" >
+                <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
+              </form>
+                
+              </div>
 					<?php
 				}
 				?>
