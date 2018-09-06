@@ -1,7 +1,7 @@
 <div id="page-wrapper">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Issues record data-placement</h1>
+    <h1 class="pageheader"> <?=$this->lang->line('issues_record-title')  ?></h1>
     </div>
     <!-- /.col-lg-12 -->
   </div>
@@ -22,7 +22,7 @@
       <div class="col-lg-12">
         <div class="container">
           <!-- Trigger the modal with a button -->
-          <button type="button" class="open-AddBookDialog btn btn-info btn-lg glyphicon-plus" data-toggle="modal" data-target="#add">Register Issues Record</button>
+          <button type="button" class="open-AddBookDialog btn btn-info btn-lg glyphicon-plus" data-toggle="modal" data-target="#add"> Register Issues Record</button>
           <!-- Modal -->
           <div class="modal fade" id="add" role="dialog">
             <div class="modal-dialog">
@@ -39,74 +39,63 @@
                      <input type="hidden" name="status" value="1">
 
                     <div class="form-group">
-                      <label>Responsable for the Identifying</label>
-                      <a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Here goes the type of the Communication Item">
-                        ?
-                      </a>
+                      <label for="responsable"><?=$this->lang->line('ir-identification')?></label>
+                          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-identification-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                       <textarea class="form-control" id="identification"  name="identification" maxlength="45"></textarea>
                     </div>
 
                     <!-- Textarea -->
                     <div class="form-group">
-                      <label>Identification Date</label>
+                       <label for="identification_date"><?=$this->lang->line('ir-identification_date')?></label>
+                           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-identification_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                       <textarea class="form-control" id="identification_date"  name="identification_date" maxlength="45"></textarea>
                     </div>
 
                     <div class="form-group">
-                      <label>Description of the Issue</label>
+                     <label for="question_description"><?=$this->lang->line('ir-question_description')?></label>
+                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-question_description-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                       <textarea class="form-control" id="question_description"  name="question_description" maxlength="255"></textarea>
                     </div>
 
                     <div class="form-group">
-                      <label>Issue Type</label>
-                       <a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Corrective Action, Preventive Action, Defact Repair and Updates ">
-                        ?
-                      </a>
+                <label for="type"><?=$this->lang->line('ir-type')?></label>                      
+                <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-type-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+                      
                       <textarea class="form-control" id="type"  name="type" maxlength="255"></textarea>
                     </div>
 
                     <div class="form-group">
-                      <label>Language</label>
-                      <select class="form-control" name="language" required="">
-                        <option></option>
-                        <option value="English">English</option>
-                        <option value="Portuguese">Portuguese Brazil</option>
-                        <option value="Portuguese Portugal">Portuguese Portugal</option>
-                        <option value="Spanish">Spanish</option>
-                        <option value="Dutch">Dutch</option>
-                      </select>
-                    </div>
-
-                    <div class="form-group">
-                      <label>Issue Responsable</label>
+                    <label for="responsable"><?=$this->lang->line('ir-responsable')?></label>
+                          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-responsable-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                       <textarea class="form-control" id="responsable"  name="responsable" maxlength="45"></textarea>
                     </div>
 
                     <div class="form-group">
-                      <label>Situation</label>
-                      <a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Registred, In Analysis, Approved, Rejected, Canceled or Suspended ">
-                        ?
-                      </a>
-
+                      <label for="situation"><?=$this->lang->line('ir-situation')?></label>
+                      <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-situation-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                       <textarea class="form-control" id="situation"  name="situation" maxlength="45"></textarea>
                     </div>
 
                     <div class="form-group">
-                      <label>Required Action</label>
+                     <label for="action"><?=$this->lang->line('ir-action')?></label>
+                           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-action-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                       <textarea class="form-control" id="action"  name="action" maxlength="45"></textarea>
                     </div>
 
                     <div class="form-group">
-                      <label for="frequency">Planned Resolution Date</label>
+                     <label for="resolution_date"><?=$this->lang->line('ir-resolution_date')?></label>
+                           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-resolution_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                       <textarea class="form-control" id="resolution_date" name="resolution_date" maxlength="45"></textarea>
                     </div>
 
                     <div class="form-group">
-                      <label for="frequency">Reorganized Resolution Date</label>
-                      <textarea class="form-control" id="replan_date"  name="replan_date" maxlength="45"></textarea>
+                     <label for="replan_date"><?=$this->lang->line('ir-replan_date')?></label>
+                           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-replan_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <textarea class="form-control" id="replan_date"  name="replan_date" maxlength="45"></textarea>
                     </div>
                     <div class="form-group">
-                      <label for="allocated_resources">Observations</label>
+                  <label for="observations"><?=$this->lang->line('ir-observations')?></label>
+                        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-observations-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                       <textarea class="form-control" id="observations" "name="observations" maxlength="45"></textarea>
                     </div>
 
