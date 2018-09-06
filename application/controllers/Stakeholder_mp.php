@@ -11,8 +11,8 @@ class Stakeholder_mp extends CI_Controller{
         
         $this->lang->load('btn','english');
         //$this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('stakeholder_mp','english');
-        // $this->lang->load('human-resource','portuguese-brazilian');
+       // $this->lang->load('stakeholder_mp','english');
+         $this->lang->load('stakeholder_mp','portuguese-brazilian');
         
 
 		$this->load->helper('url');

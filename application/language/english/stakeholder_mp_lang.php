@@ -3,14 +3,28 @@
 // Title
 $lang['stakeholder_mp-title'] = 'Management Stakeholders';
 
-//Form 
-$lang['stakeholder_mp'] = 'Roles Responsibilities';
-$lang['stakeholder_mp-chart'] = 'Organizational Chart';
-$lang['stakeholder_mp-staff'] = 'Staff';
-
-//Tooltip
+// Select
 $lang['select-stakeholder-tooltip'] = 'Select Stakeholder Example';
-$lang['stakeholder_mp-chart-tooltip'] = 'Organizational Chart Example';
-$lang['stakeholder_mp-staff-tooltip'] = 'Staff Example';
+$lang['select-interest-level-tooltip'] = 'Select Interest Level Example';
+$lang['select-power-level-tooltip'] = 'Select Power Level Example';
+$lang['select-influence-level-tooltip'] = 'Select Influece Level Example';
+$lang['select-impact-level-tooltip'] = 'Select Impact Level Example';
+$lang['select-current-engagement-tooltip'] = 'Select current Engagement Example';
+$lang['select-expected-engagement-tooltip'] = 'Select Expected Engagement Example';
 
+$lang['select-1'] = 'Select Stakeholder';
+$lang['select-2'] = 'Interest Level';
+$lang['select-3'] = 'Power Level';
+$lang['select-4'] = 'Influece Level';
+$lang['select-5'] = 'Impact Level';
+$lang['select-6'] = 'Current Engagement';
+$lang['select-7'] = 'Desired Engagement';
+//Form 
+$lang['stakeholder_mp-text1-tooltip'] = 'Engagement / Management Strategy Example';
+$lang['stakeholder_mp-text2-tooltip'] = 'Scope and Impact of Changes to IP Example';
+$lang['stakeholder_mp-text3-tooltip'] = 'Observations with other IPs Example';
+
+$lang['text-1'] = 'Engagement / Management Strategy';
+$lang['text-2'] = 'Scope and Impact of Changes to IP';
+$lang['text-3'] = 'Observations with other IPs';
 ?>
