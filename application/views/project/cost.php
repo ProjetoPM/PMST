@@ -1,7 +1,7 @@
 <div id="page-wrapper">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header"></h1>
+			<h1 class="page-header"><?=$this->lang->line('manage_cost-title')?></h1>
 		</div>
 		<!-- /.col-lg-12 -->
 	</div>
@@ -18,94 +18,144 @@
 			</div>
 		<?php endif;?>
 		<div class="row">
-			<div class="col-lg-12">      
-				<h3>
-
-					<form action="<?php echo base_url('project/'); ?><?php echo $id; ?>" >
-					<button class="btn btn-primary pull-right" > Back</button></form>
-
-				</h3>
-				<div class="container-fluid">
-					<p class="text-center text-muted h5">Fill in the fields</p>
-				</div>
+			<div class="col-lg-12">
 				<?php
 				$valida=false;
 				foreach ($cost_mp as $cost){
 					if($cost->project_id==$id){
 						$valida=true;
 						?>
-						<form method="POST" action="<?php echo base_url('GerenciarCustos/insert/'); ?><?php echo $id; ?>">
-							<div class="form-group">
-								<label>Processes for managing project costs:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Processes for managing project costs">
-									?
-								</a>
-								<input type="text" class="form-control" value="<?php echo $cost->project_costs_m; ?>" name="project_costs_m">
-							</div>
-							<div class="form-group">
-								<label>Required accuracy level, limits and units of measure to be used:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Required accuracy level, limits and units of measure to be used">
-									?
-								</a>
-								<input type="text" class="form-control" value="<?php echo $cost->accuracy_level; ?>" name="accuracy_level">
-							</div>
-							<div class="form-group">
-								<label>Related Organizational Procedures:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Related Organizational Procedures">
-									?
-								</a>
-								<input type="text" class="form-control" value="<?php echo $cost->organizational_procedures; ?>" name="organizational_procedures">
-							</div>
-							<div class="form-group">
-								<label>Rules for Performance Measurement:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Rules for Performance Measurement">
-									?
-								</a>
-								<input type="text" class="form-control" value="<?php echo $cost->measurement_rules; ?>" name="measurement_rules">
-							</div>
-							<div class="form-group">
-								<label>Report format:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Report format">
-									?
-								</a>
-								<input type="text" class="form-control" value="<?php echo $cost->format_report; ?>" name="format_report">
-							</div>
-							<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-check"></span>Update</button>
-						</form> 
+						
+
+						<form method="POST" action="<?php echo base_url('GerenciarCustos/insert/'); ?><?php echo $id[0]; ?>">
+
+							 <div class=" col-lg-12 form-group">
+                <label for="project_costs_m"><?=$this->lang->line('manage_cost-project_costs_m')?> *</label> 
+                <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('manage_cost-project_costs_m-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+                <div >                 
+                  <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="project_costs_m" name="project_costs_m" required="true"><?= $cost_mp[0]->project_costs_m;?></textarea>  
+                </div>
+              </div>
+
+
+              			<div class="col-lg-12 form-group">
+                <label for="accuracy_level"><?=$this->lang->line('manage_cost-accuracy_level')?>
+                </label>
+                <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('manage_cost-accuracy_level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+                <div >     
+                  <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="accuracy_level" name="accuracy_level"><?= $cost_mp[0]->accuracy_level;?></textarea>
+                </div>
+              </div>
+
+
+              <div class="col-lg-6 form-group">
+                <label for="organizational_procedures"><?=$this->lang->line('manage_cost-organizational_procedures')?>
+                </label>
+                <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('manage_cost-organizational_procedures-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+                <div >     
+                  <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="organizational_procedures" name="organizational_procedures"><?= $cost_mp[0]->organizational_procedures;?></textarea>
+                </div>
+              </div>
+
+
+              	<div class=" col-lg-6 form-group">
+                <label for="measurement_rules"><?=$this->lang->line('manage_cost-measurement_rules')?></label> 
+                <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('manage_cost-measurement_rules-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+                <div >                 
+                  <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="measurement_rules" name="measurement_rules"><?= $cost_mp[0]->measurement_rules;?></textarea>  
+                </div>
+              </div>
+
+
+              	<div class="col-lg-12 form-group">
+                <label for="format_report"><?=$this->lang->line('manage_cost-format_report')?>
+                </label>
+                <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('manage_cost-format_report-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+                <div >     
+                  <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="format_report" name="format_report"><?= $cost_mp[0]->format_report;?></textarea>
+                </div>
+              </div>
+						
+						<div class="col-lg-12">
+                <button id="new_human_resource-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+                    <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
+                </button> 
+              </form>
+
+              <form action="<?php echo base_url('project/'); ?><?php echo $id; ?>" >
+                <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
+              </form>
+                
+              </div>
 						<?php
 					}
 				}
 				if($valida==false){
 					?>
+					<form method="POST" action="<?php echo base_url('GerenciarCustos/insert/'); ?><?php echo $id[0]; ?>">
 
-					<form method="POST" action="<?php echo base_url('GerenciarCustos/insert/'); ?><?php echo $id; ?>">
-						<div class="form-group">
-							<label>Processes for managing project costs:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Processes for managing project costs">
-									?
-								</a>
-							<input type="text" class="form-control" name="project_costs_m">
-						</div>
-						<div class="form-group">
-							<label>Required accuracy level, limits and units of measure to be used:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Required accuracy level, limits and units of measure to be used">
-									?
-								</a>
-							<input type="text" class="form-control" name="accuracy_level">
-						</div>
-						<div class="form-group">
-							<label>Related Organizational Procedures:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Related Organizational Procedures">
-									?
-								</a>
-							<input type="text" class="form-control" name="organizational_procedures">
-						</div>
-						<div class="form-group">
-							<label>Rules for Performance Measurement:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Rules for Performance Measurement">
-									?
-								</a>
-							<input type="text" class="form-control" name="measurement_rules">
-						</div>
-						<div class="form-group">
-							<label>Report format:</label><a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Report format">
-									?
-								</a>
-							<input type="text" class="form-control" name="format_report">
-						</div>
-						<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
-					</form>
+							 <div class=" col-lg-12 form-group">
+                <label for="project_costs_m"><?=$this->lang->line('manage_cost-project_costs_m')?> *</label> 
+                <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('manage_cost-project_costs_m-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+                <div >                 
+                  <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="project_costs_m" name="project_costs_m" required="true"></textarea>  
+                </div>
+              </div>
+
+
+              			<div class="col-lg-12 form-group">
+                <label for="accuracy_level"><?=$this->lang->line('manage_cost-accuracy_level')?>
+                </label>
+                <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('manage_cost-accuracy_level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+                <div >     
+                  <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="accuracy_level" name="accuracy_level"></textarea>
+                </div>
+              </div>
+
+
+              <div class="col-lg-6 form-group">
+                <label for="organizational_procedures"><?=$this->lang->line('manage_cost-organizational_procedures')?>
+                </label>
+                <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('manage_cost-organizational_procedures-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+                <div >     
+                  <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="organizational_procedures" name="organizational_procedures"></textarea>
+                </div>
+              </div>
+
+
+              	<div class=" col-lg-6 form-group">
+                <label for="measurement_rules"><?=$this->lang->line('manage_cost-measurement_rules')?></label> 
+                <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('manage_cost-measurement_rules-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+                <div >                 
+                  <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="measurement_rules" name="measurement_rules"></textarea>  
+                </div>
+              </div>
+
+
+              	<div class="col-lg-12 form-group">
+                <label for="format_report"><?=$this->lang->line('manage_cost-format_report')?>
+                </label>
+                <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('manage_cost-format_report-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+                <div >     
+                  <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="format_report" name="format_report"></textarea>
+                </div>
+              </div>
+						
+						<div class="col-lg-12">
+                <button id="new_human_resource-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+                    <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
+                </button> 
+              </form>
+
+              <form action="<?php echo base_url('project/'); ?><?php echo $id; ?>" >
+                <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
+              </form>
+                
+              </div>
 					<?php
 				}
 				?>
