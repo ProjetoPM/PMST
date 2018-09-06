@@ -7,6 +7,13 @@ class GerenciarStake extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('Stakeholder_model');
+
+
+		$this->lang->load('btn','english');
+        // $this->lang->load('btn','portuguese-brazilian');
+        $this->lang->load('stakeholder','english');
+        // $this->lang->load('manage-cost','portuguese-brazilian');
+
 	}
 
 	public function addnew($project_id){

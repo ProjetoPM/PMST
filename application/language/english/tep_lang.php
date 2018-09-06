@@ -1,7 +1,7 @@
 <?php
 
 // Title
-$lang['tep-title'] = 'Project Closure Term';
+$lang['tep-title'] = 'Project Closure Report';
 
 //Form 
 $lang['tep-client'] = 'Client';
