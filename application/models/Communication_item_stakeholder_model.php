@@ -11,7 +11,7 @@
 		}
 
 		public function getAllCommunication_item(){
-			$query = $this->db->get('communicatio_item');
+			$query = $this->db->get('communication_item');
 			return $query->result();
 		}
 
