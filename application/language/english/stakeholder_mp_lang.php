@@ -19,6 +19,13 @@ $lang['select-4'] = 'Influece Level';
 $lang['select-5'] = 'Impact Level';
 $lang['select-6'] = 'Current Engagement';
 $lang['select-7'] = 'Desired Engagement';
+
+//options
+$lang['option-1'] = 'Unaware';
+$lang['option-2'] = 'Supportive';
+$lang['option-3'] = 'Leanding';
+$lang['option-4'] = 'Neutral';
+$lang['option-5'] = 'Resistant';
 //Form 
 $lang['stakeholder_mp-text1-tooltip'] = 'Engagement / Management Strategy Example';
 $lang['stakeholder_mp-text2-tooltip'] = 'Scope and Impact of Changes to IP Example';

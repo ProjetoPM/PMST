@@ -97,22 +97,22 @@
           <label for="current_engagement "><?=$this->lang->line('select-6')?></label>
           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-current-engagement-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
           <select name="current_engagement" class="form-control">
-             <option value="unaware">Unaware</option>
-            <option value="supportive">Supportive</option>
-            <option value="leading">Leading</option>
-            <option value="neutral">Neutral</option>
-            <option value="resistant">Resistant</option>
+             <option value="unaware"><?=$this->lang->line('option-1')?></option>
+            <option value="supportive"><?=$this->lang->line('option-2')?></option>
+            <option value="leading"><?=$this->lang->line('option-3')?></option>
+            <option value="neutral"><?=$this->lang->line('option-4')?></option>
+            <option value="resistant"><?=$this->lang->line('option-5')?></option>
           </select>
       </div>
        <div class="col-lg-3 form-group">
           <label for="expected_engagement "><?=$this->lang->line('select-7')?></label>
           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-expected-engagement-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
           <select name="expected_engagement" class="form-control">
-            <option value="unaware">Unaware</option>
-            <option value="supportive">Supportive</option>
-            <option value="leading">Leading</option>
-            <option value="neutral">Neutral</option>
-            <option value="resistant">Resistant</option>
+            <option value="unaware"><?=$this->lang->line('option-1')?></option>
+            <option value="supportive"><?=$this->lang->line('option-2')?></option>
+            <option value="leading"><?=$this->lang->line('option-3')?></option>
+            <option value="neutral"><?=$this->lang->line('option-4')?></option>
+            <option value="resistant"><?=$this->lang->line('option-5')?></option>
           </select>
       </div>
           <div class="col-lg-12 form-group">
