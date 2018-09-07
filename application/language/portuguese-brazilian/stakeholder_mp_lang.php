@@ -12,7 +12,7 @@ $lang['select-impact-level-tooltip'] = 'Selecionar Nível de Impacto Exemplo';
 $lang['select-current-engagement-tooltip'] = 'Selecionar Engajamento Atual Exemplo';
 $lang['select-expected-engagement-tooltip'] = 'Selecionar Engajamento Esperado Exemplo';
 
-$lang['select-1'] = 'Selcionar Partes Interessadas';
+$lang['select-1'] = 'Selecionar Partes Interessadas';
 $lang['select-2'] = 'Nível de Interesse';
 $lang['select-3'] = 'Nível de Poder';
 $lang['select-4'] = 'Nível de Influência';
