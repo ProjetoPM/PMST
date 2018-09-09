@@ -28,8 +28,8 @@
 			return $this->db->update('issues_record', $issues_record);
 		}
 
-		public function deleteIssues_record($id){
-			$this->db->where('issues_record.issues_record_id', $id);
+		public function deleteIssues_record($issues_record_id){
+			$this->db->where('issues_record.issues_record_id', $issues_record_id);
 			return $this->db->delete('issues_record');
 		}
 	}
