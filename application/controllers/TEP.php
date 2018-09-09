@@ -4,9 +4,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class TEP extends CI_Controller {
 
 	function __construct(){
+
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('Tep_model');
+		
+		$this->lang->load('btn','english');
+        // $this->lang->load('btn','portuguese-brazilian');
+        $this->lang->load('tep','english');
+        // $this->lang->load('tep','portuguese-brazilian');
+
+		
 	}
 
 	public function addnew($project_id){

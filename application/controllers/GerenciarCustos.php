@@ -7,6 +7,12 @@ class GerenciarCustos extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('Custos_model');
+
+		$this->lang->load('btn','english');
+        // $this->lang->load('btn','portuguese-brazilian');
+        $this->lang->load('manage-cost','english');
+        // $this->lang->load('manage-cost','portuguese-brazilian');
+
 	}
 
 	public function addnew($project_id){
@@ -20,8 +26,8 @@ class GerenciarCustos extends CI_Controller {
 
 	public function insert($id){
 		$dado['cost_mp'] = $this->Custos_model->getAllCustos();
-		$cost_mp['project_costs_m'] = $this->input->post('project_costs_m');
 		$cost_mp['accuracy_level'] = $this->input->post('accuracy_level');
+		$cost_mp['project_costs_m'] = $this->input->post('project_costs_m');
 		$cost_mp['organizational_procedures'] = $this->input->post('organizational_procedures');
 		$cost_mp['measurement_rules'] = $this->input->post('measurement_rules');
 		$cost_mp['format_report'] = $this->input->post('format_report');
