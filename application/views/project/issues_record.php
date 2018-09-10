@@ -168,6 +168,8 @@ table {
 <div class="col-sm-12">
   <br><br>
   <div style="overflow:scroll;">
+      <?php //var_dump($issues_record) ?>
+
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
@@ -211,10 +213,10 @@ table {
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
                       <h4 class="modal-title">Edit Issues Record</h4>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body">                     
+                      <form action="<?= base_url() ?>issues_record/update/<?php echo $project_id; ?>" method="post">
 
-                      <form action="<?= base_url() ?>issues_record/update/<?php echo $issues_record[0]->issues_record_id; ?>" method="post">
-
+                        <input type="hidden" name="project_id" value="<?php echo $project_id; ?>"> 
                         <input type="hidden" name="status" value="1">                           
                         <!-- Textarea -->
 
