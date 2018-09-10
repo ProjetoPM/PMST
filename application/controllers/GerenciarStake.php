@@ -7,6 +7,13 @@ class GerenciarStake extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('Stakeholder_model');
+
+
+		$this->lang->load('btn','english');
+        // $this->lang->load('btn','portuguese-brazilian');
+        $this->lang->load('stakeholder','english');
+        // $this->lang->load('manage-cost','portuguese-brazilian');
+
 	}
 
 	public function addnew($project_id){
@@ -30,13 +37,13 @@ class GerenciarStake extends CI_Controller {
 		$stakeholder_register['main_expectations'] = $this->input->post('main_expectations');
 		$stakeholder_register['interest_phase'] = $this->input->post('interest_phase');
 		$stakeholder_register['observations'] = $this->input->post('observations');
-		$dado['project_id'] = $id;
+		$stakeholder_register['project_id'] = $id;
 		$query = $this->Stakeholder_model->insertStakes($stakeholder_register);
 		
 		if($query){
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/sidebar_nav_view');
-			redirect('project/' . $dado['project_id']);
+			redirect('project/' . $stakeholder_register['project_id']);
 		}
 
 	}

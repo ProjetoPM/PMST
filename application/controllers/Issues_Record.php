@@ -62,7 +62,9 @@ class Issues_Record extends CI_Controller{
 		$issues_record['status'] = $this->input->post('status');
 		$issues_record['project_id'] = $this->input->post('project_id');
 	
-		$query = $this->Issues_record_model->updateIssues_record($issues_record, $id);
+		//var_dump($issues_record);
+	    $data['issues_record'] = $issues_record;
+      	$query = $this->Issues_record_model->updateIssues_record($data['issues_record'], $id);
 
 		if ($query) {
 			redirect('projects');
@@ -72,7 +74,7 @@ class Issues_Record extends CI_Controller{
 	public function delete($issues_record_id){
         $query = $this->Issues_record_model->deleteIssues_record($issues_record_id);
         if($query){
-            redirect('project/' . $id);
+            redirect('projects/' . $id);
         }
     }
 }
