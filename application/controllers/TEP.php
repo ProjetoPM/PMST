@@ -29,7 +29,7 @@ class TEP extends CI_Controller {
 	public function insert($id){
 		$dado['project_closure_term'] = $this->Tep_model->getTep();
 		$project_closure_term['client'] = $this->input->post('client');
-		$project_closure_term['closing_date'] = $this->input->post('closing_date');
+		$project_closure_term['project_closure_date'] = $this->input->post('project_closure_date');
 		$project_closure_term['changes_approved'] = $this->input->post('changes_approved');
 		$project_closure_term['main_deviations'] = $this->input->post('main_deviations');
 		$project_closure_term['lessons_learned'] = $this->input->post('lessons_learned');
