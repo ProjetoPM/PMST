@@ -31,7 +31,8 @@
       <a class="btn btn-workflow btn-lg" href="<?=base_url("GerenciarStake/addnew/".$project[0]->project_id) ?>">STAKEHOLDER</a>
       <a class="btn btn-workflow btn-lg" href="<?=base_url("Stakeholder_mp/stakeholder_mp_form/".$project[0]->project_id) ?>">STAKEHOLDER MP</a>
       <a class="btn btn-workflow btn-lg" href="<?=base_url("TEP/addnew/".$project[0]->project_id) ?>">TEP</a>
-           <a class="btn btn-workflow btn-lg" href="<?=base_url("Issues_Record/addIssuesRecord/".$project[0]->project_id) ?>">ISSUES RECORD</a>
+      <a class="btn btn-workflow btn-lg" href="<?=base_url("Issues_Record/addIssuesRecord/".$project[0]->project_id) ?>">ISSUES RECORD</a>
+      <a class="btn btn-workflow btn-lg" href="<?=base_url()?>Notification_board/notification_board_form/<?php echo $project[0]->project_id;?>">NOTIFICATION BOARD</a>
      </div>
     </div>
    </div>

@@ -1,7 +1,7 @@
 <div id="page-wrapper">
   <div class="row">
     <div class="col-lg-12">
-    <h1 class="pageheader"> <?=$this->lang->line('issues_record-title')  ?></h1>
+      <h1 class="pageheader"> <?=$this->lang->line('issues_record-title')  ?></h1>
     </div>
     <!-- /.col-lg-12 -->
   </div>
@@ -36,271 +36,265 @@
                   <form action="<?= base_url() ?>issues_record/insert/" method="post">
 
                     <input type="hidden" name="project_id" value="<?php echo $project_id[0]; ?>">
-                     <input type="hidden" name="status" value="1">
+                    <input type="hidden" name="status" value="1">
 
                     <div class="form-group">
                       <label for="responsable"><?=$this->lang->line('ir-identification')?></label>
-                          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-identification-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+                      <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-identification-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                       <textarea class="form-control" id="identification"  name="identification" maxlength="45"></textarea>
                     </div>
 
                     <!-- Textarea -->
                     <div class="form-group">
-                       <label for="identification_date"><?=$this->lang->line('ir-identification_date')?></label>
-                           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-identification_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-                      <textarea class="form-control" id="identification_date"  name="identification_date" maxlength="45"></textarea>
-                    </div>
+                     <label for="identification_date"><?=$this->lang->line('ir-identification_date')?></label>
+                     <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-identification_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+                     <textarea class="form-control" id="identification_date"  name="identification_date" maxlength="45"></textarea>
+                   </div>
 
-                    <div class="form-group">
+                   <div class="form-group">
                      <label for="question_description"><?=$this->lang->line('ir-question_description')?></label>
-                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-question_description-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-                      <textarea class="form-control" id="question_description"  name="question_description" maxlength="255"></textarea>
-                    </div>
+                     <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-question_description-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+                     <textarea class="form-control" id="question_description"  name="question_description" maxlength="255"></textarea>
+                   </div>
 
-                    <div class="form-group">
-                <label for="type"><?=$this->lang->line('ir-type')?></label>                      
-                <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-type-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-                      
-                      <textarea class="form-control" id="type"  name="type" maxlength="255"></textarea>
-                    </div>
+                   <div class="form-group">
+                    <label for="type"><?=$this->lang->line('ir-type')?></label>                      
+                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-type-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-                    <div class="form-group">
+                    <textarea class="form-control" id="type"  name="type" maxlength="255"></textarea>
+                  </div>
+
+                  <div class="form-group">
                     <label for="responsable"><?=$this->lang->line('ir-responsable')?></label>
-                          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-responsable-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-                      <textarea class="form-control" id="responsable"  name="responsable" maxlength="45"></textarea>
-                    </div>
+                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-responsable-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <textarea class="form-control" id="responsable"  name="responsable" maxlength="45"></textarea>
+                  </div>
 
-                    <div class="form-group">
-                      <label for="situation"><?=$this->lang->line('ir-situation')?></label>
-                      <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-situation-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-                      <textarea class="form-control" id="situation"  name="situation" maxlength="45"></textarea>
-                    </div>
+                  <div class="form-group">
+                    <label for="situation"><?=$this->lang->line('ir-situation')?></label>
+                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-situation-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <textarea class="form-control" id="situation"  name="situation" maxlength="45"></textarea>
+                  </div>
 
-                    <div class="form-group">
-                     <label for="action"><?=$this->lang->line('ir-action')?></label>
-                           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-action-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-                      <textarea class="form-control" id="action"  name="action" maxlength="45"></textarea>
-                    </div>
+                  <div class="form-group">
+                   <label for="action"><?=$this->lang->line('ir-action')?></label>
+                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-action-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+                   <textarea class="form-control" id="action"  name="action" maxlength="45"></textarea>
+                 </div>
 
-                    <div class="form-group">
-                     <label for="resolution_date"><?=$this->lang->line('ir-resolution_date')?></label>
-                           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-resolution_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-                      <textarea class="form-control" id="resolution_date" name="resolution_date" maxlength="45"></textarea>
-                    </div>
+                 <div class="form-group">
+                   <label for="resolution_date"><?=$this->lang->line('ir-resolution_date')?></label>
+                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-resolution_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+                   <textarea class="form-control" id="resolution_date" name="resolution_date" maxlength="45"></textarea>
+                 </div>
 
-                    <div class="form-group">
-                     <label for="replan_date"><?=$this->lang->line('ir-replan_date')?></label>
-                           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-replan_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-                    <textarea class="form-control" id="replan_date"  name="replan_date" maxlength="45"></textarea>
-                    </div>
-                    <div class="form-group">
+                 <div class="form-group">
+                   <label for="replan_date"><?=$this->lang->line('ir-replan_date')?></label>
+                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-replan_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+                   <textarea class="form-control" id="replan_date"  name="replan_date" maxlength="45"></textarea>
+                 </div>
+                 <div class="form-group">
                   <label for="observations"><?=$this->lang->line('ir-observations')?></label>
-                        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-observations-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-                      <textarea class="form-control" id="observations" "name="observations" maxlength="45"></textarea>
-                    </div>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-replan_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <textarea class="form-control" id="observations"  name="observations" maxlength="45"></textarea>
+                </div>
 
-                    <button type="submit" class="btn btn-lg btn-success btn-block">Save</button>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-lg btn-default btn-block" data-dismiss="modal">Close</button>
-                </div>
-              </div>
+                <button type="submit" class="btn btn-lg btn-success btn-block">Save</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-lg btn-default btn-block" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
 
 
 
 
 
-    <style>
-    table {
-    border-spacing: 0;
-    border-collapse: collapse;
-    min-width:50px;/*valor minimo px,cm,% etc.*/;
-    max-width:100px;/*valor maximo px,,cm,% etc.*/;
-    word-wrap:break-word;
-    white-space: nowrap;
-    }
+<style>
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  min-width:50px;/*valor minimo px,cm,% etc.*/;
+  max-width:100px;/*valor maximo px,,cm,% etc.*/;
+  word-wrap:break-word;
+  white-space: nowrap;
+}
 
-     .table { 
-      width: 100%;
-      margin-bottom: 20px;
-    }
+.table { 
+  width: 100%;
+  margin-bottom: 20px;
+}
 
-    .table th,
-    .table td {
-      font-weight: normal;
-      font-size: 13px;
-      padding: 8px 15px;
-      line-height: 20px;
-      text-align: left;
-      vertical-align: middle;
-      border-top: 1px solid #dddddd;
-    }
-    .table thead th {
-      background: #eeeeee;
-      vertical-align: bottom;
-    }   
-    .table tbody > tr:nth-child(odd) > td,
-    .table tbody > tr:nth-child(odd) > th {
-      background-color: #fafafa;
-    }    
-    .table .t-small {
-      width: 8%;
-    }
-    .table .t-medium {
-      width: 13%;
-    }
+.table th,
+.table td {
+  font-weight: normal;
+  font-size: 13px;
+  padding: 8px 15px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: middle;
+  border-top: 1px solid #dddddd;
+}
+.table thead th {
+  background: #eeeeee;
+  vertical-align: bottom;
+}   
+.table tbody > tr:nth-child(odd) > td,
+.table tbody > tr:nth-child(odd) > th {
+  background-color: #fafafa;
+}    
+.table .t-small {
+  width: 8%;
+}
+.table .t-medium {
+  width: 13%;
+}
 
-  </style>
-
-
+</style>
 
 
 
 
-  
-    <div class="col-sm-12">
-      <br><br>
-      <div style="overflow:scroll;">
-        <table class="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Description</th>
-              <th>Content</th>
-              <th>Distribution Reason </th>
-              <th>Language</th>
-              <th>Channel</th>
-              <th>Document Format</th>
-              <th>Method</th>
-              <th>Frequency</th>
-              <th>Allocated Resources</th>
-              <th>Format</th>
-              <th>Local</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            foreach ($communication_item as $item) {
-              ?>
-              <tr>
-                <td><?php echo $item->type;?></td>
-                <td><?php echo $item->description;?></td>
-                <td><?php echo $item->content;?></td>
-                <td><?php echo $item->distribution_reason;?></td>
-                <td><?php echo $item->language;?></td>
-                <td><?php echo $item->channel;?></td>
-                <td><?php echo $item->documento_format;?></td>
-                <td><?php echo $item->metod;?></td>
-                <td><?php echo $item->frequency;?></td>
-                <td><?php echo $item->allocated_resources;?></td>
-                <td><?php echo $item->format;?></td>
-                <td><?php echo $item->local;?></td>
-                <td>
-                  <button type="button" class="open-AddBookDialog btn btn-default btn-lg glyphicon glyphicon-edit" data-id="edit" data-toggle="modal" data-target="#modal">Edit</button>
 
-                  <div class="modal fade" id="modal" role="dialog">
-                    <div class="modal-dialog">
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Edit Communication Item</h4>
+
+
+<div class="col-sm-12">
+  <br><br>
+  <div style="overflow:scroll;">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th><?=$this->lang->line('ir-identification')?></th>
+          <th><?=$this->lang->line('ir-identification_date')?></th>
+          <th><?=$this->lang->line('ir-question_description')?></th>
+          <th><?=$this->lang->line('ir-type')?></th>
+          <th><?=$this->lang->line('ir-responsable')?></th>
+          <th><?=$this->lang->line('ir-situation')?></th>
+          <th><?=$this->lang->line('ir-action')?></th>
+          <th><?=$this->lang->line('ir-resolution_date')?></th>
+          <th><?=$this->lang->line('ir-replan_date')?></th>
+          <th><?=$this->lang->line('ir-observations')?></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        foreach ($issues_record as $item) {
+          ?>
+          <tr>
+            <td><?php echo $item->identification;?></td>
+            <td><?php echo $item->identification_date;?></td>
+            <td><?php echo $item->question_description;?></td>
+            <td><?php echo $item->type;?></td>
+            <td><?php echo $item->responsable;?></td>
+            <td><?php echo $item->situation;?></td>
+            <td><?php echo $item->action;?></td>
+            <td><?php echo $item->resolution_date;?></td>
+            <td><?php echo $item->replan_date;?></td>
+            <td><?php echo $item->observations;?></td>
+
+            <td>
+              <button type="button" class="open-AddBookDialog btn btn-default btn-lg glyphicon glyphicon-edit" data-id="edit" data-toggle="modal" data-target="#modal">Edit</button>
+
+              <div class="modal fade" id="modal" role="dialog">
+                <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Edit Issues Record</h4>
+                    </div>
+                    <div class="modal-body">
+
+                      <form action="<?= base_url() ?>issues_record/update/<?php echo $issues_record[0]->issues_record_id; ?>" method="post">
+
+                        <input type="hidden" name="status" value="1">                           
+                        <!-- Textarea -->
+
+
+                        <div class="form-group">
+                          <label for="identification"><?=$this->lang->line('ir-identification')?></label>                    
+                          <textarea class="form-control" id="identification"  name="identification" maxlength="45"><?php echo $issues_record[0]->identification; ?></textarea>
                         </div>
-                        <div class="modal-body">
-                          <form action="<?= base_url() ?>communication_item/update/<?php echo $communication_item[0]->communication_item_id; ?>" method="post">
-                            <div class="form-group">
-                              <label>Type</label>
-                              <textarea class="form-control" id="type" placeholder="Type" name="type" maxlength="45"><?php echo $communication_item[0]->type; ?></textarea>
-                            </div>
-                            <!-- Textarea -->
-                            <div class="form-group">
-                              <label>Description</label>
-                              <textarea class="form-control" id="description" placeholder="Description" name="description" maxlength="45"><?php echo $communication_item[0]->description; ?></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label>Content</label>
-                              <textarea class="form-control" id="content" placeholder="Content" name="content" maxlength="255"><?php echo $communication_item[0]->content; ?></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label>Distribution Reason</label>
-                              <textarea class="form-control" id="distribution_reason" placeholder="Distribution Reason" name="distribution_reason" maxlength="255"><?php echo $communication_item[0]->distribution_reason; ?></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label>Language</label>
-                              <textarea class="form-control" id="language" placeholder="Language" name="language" maxlength="45"><?php echo $communication_item[0]->language; ?></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label>Channel</label>
-                              <textarea class="form-control" id="channel" placeholder="Channel" name="channel" maxlength="45"><?php echo $communication_item[0]->channel; ?></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label>Document Format</label>
-                              <textarea class="form-control" id="documento_format" placeholder="Document Format" name="documento_format" maxlength="45"><?php echo $communication_item[0]->documento_format; ?></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label>Method</label>
-                              <textarea class="form-control" id="metod" placeholder="Method" name="metod" maxlength="45"><?php echo $communication_item[0]->metod; ?></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label for="frequency">Frequency</label>
-                              <textarea class="form-control" id="frequency" placeholder="Frequency" name="frequency" maxlength="45"><?php echo $communication_item[0]->frequency; ?></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label for="allocated_resources">Allocated Resources</label>
-                              <textarea class="form-control" id="allocated_resources" placeholder="Allocated Resources" name="allocated_resources" maxlength="45"><?php echo $communication_item[0]->allocated_resources; ?></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label for="format">Format</label>
-                              <div>                     
-                                <textarea class="form-control" id="format" placeholder="Format" name="format" maxlength="45"><?php echo $communication_item[0]->format; ?></textarea>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label for="local">Local</label>
-                              <textarea class="form-control" id="local" placeholder="Local" name="local" maxlength="45"><?php echo $communication_item[0]->local; ?></textarea>
-                            </div>
 
-                            <div class="form-group">
-                              <label>Status:</label>
-                              <input type="radio" <?= $communication_item[0]->status != 1?: "checked"; ?> name="status" value="1">
-                              <label>On</label>
-                              <input type="radio" <?= $communication_item[0]->status != 0?: "checked"; ?> name="status" value="0">
-                              <label>Off</label>
-                            </div>
-                            <button type="submit" class="btn btn-lg btn-success btn-block">Save</button>
-                          </form>
+                        <div class="form-group">
+                          <label for="identification_date"><?=$this->lang->line('ir-identification_date')?></label>                    
+                          <textarea class="form-control" id="identification_date"  name="identification_date" maxlength="45"><?php echo $issues_record[0]->identification_date; ?></textarea>
                         </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-lg btn-default btn-block" data-dismiss="modal">Close</button>
+
+                          <div class="form-group">
+                          <label for="question_description"><?=$this->lang->line('ir-question_description')?></label>                    
+                          <textarea class="form-control" id="question_description"  name="question_description" maxlength="45"><?php echo $issues_record[0]->question_description; ?></textarea>
                         </div>
+
+                          <div class="form-group">
+                          <label for="type"><?=$this->lang->line('ir-type')?></label>                    
+                          <textarea class="form-control" id="type"  name="type" maxlength="45"><?php echo $issues_record[0]->type; ?></textarea>
+                        </div>
+
+                          <div class="form-group">
+                          <label for="responsable"><?=$this->lang->line('ir-responsable')?></label>                    
+                          <textarea class="form-control" id="responsable"  name="responsable" maxlength="45"><?php echo $issues_record[0]->responsable; ?></textarea>
+                        </div>
+
+                          <div class="form-group">
+                          <label for="situation"><?=$this->lang->line('ir-situation')?></label>                    
+                          <textarea class="form-control" id="situation"  name="situation" maxlength="45"><?php echo $issues_record[0]->situation; ?></textarea>
+                        </div>
+
+                          <div class="form-group">
+                          <label for="action"><?=$this->lang->line('ir-action')?></label>                    
+                          <textarea class="form-control" id="action"  name="action" maxlength="45"><?php echo $issues_record[0]->action; ?></textarea>
+                        </div>
+
+                          <div class="form-group">
+                          <label for="resolution_date"><?=$this->lang->line('ir-resolution_date')?></label>                    
+                          <textarea class="form-control" id="resolution_date"  name="resolution_date" maxlength="45"><?php echo $issues_record[0]->resolution_date; ?></textarea>
+                        </div>
+
+                          <div class="form-group">
+                          <label for="replan_date"><?=$this->lang->line('ir-replan_date')?></label>                    
+                          <textarea class="form-control" id="replan_date" name="replan_date" maxlength="45"><?php echo $issues_record[0]->replan_date; ?></textarea>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="observations"><?=$this->lang->line('ir-observations')?></label>                    
+                          <textarea class="form-control" id="observations" name="observations" maxlength="45"><?php echo $issues_record[0]->observations; ?></textarea>
+                        </div>
+
+                          <button type="submit" class="btn btn-lg btn-success btn-block">Save</button>
+
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-lg btn-default btn-block" data-dismiss="modal">Close</button>
                       </div>
                     </div>
                   </div>
+                </div>
 
-
-                  <form action="<?php echo base_url() ?>communication_item/delete/<?php echo $item->communication_item_id; ?>">
+                <<form action="<?php echo base_url() ?>issues_record/delete/<?php echo $item->issues_record_id; ?>">
                     <button type="submit" class="btn btn-danger"><span class="fa fa-trash"></span> Delete</button>
                   </form>
-                </td>
-              </tr> 
-              <?php
-            }
-            ?>
+              </td>
+            </tr> 
+            <?php
+          }
+          ?>
 
-          </tbody>
-        </table> 
-      </div>  
+        </tbody>
+      </table> 
+    </div>  
 
-    </div>
-    
+  </div>
+
 
 
   <!-- /.row -->

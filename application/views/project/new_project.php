@@ -1,7 +1,8 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header"><?=$title?></h1>
+            <!-- <h1 class="page-header"><?=$title?></h1> -->
+            <h1 class="page-header"><?=$this->lang->line('title')?></h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -25,34 +26,43 @@
                 
 
                 <!-- Text input-->
-                <div class="form-group">
-                  <label for="title">Title</label>  
+                <div class="col-lg-12 form-group">
+                  <label for="title"><?=$this->lang->line('project-title')?> *</label>  
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('project-title-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div >
-                  <input id="title" name="title" type="text" placeholder="Title" class="form-control input-md" required="true">
+                  <input id="title" name="title" type="text" class="form-control input-md" required="true">
+                  <!-- <input id="title" name="title" type="text" placeholder="Title" class="form-control input-md" required="true"> -->
                     
                   </div>
                 </div>
 
                 <!-- Textarea -->
-                <div class="form-group">
-                  <label for="description">Description</label>
+                <div class="col-lg-6 form-group">
+                  <label for="description"><?=$this->lang->line('project-description')?></label>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('project-description-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div >                     
-                    <textarea class="form-control" id="description" name="description"></textarea>
+                    <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="description" name="description"></textarea>
                   </div>
                 </div>
 
                 <!-- Textarea -->
-                <div class="form-group">
-                  <label for="objectives">Objectives</label>
+                <div class="col-lg-6 form-group">
+                  <label for="objectives"><?=$this->lang->line('project-objectives')?></label>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('project-objectives-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div >                     
-                    <textarea class="form-control" id="objectives" name="objectives"></textarea>
+                    <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="objectives" name="objectives"></textarea>
                   </div>
                 </div>
-                <input id="new_project-submit" type="submit" value="Create" class="btn btn-lg btn-success btn-block">
-
-                
-            </form>
-
+  
+                <div class="col-lg-12">
+                  <button id="new_project-submit" type="submit" value="Create" class="btn btn-lg btn-success pull-right">
+                    <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
+                 </button> 
+              </form>
+              <form action="<?php echo base_url('dashboard/'); ?>" >
+                <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
+              </form>
+              </div>
 
         </div>
         <!-- /.col-lg-12 -->
