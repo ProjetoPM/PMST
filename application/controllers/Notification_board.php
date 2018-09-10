@@ -56,6 +56,13 @@ class Notification_board extends CI_Controller{
         if($query){
             redirect('projects');
         }
+    }
+
+        public function delete($id){
+        $query = $this->notification_board_model->deleteNotification_board($id);
+        if($query){
+            redirect('project/' . $id);
+        }
     }        
 }
 ?>

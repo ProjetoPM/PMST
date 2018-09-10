@@ -1,3 +1,53 @@
+
+<style>
+.table-bordered {
+  border: 1px solid #4c4848;
+}
+table {
+  border-spacing: 0;
+  min-width:50px;/*valor minimo px,cm,% etc.*/;
+  max-width:100%;/*valor maximo px,,cm,% etc.*/;
+  word-wrap:break-word;
+  white-space: nowrap;
+  box-sizing: border-box;
+  border-collapse: separate;
+  max-height: 200px;
+  min-height: 3px;
+  text-align: center;
+  padding: 7px;
+  position: relative;
+  vertical-align: middle;
+  writing-mode: sideways-lr;
+  word-break: break-all;
+}
+th{      
+  font-size: 13px;
+  height: auto;
+  text-align: center;
+  color: white;
+}
+td {
+  font-weight: normal;      
+  font-size: 13px;
+  height: auto;
+  text-align: left;        
+}
+.table thead th {
+  background: linear-gradient(-180deg, #a94809, #d68e39);
+  vertical-align: middle;
+}   
+.table tbody > tr:nth-child(odd) > td,
+.table tbody > tr:nth-child(odd) > th {
+  background-color: #fafafa;
+}    
+.table .t-small {
+  width: 8%;
+}
+.table .t-medium {
+  width: 13%;
+}
+</style>
+
 <div id="page-wrapper">
   <div class="row" position="absolute">
     <div class="col-lg-12">
@@ -23,7 +73,7 @@
         <div class="col-lg-12">
           <div class="container">
             <!-- Trigger the modal with a button -->
-            <button type="button" class="open-AddBookDialog btn btn-info btn-lg glyphicon-plus" data-toggle="modal" data-target="#add"> New Communication Item</button>
+            <button type="button" class="open-AddBookDialog btn btn-info btn-lg glyphicon-plus" data-toggle="modal" data-target="#add"> New Notification Board</button>
             <!-- Modal -->
             <div class="modal fade" id="add" role="dialog">
               <div class="modal-dialog">
@@ -31,93 +81,42 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">New Communication Item</h4>
+                    <h4 class="modal-title">New Notification Board</h4>
                   </div>
                   <div class="modal-body">
-                    <form action="<?= base_url() ?>communication_item/insert/" method="post">
+                    <form action="<?= base_url() ?>notification_board/insert/" method="post">
 
                       <input type="hidden" name="project_id" value="<?php echo $project_id[0]; ?>">
                       <div class="form-group">
-                        <label>Type</label>
-                        <a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Here goes the type of the Communication Item">
-                          ?
-                        </a>
-                        <textarea class="form-control" id="type" placeholder="Type" name="type" maxlength="45"></textarea>
+                        <label>Running Activities</label>
+                        <a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="running_activities">?</a>
+                        <textarea class="form-control" id="running_activities" placeholder="Running Activities" name="running_activities"></textarea>
                       </div>
 
                       <!-- Textarea -->
                       <div class="form-group">
-                        <label>Description</label>
-                        <textarea class="form-control" id="description" placeholder="Description" name="description" maxlength="45"></textarea>
+                        <label>Important Activities</label>
+                        <a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="important_activities">?</a>
+                        <textarea class="form-control" id="important_activities" placeholder="Important Activities" name="important_activities"></textarea>
                       </div>
 
                       <div class="form-group">
-                        <label>Content</label>
-                        <textarea class="form-control" id="content" placeholder="Content" name="content" maxlength="255"></textarea>
+                        <label>Open Issues</label>
+                        <a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="open_issues">?</a>
+                        <textarea class="form-control" id="open_issues" placeholder="Open Issues" name="open_issues"></textarea>
                       </div>
 
                       <div class="form-group">
-                        <label>Distribution Reason</label>
-                        <textarea class="form-control" id="distribution_reason" placeholder="Distribution Reason" name="distribution_reason" maxlength="255"></textarea>
+                        <label>Changes Approval</label>
+                        <a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="changes_approval">?</a>
+                        <textarea class="form-control" id="changes_approval" placeholder="Changes Approval" name="changes_approval"></textarea>
                       </div>
 
                       <div class="form-group">
-                        <label>Language</label>
-                        <select class="form-control" name="language" required="">
-                          <option></option>
-                          <option value="English">English</option>
-                          <option value="Portuguese">Portuguese Brazil</option>
-                          <option value="Portuguese Portugal">Portuguese Portugal</option>
-                          <option value="Spanish">Spanish</option>
-                          <option value="Dutch">Dutch</option>
-                        </select>
+                        <label>General Warnings</label>
+                        <a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="general_warnings">?</a>
+                        <textarea class="form-control" id="general_warnings" placeholder="General Warnings" name="general_warnings"></textarea>
                       </div>
-
-                      <div class="form-group">
-                        <label>Channel</label>
-                        <textarea class="form-control" id="channel" placeholder="Channel" name="channel" maxlength="45"></textarea>
-                      </div>
-
-                      <div class="form-group">
-                        <label>Document Format</label>
-                        <textarea class="form-control" id="documento_format" placeholder="Document Format" name="documento_format" maxlength="45"></textarea>
-                      </div>
-
-                      <div class="form-group">
-                        <label>Method</label>
-                        <textarea class="form-control" id="metod" placeholder="Method" name="metod" maxlength="45"></textarea>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="frequency">Frequency</label>
-                        <textarea class="form-control" id="frequency" placeholder="Frequency" name="frequency" maxlength="45"></textarea>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="allocated_resources">Allocated Resources</label>
-                        <textarea class="form-control" id="allocated_resources" placeholder="Allocated Resources" name="allocated_resources" maxlength="45"></textarea>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="format">Format</label>
-                        <div>                     
-                          <textarea class="form-control" id="format" placeholder="Format" name="format" maxlength="45"></textarea>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="local">Local</label>
-                        <textarea class="form-control" id="local" placeholder="Local" name="local" maxlength="45"></textarea>
-                      </div>
-
-                      <div class="form-group">
-                        <label>Status:</label>
-                        <input type="radio" name="status" value="1" required>
-                        <label>On</label>
-                        <input type="radio" name="status" value="0" required>
-                        <label>Off</label>                
-                      </div>
-
                       <button type="submit" class="btn btn-lg btn-success btn-block">Save</button>
                     </form>
                   </div>
@@ -131,172 +130,79 @@
         </div>
       </div>
 
-      <style>
-      .table-bordered {
-        border: 1px solid #4c4848;
-      }
-      table {
-        border-spacing: 0;
-        min-width:50px;/*valor minimo px,cm,% etc.*/;
-        max-width:100%;/*valor maximo px,,cm,% etc.*/;
-        word-wrap:break-word;
-        white-space: nowrap;
-        box-sizing: border-box;
-        border-collapse: separate;
-        max-height: 200px;
-        min-height: 3px;
-        text-align: center;
-        padding: 7px;
-        position: relative;
-        vertical-align: middle;
-        writing-mode: sideways-lr;
-        word-break: break-all;
-      }
-      th{      
-        font-size: 13px;
-        height: auto;
-        text-align: center;
-        color: white;
-      }
-      td {
-        font-weight: normal;      
-        font-size: 13px;
-        height: auto;
-        text-align: left;        
-      }
-      .table thead th {
-        background: linear-gradient(-180deg, #a94809, #d68e39);
-        vertical-align: middle;
-      }   
-      .table tbody > tr:nth-child(odd) > td,
-      .table tbody > tr:nth-child(odd) > th {
-        background-color: #fafafa;
-      }    
-      .table .t-small {
-        width: 8%;
-      }
-      .table .t-medium {
-        width: 13%;
-      }
-    </style>
-
-
-    
-    <div class="col-sm-12" align="center">
-      <br><br>
-      <p> <strong>Table Communication Items</strong> </p>
-      <div style="overflow:scroll;max-height: 500px;  align = "center">
-        <table class="table table-bordered table-striped" align="center">
-          <thead>
-            <tr>
-              <th align="t-small">Type</th>
-              <th>Description</th>
-              <th>Content</th>
-              <th>Distribution Reason </th>
-              <th align="text-align">Language</th>
-              <th>Channel</th>
-              <th>Document Format</th>
-              <th>Method</th>
-              <th>Frequency</th>
-              <th>Allocated Resources</th>
-              <th>Format</th>
-              <th>Local</th>
-              <th >Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            foreach ($communication_item as $item) {
-              ?>
+      <div class="col-sm-12" align="center">
+        <br><br>
+        <p> <strong>Notification Board</strong> </p>
+        <div style="overflow:scroll;max-height: 500px;  align = "center">
+          <table class="table table-bordered table-striped" align="center">
+            <thead>
               <tr>
+                <th align="t-small">Running Activities</th>
+                <th>Important Activities</th>
+                <th>Open Issues</th>
+                <th>Changes Approval Reason </th>
+                <th>General Warnings</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              foreach ($notification_board as $notification_board) {
+                ?>
+                <tr>
 
-                <td><?= $item->type; ?></td>
-                <td><?php echo $item->description;?></td>
-                <td><?php echo $item->content;?></td>
-                <td><?php echo $item->distribution_reason;?></td>
-                <td><?php echo $item->language;?></td>
-                <td><?php echo $item->channel;?></td>
-                <td><?php echo $item->documento_format;?></td>
-                <td><?php echo $item->metod;?></td>
-                <td><?php echo $item->frequency;?></td>
-                <td><?php echo $item->allocated_resources;?></td>
-                <td><?php echo $item->format;?></td>
-                <td><?php echo $item->local;?></td>
-                <td>
-                <form action="<?php echo base_url() ?>communication_item/delete/<?php echo $item->communication_item_id; ?>">
-                   <a> <button type="button" class="btn btn-default" data-id="edit" data-toggle="modal" data-target="#modal"><em class="fa fa-pencil"></em><span class="hidden-xs"> Edit</span></button></a> ||
-                   
-                   <a><button type="submit" class="btn btn-danger"><em class="fa fa-trash"></em><span class="hidden-xs"> Delete</span></button>
-                    </a></form>
-                    
-                  <div class="modal fade" id="modal" role="dialog">
+                  <td><?= $notification_board->running_activities; ?></td>
+                  <td><?php echo $notification_board->important_activities;?></td>
+                  <td><?php echo $notification_board->open_issues;?></td>
+                  <td><?php echo $notification_board->changes_approval;?></td>
+                  <td><?php echo $notification_board->general_warnings;?></td>
+                  <td>
+                    <form action="<?php echo base_url() ?>notification_board/delete/<?php echo $notification_board->notification_board_id; ?>">
+                     <a> <button type="button" class="btn btn-default" data-id="edit" data-toggle="modal" data-target="#modal"><em class="fa fa-pencil"></em><span class="hidden-xs"> Edit</span></button></a> ||
+                     <a><button type="submit" class="btn btn-danger"><em class="fa fa-trash"></em><span class="hidden-xs"> Delete</span></button>
+                     </a>
+                   </form>
+
+                   <div class="modal fade" id="modal" role="dialog">
                     <div class="modal-dialog">
                       <!-- Modal content-->
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Edit Communication Item</h4>
+                          <h4 class="modal-title">Edit Notification Board</h4>
                         </div>
                         <div class="modal-body">
-                          <form action="<?= base_url() ?>communication_item/update/<?php echo $communication_item[0]->communication_item_id; ?>" method="post">
+                          <form action="<?= base_url() ?>notification_board/update/<?php echo $notification_board->notification_board_id; ?>" method="post">
+                            <input type="hidden" name="project_id" value="<?php echo $notification_board->project_id?>">
                             <div class="form-group">
-                              <label>Type</label>
-                              <textarea class="form-control" id="type" placeholder="Type" name="type" maxlength="45"><?php echo $communication_item[0]->type; ?></textarea>
+                              <label>Running Activities</label>
+                              <a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="running_activities">?</a>
+                              <textarea class="form-control" id="running_activities" placeholder="Running Activities" name="running_activities"><?php echo $notification_board->running_activities?></textarea>
                             </div>
+
                             <!-- Textarea -->
                             <div class="form-group">
-                              <label>Description</label>
-                              <textarea class="form-control" id="description" placeholder="Description" name="description" maxlength="45"><?php echo $communication_item[0]->description; ?></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label>Content</label>
-                              <textarea class="form-control" id="content" placeholder="Content" name="content" maxlength="255"><?php echo $communication_item[0]->content; ?></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label>Distribution Reason</label>
-                              <textarea class="form-control" id="distribution_reason" placeholder="Distribution Reason" name="distribution_reason" maxlength="255"><?php echo $communication_item[0]->distribution_reason; ?></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label>Language</label>
-                              <textarea class="form-control" id="language" placeholder="Language" name="language" maxlength="45"><?php echo $communication_item[0]->language; ?></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label>Channel</label>
-                              <textarea class="form-control" id="channel" placeholder="Channel" name="channel" maxlength="45"><?php echo $communication_item[0]->channel; ?></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label>Document Format</label>
-                              <textarea class="form-control" id="documento_format" placeholder="Document Format" name="documento_format" maxlength="45"><?php echo $communication_item[0]->documento_format; ?></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label>Method</label>
-                              <textarea class="form-control" id="metod" placeholder="Method" name="metod" maxlength="45"><?php echo $communication_item[0]->metod; ?></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label for="frequency">Frequency</label>
-                              <textarea class="form-control" id="frequency" placeholder="Frequency" name="frequency" maxlength="45"><?php echo $communication_item[0]->frequency; ?></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label for="allocated_resources">Allocated Resources</label>
-                              <textarea class="form-control" id="allocated_resources" placeholder="Allocated Resources" name="allocated_resources" maxlength="45"><?php echo $communication_item[0]->allocated_resources; ?></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label for="format">Format</label>
-                              <div>                     
-                                <textarea class="form-control" id="format" placeholder="Format" name="format" maxlength="45"><?php echo $communication_item[0]->format; ?></textarea>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label for="local">Local</label>
-                              <textarea class="form-control" id="local" placeholder="Local" name="local" maxlength="45"><?php echo $communication_item[0]->local; ?></textarea>
+                              <label>Important Activities</label>
+                              <a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="important_activities">?</a>
+                              <textarea class="form-control" id="important_activities" placeholder="Important Activities" name="important_activities"><?php echo $notification_board->important_activities?></textarea>
                             </div>
 
                             <div class="form-group">
-                              <label>Status:</label>
-                              <input type="radio" <?= $communication_item[0]->status != 1?: "checked"; ?> name="status" value="1">
-                              <label>On</label>
-                              <input type="radio" <?= $communication_item[0]->status != 0?: "checked"; ?> name="status" value="0">
-                              <label>Off</label>
+                              <label>Open Issues</label>
+                              <a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="open_issues">?</a>
+                              <textarea class="form-control" id="open_issues" placeholder="Open Issues" name="open_issues"><?php echo $notification_board->open_issues?></textarea>
+                            </div>
+
+                            <div class="form-group">
+                              <label>Changes Approval</label>
+                              <a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="changes_approval">?</a>
+                              <textarea class="form-control" id="changes_approval" placeholder="Changes Approval" name="changes_approval"><?php echo $notification_board->changes_approval?></textarea>
+                            </div>
+
+                            <div class="form-group">
+                              <label>General Warnings</label>
+                              <a href="#" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="general_warnings">?</a>
+                              <textarea class="form-control" id="general_warnings" placeholder="General Warnings" name="general_warnings"><?php echo $notification_board->general_warnings?></textarea>
                             </div>
                             <button type="submit" class="btn btn-lg btn-success btn-block">Save</button>
                           </form>
