@@ -35,6 +35,7 @@
 					<!-- valor 0 para externo | valor 1 para interno -->
 					<div class="col-lg-3 form-group">
 						<label for="type"><?=$this->lang->line('stakeholder-type')?></label>
+						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-type-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<select name="type" class="form-control">
 							<option value="0"><?=$this->lang->line('stakeholder-type-external')?></option>
 							<option value="1"><?=$this->lang->line('stakeholder-type-internal')?></option>
@@ -45,6 +46,7 @@
 					<!-- valor 0 para cliente| valor 1 para team| valor 2 para provedor | valor 3 para gerente | valor 4 para patrocinador | valor 5 para outros -->
 					<div class="col-lg-3 form-group">
 						<label for="role"><?=$this->lang->line('stakeholder-role')?></label>
+						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-role-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<select name="role" class="form-control">
 							<option value="0"><?=$this->lang->line('stakeholder-role-client')?></option>
 							<option value="1"><?=$this->lang->line('stakeholder-role-team')?></option>
