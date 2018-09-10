@@ -61,19 +61,6 @@
                         <textarea class="form-control" id="distribution_reason" placeholder="Distribution Reason" name="distribution_reason" maxlength="255"></textarea>
                       </div>
 
-<<<<<<< HEAD
-                    <div class="form-group">
-                      <label>Language</label>
-                      <select class="form-control" name="language">
-                        <option></option>
-                        <option value="English">English</option>
-                        <option value="Portuguese">Portuguese Brazil</option>
-                        <option value="Portuguese Portugal">Portuguese Portugal</option>
-                        <option value="Spanish">Spanish</option>
-                        <option value="Dutch">Dutch</option>
-                      </select>
-                    </div>
-=======
                       <div class="form-group">
                         <label>Language</label>
                         <select class="form-control" name="language" required="">
@@ -85,7 +72,6 @@
                           <option value="Dutch">Dutch</option>
                         </select>
                       </div>
->>>>>>> 903adf18e9de9a4bd84c010dff1da688bfcfe3b3
 
                       <div class="form-group">
                         <label>Channel</label>
@@ -124,15 +110,6 @@
                         <textarea class="form-control" id="local" placeholder="Local" name="local" maxlength="45"></textarea>
                       </div>
 
-<<<<<<< HEAD
-                    <div class="form-group">
-                      <label>Status:</label>
-                      <input type="radio" name="status" value="1">
-                      <label>On</label>
-                      <input type="radio" name="status" value="0">
-                      <label>Off</label>                
-                    </div>
-=======
                       <div class="form-group">
                         <label>Status:</label>
                         <input type="radio" name="status" value="1" required>
@@ -140,7 +117,6 @@
                         <input type="radio" name="status" value="0" required>
                         <label>Off</label>                
                       </div>
->>>>>>> 903adf18e9de9a4bd84c010dff1da688bfcfe3b3
 
                       <button type="submit" class="btn btn-lg btn-success btn-block">Save</button>
                     </form>
@@ -154,36 +130,11 @@
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-    </div>
-
-
-
-
-
-
-    <style>
-    table {
-      border-spacing: 0;
-      border-collapse: collapse;
-      min-width:50px;/*valor minimo px,cm,% etc.*/;
-      max-width:100px;/*valor maximo px,,cm,% etc.*/;
-      word-wrap:break-word;
-      white-space: nowrap;
-    }
-
-    .table { 
-      width: 100%;
-      margin-bottom: 20px;
-    }
-=======
->>>>>>> 903adf18e9de9a4bd84c010dff1da688bfcfe3b3
 
       <style>
       .table-bordered {
         border: 1px solid #4c4848;
       }
-
       table {
         border-spacing: 0;
         min-width:50px;/*valor minimo px,cm,% etc.*/;
@@ -200,9 +151,7 @@
         vertical-align: middle;
         writing-mode: sideways-lr;
         word-break: break-all;
-
       }
-
       th{      
         font-size: 13px;
         height: auto;
@@ -215,7 +164,6 @@
         height: auto;
         text-align: left;        
       }
-
       .table thead th {
         background: linear-gradient(-180deg, #a94809, #d68e39);
         vertical-align: middle;
@@ -230,109 +178,8 @@
       .table .t-medium {
         width: 13%;
       }
-
     </style>
 
-<<<<<<< HEAD
-  </style>
-  
-  <div class="col-sm-12">
-    <br><br>
-    <div style="overflow:scroll;">
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Content</th>
-            <th>Distribution Reason </th>
-            <th>Language</th>
-            <th>Channel</th>
-            <th>Document Format</th>
-            <th>Method</th>
-            <th>Frequency</th>
-            <th>Allocated Resources</th>
-            <th>Format</th>
-            <th>Local</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          foreach ($communication_item as $item) {
-            ?>
-            <tr>
-              <td><?php echo $item->type;?></td>
-              <td><?php echo $item->description;?></td>
-              <td><?php echo $item->content;?></td>
-              <td><?php echo $item->distribution_reason;?></td>
-              <td><?php echo $item->language;?></td>
-              <td><?php echo $item->channel;?></td>
-              <td><?php echo $item->documento_format;?></td>
-              <td><?php echo $item->metod;?></td>
-              <td><?php echo $item->frequency;?></td>
-              <td><?php echo $item->allocated_resources;?></td>
-              <td><?php echo $item->format;?></td>
-              <td><?php echo $item->local;?></td>
-              <td>
-                <button type="button" class="open-AddBookDialog btn btn-default btn-lg glyphicon glyphicon-edit" data-id="edit" data-toggle="modal" data-target="#modal">Edit</button>
-
-                <div class="modal fade" id="modal" role="dialog">
-                  <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Edit Communication Item</h4>
-                      </div>
-                      <div class="modal-body">
-                        <form action="<?= base_url() ?>communication_item/update/<?php echo $communication_item[0]->communication_item_id; ?>" method="post">
-                          <div class="form-group">
-                            <label>Type</label>
-                            <textarea class="form-control" id="type" placeholder="Type" name="type" maxlength="45"><?php echo $communication_item[0]->type; ?></textarea>
-                          </div>
-                          <!-- Textarea -->
-                          <div class="form-group">
-                            <label>Description</label>
-                            <textarea class="form-control" id="description" placeholder="Description" name="description" maxlength="45"><?php echo $communication_item[0]->description; ?></textarea>
-                          </div>
-                          <div class="form-group">
-                            <label>Content</label>
-                            <textarea class="form-control" id="content" placeholder="Content" name="content" maxlength="255"><?php echo $communication_item[0]->content; ?></textarea>
-                          </div>
-                          <div class="form-group">
-                            <label>Distribution Reason</label>
-                            <textarea class="form-control" id="distribution_reason" placeholder="Distribution Reason" name="distribution_reason" maxlength="255"><?php echo $communication_item[0]->distribution_reason; ?></textarea>
-                          </div>
-                          <div class="form-group">
-                            <label>Language</label>
-                            <textarea class="form-control" id="language" placeholder="Language" name="language" maxlength="45"><?php echo $communication_item[0]->language; ?></textarea>
-                          </div>
-                          <div class="form-group">
-                            <label>Channel</label>
-                            <textarea class="form-control" id="channel" placeholder="Channel" name="channel" maxlength="45"><?php echo $communication_item[0]->channel; ?></textarea>
-                          </div>
-                          <div class="form-group">
-                            <label>Document Format</label>
-                            <textarea class="form-control" id="documento_format" placeholder="Document Format" name="documento_format" maxlength="45"><?php echo $communication_item[0]->documento_format; ?></textarea>
-                          </div>
-                          <div class="form-group">
-                            <label>Method</label>
-                            <textarea class="form-control" id="metod" placeholder="Method" name="metod" maxlength="45"><?php echo $communication_item[0]->metod; ?></textarea>
-                          </div>
-                          <div class="form-group">
-                            <label for="frequency">Frequency</label>
-                            <textarea class="form-control" id="frequency" placeholder="Frequency" name="frequency" maxlength="45"><?php echo $communication_item[0]->frequency; ?></textarea>
-                          </div>
-                          <div class="form-group">
-                            <label for="allocated_resources">Allocated Resources</label>
-                            <textarea class="form-control" id="allocated_resources" placeholder="Allocated Resources" name="allocated_resources" maxlength="45"><?php echo $communication_item[0]->allocated_resources; ?></textarea>
-                          </div>
-                          <div class="form-group">
-                            <label for="format">Format</label>
-                            <div>                     
-                              <textarea class="form-control" id="format" placeholder="Format" name="format" maxlength="45"><?php echo $communication_item[0]->format; ?></textarea>
-=======
 
     
     <div class="col-sm-12" align="center">
@@ -450,52 +297,16 @@
                               <label>On</label>
                               <input type="radio" <?= $communication_item[0]->status != 0?: "checked"; ?> name="status" value="0">
                               <label>Off</label>
->>>>>>> 903adf18e9de9a4bd84c010dff1da688bfcfe3b3
                             </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="local">Local</label>
-                            <textarea class="form-control" id="local" placeholder="Local" name="local" maxlength="45"><?php echo $communication_item[0]->local; ?></textarea>
-                          </div>
-
-                          <div class="form-group">
-                            <label>Status:</label>
-                            <input type="radio" <?= $communication_item[0]->status != 1?: "checked"; ?> name="status" value="1">
-                            <label>On</label>
-                            <input type="radio" <?= $communication_item[0]->status != 0?: "checked"; ?> name="status" value="0">
-                            <label>Off</label>
-                          </div>
-                          <button type="submit" class="btn btn-lg btn-success btn-block">Save</button>
-                        </form>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-lg btn-default btn-block" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-lg btn-success btn-block">Save</button>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-lg btn-default btn-block" data-dismiss="modal">Close</button>
+                        </div>
                       </div>
                     </div>
                   </div>
-<<<<<<< HEAD
-                </div>
-
-
-                <form action="<?php echo base_url() ?>communication_item/delete/<?php echo $item->communication_item_id; ?>">
-                  <button type="submit" class="btn btn-danger"><span class="fa fa-trash"></span> Delete</button>
-                </form>
-              </td>
-            </tr> 
-            <?php
-          }
-          ?>
-
-        </tbody>
-      </table> 
-    </div>  
-
-  </div>
-  
-
-
-  <!-- /.row -->
-=======
                 </td>
               </tr> 
               <?php
@@ -507,7 +318,6 @@
       </div>  
     </div> 
 
->>>>>>> 903adf18e9de9a4bd84c010dff1da688bfcfe3b3
 
     <!-- /.row --> </div> 
     <div class="col-sm-12" position= "absolute">
