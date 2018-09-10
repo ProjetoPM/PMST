@@ -1,7 +1,7 @@
 <div id="page-wrapper">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Gerenciar Partes Interessadas</h1>
+      <h1 class="page-header"><?=$this->lang->line('stakeholder_mp-title')?></h1>
     </div>
     <!-- /.col-lg-12 -->
   </div>
@@ -28,9 +28,11 @@
 
 
   
-  <div>
-<label for="stakeholder"> Select Stakeholder</label>
- <select name="stakeholder_id">
+  <div class="col-lg-6 form-group">
+<label for="stakeholder"><?=$this->lang->line('select-1')?></label>
+<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-stakeholder-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+ <select name="stakeholder_id" class="form-control">
 
         <?php
           foreach ($stakeholders as $stakeholder) {
@@ -47,9 +49,10 @@
 
             <!-- Text input-->
           <!-- Textarea -->
-               <div class="form-group">
-          <label for="interest">Interest Level</label>
-          <select name="interest">
+      <div class="col-lg-3 form-group">
+          <label for="interest"><?=$this->lang->line('select-2')?></label>
+          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-interest-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+          <select name="interest" class="form-control">
             <option value="10">10%</option>
             <option value="30">30%</option>
             <option value="50">50%</option>
@@ -57,9 +60,10 @@
             <option value="90">90%</option>
           </select>
       </div>
-        <div class="form-group">
-          <label for="power">Power Level</label>
-          <select name="power">
+        <div class="col-lg-3 form-group">
+          <label for="power"><?=$this->lang->line('select-3')?></label>
+          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-power-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+          <select name="power" class="form-control">
             <option value="10">10%</option>
             <option value="30">30%</option>
             <option value="50">50%</option>
@@ -67,9 +71,10 @@
             <option value="90">90%</option>
           </select>
       </div>
-        <div class="form-group">
-          <label for="influence">Influence Level</label>
-          <select name="influence">
+        <div class="col-lg-3 form-group">
+          <label for="influence"><?=$this->lang->line('select-4')?></label>
+          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-influence-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+          <select name="influence" class="form-control">
             <option value="10">10%</option>
             <option value="30">30%</option>
             <option value="50">50%</option>
@@ -77,9 +82,10 @@
             <option value="90">90%</option>
           </select>
       </div>
-        <div class="form-group">
-          <label for="impact">Impact Level</label>
-          <select name="impact">
+        <div class="col-lg-3 form-group">
+          <label for="impact"><?=$this->lang->line('select-5')?></label>
+          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-impact-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+          <select name="impact" class="form-control">
             <option value="10">10%</option>
             <option value="30">30%</option>
             <option value="50">50%</option>
@@ -87,50 +93,64 @@
             <option value="90">90%</option>
           </select>
       </div>
-        <div class="form-group">
-          <label for="current_engagement ">Current Engagement</label>
-          <select name="current_engagement">
-             <option value="unaware">Unaware</option>
-            <option value="supportive">Supportive</option>
-            <option value="leading">Leading</option>
-            <option value="neutral">Neutral</option>
-            <option value="resistant">Resistant</option>
+        <div class="col-lg-3 form-group">
+          <label for="current_engagement "><?=$this->lang->line('select-6')?></label>
+          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-current-engagement-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+          <select name="current_engagement" class="form-control">
+             <option value="unaware"><?=$this->lang->line('option-1')?></option>
+            <option value="supportive"><?=$this->lang->line('option-2')?></option>
+            <option value="leading"><?=$this->lang->line('option-3')?></option>
+            <option value="neutral"><?=$this->lang->line('option-4')?></option>
+            <option value="resistant"><?=$this->lang->line('option-5')?></option>
           </select>
       </div>
-       <div class="form-group">
-          <label for="expected_engagement ">Expected Engagement</label>
-          <select name="expected_engagement">
-            <option value="unaware">Unaware</option>
-            <option value="supportive">Supportive</option>
-            <option value="leading">Leading</option>
-            <option value="neutral">Neutral</option>
-            <option value="resistant">Resistant</option>
+       <div class="col-lg-3 form-group">
+          <label for="expected_engagement "><?=$this->lang->line('select-7')?></label>
+          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-expected-engagement-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+          <select name="expected_engagement" class="form-control">
+            <option value="unaware"><?=$this->lang->line('option-1')?></option>
+            <option value="supportive"><?=$this->lang->line('option-2')?></option>
+            <option value="leading"><?=$this->lang->line('option-3')?></option>
+            <option value="neutral"><?=$this->lang->line('option-4')?></option>
+            <option value="resistant"><?=$this->lang->line('option-5')?></option>
           </select>
       </div>
-          <div class="form-group">
-            <label for="description">Estratégia para Engajamento / Gerenciamento</label>
+          <div class="col-lg-12 form-group">
+            <label for="description"><?=$this->lang->line('text-1')?></label>
+            <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder_mp-text1-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
             <div >                     
-              <textarea class="form-control" id="description" name="strategy"></textarea>
+              <textarea class=" form-control elasticteste" oninput="eylem(this, this.value)"  id="description" name="strategy"></textarea>
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="description">Escopo e Impacto das Mudanças para a PI</label>
+          <div class="col-lg-6 form-group">
+            <label for="description"><?=$this->lang->line('text-2')?></label>
+            <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder_mp-text2-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
             <div >                     
-              <textarea class="form-control" id="description" name="scope"></textarea>
+              <textarea class="form-control elasticteste" oninput="eylem(this, this.value)" id="description" name="scope"></textarea>
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="description">Observações / Interrelações com outras PI</label>
+          <div class="col-lg-6 form-group">
+            <label for="description"><?=$this->lang->line('text-3')?></label>
+            <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder_mp-text3-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
             <div >                     
-              <textarea class="form-control" id="description" name="observation"></textarea>
+              <textarea class="col-lg-6 form-control elasticteste" oninput="eylem(this, this.value)" id="description" name="observation"></textarea>
             </div>
           </div>
+         <div class="col-lg-12">
+            <button id="new_human_resource-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+            <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
+            </button> 
+            </form>
 
-          <input  type="submit" value="Salvar" class="btn btn-lg btn-success btn-block">
-        </form>
+            <form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>" >
+                <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
+            </form>
+                
+         </div>
       </div>
+
       <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->

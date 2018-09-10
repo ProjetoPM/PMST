@@ -1,7 +1,7 @@
 <div id="page-wrapper">
   <div class="row" position="absolute">
     <div class="col-lg-12">
-      <h1 class="page-header">Communications Management Plan </h1>
+      <h1 class="page-header">Notification Board</h1>
     </div>
     <!-- /.col-lg-12 -->
 
