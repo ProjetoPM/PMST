@@ -34,7 +34,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col col-xs-6">  
-                            <a type="button" href="<?= base_url("new/") ?>" class="btn btn-sm btn-primary btn-create">Create New Project</a>
+                            <a type="button" href="<?= base_url("new/") ?>" class="btn btn-normal btn-info btn-create"><i class="glyphicon glyphicon-plus"></i> Create New Project</a>
                         </div>
                     </div>
                 </div>
