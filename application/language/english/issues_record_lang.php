@@ -14,6 +14,7 @@ $lang['ir-action'] = 'Required Action';
 $lang['ir-resolution_date'] = 'Planned Resolution Date';
 $lang['ir-replan_date'] = 'Reorganized Resolution Date';
 $lang['ir-observations'] = 'Comments';
+$lang['ir-project_id'] = 'Project ID';
 
 //Tooltip
 $lang['ir-identification-tooltip'] = 'Responsable for the Identifying Example';

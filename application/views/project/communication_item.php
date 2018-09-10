@@ -135,7 +135,6 @@
       .table-bordered {
         border: 1px solid #4c4848;
       }
-
       table {
         border-spacing: 0;
         min-width:50px;/*valor minimo px,cm,% etc.*/;
@@ -152,9 +151,7 @@
         vertical-align: middle;
         writing-mode: sideways-lr;
         word-break: break-all;
-
       }
-
       th{      
         font-size: 13px;
         height: auto;
@@ -167,7 +164,6 @@
         height: auto;
         text-align: left;        
       }
-
       .table thead th {
         background: linear-gradient(-180deg, #a94809, #d68e39);
         vertical-align: middle;
@@ -182,7 +178,6 @@
       .table .t-medium {
         width: 13%;
       }
-
     </style>
 
 

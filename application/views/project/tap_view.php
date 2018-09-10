@@ -148,12 +148,12 @@
 						<div class="col-lg-6 form-group">
 
 							<label><?=$this->lang->line('tap-start')?></label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-start-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a><br>
-							<input type="date" name="start_date" ><br>
+							<input class="col-lg-6 form-control" type="date" name="start_date" ><br>
 						</div>
 						<div class="col-lg-6 form-group">
 
 							<label><?=$this->lang->line('tap-end')?></label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-end-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a><br>
-							<input type="date" name="end_date" ><br>
+							<input class="col-lg-6 form-control" type="date" name="end_date" ><br>
 						</div>
 							<input type="hidden" name="status" value="1">
 							
@@ -252,7 +252,6 @@
 								</div>
 							</div>
 
-
 							<!-- A LISFTA EM TABELA "STAKEHOLDER" -->
 							<div class="row">
 								<table class="table table-dark">
@@ -290,7 +289,7 @@
 
 								<div class="form-group">
 									<label>Enter Start Date:  </label><br>
-									<input type="date" name="start_date" max="2017-12-31" value="<?php echo $project_charter[0]->start_date; ?>"><br><br>
+									<input class="" type="date" name="start_date" max="2017-12-31" value="<?php echo $project_charter[0]->start_date; ?>"><br><br>
 									<label>Enter End Date:  </label><br>
 									<input type="date" name="end_date" min="2025-01-02" value="<?php echo $project_charter[0]->end_date; ?>"><br></br>
 

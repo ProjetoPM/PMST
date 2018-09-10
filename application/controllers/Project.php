@@ -41,6 +41,12 @@ class Project extends CI_Controller
             'title' => 'New Project'
         );
         
+        $this->lang->load('btn','english');
+        // $this->lang->load('btn','portuguese-brazilian');
+        $this->lang->load('new-project','english');
+        // $this->lang->load('new-project','portuguese-brazilian');
+
+
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/new_project', $data);
