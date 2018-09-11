@@ -73,6 +73,7 @@
 				<div class="container">
 					<!-- Trigger the modal with a button -->
 					<button type="button" class="open-AddBookDialog btn btn-info btn-lg glyphicon-plus" data-toggle="modal" data-target="#add"> Team Performance Evaluation</button>
+
 					<!-- Modal -->
 					<div class="modal fade" id="add" role="dialog">
 						<div class="modal-dialog">
@@ -167,69 +168,43 @@
 
 						</div>
 					</div>
-				</div>
+					<!-- Modal -->
 
 
+					<div class="col-sm-12" align="center">
+						<p> <strong>Team Performance Evaluation</strong> </p>
+						<div style="overflow:scroll;"  align="center">
 
+							<table class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
 
-
-				<div class="col-sm-12" align="center">
-					<br><br>
-					<p> <strong>Team Performance Evaluation</strong> </p>
-					<div style="overflow:scroll;max-height: 500px;  align = "center">
-						<table class="table table-bordered table-striped" align="center">
-							<thead>
-								<tr>
-									<th align="t-small">Nome do Membro</th>
-									<th>Data Avaliação</th>
-									<th>Função</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php
-								foreach ($team_performance_evaluation as $item) {
-									?>
+								<thead>
 									<tr>
+										<th align="t-small">Nome do Membro</th>
+										<th>Data Avaliação</th>
+										<th>Função</th>
+									</tr>
+								</thead>
+								<?php var_dump($team_performance_evaluation); ?>
 
-										<td><?php echo $item->team_member_name;?></td>
-										<td><?php echo $item->report_date;?></td>
-										<td><?php echo $item->project_function;?></td>
-
-										<form >
-
-											<a>
-												<button type="update" class="btn btn-default" data-id="edit" data-toggle="modal" data-target="#modal"><em class="fa fa-pencil"></em><span class="hidden-xs"> Editar</span>
-												</button>
-											</a> ||
-
-											<a>
-												<button type="delete" class="btn btn-danger"><em class="fa fa-trash"></em><span class="hidden-xs"> Deletar</span>
-												</button>
-											</a> ||
-
-											<a>
-												<button type="view" class="btn btn-danger"><em class="fa fa-trash"></em><span class="hidden-xs"> Visualizar</span>
-												</button>
-											</a>
-											<!-- </form> -->
-											<!-- FINISH TABLE -->								
-										</div>
-									</td>
-								</tr> 
-								<?php
-							}
-							?>
-						</tbody>
-					</table> 
-				</div>  
-			</div> 
+								<tbody>
+									<tr>
+										<td><?php echo $team_performance_evaluation->team_member_name;?></td>
+										<td></td>
+										<td></td>
+										<td><button></button></td>
+										<!-- FINISH TABLE -->								
+									</tr> 
+								</tbody>
+							</table> 
+						</div>
+					</div>
+				</div>
+			</div>
 
 			<!-- MODAL CONTENT -->
 
-		</div>
-		<!-- /.row --> </div> 
-		<div class="col-sm-12" position= "absolute">
-			<div class="container">
-				<?php $this->load->view('frame/footer_view') ?>
-			</div> 
-		</div>
+			<div class="col-sm-12" position= "absolute">
+				<div class="container">
+					<?php $this->load->view('frame/footer_view') ?>
+				</div> 
+			</div>
