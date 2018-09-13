@@ -48,7 +48,7 @@
                     <div class="form-group">
                      <label for="identification_date"><?=$this->lang->line('ir-identification_date')?></label>
                      <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-identification_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-                     <textarea class="form-control" id="identification_date"  name="identification_date" maxlength="45"></textarea>
+                     <input class="form-control" type="date" name="identification_date" >
                    </div>
 
                    <div class="form-group">
@@ -85,13 +85,13 @@
                  <div class="form-group">
                    <label for="resolution_date"><?=$this->lang->line('ir-resolution_date')?></label>
                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-resolution_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-                   <textarea class="form-control" id="resolution_date" name="resolution_date" maxlength="45"></textarea>
+                   <input class="form-control" type="date" name="resolution_date" >
                  </div>
 
                  <div class="form-group">
                    <label for="replan_date"><?=$this->lang->line('ir-replan_date')?></label>
                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-replan_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-                   <textarea class="form-control" id="replan_date"  name="replan_date" maxlength="45"></textarea>
+                  <input class="form-control" type="date" name="replan_date" >
                  </div>
                  <div class="form-group">
                   <label for="observations"><?=$this->lang->line('ir-observations')?></label>
@@ -183,6 +183,7 @@ table {
           <th><?=$this->lang->line('ir-resolution_date')?></th>
           <th><?=$this->lang->line('ir-replan_date')?></th>
           <th><?=$this->lang->line('ir-observations')?></th>
+          <th>Actions</th>
 
         </tr>
       </thead>
@@ -202,6 +203,7 @@ table {
             <td><?php echo $item->replan_date;?></td>
             <td><?php echo $item->observations;?></td>
 
+
             <td>
               <button type="button" class="open-AddBookDialog btn btn-default btn-lg glyphicon glyphicon-edit" data-id="edit" data-toggle="modal" data-target="#modal">Edit</button>
 
@@ -214,7 +216,7 @@ table {
                       <h4 class="modal-title">Edit Issues Record</h4>
                     </div>
                     <div class="modal-body">                     
-                      <form action="<?= base_url() ?>issues_record/update/<?php echo $project_id; ?>" method="post">
+                      <form action="<?= base_url() ?>Issues_Record/update/<?php echo $issues_record[0]->issues_record_id; ?>" method="post">
 
                         <input type="hidden" name="project_id" value="<?php echo $project_id; ?>"> 
                         <input type="hidden" name="status" value="1">                           
@@ -228,7 +230,7 @@ table {
 
                         <div class="form-group">
                           <label for="identification_date"><?=$this->lang->line('ir-identification_date')?></label>                    
-                          <textarea class="form-control" id="identification_date"  name="identification_date" maxlength="45"><?php echo $issues_record[0]->identification_date; ?></textarea>
+                          <input class="form-control" type="date" name="identification_date" value="<?php echo $issues_record[0]->identification_date; ?>">
                         </div>
 
                           <div class="form-group">
@@ -258,12 +260,12 @@ table {
 
                           <div class="form-group">
                           <label for="resolution_date"><?=$this->lang->line('ir-resolution_date')?></label>                    
-                          <textarea class="form-control" id="resolution_date"  name="resolution_date" maxlength="45"><?php echo $issues_record[0]->resolution_date; ?></textarea>
+                          <input class="form-control" type="date" name="resolution_date" value="<?php echo $issues_record[0]->resolution_date; ?>">
                         </div>
 
                           <div class="form-group">
                           <label for="replan_date"><?=$this->lang->line('ir-replan_date')?></label>                    
-                          <textarea class="form-control" id="replan_date" name="replan_date" maxlength="45"><?php echo $issues_record[0]->replan_date; ?></textarea>
+                          <input class="form-control" type="date" name="replan_date" value="<?php echo $issues_record[0]->replan_date; ?>">
                         </div>
 
                         <div class="form-group">
@@ -282,7 +284,7 @@ table {
                   </div>
                 </div>
 
-                <<form action="<?php echo base_url() ?>issues_record/delete/<?php echo $item->issues_record_id; ?>">
+                <form action="<?php echo base_url() ?>issues_record/delete/<?php echo $item->issues_record_id; ?>">
                     <button type="submit" class="btn btn-danger"><span class="fa fa-trash"></span> Delete</button>
                   </form>
               </td>
