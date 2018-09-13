@@ -91,7 +91,7 @@
                  <div class="form-group">
                    <label for="replan_date"><?=$this->lang->line('ir-replan_date')?></label>
                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-replan_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-                  <input class="form-control" type="date" name="replan_date" >
+                   <input class="form-control" type="date" name="replan_date" >
                  </div>
                  <div class="form-group">
                   <label for="observations"><?=$this->lang->line('ir-observations')?></label>
@@ -168,7 +168,7 @@ table {
 <div class="col-sm-12">
   <br><br>
   <div style="overflow:scroll;">
-      <?php //var_dump($issues_record) ?>
+    <?php //var_dump($issues_record) ?>
 
     <table class="table table-bordered table-striped">
       <thead>
@@ -205,7 +205,7 @@ table {
 
 
             <td>
-              <button type="button" class="open-AddBookDialog btn btn-default btn-lg glyphicon glyphicon-edit" data-id="edit" data-toggle="modal" data-target="#modal">Edit</button>
+              <button type="button" class="open-AddBookDialog btn btn-default btn-lg glyphicon glyphicon-edit" data-id="edit" data-toggle="modal" data-target="#modal" >Edit</button>
 
               <div class="modal fade" id="modal" role="dialog">
                 <div class="modal-dialog">
@@ -233,37 +233,37 @@ table {
                           <input class="form-control" type="date" name="identification_date" value="<?php echo $issues_record[0]->identification_date; ?>">
                         </div>
 
-                          <div class="form-group">
+                        <div class="form-group">
                           <label for="question_description"><?=$this->lang->line('ir-question_description')?></label>                    
                           <textarea class="form-control" id="question_description"  name="question_description" maxlength="45"><?php echo $issues_record[0]->question_description; ?></textarea>
                         </div>
 
-                          <div class="form-group">
+                        <div class="form-group">
                           <label for="type"><?=$this->lang->line('ir-type')?></label>                    
                           <textarea class="form-control" id="type"  name="type" maxlength="45"><?php echo $issues_record[0]->type; ?></textarea>
                         </div>
 
-                          <div class="form-group">
+                        <div class="form-group">
                           <label for="responsable"><?=$this->lang->line('ir-responsable')?></label>                    
                           <textarea class="form-control" id="responsable"  name="responsable" maxlength="45"><?php echo $issues_record[0]->responsable; ?></textarea>
                         </div>
 
-                          <div class="form-group">
+                        <div class="form-group">
                           <label for="situation"><?=$this->lang->line('ir-situation')?></label>                    
                           <textarea class="form-control" id="situation"  name="situation" maxlength="45"><?php echo $issues_record[0]->situation; ?></textarea>
                         </div>
 
-                          <div class="form-group">
+                        <div class="form-group">
                           <label for="action"><?=$this->lang->line('ir-action')?></label>                    
                           <textarea class="form-control" id="action"  name="action" maxlength="45"><?php echo $issues_record[0]->action; ?></textarea>
                         </div>
 
-                          <div class="form-group">
+                        <div class="form-group">
                           <label for="resolution_date"><?=$this->lang->line('ir-resolution_date')?></label>                    
                           <input class="form-control" type="date" name="resolution_date" value="<?php echo $issues_record[0]->resolution_date; ?>">
                         </div>
 
-                          <div class="form-group">
+                        <div class="form-group">
                           <label for="replan_date"><?=$this->lang->line('ir-replan_date')?></label>                    
                           <input class="form-control" type="date" name="replan_date" value="<?php echo $issues_record[0]->replan_date; ?>">
                         </div>
@@ -273,36 +273,36 @@ table {
                           <textarea class="form-control" id="observations" name="observations" maxlength="45"><?php echo $issues_record[0]->observations; ?></textarea>
                         </div>
 
-                          <button type="submit" class="btn btn-lg btn-success btn-block">Save</button>
+                        <button type="submit" class="btn btn-lg btn-success btn-block">Save</button>
 
-                        </form>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-lg btn-default btn-block" data-dismiss="modal">Close</button>
-                      </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-lg btn-default btn-block" data-dismiss="modal">Close</button>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <form action="<?php echo base_url() ?>issues_record/delete/<?php echo $item->issues_record_id; ?>">
-                    <button type="submit" class="btn btn-danger"><span class="fa fa-trash"></span> Delete</button>
-                  </form>
-              </td>
-            </tr> 
-            <?php
-          }
-          ?>
+              <form action="<?php echo base_url() ?>issues_record/delete/<?php echo $item->issues_record_id; ?>">
+                <button type="submit" class="btn btn-danger"><span class="fa fa-trash"></span> Delete</button>
+              </form>
+            </td>
+          </tr> 
+          <?php
+        }
+        ?>
 
-        </tbody>
-      </table> 
-    </div>  
+      </tbody>
+    </table> 
+  </div>  
 
-  </div>
+</div>
 
 
 
-  <!-- /.row -->
+<!-- /.row -->
 
-  <div>
-   <?php $this->load->view('frame/footer_view') ?>            
- </div>
+<div>
+ <?php $this->load->view('frame/footer_view') ?>            
+</div>
