@@ -22,7 +22,7 @@ class Ade extends CI_Controller{
 		$this->load->view('project/ade_view', $query);
 	}
 
-	public function insertAde() {
+	public function insertAde($project_id) {
 		$team_performance_evaluation['team_member_name'] = $this->input->post('team_member_name');
 		$team_performance_evaluation['role'] = $this->input->post('role');
 		$team_performance_evaluation['project_function'] = $this->input->post('project_function');
@@ -35,11 +35,12 @@ class Ade extends CI_Controller{
 		$team_performance_evaluation['external_comments'] = $this->input->post('external_comments');
 		$team_performance_evaluation['team_mates_comments'] = $this->input->post('team_mates_comments');
 		$team_performance_evaluation['team_performance_evaluationcol'] = $this->input->post('team_performance_evaluationcol');
+		$team_performance_evaluation['project_id'] = $project_id;
 		$data['team_performance_evaluation'] = $team_performance_evaluation;
 		$query = $this->ade_model->insertAde($data['team_performance_evaluation']);
 
 		if($query){
-			redirect('projects');
+			redirect('projects',$team_performance_evaluation['project_id']);
 		}
 	}
 }

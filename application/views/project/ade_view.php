@@ -84,7 +84,7 @@
 									<h4 class="modal-title">Team Performance Evaluation</h4>
 								</div>
 								<div class="modal-body">
-									<form action="<?= base_url() ?>Ade/insertAde/" method="post">
+									<form action="<?php echo base_url('Ade/insertAde/'); ?><?php echo $project_id; ?>" method="post">
 
 										<!-- Textarea -->
 										<div class="form-group">
@@ -184,15 +184,20 @@
 										<th>Função</th>
 									</tr>
 								</thead>
-								<?php var_dump($team_performance_evaluation); ?>
+								
 
 								<tbody>
 									<tr>
-										<td><?php echo $team_performance_evaluation->team_member_name;?></td>
-										<td></td>
-										<td></td>
-										<td><button></button></td>
-										<!-- FINISH TABLE -->								
+										<?php  
+										foreach ($team_performance_evaluation as $performance){
+											?>
+											<td><?php echo $performance->team_member_name; ?></td>
+											<td></td>
+											<td></td>
+											<td><button></button></td>
+											<!-- FINISH TABLE -->		
+										<?php } ?>
+
 									</tr> 
 								</tbody>
 							</table> 
