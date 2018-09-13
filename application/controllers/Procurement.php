@@ -12,6 +12,12 @@ class Procurement extends CI_Controller{
         }
         $this->load->model('project_model');
         $this->load->model('procurement_mp_model');
+
+        $this->lang->load('btn','english');
+        // $this->lang->load('btn','portuguese-brazilian');
+        $this->lang->load('procurement_mp','english');
+        // $this->lang->load('procurement_mp','portuguese-brazilian');
+
     }
     
     private function ajax_checking(){
@@ -26,6 +32,7 @@ class Procurement extends CI_Controller{
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view'); 
         $this->load->view('project/procurement_mp', $query);
+
     }
     
     public function insert() {
@@ -33,17 +40,14 @@ class Procurement extends CI_Controller{
         $procurement_mp['team_actions'] = $this->input->post('team_actions');
         $procurement_mp['performance_metrics'] = $this->input->post('performance_metrics');
         $procurement_mp['project_id'] = $this->input->post('project_id');
-        $procurement_mp['status'] = $this->input->post('status');
+        $procurement_mp['status'] = 1;
         
-        if($this->input->post('status') == 1){
-            $procurement_mp['status'] = 1;
-        }else{
-            $procurement_mp['status'] = 0;
-        }
         $query = $this->procurement_mp_model->insertProcurement_mp($procurement_mp);
 
         if($query){
-            redirect('projects');
+            $this->load->view('frame/header_view');
+            $this->load->view('frame/sidebar_nav_view');
+            redirect('project/' . $procurement_mp['project_id']);
         }
     }
 
@@ -52,17 +56,14 @@ class Procurement extends CI_Controller{
         $procurement_mp['team_actions'] = $this->input->post('team_actions');
         $procurement_mp['performance_metrics'] = $this->input->post('performance_metrics');
         $procurement_mp['project_id'] = $this->input->post('project_id');
-        $procurement_mp['status'] = $this->input->post('status');
+        $procurement_mp['status'] = 1;
         
-        if($this->input->post('status') == 1){
-            $procurement_mp['status'] = 1;
-        }else{
-            $procurement_mp['status'] = 0;
-        }
         $query = $this->procurement_mp_model->updateProcurement_mp($procurement_mp, $id);
 
         if($query){
-            redirect('projects');
+            $this->load->view('frame/header_view');
+            $this->load->view('frame/sidebar_nav_view');
+            redirect('project/' . $procurement_mp['project_id']);
         }
     }        
 }

@@ -48,7 +48,7 @@ class Issues_Record extends CI_Controller{
 		}
 	}
 
-	public function update($id) {
+	public function update($issues_record_id) {
 		$issues_record['identification'] = $this->input->post('identification');
 		$issues_record['identification_date'] = $this->input->post('identification_date');
 		$issues_record['question_description'] = $this->input->post('question_description');
@@ -64,7 +64,7 @@ class Issues_Record extends CI_Controller{
 	
 		//var_dump($issues_record);
 	    $data['issues_record'] = $issues_record;
-      	$query = $this->Issues_record_model->updateIssues_record($data['issues_record'], $id);
+      	$query = $this->Issues_record_model->updateIssues_record($data['issues_record'], $issues_record_id);
 
 		if ($query) {
 			redirect('projects');

@@ -10,10 +10,10 @@ class Human_resource extends CI_Controller{
 
         // $this->load->helper('url', 'english');
         
-        $this->lang->load('btn','english');
-        // $this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('human-resource','english');
-        // $this->lang->load('human-resource','portuguese-brazilian');
+        // $this->lang->load('btn','english');
+        $this->lang->load('btn','portuguese-brazilian');
+        // $this->lang->load('human-resource','english');
+        $this->lang->load('human-resource','portuguese-brazilian');
         
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
