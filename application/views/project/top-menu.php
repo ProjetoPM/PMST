@@ -28,11 +28,11 @@
        </a>
        <a class="btn btn-workflow btn-lg" href="<?=base_url()?>Charter_Quality/addnew/<?php echo $project[0]->project_id;?>">PMQ</a>
        <a class="btn btn-workflow btn-lg" href="<?=base_url()?>communication_item/communication_form/<?php echo $project[0]->project_id;?>">COMMUNICATION ITEM</a>
-       <a class="btn btn-workflow btn-lg" href="<?=base_url("GerenciarStake/addnew/".$project[0]->project_id) ?>">STAKEHOLDER</a>
+       <a class="btn btn-workflow btn-lg" href="<?=base_url("GerenciarStake/addnew/".$project[0]->project_id) ?>">STAKEHOLDER</a><br><br>
        <a class="btn btn-workflow btn-lg" href="<?=base_url("Stakeholder_mp/stakeholder_mp_form/".$project[0]->project_id) ?>">STAKEHOLDER MP</a>
        <a class="btn btn-workflow btn-lg" href="<?=base_url("TEP/addnew/".$project[0]->project_id) ?>">TEP</a>
        <a class="btn btn-workflow btn-lg" href="<?=base_url("Issues_Record/addIssuesRecord/".$project[0]->project_id) ?>">ISSUES RECORD</a>
-       <a class="btn btn-workflow btn-lg" href="<?=base_url()?>Notification_board/notification_board_form/<?php echo $project[0]->project_id;?>">NOTIFICATION BOARD</a>
+       <a class="btn btn-workflow btn-lg" href="<?=base_url()?>Notification_board/notification_board_form/<?php echo $project[0]->project_id;?>">NOTIFICATION BOARD</a><br><br>
        <a class="btn btn-workflow btn-lg" href="<?=base_url("Ade/getAde_form/".$project[0]->project_id) ?>">
          TEAM PERFORMANCE EVALUATION
        </a>
