@@ -16,11 +16,8 @@ class Ade extends CI_Controller{
 
 	public function getAde_form($project_id){
 		$query['team_performance_evaluation'] = $this->ade_model->getAde($project_id);
-
 		$query['project_id'] = $project_id;
-
 		// $query['team_performance_evaluation'] = $this->ade_model->delete($project_id);
-
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view'); 
 		$this->load->view('project/ade_view', $query);
@@ -56,7 +53,7 @@ class Ade extends CI_Controller{
 		}
 	}
 
-	public function update($team_performance_evaluation_id) {
+	public function edit($team_performance_evaluation_id) {
 		
 		$team_performance_evaluation['team_member_name'] = $this->input->post('team_member_name');
 		$team_performance_evaluation['role'] = $this->input->post('role');
@@ -69,12 +66,13 @@ class Ade extends CI_Controller{
 		$team_performance_evaluation['already_developed'] = $this->input->post('already_developed');
 		$team_performance_evaluation['external_comments'] = $this->input->post('external_comments');
 		$team_performance_evaluation['team_mates_comments'] = $this->input->post('team_mates_comments');
-		$team_performance_evaluation['team_performance_evaluationcol'] = $this->input->post('team_performance_evaluationcol');
+
+		$data['team_performance_evaluation'] = $team_performance_evaluation;
+
+		// $team_performance_evaluation['team_performance_evaluationcol'] = $this->input->post('team_performance_evaluationcol');
 		// $team_performance_evaluation['project_id'] = $project_id;
-		// $data['team_performance_evaluation'] = $team_performance_evaluation;
 		
-		//var_dump($issues_record);
-		$query = $this->ade_model->updateAde($data['team_performance_evaluation'], $team_performance_evaluation_id);
+		$query = $this->ade_model->editAde($data['team_performance_evaluation'], $team_performance_evaluation_id);
 
 		if ($query) {
 			redirect('projects/' . $project_id);

@@ -20,7 +20,7 @@ class Ade_model extends CI_Model {
 		return $this->db->delete('team_performance_evaluation');
 	}
 
-	public function updateAde($team_performance_evaluation_id){
+	public function editAde($team_performance_evaluation_id){
 		$this->db->where('team_performance_evaluation.team_performance_evaluation_id', $team_performance_evaluation_id);
 		return $this->db->update('team_performance_evaluation', $team_performance_evaluation_id);
 	}
