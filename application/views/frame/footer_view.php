@@ -6,6 +6,9 @@
    <div class="col-lg-12 text-center" style="padding:5px;"><small>&copy; 2018 by <a target="_blank" href="http://unipampa.edu.br">UNIPAMPA</a></small></div>
     </div>
 
+    <!-- data table -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
     <!-- jQuery -->
     <script src="<?=base_url()?>assets/js/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->

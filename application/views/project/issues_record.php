@@ -38,62 +38,62 @@
                     <input type="hidden" name="project_id" value="<?php echo $project_id[0]; ?>">
                     <input type="hidden" name="status" value="1">
 
-                    <div class="form-group">
+                    <div class="form-group col-lg-12">
                       <label for="responsable"><?=$this->lang->line('ir-identification')?></label>
                       <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-identification-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                       <textarea class="form-control" id="identification"  name="identification" maxlength="45"></textarea>
                     </div>
 
                     <!-- Textarea -->
-                    <div class="form-group">
+                    <div class="form-group col-lg-6">
                      <label for="identification_date"><?=$this->lang->line('ir-identification_date')?></label>
                      <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-identification_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                      <input class="form-control" type="date" name="identification_date" >
                    </div>
 
-                   <div class="form-group">
+                   <div class="form-group col-lg-6">
                      <label for="question_description"><?=$this->lang->line('ir-question_description')?></label>
                      <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-question_description-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                      <textarea class="form-control" id="question_description"  name="question_description" maxlength="255"></textarea>
                    </div>
 
-                   <div class="form-group">
+                   <div class="form-group col-lg-12">
                     <label for="type"><?=$this->lang->line('ir-type')?></label>                      
                     <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-type-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                     <textarea class="form-control" id="type"  name="type" maxlength="255"></textarea>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group col-lg-6">
                     <label for="responsable"><?=$this->lang->line('ir-responsable')?></label>
                     <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-responsable-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <textarea class="form-control" id="responsable"  name="responsable" maxlength="45"></textarea>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group col-lg-6">
                     <label for="situation"><?=$this->lang->line('ir-situation')?></label>
                     <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-situation-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <textarea class="form-control" id="situation"  name="situation" maxlength="45"></textarea>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group col-lg-12">
                    <label for="action"><?=$this->lang->line('ir-action')?></label>
                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-action-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                    <textarea class="form-control" id="action"  name="action" maxlength="45"></textarea>
                  </div>
 
-                 <div class="form-group">
+                 <div class="form-group col-lg-6">
                    <label for="resolution_date"><?=$this->lang->line('ir-resolution_date')?></label>
                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-resolution_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                    <input class="form-control" type="date" name="resolution_date" >
                  </div>
 
-                 <div class="form-group">
+                 <div class="form-group col-lg-6">
                    <label for="replan_date"><?=$this->lang->line('ir-replan_date')?></label>
                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-replan_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                    <input class="form-control" type="date" name="replan_date" >
                  </div>
-                 <div class="form-group">
+                 <div class="form-group col-lg-12">
                   <label for="observations"><?=$this->lang->line('ir-observations')?></label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-replan_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <textarea class="form-control" id="observations"  name="observations" maxlength="45"></textarea>
@@ -202,11 +202,11 @@ table {
             <td><?php echo $item->resolution_date;?></td>
             <td><?php echo $item->replan_date;?></td>
             <td><?php echo $item->observations;?></td>
+  
 
-
-            <td>
+            <td>        
               <button type="button" class="open-AddBookDialog btn btn-default btn-lg glyphicon glyphicon-edit" data-id="edit" data-toggle="modal" data-target="#modal" >Edit</button>
-
+              </form>
               <div class="modal fade" id="modal" role="dialog">
                 <div class="modal-dialog">
                   <!-- Modal content-->
@@ -223,52 +223,51 @@ table {
                         <!-- Textarea -->
 
 
-                        <div class="form-group">
+                          <div class="form-group col-lg-12">
                           <label for="identification"><?=$this->lang->line('ir-identification')?></label>                    
                           <textarea class="form-control" id="identification"  name="identification" maxlength="45"><?php echo $issues_record[0]->identification; ?></textarea>
                         </div>
 
-                        <div class="form-group">
+                         <div class="form-group col-lg-6">
                           <label for="identification_date"><?=$this->lang->line('ir-identification_date')?></label>                    
                           <input class="form-control" type="date" name="identification_date" value="<?php echo $issues_record[0]->identification_date; ?>">
                         </div>
 
-                        <div class="form-group">
+                          <div class="form-group col-lg-6">
                           <label for="question_description"><?=$this->lang->line('ir-question_description')?></label>                    
                           <textarea class="form-control" id="question_description"  name="question_description" maxlength="45"><?php echo $issues_record[0]->question_description; ?></textarea>
                         </div>
 
-                        <div class="form-group">
+                       <div class="form-group col-lg-12">
                           <label for="type"><?=$this->lang->line('ir-type')?></label>                    
                           <textarea class="form-control" id="type"  name="type" maxlength="45"><?php echo $issues_record[0]->type; ?></textarea>
                         </div>
 
-                        <div class="form-group">
+                      <div class="form-group col-lg-6">
                           <label for="responsable"><?=$this->lang->line('ir-responsable')?></label>                    
                           <textarea class="form-control" id="responsable"  name="responsable" maxlength="45"><?php echo $issues_record[0]->responsable; ?></textarea>
                         </div>
-
-                        <div class="form-group">
+                      <div class="form-group col-lg-6">
                           <label for="situation"><?=$this->lang->line('ir-situation')?></label>                    
                           <textarea class="form-control" id="situation"  name="situation" maxlength="45"><?php echo $issues_record[0]->situation; ?></textarea>
                         </div>
 
-                        <div class="form-group">
+                          <div class="form-group col-lg-12">
                           <label for="action"><?=$this->lang->line('ir-action')?></label>                    
                           <textarea class="form-control" id="action"  name="action" maxlength="45"><?php echo $issues_record[0]->action; ?></textarea>
                         </div>
 
-                        <div class="form-group">
+                         <div class="form-group col-lg-6">
                           <label for="resolution_date"><?=$this->lang->line('ir-resolution_date')?></label>                    
                           <input class="form-control" type="date" name="resolution_date" value="<?php echo $issues_record[0]->resolution_date; ?>">
                         </div>
 
-                        <div class="form-group">
+                          <div class="form-group col-lg-6">
                           <label for="replan_date"><?=$this->lang->line('ir-replan_date')?></label>                    
                           <input class="form-control" type="date" name="replan_date" value="<?php echo $issues_record[0]->replan_date; ?>">
                         </div>
 
-                        <div class="form-group">
+                          <div class="form-group col-lg-12">
                           <label for="observations"><?=$this->lang->line('ir-observations')?></label>                    
                           <textarea class="form-control" id="observations" name="observations" maxlength="45"><?php echo $issues_record[0]->observations; ?></textarea>
                         </div>
