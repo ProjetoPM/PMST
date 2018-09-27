@@ -191,7 +191,9 @@
       });
       //End Date Ends Here
 
-      // date sem validação
+      //////////////////////////////////
+      // Date Normal
+      //////////////////////////////////
       var dateNormal = $("#dateNormal").datepicker({
         autoclose: true,
         format: 'mm/dd/yyyy',
@@ -202,8 +204,6 @@
         todayHighlight : true,
         // startDate: today,
       });
-
-
     </script>
 
     <?php $this->load->view('frame/footer_view')?>
