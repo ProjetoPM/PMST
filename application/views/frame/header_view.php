@@ -19,9 +19,6 @@
     <!-- CSS refatorados da dashboard principal -->
     <link href="<?=base_url()?>assets/css/style.css" rel="stylesheet">
 
-    <!--data table -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-
     <!-- Cod Elastic TextArea -->
     <script src="<?=base_url()?>assets/js/elasticTextarea.js" type="text/javascript"></script>
 
