@@ -27,6 +27,30 @@
                 </div>
               </div>
 
+              <!-- Inicio teste datas -->
+              <div class="form-group">
+                <div class="col-lg-6">
+                  <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                        <input class="form-control" id="startDate" placeholder="MM/DD/YYYY" type="text" />
+                    </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                  <div class="col-lg-6">
+                  <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                        <input class="form-control" id="endDate" placeholder="MM/DD/YYYY" type="text" />
+                    </div>
+                </div>
+              </div>
+              <!-- Fim teste Datas -->
+
               <!-- Textarea -->
               <div class="col-lg-6 form-group">
                 <label for="organizational_chart"><?=$this->lang->line('human_resource-chart')?>
