@@ -49,6 +49,17 @@
                     </div>
                 </div>
               </div>
+
+              <div class="form-group">
+                  <div class="col-lg-12">
+                  <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                        <input class="form-control" id="dateNormal" placeholder="MM/DD/YYYY" type="text" />
+                    </div>
+                </div>
+              </div>
               <!-- Fim teste Datas -->
 
               <!-- Textarea -->
@@ -179,6 +190,20 @@
         /*todayHighlight : true,*/
       });
       //End Date Ends Here
+
+
+      // date sem validação
+      var dateNormal = $("#dateNormal").datepicker({
+        autoclose: true,
+        format: 'mm/dd/yyyy',
+        //language: 'pt-BR', //Idioma do Calendario
+        container: container,
+        keyboardNavigation: true,
+        orientation: "bottom",
+        todayHighlight : true,
+        // startDate: today,
+      });
+
 
     </script>
 
