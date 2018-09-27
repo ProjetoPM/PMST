@@ -42,8 +42,6 @@
 
     <script src="<?=base_url()?>assets/js/bootstrap-datepicker.pt-BR.min.js" type="text/javascript"></script>
 
-    <script src="<?=base_url()?>assets/js/datepicker.js" type="text/javascript"></script>
-
     <!-- Fim Import's para o datepicker -->
 
     <input type="hidden"  id="base-url" value="<?=base_url()?>"/>
