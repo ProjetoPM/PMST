@@ -155,6 +155,7 @@
 						<label><?=$this->lang->line('tap-end')?></label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-end-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a><br>
 						<input class="form-control" type="date" name="end_date" ><br>
 					</div>
+					
 					<input type="hidden" name="status" value="1">
 
 					<div class="col-lg-12">
