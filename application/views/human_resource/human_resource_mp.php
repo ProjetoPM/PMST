@@ -191,7 +191,6 @@
       });
       //End Date Ends Here
 
-
       // date sem validação
       var dateNormal = $("#dateNormal").datepicker({
         autoclose: true,
