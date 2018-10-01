@@ -122,17 +122,18 @@
 }   
 
 /* Formatações links da Phases Project Page*/
-.grid-container  a:link{
+.grid-container  a:link .midBox{
     /*color: #FFF;*/
 }
 
-
-.grid-container a:hover{
+.grid-container a:hover .midBox{
     /*color: red;*/
-    /*background: red; */
-    text-decoration: none;
+    background: #00ad0f; 
 }
 
+.grid-container a:hover{
+    text-decoration: none;
+}
 
 /* CSS Elastic-TextArea*/
 .elasticteste{
