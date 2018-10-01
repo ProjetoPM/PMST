@@ -80,27 +80,46 @@
 
 .grid-item {
     padding: 10px;
-    font-size: 20px;
+    font-size: 19px;
     border-radius: 5px;
     text-align: center;
 }
 
-.caixaLat, .caixaLatOpaca{
+.sideBox, .transparentBox, .midBox, .menuTopPhases{
     margin-bottom: 10px;
     line-height: 50px;
     text-align: center;
-    width: 160px;
+    width: 155px;
 }
 
-.caixaLat{
+
+.sideBox{
     background-color: #20b2aa;
     color: #FFF;
 }
 
-.caixaLatOpaca{
+.midBox{
+    background-color: #66d065;
+    color: #FFF;
+    line-height: 50px;
+}
+
+.sideBoxBig,.menuTopPhasesBig, .midBoxBig{
+    line-height: 25px;
+}
+
+.transparentBox{
+    opacity: 1; 
     color: #ccc ;
 }
    
+.btnTopPhases, .menuTopPhases{
+    background-color: #0006ff;
+    color: #FFF;
+    line-height: 25px;
+
+}   
+
 #check{
     display: none;
 }

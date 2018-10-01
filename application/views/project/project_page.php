@@ -18,133 +18,376 @@
       <div class="panel panel-default">
          <div class="panel-heading">
             <h3 class="panel-title">
-               <strong>SYSTEMATIC REVIEW PROCESS</strong>
+               <strong>PHASES <!-- <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="Definir"><i class="glyphicon glyphicon-comment"></i></a> --></strong>
             </h3>
          </div>
          <div class="panel-body text-justify">
             <div class="panel-body text-center">
-
-               <!-- Inicio  -->
-              <!--  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
-                  <div class="grid-item">
-                     
-                  </div>
-
-                  <div class="grid-item">
-                     <label class="btn btn-lg btn-primary mesmo-tamanho" for="check">
-                        <input type="checkbox" id="check">
-                        Initiating
-                     </label>
-                  </div>
-                  <div class="grid-item">
-                     <label class="btn btn-lg btn-primary mesmo-tamanho" for="check">
-                        <input type="checkbox" id="check">
-                        Planning
-                     </label>
-                  </div>
-                  <div class="grid-item">
-                     <label class="btn btn-lg btn-primary" for="check">
-                        <input type="checkbox" id="check">
-                        Executing
-                     </label>
-                  </div>
-                  <div class="grid-item">
-                     <label class="btn btn-lg btn-primary" for="check">
-                        <input type="checkbox" id="check">
-                        Monitoring & Controlling
-                     </label>
-                  </div>
-                  <div class="grid-item">
-                     <label class="btn btn-lg btn-primary" for="check">
-                        <input type="checkbox" id="check">
-                        Closing
-                     </label>
-                  </div>
-               </div> -->
-               <!-- Fim -->
-
-               <!-- Inicio Coluna 1 -->
-               <div class="col-lg-2 grid-container" style="grid-auto-flow: column">
                
-                 <div class="grid-item caixaLat">
-                   Integration
-                 </div>
-                 <div class="grid-item caixaLat">
-                   Scope
-                 </div>
-                 <div class="grid-item caixaLat">
-                   Time
-                 </div>
-                 <div class="grid-item caixaLat">
-                   Cost
-                 </div>
-                 <div class="grid-item caixaLat">
-                   Quality
-                 </div>  
-                 <div class="grid-item caixaLat">
-                   Human Resource
-                 </div>
-                 <div class="grid-item caixaLat">
-                   Communication
-                 </div>  
-                 <div class="grid-item caixaLat">
-                   Risk
-                 </div>
-                 <div class="grid-item caixaLat">
-                   Procurement
-                 </div>
-                 <div class="grid-item caixaLat">
-                   Stakeholder
-                 </div>
-               </div>
-               <!-- Fim Coluna 1 -->
+               <!-- Inicio Phases -->
 
-                <!-- Inicio Coluna 2 -->
-               <div class="col-lg-2 grid-container" style="grid-auto-flow: column">
-               
-                  <a  href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">
-                  <div class="grid-item caixaLat">
-                      Tap
+               <!-- Inicio Top Phases -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <div class="grid-item menuTopPhases">
+                      Initiating
+                     </div>
+
+                     <div class="grid-item menuTopPhases">
+                      Planning
+                     </div>
+                    
+                     <div class="grid-item menuTopPhases">
+                      Executing
+                     </div>
+
+                      <div class="grid-item menuTopPhases">
+                      Monitoring & Controlling
+                     </div>
+
+                     <div class="grid-item menuTopPhases">
+                     Closing
+                     </div>
                   </div>
-                  </a>
-
-                 <div class="grid-item">
-                  <a class="btn btn-workflow btn-lg" href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">TAP</a>
-                 </div>
-                 
-                 <div class="grid-item caixaLat">
-                   
-                 </div>
-
-                 <div class="grid-item caixaLat">
-                   
-                 </div>
-
-                 <div class="grid-item caixaLat">
-                   
-                 </div>  
-
-                 <div class="grid-item caixaLat">
-                   
-                 </div>
-
-                 <div class="grid-item caixaLat">
-                   
-                 </div>  
-
-                 <div class="grid-item caixaLat">
-                   
-                 </div>
-
-                 <div class="grid-item caixaLat">
-                   
-                 </div>
-
-                 <div class="grid-item caixaLat">
-                   
-                 </div>
                </div>
-               <!-- Fim Coluna 2 -->
+               <!-- Fim Top Phases-->
+
+               <!-- Inicio Linha 1 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox">
+                        Integration
+                     </div>
+
+                     <a  href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">
+                     <div class="grid-item midBox">
+                         Tap
+                     </div>
+                     </a>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+                    
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 1 -->
+
+               <!-- Inicio Linha 2 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox">
+                        Scope
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+                    
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 2 -->
+
+               <!-- Inicio Linha 3 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox">
+                        Time
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <a href="<?=base_url("Schedule/schedule_form/".$project[0]->project_id) ?>">
+                     <div class="grid-item midBox">
+                      Schedule
+                     </div>
+                     </a>
+                    
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 3 -->
+
+               <!-- Inicio Linha 4 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox">
+                        Cost
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <a href="<?=base_url("GerenciarCustos/addnew/".$project[0]->project_id)?>">
+                     <div class="grid-item midBox">
+                        Cost
+                     </div>
+                     </a>
+                    
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 4 -->
+
+               <!-- Inicio Linha 5 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox">
+                        Quality
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <a href="<?=base_url()?>Charter_Quality/addnew/<?php echo $project[0]->project_id;?>">
+                     <div class="grid-item midBox">
+                      PMQ  
+                     </div>  
+                     </a>
+                    
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 5 -->
+
+               <!-- Inicio Linha 6 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox sideBoxBig">
+                        Human Resource
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <a href="<?=base_url("Human_resource/human_resource_form/".$project[0]->project_id) ?>">
+                     <div class="grid-item midBox midBoxBig">
+                      Human Resource
+                     </div>
+                     </a>
+                    
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 6 -->
+
+               <!-- Inicio Linha 7 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox">
+                        Communication
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <a href="<?=base_url()?>communication_item/communication_form/<?php echo $project[0]->project_id;?>">
+                     <div class="grid-item midBox midBoxBig">
+                        Communication Item
+                     </div>
+                     </a>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 7 -->
+
+               <!-- Inicio Linha 8 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox">
+                        Risk
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <a href="<?=base_url()?>risk/risk_form/<?php echo $project[0]->project_id;?>">
+                     <div class="grid-item midBox">
+                        Risks 
+                     </div>
+                     </a>
+                    
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 8 -->
+
+               <!-- Inicio Linha 9 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox">
+                        Procurement
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <a href="<?=base_url()?>/procurement/procurement_form/<?php echo $project[0]->project_id;?>">
+                     <div class="grid-item midBox">
+                        Procurement
+                     </div>
+                     </a>
+                    
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 9 -->
+
+               <!-- Inicio Linha 10 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox">
+                        Stakeholder
+                     </div>
+
+                     <a href="<?=base_url("GerenciarStake/addnew/".$project[0]->project_id) ?>">
+                     <div class="grid-item midBox midBoxBig">
+                        Stakeholder Register
+                     </div>
+                     </a>
+
+                     <a href="<?=base_url("Stakeholder_mp/stakeholder_mp_form/".$project[0]->project_id) ?>">
+                     <div class="grid-item midBox midBoxBig">
+                       Stakeholder MP
+                     </div>
+                     </a>
+                    
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 10 -->
+               
+               <!-- Fim Phases -->
 
             </div>
          </div>
