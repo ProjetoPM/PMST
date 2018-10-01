@@ -83,9 +83,11 @@
                         .
                      </div>
 
+                     <a href="<?=base_url("TEP/addnew/".$project[0]->project_id) ?>">
                      <div class="grid-item midBox">
-                        .
+                        TEP
                      </div>
+                     </a>
                   </div>
                </div>
                <!-- Fim Linha 1 -->
@@ -106,7 +108,7 @@
                         .
                      </div>
                     
-                     <div class="grid-item midBox">
+                     <div class="grid-item transparentBox">
                         .
                      </div>
 
@@ -114,7 +116,7 @@
                         .
                      </div>
 
-                     <div class="grid-item midBox">
+                     <div class="grid-item transparentBox">
                         .
                      </div>
                   </div>
@@ -139,7 +141,7 @@
                      </div>
                      </a>
                     
-                     <div class="grid-item midBox">
+                     <div class="grid-item transparentBox">
                         .
                      </div>
 
@@ -147,7 +149,7 @@
                         .
                      </div>
 
-                     <div class="grid-item midBox">
+                     <div class="grid-item transparentBox">
                         .
                      </div>
                   </div>
@@ -172,7 +174,7 @@
                      </div>
                      </a>
                     
-                     <div class="grid-item midBox">
+                     <div class="grid-item transparentBox">
                         .
                      </div>
 
@@ -180,7 +182,7 @@
                         .
                      </div>
 
-                     <div class="grid-item midBox">
+                     <div class="grid-item transparentBox">
                         .
                      </div>
                   </div>
@@ -213,7 +215,7 @@
                         .
                      </div>
 
-                     <div class="grid-item midBox">
+                     <div class="grid-item transparentBox">
                         .
                      </div>
                   </div>
@@ -242,11 +244,13 @@
                         .
                      </div>
 
+                     <a href="<?=base_url("Ade/getAde_form/".$project[0]->project_id) ?>">
                      <div class="grid-item midBox">
-                        .
+                        TPE<!-- Team Performance Ealuation -->
                      </div>
+                     </a>
 
-                     <div class="grid-item midBox">
+                     <div class="grid-item transparentBox">
                         .
                      </div>
                   </div>
@@ -271,7 +275,7 @@
                      </div>
                      </a>
 
-                     <div class="grid-item midBox">
+                     <div class="grid-item transparentBox">
                         .
                      </div>
 
@@ -279,7 +283,7 @@
                         .
                      </div>
 
-                     <div class="grid-item midBox">
+                     <div class="grid-item transparentBox">
                         .
                      </div>
                   </div>
@@ -304,15 +308,16 @@
                      </div>
                      </a>
                     
-                     <div class="grid-item midBox">
+                     <div class="grid-item transparentBox">
                         .
                      </div>
 
+                     <a href="<?=base_url("Issues_Record/addIssuesRecord/".$project[0]->project_id) ?>">
                      <div class="grid-item midBox">
-                        .
+                        Issues Record
                      </div>
-
-                     <div class="grid-item midBox">
+                     </a>
+                     <div class="grid-item transparentBox">
                         .
                      </div>
                   </div>
@@ -345,7 +350,7 @@
                         .
                      </div>
 
-                     <div class="grid-item midBox">
+                     <div class="grid-item transparentBox">
                         .
                      </div>
                   </div>
@@ -380,7 +385,7 @@
                         .
                      </div>
 
-                     <div class="grid-item midBox">
+                     <div class="grid-item transparentBox">
                         .
                      </div>
                   </div>
@@ -388,6 +393,13 @@
                <!-- Fim Linha 10 -->
                
                <!-- Fim Phases -->
+
+               <hr>
+
+               <!-- <a class="btn btn-workflow btn-lg btn-block" href="<?=base_url()?>Notification_board/notification_board_form/<?php echo $project[0]->project_id;?>">NOTIFICATION BOARD</a> -->
+               <div class="col-md-12">
+                  <a class="btn btn-warning btn-lg btn-block" href="<?=base_url()?>Notification_board/notification_board_form/<?php echo $project[0]->project_id;?>">NOTIFICATION BOARD</a>
+               </div>
 
             </div>
          </div>

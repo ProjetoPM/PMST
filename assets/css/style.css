@@ -106,6 +106,7 @@
 
 .sideBoxBig,.menuTopPhasesBig, .midBoxBig{
     line-height: 25px;
+    /*line-height: 100%;*/
 }
 
 .transparentBox{
@@ -120,14 +121,18 @@
 
 }   
 
-#check{
-    display: none;
+/* Formatações links da Phases Project Page*/
+.grid-container  a:link{
+    /*color: #FFF;*/
 }
 
-.mesmo-tamanho {
-    width: 100%;
-    white-space: normal;
+
+.grid-container a:hover{
+    /*color: red;*/
+    /*background: red; */
+    text-decoration: none;
 }
+
 
 /* CSS Elastic-TextArea*/
 .elasticteste{

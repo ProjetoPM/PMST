@@ -8,7 +8,7 @@
        <div class="panel-body text-center">
         <h2 class="section-title mb-2 h1"><?= $project[0]->title;?></h2>
         
-       <a class="btn btn-workflow btn-lg" href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">TAP</a>
+      <!--  <a class="btn btn-workflow btn-lg" href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">TAP</a>
        
        <a class="btn btn-workflow btn-lg" href="<?=base_url("GerenciarCustos/addnew/".$project[0]->project_id)?>">COST</a>
 
@@ -26,9 +26,9 @@
          SCHEDULE
        </a>
 
-       <br><br>
+       <br><br> -->
 
-       <a class="btn btn-workflow btn-lg" href="<?=base_url()?>Charter_Quality/addnew/<?php echo $project[0]->project_id;?>">PMQ</a>
+       <!-- <a class="btn btn-workflow btn-lg" href="<?=base_url()?>Charter_Quality/addnew/<?php echo $project[0]->project_id;?>">PMQ</a>
 
        <a class="btn btn-workflow btn-lg" href="<?=base_url()?>communication_item/communication_form/<?php echo $project[0]->project_id;?>">COMMUNICATION ITEM</a>
 
@@ -38,9 +38,9 @@
        
        <a class="btn btn-workflow btn-lg" href="<?=base_url("TEP/addnew/".$project[0]->project_id) ?>">TEP</a>
        
-      <br><br>
+      <br><br> -->
 
-       <a class="btn btn-workflow btn-lg" href="<?=base_url("Issues_Record/addIssuesRecord/".$project[0]->project_id) ?>">ISSUES RECORD</a>
+       <!-- <a class="btn btn-workflow btn-lg" href="<?=base_url("Issues_Record/addIssuesRecord/".$project[0]->project_id) ?>">ISSUES RECORD</a>
        
        <a class="btn btn-workflow btn-lg" href="<?=base_url()?>Notification_board/notification_board_form/<?php echo $project[0]->project_id;?>">NOTIFICATION BOARD</a>
        
@@ -48,7 +48,7 @@
          TEAM PERFORMANCE EVALUATION
        </a>
 
-       <br><br>
+       <br><br> -->
 
      </div>
    </div>
