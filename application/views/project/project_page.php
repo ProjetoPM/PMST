@@ -10,52 +10,6 @@
    <strong><?php echo $this->session->flashdata('error'); ?></strong>
 </div>
 <?php endif;?>
-<div class="panel panel-default">
-<div class="panel-body">
-<section id="what-we-do">
-      <div class="container-fluid">
-            <p class="text-center text-muted h5">It has become essential to systematically review.</p>
-            <div class="row mt-5">
-                  
-                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                        <div class="card">
-                              <div class="card-block block-1">
-                              <h3 class="card-title">Description</h3>
-                              <p class="card-text"><?= $project[0] -> description;?></p>
-                              </div>
-                        </div>
-                  </div>
-
-                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                        <div class="card">
-                              <div class="card-block block-2">
-                              <h3 class="card-title">Objectives</h3>
-                              <p class="card-text"><?= $project[0] -> objectives;?></p>
-                              </div>
-                        </div>
-                  </div>
-
-            </div>
-            <?php if(count($members)>1) { ?>
-                  <div class="row mt-5">
-                        <div class="col-xs-hidden col-sm-6"></div>
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                              <div class="card">
-                                    <div class="card-block block-3">
-                                    <h3 class="card-title">Members</h3>
-                                    <p class="card-text"><ul><?php foreach ($members as $member) { ?>
-                                          <li><?= $member -> name; ?></li><?php } ?></ul></p>
-                                    </div>
-                              </div>
-                        </div>
-                        
-                  </div>
-            <?php } ?>
-
-      </div>   
-</section>
-</div>
-</div>
 
 
 <!-- lorem ipsum -->
@@ -70,11 +24,129 @@
          <div class="panel-body text-justify">
             <div class="panel-body text-center">
 
+               <!-- Inicio  -->
+              <!--  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                  <div class="grid-item">
+                     
+                  </div>
 
+                  <div class="grid-item">
+                     <label class="btn btn-lg btn-primary mesmo-tamanho" for="check">
+                        <input type="checkbox" id="check">
+                        Initiating
+                     </label>
+                  </div>
+                  <div class="grid-item">
+                     <label class="btn btn-lg btn-primary mesmo-tamanho" for="check">
+                        <input type="checkbox" id="check">
+                        Planning
+                     </label>
+                  </div>
+                  <div class="grid-item">
+                     <label class="btn btn-lg btn-primary" for="check">
+                        <input type="checkbox" id="check">
+                        Executing
+                     </label>
+                  </div>
+                  <div class="grid-item">
+                     <label class="btn btn-lg btn-primary" for="check">
+                        <input type="checkbox" id="check">
+                        Monitoring & Controlling
+                     </label>
+                  </div>
+                  <div class="grid-item">
+                     <label class="btn btn-lg btn-primary" for="check">
+                        <input type="checkbox" id="check">
+                        Closing
+                     </label>
+                  </div>
+               </div> -->
+               <!-- Fim -->
 
-               <img src="<?=base_url()?>assets/images/slr_process.png" alt="bpmn slr" align="center">
+               <!-- Inicio Coluna 1 -->
+               <div class="col-lg-2 grid-container" style="grid-auto-flow: column">
+               
+                 <div class="grid-item caixaLat">
+                   Integration
+                 </div>
+                 <div class="grid-item caixaLat">
+                   Scope
+                 </div>
+                 <div class="grid-item caixaLat">
+                   Time
+                 </div>
+                 <div class="grid-item caixaLat">
+                   Cost
+                 </div>
+                 <div class="grid-item caixaLat">
+                   Quality
+                 </div>  
+                 <div class="grid-item caixaLat">
+                   Human Resource
+                 </div>
+                 <div class="grid-item caixaLat">
+                   Communication
+                 </div>  
+                 <div class="grid-item caixaLat">
+                   Risk
+                 </div>
+                 <div class="grid-item caixaLat">
+                   Procurement
+                 </div>
+                 <div class="grid-item caixaLat">
+                   Stakeholder
+                 </div>
+               </div>
+               <!-- Fim Coluna 1 -->
 
-             </div>
+                <!-- Inicio Coluna 2 -->
+               <div class="col-lg-2 grid-container" style="grid-auto-flow: column">
+               
+                  <a  href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">
+                  <div class="grid-item caixaLat">
+                      Tap
+                  </div>
+                  </a>
+
+                 <div class="grid-item">
+                  <a class="btn btn-workflow btn-lg" href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">TAP</a>
+                 </div>
+                 
+                 <div class="grid-item caixaLat">
+                   
+                 </div>
+
+                 <div class="grid-item caixaLat">
+                   
+                 </div>
+
+                 <div class="grid-item caixaLat">
+                   
+                 </div>  
+
+                 <div class="grid-item caixaLat">
+                   
+                 </div>
+
+                 <div class="grid-item caixaLat">
+                   
+                 </div>  
+
+                 <div class="grid-item caixaLat">
+                   
+                 </div>
+
+                 <div class="grid-item caixaLat">
+                   
+                 </div>
+
+                 <div class="grid-item caixaLat">
+                   
+                 </div>
+               </div>
+               <!-- Fim Coluna 2 -->
+
+            </div>
          </div>
       </div>
    </div>
