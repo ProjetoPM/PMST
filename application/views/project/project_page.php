@@ -168,7 +168,7 @@
                         .
                      </div>
 
-                     <a href="<?=base_url("GerenciarCustos/addnew/".$project[0]->project_id)?>">
+                     <a href="<?=base_url("ManagementCost/addnew/".$project[0]->project_id)?>">
                      <div class="grid-item midBox">
                         Cost
                      </div>
@@ -365,7 +365,7 @@
                         Stakeholder
                      </div>
 
-                     <a href="<?=base_url("GerenciarStake/addnew/".$project[0]->project_id) ?>">
+                     <a href="<?=base_url("ManagementStakeholder/addnew/".$project[0]->project_id) ?>">
                      <div class="grid-item midBox midBoxBig">
                         Stakeholder Register
                      </div>

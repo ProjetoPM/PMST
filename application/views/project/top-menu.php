@@ -10,7 +10,7 @@
         
       <!--  <a class="btn btn-workflow btn-lg" href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">TAP</a>
        
-       <a class="btn btn-workflow btn-lg" href="<?=base_url("GerenciarCustos/addnew/".$project[0]->project_id)?>">COST</a>
+       <a class="btn btn-workflow btn-lg" href="<?=base_url("ManagementCost/addnew/".$project[0]->project_id)?>">COST</a>
 
        <a class="btn btn-workflow btn-lg" href="<?=base_url()?>/procurement/procurement_form/<?php echo $project[0]->project_id;?>">PROCUREMENT
        </a>

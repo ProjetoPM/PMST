@@ -5,7 +5,7 @@
 			$this->load->database();
 		}
 
-		public function insertStakes($stakeholder_register){
+		public function insert($stakeholder_register){
 			return $this->db->insert('stakeholder', $stakeholder_register);
 		}
 	}
