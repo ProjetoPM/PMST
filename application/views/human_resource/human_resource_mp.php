@@ -27,41 +27,6 @@
                 </div>
               </div>
 
-              <!-- Inicio teste datas -->
-              <div class="form-group">
-                <div class="col-lg-6">
-                  <div class="input-group">
-                      <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
-                      </div>
-                        <input class="form-control" id="startDate" placeholder="MM/DD/YYYY" type="text" />
-                    </div>
-                </div>
-              </div>
-
-              <div class="form-group">
-                  <div class="col-lg-6">
-                  <div class="input-group">
-                      <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
-                      </div>
-                        <input class="form-control" id="endDate" placeholder="MM/DD/YYYY" type="text" />
-                    </div>
-                </div>
-              </div>
-
-              <div class="form-group">
-                  <div class="col-lg-12">
-                  <div class="input-group">
-                      <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
-                      </div>
-                        <input class="form-control" id="dateNormal" placeholder="MM/DD/YYYY" type="text" />
-                    </div>
-                </div>
-              </div>
-              <!-- Fim teste Datas -->
-
               <!-- Textarea -->
               <div class="col-lg-6 form-group">
                 <label for="organizational_chart"><?=$this->lang->line('human_resource-chart')?>
@@ -153,57 +118,4 @@
     </div>
     <!-- /.row -->
 </div>
-
-
-    <script type="text/javascript">
-      
-      //////////////////////////////////
-      // Start Date & End Date
-      //////////////////////////////////
-      var currentDate = new Date();
-      var today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 0, 0, 0, 0);
-      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-
-      var startDate = $("#startDate").datepicker({
-        autoclose: true,
-        format: 'mm/dd/yyyy',
-        //language: 'pt-BR', //Idioma do Calendario
-        container: container,
-        keyboardNavigation: true,
-        orientation: "bottom",
-        todayHighlight : true,
-        startDate: today,
-      }).on('changeDate', function(ev) {
-        var newDate = new Date(ev.date.setDate(ev.date.getDate() + 1));
-        endDate.datepicker("setStartDate", newDate);
-      });
-      
-      //Start Date Ends Here
-      var endDate = $("#endDate").datepicker({
-        autoclose: true,
-        format: 'mm/dd/yyyy',
-        //language: 'pt-BR', //Idioma do Calendario
-        container: container,
-        keyboardNavigation: true,
-        orientation: "bottom",
-        startDate: today,
-        /*todayHighlight : true,*/
-      });
-      //End Date Ends Here
-
-      // date sem validação
-      var dateNormal = $("#dateNormal").datepicker({
-        autoclose: true,
-        format: 'mm/dd/yyyy',
-        //language: 'pt-BR', //Idioma do Calendario
-        container: container,
-        keyboardNavigation: true,
-        orientation: "bottom",
-        todayHighlight : true,
-        // startDate: today,
-      });
-
-
-    </script>
-
-    <?php $this->load->view('frame/footer_view')?>
+<?php $this->load->view('frame/footer_view')?>
