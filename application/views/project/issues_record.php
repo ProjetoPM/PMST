@@ -88,25 +88,36 @@
 											<input class="form-control" type="date" name="resolution_date" >
 										</div>
 
-										<div class="form-group col-lg-6">
+										<div class="form-group">
+											<div class="col-lg-12">
+												<label><?=$this->lang->line('ir-replan_date')?></label>
+												<div class="input-group">
+													<div class="input-group-addon">
+														<i class="fa fa-calendar"></i>
+													</div>
+													<input class="form-control" id="dateNormal" placeholder="YYYY/MM/DD" type="text" name="replan_date"/>
+												</div>
+											</div>
+										</div>
+									<!-- 	<div class="form-group col-lg-6">
 											<label for="replan_date"><?=$this->lang->line('ir-replan_date')?></label>
 											<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-replan_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 											<input class="form-control" type="date" name="replan_date" >
 										</div>
-
-										<div class="form-group col-lg-12">
-											<label for="observations"><?=$this->lang->line('ir-observations')?></label>
-											<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-replan_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-											<textarea class="form-control" id="observations"  name="observations" maxlength="45"></textarea>
-										</div>
+									-->
+									<div class="form-group col-lg-12">
+										<label for="observations"><?=$this->lang->line('ir-observations')?></label>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-replan_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<textarea class="form-control" id="observations"  name="observations" maxlength="45"></textarea>
+									</div>
 
 									<div><button type="submit" class="btn btn-lg btn-success pull-right">Save</button>
 
-													</form>
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-lg btn-default pull-left" data-dismiss="modal">Close</button>
-												</div></div>
+									</form>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-lg btn-default pull-left" data-dismiss="modal">Close</button>
+								</div></div>
 							</div>
 						</div>
 					</div>
@@ -270,34 +281,53 @@
 													</div>
 													<div><button type="submit" class="btn btn-lg btn-success pull-right">Save</button>
 
-												</form>
+													</form>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-lg btn-default pull-left" data-dismiss="modal">Close</button>
+												</div></div>
+
 											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-lg btn-default pull-left" data-dismiss="modal">Close</button>
-											</div></div>
-													
 										</div>
 									</div>
-								</div>
 
-								<form action="<?php echo base_url() ?>issues_record/delete/<?php echo $item->issues_record_id; ?>">
-									<button type="submit" class="btn btn-danger"><span class="fa fa-trash"></span> Delete</button>
-								</form>
-							</td>
-						</tr> 
-						<?php
-					}
-					?>
+									<form action="<?php echo base_url() ?>issues_record/delete/<?php echo $item->issues_record_id; ?>">
+										<button type="submit" class="btn btn-danger"><span class="fa fa-trash"></span> Delete</button>
+									</form>
+								</td>
+							</tr> 
+							<?php
+						}
+						?>
 
-				</tbody>
-			</table> 
-		</div>  
-	</div>
+					</tbody>
+				</table> 
+			</div>  
+		</div>
+		<!-- /.row -->
 
 
+		<script type="text/javascript">
+ //////////////////////////////////
+ // Date Normal
+ //////////////////////////////////
+	var currentDate = new Date();
+ var today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 0, 0, 0, 0);
+ var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
 
-	<!-- /.row -->
+ var dateNormal = $("#dateNormal").datepicker({
+ 	autoclose: true,
+ 	format: 'yyyy/mm/dd',
+  //language: 'pt-BR', //Idioma do Calendario
+  container: container,
+  keyboardNavigation: true,
+  orientation: "bottom",
+  todayHighlight : true,
+  // startDate: today,
+ });
+</script>
 
-	<div>
-		<?php $this->load->view('frame/footer_view') ?>            
-	</div>
+
+<div>
+	<?php $this->load->view('frame/footer_view') ?>            
+</div>

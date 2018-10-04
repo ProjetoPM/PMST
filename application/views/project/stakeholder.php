@@ -20,20 +20,20 @@
 		<div class="row">
 			<div class="col-lg-12">
 
-				<form method="POST" action="<?php echo base_url('GerenciarStake/insert/'); ?><?php echo $id; ?>">
+				<form method="POST" action="<?php echo base_url('ManagementStakeholder/insert/'); ?><?php echo $id; ?>">
 					
-					<div class=" col-lg-12 form-group">
-						<label for="name"><?=$this->lang->line('stakeholder-name')?> *</label> 
+					<div class="col-lg-4 form-group">
+						<label for="name"><?=$this->lang->line('stakeholder-name')?> *</label>  
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-name-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="name" name="name" required="true"></textarea>  
+						<div >
+							<input id="name" name="name" type="text" class="form-control input-md" required="true">
 						</div>
 					</div>
 
 
+
 					<!-- valor 0 para externo | valor 1 para interno -->
-					<div class="col-lg-3 form-group">
+					<div class="col-lg-4 form-group">
 						<label for="type"><?=$this->lang->line('stakeholder-type')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-type-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<select name="type" class="form-control">
@@ -44,7 +44,7 @@
 
 
 					<!-- valor 0 para cliente| valor 1 para team| valor 2 para provedor | valor 3 para gerente | valor 4 para patrocinador | valor 5 para outros -->
-					<div class="col-lg-3 form-group">
+					<div class="col-lg-4 form-group">
 						<label for="role"><?=$this->lang->line('stakeholder-role')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-role-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<select name="role" class="form-control">
@@ -58,28 +58,34 @@
 					</div>
 
 
-
-
-					<div class=" col-lg-6 form-group">
-						<label for="organization"><?=$this->lang->line('stakeholder-organization')?></label> 
+					<div class="col-lg-4 form-group">
+						<label for="organization"><?=$this->lang->line('stakeholder-organization')?> *</label>  
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-organization-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="organization" name="organization"></textarea>  
+						<div >
+							<input id="organization" name="organization" type="text" class="form-control input-md">
 						</div>
 					</div>
 
 
-					<div class=" col-lg-6 form-group">
+					<div class=" col-lg-4 form-group">
 						<label for="position"><?=$this->lang->line('stakeholder-position')?></label> 
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-position-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="position" name="position"></textarea>  
+							<input id="position" name="position" type="text" class="form-control input-md">
 						</div>
 					</div>
 
-					<div class=" col-lg-6 form-group">
+					<div class=" col-lg-4 form-group">
+						<label for="email"><?=$this->lang->line('stakeholder-email')?></label> 
+						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-email-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+						<div >                 
+							<input id="email" name="email" type="text" class="form-control input-md">
+						</div>
+					</div>	
+
+					<div class=" col-lg-12 form-group">
 						<label for="responsibility"><?=$this->lang->line('stakeholder-responsibility')?></label> 
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-responsibility-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
@@ -88,21 +94,12 @@
 						</div>
 					</div>
 
-					<div class=" col-lg-12 form-group">
-						<label for="email"><?=$this->lang->line('stakeholder-email')?></label> 
-						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-email-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="email" name="email"></textarea>  
-						</div>
-					</div>	
-
 					<div class=" col-lg-6 form-group">
 						<label for="phone_number"><?=$this->lang->line('stakeholder-phone_number')?></label> 
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-phone_number-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="phone_number" name="phone_number"></textarea>  
+							<input id="phone_number" name="phone_number" type="text" class="form-control input-md">
 						</div>
 					</div>
 					
@@ -111,7 +108,7 @@
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-work_place-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="work_place" name="work_place"></textarea>  
+							<input id="work_place" name="work_place" type="text" class="form-control input-md">
 						</div>
 					</div>
 
