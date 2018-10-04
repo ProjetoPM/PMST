@@ -20,7 +20,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 
-				<form method="POST" action="<?php echo base_url('GerenciarStake/insert/'); ?><?php echo $id; ?>">
+				<form method="POST" action="<?php echo base_url('ManagementStakeholder/insert/'); ?><?php echo $id; ?>">
 					
 					<div class=" col-lg-12 form-group">
 						<label for="name"><?=$this->lang->line('stakeholder-name')?> *</label> 

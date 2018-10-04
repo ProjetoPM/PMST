@@ -10,52 +10,6 @@
    <strong><?php echo $this->session->flashdata('error'); ?></strong>
 </div>
 <?php endif;?>
-<div class="panel panel-default">
-<div class="panel-body">
-<section id="what-we-do">
-      <div class="container-fluid">
-            <p class="text-center text-muted h5">It has become essential to systematically review.</p>
-            <div class="row mt-5">
-                  
-                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                        <div class="card">
-                              <div class="card-block block-1">
-                              <h3 class="card-title">Description</h3>
-                              <p class="card-text"><?= $project[0] -> description;?></p>
-                              </div>
-                        </div>
-                  </div>
-
-                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                        <div class="card">
-                              <div class="card-block block-2">
-                              <h3 class="card-title">Objectives</h3>
-                              <p class="card-text"><?= $project[0] -> objectives;?></p>
-                              </div>
-                        </div>
-                  </div>
-
-            </div>
-            <?php if(count($members)>1) { ?>
-                  <div class="row mt-5">
-                        <div class="col-xs-hidden col-sm-6"></div>
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                              <div class="card">
-                                    <div class="card-block block-3">
-                                    <h3 class="card-title">Members</h3>
-                                    <p class="card-text"><ul><?php foreach ($members as $member) { ?>
-                                          <li><?= $member -> name; ?></li><?php } ?></ul></p>
-                                    </div>
-                              </div>
-                        </div>
-                        
-                  </div>
-            <?php } ?>
-
-      </div>   
-</section>
-</div>
-</div>
 
 
 <!-- lorem ipsum -->
@@ -64,17 +18,390 @@
       <div class="panel panel-default">
          <div class="panel-heading">
             <h3 class="panel-title">
-               <strong>SYSTEMATIC REVIEW PROCESS</strong>
+               <strong>PHASES <!-- <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="Definir"><i class="glyphicon glyphicon-comment"></i></a> --></strong>
             </h3>
          </div>
          <div class="panel-body text-justify">
             <div class="panel-body text-center">
+               
+               <!-- Inicio Phases -->
 
+               <!-- Inicio Top Phases -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
 
+                     <div class="grid-item menuTopPhases">
+                      Initiating
+                     </div>
 
-               <img src="<?=base_url()?>assets/images/slr_process.png" alt="bpmn slr" align="center">
+                     <div class="grid-item menuTopPhases">
+                      Planning
+                     </div>
+                    
+                     <div class="grid-item menuTopPhases">
+                      Executing
+                     </div>
 
-             </div>
+                      <div class="grid-item menuTopPhases">
+                      Monitoring & Controlling
+                     </div>
+
+                     <div class="grid-item menuTopPhases">
+                     Closing
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Top Phases-->
+
+               <!-- Inicio Linha 1 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox">
+                        Integration
+                     </div>
+
+                     <a  href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">
+                     <div class="grid-item midBox">
+                         Tap
+                     </div>
+                     </a>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+                    
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <a href="<?=base_url("TEP/addnew/".$project[0]->project_id) ?>">
+                     <div class="grid-item midBox">
+                        TEP
+                     </div>
+                     </a>
+                  </div>
+               </div>
+               <!-- Fim Linha 1 -->
+
+               <!-- Inicio Linha 2 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox">
+                        Scope
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+                    
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 2 -->
+
+               <!-- Inicio Linha 3 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox">
+                        Time
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <a href="<?=base_url("Schedule/schedule_form/".$project[0]->project_id) ?>">
+                     <div class="grid-item midBox">
+                      Schedule
+                     </div>
+                     </a>
+                    
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 3 -->
+
+               <!-- Inicio Linha 4 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox">
+                        Cost
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <a href="<?=base_url("ManagementCost/addnew/".$project[0]->project_id)?>">
+                     <div class="grid-item midBox">
+                        Cost
+                     </div>
+                     </a>
+                    
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 4 -->
+
+               <!-- Inicio Linha 5 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox">
+                        Quality
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <a href="<?=base_url()?>Charter_Quality/addnew/<?php echo $project[0]->project_id;?>">
+                     <div class="grid-item midBox">
+                      PMQ  
+                     </div>  
+                     </a>
+                    
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 5 -->
+
+               <!-- Inicio Linha 6 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox sideBoxBig">
+                        Human Resource
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <a href="<?=base_url("Human_resource/human_resource_form/".$project[0]->project_id) ?>">
+                     <div class="grid-item midBox midBoxBig">
+                      Human Resource
+                     </div>
+                     </a>
+                    
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <a href="<?=base_url("Ade/getAde_form/".$project[0]->project_id) ?>">
+                     <div class="grid-item midBox">
+                        TPE<!-- Team Performance Ealuation -->
+                     </div>
+                     </a>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 6 -->
+
+               <!-- Inicio Linha 7 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox">
+                        Communication
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <a href="<?=base_url()?>communication_item/communication_form/<?php echo $project[0]->project_id;?>">
+                     <div class="grid-item midBox midBoxBig">
+                        Communication Item
+                     </div>
+                     </a>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 7 -->
+
+               <!-- Inicio Linha 8 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox">
+                        Risk
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <a href="<?=base_url()?>risk/risk_form/<?php echo $project[0]->project_id;?>">
+                     <div class="grid-item midBox">
+                        Risks 
+                     </div>
+                     </a>
+                    
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <a href="<?=base_url("Issues_Record/addIssuesRecord/".$project[0]->project_id) ?>">
+                     <div class="grid-item midBox">
+                        Issues Record
+                     </div>
+                     </a>
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 8 -->
+
+               <!-- Inicio Linha 9 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox">
+                        Procurement
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+
+                     <a href="<?=base_url()?>/procurement/procurement_form/<?php echo $project[0]->project_id;?>">
+                     <div class="grid-item midBox">
+                        Procurement
+                     </div>
+                     </a>
+                    
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 9 -->
+
+               <!-- Inicio Linha 10 -->
+               <div class="row">
+                  <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
+                    
+                     <div class="grid-item sideBox">
+                        Stakeholder
+                     </div>
+
+                     <a href="<?=base_url("ManagementStakeholder/addnew/".$project[0]->project_id) ?>">
+                     <div class="grid-item midBox midBoxBig">
+                        Stakeholder Register
+                     </div>
+                     </a>
+
+                     <a href="<?=base_url("Stakeholder_mp/stakeholder_mp_form/".$project[0]->project_id) ?>">
+                     <div class="grid-item midBox midBoxBig">
+                       Stakeholder MP
+                     </div>
+                     </a>
+                    
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item midBox">
+                        .
+                     </div>
+
+                     <div class="grid-item transparentBox">
+                        .
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim Linha 10 -->
+               
+               <!-- Fim Phases -->
+
+               <hr>
+
+               <!-- <a class="btn btn-workflow btn-lg btn-block" href="<?=base_url()?>Notification_board/notification_board_form/<?php echo $project[0]->project_id;?>">NOTIFICATION BOARD</a> -->
+               <div class="col-md-12">
+                  <a class="btn btn-warning btn-lg btn-block" href="<?=base_url()?>Notification_board/notification_board_form/<?php echo $project[0]->project_id;?>">NOTIFICATION BOARD</a>
+               </div>
+
+            </div>
          </div>
       </div>
    </div>

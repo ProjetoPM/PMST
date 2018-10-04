@@ -19,12 +19,27 @@
     <!-- CSS refatorados da dashboard principal -->
     <link href="<?=base_url()?>assets/css/style.css" rel="stylesheet">
 
-    <!--data table -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-
     <!-- Cod Elastic TextArea -->
     <script src="<?=base_url()?>assets/js/elasticTextarea.js" type="text/javascript"></script>
 
+    <!-- Inclusão do jQuery-->
+    <script src="<?=base_url()?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
+    <!-- Inclusão do Plugin jQuery Validation-->
+    <script src="<?=base_url()?>assets/js/jquery.validate.js" type="text/javascript"></script>
+
+    <!-- Inicio Import's para o datepicker -->
+    <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+    <link href="<?=base_url()?>assets/css/bootstrap-iso.css" rel="stylesheet">
+    <!-- Include jQuery -->
+    <script src="<?=base_url()?>assets/js/jquery-1.11.3.min.js" type="text/javascript"></script> <!--Verificar se é necessario ja que ja tem o 1.11.1 -->
+    <!-- Include Date Range Picker -->
+    <script src="<?=base_url()?>assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+
+    <link href="<?=base_url()?>assets/css/bootstrap-datepicker3.css" rel="stylesheet">
+
+    <script src="<?=base_url()?>assets/js/bootstrap-datepicker.pt-BR.min.js" type="text/javascript"></script>
+
+    <!-- Fim Import's para o datepicker -->
 
     <input type="hidden"  id="base-url" value="<?=base_url()?>"/>
   </head>
