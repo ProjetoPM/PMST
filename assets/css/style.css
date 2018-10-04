@@ -72,54 +72,75 @@
 /* CSS Dashbord Project */
 .grid-container {
     display: grid;
-    grid-column-gap: 10px;
+    /*grid-column-gap: 8px;*/
+    grid-column-gap: 5%;
+    grid-row-gap: 2%;
     grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto;
     grid-template-columns: auto auto auto auto auto auto;
     /*padding: 10px;*/
+
+   
 }
 
 .grid-item {
-    padding: 10px;
-    font-size: 19px;
+    /*padding: 10px;
+    font-size: 17px;
     border-radius: 5px;
+*/
+    padding: 10%;
+    font-size: 100%;
+    border-radius: 5%;
+
     text-align: center;
-}
-
-.sideBox, .transparentBox, .midBox, .menuTopPhases{
-    margin-bottom: 10px;
-    line-height: 50px;
-    text-align: center;
-    width: 155px;
-}
 
 
-.sideBox{
-    background-color: #20b2aa;
-    color: #FFF;
+
 }
 
 .midBox{
     background-color: #66d065;
-    color: #FFF;
-    line-height: 50px;
 }
 
-.sideBoxBig,.menuTopPhasesBig, .midBoxBig{
-    line-height: 25px;
-    /*line-height: 100%;*/
+.menuBox{
+    background-color: #0006ff;
+}
+
+.sideBox{
+    background-color: #20b2aa;
+}
+
+.midBox, .menuBox, .sideBox{
+    color: #FFF;
 }
 
 .transparentBox{
     opacity: 1; 
     color: #ccc ;
 }
-   
-.btnTopPhases, .menuTopPhases{
-    background-color: #0006ff;
-    color: #FFF;
-    line-height: 25px;
 
-}   
+.midBox, .menuBox, .sideBox, .transparentBox{
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.bigBox{
+    /*line-height: 50px;*/
+    line-height: 2em;
+    /*width: 155px;*/
+    width: 8em;
+}
+
+.smallBox{
+    /*line-height: 25px;*/
+    line-height: 1em;
+    /*width: 155px;*/
+    width: 8em;
+}
+
+.menuBoxX3{
+    line-height: 1em;
+    width: 24em + 10%;
+}
 
 /* Formatações links da Phases Project Page*/
 .grid-container  a:link .midBox{
@@ -134,6 +155,9 @@
 .grid-container a:hover{
     text-decoration: none;
 }
+
+
+
 
 /* CSS Elastic-TextArea*/
 .elasticteste{
