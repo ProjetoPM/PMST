@@ -4,9 +4,15 @@ if (!defined('BASEPATH')) {
 }
 
 class Communication_item extends CI_Controller{
-    
+
     public function __Construct(){
         parent::__Construct();
+
+                // $this->lang->load('btn','english');
+        $this->lang->load('btn','portuguese-brazilian');
+        // $this->lang->load('human-resource','english');
+        $this->lang->load('communication-item','portuguese-brazilian');
+
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }
@@ -101,17 +107,17 @@ class Communication_item extends CI_Controller{
         $query = $this->communication_item_model->updateCommunication_item($data['communication_item'], $id);
 
         if($query){
-           redirect('project/' . $id);
-        }
-    }
+         redirect('project/' . $id);
+     }
+ }
 
-    public function delete($id){
-        $query = $this->communication_item_model->deleteCommunication_item($id);
-        var_dump($query);
-        if($query){
-            redirect('project/' . $id);
-        }
+ public function delete($id){
+    $query = $this->communication_item_model->deleteCommunication_item($id);
+    var_dump($query);
+    if($query){
+        redirect('project/' . $id);
     }
+}
 
 }
 ?>
