@@ -27,5 +27,10 @@
 			$this->db->where('communication_item.communication_item_id', $communication_item_id);
 			return $this->db->update('communication_item', $communication_item);
 		}
+
+		public function insertResponasibility($communication_responsability){
+			
+			return $this->db->insert('communication_stakeholder_responsability', $communication_responsability);
+		}
 	}
 ?>

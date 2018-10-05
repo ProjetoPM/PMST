@@ -4,14 +4,21 @@ if (!defined('BASEPATH')) {
 }
 
 class Communication_item extends CI_Controller{
-    
+
     public function __Construct(){
         parent::__Construct();
+
+                // $this->lang->load('btn','english');
+        $this->lang->load('btn','portuguese-brazilian');
+        // $this->lang->load('human-resource','english');
+        $this->lang->load('communication-item','portuguese-brazilian');
+
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }
         $this->load->model('project_model');
         $this->load->model('communication_item_model');
+        $this->load->model('Communication_item_stakeholder_model');
     }
     
     private function ajax_checking(){
@@ -22,6 +29,8 @@ class Communication_item extends CI_Controller{
 
     public function communication_form($project_id){
         $query['communication_item'] = $this->communication_item_model->getCommunication_itemProject_id($project_id);
+        $query['communication_responsability'] = $this->communication_item_model->getAllCommunication_responsability();
+        $query['stakeholder'] = $this->communication_item_model->getCommunication_stakeholder_item_id($project_id);
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view'); 
@@ -52,6 +61,33 @@ class Communication_item extends CI_Controller{
         }
     }
 
+
+
+
+    public function insertResponasibility() {
+        $communication = $this->input->post('ids');
+        $communication_exploded = explode(',', $communication);
+        
+        $communication_responsability['communication_item_id'] = $communication_exploded[0];
+        $communication_responsability['stakeholder_id'] = $communication_exploded[1];
+        $communication_responsability['communication_responsability_id'] = $communication_exploded[2];
+        
+        
+        $data['communication_responsability'] = $communication_responsability;
+        $query = $this->Communication_item_stakeholder_model->insertResponasibility($data['communication_responsability']);
+
+        if($query){
+            redirect('projects');
+        }
+    }
+
+
+
+
+
+
+
+    
     public function update($id){
         $communication_item['type'] = $this->input->post('type');
         $communication_item['description'] = $this->input->post('description');
@@ -71,16 +107,17 @@ class Communication_item extends CI_Controller{
         $query = $this->communication_item_model->updateCommunication_item($data['communication_item'], $id);
 
         if($query){
-           redirect('project/' . $id);
-        }
-    }
+         redirect('project/' . $id);
+     }
+ }
 
-    public function delete($id){
-        $query = $this->communication_item_model->deleteCommunication_item($id);
-        var_dump($query);
-        if($query){
-            redirect('project/' . $id);
-        }
+ public function delete($id){
+    $query = $this->communication_item_model->deleteCommunication_item($id);
+    var_dump($query);
+    if($query){
+        redirect('project/' . $id);
     }
+}
+
 }
 ?>
