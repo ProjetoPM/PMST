@@ -16,6 +16,7 @@
 		}
 
 		public function getIssues_recordProject_id($project_id){
+			
 			$query = $this->db->get_where('issues_record', array('issues_record.project_id'=>$project_id));
 			return $query->result();
 		}
@@ -31,6 +32,12 @@
 		public function deleteIssues_record($issues_record_id){
 			$this->db->where('issues_record.issues_record_id', $issues_record_id);
 			return $this->db->delete('issues_record');
+		}
+
+		public function edit($issues_record_id) {
+			$query = $this->db->get_where('issues_record', array('issues_record.issues_record_id'=>$issues_record_id));
+			return $query->result();
+
 		}
 	}
 ?>

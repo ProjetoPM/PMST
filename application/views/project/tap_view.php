@@ -151,12 +151,12 @@
 								</thead>
 								<tbody>
 									<?php
-									foreach($stakeholder_mp as $stk){
-										foreach($stakeholder as $stake){
-											if($project_id==$stk->project_id && $stk->stakeholder_id==$stake->stakeholder_id){
+									foreach($stakeholder_mp as $stk_mp){
+										foreach($stakeholder as $stk){
+											if($project_id==$stk_mp->project_id && $stk_mp->stakeholder_id==$stk->stakeholder_id){
 												?>
 												<tr>			
-													<td><?php echo $stake->name; ?></td>
+													<td><?php echo $stk->name; ?></td>
 												</tr>
 												<?php
 											}
@@ -412,10 +412,10 @@
 									        orientation: "bottom",
 									        todayHighlight : true,
 									        startDate: today,
-									       }).on('changeDate', function(ev) {
-									       	var newDate = new Date(ev.date.setDate(ev.date.getDate() + 1));
-									       	endDate.datepicker("setStartDate", newDate);
-									       });
+									    }).on('changeDate', function(ev) {
+									    	var newDate = new Date(ev.date.setDate(ev.date.getDate() + 1));
+									    	endDate.datepicker("setStartDate", newDate);
+									    });
 
 									      //Start Date Ends Here
 									      var endDate = $("#end_date").datepicker({
@@ -427,9 +427,7 @@
 									        orientation: "bottom",
 									        startDate: today,
 									        /*todayHighlight : true,*/
-									       });
-									      //End Date Ends Here
+									    });
+									      //End Date Ends Here								
 
-									     </script>
-
-     <?php $this->load->view('frame/footer_view')?>                    	
+									  <?php $this->load->view('frame/footer_view')?>                    	

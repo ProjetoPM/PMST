@@ -44,11 +44,23 @@ class Issues_Record extends CI_Controller{
 		$query = $this->Issues_record_model->insertIssues_record($issues_record);
 
 		if ($query) {
-			redirect('projects');
+			redirect('Issues_Record/addIssuesRecord/' . $issues_record['project_id']);
+		//	$this->load->view('project/issues_record/');
 		}
 	}
 
+	public function edit($issues_record_id) {
+		//query = array de objetos
+		//issues_record = objeto do array query
+		$query['issues_record'] = $this->Issues_record_model->getIssues_record($issues_record_id);
+		//var_dump($query);
+		$this->load->view('frame/header_view.php');
+		$this->load->view('frame/sidebar_nav_view.php');
+		//passa pra view todo array de objetos
+		$this->load->view('project/editIssuesRecord', $query);
+	}
 	public function update($issues_record_id) {
+		
 		$issues_record['identification'] = $this->input->post('identification');
 		$issues_record['identification_date'] = $this->input->post('identification_date');
 		$issues_record['question_description'] = $this->input->post('question_description');
@@ -67,7 +79,7 @@ class Issues_Record extends CI_Controller{
       	$query = $this->Issues_record_model->updateIssues_record($data['issues_record'], $issues_record_id);
 
 		if ($query) {
-			redirect('projects');
+			redirect('projects/' . $id);
 		}
 	}
 
