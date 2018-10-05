@@ -11,6 +11,7 @@ $lang['select-influence-level-tooltip'] = 'Select Influece Level Example';
 $lang['select-impact-level-tooltip'] = 'Select Impact Level Example';
 $lang['select-current-engagement-tooltip'] = 'Select current Engagement Example';
 $lang['select-expected-engagement-tooltip'] = 'Select Expected Engagement Example';
+$lang['select-current-average-tooltip'] = 'Select Current Average Example';
 
 $lang['select-1'] = 'Select Stakeholder';
 $lang['select-2'] = 'Interest Level';
@@ -19,6 +20,7 @@ $lang['select-4'] = 'Influece Level';
 $lang['select-5'] = 'Impact Level';
 $lang['select-6'] = 'Current Engagement';
 $lang['select-7'] = 'Desired Engagement';
+
 
 //options
 $lang['option-1'] = 'Unaware';
@@ -34,4 +36,6 @@ $lang['stakeholder_mp-text3-tooltip'] = 'Observations with other IPs Example';
 $lang['text-1'] = 'Engagement / Management Strategy';
 $lang['text-2'] = 'Scope and Impact of Changes to IP';
 $lang['text-3'] = 'Observations with other IPs';
+$lang['text-4'] = 'Average Importance';
+
 ?>

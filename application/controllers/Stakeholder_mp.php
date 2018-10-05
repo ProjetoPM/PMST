@@ -9,10 +9,10 @@ class Stakeholder_mp extends CI_Controller{
 		parent::__construct();
 		// $this->load->helper('url', 'english');
         
-        $this->lang->load('btn','english');
-        //$this->lang->load('btn','portuguese-brazilian');
-       //$this->lang->load('stakeholder_mp','english');
-         $this->lang->load('stakeholder_mp','portuguese-brazilian');
+     $this->lang->load('btn','english');
+       // $this->lang->load('btn','portuguese-brazilian');
+       $this->lang->load('stakeholder_mp','english');
+      //   $this->lang->load('stakeholder_mp','portuguese-brazilian');
         
 
 		$this->load->helper('url');

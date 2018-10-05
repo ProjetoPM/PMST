@@ -12,6 +12,7 @@ $lang['select-impact-level-tooltip'] = 'Selecionar Nível de Impacto Exemplo';
 $lang['select-current-engagement-tooltip'] = 'Selecionar Engajamento Atual Exemplo';
 $lang['select-expected-engagement-tooltip'] = 'Selecionar Engajamento Esperado Exemplo';
 
+
 $lang['select-1'] = 'Selecionar Partes Interessadas';
 $lang['select-2'] = 'Nível de Interesse';
 $lang['select-3'] = 'Nível de Poder';
@@ -20,6 +21,7 @@ $lang['select-5'] = 'Nível de Impacto';
 $lang['select-6'] = 'Engajamento Atual';
 $lang['select-7'] = 'Engajamento Desejado';
 
+
 //options
 $lang['option-1'] = 'Alheio';
 $lang['option-2'] = 'Apoiador';
@@ -27,6 +29,7 @@ $lang['option-3'] = 'Engajado';
 $lang['option-4'] = 'Neutro';
 $lang['option-5'] = 'Resistente';
 //Form 
+
 $lang['stakeholder_mp-text1-tooltip'] = 'Estratégia para Engajamento / Gerenciamento  Exemplo';
 $lang['stakeholder_mp-text2-tooltip'] = 'Scope and Impact of Changes to IP Example';
 $lang['stakeholder_mp-text3-tooltip'] = 'Observações com outras PI';
@@ -34,4 +37,5 @@ $lang['stakeholder_mp-text3-tooltip'] = 'Observações com outras PI';
 $lang['text-1'] = 'Estratégia para Engajamento / Gerenciamento';
 $lang['text-2'] = 'Escopo e Impacto das Mudanças para a PI';
 $lang['text-3'] = 'Observações com outras PI';
+$lang['text-4'] = 'Importância Ponderada';
 ?>
