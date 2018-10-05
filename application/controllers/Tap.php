@@ -21,7 +21,7 @@ class Tap extends CI_Controller{
 		//buscando stakeholders
 		$data['stakeholder'] = $this->Tap_model->getAllStk();
 		$data['stakeholder_mp'] = $this->Tap_model->getAllStk_mp();
- 		$data['project_charter'] = $this->Tap_model->tap_form($project_id);
+		$data['project_charter'] = $this->Tap_model->tap_form($project_id);
 		$data['project_id'] = $project_id;
 		$this->db->where('project_id', $project_id);
 		$data['project_charter'] = $this->db->get('project_charter')->result();
@@ -59,7 +59,7 @@ class Tap extends CI_Controller{
 		$query = $this->Tap_model->insertTap($project_charter);
 
 		if ($query) {
-			redirect('projects');
+			redirect('project/' . $project_charter['project_id']);
 		}
 	}
 
@@ -89,7 +89,7 @@ class Tap extends CI_Controller{
 		$query = $this->Tap_model->updateTap($project_charter, $project_charter_id);
 
 		if ($query) {
-			redirect('projects');
+			redirect('project/' . $project_charter['project_id']);
 		}
 	}
 

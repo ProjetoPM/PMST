@@ -17,11 +17,11 @@
 						<label for="project_description"><?=$this->lang->line('tap-description')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-description-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="project_description" name="project_description"></textarea>
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="project_description" name="project_description" required="true"></textarea>
 						</div>
 					</div>
 
-					<div class=" col-lg-6 form-group">
+					<div class=" col-lg-12 form-group">
 						<label for="project_purpose"><?=$this->lang->line('tap-purpose')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-purpose-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
@@ -29,7 +29,7 @@
 						</div>
 					</div>
 
-					<div class=" col-lg-6 form-group">
+					<div class=" col-lg-12 form-group">
 						<label for="project_objective"><?=$this->lang->line('tap-objectives')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-objectives-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
@@ -45,7 +45,7 @@
 						</div>
 					</div>
 
-					<div class=" col-lg-6 form-group">
+					<div class=" col-lg-12 form-group">
 						<label for="high_level_requirements"><?=$this->lang->line('tap-high_level_req')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-high_level_req-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
@@ -54,7 +54,7 @@
 					</div>
 
 
-					<div class=" col-lg-6 form-group">
+					<div class=" col-lg-12 form-group">
 						<label for="initial_assumptions"><?=$this->lang->line('tap-initial_assumptions')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-initial_assumptions-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
@@ -70,7 +70,7 @@
 						</div>
 					</div>
 
-					<div class=" col-lg-6 form-group">
+					<div class=" col-lg-12 form-group">
 						<label for="project_limits"><?=$this->lang->line('tap-limits')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-limits-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
@@ -79,7 +79,7 @@
 					</div>
 
 
-					<div class=" col-lg-6 form-group">
+					<div class=" col-lg-12 form-group">
 						<label for="high_level_risks"><?=$this->lang->line('tap-risks')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-risks-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
@@ -97,7 +97,7 @@
 					</div>
 
 
-					<div class=" col-lg-6 form-group">
+					<div class=" col-lg-12 form-group">
 						<label for="budge_summary"><?=$this->lang->line('tap-budge')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-budge-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
@@ -106,7 +106,7 @@
 					</div>
 
 
-					<div class=" col-lg-6 form-group">
+					<div class=" col-lg-12 form-group">
 						<label for="project_approval_requirements"><?=$this->lang->line('tap-approval')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-approval-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
@@ -147,23 +147,26 @@
 
 									<div class="col-lg-12 form-group" align="center"> <label> <h3><?=$this->lang->line('tap-stakeholder')?></h3></label> <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-stakeholder-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<th>Name</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									foreach($stakeholder_mp as $stk_mp){
-										foreach($stakeholder as $stk){
-											if($project_id==$stk_mp->project_id && $stk_mp->stakeholder_id==$stk->stakeholder_id){
-												?>
-												<tr>			
-													<td><?php echo $stk->name; ?></td>
-												</tr>
-												<?php
-											}
-										}
-									}
-									?>
-								</tbody>
+																				<th>Email</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<?php
+																			
+																				foreach($stakeholder as $stake){
+																					if($project_id==$stake->project_id){
+																						?>
+																						<tr>			
+																							<td><?php echo $stake->name; ?></td>
+																							<td><?php echo $stake->email; ?></td>
+																						</tr>
+																						<?php
+																					}
+																				
+																			}
+																			?>
+																		</tbody>
+								
 							</table>
 						</div>
 					</div>
@@ -213,7 +216,7 @@
 					</div>
 				</div>
 
-				<div class=" col-lg-6 form-group">
+				<div class=" col-lg-12 form-group">
 					<label for="project_purpose"><?=$this->lang->line('tap-purpose')?></label>
 					<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-purpose-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a
 						><div >                     
@@ -221,7 +224,7 @@
 						</div>
 					</div>
 
-					<div class=" col-lg-6 form-group">
+					<div class=" col-lg-12 form-group">
 						<label for="project_objective"><?=$this->lang->line('tap-objectives')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-objectives-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a
 							><div >                     
@@ -237,7 +240,7 @@
 								</div>
 							</div>		
 
-							<div class=" col-lg-6 form-group">
+							<div class=" col-lg-12 form-group">
 								<label for="high_level_requirements"><?=$this->lang->line('tap-high_level_req')?></label>
 								<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-high_level_req-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a
 									><div >                     
@@ -245,7 +248,7 @@
 									</div>
 								</div>
 
-								<div class=" col-lg-6 form-group">
+								<div class=" col-lg-12 form-group">
 									<label for="initial_assumptions"><?=$this->lang->line('tap-initial_assumptions')?></label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-initial_assumptions-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a
 										><div >                     
@@ -261,7 +264,7 @@
 											</div>
 										</div>
 
-										<div class=" col-lg-6 form-group">
+										<div class=" col-lg-12 form-group">
 											<label for="project_limits"><?=$this->lang->line('tap-limits')?></label>
 											<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-limits-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a
 												><div >                     
@@ -269,7 +272,7 @@
 												</div>
 											</div>
 
-											<div class=" col-lg-6 form-group">
+											<div class=" col-lg-12 form-group">
 												<label for="high_level_risks"><?=$this->lang->line('tap-risks')?></label>
 												<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-risks-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a
 													><div >                     
@@ -285,7 +288,7 @@
 														</div>
 													</div>
 
-													<div class=" col-lg-6 form-group">
+													<div class=" col-lg-12 form-group">
 														<label for="budge_summary"><?=$this->lang->line('tap-budge')?></label>
 														<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-budge-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a
 															><div >                     
@@ -293,7 +296,7 @@
 															</div>
 														</div>
 
-														<div class=" col-lg-6 form-group">
+														<div class=" col-lg-12 form-group">
 															<label for="project_approval_requirements"><?=$this->lang->line('tap-approval')?></label>
 															<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-approval-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a
 																><div >                     
@@ -335,20 +338,22 @@
 																		<tr>
 																			<div class="col-lg-12 form-group" align="center"> <label><h3><?=$this->lang->line('tap-stakeholder')?></h3></label> <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-stakeholder-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 																				<th>Name</th>
+																				<th>Email</th>
 																			</tr>
 																		</thead>
 																		<tbody>
 																			<?php
-																			foreach($stakeholder_mp as $stk){
+																			
 																				foreach($stakeholder as $stake){
-																					if($project_id==$stk->project_id && $stk->stakeholder_id==$stake->stakeholder_id){
+																					if($project_id==$stake->project_id){
 																						?>
 																						<tr>			
 																							<td><?php echo $stake->name; ?></td>
+																							<td><?php echo $stake->email; ?></td>
 																						</tr>
 																						<?php
 																					}
-																				}
+																				
 																			}
 																			?>
 																		</tbody>
@@ -378,10 +383,12 @@
 																	<input type="hidden" name="status" value="1">
 
 																	<div class="col-lg-12">
+																		
 																		<button id="tap-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
 																			<i class="glyphicon glyphicon-ok"></i>
 																			<?=$this->lang->line('btn-save')?>
 																		</button>
+																	
 																	</form>
 																	<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>" >
 																		<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
