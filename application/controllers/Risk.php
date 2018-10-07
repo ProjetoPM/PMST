@@ -7,6 +7,11 @@ class Risk extends CI_Controller{
     
     public function __Construct(){
         parent::__Construct();
+
+        // $this->lang->load('btn','english');
+        $this->lang->load('btn','portuguese-brazilian');
+        // $this->lang->load('human-resource','english');
+        $this->lang->load('risk-mp','portuguese-brazilian');
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }
@@ -39,16 +44,11 @@ class Risk extends CI_Controller{
         $risk_mp['traceability'] = $this->input->post('traceability');
         $risk_mp['project_id'] = $this->input->post('project_id');
         $risk_mp['status'] = $this->input->post('status');
-        
-        if($this->input->post('status') == 1){
-            $risk_mp['status'] = 1;
-        }else{
-            $risk_mp['status'] = 0;
-        }
+        $risk_mp['status'] = 1;
         $query = $this->risk_mp_model->insertRisk_mp($risk_mp);
 
         if($query){
-            redirect('projects');
+            redirect(base_url('project/').$risk_mp['project_id']);
         }
     }
 
@@ -63,15 +63,12 @@ class Risk extends CI_Controller{
         $risk_mp['traceability'] = $this->input->post('traceability');
         $risk_mp['project_id'] = $this->input->post('project_id');
         $risk_mp['status'] = $this->input->post('status');
-        if($this->input->post('status') == 1){
-            $risk_mp['status'] = 1;
-        }else{
-            $risk_mp['status'] = 0;
-        }
+        $risk_mp['status'] = 1;
+       
             $query = $this->risk_mp_model->updateRisk_mp($risk_mp, $id);
 
         if($query){
-            redirect('projects');
+            redirect(base_url('project/').$risk_mp['project_id']);
         }
     }
 }

@@ -9,7 +9,7 @@ $lang['cancel'] = 'Cancelar';
 $lang['back'] = 'Voltar';
 $lang['close'] = 'Fechar';
 $lang['edit'] = 'Editar';
-$lang['=open'] = 'Abrir';
+$lang['open'] = 'Abrir';
 $lang['delete'] = 'Deletar';
 
 $lang['communication'] = 'Plano de Gerenciamento de Comunicação';

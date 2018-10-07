@@ -80,13 +80,6 @@ class Communication_item extends CI_Controller{
             redirect('projects');
         }
     }
-
-
-
-
-
-
-
     
     public function update($id){
         $communication_item['type'] = $this->input->post('type');
