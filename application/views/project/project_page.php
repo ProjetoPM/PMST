@@ -34,7 +34,7 @@
                      </div>
                      </a> -->
 
-                     
+
                      <div class="grid-item transparentBox transparentBoxMenu">
                         .
                      </div>
@@ -206,10 +206,12 @@
                   <!-- Fim Linha Integration 1 -->
 
                   <!-- Inicio Linha Integration 2 -->
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item midBox smallBox">
                         Project Management
                      </div>
-
+                     </a>
+                     
                      <div class="grid-item midBox bigBox">
                         .
                      </div>
@@ -218,31 +220,41 @@
                         .
                      </div>
                     
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item midBox smallBox">
                         Requitements Management
                      </div>
+                     </a>
 
-                     <div class="grid-item midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item midBox mediumBox">
                         Scope Management
                      </div>
+                     </a>
 
                      <a href="<?=base_url("Schedule/schedule_form/".$project[0]->project_id) ?>">
-                     <div class="grid-item  midBox smallBox">
+                     <div class="grid-item  midBox mediumBox">
                         Schedule Management
                      </div>
                      </a>
 
-                     <div class="grid-item midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item midBox mediumBox">
                         Activity Attributes
                      </div>
-
-                     <div class="grid-item  midBox bigBox">
+                     </a>
+                     
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item  midBox biggerBox">
                         Activity List
                      </div>
+                     </a>
 
-                     <div class="grid-item  midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item  midBox biggerBox">
                         Milestone List
                      </div>
+                     </a>
 
                      <a href="<?=base_url("ManagementCost/addnew/".$project[0]->project_id)?>">
                      <div class="grid-item  midBox smallBox">
@@ -250,19 +262,23 @@
                      </div>
                      </a>
 
-                     <div class="grid-item  midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item  midBox mediumBox">
                         Activity Cost Estimates
                      </div>
+                     </a>
 
                      <a href="<?=base_url()?>Charter_Quality/addnew/<?php echo $project[0]->project_id;?>">
-                     <div class="grid-item  midBox smallBox">
+                     <div class="grid-item  midBox mediumBox">
                         Quality Management
                      </div>
                      </a>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
                         Process Quality Checklists
                      </div>
+                     </a>
 
                      <a href="<?=base_url("Human_resource/human_resource_form/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
@@ -294,13 +310,17 @@
                      </div>
                      </a>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
                         Change Request
                      </div>
+                     </a>
 
-                     <div class="grid-item  midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item  midBox mediumBox">
                         Make-or-Buy Decisions
                      </div>
+                     </a>
 
                      <a href="<?=base_url("Stakeholder_mp/stakeholder_mp_form/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
@@ -325,46 +345,66 @@
                      <div class="grid-item midBox bigBox">
                         .
                      </div>
-                    
+
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item midBox smallBox">
                         Requitements Documentati
                      </div>
+                     </a>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item midBox smallBox">
                         Requirements Traceability Matrix
                      </div>
+                     </a>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
                         Project Schedule Network
                      </div>
+                     </a>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item midBox smallBox">
                         Activity Resource Requirement
                      </div>
+                     </a>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
                         Resource Breakdown Structure
                      </div>
+                     </a>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
                         Activity Duration Estimates
                      </div>
+                     </a>
 
-                     <div class="grid-item  midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item  midBox bigBox">
                         Cost Basline
                      </div>
+                     </a>
                      
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
                         Project Funding Requirement
                      </div>
+                     </a>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
                         Product Quality Checklists
                      </div>
+                     </a>
 
-                     <div class="grid-item  midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item  midBox mediumBox">
                         Quality Metrics
                      </div>
+                     </a>
 
                      <div class="grid-item  midBox smallBox">
                         .
@@ -392,15 +432,17 @@
                      </div>
                      </a>
 
-                      <a href="<?=base_url()?>/procurement/procurement_form/<?php echo $project[0]->project_id;?>">
+                     <a href="<?=base_url()?>/procurement/procurement_form/<?php echo $project[0]->project_id;?>">
                      <div class="grid-item  midBox smallBox">
                         Procurement Management
                      </div>
                      </a>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
                         Procurement Statement of Work
                      </div>
+                     </a>
 
                      <div class="grid-item  midBox smallBox">
                         .
@@ -424,25 +466,35 @@
                         .
                      </div>
                     
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item midBox smallBox">
                         Project Scope Statement
                      </div>
+                     </a>
 
-                     <div class="grid-item midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item midBox mediumBox">
                        Scope Baseline
                      </div>
+                     </a>
 
-                     <div class="grid-item  midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item  midBox mediumBox">
                         Project Calendar
                      </div>
+                     </a>
 
-                     <div class="grid-item midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item midBox mediumBox">
                         Project Schedule
                      </div>
+                     </a>
 
-                     <div class="grid-item  midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item  midBox mediumBox">
                         Schedule Baseline
                      </div>
+                     </a>
 
                      <div class="grid-item  midBox smallBox">
                         .
@@ -456,9 +508,11 @@
                         .
                      </div>
 
-                     <div class="grid-item  midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item  midBox mediumBox">
                         Process Improvement
                      </div>
+                     </a>
 
                      <div class="grid-item  midBox smallBox">
                         .
@@ -512,13 +566,17 @@
                      </div>
                      </a>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item midBox smallBox">
                         Deliverables Status
                      </div>
+                     </a>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item midBox smallBox">
                         Change Request
                      </div>
+                     </a>
                     
                      <div class="grid-item midBox smallBox">
                         .
@@ -552,17 +610,21 @@
                         .
                      </div>
 
-                     <div class="grid-item  midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item  midBox mediumBox">
                         Change Request
                      </div>
+                     </a>
 
                      <div class="grid-item  midBox smallBox">
                         .
                      </div>
 
-                     <div class="grid-item  midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item  midBox mediumBox">
                         Project Team Directory
                      </div>
+                     </a>
 
                      <a href="<?=base_url("Ade/getAde_form/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
@@ -570,37 +632,51 @@
                      </div>
                      </a>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
                         Enterprise Environmental Factors
                      </div>
+                     </a>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
                         Change Request
                      </div>
+                     </a>
 
                      <div class="grid-item  midBox smallBox">
                         .
                      </div>
 
-                     <div class="grid-item  midBox smallBox">
-                        .
+                     <a href="<?=base_url("Issues_Record/addIssuesRecord/".$project[0]->project_id) ?>">
+                     <div class="grid-item  midBox bigBox">
+                        Issues Record
                      </div>
+                     </a>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
                         Procurement Agreement
                      </div>
+                     </a>
 
-                     <div class="grid-item  midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item  midBox mediumBox">
                         Change Request
                      </div>
+                     </a>
 
-                     <div class="grid-item  midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item  midBox bigBox">
                         Issue Log
                      </div>
+                     </a>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
                         Change Request
                      </div>
+                     </a>
                   <!-- Fim Linha Integration 5 -->
 
                   <!-- Inicio Linha Integration 6 -->
@@ -610,25 +686,33 @@
                      </div>
                      </a>
 
-                     <div class="grid-item midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item midBox bigBox">
                         Change Log
                      </div>
+                     </a>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item midBox smallBox">
                         Earned Value Status Report
                      </div>
+                     </a>
                     
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item midBox smallBox">
                         Change Request
                      </div>
+                     </a>
 
                      <div class="grid-item midBox smallBox">
                        .
                      </div>
 
-                     <div class="grid-item  midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item  midBox mediumBox">
                         Change Request
                      </div>
+                     </a>
 
                      <div class="grid-item midBox smallBox">
                         .
@@ -642,17 +726,21 @@
                         .
                      </div>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
                         Change Request
                      </div>
-                     
+                     </a>
+
                      <div class="grid-item  midBox smallBox">
                         .
                      </div>
 
-                     <div class="grid-item  midBox smallBox">
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <div class="grid-item  midBox mediumBox">
                         Change Request
                      </div>
+                     </a>
 
                      <div class="grid-item  midBox smallBox">
                         .
@@ -674,25 +762,33 @@
                         .
                      </div>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
                         Change Request
                      </div>
+                     </a>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
                         Change Request
                      </div>
+                     </a>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
                         Change Request
                      </div>
+                     </a>
 
                      <div class="grid-item  midBox smallBox">
                         .
                      </div>
 
+                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
                         Change Request
                      </div>
+                     </a>
 
                      <div class="grid-item  midBox smallBox">
                         .

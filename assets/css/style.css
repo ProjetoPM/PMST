@@ -124,14 +124,14 @@
     /*line-height: 50px;*/
     line-height: 2em;
     /*width: 155px;*/
-    width: 8em;
+    /*width: 8em;*/
 }
 
 .smallBox{
     /*line-height: 25px;*/
     line-height: 1em;
     /*width: 155px;*/
-    width: 8em;
+    /*width: 8em;*/
 }
 
 .planningBox{
@@ -141,49 +141,67 @@
 
 .integrationBox{
     line-height: 10.5em;
-    width: 9em;
+    /*width: 9em;*/
 }
 
 .scopeBox{
     line-height: 7.1em;
-    width: 9em;
+    /*width: 9em;*/
 }
 
 .timeBox{
     line-height: 18.7em;
-    width: 9em;
+    /*width: 9em;*/
 }
 
 .hrBox{
     line-height: 3em;
-    width: 9em;
+    /*width: 9em;*/
     height: 19.7em;
 
 }
 
 .verticalOneBox{
     line-height: 1.8em;
-    width: 9em;
+    /*width: 9em;*/
+}
+
+.mediumBox{
+    line-height: 1.5em;
+    /*width: 8em;*/
 }
 
 .costBox{
     line-height: 7.2em;
-    width: 9em;
+    /*width: 9em;*/
 }
 
 .qualityBox{
     line-height: 8em;
-    width: 9em;
+    /*width: 9em;*/
 }
 
 .procurementBox{
     line-height: 7.2em;
-    width: 9em;
+    /*width: 9em;*/
 }
 
 .stakeholderBox{
     line-height: 6.1em;
+    /*width: 9em;*/
+}
+
+.biggerBox{
+    line-height: 3em;
+    /*width: 8em;*/
+}
+
+.integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
     width: 9em;
+}
+
+.bigBox, .smallBox, .mediumBox, .biggerBox{
+    width: 8em;
 }
 
 .transparentBoxMenu{
