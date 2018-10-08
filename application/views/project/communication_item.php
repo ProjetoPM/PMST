@@ -62,8 +62,6 @@
 
 											<a><button type="submit" class="btn btn-danger"><em class="fa fa-trash"></em><span class="hidden-xs"> Delete</span></button>
 											</a></form>
-
-
 											<div class="modal fade" id="modal" role="dialog">
 												<div class="modal-dialog">
 													<!-- Modal content-->

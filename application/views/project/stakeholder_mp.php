@@ -46,54 +46,7 @@
            readonly >
       </select>
     </div>
-
-            <!-- Text input-->
-          <!-- Textarea -->
-      <div class="col-lg-3 form-group">
-          <label for="interest"><?=$this->lang->line('select-2')?></label>
-          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-interest-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-          <select name="interest" class="form-control">
-            <option value="10">10%</option>
-            <option value="30">30%</option>
-            <option value="50">50%</option>
-            <option value="70">70%</option>
-            <option value="90">90%</option>
-          </select>
-      </div>
-        <div class="col-lg-3 form-group">
-          <label for="power"><?=$this->lang->line('select-3')?></label>
-          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-power-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-          <select name="power" class="form-control">
-            <option value="10">10%</option>
-            <option value="30">30%</option>
-            <option value="50">50%</option>
-            <option value="70">70%</option>
-            <option value="90">90%</option>
-          </select>
-      </div>
-        <div class="col-lg-3 form-group">
-          <label for="influence"><?=$this->lang->line('select-4')?></label>
-          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-influence-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-          <select name="influence" class="form-control">
-            <option value="10">10%</option>
-            <option value="30">30%</option>
-            <option value="50">50%</option>
-            <option value="70">70%</option>
-            <option value="90">90%</option>
-          </select>
-      </div>
-        <div class="col-lg-3 form-group">
-          <label for="impact"><?=$this->lang->line('select-5')?></label>
-          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-impact-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-          <select name="impact" class="form-control">
-            <option value="10">10%</option>
-            <option value="30">30%</option>
-            <option value="50">50%</option>
-            <option value="70">70%</option>
-            <option value="90">90%</option>
-          </select>
-      </div>
-        <div class="col-lg-3 form-group">
+<div class="col-lg-3 form-group">
           <label for="current_engagement "><?=$this->lang->line('select-6')?></label>
           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-current-engagement-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
           <select name="current_engagement" class="form-control">
@@ -115,6 +68,68 @@
             <option value="resistant"><?=$this->lang->line('option-5')?></option>
           </select>
       </div>
+            <!-- Text input-->
+          <!-- Textarea -->
+      <div class="col-lg-2 form-group">
+          <label for="interest"><?=$this->lang->line('select-2')?></label>
+          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-interest-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+          <select name="interest" class="form-control">
+            <option value="10">10%</option>
+            <option value="30">30%</option>
+            <option value="50">50%</option>
+            <option value="70">70%</option>
+            <option value="90">90%</option>
+          </select>
+      </div>
+        <div class="col-lg-2 form-group">
+          <label for="power"><?=$this->lang->line('select-3')?></label>
+          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-power-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+          <select name="power" class="form-control">
+            <option value="10">10%</option>
+            <option value="30">30%</option>
+            <option value="50">50%</option>
+            <option value="70">70%</option>
+            <option value="90">90%</option>
+          </select>
+      </div>
+        <div class="col-lg-2 form-group">
+          <label for="influence"><?=$this->lang->line('select-4')?></label>
+          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-influence-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+          <select name="influence" class="form-control">
+            <option value="10">10%</option>
+            <option value="30">30%</option>
+            <option value="50">50%</option>
+            <option value="70">70%</option>
+            <option value="90">90%</option>
+          </select>
+      </div>
+        <div class="col-lg-2 form-group">
+          <label for="impact"><?=$this->lang->line('select-5')?></label>
+          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-impact-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+          <select name="impact" class="form-control">
+            <option value="10">10%</option>
+            <option value="30">30%</option>
+            <option value="50">50%</option>
+            <option value="70">70%</option>
+            <option value="90">90%</option>
+          </select>
+        </div>
+             <div class="col-lg-2 form-group">
+          <label for="impact"><?=$this->lang->line('text-4')?></label>
+          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-impact-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+          <select name="impact" class="form-control">
+            <option value="10">10%</option>
+            <option value="30">30%</option>
+            <option value="50">50%</option>
+            <option value="70">70%</option>
+            <option value="90">90%</option>
+          </select>
+        </div>
+ 
+ 
+ 
+   
+    
           <div class="col-lg-12 form-group">
             <label for="description"><?=$this->lang->line('text-1')?></label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder_mp-text1-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -123,7 +138,7 @@
             </div>
           </div>
 
-          <div class="col-lg-6 form-group">
+          <div class="col-lg-12 form-group">
             <label for="description"><?=$this->lang->line('text-2')?></label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder_mp-text2-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
             <div >                     
@@ -131,7 +146,7 @@
             </div>
           </div>
 
-          <div class="col-lg-6 form-group">
+          <div class="col-lg-12 form-group">
             <label for="description"><?=$this->lang->line('text-3')?></label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder_mp-text3-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
             <div >                     

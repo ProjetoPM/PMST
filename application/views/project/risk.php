@@ -26,8 +26,8 @@
 						<label for="impacted_objective"><?=$this->lang->line('risk-impacted_objective')?> *</label> 
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-impacted_objective-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="impacted_objective" name="impacted_objective" required="true"></textarea>  
+						<div >  
+							<input id="impacted_objective" name="impacted_objective" type="text" class="form-control input-md" required="true">
 						</div>
 					</div>
 
@@ -48,8 +48,8 @@
 						<label for="risk_status"><?=$this->lang->line('risk-risk_status')?></label> 
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-risk_status-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="risk_status" name="risk_status"></textarea>  
+						<div >
+							<input id="risk_status" name="risk_status" type="text" class="form-control input-md">
 						</div>
 					</div>
 
@@ -58,8 +58,8 @@
 						<label for="event"><?=$this->lang->line('risk-event')?></label> 
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-event-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="event" name="event"></textarea>  
+						<div >            
+							<input id="event" name="event" type="text" class="form-control input-md">
 						</div>
 					</div>
 
@@ -83,8 +83,8 @@
 						<label for="identifier"><?=$this->lang->line('risk-identifier')?></label> 
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-identifier-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="identifier" name="identifier"></textarea>  
+						<div >               
+							<input id="identifier" name="identifier" type="text" class="form-control input-md">
 						</div>
 					</div>
 
@@ -93,7 +93,7 @@
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-type-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="type" name="type"></textarea>  
+							<input id="type" name="type" type="text" class="form-control input-md">
 						</div>
 					</div>	
 
