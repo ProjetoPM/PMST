@@ -139,37 +139,60 @@
 						</div>
 					</div>
 					<!-- Fim teste Datas -->
-					
-					<div class="row">
-						<table class="table table-dark">
-							<thead>
-								<tr>
 
-									<div class="col-lg-12 form-group" align="center"> <label> <h3><?=$this->lang->line('tap-stakeholder')?></h3></label> <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-stakeholder-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-										<th>Name</th>
-																				<th>Email</th>
-																			</tr>
-																		</thead>
-																		<tbody>
-																			<?php
-																			
-																				foreach($stakeholder as $stake){
-																					if($project_id==$stake->project_id){
-																						?>
-																						<tr>			
-																							<td><?php echo $stake->name; ?></td>
-																							<td><?php echo $stake->email; ?></td>
-																						</tr>
-																						<?php
-																					}
-																				
-																			}
-																			?>
-																		</tbody>
-								
-							</table>
-						</div>
-					</div>
+					<!-- Início modal da lista de stakeholder -->
+					
+						
+							<div class="container">
+								<!-- Trigger the modal with a button -->
+								<button type="button" class="open-AddBookDialog btn btn-info btn-lg " data-toggle="modal" data-target="#add"> View Stakeholder List</button>
+								<!-- Modal -->
+								<div class="modal fade" id="add" role="dialog">
+									<div class="modal-dialog">
+										<!-- Modal content-->
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h4 class="modal-title"><?=$this->lang->line('tap-stakeholder')?></h4>
+											</div>
+											<div class="modal-body">
+
+
+													<div class="row">
+													<table class="col-lg-12">
+														<thead>
+															<tr>										
+																	<th>Name</th>
+																	<th>Email</th>
+																</tr>
+															</thead>
+															<tbody>
+																<?php
+
+																foreach($stakeholder as $stake){
+																	if($project_id==$stake->project_id){
+																		?>
+																		<tr>			
+																			<td><?php echo $stake->name; ?></td>
+																			<td><?php echo $stake->email; ?></td>
+																		</tr>
+																		<?php
+																	}
+																}
+																?>
+															</tbody>													
+														</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										</div>
+										
+										
+
+										</div>
+										</div>
 
 
 					<!--
@@ -328,37 +351,62 @@
 																	</div>
 																</div>
 															</div>
-															<!-- Fim teste Datas -->
+																<!-- Fim teste Datas -->
+
+																	
+															<!-- Início modal da lista de stakeholder -->
+					
+						
+							<div class="container">
+								<!-- Trigger the modal with a button -->
+								<button type="button" class="open-AddBookDialog btn btn-info btn-lg " data-toggle="modal" data-target="#add"> View Stakeholder List</button>
+								<!-- Modal -->
+								<div class="modal fade" id="add" role="dialog">
+									<div class="modal-dialog">
+										<!-- Modal content-->
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h4 class="modal-title"><?=$this->lang->line('tap-stakeholder')?></h4>
+											</div>
+											<div class="modal-body">
 
 
-															<!-- A LISFTA EM TABELA "STAKEHOLDER" -->
-															<div class="row">
-																<table class="table table-dark">
-																	<thead>
-																		<tr>
-																			<div class="col-lg-12 form-group" align="center"> <label><h3><?=$this->lang->line('tap-stakeholder')?></h3></label> <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-stakeholder-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-																				<th>Name</th>
-																				<th>Email</th>
-																			</tr>
-																		</thead>
-																		<tbody>
-																			<?php
-																			
-																				foreach($stakeholder as $stake){
-																					if($project_id==$stake->project_id){
-																						?>
-																						<tr>			
-																							<td><?php echo $stake->name; ?></td>
-																							<td><?php echo $stake->email; ?></td>
-																						</tr>
-																						<?php
-																					}
-																				
-																			}
-																			?>
-																		</tbody>
-																		
-																	</table>
+													<div class="row">
+													<table class="col-lg-12">
+														<thead>
+															<tr>										
+																	<th>Name</th>
+																	<th>Email</th>
+																</tr>
+															</thead>
+															<tbody>
+																<?php
+
+																foreach($stakeholder as $stake){
+																	if($project_id==$stake->project_id){
+																		?>
+																		<tr>			
+																			<td><?php echo $stake->name; ?></td>
+																			<td><?php echo $stake->email; ?></td>
+																		</tr>
+																		<?php
+																	}
+																}
+																?>
+															</tbody>													
+														</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										</div>
+										
+										
+
+										
+										
 																</div>
 
 																<!--
@@ -388,7 +436,7 @@
 																			<i class="glyphicon glyphicon-ok"></i>
 																			<?=$this->lang->line('btn-save')?>
 																		</button>
-																	
+
 																	</form>
 																	<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>" >
 																		<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
@@ -406,23 +454,23 @@
 									      //////////////////////////////////
 									      // Start Date & End Date
 									     //////////////////////////////////
-									      var currentDate = new Date();
-									      var today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 0, 0, 0, 0);
-									      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body"; 
+									     var currentDate = new Date();
+									     var today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 0, 0, 0, 0);
+									     var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body"; 
 
-									      var startDate = $("#start_date").datepicker({
-									      	autoclose: true,
-									      	format: 'yyyy/mm/dd',
+									     var startDate = $("#start_date").datepicker({
+									     	autoclose: true,
+									     	format: 'yyyy/mm/dd',
 									        //language: 'pt-BR', //Idioma do Calendario
 									        container: container,
 									        keyboardNavigation: true,
 									        orientation: "bottom",
 									        todayHighlight : true,
 									        startDate: today,
-									    }).on('changeDate', function(ev) {
-									    	var newDate = new Date(ev.date.setDate(ev.date.getDate() + 1));
-									    	endDate.datepicker("setStartDate", newDate);
-									    });
+									       }).on('changeDate', function(ev) {
+									       	var newDate = new Date(ev.date.setDate(ev.date.getDate() + 1));
+									       	endDate.datepicker("setStartDate", newDate);
+									       });
 
 									      //Start Date Ends Here
 									      var endDate = $("#end_date").datepicker({
@@ -434,7 +482,7 @@
 									        orientation: "bottom",
 									        startDate: today,
 									        /*todayHighlight : true,*/
-									    });
+									       });
 									      //End Date Ends Here								
 
-									  <?php $this->load->view('frame/footer_view')?>                    	
+									      <?php $this->load->view('frame/footer_view')?>                    	
