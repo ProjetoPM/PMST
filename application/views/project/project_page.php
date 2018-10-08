@@ -39,7 +39,7 @@
                         .
                      </div>
 
-                     <div class="grid-item menuBox bigBox">
+                     <div class="grid-item menuBox hiperBox">
                       Initiating
                      </div>
 
@@ -47,15 +47,15 @@
                       Planning
                      </div>
                     
-                     <div class="grid-item menuBox bigBox">
+                     <div class="grid-item menuBox hiperBox">
                       Executing
                      </div>
 
-                      <div class="grid-item menuBox smallBox">
+                      <div class="grid-item menuBox bigBox">
                       Monitoring & Controlling
                      </div>
 
-                     <div class="grid-item menuBox bigBox">
+                     <div class="grid-item menuBox hiperBox">
                      Closing
                      </div>
                   </div>

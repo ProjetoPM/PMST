@@ -158,6 +158,7 @@
     line-height: 3em;
     /*width: 9em;*/
     height: 19.7em;
+    padding-top: 7.2em;
 
 }
 
@@ -196,11 +197,15 @@
     /*width: 8em;*/
 }
 
+.hiperBox{
+    line-height: 4em;
+}
+
 .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
     width: 9em;
 }
 
-.bigBox, .smallBox, .mediumBox, .biggerBox{
+.hiperBox, .bigBox, .smallBox, .mediumBox, .biggerBox{
     width: 8em;
 }
 
