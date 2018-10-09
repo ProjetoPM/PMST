@@ -68,6 +68,10 @@
     color: #4c3221; cursor: pointer;
 }
 
+#btnTapStakeList{
+    padding-top: 1em; 
+}
+
 
 /* CSS Dashbord Project */
 .grid-container {
@@ -75,8 +79,8 @@
     /*grid-column-gap: 8px;*/
     grid-column-gap: 5%;
     grid-row-gap: 2%;
-    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
     /*padding: 10px;*/
 
    
@@ -92,9 +96,6 @@
     border-radius: 5%;
 
     text-align: center;
-
-
-
 }
 
 .midBox{
@@ -127,19 +128,94 @@
     /*line-height: 50px;*/
     line-height: 2em;
     /*width: 155px;*/
-    width: 8em;
+    /*width: 8em;*/
 }
 
 .smallBox{
     /*line-height: 25px;*/
     line-height: 1em;
     /*width: 155px;*/
+    /*width: 8em;*/
+}
+
+.planningBox{
+    line-height: 1em;
+    width: 25em;
+}
+
+.integrationBox{
+    line-height: 10.5em;
+    /*width: 9em;*/
+}
+
+.scopeBox{
+    line-height: 7.1em;
+    /*width: 9em;*/
+}
+
+.timeBox{
+    line-height: 18.7em;
+    /*width: 9em;*/
+}
+
+.hrBox{
+    line-height: 3em;
+    /*width: 9em;*/
+    height: 19.7em;
+    padding-top: 7.2em;
+
+}
+
+.verticalOneBox{
+    line-height: 1.8em;
+    /*width: 9em;*/
+}
+
+.mediumBox{
+    line-height: 1.5em;
+    /*width: 8em;*/
+}
+
+.costBox{
+    line-height: 7.2em;
+    /*width: 9em;*/
+}
+
+.qualityBox{
+    line-height: 8em;
+    /*width: 9em;*/
+}
+
+.procurementBox{
+    line-height: 7.2em;
+    /*width: 9em;*/
+}
+
+.stakeholderBox{
+    line-height: 6.1em;
+    /*width: 9em;*/
+}
+
+.biggerBox{
+    line-height: 3em;
+    /*width: 8em;*/
+}
+
+.hiperBox{
+    line-height: 4em;
+}
+
+.integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
+    width: 9em;
+}
+
+.hiperBox, .bigBox, .smallBox, .mediumBox, .biggerBox{
     width: 8em;
 }
 
-.menuBoxX3{
-    line-height: 1em;
-    width: 24em + 10%;
+.transparentBoxMenu{
+    line-height: 2em;
+     width: 11.5em;
 }
 
 /* Formatações links da Phases Project Page*/
@@ -155,8 +231,6 @@
 .grid-container a:hover{
     text-decoration: none;
 }
-
-
 
 
 /* CSS Elastic-TextArea*/

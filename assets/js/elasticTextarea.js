@@ -4,6 +4,8 @@ function eylem(a,b){
 		
 		c=sayi*20+40; //*20+48
 		a.style.height = c+"px"; 
+
+		console.log(b);
 }
 
 
