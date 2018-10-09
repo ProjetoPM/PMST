@@ -144,49 +144,49 @@
 					
 
 					
-						<!-- Trigger the modal with a button -->
-						<button type="button" class="open-AddBookDialog btn btn-warning btn-lg center-block" data-toggle="modal" data-target="#add">View Stakeholder List</button>
-						<!-- Modal -->
-						<div class="modal fade" id="add" role="dialog">
-							<div class="modal-dialog">
-								<!-- Modal content-->
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title"><?=$this->lang->line('tap-stakeholder')?></h4>
-									</div>
-									<div class="modal-body">
+					<!-- Trigger the modal with a button -->
+					<button type="button" class="open-AddBookDialog btn btn-warning btn-lg center-block" data-toggle="modal" data-target="#add">View Stakeholder List</button>
+					<!-- Modal -->
+					<div class="modal fade" id="add" role="dialog">
+						<div class="modal-dialog">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title"><?=$this->lang->line('tap-stakeholder')?></h4>
+								</div>
+								<div class="modal-body">
 
 
-										<div class="row">
-											<table class="col-lg-12">
-												<thead>
-													<tr>										
-														<th>Name</th>
-														<th>Email</th>
-													</tr>
-												</thead>
-												<tbody>
-													<?php
+									<div class="row">
+										<table class="col-lg-12">
+											<thead>
+												<tr>										
+													<th>Name</th>
+													<th>Email</th>
+												</tr>
+											</thead>
+											<tbody>
+												<?php
 
-													foreach($stakeholder as $stake){
-														if($project_id==$stake->project_id){
-															?>
-															<tr>			
-																<td><?php echo $stake->name; ?></td>
-																<td><?php echo $stake->email; ?></td>
-															</tr>
-															<?php
-														}
+												foreach($stakeholder as $stake){
+													if($project_id==$stake->project_id){
+														?>
+														<tr>			
+															<td><?php echo $stake->name; ?></td>
+															<td><?php echo $stake->email; ?></td>
+														</tr>
+														<?php
 													}
-													?>
-												</tbody>													
-											</table>
-										</div>
+												}
+												?>
+											</tbody>													
+										</table>
 									</div>
 								</div>
 							</div>
 						</div>
+					</div>
 					
 
 
@@ -327,82 +327,82 @@
 																</div>
 															</div>
 															
-																<!-- Inicio teste datas -->
-																<div class="form-group">
-																	<div class="col-lg-6">
-																		<label><?=$this->lang->line('tap-start')?></label>
-																		<div class="input-group padCalendar">
-																			<div class="input-group-addon">
-																				<i class="fa fa-calendar"></i>
-																			</div>
-																			<input class="form-control" id="start_date" placeholder="YYYY/MM/DD" type="text" name="start_date" value="<?php echo $project_charter[0]->start_date;?>" />
+															<!-- Inicio teste datas -->
+															<div class="form-group">
+																<div class="col-lg-6">
+																	<label><?=$this->lang->line('tap-start')?></label>
+																	<div class="input-group padCalendar">
+																		<div class="input-group-addon">
+																			<i class="fa fa-calendar"></i>
 																		</div>
+																		<input class="form-control" id="start_date" placeholder="YYYY/MM/DD" type="text" name="start_date" value="<?php echo $project_charter[0]->start_date;?>" />
 																	</div>
 																</div>
+															</div>
 
-																<div class="form-group">
-																	<div class="col-lg-6">
-																		<label><?=$this->lang->line('tap-end')?></label>
-																		<div class="input-group padCalendar">
-																			<div class="input-group-addon">
-																				<i class="fa fa-calendar"></i>
-																			</div>
-																			<input class="form-control" id="end_date" placeholder="YYYY/MM/DD" type="text" name="end_date" value="<?php echo $project_charter[0]->end_date; ?>"/>
+															<div class="form-group">
+																<div class="col-lg-6">
+																	<label><?=$this->lang->line('tap-end')?></label>
+																	<div class="input-group padCalendar">
+																		<div class="input-group-addon">
+																			<i class="fa fa-calendar"></i>
 																		</div>
+																		<input class="form-control" id="end_date" placeholder="YYYY/MM/DD" type="text" name="end_date" value="<?php echo $project_charter[0]->end_date; ?>"/>
 																	</div>
 																</div>
-																<!-- Fim teste Datas -->
+															</div>
+															<!-- Fim teste Datas -->
 
-													
+															
 															<!-- Início modal da lista de stakeholder -->
 
 
-														
-																<!-- Trigger the modal with a button -->
-																<div class="col-lg-12">
-																	<button type="button" id="btnTapStakeList" class="open-AddBookDialog btn btn-warning btn-lg center-block" data-toggle="modal" data-target="#add"> View Stakeholder List</button>
-																</div>
-																<!-- Modal -->
-																<div class="modal fade" id="add" role="dialog">
-																	<div class="modal-dialog">
-																		<!-- Modal content-->
-																		<div class="modal-content">
-																			<div class="modal-header">
-																				<button type="button" class="close" data-dismiss="modal">&times;</button>
-																				<h4 class="modal-title"><?=$this->lang->line('tap-stakeholder')?></h4>
-																			</div>
-																			<div class="modal-body">
+															
+															<!-- Trigger the modal with a button -->
+															<div class="col-lg-12">
+																<button type="button" id="btnTapStakeList" class="open-AddBookDialog btn btn-warning btn-lg center-block" data-toggle="modal" data-target="#add"> View Stakeholder List</button>
+															</div>
+															<!-- Modal -->
+															<div class="modal fade" id="add" role="dialog">
+																<div class="modal-dialog">
+																	<!-- Modal content-->
+																	<div class="modal-content">
+																		<div class="modal-header">
+																			<button type="button" class="close" data-dismiss="modal">&times;</button>
+																			<h4 class="modal-title"><?=$this->lang->line('tap-stakeholder')?></h4>
+																		</div>
+																		<div class="modal-body">
 
 
-																				<div class="row">
-																					<table class="col-lg-12">
-																						<thead>
-																							<tr>										
-																								<th>Name</th>
-																								<th>Email</th>
-																							</tr>
-																						</thead>
-																						<tbody>
-																							<?php
+																			<div class="row">
+																				<table class="col-lg-12">
+																					<thead>
+																						<tr>										
+																							<th>Name</th>
+																							<th>Email</th>
+																						</tr>
+																					</thead>
+																					<tbody>
+																						<?php
 
-																							foreach($stakeholder as $stake){
-																								if($project_id==$stake->project_id){
-																									?>
-																									<tr>			
-																										<td><?php echo $stake->name; ?></td>
-																										<td><?php echo $stake->email; ?></td>
-																									</tr>
-																									<?php
-																								}
+																						foreach($stakeholder as $stake){
+																							if($project_id==$stake->project_id){
+																								?>
+																								<tr>			
+																									<td><?php echo $stake->name; ?></td>
+																									<td><?php echo $stake->email; ?></td>
+																								</tr>
+																								<?php
 																							}
-																							?>
-																						</tbody>													
-																					</table>
-																				</div>
+																						}
+																						?>
+																					</tbody>													
+																				</table>
 																			</div>
 																		</div>
 																	</div>
 																</div>
+															</div>
 															
 
 
@@ -433,25 +433,23 @@
 																	<input type="hidden" name="status" value="1">
 
 																	<div class="col-lg-12">
-																		
 																		<button id="tap-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
 																			<i class="glyphicon glyphicon-ok"></i>
 																			<?=$this->lang->line('btn-save')?>
 																		</button>
-
 																	</form>
 																	<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>" >
 																		<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 																	</form>
-																</div>	
 
+																</div>	
 															</form>
 
 														<?php } ?>
-													</div>
-													<!-- /.row -->
+														
+														<!-- /.row -->
 
-													<script type="text/javascript">
+														<script type="text/javascript">
 
 									      //////////////////////////////////
 									      // Start Date & End Date
