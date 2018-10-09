@@ -10,7 +10,7 @@ $lang['tep-main_changes_approved'] = 'Main changes approved';
 $lang['tep-main_deviations'] = 'Main deviations';
 $lang['tep-main_lessons_learned'] = 'Main lessons learned';
 $lang['tep-client_comments'] = 'Customer comments';
-$lang['tep-sponsor_comments'] = 'Sponsor s comments';
+$lang['tep-sponsor_comments'] = 'Sponsor\'s comments';
 
 
 //Tooltip

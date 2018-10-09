@@ -122,7 +122,7 @@
 						</div>
 					</div>
 
-					<div class=" col-lg-6 form-group">
+					<div class=" col-lg-12 form-group">
 						<label for="main_expectations"><?=$this->lang->line('stakeholder-main_expectations')?></label> 
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-main_expectations-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
@@ -131,7 +131,7 @@
 						</div>
 					</div>
 
-					<div class=" col-lg-6 form-group">
+					<div class=" col-lg-12 form-group">
 						<label for="interest_phase"><?=$this->lang->line('stakeholder-interest_phase')?></label> 
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-interest_phase-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 

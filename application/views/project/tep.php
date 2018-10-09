@@ -102,7 +102,7 @@
 						</div>
 
 
-						<div class=" col-lg-12 form-group">
+						<div class=" col-lg-6 form-group">
 							<label for="sponsor_comments"><?=$this->lang->line('tep-sponsor_comments')?> </label> 
 							<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-sponsor_comments-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
@@ -202,7 +202,7 @@
 					</div>
 
 
-					<div class=" col-lg-12 form-group">
+					<div class=" col-lg-6 form-group">
 						<label for="sponsor_comments"><?=$this->lang->line('tep-sponsor_comments')?> </label> 
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-sponsor_comments-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
