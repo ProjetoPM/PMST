@@ -26,15 +26,6 @@
                 <!-- Inicio Top Phases -->
                <div class="row">
                   <div class="col-lg-2 grid-container" style="grid-auto-flow: line">
-                     
-
-                     <!-- <a href="<?=base_url("Issues_Record/addIssuesRecord/".$project[0]->project_id) ?>">
-                     <div class="grid-item midBox smallBox">
-                        Issues Record
-                     </div>
-                     </a> -->
-
-
                      <div class="grid-item transparentBox transparentBoxMenu">
                         .
                      </div>
