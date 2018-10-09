@@ -217,7 +217,7 @@
                      </div>
                      </a>
 
-                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <a  href="<?=base_url("scope_specification/addnew/".$project[0]->project_id) ?>">
                      <div class="grid-item midBox mediumBox">
                         Scope Management
                      </div>
