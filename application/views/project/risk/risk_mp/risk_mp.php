@@ -5,7 +5,8 @@
 		</div>
 		<!-- /.col-lg-12 -->
 	</div>
-	<!-- /.row -->          
+	<!-- /.row -->
+	<div class="container">          
 	<div class="row">
 		<div class="col-lg-12">
 			<?php
@@ -157,5 +158,5 @@
 				<!-- /.row -->
 			</div>
 		</div>
-
+</div>
 		<?php $this->load->view('frame/footer_view')?>            

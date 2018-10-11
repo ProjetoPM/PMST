@@ -11,6 +11,7 @@ $lang['btn-close'] = 'Close';
 $lang['btn-edit'] = 'Edit';
 $lang['btn-open'] = 'Open';
 $lang['btn-delete'] = 'Delete';
+$lang['btn-new'] = 'New';
 
 $lang['btn-create-project'] = 'Create New Project';
 $lang['btn-add-researcher'] = 'Add Researcher';

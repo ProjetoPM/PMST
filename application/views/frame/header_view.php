@@ -33,10 +33,10 @@
   
   <link href="<?=base_url()?>assets/css/bootstrap-datepicker3.css" rel="stylesheet">
   
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
-  <link rel='stylesheet' href='https://cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.css'>
-  <link rel='stylesheet' href='https://cdn.datatables.net/responsive/1.0.4/css/dataTables.responsive.css'>
+  <!-- dataTable -->
+  <link rel="stylesheet" href="<?=base_url()?>assets/css/normalize.min.css">
+  <link rel='stylesheet' href="<?=base_url()?>assets/css/dataTables.bootstrap.css">
+  <link rel='stylesheet' href="<?=base_url()?>assets/css/dataTables.responsive.css">
   <!-- Fim Import's para o datepicker -->
 
   <input type="hidden"  id="base-url" value="<?=base_url()?>"/>

@@ -8,10 +8,10 @@ class Risk extends CI_Controller{
     public function __Construct(){
         parent::__Construct();
 
-        // $this->lang->load('btn','english');
-        $this->lang->load('btn','portuguese-brazilian');
-        // $this->lang->load('human-resource','english');
-        $this->lang->load('risk-mp','portuguese-brazilian');
+        $this->lang->load('btn','english');
+        //$this->lang->load('btn','portuguese-brazilian');
+        $this->lang->load('risk-mp','english');
+        //$this->lang->load('risk-mp','portuguese-brazilian');
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }

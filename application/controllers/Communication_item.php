@@ -27,14 +27,14 @@ class Communication_item extends CI_Controller{
         }
     }
 
-    public function communication_form($project_id){
+    public function list($project_id){
         $query['communication_item'] = $this->communication_item_model->getCommunication_itemProject_id($project_id);
         $query['communication_responsability'] = $this->communication_item_model->getAllCommunication_responsability();
         $query['stakeholder'] = $this->communication_item_model->getCommunication_stakeholder_item_id($project_id);
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view'); 
-        $this->load->view('project/communication_item', $query);
+        $this->load->view('project/communication/communication_mp/communication_item/list', $query);
     }
     
     public function insert() {
@@ -57,11 +57,9 @@ class Communication_item extends CI_Controller{
         $query = $this->communication_item_model->insertCommunication_item($data['communication_item']);
 
         if($query){
-            redirect('projects');
+            redirect(base_url('project/').$risk_mp['project_id']);
         }
     }
-
-
 
 
     public function insertResponasibility() {
@@ -77,7 +75,7 @@ class Communication_item extends CI_Controller{
         $query = $this->Communication_item_stakeholder_model->insertResponasibility($data['communication_responsability']);
 
         if($query){
-            redirect('projects');
+            redirect(base_url('project/').$risk_mp['project_id']);
         }
     }
     
@@ -100,15 +98,15 @@ class Communication_item extends CI_Controller{
         $query = $this->communication_item_model->updateCommunication_item($data['communication_item'], $id);
 
         if($query){
-         redirect('project/' . $id);
-     }
- }
+           redirect(base_url('project/').$risk_mp['project_id']);
+       }
+   }
 
- public function delete($id){
+   public function delete($id){
     $query = $this->communication_item_model->deleteCommunication_item($id);
     var_dump($query);
     if($query){
-        redirect('project/' . $id);
+        redirect(base_url('project/').$risk_mp['project_id']);
     }
 }
 

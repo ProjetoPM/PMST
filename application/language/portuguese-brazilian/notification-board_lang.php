@@ -1,22 +1,20 @@
 <?php
-$lang['notification-board-logout'] = 'Sair';
-$lang['notification-board-account-update'] = 'Atualizar Conta';
-$lang['notification-board-login'] = 'Entrar';
-$lang['notification-board-register'] = 'Registrar';
+$lang['notification'] = 'Notificação';
+$lang['notification-board'] = 'Quadro de Notificações';
 
-$lang['notification-board-save'] = 'Salvar';
-$lang['notification-board-cancel'] = 'Cancelar';
-$lang['notification-board-back'] = 'Voltar';
-$lang['notification-board-close'] = 'Fechar';
-$lang['notification-board-edit'] = 'Editar';
-$lang['notification-board-open'] = 'Abrir';
-$lang['notification-board-delete'] = 'Deletar';
+$lang['running_activities'] = 'Atividades no momento';
+$lang['important_activities'] = 'Atividades importantes';
+$lang['open_issues'] = 'Problemas em aberto';
+$lang['notification-board-create-changes_approval'] = 'Mudanças que necessitam de aprovação';
+$lang['general_warnings'] = 'Avisos gerais';
 
-$lang['notification-board-create-communication'] = 'Criar Novo Quadro de Notificações';
+$lang['notification-tp'] = 'Criar notificação';
 
-$lang['notification-board-create-running_activities'] = 'Atividades no Momento';
-$lang['notification-board-create-important_activities'] = 'Atividades Importantes';
-$lang['notification-board-create-open_issues'] = 'Problemas em Aberto';
-$lang['notification-board-create-changes_approval'] = 'Mudanças que necessitam de Aprovação';
-$lang['notification-board-create-general_warnings'] = 'Avisos Gerais';
+$lang['actions'] = 'Ações';
+
+$lang['running_activities-tp'] = 'Atividades no momento';
+$lang['important_activities-tp'] = 'Atividades importantes';
+$lang['open_issues-tp'] = 'Problemas em aberto';
+$lang['changes_approval-tp'] = 'Mudanças que necessitam de aprovação';
+$lang['general_warnings-tp'] = 'Avisos gerais';
 ?>

@@ -289,7 +289,7 @@
                         .
                      </div>
 
-                     <a href="<?=base_url()?>communication_item/communication_form/<?php echo $project[0]->project_id;?>">
+                     <a href="<?=base_url()?>communication_item/list/<?php echo $project[0]->project_id;?>">
                      <div class="grid-item  midBox smallBox">
                         Communication Management
                      </div>
@@ -889,7 +889,7 @@
 
                <!-- <a class="btn btn-workflow btn-lg btn-block" href="<?=base_url()?>Notification_board/notification_board_form/<?php echo $project[0]->project_id;?>">NOTIFICATION BOARD</a> -->
                <div class="col-md-12">
-                  <a class="btn btn-warning btn-lg btn-block" href="<?=base_url()?>Notification_board/notification_board_form/<?php echo $project[0]->project_id;?>">NOTIFICATION BOARD</a>
+                  <a class="btn btn-warning btn-lg btn-block" href="<?=base_url()?>Notification_board/list/<?php echo $project[0]->project_id;?>">NOTIFICATION BOARD</a>
                </div>
 
             </div>

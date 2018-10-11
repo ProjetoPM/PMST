@@ -8,10 +8,10 @@ class Notification_board extends CI_Controller{
     public function __Construct(){
         parent::__Construct();
 
-                // $this->lang->load('btn','english');
-        $this->lang->load('btn','portuguese-brazilian');
-        // $this->lang->load('human-resource','english');
-        $this->lang->load('notification-board','portuguese-brazilian');
+        $this->lang->load('btn','english');
+        //$this->lang->load('btn','portuguese-brazilian');
+        $this->lang->load('notification-board','english');
+        //$this->lang->load('notification-board','portuguese-brazilian');
 
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
@@ -26,12 +26,12 @@ class Notification_board extends CI_Controller{
         }
     }
 
-    public function notification_board_form($project_id){
+    public function list($project_id){
         $query['notification_board'] = $this->notification_board_model->getNotification_boardProject_id($project_id);
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view'); 
-        $this->load->view('project/notification_board', $query);
+        $this->load->view('project/notification/notification_mp/list', $query);
     }
     
     public function insert() {
@@ -45,7 +45,7 @@ class Notification_board extends CI_Controller{
         $query = $this->notification_board_model->insertNotification_board($notification_board);
 
         if($query){
-            redirect('projects');
+             redirect(base_url('project/').$risk_mp['project_id']);
         }
     }
 
@@ -60,14 +60,14 @@ class Notification_board extends CI_Controller{
         $query = $this->notification_board_model->updateNotification_board($notification_board, $id);
 
         if($query){
-            redirect('projects');
+            redirect(base_url('project/').$risk_mp['project_id']);
         }
     }
 
         public function delete($id){
         $query = $this->notification_board_model->deleteNotification_board($id);
         if($query){
-            redirect('project/' . $id);
+             redirect(base_url('project/').$risk_mp['project_id']);
         }
     }        
 }

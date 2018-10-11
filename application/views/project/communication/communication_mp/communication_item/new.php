@@ -1,7 +1,7 @@
 <div id="page-wrapper">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header"><?=$this->lang->line('quality_plan-title')?></h1>
+      <h1 class="page-header"><?=$this->lang->line('communication')?></h1>
     </div>
     <!-- /.col-lg-12 -->
   </div>
@@ -21,15 +21,12 @@
     <?php endif;?>
 
 
-     <form method="POST" action="<?php echo base_url('communication_item/insert/'); ?>">
+    <form method="POST" action="<?php echo base_url('communication_item/insert/'); ?>">
 
       <input type="hidden" name="project_id"  value="<?php echo $id; ?>">
       <input type="hidden" name="status" value="1">
 
-
-
       <div class=" col-lg-12 form-group">
-
         <label for="methodology"><?=$this->lang->line('quality_plan-methodology')?> </label> 
         <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('quality_plan-methodology-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
