@@ -114,23 +114,7 @@
             <option value="90">90%</option>
           </select>
         </div>
-             <div class="col-lg-2 form-group">
-          <label for="impact"><?=$this->lang->line('text-4')?></label>
-          <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('select-impact-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-          <select name="impact" class="form-control">
-            <option value="10">10%</option>
-            <option value="30">30%</option>
-            <option value="50">50%</option>
-            <option value="70">70%</option>
-            <option value="90">90%</option>
-          </select>
-        </div>
- 
- 
- 
-   
-    
-          <div class="col-lg-12 form-group">
+        <div class="col-lg-12 form-group">
             <label for="description"><?=$this->lang->line('text-1')?></label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder_mp-text1-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
             <div >                     

@@ -19,13 +19,25 @@ class Stakeholder_mp extends CI_Controller{
 		$this->load->model('Stakeholder_mp_model');
 	}
 
+
 	function stakeholder_mp_form($project_id){
 		//chamar db da model
 		$query['stakeholders'] = $this->Stakeholder_mp_model->getAllStakeholders();
        	$query['project_id'] = $project_id;
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
-		$this->load->view('project/stakeholder_mp.php', $query);
+		$this->load->view('project/stakeholder_mp_list.php', $query);
+		
+	}
+
+
+	function stakeholder_mp_list($project_id){
+		//chamar db da model
+		$query['stakeholders'] = $this->Stakeholder_mp_model->getAllStakeholders();
+       	$query['project_id'] = $project_id;
+		$this->load->view('frame/header_view.php');
+		$this->load->view('frame/sidebar_nav_view.php');
+		$this->load->view('project/stakeholder_mp_list.php', $query);
 		
 	}
 

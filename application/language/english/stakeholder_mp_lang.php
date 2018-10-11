@@ -1,7 +1,8 @@
 <?php
 
 // Title
-$lang['stakeholder_mp-title'] = 'Management Stakeholders';
+$lang['stakeholder_mp-title'] = 'Stakeholder Management';
+
 
 // Select
 $lang['select-stakeholder-tooltip'] = 'Select Stakeholder Example';
@@ -20,6 +21,8 @@ $lang['select-4'] = 'Influece Level';
 $lang['select-5'] = 'Impact Level';
 $lang['select-6'] = 'Current Engagement';
 $lang['select-7'] = 'Desired Engagement';
+$lang['select-8'] = "Add New Stakeholder";
+$lang['select-9'] = 
 
 
 //options
@@ -33,9 +36,13 @@ $lang['stakeholder_mp-text1-tooltip'] = 'Engagement / Management Strategy Exampl
 $lang['stakeholder_mp-text2-tooltip'] = 'Scope and Impact of Changes to IP Example';
 $lang['stakeholder_mp-text3-tooltip'] = 'Observations with other IPs Example';
 
+ 
 $lang['text-1'] = 'Engagement / Management Strategy';
 $lang['text-2'] = 'Scope and Impact of Changes to IP';
 $lang['text-3'] = 'Observations with other IPs';
 $lang['text-4'] = 'Average Importance';
+$lang['text-5'] = 'Stakeholder';
+$lang['text-6'] = 'Interest';
+
 
 ?>

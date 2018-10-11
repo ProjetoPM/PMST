@@ -3,6 +3,7 @@
 // Title
 $lang['stakeholder_mp-title'] = 'Gerenciar Partes Interessadas';
 
+
 // Select
 $lang['select-stakeholder-tooltip'] = 'Selecionar Partes Interessadas Exemplo';
 $lang['select-interest-level-tooltip'] = 'Selecionar Nível de Interesse Exemplo';
