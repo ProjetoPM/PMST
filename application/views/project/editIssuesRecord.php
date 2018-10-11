@@ -105,17 +105,17 @@
 
 
 			</div>
-			
-				<form action="<?php echo base_url('Issues_Record/addIssuesRecord/'); ?><?php echo $project_id; ?>" >
+				</form>
+				
+					<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>" >
 					<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 				</form>
+				
 
 		</div>
 	</div>
 </div>
 </div>
-</form>
-</form>
 </div>  
 </div>
 
