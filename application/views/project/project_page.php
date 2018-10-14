@@ -499,7 +499,7 @@
                         .
                      </div>
 
-                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <a  href="<?=base_url("Process_plan/addnew/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox mediumBox">
                         Process Improvement
                      </div>
