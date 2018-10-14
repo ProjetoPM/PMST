@@ -4,7 +4,7 @@
 $lang['tap-title'] = 'Project Charter';
 
 //Form 
-$lang['tap-description'] = 'Project Description';
+$lang['tap-description'] = 'Project Description*';
 $lang['tap-purpose'] = 'Project Purpose';
 $lang['tap-objectives'] = 'Project Objectives';
 $lang['tap-benefits'] = 'Benefits';
