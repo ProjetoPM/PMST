@@ -23,7 +23,7 @@
       <div class="col-lg-12">      
         
         <td align="right">
-     <form method="post" action="<?php echo base_url('stakeholder_mp/createStakeholderMP/');?><?php echo $project_id; ?>">
+     <form method="post" action="<?php echo base_url('stakeholder_mp/insert/');?><?php echo $project_id; ?>">
 
 
 
