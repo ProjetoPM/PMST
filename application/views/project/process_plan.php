@@ -17,6 +17,9 @@
 				<strong><?php echo $this->session->flashdata('error'); ?></strong>
 			</div>
 		<?php endif;?>
+		<style type="text/css">
+			
+		</style>
 		<div class="row">
 			<div class="col-lg-12">
 				<?php
@@ -27,7 +30,7 @@
 						?>
 						
 
-						<form method="POST" action="<?php echo base_url('Process_plan/insert/'); ?><?php echo $id[0]; ?>">
+						<form onsubmit="Checkfiles(this)" method="POST" action="<?php echo base_url('Process_plan/insert/'); ?><?php echo $id[0]; ?>">
 
 							<div class=" col-lg-12 form-group">
 								<label for="process_limits"><?=$this->lang->line('process-plan-limits')?></label> 
@@ -44,8 +47,9 @@
 							</label>
 							<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('process-plan-config-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 							<div >     
-								<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="process_improvement_plancol" name="process_improvement_plancol"><?= $process_plan[0]->process_improvement_plancol;?></textarea>
+								<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="process_improvement_plancol" name="process_improvement_plancol"><?php $process_plan[0]->process_improvement_plancol;?></textarea>
 							</div>
+							<input id="process_improvement_plancol" type="file" name="process_improvement_plancol" class="btn-default" accept="image/png, image/jpeg"/>
 						</div>
 
 
@@ -142,4 +146,20 @@
 </section>
 </div>
 </div>
+<script type="text/javascript">
+	function Checkfiles(){
+    var fup = document.getElementById('process_improvement_plancol');
+    var process_improvement_plancol = fup.value;
+    var ext = process_improvement_plancol.substring(process_improvement_plancol.lastIndexOf('.') + 1);
+
+    if(ext =="jpeg" || ext=="png"){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+</script>
 <?php $this->load->view('frame/footer_view')?>
+
+

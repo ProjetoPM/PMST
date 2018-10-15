@@ -1,7 +1,7 @@
 <?php
 
 // Title
-$lang['process-plan-title'] = 'Manage Cost';
+$lang['process-plan-title'] = 'Process Improvement';
 
 //Form 
 $lang['process-plan-limits'] = 'Process Limits';

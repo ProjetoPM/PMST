@@ -49,7 +49,7 @@
             </thead>
             <tbody>
               <?php
-              foreach ($data as $item) {
+              foreach ($stakeholders as $item) {
                 ?>
                 <tr>
                   <td><?php echo $item->stakeholder_id;?></td>
@@ -82,13 +82,14 @@
           </div>
         </div>  
 
-        <!-- /.row --> </div> 
+  <!-- /.row -->
         <div class="col-sm-12" position= "absolute">
           <div class="container">
             <?php $this->load->view('frame/footer_view') ?>            
           </div>
         </div>
       </div> 
+    </div>
 
       <!--DataTable -->
       <!--<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>-->
