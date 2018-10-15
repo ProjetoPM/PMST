@@ -74,28 +74,8 @@
 
 
 /* CSS Dashbord Project */
-.grid-container {
+.wrapper{
     display: grid;
-    /*grid-column-gap: 8px;*/
-    grid-column-gap: 5%;
-    grid-row-gap: 2%;
-    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
-    grid-template-columns: auto auto auto auto auto auto auto auto;
-    /*padding: 10px;*/
-
-   
-}
-
-.grid-item {
-    /*padding: 10px;
-    font-size: 17px;
-    border-radius: 5px;
-*/
-    padding: 10%;
-    font-size: 100%;
-    border-radius: 5%;
-
-    text-align: center;
 }
 
 .midBox{
@@ -111,124 +91,239 @@
 }
 
 .midBox, .menuBox, .sideBox{
-    color: #FFF;
-}
-
-.transparentBox{
-    opacity: 1; 
-    color: #ccc ;
+        color: #FFF;
+        margin-bottom: 5px;
 }
 
 .midBox, .menuBox, .sideBox, .transparentBox{
-    margin-bottom: 10px;
     text-align: center;
+    border-radius: 5px;
+}
+@media (min-width: 1200px) {
+    .midBox{
+        background-color: #66d065;
+        padding: 0.5em;
+        height: 5em;
+        margin: 0.5%;
+        width: 12%;
+        /*width: 7em;*/
+    }
+
+    .menuBox{
+        background-color: #0006ff;
+        margin: 0.5%;
+        height: 5em;
+        /*width: 13%;*/
+    }
+
+    .sideBox{
+        background-color: #20b2aa;
+        margin: 1%;
+    }
+
+    .transparentBox{
+        opacity: 1; 
+        color: #ccc ;
+    }
+
+    .midBox, .menuBox, .sideBox{
+        color: #FFF;
+    }
+
+    .midBox, .menuBox, .sideBox, .transparentBox{
+        margin-bottom: 10px;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+
+    .planningBox{
+        line-height: 1em;
+        width: 25em;
+    }
+
+    .integrationBox{
+        margin-top: 0;
+        line-height: 17.5em;
+        /*width: 9em;*/
+    }
+
+    .scopeBox{
+        margin-top: 0;
+        line-height: 11.7em;
+        /*width: 9em;*/
+    }
+
+    .timeBox{
+        margin-top: 0;
+        line-height: 23.5em;
+        /*width: 9em;*/
+    }
+
+    .hrBox{
+        margin-top: 0;
+        line-height: 4em;
+        /*width: 9em;*/
+        height: 23.4em;
+        padding-top: 7.2em;
+
+    }
+
+    .verticalOneBox{
+        margin-top: 0;
+        line-height: 5.6em;
+        /*width: 9em;*/
+    }
+
+    .costBox{
+        margin-top: 0;
+        line-height: 11.7em;
+        /*width: 9em;*/
+    }
+
+    .qualityBox{
+        margin-top: 0;
+        line-height: 11.7em;
+        /*width: 9em;*/
+    }
+
+    .procurementBox{
+        margin-top: 0;
+        line-height: 11.7em;
+        /*width: 9em;*/
+    }
+
+    .stakeholderBox{
+        margin-top: 0;
+        line-height: 11.7em;
+        /*width: 9em;*/
+    }
+
+
+    .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
+        width: 7.5em;
+    }
 }
 
-.bigBox{
-    /*line-height: 50px;*/
-    line-height: 2em;
-    /*width: 155px;*/
-    /*width: 8em;*/
-}
 
-.smallBox{
-    /*line-height: 25px;*/
-    line-height: 1em;
-    /*width: 155px;*/
-    /*width: 8em;*/
-}
+@media (min-width: 1342px) {
+    .midBox{
+        background-color: #66d065;
+        padding: 0.5em;
+        height: 5em;
+        margin: 0.5%;
+        width: 13.2%;
+        /*width: 7em;*/
+    }
 
-.planningBox{
-    line-height: 1em;
-    width: 25em;
-}
+    .menuBox{
+        background-color: #0006ff;
+        margin: 0.5%;
+        height: 5em;
+        /*width: 13%;*/
+    }
 
-.integrationBox{
-    line-height: 10.5em;
-    /*width: 9em;*/
-}
+    .sideBox{
+        background-color: #20b2aa;
+        margin: 1%;
+    }
 
-.scopeBox{
-    line-height: 7.1em;
-    /*width: 9em;*/
-}
+    .transparentBox{
+        opacity: 1; 
+        color: #ccc ;
+    }
 
-.timeBox{
-    line-height: 18.7em;
-    /*width: 9em;*/
-}
+    .midBox, .menuBox, .sideBox{
+        color: #FFF;
+    }
 
-.hrBox{
-    line-height: 3em;
-    /*width: 9em;*/
-    height: 19.7em;
-    padding-top: 7.2em;
+    .midBox, .menuBox, .sideBox, .transparentBox{
+        margin-bottom: 10px;
+        text-align: center;
+        border-radius: 5px;
+    }
 
-}
 
-.verticalOneBox{
-    line-height: 1.8em;
-    /*width: 9em;*/
-}
+    .planningBox{
+        line-height: 1em;
+        width: 25em;
+    }
 
-.mediumBox{
-    line-height: 1.5em;
-    /*width: 8em;*/
-}
+    .integrationBox{
+        margin-top: 0;
+        line-height: 17.5em;
+        /*width: 9em;*/
+    }
 
-.costBox{
-    line-height: 7.2em;
-    /*width: 9em;*/
-}
+    .scopeBox{
+        margin-top: 0;
+        line-height: 11.7em;
+        /*width: 9em;*/
+    }
 
-.qualityBox{
-    line-height: 8em;
-    /*width: 9em;*/
-}
+    .timeBox{
+        margin-top: 0;
+        line-height: 23.5em;
+        /*width: 9em;*/
+    }
 
-.procurementBox{
-    line-height: 7.2em;
-    /*width: 9em;*/
-}
+    .hrBox{
+        margin-top: 0;
+        line-height: 4em;
+        /*width: 9em;*/
+        height: 23.4em;
+        padding-top: 7.2em;
 
-.stakeholderBox{
-    line-height: 6.1em;
-    /*width: 9em;*/
-}
+    }
 
-.biggerBox{
-    line-height: 3em;
-    /*width: 8em;*/
-}
+    .verticalOneBox{
+        margin-top: 0;
+        line-height: 5.6em;
+        /*width: 9em;*/
+    }
 
-.hiperBox{
-    line-height: 4em;
-}
+    .costBox{
+        margin-top: 0;
+        line-height: 11.7em;
+        /*width: 9em;*/
+    }
 
-.integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
-    width: 9em;
-}
+    .qualityBox{
+        margin-top: 0;
+        line-height: 11.7em;
+        /*width: 9em;*/
+    }
 
-.hiperBox, .bigBox, .smallBox, .mediumBox, .biggerBox{
-    width: 8em;
-}
+    .procurementBox{
+        margin-top: 0;
+        line-height: 11.7em;
+        /*width: 9em;*/
+    }
 
-.transparentBoxMenu{
-    line-height: 2em;
-     width: 11.5em;
+    .stakeholderBox{
+        margin-top: 0;
+        line-height: 11.7em;
+        /*width: 9em;*/
+    }
+
+
+    .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
+        width: 9em;
+    }
+
 }
 
 /* Formatações links da Phases Project Page*/
-.grid-container  a:link .midBox{
+.wrapper  a:link .midBox{
     /*color: #FFF;*/
 }
 
-.grid-container a:hover .midBox{
+.wrapper a:hover .midBox{
     /*color: red;*/
     background: #00ad0f; 
 }
 
-.grid-container a:hover{
+.wrapper a:hover{
     text-decoration: none;
 }
 
