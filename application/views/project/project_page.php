@@ -313,7 +313,7 @@
                      </div>
                      </a>
 
-                     <a href="<?=base_url("Stakeholder_mp/stakeholder_mp_form/".$project[0]->project_id) ?>">
+                     <a href="<?=base_url("Stakeholder_mp/stakeholder_mp_list/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox smallBox">
                         Stakeholder Management
                      </div>
@@ -499,7 +499,7 @@
                         .
                      </div>
 
-                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <a  href="<?=base_url("Process_plan/addnew/".$project[0]->project_id) ?>">
                      <div class="grid-item  midBox mediumBox">
                         Process Improvement
                      </div>

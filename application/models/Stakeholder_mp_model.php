@@ -9,7 +9,7 @@ class Stakeholder_mp_model extends CI_Model{
 		parent::__construct();
 	}
 
-public function createStakeholderMP($postData){
+public function insert_stake_mp($postData){
 		$interest = $postData ['interest'];
 		$power = $postData['power'];
 		$impact = $postData['impact'];
@@ -35,13 +35,21 @@ public function createStakeholderMP($postData){
 
 
 
-		$this->db->insert('stakeholder_mp',$data);
+	 	$query = $this->db->insert('stakeholder_mp',$data);
+		if($query){
+				redirect('project/stakeholder_mp_list');
+			}
 	}
-	public function getAllStakeholders(){
-		$data = $this->db->get('stakeholder');
-        return $data->result();
+
+		public function getStakeholder_mpStakeholder_item_id($project_id){
+			$query = $this->db->get_where('stakeholder_mp', array('stakeholder_mp.project_id'=>$project_id));
+			return $query->result();
+		}
 
 
+	public function getStakeholder(){
+		$query = $this->db->get_where('stakeholder');
+		return $query->result();
 	}
 
 
@@ -49,5 +57,10 @@ public function createStakeholderMP($postData){
 		$query = $this->db->get_where('stakeholder_mp',array('project_id'=>$id));
 		return $query->result();
 	}
+
+	public function deleteStake_mp($id){
+			$this->db->where('stakeholder_mp.stakeholder_mp_id', $id);
+			return $this->db->delete('stakeholder_mp');
+		}
 }
 ?>
