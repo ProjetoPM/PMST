@@ -68,10 +68,13 @@
 										<td><?php echo $requirement_registration->validity;?></td>
 										<td>
 											
-											<form action="<?php echo base_url() ?>requirements_registration/edit/<?php echo $requirement_registration->requirements_registration_id; ?>">
+											<form action="<?php echo base_url() ?>Requirements_registration/edit/<?php echo $requirement_registration->requirements_registration_id; ?>" method="post">
+												<input type="hidden" name="project_id" value="<?=$requirement_registration->project_id?>">
 												<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 											</form> ||
-											<form action="<?php echo base_url() ?>requirements_registration/delete/<?php echo $requirement_registration->requirements_registration_id; ?>"><button type="submit" class="btn btn-danger"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+											<form action="<?php echo base_url() ?>requirements_registration/delete/<?php echo $requirement_registration->requirements_registration_id; ?>" method="post">
+												<input type="hidden" name="project_id" value="$project_id">
+												<button type="submit" class="btn btn-danger" ><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
 											</form>
 											
 										</td>

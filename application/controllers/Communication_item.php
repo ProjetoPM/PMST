@@ -36,6 +36,13 @@ class Communication_item extends CI_Controller{
         $this->load->view('frame/sidebar_nav_view'); 
         $this->load->view('project/communication/communication_mp/communication_item/list', $query);
     }
+
+     public function edit($communication_item){
+        $query['communication_item'] = $this->communication_item->getCommunication_item($communication_item);
+        $this->load->view('frame/header_view');
+        $this->load->view('frame/sidebar_nav_view'); 
+        $this->load->view('project/communication/communication_mp/communication_item/edit', $query);
+    }
     
     public function insert() {
         $communication_item['type'] = $this->input->post('type');

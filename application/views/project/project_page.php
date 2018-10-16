@@ -182,7 +182,7 @@
                       .
                     </div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Requirements_registration/list/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
                         Requitements Management
                       </div>
