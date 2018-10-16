@@ -8,10 +8,10 @@ class Communication_item extends CI_Controller{
     public function __Construct(){
         parent::__Construct();
 
-                // $this->lang->load('btn','english');
-        $this->lang->load('btn','portuguese-brazilian');
-        // $this->lang->load('human-resource','english');
-        $this->lang->load('communication-item','portuguese-brazilian');
+        $this->lang->load('btn','english');
+        //$this->lang->load('btn','portuguese-brazilian');
+        $this->lang->load('human-resource','english');
+        //$this->lang->load('communication-item','portuguese-brazilian');
 
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
@@ -92,21 +92,20 @@ class Communication_item extends CI_Controller{
         $communication_item['allocated_resources'] = $this->input->post('allocated_resources');
         $communication_item['format'] = $this->input->post('format');
         $communication_item['local'] = $this->input->post('local');
-        $communication_item['status'] = (int) $this->input->post('status');
+        $communication_item['status'] = 1;
         
         $data['communication_item'] = $communication_item;
         $query = $this->communication_item_model->updateCommunication_item($data['communication_item'], $id);
 
         if($query){
-           redirect(base_url('project/').$risk_mp['project_id']);
+           redirect(base_url('project/').$communication_item['project_id']);
        }
    }
 
    public function delete($id){
     $query = $this->communication_item_model->deleteCommunication_item($id);
-    var_dump($query);
     if($query){
-        redirect(base_url('project/').$risk_mp['project_id']);
+        redirect(base_url('project/').$this->input->post('project_id');
     }
 }
 

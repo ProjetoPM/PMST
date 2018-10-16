@@ -211,7 +211,7 @@
                         .
                      </div>
                     
-                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                     <a  href="<?=base_url()?>Requirements_registration/list/<?php echo $project[0]->project_id;?>">
                      <div class="grid-item midBox smallBox">
                         Requitements Management
                      </div>
