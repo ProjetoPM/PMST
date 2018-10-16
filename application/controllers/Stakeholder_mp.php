@@ -22,51 +22,82 @@ class Stakeholder_mp extends CI_Controller{
 
 	function stakeholder_mp_form($project_id){
 		//chamar db da model
-		$query['stakeholders'] = $this->Stakeholder_mp_model->getAllStakeholders();
+	    $query['stake_mp'] = $this->Stakeholder_mp_model->getStakeholder_mpStakeholder_item_id($project_id);
+        $query['stakeholders'] = $this->Stakeholder_mp_model->getStakeholder();
        	$query['project_id'] = $project_id;
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
-		$this->load->view('project/stakeholder_mp_list.php', $query);
+		$this->load->view('project/stakeholder_mp.php', $query);
 		
 	}
 
 
 	function stakeholder_mp_list($project_id){
-		//chamar db da model
-		$query['stakeholders'] = $this->Stakeholder_mp_model->getAllStakeholders();
-       	$query['project_id'] = $project_id;
-		$this->load->view('frame/header_view.php');
-		$this->load->view('frame/sidebar_nav_view.php');
-		$this->load->view('project/stakeholder_mp_list.php', $query);
+		$query['stake_mp'] = $this->Stakeholder_mp_model->getStakeholder_mpStakeholder_item_id($project_id);
+        $query['stakeholder'] = $this->Stakeholder_mp_model->getStakeholder();
+        $query['project_id'] = $project_id;
+        $this->load->view('frame/header_view');
+        $this->load->view('frame/sidebar_nav_view'); 
+        $this->load->view('project/stakeholder_mp_list', $query);
 		
 	}
 
 
 //Criar o Schedule 1 Vez
-	public function createStakeholderMP(){
-		$postData = $this->input->post();
-		 // Recebe tudo que está sendo passado pelo formulário
-  $insert = $this->Stakeholder_mp_model->createStakeholderMP($postData);
- redirect('stakeholder_mp/stakeholder_mp_form/' . $postData['project_id']);
+	public function insert(){
+	$stake_mp['stakeholder_id'] = $this->input->post('stakeholder_id');
+	$stake_mp['project_id'] = $this->input->post('project_id');
+    $stake_mp['interest'] = $this->input->post('interest');
+    $stake_mp['power'] = $this->input->post('power');
+    $stake_mp['influence'] = $this->input->post('influence');
+    $stake_mp['impact'] = $this->input->post('impact');
+    $stake_mp['average'] = $this->input->post('average');
+    $stake_mp['current_engagement'] = $this->input->post('current_engagement');
+    $stake_mp['expected_engagement'] = $this->input->post('expected_engagement');
+    $stake_mp['strategy'] = $this->input->post('strategy');
+    $stake_mp['scope'] = $this->input->post('scope');
+    $stake_mp['observation'] = $this->input->post('observation');
+
+    $data['stake_mp'] = $stake_mp;
+        $query = $this->Stakeholder_mp_model->insert_stake_mp($data['stake_mp']);
+
+ redirect('project/'.$stake_mp['project_id']);
  echo json_encode($insert);
+
+	}
+
+	public function update(){
+    $stake_mp['stakeholder_id'] = $this->input->post('stakeholder_id');
+    $stake_mp['interest'] = $this->input->post('interest');
+    $stake_mp['power'] = $this->input->post('power');
+    $stake_mp['influence'] = $this->input->post('influence');
+    $stake_mp['impact'] = $this->input->post('impact');
+    $stake_mp['average'] = $this->input->post('average');
+    $stake_mp['current_engagement'] = $this->input->post('current_engagement');
+    $stake_mp['expected_engagement'] = $this->input->post('expected_engagement');
+    $stake_mp['strategy'] = $this->input->post('strategy');
+    $stake_mp['scope'] = $this->input->post('scope');
+    $stake_mp['observation'] = $this->input->post('observation');
+
+    $data['stake_mp'] = $stake_mp;
+        $query = $this->stakeholder_mp_model->insert_stake_mp($data['stake_mp']);
+
+   if($query){
+           redirect(base_url('stakeholder_mp/stakeholder_mp_list/').$stake_mp['project_id']);
+       }
 
 	//	$dados = $this->post('schedule_mp.schedule_model');
 	}
 
-	public function updateSchedule(){
-		$shed['schedule_model'] = $this->input->post('schedule_model');
-		$shed['accuracy_level'] = $this->input->post('accuracy_level');
-		$shed['organizational_procedures'] = $this->input->post('organizational_procedures');
-		$shed['schedule_maintenance'] = $this->input->post('schedule_maintenance');
-		$shed['performance_measurement'] = $this->input->post('performance_measurement');
-		$shed['report_format'] = $this->input->post('report_format');
 
-		$query =	$this->Schedule_model->updateScheduleDB($shed);
-		if ($query) {
-			header('location:'.base_url().$this->schedule_form());
-		}
-
-		//var_dump($shed);
-	}
+	public function delete($id){
+    $query = $this->Stakeholder_mp_model->deleteStake_mp($id);
+    
+    if($query){
+        redirect(base_url('stakeholder_mp/stakeholder_mp_list').$stake_mp['project_id']);
+    }
 }
+	}
+
+
 ?>

@@ -77,11 +77,11 @@
 					</div>
 
 					<div class=" col-lg-4 form-group">
-						<label for="email"><?=$this->lang->line('stakeholder-email')?></label> 
+						<label for="email"><?=$this->lang->line('stakeholder-email')?> *</label> 
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-email-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 						<div >                 
-							<input id="email" name="email" type="text" class="form-control input-md">
+							<input id="email" name="email" type="text" class="form-control input-md" required="true">
 						</div>
 					</div>	
 

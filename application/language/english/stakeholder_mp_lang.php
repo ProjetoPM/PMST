@@ -22,7 +22,7 @@ $lang['select-5'] = 'Impact Level';
 $lang['select-6'] = 'Current Engagement';
 $lang['select-7'] = 'Desired Engagement';
 $lang['select-8'] = "Add New Stakeholder";
-$lang['select-9'] = 
+
 
 
 //options
@@ -37,6 +37,20 @@ $lang['stakeholder_mp-text2-tooltip'] = 'Scope and Impact of Changes to IP Examp
 $lang['stakeholder_mp-text3-tooltip'] = 'Observations with other IPs Example';
 
  
+//Table
+$lang['stake'] = 'Stakeholder';
+$lang['interest'] = "Interest";
+$lang['power'] = "Power";
+$lang['influence'] = "Influence";
+$lang['impact'] = "Impact";
+$lang['average'] = "Average Importance";
+$lang['current_engagement'] = "Current Engagement";
+$lang['expected_engagement'] = "Current Engagement";
+$lang['scope'] = "Scope and Impact of Changes to IP";
+$lang['strategy'] = "Engagement / Management Strategy";
+$lang['observation'] = "Observations with other IPs";
+
+
 $lang['text-1'] = 'Engagement / Management Strategy';
 $lang['text-2'] = 'Scope and Impact of Changes to IP';
 $lang['text-3'] = 'Observations with other IPs';

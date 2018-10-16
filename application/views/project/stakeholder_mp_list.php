@@ -2,7 +2,7 @@
   <div class="row" position="absolute">
     <div class="col-lg-12">
       <h1 class="page-header"><?=$this->lang->line('stakeholder_mp-title')?></h1>
-      <!-- <?php var_dump($communication_responsability) ?> -->
+   
     </div>
     <!-- /.col-lg-12 -->
 
@@ -22,16 +22,17 @@
       <div class="row">
         <div class="col-lg-10">
           <div class="container">
-            <button type="button" class="btn btn-info btn-lg glyphicon-plus"><a href="<?php echo base_url() ?>communication_item/insert/"></a> <?=$this->lang->line('select-1')?></button>
-            <button type="button" class="btn btn-info btn-lg" data-target=""><em class="fa fa-pencil"></em><span class="hidden-xs"> <?=$this->lang->line('stakeholder')?></span></button>
+      
           </div>
         </div>
       </div>
-
-      <br><br>
-      <div class="row">
+      
+       <a href="<?=base_url("stakeholder_mp/stakeholder_mp_form/".$project_id) ?>">
+                     <div class="btn btn-info btn-lg glyphicon-plus"><?=$this->lang->line('select-1')?>
+                     </div>
+                     </a>
         <div class="col-lg-12">
-          <table id="tableC">
+          <table id="tableNB">
             <thead>
               <tr>
                 <th><?=$this->lang->line('stake')?></th>
@@ -49,12 +50,11 @@
             </thead>
             <tbody>
               <?php
-              foreach ($data as $item) {
-                ?>
-                <tr>
+              foreach ($stake_mp as $item) {
+                 ?>
+                 <tr>
                   <td><?php echo $item->stakeholder_id;?></td>
                   <td><?php echo $item->interest;?></td>
-                  <td><?php echo $item->content;?></td>
                   <td><?php echo $item->power;?></td>
                   <td><?php echo $item->influence;?></td>
                   <td><?php echo $item->impact;?></td>
@@ -64,25 +64,30 @@
                   <td><?php echo $item->strategy;?></td>
                   <td><?php echo $item->scope;?></td>
                   <td><?php echo $item->observation;?></td>
-        
-                  <td>
-                    <form action="<?php echo base_url() ?>communication_item/delete/<?php echo $item->communication_item_id; ?>">
-                      <a> <button type="button" class="btn btn-default" data-id="edit" data-toggle="modal" data-target="#modal"><em class="fa fa-pencil"></em><span class="hidden-xs"> <?=$this->lang->line('edit')?></span></button></a> ||
+                   <td>
+                    <form action="<?php echo base_url() ?>stakeholder_mp/delete/<?php echo $item->stakeholder_mp_id; ?>">
 
-                      <a><button type="submit" class="btn btn-danger"><em class="fa fa-trash"></em><span class="hidden-xs"> <?=$this->lang->line('delete')?></span></button>
+                      <a><button type="submit" class="btn btn-danger"><em class="fa fa-trash"></em><span class="hidden-xs"> <?=$this->lang->line('delete')?></span></button></a></form>
+                    <form action="<?php echo base_url() ?>stakeholder_mp/edit/<?php echo $item->stakeholder_mp_id; ?>"> <a><button type="submit" class="btn btn-danger"><em class="fa fa-pencil"></em><span class="hidden-xs"> <?=$this->lang->line('edit')?></span></button></a></form>
+                                   </td>
+                                   </tr>
+                 <?php
+               }
+               ?>
+                                </tbody>
+                         </table>
+                        </div>
+                   </div>
+             </div>
+
                    
-                  
-                    </td>
-                  </tr> 
-                  <?php
-                }
-                ?>
-              </tbody>
-            </table>
-          </div>
-        </div>  
+      
 
-        <!-- /.row --> </div> 
+
+        
+
+
+     <!-- /.row --> </div> 
         <div class="col-sm-12" position= "absolute">
           <div class="container">
             <?php $this->load->view('frame/footer_view') ?>            

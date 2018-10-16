@@ -79,7 +79,7 @@ class Issues_Record extends CI_Controller{
       	$query = $this->Issues_record_model->updateIssues_record($data['issues_record'], $issues_record_id);
 
 		if ($query) {
-			redirect('projects/' . $id);
+			$this->addIssuesRecord($issues_record['project_id']);
 		}
 	}
 

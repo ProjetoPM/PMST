@@ -23,7 +23,7 @@
       <div class="col-lg-12">      
         
         <td align="right">
-     <form method="post" action="<?php echo base_url('stakeholder_mp/createStakeholderMP/');?><?php echo $project_id; ?>">
+     <form method="post" action="<?php echo base_url('stakeholder_mp/insert/');?><?php echo $project_id; ?>">
 
 
 
@@ -42,8 +42,7 @@
           <option name="stakeholder_id" value="<?php echo $stakeholder->stakeholder_id;?>"><?php echo $stakeholder->name;?></option>
         <?php
           }?>
-            <input type="hidden" name="project_id" value="<?php echo $project_id;?>" 
-           readonly >
+          <input type="hidden" name="project_id"  value="<?php echo $project_id; ?>">
       </select>
     </div>
 <div class="col-lg-3 form-group">
@@ -143,7 +142,7 @@
             </button> 
             </form>
 
-            <form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>" >
+            <form action="<?php echo base_url("stakeholder_mp/stakeholder_mp_list/".$project_id); ?>" >
                 <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
             </form>
                 
