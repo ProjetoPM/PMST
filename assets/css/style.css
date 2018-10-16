@@ -99,6 +99,7 @@
     text-align: center;
     border-radius: 5px;
 }
+
 @media (min-width: 1200px) {
     .midBox{
         background-color: #66d065;
@@ -126,6 +127,12 @@
         color: #ccc ;
     }
 
+    .transparentBoxMenu{
+        opacity: 1; 
+        color: #ccc ;
+        width: 15.6%;
+    }
+
     .midBox, .menuBox, .sideBox{
         color: #FFF;
     }
@@ -136,32 +143,35 @@
         border-radius: 5px;
     }
 
-
-    .planningBox{
+    /*menu*/
+    .initiatingBox, .executingBox, .closingBox, .moncontrolBox{
         line-height: 1em;
-        width: 25em;
+        width: 10.6%;
     }
 
+    .planningBox{
+        /*line-height: 1em;
+        width: 10em;*/
+        width: 33.2%;
+    }
+
+    /*side*/
     .integrationBox{
-        margin-top: 0;
         line-height: 17.5em;
         /*width: 9em;*/
     }
 
     .scopeBox{
-        margin-top: 0;
         line-height: 11.7em;
         /*width: 9em;*/
     }
 
     .timeBox{
-        margin-top: 0;
         line-height: 23.5em;
         /*width: 9em;*/
     }
 
     .hrBox{
-        margin-top: 0;
         line-height: 4em;
         /*width: 9em;*/
         height: 23.4em;
@@ -170,31 +180,26 @@
     }
 
     .verticalOneBox{
-        margin-top: 0;
         line-height: 5.6em;
         /*width: 9em;*/
     }
 
     .costBox{
-        margin-top: 0;
         line-height: 11.7em;
         /*width: 9em;*/
     }
 
     .qualityBox{
-        margin-top: 0;
         line-height: 11.7em;
         /*width: 9em;*/
     }
 
     .procurementBox{
-        margin-top: 0;
         line-height: 11.7em;
         /*width: 9em;*/
     }
 
     .stakeholderBox{
-        margin-top: 0;
         line-height: 11.7em;
         /*width: 9em;*/
     }
@@ -202,6 +207,7 @@
 
     .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
         width: 7.5em;
+        margin-top: 0;
     }
 }
 
@@ -243,32 +249,27 @@
         border-radius: 5px;
     }
 
-
     .planningBox{
-        line-height: 1em;
-        width: 25em;
+        /*line-height: 1em;
+        width: 25em;*/
     }
 
     .integrationBox{
-        margin-top: 0;
         line-height: 17.5em;
         /*width: 9em;*/
     }
 
     .scopeBox{
-        margin-top: 0;
         line-height: 11.7em;
         /*width: 9em;*/
     }
 
     .timeBox{
-        margin-top: 0;
         line-height: 23.5em;
         /*width: 9em;*/
     }
 
     .hrBox{
-        margin-top: 0;
         line-height: 4em;
         /*width: 9em;*/
         height: 23.4em;
@@ -277,31 +278,26 @@
     }
 
     .verticalOneBox{
-        margin-top: 0;
         line-height: 5.6em;
         /*width: 9em;*/
     }
 
     .costBox{
-        margin-top: 0;
         line-height: 11.7em;
         /*width: 9em;*/
     }
 
     .qualityBox{
-        margin-top: 0;
         line-height: 11.7em;
         /*width: 9em;*/
     }
 
     .procurementBox{
-        margin-top: 0;
         line-height: 11.7em;
         /*width: 9em;*/
     }
 
     .stakeholderBox{
-        margin-top: 0;
         line-height: 11.7em;
         /*width: 9em;*/
     }
@@ -309,6 +305,7 @@
 
     .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
         width: 9em;
+        margin-top: 0;
     }
 
 }
@@ -326,6 +323,7 @@
 .wrapper a:hover{
     text-decoration: none;
 }
+
 
 
 /* CSS Elastic-TextArea*/
