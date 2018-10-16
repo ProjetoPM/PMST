@@ -219,12 +219,7 @@
                     <div class=" col-lg-1 midBox ">
                       .
                     </div>
-                     <a  href="<?=base_url()?>Requirements_registration/list/<?php echo $project[0]->project_id;?>">
-                     <div class="grid-item midBox smallBox">
-                        Requitements Management
-                     </div>
-                     </a>
-
+                    
                     <a  href="<?=base_url("scope_specification/addnew/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
                         Scope Management
