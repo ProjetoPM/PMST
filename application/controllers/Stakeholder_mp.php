@@ -64,7 +64,6 @@ class Stakeholder_mp extends CI_Controller{
  redirect('project/'.$stake_mp['project_id']);
  echo json_encode($insert);
 
-	//	$dados = $this->post('schedule_mp.schedule_model');
 	}
 
 	public function update(){
@@ -84,7 +83,7 @@ class Stakeholder_mp extends CI_Controller{
         $query = $this->stakeholder_mp_model->insert_stake_mp($data['stake_mp']);
 
    if($query){
-           redirect(base_url('project/').$stake_mp['project_id']);
+           redirect(base_url('stakeholder_mp/stakeholder_mp_list/').$stake_mp['project_id']);
        }
 
 	//	$dados = $this->post('schedule_mp.schedule_model');
@@ -95,7 +94,7 @@ class Stakeholder_mp extends CI_Controller{
     $query = $this->Stakeholder_mp_model->deleteStake_mp($id);
     
     if($query){
-        redirect(base_url('project/stakeholder_mp_list').$stake_mp['project_id']);
+        redirect(base_url('stakeholder_mp/stakeholder_mp_list').$stake_mp['project_id']);
     }
 }
 	}

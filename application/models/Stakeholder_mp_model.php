@@ -37,7 +37,7 @@ public function insert_stake_mp($postData){
 
 	 	$query = $this->db->insert('stakeholder_mp',$data);
 		if($query){
-				redirect('project/stakeholder_mp_list');
+				redirect('stakeholder_mp/stakeholder_mp_list/'.$data['project_id']);
 			}
 	}
 

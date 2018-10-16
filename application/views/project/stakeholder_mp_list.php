@@ -26,8 +26,8 @@
           </div>
         </div>
       </div>
-   
-       <a href="<?=base_url("Stakeholder_mp/stakeholder_mp_form/.$project_id[0]->project_id") ?>">
+      
+       <a href="<?=base_url("stakeholder_mp/stakeholder_mp_form/".$project_id) ?>">
                      <div class="btn btn-info btn-lg glyphicon-plus"><?=$this->lang->line('select-1')?>
                      </div>
                      </a>
@@ -51,8 +51,8 @@
             <tbody>
               <?php
               foreach ($stake_mp as $item) {
-                ?>
-                <tr>
+                 ?>
+                 <tr>
                   <td><?php echo $item->stakeholder_id;?></td>
                   <td><?php echo $item->interest;?></td>
                   <td><?php echo $item->power;?></td>
@@ -64,32 +64,30 @@
                   <td><?php echo $item->strategy;?></td>
                   <td><?php echo $item->scope;?></td>
                   <td><?php echo $item->observation;?></td>
-        
-                  <td>
+                   <td>
                     <form action="<?php echo base_url() ?>stakeholder_mp/delete/<?php echo $item->stakeholder_mp_id; ?>">
 
-                      <a><button type="submit" class="btn btn-danger"><em class="fa fa-trash"></em><span class="hidden-xs"> <?=$this->lang->line('delete')?></span></button>
+                      <a><button type="submit" class="btn btn-danger"><em class="fa fa-trash"></em><span class="hidden-xs"> <?=$this->lang->line('delete')?></span></button></a></form>
+                    <form action="<?php echo base_url() ?>stakeholder_mp/edit/<?php echo $item->stakeholder_mp_id; ?>"> <a><button type="submit" class="btn btn-danger"><em class="fa fa-pencil"></em><span class="hidden-xs"> <?=$this->lang->line('edit')?></span></button></a></form>
+                                   </td>
+                                   </tr>
+                 <?php
+               }
+               ?>
+                                </tbody>
+                         </table>
+                        </div>
+                   </div>
+             </div>
+
                    
-                  
-                    </td>
-                       <td>
-                    <form action="<?php echo base_url() ?>stakeholder_mp/edit/<?php echo $item->stakeholder_mp_id; ?>">
+      
 
-                      <a><button type="submit" class="btn btn-danger"><em class="fa fa-pencil"></em><span class="hidden-xs"> <?=$this->lang->line('edit')?></span></button>
-                   
-                  
-                    </td>
 
-                  </tr> 
-                  <?php
-                }
-                ?>
-              </tbody>
-            </table>
-          </div>
-        </div>  
+        
 
-        <!-- /.row --> </div> 
+
+     <!-- /.row --> </div> 
         <div class="col-sm-12" position= "absolute">
           <div class="container">
             <?php $this->load->view('frame/footer_view') ?>            
