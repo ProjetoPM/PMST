@@ -24,30 +24,35 @@
          <div class="panel-body text-justify">
             <div class="panel-body text-center">
 
-              <div class="col-lg-12"> <!-- Header Phases -->
-                     <div class="col-lg-1 transparentBoxMenu">
-                       .
-                     </div>
-                     
-                     <div class="col-lg-1   menuBox initiatingBox">
-                       Initiating
-                     </div>
+               <div class="col-lg-12 wrapper">
+                <div> 
+                  <div class="col-lg-1 transparentBox">
+                    .
+                  </div>
 
-                     <div class="col-lg-3  menuBox planningBox">
-                       Planning
-                     </div>
-                       
-                     <div class="col-lg-1  menuBox executingBox">
-                       Executing
-                     </div>
+                  <div class="col-lg-10">
+                    <div class=" col-lg-1 menuBox ">
+                      Initiating
+                    </div>
+                    
+                    <div class=" col-lg-1 menuBox planningBox">
+                        Planning
+                    </div>
 
-                     <div class="col-lg-1  menuBox moncontrolBox">
-                       Monitoring & Controlling
-                     </div>
-
-                     <div class="col-lg-1 menuBox closingBox">
-                       Closing
-                     </div>
+                    <div class=" col-lg-1 menuBox ">
+                        Executing
+                    </div>
+                  
+                    <div class=" col-lg-1 menuBox ">
+                        Monitoring & Controlling
+                    </div>
+                  
+                    <div class=" col-lg-1 menuBox ">
+                      Closing
+                    </div>
+                  </div>
+                  <!--  -->
+                </div>
               </div> <!-- End Header Phases -->
 
               <div class="col-lg-12 wrapper"> <!-- Body Phases -->

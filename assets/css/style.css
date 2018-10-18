@@ -92,12 +92,13 @@
 
 .midBox, .menuBox, .sideBox{
         color: #FFF;
-        margin-bottom: 5px;
+        /*margin-bottom: 5px;*/
 }
 
 .midBox, .menuBox, .sideBox, .transparentBox{
     text-align: center;
     border-radius: 5px;
+    margin-bottom: 5px;
 }
 
 @media (min-width: 1200px) {
@@ -112,9 +113,11 @@
 
     .menuBox{
         background-color: #0006ff;
-        margin: 0.5%;
+        padding: 0.5em;
         height: 5em;
-        /*width: 13%;*/
+        margin: 0.5%;
+        width: 12%;
+        /*width: 7em;*/
     }
 
     .sideBox{
@@ -122,15 +125,14 @@
         margin: 1%;
     }
 
+    .planningBox{
+        width: 37.7%;
+    }
+
     .transparentBox{
         opacity: 1; 
         color: #ccc ;
-    }
-
-    .transparentBoxMenu{
-        opacity: 1; 
-        color: #ccc ;
-        width: 15.6%;
+        margin: 1%;
     }
 
     .midBox, .menuBox, .sideBox{
@@ -149,10 +151,12 @@
         width: 10.6%;
     }
 
-    .planningBox{
-        /*line-height: 1em;
-        width: 10em;*/
-        width: 33.2%;
+    .initiatingBox, .executingBox, .closingBox{
+        line-height: 5em;
+    }
+
+    .moncontrolBox{
+        padding-top: 1em;
     }
 
     /*side*/
@@ -181,6 +185,8 @@
 
     .verticalOneBox{
         line-height: 5.6em;
+        opacity: 1; 
+        color: #ccc ;
         /*width: 9em;*/
     }
 
@@ -205,7 +211,7 @@
     }
 
 
-    .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
+    .transparentBox, .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
         width: 7.5em;
         margin-top: 0;
     }
@@ -224,14 +230,20 @@
 
     .menuBox{
         background-color: #0006ff;
-        margin: 0.5%;
+        padding: 0.5em;
         height: 5em;
-        /*width: 13%;*/
+        margin: 0.5%;
+        width: 13.2%;
+        /*width: 7em;*/
     }
 
     .sideBox{
         background-color: #20b2aa;
         margin: 1%;
+    }
+
+    .planningBox{
+        width: 41.5%;
     }
 
     .transparentBox{
@@ -282,6 +294,10 @@
         /*width: 9em;*/
     }
 
+    .transparentBox{
+        line-height: 5.6em;
+    }
+
     .costBox{
         line-height: 11.7em;
         /*width: 9em;*/
@@ -303,7 +319,7 @@
     }
 
 
-    .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
+    .transparentBox, .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
         width: 9em;
         margin-top: 0;
     }
