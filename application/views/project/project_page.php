@@ -26,28 +26,28 @@
 
                <div class="col-lg-12 wrapper">
                 <div> 
-                  <div class="col-lg-1 transparentBox">
+                  <div class="col-lg-1 transparentBox hideBox">
                     .
                   </div>
 
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 menuBox ">
+                    <div class=" col-lg-1 menuBox hideBox">
                       Initiating
                     </div>
                     
-                    <div class=" col-lg-1 menuBox planningBox">
+                    <div class=" col-lg-1 menuBox planningBox hideBox">
                         Planning
                     </div>
 
-                    <div class=" col-lg-1 menuBox ">
+                    <div class=" col-lg-1 menuBox hideBox">
                         Executing
                     </div>
                   
-                    <div class=" col-lg-1 menuBox ">
+                    <div class=" col-lg-1 menuBox hideBox">
                         Monitoring & Controlling
                     </div>
                   
-                    <div class=" col-lg-1 menuBox ">
+                    <div class=" col-lg-1 menuBox hideBox">
                       Closing
                     </div>
                   </div>
@@ -75,11 +75,11 @@
                     </a>
                     
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                         .
                     </div>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                         .
                     </div>
                     
@@ -104,19 +104,19 @@
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
@@ -132,25 +132,25 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
@@ -166,7 +166,7 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
@@ -183,19 +183,19 @@
                   </div>
                   
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
                     <a  href="<?=base_url("Requirements_registration/list/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
-                        Requitements Management
+                        Requirements Management
                       </div>
                     </a>
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
-                        Requitements Documentati
+                        Requirements Documentati
                       </div>
                     </a>
                   
@@ -205,7 +205,7 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                         .
                     </div>
                   
@@ -215,13 +215,13 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                         .
                     </div>
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
@@ -243,15 +243,15 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
@@ -268,7 +268,7 @@
                   </div>
                   
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                         .
                     </div>
 
@@ -290,7 +290,7 @@
                       </div>
                     </a> 
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
@@ -300,13 +300,13 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
@@ -328,21 +328,21 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                         .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                         .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
@@ -364,21 +364,21 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                         .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                         .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
@@ -394,19 +394,19 @@
                       </div>
                     </a>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                         .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                         .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
@@ -423,7 +423,7 @@
                   </div>
                   
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
@@ -439,11 +439,11 @@
                       </div>
                     </a>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                         .
                     </div>
 
@@ -453,13 +453,13 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
@@ -475,19 +475,19 @@
                       </div>
                     </a>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                         .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                         .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
@@ -504,7 +504,7 @@
                   </div>
 
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
@@ -538,13 +538,13 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
@@ -560,19 +560,19 @@
                       </div>
                     </a>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                         .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                         .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
@@ -589,7 +589,7 @@
                   </div>
 
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
@@ -599,11 +599,11 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
@@ -613,29 +613,29 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
@@ -645,29 +645,29 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
@@ -677,29 +677,29 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
@@ -709,11 +709,11 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
@@ -730,7 +730,7 @@
                   </div>
 
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
@@ -740,15 +740,15 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                         .
                     </div>
 
@@ -758,7 +758,7 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
@@ -775,7 +775,7 @@
                   </div>
 
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
@@ -791,7 +791,7 @@
                       </div>
                     </a>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
@@ -807,7 +807,7 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
@@ -824,7 +824,7 @@
                   </div>
                   
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
@@ -840,7 +840,7 @@
                       </div>
                     </a>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
@@ -856,13 +856,13 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
@@ -878,7 +878,7 @@
                       </div>
                     </a>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
@@ -888,11 +888,11 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
@@ -921,11 +921,11 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
@@ -941,25 +941,25 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                     
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
@@ -969,11 +969,11 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
 
-                    <div class=" col-lg-1 midBox ">
+                    <div class=" col-lg-1 midBox hideBox">
                       .
                     </div>
                   </div>

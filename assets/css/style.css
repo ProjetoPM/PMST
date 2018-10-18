@@ -73,6 +73,16 @@
 }
 
 
+/* CSS esconder box da project page*/
+@media (max-width: 1199px) {
+    .hideBox{
+        position: absolute;
+            transition: all .2s linear;
+            left: -2000px;
+    }
+}
+
+
 /* CSS Dashbord Project */
 .wrapper{
     display: grid;
