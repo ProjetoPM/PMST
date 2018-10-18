@@ -10,7 +10,7 @@ class Communication_item extends CI_Controller{
 
         $this->lang->load('btn','english');
         //$this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('human-resource','english');
+        $this->lang->load('communication-item','english');
         //$this->lang->load('communication-item','portuguese-brazilian');
 
         if (!$this->session->userdata('logged_in')) {
@@ -110,10 +110,11 @@ class Communication_item extends CI_Controller{
    }
 
    public function delete($id){
-    $query = $this->communication_item_model->deleteCommunication_item($id);
-    if($query){
-        redirect(base_url('project/').$this->input->post('project_id');
-    }
+        $project_id['id'] = $this->input->post('project_id');
+        $query = $this->communication_item_model->deleteCommunication_item($id);
+        if($query){
+            redirectlist($project_id['id']);
+        }
 }
 
 }
