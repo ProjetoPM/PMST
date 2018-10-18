@@ -109,7 +109,7 @@
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('complexity-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <select class="form-control" id="complexity" name="complexity">
-              <option value="Low"><?=$this->lang->line('complexity-minimum')?></option>
+              <option value="minimum"><?=$this->lang->line('complexity-minimum')?></option>
               <option value="Low"><?=$this->lang->line('complexity-low')?></option>
               <option value="Medium"><?=$this->lang->line('complexity-medium')?></option>
               <option value="High"><?=$this->lang->line('complexity-high')?></option>
@@ -164,7 +164,7 @@
             </button> 
           </form>
 
-          <form action="<?php echo base_url('project/'); ?>" >
+          <form action="<?php echo base_url()?>/project/<?=$project_id?>">
            <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
          </form>
 

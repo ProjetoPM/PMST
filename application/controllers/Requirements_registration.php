@@ -43,6 +43,7 @@ class Requirements_registration extends CI_Controller{
 
     public function edit($requirements_registration){
         $query['requirements_registration'] = $this->requirements_registration_model->get($requirements_registration);
+        $query['project_id'] = $this->input->post('project_id');
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view'); 
         $this->load->view('project/scope/requirement/edit', $query);
@@ -69,7 +70,7 @@ class Requirements_registration extends CI_Controller{
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect('project/' . $requirements_registration['project_id']);
+            redirect($this->list($requirements_registration['project_id']));
         }
     }
 
@@ -98,9 +99,12 @@ class Requirements_registration extends CI_Controller{
     }
 
     public function delete($id){
+        $project_id['id'] = $this->input->post('project_id');
         $query = $this->requirements_registration_model->delete($id);
         if($query){
-            redirect('project/' . $this->input->post('project_id'));
+            $this->load->view('frame/header_view');
+            $this->load->view('frame/sidebar_nav_view');
+            redirect('project/' . $project_id['id']);
         }
     }
 }
