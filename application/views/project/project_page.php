@@ -26,7 +26,7 @@
 
                <div class="col-lg-12 wrapper">
                 <div> 
-                  <div class="col-lg-1 transparentBox hideBox">
+                  <div class="col-lg-1 transparentBox">
                     .
                   </div>
 
@@ -520,7 +520,7 @@
                       </div>
                     </a>
                     
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Process_plan/addnew/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
                         Process Improvement
                       </div>
