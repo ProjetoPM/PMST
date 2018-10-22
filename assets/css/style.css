@@ -80,6 +80,10 @@
             transition: all .2s linear;
             left: -2000px;
     }
+
+    .panel-body{
+        padding-top: 0;
+    }
 }
 
 
