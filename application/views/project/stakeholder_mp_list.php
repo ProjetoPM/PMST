@@ -50,9 +50,18 @@
             </thead>
             <tbody>
               <?php
+<<<<<<< HEAD
+              foreach ($stakeholders as $item) {
+=======
               foreach ($stake_mp as $item) {
+<<<<<<< HEAD
+>>>>>>> master
+                ?>
+                <tr>
+=======
                  ?>
                  <tr>
+>>>>>>> master
                   <td><?php echo $item->stakeholder_id;?></td>
                   <td><?php echo $item->interest;?></td>
                   <td><?php echo $item->power;?></td>
@@ -87,13 +96,18 @@
         
 
 
+<<<<<<< HEAD
+  <!-- /.row -->
+=======
      <!-- /.row --> </div> 
+>>>>>>> master
         <div class="col-sm-12" position= "absolute">
           <div class="container">
             <?php $this->load->view('frame/footer_view') ?>            
           </div>
         </div>
       </div> 
+    </div>
 
       <!--DataTable -->
       <!--<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>-->
