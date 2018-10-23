@@ -225,7 +225,7 @@
                       .
                     </div>
                     
-                    <a  href="<?=base_url("scope_specification/addnew/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Scope_specification/addnew/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
                         Scope Management
                       </div>
