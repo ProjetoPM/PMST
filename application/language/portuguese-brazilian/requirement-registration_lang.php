@@ -1,7 +1,7 @@
 <?php
 
 // Título
-$lang['requirements-registration'] = 'Registro de Requisitos';
+$lang['requirement-registration'] = 'Registro de Requisito';
 
 // Tooltip
 $lang['associeted_id-tp'] = 'ID Associado Exemplo';
@@ -17,6 +17,8 @@ $lang['complexidy-tp'] = 'Complexidade Exemplo';
 $lang['acceptance_criteria-tp'] = 'Critérios de Aceitação Exemplo';
 $lang['responsible-tp'] = 'Responsável Exemplo';
 $lang['validity-tp'] = 'Validade Exemplo';
+$lang['supporting_documentation-tp'] = 'Supporting Documentation Exemplo';
+$lang['requirement_situation-tp'] = 'Requirement Situation Exemplo';
 
 //forms
 $lang['associeted_id'] = 'ID Associado';
@@ -32,6 +34,8 @@ $lang['complexidy'] = 'Complexidade';
 $lang['acceptance_criteria'] = 'Critérios de aceitação';
 $lang['responsible'] = 'Responsável';
 $lang['validity'] = 'Validade';
+$lang['supporting_documentation'] = 'Documentação Supportada';
+$lang['requirement_situation'] = 'Situação do Requisito';
 
 //options-select
 $lang['complexidy-minimum'] = 'Mínimo';

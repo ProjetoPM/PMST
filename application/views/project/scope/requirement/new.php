@@ -1,7 +1,7 @@
 <div id="page-wrapper">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header"><?=$this->lang->line('requirements-registration')?></h1>
+      <h1 class="page-header"><?=$this->lang->line('requirement-registration')?></h1>
     </div>
     <!-- /.col-lg-12 -->
   </div>
@@ -22,7 +22,7 @@
 
     <div class="container">
       <div class="row">
-        <form method="POST" action="<?php echo base_url()?>Requirements_registration/insert/">
+        <form method="POST" action="<?php echo base_url()?>Requirement_registration/insert/">
 
           <input type="hidden" name="project_id"  value="<?= $project_id?>">
 
@@ -138,7 +138,7 @@
             <label for="acceptance_criteria"><?=$this->lang->line('acceptance_criteria')?> </label> 
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('acceptance_criteria-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-            <textarea class="form-control" id="acceptance_criteria" name="acceptance_criteria" maxlength="45"></textarea>
+            <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="acceptance_criteria" name="acceptance_criteria" maxlength="45"></textarea>
             
           </div>
 
@@ -151,7 +151,7 @@
           </div>
           
           <div class=" col-lg-4 form-group">
-            <label for="situation"><?=$this->lang->line('situation')?> Situation</label> 
+            <label for="situation"><?=$this->lang->line('situation')?>Situation</label> 
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('situation-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <input class="form-control" id="situation" name="situation" maxlength="45">
@@ -164,7 +164,7 @@
             </button> 
           </form>
 
-          <form action="<?php echo base_url()?>/project/<?=$project_id?>">
+          <form action="<?php echo base_url()?>/Requirement_registration/list/<?=$project_id?>">
            <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
          </form>
 

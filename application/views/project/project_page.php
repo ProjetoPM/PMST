@@ -187,9 +187,9 @@
                       .
                     </div>
 
-                    <a  href="<?=base_url("Requirements_registration/list/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Requirement_registration/list/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
-                        Requirements Management
+                        Requirement Management
                       </div>
                     </a>
                     
