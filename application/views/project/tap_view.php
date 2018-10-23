@@ -466,10 +466,10 @@
 									        orientation: "bottom",
 									        todayHighlight : true,
 									        startDate: today,
-									       }).on('changeDate', function(ev) {
-									       	var newDate = new Date(ev.date.setDate(ev.date.getDate() + 1));
-									       	endDate.datepicker("setStartDate", newDate);
-									       });
+									    }).on('changeDate', function(ev) {
+									    	var newDate = new Date(ev.date.setDate(ev.date.getDate() + 1));
+									    	endDate.datepicker("setStartDate", newDate);
+									    });
 
 									      //Start Date Ends Here
 									      var endDate = $("#end_date").datepicker({
@@ -481,7 +481,7 @@
 									        orientation: "bottom",
 									        startDate: today,
 									        /*todayHighlight : true,*/
-									       });
+									    });
 									      //End Date Ends Here								
-
-									      <?php $this->load->view('frame/footer_view')?>                    	
+									  </script>
+									  <?php $this->load->view('frame/footer_view')?>                    	
