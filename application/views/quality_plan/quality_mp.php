@@ -40,7 +40,7 @@
 
       </div>
 
-      <div class=" col-lg-6 form-group">
+      <div class=" col-lg-12 form-group">
 
         <label for="related_processes"><?=$this->lang->line('quality_plan-related_processes')?> </label> 
         <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('quality_plan-related_processes-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -51,7 +51,7 @@
       </div>
 
 
-      <div class=" col-lg-6 form-group">
+      <div class=" col-lg-12 form-group">
        <label for="expectations_tolerances"><?=$this->lang->line('quality_plan-expectations_tolerances')?> </label> 
        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('quality_plan-expectations_tolerances-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
        <div>
@@ -61,7 +61,7 @@
 
      <div class=" col-lg-12 form-group">
        <label for="traceability"><?=$this->lang->line('quality_plan-traceability')?> </label> 
-       <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('quality_plan-related_processes-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+       <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('quality_plan-traceability-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
        <div>
          <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="traceability" name="traceability"></textarea>
        </div>
@@ -99,7 +99,7 @@
 
     </div>
 
-    <div class=" col-lg-6 form-group">
+    <div class=" col-lg-12 form-group">
 
       <label for="related_processes"><?=$this->lang->line('quality_plan-related_processes')?> </label> 
 
@@ -110,7 +110,7 @@
       </div>
     </div>
 
-    <div class=" col-lg-6 form-group">
+    <div class=" col-lg-12 form-group">
      <label for="expectations_tolerances"><?=$this->lang->line('quality_plan-expectations_tolerances')?> </label> 
      <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('quality_plan-expectations_tolerances-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
      <div>
@@ -120,7 +120,7 @@
 
    <div class=" col-lg-12 form-group">
      <label for="traceability"><?=$this->lang->line('quality_plan-traceability')?> </label> 
-     <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('quality_plan-related_processes-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+     <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('quality_plan-traceability-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
      <div>
        <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="traceability" name="traceability"><?php  echo $quality->traceability; ?></textarea>
      </div>
