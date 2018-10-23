@@ -107,6 +107,7 @@
 			<div >     
 				<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="process_improvement_plancol" name="process_improvement_plancol"></textarea>
 			</div>
+			<input id="process_improvement_plancol" type="file" name="process_improvement_plancol" class="btn-default" accept="image/png, image/jpeg"/>
 		</div>
 
 
