@@ -12,7 +12,7 @@
 				'expectations_tolerances' => $postData['expectations_tolerances'],
 				'traceability' => $postData['traceability'],
 				'project_id' => $postData['project_id'],
-				'status' => (int) $quality_mp['status']
+				'status' => (int) $postData['status']
 			);
 	
 			$this->db->insert('quality_mp', $data);

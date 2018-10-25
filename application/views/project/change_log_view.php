@@ -21,149 +21,56 @@
 		<div class="row">
 			<div class="col-lg-12">
 
-				<?php 
-				$valida=false;
-
-				foreach ($change_log as $tep){ 
-					if($tep->project_id==$id){
-						$valida=true;
-						?>
-
-						<form method="POST" action="<?php echo base_url('TEP/insert/'); ?><?php echo $id; ?>">
-
-							<div class="col-lg-12 form-group">
-								<label for="client"><?=$this->lang->line('tep-client')?> *</label>  
-								<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-client-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-								<div >
-									<input id="client" name="client" type="text" class="form-control input-md" required="true" value="<?= $tep->client;?>">
-								</div>
-							</div>
-
-
-							<div class="col-lg-6 form-group">
-								<label><?=$this->lang->line('tep-project_closure_date')?></label>
-								<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-project_closure_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-								<div class="input-group">
-									<div class="input-group-addon">
-										<i class="fa fa-calendar"></i>
-									</div>
-									<input class="form-control" id="project_closure_date" placeholder="YYYY/MM/DD" type="text" name="project_closure_date" value="<?= $tep->project_closure_date;?>"/>
-								</div>
-							</div>
-							
-						<div class=" col-lg-6 form-group">
-							<label for="main_changes_approved"><?=$this->lang->line('tep-main_changes_approved')?></label> 
-							<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-main_changes_approved-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-							<div >                 
-								<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="main_changes_approved" name="main_changes_approved" ><?= $tep->main_changes_approved;?></textarea>  
-							</div>
-						</div>
-
-
-						<div class=" col-lg-12 form-group">
-							<label for="main_lessons_learned"><?=$this->lang->line('tep-main_lessons_learned')?> </label> 
-							<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-main_lessons_learned-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-							<div >                 
-								<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="main_lessons_learned" name="main_lessons_learned"><?= $tep->main_lessons_learned;?></textarea>  
-							</div>
-						</div>
-
-
-						<div class=" col-lg-6 form-group">
-							<label for="main_deviations"><?=$this->lang->line('tep-main_deviations')?></label> 
-							<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-main_deviations-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-							<div >                 
-								<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="main_deviations" name="main_deviations" ><?= $tep->main_deviations;?></textarea>  
-							</div>
-						</div>
-
-
-						<div class=" col-lg-6 form-group">
-							<label for="client_comments"><?=$this->lang->line('tep-client_comments')?></label> 
-							<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-client_comments-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-							<div >                 
-								<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="client_comments" name="client_comments"><?= $tep->client_comments;?></textarea>  
-							</div>
-						</div>
-
-
-						<div class=" col-lg-6 form-group">
-							<label for="sponsor_comments"><?=$this->lang->line('tep-sponsor_comments')?> </label> 
-							<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-sponsor_comments-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-							<div >                 
-								<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="sponsor_comments" name="sponsor_comments"><?= $tep->sponsor_comments;?></textarea>  
-							</div>
-						</div>
-
-						<div class="col-lg-12">
-							<button id="new_human_resource-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
-								<i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
-							</button> 
-						</form>
-
-
-						<form action="<?php echo base_url('project/'); ?><?php echo $id; ?>" >
-							<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
-						</form>
-					</div>
-
-					<?php 
-				}
-			}if($valida==false){
-				?>
-
-
-				<form method="POST" action="<?php echo base_url('TEP/insert/'); ?><?php echo $id; ?>">
+				<form method="POST" action="<?php echo base_url('Change_log/insert/'); ?><?php echo $id; ?>">
 
 					<div class="col-lg-4 form-group">
-						<label for="client"><?=$this->lang->line('tep-client')?> *</label>  
+						<label for="change_description"><?=$this->lang->line('tep-client')?> *</label>  
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-client-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >
-							<input id="client" name="client" type="text" class="form-control input-md" required="true">
+							<input id="change_description" name="change_description" type="text" class="form-control input-md" required="true">
 						</div>
 					</div>
 
 
 					<div class=" col-lg-4 form-group">
-						<label for="main_changes_approved"><?=$this->lang->line('tep-main_changes_approved')?></label> 
-						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-main_changes_approved-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+						<label for="comments"><?=$this->lang->line('tep-comments')?></label> 
+						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-comments-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="main_changes_approved" name="main_changes_approved" ></textarea>  
-						</div>
-					</div>
-
-					<div class=" col-lg-4 form-group">
-						<label for="main_changes_approved"><?=$this->lang->line('tep-main_changes_approved')?></label> 
-						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-main_changes_approved-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="main_changes_approved" name="main_changes_approved" ></textarea>  
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="comments" name="comments" ></textarea>  
 						</div>
 					</div>
 
 
+					<div class="col-lg-4 form-group">
+						<label><?=$this->lang->line('tep-comments_date')?></label>
+						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-comments_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+						<div class="input-group">
+							<div class="input-group-addon">
+								<i class="fa fa-calendar"></i>
+							</div>
+							<input class="form-control" id="comments_date" placeholder="YYYY/MM/DD" type="text" name="comments_date"  />
+						</div>
+					</div>
+
+
+
 					<div class=" col-lg-4 form-group">
-						<label for="main_lessons_learned"><?=$this->lang->line('tep-main_lessons_learned')?> </label> 
-						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-main_lessons_learned-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+						<label for="change_type"><?=$this->lang->line('tep-change_type')?> </label> 
+						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-change_type-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="main_lessons_learned" name="main_lessons_learned"></textarea>  
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="change_type" name="change_type"></textarea>  
 						</div>
 					</div>
 
 
 					<div class=" col-lg-4 form-group">
-						<label for="main_deviations"><?=$this->lang->line('tep-main_deviations')?></label> 
-						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-main_deviations-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+						<label for="situation"><?=$this->lang->line('tep-situation')?></label> 
+						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-situation-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="main_deviations" name="main_deviations" ></textarea>  
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="situation" name="situation" ></textarea>  
 						</div>
 					</div>
 
@@ -171,50 +78,50 @@
 
 
 					<div class=" col-lg-12 form-group">
-						<label for="client_comments"><?=$this->lang->line('tep-client_comments')?></label> 
-						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-client_comments-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+						<label for="change_description"><?=$this->lang->line('tep-change_description')?></label> 
+						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-change_description-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="client_comments" name="client_comments" ></textarea>  
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="change_description" name="change_description" ></textarea>  
 						</div>
 					</div>
 
 
 					<div class=" col-lg-12 form-group">
-						<label for="sponsor_comments"><?=$this->lang->line('tep-sponsor_comments')?> </label> 
-						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-sponsor_comments-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+						<label for="comments"><?=$this->lang->line('tep-comments')?> </label> 
+						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-comments-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="sponsor_comments" name="sponsor_comments"></textarea>  
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="comments" name="comments"></textarea>  
 						</div>
 					</div>
 
 					<div class=" col-lg-12 form-group">
-						<label for="sponsor_comments"><?=$this->lang->line('tep-sponsor_comments')?> </label> 
-						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-sponsor_comments-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+						<label for="comments"><?=$this->lang->line('tep-comments')?> </label> 
+						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-comments-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="sponsor_comments" name="sponsor_comments"></textarea>  
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="comments" name="comments"></textarea>  
 						</div>
 					</div>
 
 					<div class="col-lg-6 form-group">
-						<label><?=$this->lang->line('tep-project_closure_date')?></label>
-						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-project_closure_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+						<label><?=$this->lang->line('tep-comments_date')?></label>
+						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-comments_date-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div class="input-group">
 							<div class="input-group-addon">
 								<i class="fa fa-calendar"></i>
 							</div>
-							<input class="form-control" id="project_closure_date" placeholder="YYYY/MM/DD" type="text" name="project_closure_date"  />
+							<input class="form-control" id="comments_date" placeholder="YYYY/MM/DD" type="text" name="comments_date"  />
 						</div>
 					</div>
 
 					<div class=" col-lg-12 form-group">
-						<label for="sponsor_comments"><?=$this->lang->line('tep-sponsor_comments')?> </label> 
-						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-sponsor_comments-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+						<label for="comments"><?=$this->lang->line('tep-comments')?> </label> 
+						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tep-comments-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 						<div >                 
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="sponsor_comments" name="sponsor_comments"></textarea>  
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="comments" name="comments"></textarea>  
 						</div>
 					</div>
 
@@ -229,19 +136,18 @@
 						<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 					</form>
 				</div>
-			<?php } ?>
 
 
-		</section>
-	</div>
-</div>	
-<script type="text/javascript">
-	var currentDate = new Date();
-	var today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 0, 0, 0, 0);
-	var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+			</section>
+		</div>
+	</div>	
+	<script type="text/javascript">
+		var currentDate = new Date();
+		var today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 0, 0, 0, 0);
+		var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
 
 		//Start Date Ends Here
-		var endDate = $("#project_closure_date").datepicker({
+		var endDate = $("#comments_date").datepicker({
 			autoclose: true,
 			format: 'yyyy/mm/dd',
 			//language: 'pt-BR', //Idioma do Calendario
