@@ -1,7 +1,7 @@
 <div id="page-wrapper">
 	<div class="row" position="absolute">
 		<div class="col-lg-12">
-			<h1 class="page-header"><?=$this->lang->line('requirements-registration')?></h1>
+			<h1 class="page-header"><?=$this->lang->line('requirement-registration')?></h1>
 		</div>
 		<!-- /.col-lg-12 -->
 
@@ -17,10 +17,11 @@
 				</div>
 			<?php endif; ?>
 			<!-- /.row -->
+
 			<div class="row">
 				<div class="col-lg-10">
 					<div class="container">
-						<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Requirements_registration/new/<?php echo $project_id ?>'"> <?=$this->lang->line('btn-new')?> <?=$this->lang->line('requirements-registration')?></button>			
+						<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Requirement_registration/new/<?php echo $project_id ?>'"> <?=$this->lang->line('btn-new')?> <?=$this->lang->line('requirement-registration')?></button>			
 					</div>
 				</div>
 			</div>
@@ -45,12 +46,14 @@
 									<th><?=$this->lang->line('acceptance_criteria')?></th>
 									<th><?=$this->lang->line('responsible')?></th>
 									<th><?=$this->lang->line('validity')?></th>
+									<th><?=$this->lang->line('supporting_documentation')?></th>
+									<th><?=$this->lang->line('requirement_situation')?></th>
 									<th><?=$this->lang->line('btn-actions')?></th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php
-								foreach ($requirements_registration as $requirement_registration) {
+								foreach ($requirement_registration as $requirement_registration) {
 									?>
 									<tr>
 										<td><?php echo $requirement_registration->associated_id;?></td>
@@ -65,15 +68,16 @@
 										<td><?php echo $requirement_registration->complexity;?></td>
 										<td><?php echo $requirement_registration->acceptance_criteria;?></td>
 										<td><?php echo $requirement_registration->responsible;?></td>
-										<td><?php echo $requirement_registration->validity;?></td>
+										<td><?php echo $requirement_registration->acceptance_criteria;?></td>
+										<td><?php echo $requirement_registration->supporting_documentation;?></td>
+										<td><?php echo $requirement_registration->requirement_situation;?></td>
 										<td>
-											
-											<form action="<?php echo base_url() ?>Requirements_registration/edit/<?php echo $requirement_registration->requirements_registration_id; ?>" method="post">
+											<form action="<?php echo base_url() ?>Requirement_registration/edit/<?php echo $requirement_registration->requirement_registration_id; ?>" method="post">
 												<input type="hidden" name="project_id" value="<?=$requirement_registration->project_id?>">
 												<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 											</form> ||
-											<form action="<?php echo base_url() ?>requirements_registration/delete/<?php echo $requirement_registration->requirements_registration_id; ?>" method="post">
-												<input type="hidden" name="project_id" value="$project_id">
+											<form action="<?php echo base_url() ?>Requirement_registration/delete/<?php echo $requirement_registration->requirement_registration_id; ?>" method="post">
+												<input type="hidden" name="project_id" value="<?=$project_id?>">
 												<button type="submit" class="btn btn-danger" ><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
 											</form>
 											

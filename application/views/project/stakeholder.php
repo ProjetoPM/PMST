@@ -59,7 +59,7 @@
 
 
 					<div class="col-lg-4 form-group">
-						<label for="organization"><?=$this->lang->line('stakeholder-organization')?> *</label>  
+						<label for="organization"><?=$this->lang->line('stakeholder-organization')?> </label>  
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-organization-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >
 							<input id="organization" name="organization" type="text" class="form-control input-md">

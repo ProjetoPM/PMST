@@ -20,7 +20,7 @@ class RegisterRisk extends CI_Controller {
 		$dado['id'] = $project_id;
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/risk',$dado);
+		$this->load->view('project/risk/risk_register/risk',$dado);
 	}
 
 	public function insert($id){

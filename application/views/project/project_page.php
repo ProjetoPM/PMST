@@ -163,9 +163,9 @@
 
                     <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <a  href="<?=base_url("Requirements_registration/list/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Requirement_registration/list/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
-                        Requirements Management
+                        Requirement Management
                       </div>
                     </a>
                     
@@ -197,7 +197,7 @@
 
                     <div class=" col-lg-1 midBox hideBox"></div>
                     
-                    <a  href="<?=base_url("scope_specification/addnew/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Scope_specification/addnew/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
                         Scope Management
                       </div>
@@ -828,7 +828,7 @@
 
           
               <div class="col-md-12">
-                <a class="btn btn-warning btn-lg btn-block" href="<?=base_url()?>Notification_board/notification_board_form/<?php echo $project[0]->project_id;?>">NOTIFICATION BOARD</a>
+                <a class="btn btn-warning btn-lg btn-block" href="<?=base_url()?>Notification_board/list/<?php echo $project[0]->project_id;?>">NOTIFICATION BOARD</a>
               </div>
 
             </div>

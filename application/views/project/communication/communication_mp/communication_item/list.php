@@ -22,7 +22,7 @@
 			<div class="row">
 				<div class="col-lg-10">
 					<div class="container">
-						<button type="button" class="btn btn-info btn-lg glyphicon-plus" href="<?php echo base_url() ?>communication_item/insert/"><?=$this->lang->line('btn-new')?>  <?=$this->lang->line('communication-item')?></button>
+						<button type="button" class="btn btn-info btn-lg" href="<?php echo base_url() ?>communication_item/insert/"><?=$this->lang->line('btn-new')?> <?=$this->lang->line('communication-item')?></button>
 						<button type="button" class="btn btn-info btn-lg" data-target=""><em class="fa fa-pencil"></em><span class="hidden-xs"> <?=$this->lang->line('stakeholder')?></span></button>
 					</div>
 				</div>
@@ -31,7 +31,7 @@
 			<br><br>
 			<div class="row">
 				<div class="col-lg-12">
-					<div class="container">
+					<!--<div class="container">-->
 						<table id="tableNB">
 							<thead>
 								<tr>
@@ -68,7 +68,7 @@
 									?>
 								</tbody>
 							</table>
-						</div>
+						<!--</div>-->
 					</div>
 				</div>  
 

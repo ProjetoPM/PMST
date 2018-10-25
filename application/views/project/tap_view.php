@@ -187,27 +187,6 @@
 							</div>
 						</div>
 					</div>
-					
-
-
-
-
-
-
-					<!--
-					<div class="col-lg-6 form-group">
-
-						<label><?=$this->lang->line('tap-start')?></label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-start-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a><br>
-						<input class="form-control" type="date" name="start_date" ><br>
-					</div>
-					<div class="col-lg-6 form-group">
-
-						<label><?=$this->lang->line('tap-end')?></label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-end-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a><br>
-						<input class="form-control" type="date" name="end_date" ><br>
-					</div>
-				-->
-
-				
 
 				<input type="hidden" name="status" value="1">
 
@@ -402,33 +381,7 @@
 																	</div>
 																</div>
 															</div>
-															
-
-
-
-
-
-															
-
-																<!--
-																<div class=" col-lg-6 form-group">
-																	<label for="start_date"><?=$this->lang->line('tap-start')?></label>
-																	<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-start')?>"><i class="glyphicon glyphicon-comment"></i></a
-																		><div >                     
-																			<input class="form-control" type="date" name="start_date" value="<?php echo $project_charter[0]->start_date; ?>">
-																		</div>
-																	</div>
-
-																	<div class=" col-lg-6 form-group">
-																		<label for="start_date"><?=$this->lang->line('tap-end')?></label>
-																		<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-end')?>"><i class="glyphicon glyphicon-comment"></i></a
-																			><div >                     
-																				<input class="form-control" type="date" name="end_date" value="<?php echo $project_charter[0]->end_date; ?>">
-																			</div>
-																		</div>						
-																	-->
 																	
-
 																	<input type="hidden" name="status" value="1">
 
 																	<div class="col-lg-12">
@@ -483,5 +436,5 @@
 									        /*todayHighlight : true,*/
 									       });
 									      //End Date Ends Here								
-
+									     </script>
 									      <?php $this->load->view('frame/footer_view')?>                    	

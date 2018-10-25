@@ -49,7 +49,7 @@
 						</div>
 
 
-						<div class="col-lg-6 form-group">
+						<div class="col-lg-12 form-group">
 							<label for="organizational_procedures"><?=$this->lang->line('manage_cost-organizational_procedures')?>
 						</label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('manage_cost-organizational_procedures-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -59,7 +59,7 @@
 					</div>
 
 
-					<div class=" col-lg-6 form-group">
+					<div class=" col-lg-12 form-group">
 						<label for="measurement_rules"><?=$this->lang->line('manage_cost-measurement_rules')?></label> 
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('manage_cost-measurement_rules-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
@@ -116,7 +116,7 @@
 		</div>
 
 
-		<div class="col-lg-6 form-group">
+		<div class="col-lg-12 form-group">
 			<label for="organizational_procedures"><?=$this->lang->line('manage_cost-organizational_procedures')?>
 		</label>
 		<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('manage_cost-organizational_procedures-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -126,7 +126,7 @@
 	</div>
 
 
-	<div class=" col-lg-6 form-group">
+	<div class=" col-lg-12 form-group">
 		<label for="measurement_rules"><?=$this->lang->line('manage_cost-measurement_rules')?></label> 
 		<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('manage_cost-measurement_rules-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
@@ -154,12 +154,14 @@
 <form action="<?php echo base_url('project/'); ?><?php echo $id; ?>" >
 	<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 </form>
-
-</div>
 <?php
 }
 ?>
+</div>
+</div>
 </section>
 </div>
 </div>
+
+
 <?php $this->load->view('frame/footer_view')?>
