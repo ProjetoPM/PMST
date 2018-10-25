@@ -984,7 +984,7 @@
 
           
               <div class="col-md-12">
-                <a class="btn btn-warning btn-lg btn-block" href="<?=base_url()?>Notification_board/notification_board_form/<?php echo $project[0]->project_id;?>">NOTIFICATION BOARD</a>
+                <a class="btn btn-warning btn-lg btn-block" href="<?=base_url()?>Notification_board/list/<?php echo $project[0]->project_id;?>">NOTIFICATION BOARD</a>
               </div>
 
             </div>
