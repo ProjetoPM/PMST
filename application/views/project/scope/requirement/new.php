@@ -143,7 +143,7 @@
           </div>
 
           <div class=" col-lg-12 form-group">
-            <label for="supporting_documentation"><?=$this->lang->line('supporting_documentation')?> Supporting Documentation</label> 
+            <label for="supporting_documentation"><?=$this->lang->line('supporting_documentation')?></label> 
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('supporting_documentation-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <input class="form-control" id="supporting_documentation" name="supporting_documentation" maxlength="45">
@@ -154,7 +154,7 @@
             <label for="situation"><?=$this->lang->line('situation')?>Situation</label> 
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('situation-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-            <input class="form-control" id="situation" name="situation" maxlength="45">
+            <input class="form-control" id="requirement_situation" name="requirement_situation" maxlength="45">
             
           </div>
           
