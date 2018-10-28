@@ -15,7 +15,7 @@ class Procurement extends CI_Controller{
 
         $this->lang->load('btn','english');
         // $this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('procurement_mp','english');
+        $this->lang->load('procurement-mp','english');
         // $this->lang->load('procurement_mp','portuguese-brazilian');
 
     }
@@ -31,7 +31,7 @@ class Procurement extends CI_Controller{
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view'); 
-        $this->load->view('project/procurement_mp', $query);
+        $this->load->view('project/procurement/procurement_mp', $query);
 
     }
     
@@ -39,6 +39,7 @@ class Procurement extends CI_Controller{
         $procurement_mp['products_services_obtained'] = $this->input->post('products_services_obtained');
         $procurement_mp['team_actions'] = $this->input->post('team_actions');
         $procurement_mp['performance_metrics'] = $this->input->post('performance_metrics');
+        $procurement_mp['procurement_management'] = $this->input->post('procurement_management');
         $procurement_mp['project_id'] = $this->input->post('project_id');
         $procurement_mp['status'] = 1;
         
@@ -55,6 +56,7 @@ class Procurement extends CI_Controller{
         $procurement_mp['products_services_obtained'] = $this->input->post('products_services_obtained');
         $procurement_mp['team_actions'] = $this->input->post('team_actions');
         $procurement_mp['performance_metrics'] = $this->input->post('performance_metrics');
+        $procurement_mp['procurement_management'] = $this->input->post('procurement_management');
         $procurement_mp['project_id'] = $this->input->post('project_id');
         $procurement_mp['status'] = 1;
         

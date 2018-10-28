@@ -12,6 +12,4 @@
     </div>
   </div>
 </div>
-<br>
-
 <!-- /.slr tool-->

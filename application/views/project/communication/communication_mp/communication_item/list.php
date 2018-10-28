@@ -1,7 +1,7 @@
 <div id="page-wrapper">
 	<div class="row" position="absolute">
 		<div class="col-lg-12">
-			<h1 class="page-header"><?=$this->lang->line('communication')?></h1>
+			<h1 class="page-header"><?=$this->lang->line('communication-item')?></h1>
 			<!-- <?php var_dump($communication_responsability) ?> -->
 		</div>
 		<!-- /.col-lg-12 -->
@@ -22,7 +22,7 @@
 			<div class="row">
 				<div class="col-lg-10">
 					<div class="container">
-						<button type="button" class="btn btn-info btn-lg glyphicon-plus" href="<?php echo base_url() ?>communication_item/insert/"> <?=$this->lang->line('new-communication')?></button>
+						<button type="button" class="btn btn-info btn-lg" href="<?php echo base_url() ?>communication_item/insert/"><?=$this->lang->line('btn-new')?> <?=$this->lang->line('communication-item')?></button>
 						<button type="button" class="btn btn-info btn-lg" data-target=""><em class="fa fa-pencil"></em><span class="hidden-xs"> <?=$this->lang->line('stakeholder')?></span></button>
 					</div>
 				</div>
@@ -31,7 +31,7 @@
 			<br><br>
 			<div class="row">
 				<div class="col-lg-12">
-					<div class="container">
+					<!--<div class="container">-->
 						<table id="tableNB">
 							<thead>
 								<tr>
@@ -59,7 +59,7 @@
 										<td><?php echo $item->format;?></td>
 										<td>
 											<form action="<?php echo base_url() ?>communication_item/delete/<?php echo $item->communication_item_id; ?>">
-												<a> <button type="button" class="btn btn-default" data-id="edit" data-toggle="modal" data-target="#modal"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button></a> ||<a><button type="submit" class="btn btn-danger"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+												<a> <button type="button" class="btn btn-default" data-id="edit"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button></a> ||<a><button type="submit" class="btn btn-danger"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
 												</a></form>
 											</td>
 										</tr> 
@@ -68,7 +68,7 @@
 									?>
 								</tbody>
 							</table>
-						</div>
+						<!--</div>-->
 					</div>
 				</div>  
 
