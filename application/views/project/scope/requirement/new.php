@@ -170,4 +170,10 @@
 
        </div>
      </div>
-     <?php $this->load->view('frame/footer_view')?>
+            <!-- /.row --> </div> 
+        <div class="col-sm-12" position= "absolute">
+          <div class="container">
+            <?php $this->load->view('frame/footer_view') ?>            
+          </div>
+        </div>
+      </div>

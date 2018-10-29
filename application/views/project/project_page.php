@@ -779,7 +779,7 @@
                       .
                     </div>
                     
-                    <a href="<?=base_url()?>risk/risk_form/<?php echo $project[0]->project_id;?>">
+                    <a href="<?=base_url()?>Risk/risk_form/<?php echo $project[0]->project_id;?>">
                       <div class=" col-lg-1 midBox ">
                         Risk Management
                       </div>

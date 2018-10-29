@@ -1,7 +1,7 @@
 <div id="page-wrapper">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header"><?=$this->lang->line('procuremente_mp-title')?></h1>
+      <h1 class="page-header"><?=$this->lang->line('procuremente_mp')?></h1>
     </div>
     <!-- /.col-lg-12 -->
   </div>
@@ -31,8 +31,8 @@
             <!-- Textarea -->
 
             <div class=" col-lg-12 form-group">
-              <label for="products_services_obtained"><?=$this->lang->line('procuremente_mp-products_services_obtained')?> *</label> 
-              <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('procuremente_mp-products_services_obtained-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+              <label for="products_services_obtained"><?=$this->lang->line('products_services_obtained')?> *</label> 
+              <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('products_services_obtained-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
               <div >                 
                 <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="products_services_obtained" name="products_services_obtained" required="true" maxlength="4000"><?php echo $procurement_mp[0]->products_services_obtained?></textarea>
@@ -42,8 +42,8 @@
 
             <!-- Textarea -->
             <div class=" col-lg-12 form-group">
-              <label for="team_actions"><?=$this->lang->line('procuremente_mp-team_actions')?></label> 
-              <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('procuremente_mp-team_actions-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+              <label for="team_actions"><?=$this->lang->line('team_actions')?></label> 
+              <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('team_actions-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
               <div >                 
                 <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="team_actions" name="team_actions" maxlength="4000"><?php echo $procurement_mp[0]->team_actions?></textarea>
@@ -59,19 +59,28 @@
               </div>
             </div>
 
+            <div class=" col-lg-12 form-group">
+              <label for="procurement_management"><?=$this->lang->line('procurement_management')?></label> 
+              <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('procurement_management-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+              <div>                 
+                <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="procurement_management" name="procurement_management" maxlength="4000"><?php echo $procurement_mp[0]->procurement_management?></textarea>
+              </div>
+            </div>
+
             <div class="col-lg-12 form-group">
               <label><?=$this->lang->line('communication')?></label><br>
-              <a href=""><?=$this->lang->line('communication_link')?></a>
+              <a href="<?= base_url()?>Communication_item/list/<?=$project_id?>"><?=$this->lang->line('communication_link')?></a>
             </div>
             
             <div class="col-lg-12 form-group">
               <label><?=$this->lang->line('change')?></label><br>
-              <a href=""><?=$this->lang->line('change_link')?></a>
+              <a href="<?= base_url()?>Communication_item/list/<?=$project_id?>"><?=$this->lang->line('change_link')?></a>
             </div>
 
             <div class="col-lg-12 form-group">
               <label><?=$this->lang->line('configuration')?></label><br>
-              <a href=""><?=$this->lang->line('configuration_link')?></a>
+              <a href="<?= base_url()?>Communication_item/list/<?=$project_id?>"><?=$this->lang->line('configuration_link')?></a>
             </div>
 
             <div class="col-lg-12">
@@ -91,19 +100,18 @@
             <input type="hidden" name="project_id" value="<?php echo $project_id[0];?>">
             <!-- Textarea -->
             <div class=" col-lg-12 form-group">
-              <label for="products_services_obtained"><?=$this->lang->line('procuremente_mp-products_services_obtained')?> *</label> 
-              <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('procuremente_mp-products_services_obtained-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+              <label for="products_services_obtained"><?=$this->lang->line('products_services_obtained')?> *</label> 
+              <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('products_services_obtained-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
               <div >                 
                 <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="products_services_obtained" name="products_services_obtained" required="true" maxlength="4000"></textarea>
               </div>
             </div>
 
-
             <!-- Textarea -->
             <div class=" col-lg-12 form-group">
-              <label for="team_actions"><?=$this->lang->line('procuremente_mp-team_actions')?></label> 
-              <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('procuremente_mp-team_actions-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+              <label for="team_actions"><?=$this->lang->line('team_actions')?></label> 
+              <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('team_actions-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
               <div>                 
                 <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="team_actions" name="team_actions" maxlength="4000"></textarea>
@@ -111,8 +119,8 @@
             </div>
 
             <div class=" col-lg-12 form-group">
-              <label for="performance_metrics"><?=$this->lang->line('procuremente_mp-performance_metrics')?></label> 
-              <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('procuremente_mp-performance_metrics-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+              <label for="performance_metrics"><?=$this->lang->line('performance_metrics')?></label> 
+              <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('performance_metrics-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
               <div>                 
                 <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="performance_metrics" name="performance_metrics" maxlength="4000"></textarea>
@@ -130,17 +138,17 @@
 
             <div class="col-lg-12 form-group">
               <label><?=$this->lang->line('communication')?></label><br>
-              <a href=""><?=$this->lang->line('communication_link')?></a>
+              <a href="<?= base_url()?>Communication_item/list/<?=$project_id?>"><?=$this->lang->line('communication_link')?></a>
             </div>
             
             <div class="col-lg-12 form-group">
               <label><?=$this->lang->line('change')?></label><br>
-              <a href=""><?=$this->lang->line('change_link')?></a>
+              <a href="<?= base_url()?>Communication_item/list/<?=$project_id?>"><?=$this->lang->line('change_link')?></a>
             </div>
 
             <div class="col-lg-12 form-group">
               <label><?=$this->lang->line('configuration')?></label><br>
-              <a href=""><?=$this->lang->line('configuration_link')?></a>
+              <a href="<?= base_url()?>Communication_item/list/<?=$project_id?>"><?=$this->lang->line('configuration_link')?></a>
             </div>
 
             <div>

@@ -5,25 +5,25 @@
 			$this->load->database();
 		}
 
-		public function getNotification_board($id){
+		public function get($id){
 			$query = $this->db->get_where('notification_board',array('notification_board_id'=>$id));
 			return $query->row_array();
 		}
 
-		public function getNotification_boardProject_id($project_id){
+		public function getWithProject_id($project_id){
 			$query = $this->db->get_where('notification_board', array('notification_board.project_id'=>$project_id));
 			return $query->result();
 		}
 
-		public function insertNotification_board($notification_board){
+		public function insert($notification_board){
 			return $this->db->insert('notification_board', $notification_board);
 		}
-		public function updateNotification_board($notification_board, $notification_board_id){
+		public function update($notification_board, $notification_board_id){
 			$this->db->where('notification_board.notification_board_id', $notification_board_id);
 			return $this->db->update('notification_board', $notification_board);
 		}
 
-		public function deleteNotification_board($id){
+		public function delete($id){
 			$this->db->where('notification_board.notification_board_id', $id);
 			return $this->db->delete('notification_board');
 		}
