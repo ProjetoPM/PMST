@@ -11,7 +11,6 @@
 </div>
 <?php endif;?>
 
-
 <!-- lorem ipsum -->
 <div class="row">
    <div class="col-md-12">
@@ -26,9 +25,8 @@
 
                <div class="col-lg-12 wrapper">
                 <div> 
-                  <div class="col-lg-1 transparentBox">
-                    .
-                  </div>
+
+                  <div class="col-lg-1 transparentBox"></div>
 
                   <div class="col-lg-10">
                     <div class=" col-lg-1 menuBox hideBox">
@@ -75,14 +73,9 @@
                     </a>
                     
                     
-                    <div class=" col-lg-1 midBox hideBox">
-                        .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
-                    <div class=" col-lg-1 midBox hideBox">
-                        .
-                    </div>
-                    
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
                     <a  href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -104,21 +97,14 @@
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
-                    
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
+                    
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -132,27 +118,19 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
-                    
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
+                    
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -166,9 +144,8 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                 </div>
@@ -183,9 +160,8 @@
                   </div>
                   
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
                     <a  href="<?=base_url("Requirement_registration/list/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -205,9 +181,7 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                        .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
                   
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -215,15 +189,13 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                        .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
                     <a  href="<?=base_url("Scope_specification/addnew/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -243,17 +215,12 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                 </div>
@@ -268,9 +235,8 @@
                   </div>
                   
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                        .
-                    </div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
                     <a href="<?=base_url("Schedule/schedule_form/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -290,9 +256,7 @@
                       </div>
                     </a> 
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
                     <a  href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -300,15 +264,13 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -328,23 +290,17 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                        .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                        .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -364,23 +320,17 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                        .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                        .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -394,21 +344,14 @@
                       </div>
                     </a>
                     
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                        .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                        .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                 </div>
@@ -423,9 +366,8 @@
                   </div>
                   
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
                     <a href="<?=base_url("ManagementCost/addnew/".$project[0]->project_id)?>">
                       <div class=" col-lg-1 midBox ">
@@ -439,13 +381,9 @@
                       </div>
                     </a>
                     
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                        .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
                     <a  href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -453,15 +391,13 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -475,21 +411,14 @@
                       </div>
                     </a>
                     
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                        .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                        .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                 </div>
@@ -504,9 +433,8 @@
                   </div>
 
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
                     <a href="<?=base_url()?>Charter_Quality/addnew/<?php echo $project[0]->project_id;?>">
                       <div class=" col-lg-1 midBox ">
@@ -538,15 +466,13 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -560,21 +486,14 @@
                       </div>
                     </a>
                     
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                        .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                        .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                 </div>
@@ -589,9 +508,8 @@
                   </div>
 
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
                     <a href="<?=base_url("Human_resource/human_resource_form/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -599,13 +517,9 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
-                    
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -613,31 +527,21 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
-                    
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
-                    
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
                     <a href="<?=base_url("Ade/getAde_form/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -645,31 +549,21 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
-                    
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
-                    
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -677,31 +571,21 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
-                    
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
-                    
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -709,13 +593,10 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                 </div>
@@ -730,9 +611,8 @@
                   </div>
 
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
                     <a href="<?=base_url()?>communication_item/list/<?php echo $project[0]->project_id;?>">
                       <div class=" col-lg-1 midBox ">
@@ -740,17 +620,11 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                        .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -758,9 +632,8 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                 </div>
@@ -775,9 +648,8 @@
                   </div>
 
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
                     <a href="<?=base_url()?>Risk/risk_form/<?php echo $project[0]->project_id;?>">
                       <div class=" col-lg-1 midBox ">
@@ -791,9 +663,7 @@
                       </div>
                     </a>
                     
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
                     <a href="<?=base_url("Issues_Record/addIssuesRecord/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -807,9 +677,8 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                 </div>
@@ -824,9 +693,8 @@
                   </div>
                   
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -840,9 +708,7 @@
                       </div>
                     </a>
                     
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -856,15 +722,13 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -878,9 +742,7 @@
                       </div>
                     </a>
                     
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -888,13 +750,10 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                 </div>
@@ -921,13 +780,9 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -941,27 +796,19 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                   <div class="col-lg-10">
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
-                    
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
                     
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
+                    <div class=" col-lg-1 midBox hideBox"></div>
+                    
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
@@ -969,13 +816,10 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <div class=" col-lg-1 midBox hideBox">
-                      .
-                    </div>
+                    <div class=" col-lg-1 midBox hideBox"></div>
+
                   </div>
                   <!--  -->
                 </div>
