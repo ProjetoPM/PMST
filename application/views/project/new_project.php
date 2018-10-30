@@ -63,7 +63,7 @@
                 <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
               </form>
               </div>
-
+              </form>
         </div>
         <!-- /.col-lg-12 -->
     </div>

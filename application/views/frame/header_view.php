@@ -26,7 +26,8 @@
   <script src="<?=base_url()?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
   <!-- Inclusão do Plugin jQuery Validation-->
   <script src="<?=base_url()?>assets/js/jquery.validate.js" type="text/javascript"></script>
-
+  
+  <script src="<?=base_url()?>assets/js/jquery-1.11.3.min.js" type="text/javascript"></script> 
   <!-- Inicio Import's para o datepicker -->
   <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
   <link href="<?=base_url()?>assets/css/bootstrap-iso.css" rel="stylesheet">
@@ -78,7 +79,7 @@
                   </div>
                   <div class="col-lg-8">
                     <p class="text-center">
-                      <?php echo '<p class="welcome"><b>' . $this->session->userdata('name') . "</b><br>" . $this->session->userdata('email') . "</p>";?>
+                      <?php echo $this->session->userdata('name') . "</b><br>" . $this->session->userdata('email') . "</p>";?>
                     </p>
                     <p class="text-left">
                       <a data-toggle="modal" data-target="#myAccount" href="#myAccount" class="btn btn-primary btn-block btn-sm">Account Update</a>
