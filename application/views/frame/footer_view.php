@@ -16,7 +16,7 @@
 <script src="<?=base_url()?>assets/js/sb-admin-2.js"></script>
 
 <!-- Include jQuery -->
-<script src="<?=base_url()?>assets/js/jquery-1.11.3.min.js" type="text/javascript"></script> <!--Verificar se é necessario ja que ja tem o 1.11.1 -->
+<!--Verificar se é necessario ja que ja tem o 1.11.1 -->
 <!-- Include Date Range Picker -->
 <!-- <script src="<?=base_url()?>assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
 <script src="<?=base_url()?>assets/js/bootstrap-datepicker.pt-BR.min.js" type="text/javascript"></script>
