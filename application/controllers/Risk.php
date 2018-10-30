@@ -26,11 +26,11 @@ class Risk extends CI_Controller{
     }
 
     public function risk_form($project_id){
-        $query['risk_mp'] = $this->risk_mp_model->getRisk_mpProject_id($project_id);
+        $query['risk_mp'] = $this->risk_mp_model->getWithProject_id($project_id);
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view'); 
-        $this->load->view('project/risk_mp', $query);
+        $this->load->view('project/risk/risk_mp/risk_mp', $query);
     }
     
     public function insert() {
@@ -45,7 +45,7 @@ class Risk extends CI_Controller{
         $risk_mp['project_id'] = $this->input->post('project_id');
         $risk_mp['status'] = $this->input->post('status');
         $risk_mp['status'] = 1;
-        $query = $this->risk_mp_model->insertRisk_mp($risk_mp);
+        $query = $this->risk_mp_model->insert($risk_mp);
 
         if($query){
             redirect(base_url('project/').$risk_mp['project_id']);
@@ -65,7 +65,7 @@ class Risk extends CI_Controller{
         $risk_mp['status'] = $this->input->post('status');
         $risk_mp['status'] = 1;
        
-            $query = $this->risk_mp_model->updateRisk_mp($risk_mp, $id);
+            $query = $this->risk_mp_model->update($risk_mp, $id);
 
         if($query){
             redirect(base_url('project/').$risk_mp['project_id']);

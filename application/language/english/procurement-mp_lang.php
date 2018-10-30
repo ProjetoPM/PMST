@@ -4,7 +4,7 @@
 $lang['procuremente_mp'] = 'Procurement Management Plan';
 
 //Form 
-$lang['services_obtained'] = 'Products Services Obtained';
+$lang['products_services_obtained'] = 'Products Services Obtained';
 $lang['team_actions'] = 'Team Actions';
 $lang['performance_metrics'] = 'Performance Metrics';
 $lang['procurement_management'] = 'Procurement Management';

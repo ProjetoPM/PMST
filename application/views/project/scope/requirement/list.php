@@ -28,26 +28,14 @@
 
 			<br><br>
 			<div class="row">
-				<div class="col-sm-12">
+				<div class="col-lg-12">
 					<div class="container">
-						<table id="tableNB">
+						<table class="table table-bordered table-striped" id="tableNB">
 							<thead>
 								<tr>
 									<th><?=$this->lang->line('associated_id')?></th>
-									<th><?=$this->lang->line('business_strategy')?></th>
-									<th><?=$this->lang->line('priority')?></th>
 									<th><?=$this->lang->line('description')?></th>
-									<th><?=$this->lang->line('version')?></th>
-									<th><?=$this->lang->line('phase')?></th>
-									<th><?=$this->lang->line('associeted_delivery')?></th>
-									<th><?=$this->lang->line('type')?></th>
-									<th><?=$this->lang->line('requester')?></th>
-									<th><?=$this->lang->line('complexity')?></th>
-									<th><?=$this->lang->line('acceptance_criteria')?></th>
-									<th><?=$this->lang->line('responsible')?></th>
-									<th><?=$this->lang->line('validity')?></th>
-									<th><?=$this->lang->line('supporting_documentation')?></th>
-									<th><?=$this->lang->line('requirement_situation')?></th>
+									<th><?=$this->lang->line('priority')?></th>
 									<th><?=$this->lang->line('btn-actions')?></th>
 								</tr>
 							</thead>
@@ -57,30 +45,26 @@
 									?>
 									<tr>
 										<td><?php echo $requirement_registration->associated_id;?></td>
-										<td><?php echo $requirement_registration->business_strategy;?></td>
-										<td><?php echo $requirement_registration->priority;?></td>
 										<td><?php echo $requirement_registration->description;?></td>
-										<td><?php echo $requirement_registration->version;?></td>
-										<td><?php echo $requirement_registration->phase;?></td>
-										<td><?php echo $requirement_registration->associated_delivery;?></td>
-										<td><?php echo $requirement_registration->type;?></td>
-										<td><?php echo $requirement_registration->requester;?></td>
-										<td><?php echo $requirement_registration->complexity;?></td>
-										<td><?php echo $requirement_registration->acceptance_criteria;?></td>
-										<td><?php echo $requirement_registration->responsible;?></td>
-										<td><?php echo $requirement_registration->acceptance_criteria;?></td>
-										<td><?php echo $requirement_registration->supporting_documentation;?></td>
-										<td><?php echo $requirement_registration->requirement_situation;?></td>
+										<td><?php echo $requirement_registration->priority;?></td>
 										<td>
-											<form action="<?php echo base_url() ?>Requirement_registration/edit/<?php echo $requirement_registration->requirement_registration_id; ?>" method="post">
-												<input type="hidden" name="project_id" value="<?=$requirement_registration->project_id?>">
-												<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
-											</form> ||
-											<form action="<?php echo base_url() ?>Requirement_registration/delete/<?php echo $requirement_registration->requirement_registration_id; ?>" method="post">
-												<input type="hidden" name="project_id" value="<?=$project_id?>">
-												<button type="submit" class="btn btn-danger" ><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
-											</form>
-											
+											<div class="row center">
+												<div class="col-sm-3">
+													<form action="<?php echo base_url() ?>Requirement_registration/edit/<?php echo $requirement_registration->requirement_registration_id; ?>" method="post">
+														<input type="hidden" name="project_id" value="<?=$requirement_registration->project_id?>">
+														<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
+													</form>
+												</div>
+												<div class="col-sm-2">
+													||
+												</div>
+												<div class="col-sm-1">
+													<form action="<?php echo base_url() ?>Requirement_registration/delete/<?php echo $requirement_registration->requirement_registration_id; ?>" method="post">
+														<input type="hidden" name="project_id" value="<?=$project_id?>">
+														<button type="submit" class="btn btn-danger" ><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+													</form>
+												</div>
+											</div>
 										</td>
 									</tr> 
 									<?php
