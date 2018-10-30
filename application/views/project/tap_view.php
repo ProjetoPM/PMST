@@ -122,7 +122,7 @@
 								<div class="input-group-addon">
 									<i class="fa fa-calendar"></i>
 								</div>
-								<input class="form-control" id="start_date" placeholder="YYYY/MM/DD" type="text" name="start_date"  />
+								<input class="form-control" id="start_date" placeholder="YYYY/MM/DD" type="text" name="start_date" required="true" />
 							</div>
 						</div>
 					</div>
@@ -134,7 +134,7 @@
 								<div class="input-group-addon">
 									<i class="fa fa-calendar"></i>
 								</div>
-								<input class="form-control" id="end_date" placeholder="YYYY/MM/DD" type="text" name="end_date" />
+								<input class="form-control" id="end_date" placeholder="YYYY/MM/DD" type="text" name="end_date" required="true" />
 							</div>
 						</div>
 					</div>
@@ -150,7 +150,7 @@
 					<div class="modal fade" id="add" role="dialog">
 						<div class="modal-dialog">
 							<!-- Modal content-->
-							<div class="modal-content">
+							<div class="modal-content pad-modal">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
 									<h4 class="modal-title"><?=$this->lang->line('tap-stakeholder')?></h4>

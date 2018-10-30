@@ -30,14 +30,15 @@
   <!-- Inicio Import's para o datepicker -->
   <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
   <link href="<?=base_url()?>assets/css/bootstrap-iso.css" rel="stylesheet">
-  
   <link href="<?=base_url()?>assets/css/bootstrap-datepicker3.css" rel="stylesheet">
-  
+  <script src="<?=base_url()?>assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+  <script src="<?=base_url()?>assets/js/bootstrap-datepicker.pt-BR.min.js" type="text/javascript"></script>
+  <!-- Fim Import's para o datepicker -->
+
   <!-- dataTable -->
   <link rel="stylesheet" href="<?=base_url()?>assets/css/normalize.min.css">
   <link rel='stylesheet' href="<?=base_url()?>assets/css/dataTables.bootstrap.css">
   <link rel='stylesheet' href="<?=base_url()?>assets/css/dataTables.responsive.css">
-  <!-- Fim Import's para o datepicker -->
 
   <input type="hidden"  id="base-url" value="<?=base_url()?>"/>
 </head>

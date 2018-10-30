@@ -22,7 +22,7 @@
 				<div class="col-lg-12">
 					<div class="container">
 						<!-- Trigger the modal with a button -->
-						<button type="button" class="open-AddBookDialog btn btn-info btn-lg glyphicon-plus" > <?=$this->lang->line('btn-new')?> <?=$this->lang->line('notification-board')?></button>
+						<button type="button" class="btn btn-info btn-lg glyphicon-plus"  onclick="window.location.href='<?php echo base_url() ?>Notification_board/new/<?php echo $project_id ?>'"><?=$this->lang->line('btn-new')?> <?=$this->lang->line('notification-board')?> </button>
 
 						<div class="col-sm-12" align="center">
 							<br><br>
@@ -50,11 +50,23 @@
 												<td><?php echo $notification_board->changes_approval;?></td>
 												<td><?php echo $notification_board->general_warnings;?></td>
 												<td>
-													<form action="<?php echo base_url() ?>notification_board/delete/<?php echo $notification_board->notification_board_id; ?>">
-														<a> <button type="button" class="btn btn-default" data-id="edit" data-toggle="modal" data-target="#modal"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button></a> ||
-														<a><button type="submit" class="btn btn-danger"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
-														</a>
-													</form>
+													<div class="row">
+														<div class="col-sm-4">
+															<form action="<?php echo base_url() ?>Notification_board/edit/<?php echo $notification_board->notification_board_id; ?>" method="post">
+																<input type="hidden" name="project_id" value="<?=$notification_board->project_id?>">
+																<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
+															</form>
+														</div>
+														<div class="col-sm-3">
+															||
+														</div>
+														<div class="col-sm-2">
+															<form action="<?php echo base_url() ?>Notification_board/delete/<?php echo $notification_board->notification_board_id; ?>" method="post">
+																<input type="hidden" name="project_id" value="<?=$project_id?>">
+																<button type="submit" class="btn btn-danger" ><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+															</form>
+														</div>
+													</div>
 												</td>
 											</tr> 
 											<?php

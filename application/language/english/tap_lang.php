@@ -17,8 +17,8 @@ $lang['tap-schedule'] = 'Summary Schedule';
 $lang['tap-budge'] = 'Budge Summary';
 $lang['tap-approval'] = 'Project Approval Requirements';
 $lang['tap-stakeholder'] = 'Stakeholder List';
-$lang['tap-start'] = 'Start Date';
-$lang['tap-end'] = 'End Date';
+$lang['tap-start'] = 'Start Date*';
+$lang['tap-end'] = 'End Date*';
 
 //Tooltip
 $lang['tap-description-tooltip'] = 'Project Description Example';
