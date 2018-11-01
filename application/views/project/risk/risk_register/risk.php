@@ -121,7 +121,7 @@
 									      var today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 0, 0, 0, 0);
 									      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
 
-									      var startDate = $("#start_date").datepicker({
+									      var startDate = $("#date").datepicker({
 									      	autoclose: true,
 									      	format: 'yyyy/mm/dd',
 									        //language: 'pt-BR', //Idioma do Calendario

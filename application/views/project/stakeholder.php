@@ -26,7 +26,7 @@
 						<label for="name"><?=$this->lang->line('stakeholder-name')?> *</label>  
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-name-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >
-							<input id="name" name="name" type="text" class="form-control input-md" required="true">
+							<input id="name_text" name="name" type="text" class="form-control input-md" required="true">
 						</div>
 					</div>
 
@@ -164,4 +164,15 @@
 		</section>
 	</div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+  function testInput(event) {
+   var value = String.fromCharCode(event.which);
+   var pattern = new RegExp(/[a-zåäö ]/i);
+   return pattern.test(value);
+}
+
+$('#name_text').bind('keypress', testInput);
+</script>
+
 <?php $this->load->view('frame/footer_view')?>

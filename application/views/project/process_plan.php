@@ -17,9 +17,22 @@
 				<strong><?php echo $this->session->flashdata('error'); ?></strong>
 			</div>
 		<?php endif;?>
+		<!--
 		<style type="text/css">
-			
-		</style>
+			img{
+				float:left;
+				margin: 5px;
+				width: 300px;
+				height: 140px;
+			}
+			#img_div{
+				margin: 15px auto;
+				width: 80px;
+				border: 1px solid #cbcbcb;
+				padding: 5px;
+			}
+
+		</style> -->
 		<div class="row">
 			<div class="col-lg-12">
 				<?php
@@ -49,6 +62,7 @@
 							<div >     
 								<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="process_configuration" name="process_configuration"><?php $process_plan[0]->process_improvement_plancol;?></textarea>
 							</div>
+
 							<input id="process_configuration" type="file" name="process_configuration" class="btn-default" accept="image/png, image/jpeg"/>
 						</div>
 
@@ -107,7 +121,9 @@
 			<div >     
 				<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="process_configuration" name="process_configuration"></textarea>
 			</div>
+
 			<input id="process_configuration" type="file" name="process_configuration" class="btn-default" accept="image/png, image/jpeg"/>
+
 		</div>
 
 
@@ -144,14 +160,15 @@
 <?php
 }
 ?>
+</div>
 </section>
 </div>
 </div>
 <script type="text/javascript">
 	function Checkfiles(){
-    var fup = document.getElementById('process_improvement_plancol');
-    var process_improvement_plancol = fup.value;
-    var ext = process_improvement_plancol.substring(process_improvement_plancol.lastIndexOf('.') + 1);
+    var fup = document.getElementById('process_configuration');
+    var process_configuration = fup.value;
+    var ext = process_configuration.substring(process_configuration.lastIndexOf('.') + 1);
 
     if(ext =="jpeg" || ext=="png"){
         return true;
