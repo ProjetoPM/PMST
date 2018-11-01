@@ -43,13 +43,13 @@
 
 
 							<div class="col-lg-12 form-group">
-								<label for="process_improvement_plancol"><?=$this->lang->line('process-plan-config')?>
+								<label for="process_configuration"><?=$this->lang->line('process-plan-config')?>
 							</label>
 							<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('process-plan-config-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 							<div >     
-								<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="process_improvement_plancol" name="process_improvement_plancol"><?php $process_plan[0]->process_improvement_plancol;?></textarea>
+								<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="process_configuration" name="process_configuration"><?php $process_plan[0]->process_improvement_plancol;?></textarea>
 							</div>
-							<input id="process_improvement_plancol" type="file" name="process_improvement_plancol" class="btn-default" accept="image/png, image/jpeg"/>
+							<input id="process_configuration" type="file" name="process_configuration" class="btn-default" accept="image/png, image/jpeg"/>
 						</div>
 
 
@@ -101,13 +101,13 @@
 
 
 			<div class="col-lg-12 form-group">
-				<label for="process_improvement_plancol"><?=$this->lang->line('process-plan-config')?>
+				<label for="process_configuration"><?=$this->lang->line('process-plan-config')?>
 			</label>
 			<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('process-plan-config-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 			<div >     
-				<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="process_improvement_plancol" name="process_improvement_plancol"></textarea>
+				<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="process_configuration" name="process_configuration"></textarea>
 			</div>
-			<input id="process_improvement_plancol" type="file" name="process_improvement_plancol" class="btn-default" accept="image/png, image/jpeg"/>
+			<input id="process_configuration" type="file" name="process_configuration" class="btn-default" accept="image/png, image/jpeg"/>
 		</div>
 
 
