@@ -62,8 +62,8 @@
 							<div >     
 								<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="process_configuration" name="process_configuration"><?php $process_plan[0]->process_improvement_plancol;?></textarea>
 							</div>
-							<!--
-							<input id="process_configuration" type="file" name="process_configuration" class="btn-default" accept="image/png, image/jpeg"/>  -->
+
+							<input id="process_configuration" type="file" name="process_configuration" class="btn-default" accept="image/png, image/jpeg"/>
 						</div>
 
 
@@ -121,11 +121,9 @@
 			<div >     
 				<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="process_configuration" name="process_configuration"></textarea>
 			</div>
-<!--
-			<img src="process_configuration_input" width="500" height="333">
-			
-			<input id="process_configuration_input" type="file" name="process_configuration_input" class="btn-default" accept="image/png, image/jpeg"/>
-	-->		
+
+			<input id="process_configuration" type="file" name="process_configuration" class="btn-default" accept="image/png, image/jpeg"/>
+
 		</div>
 
 

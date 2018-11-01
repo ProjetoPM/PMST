@@ -26,7 +26,7 @@ class Process_plan extends CI_Controller {
 	public function insert($id){
 		$data['process_plan'] = $this->Process_plan_model->getAll();
 		$process_plan['process_limits'] = $this->input->post('process_limits');
-		$process_plan['process_improvement_plancol'] = $this->input->post('process_improvement_plancol');
+		$process_plan['process_configuration'] = $this->input->post('process_configuration');
 		$process_plan['process_metrics'] = $this->input->post('process_metrics');
 		$process_plan['goals_performance_improvement'] = $this->input->post('goals_performance_improvement');
 		$process_plan['project_id'] = $id;
