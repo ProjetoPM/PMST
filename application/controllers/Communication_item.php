@@ -28,17 +28,27 @@ class Communication_item extends CI_Controller{
     }
 
     public function list($project_id){
-        $query['communication_item'] = $this->communication_item_model->getCommunication_itemProject_id($project_id);
-        $query['communication_responsability'] = $this->communication_item_model->getAllCommunication_responsability();
-        $query['stakeholder'] = $this->communication_item_model->getCommunication_stakeholder_item_id($project_id);
+        $query['communication_item'] = $this->communication_item_model->getWithProject_id($project_id);
+        //$query['communication_responsability'] = $this->communication_item_model->getAllCommunication_responsability();
+        //$query['stakeholder'] = $this->communication_item_model->getCommunication_stakeholder_item_id($project_id);
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view'); 
         $this->load->view('project/communication/communication_mp/communication_item/list', $query);
     }
 
-     public function edit($communication_item){
-        $query['communication_item'] = $this->communication_item->getCommunication_item($communication_item);
+    public function new($project_id){
+        $query['communication_item'] = $this->communication_item_model->getWithProject_id($project_id);
+        $query['project_id'] = $project_id;
+        $this->load->view('frame/header_view');
+        $this->load->view('frame/sidebar_nav_view'); 
+        $this->load->view('project/communication/communication_mp/communication_item/new', $query);
+
+    }
+
+    public function edit($communication_item){
+        $query['communication_item'] = $this->communication_item_model->get($communication_item);
+        $query['project_id'] = $this->input->post('project_id');
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view'); 
         $this->load->view('project/communication/communication_mp/communication_item/edit', $query);
@@ -51,20 +61,22 @@ class Communication_item extends CI_Controller{
         $communication_item['distribution_reason'] = $this->input->post('distribution_reason');
         $communication_item['language'] = $this->input->post('language');
         $communication_item['channel'] = $this->input->post('channel');
-        $communication_item['documento_format'] = $this->input->post('documento_format');
-        $communication_item['metod'] = $this->input->post('metod');
+        $communication_item['document_format'] = $this->input->post('document_format');
+        $communication_item['method'] = $this->input->post('method');
         $communication_item['frequency'] = $this->input->post('frequency');
         $communication_item['allocated_resources'] = $this->input->post('allocated_resources');
         $communication_item['format'] = $this->input->post('format');
         $communication_item['local'] = $this->input->post('local');
         $communication_item['project_id'] = $this->input->post('project_id');
-        $communication_item['status'] = (int) $this->input->post('status');
+        $communication_item['status'] = 1;
 
         $data['communication_item'] = $communication_item;
-        $query = $this->communication_item_model->insertCommunication_item($data['communication_item']);
+        $query = $this->communication_item_model->insert($data['communication_item']);
 
         if($query){
-            redirect(base_url('project/').$risk_mp['project_id']);
+            $this->load->view('frame/header_view');
+            $this->load->view('frame/sidebar_nav_view');
+            redirect(base_url() . 'Communication_item/list/' . $communication_item['project_id']);
         }
     }
 
@@ -82,7 +94,7 @@ class Communication_item extends CI_Controller{
         $query = $this->Communication_item_stakeholder_model->insertResponasibility($data['communication_responsability']);
 
         if($query){
-            redirect(base_url('project/').$risk_mp['project_id']);
+            redirect(base_url() . 'Communication_item/list/' . $communication_item['project_id']);
         }
     }
     
@@ -93,29 +105,33 @@ class Communication_item extends CI_Controller{
         $communication_item['distribution_reason'] = $this->input->post('distribution_reason');
         $communication_item['language'] = $this->input->post('language');
         $communication_item['channel'] = $this->input->post('channel');
-        $communication_item['documento_format'] = $this->input->post('documento_format');
-        $communication_item['metod'] = $this->input->post('metod');
+        $communication_item['document_format'] = $this->input->post('document_format');
+        $communication_item['method'] = $this->input->post('method');
         $communication_item['frequency'] = $this->input->post('frequency');
         $communication_item['allocated_resources'] = $this->input->post('allocated_resources');
         $communication_item['format'] = $this->input->post('format');
         $communication_item['local'] = $this->input->post('local');
+        $communication_item['project_id'] = $this->input->post('project_id');
         $communication_item['status'] = 1;
         
         $data['communication_item'] = $communication_item;
-        $query = $this->communication_item_model->updateCommunication_item($data['communication_item'], $id);
+        $query = $this->communication_item_model->update($data['communication_item'], $id);
 
         if($query){
-           redirect(base_url('project/').$communication_item['project_id']);
-       }
+            $this->load->view('frame/header_view');
+            $this->load->view('frame/sidebar_nav_view');
+            redirect(base_url() . 'Communication_item/list/' . $communication_item['project_id']);       
+        }
    }
 
-   public function delete($id){
+  public function delete($id){
         $project_id['id'] = $this->input->post('project_id');
-        $query = $this->communication_item_model->deleteCommunication_item($id);
+        $query = $this->communication_item_model->delete($id);
         if($query){
-            redirectlist($project_id['id']);
+            $this->load->view('frame/header_view');
+            $this->load->view('frame/sidebar_nav_view');
+            redirect(base_url() . 'Communication_item/list/' . $project_id['id']);
         }
-}
-
+    }        
 }
 ?>

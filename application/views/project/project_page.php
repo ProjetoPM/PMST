@@ -614,7 +614,7 @@
 
                     <div class=" col-lg-1 midBox hideBox"></div>
                     
-                    <a href="<?=base_url()?>communication_item/list/<?php echo $project[0]->project_id;?>">
+                    <a href="<?=base_url()?>Communication_item/list/<?php echo $project[0]->project_id;?>">
                       <div class=" col-lg-1 midBox ">
                         Communication Management
                       </div>

@@ -21,10 +21,9 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="container">
-						<!-- Trigger the modal with a button -->
-						<button type="button" class="btn btn-info btn-lg glyphicon-plus"  onclick="window.location.href='<?php echo base_url() ?>Notification_board/new/<?php echo $project_id ?>'"><?=$this->lang->line('btn-new')?> <?=$this->lang->line('notification-board')?> </button>
+						<button type="button" class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Notification_board/new/<?php echo $project_id ?>'"><?=$this->lang->line('btn-new')?> <?=$this->lang->line('notification-board')?> </button>
 
-						<div class="col-sm-12" align="center">
+						<div class="col-sm-12">
 							<br><br>
 							<div>
 								<table class="table table-bordered table-striped" id="tableNB">
@@ -72,7 +71,6 @@
 											<?php
 										}
 										?>
-
 									</tbody>
 								</table> 
 							</div>  

@@ -19,9 +19,7 @@
 			<!-- /.row -->   
 
 			<?php
-				extract($notification_board);
-				//var_dump($project_id);
-				//die();
+			extract($notification_board);
 			?>
 			<div class="container">
 				<div class="row">
@@ -75,7 +73,7 @@
 						</form>
 
 						<form action="<?php echo base_url()?>/Notification_board/list/<?=$project_id?>">
-							<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
+							<button class="btn btn-lg btn-info pull-left" > <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 						</form>
 
 					</div>
