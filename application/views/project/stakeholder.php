@@ -81,7 +81,7 @@
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-email-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 						<div >                 
-							<input id="email" name="email" type="text" class="form-control input-md" required="true">
+							<input id="email" name="email" type="email" placeholder="name@email.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control input-md" required="true">
 						</div>
 					</div>	
 
@@ -99,7 +99,7 @@
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-phone_number-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 						<div >                 
-							<input id="phone_number" name="phone_number" type="text" class="form-control input-md">
+              <input id="phone_number" name="phone_number" type="tel" class="form-control phone-ddd-mask" data-mask="(000) 0000-0000" placeholder="Ex.: (000) 0000-0000">
 						</div>
 					</div>
 					
@@ -165,6 +165,7 @@
 	</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 <script type="text/javascript">
   function testInput(event) {
    var value = String.fromCharCode(event.which);
@@ -173,6 +174,8 @@
 }
 
 $('#name_text').bind('keypress', testInput);
+
 </script>
+
 
 <?php $this->load->view('frame/footer_view')?>
