@@ -134,115 +134,58 @@
 				</div>
 			</div>
 
-
-			<style>
-			table {
-				border-spacing: 0;
-				border-collapse: collapse;
-				min-width:50px;/*valor minimo px,cm,% etc.*/;
-				max-width:100px;/*valor maximo px,,cm,% etc.*/;
-				word-wrap:break-word;
-				white-space: nowrap;
-			}
-
-			.table { 
-				width: 100%;
-				margin-bottom: 20px;
-			}
-
-			.table th,
-			.table td {
-				font-weight: normal;
-				font-size: 13px;
-				padding: 8px 15px;
-				line-height: 20px;
-				text-align: left;
-				vertical-align: middle;
-				border-top: 1px solid #dddddd;
-			}
-			.table thead th {
-				background: #eeeeee;
-				vertical-align: bottom;
-			}   
-			.table tbody > tr:nth-child(odd) > td,
-			.table tbody > tr:nth-child(odd) > th {
-				background-color: #fafafa;
-			}    
-			.table .t-small {
-				width: 8%;
-			}
-			.table .t-medium {
-				width: 13%;
-			}
-
-		</style>
-
-
-
-		<div class="col-sm-12">
 			<br><br>
-			<div style="overflow:scroll;">
-				<?php //var_dump($issues_record) ?>
-				<!--	<table id="example" class="table table-striped table-bordered" style="width:100%"> -->
-					<table id="example" class="table table-striped table-bordered">
-						<thead>
-							<tr>
-								<th><?=$this->lang->line('ir-identification')?></th>
-								<th><?=$this->lang->line('ir-identification_date')?></th>
-								<th><?=$this->lang->line('ir-question_description')?></th>
-								<th><?=$this->lang->line('ir-type')?></th>
-								<th><?=$this->lang->line('ir-responsable')?></th>
-								<th><?=$this->lang->line('ir-situation')?></th>
-								<th><?=$this->lang->line('ir-action')?></th>
-								<th><?=$this->lang->line('ir-resolution_date')?></th>
-								<th><?=$this->lang->line('ir-replan_date')?></th>
-								<th><?=$this->lang->line('ir-observations')?></th>
-								<th>Actions</th>
-
-							</tr>
-						</thead>
-						<tbody>
-							<?php
-							foreach ($issues_record as $item) {
-								?>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="container">
+						<table class="table table-bordered table-striped" id="tableNB">
+							<thead>
 								<tr>
-									<td><?php echo $item->identification;?></td>
-									<td><?php echo $item->identification_date;?></td>
-									<td><?php echo $item->question_description;?></td>
-									<td><?php echo $item->type;?></td>
-									<td><?php echo $item->responsable;?></td>
-									<td><?php echo $item->situation;?></td>
-									<td><?php echo $item->action;?></td>
-									<td><?php echo $item->resolution_date;?></td>
-									<td><?php echo $item->replan_date;?></td>
-									<td><?php echo $item->observations;?></td>
-
-
-									<td>        
-										
-									</form>
-
-									<form action="<?php echo base_url("Issues_Record/edit/".$item->issues_record_id) ?>">
-										<a href="<?=base_url("Issues_Record/edit/".$item->issues_record_id) ?>">
-										<button type="button" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs">Edit</span></button>
-									</a>
-									</form>																		
-
-										<form action="<?php echo base_url() ?>issues_record/delete/<?php echo $item->issues_record_id; ?>">
-											<button type="submit" class="btn btn-danger"><span class="fa fa-trash"></span> Delete</button>
-										</form>
-									</td>
-								</tr> 
+									<th><?=$this->lang->line('ir-responsable')?></th>
+									<th><?=$this->lang->line('ir-identification_date')?></th>
+									<th><?=$this->lang->line('ir-question_description')?></th>
+									<th><?=$this->lang->line('ir-situation')?></th>
+									<th>Actions</th>
+								</tr>
+							</thead>
+							<tbody>
 								<?php
-							}
-							?>
+								foreach ($issues_record as $item) {
+									?>
+									<tr>
+										<td><?php echo $item->responsable;?></td>
+										<td><?php echo $item->identification_date;?></td>
+										<td><?php echo $item->question_description;?></td>
+										<td><?php echo $item->situation;  ?></td>
 
-						</tbody>
-					</table> 
-				</div>  
-			</div>
+										<td>
+											<div class="row center">
+												<div class="col-sm-3">
+													<form action="<?php echo base_url() ?>Issues_Record/edit/<?php echo $item->issues_record_id; ?>" method="post">
+														<input type="hidden" name="project_id" value="<?=$item->project_id?>">
+														<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
+													</form>
+												</div>
+												<div class="col-sm-2">||</div>
+												<div class="col-sm-1">
+													<form action="<?php echo base_url() ?>Issues_Record/delete/<?php echo $item->issues_record_id; ?>" method="post">
+														<input type="hidden" name="project_id" value="<?=$project_id?>">
+														<button type="submit" class="btn btn-danger" ><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+													</form>
+												</div>
+											</div>
+										</td>
+									</tr> 
+									<?php
+								}
+								?>
+							</tbody>
+						</table> 
+
 			<!-- /.row -->
-
+			</div> 
+						
+					</div>
 
 			<script type="text/javascript">
  //////////////////////////////////
@@ -291,7 +234,17 @@
 });
 </script>
 
+	<script src="<?=base_url()?>assets/js/jquery-2.1.3.min.js"></script>
+					<script src="<?=base_url()?>assets/js/jquery.dataTables.min.js"></script>
+					<script src="<?=base_url()?>assets/js/dataTables.bootstrap.js"></script>
+					<script src="<?=base_url()?>assets/js/dataTables.responsive.js"></script>
+					<script src="<?=base_url()?>assets/js/jquery.fixedheadertable.min.js" type="text/javascript"></script>
 
-<div>
-	<?php $this->load->view('frame/footer_view') ?>            
-</div>
+					<script type="text/javascript">
+						$(document).ready( function () {
+							$('#tableNB').DataTable();
+						} );
+					</script>          
+
+								<?php $this->load->view('frame/footer_view')?>            
+						
