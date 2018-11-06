@@ -1,4 +1,4 @@
-/*CSS Dashboard Principal*/
+﻿/*CSS Dashboard Principal*/
 #welcome {
     min-height: 350px;
     background: #fff;
@@ -358,11 +358,19 @@
 }
 
 
-
 /* CSS Elastic-TextArea*/
 .elasticteste{
     min-height: 50px;
     /*outline: 0;*/
     resize: none;
     line-height: 20px;
+}
+
+/* Icone para DataTables */
+td.moreInformationTable {
+    background: url('../images/icons/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.moreInformationTable {
+    background: url('../images/icons/details_close.png') no-repeat center center;
 }

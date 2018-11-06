@@ -139,9 +139,9 @@ if($valida==false){
 <div class=" col-lg-12 form-group">
   <label for="exclusions"><?=$this->lang->line('scope_spec-exclu')?></label> 
   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('scope_spec-exclu-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-<div >                 
-  <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="exclusions" name="exclusions"></textarea>  
-</div>
+  <div >                 
+    <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="exclusions" name="exclusions"></textarea>  
+  </div>
 </div>
 
 
@@ -177,6 +177,8 @@ if($valida==false){
 <?php
 }
 ?>
+</div>
+</div>
 </section>
 </div>
 </div>
