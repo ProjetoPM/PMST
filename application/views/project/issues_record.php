@@ -126,68 +126,71 @@
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-lg btn-default pull-left" data-dismiss="modal">Close</button>
-									</div></div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<br><br>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="container">
-						<table class="table table-bordered table-striped" id="tableNB">
-							<thead>
-								<tr>
-									<th><?=$this->lang->line('ir-responsable')?></th>
-									<th><?=$this->lang->line('ir-identification_date')?></th>
-									<th><?=$this->lang->line('ir-question_description')?></th>
-									<th><?=$this->lang->line('ir-situation')?></th>
-									<th>Actions</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php
-								foreach ($issues_record as $item) {
-									?>
-									<tr>
-										<td><?php echo $item->responsable;?></td>
-										<td><?php echo $item->identification_date;?></td>
-										<td><?php echo $item->question_description;?></td>
-										<td><?php echo $item->situation;  ?></td>
-
-										<td>
-											<div class="row center">
-												<div class="col-sm-3">
-													<form action="<?php echo base_url() ?>Issues_Record/edit/<?php echo $item->issues_record_id; ?>" method="post">
-														<input type="hidden" name="project_id" value="<?=$item->project_id?>">
-														<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
-													</form>
-												</div>
-												<div class="col-sm-2">||</div>
-												<div class="col-sm-1">
-													<form action="<?php echo base_url() ?>Issues_Record/delete/<?php echo $item->issues_record_id; ?>" method="post">
-														<input type="hidden" name="project_id" value="<?=$project_id?>">
-														<button type="submit" class="btn btn-danger" ><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
-													</form>
-												</div>
-											</div>
-										</td>
-									</tr> 
-									<?php
-								}
+		<br><br>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="container">
+					<table class="table table-bordered table-striped" id="tableNB">
+						<thead>
+							<tr>
+								<th><?=$this->lang->line('ir-responsable')?></th>
+								<th><?=$this->lang->line('ir-identification_date')?></th>
+								<th><?=$this->lang->line('ir-question_description')?></th>
+								<th><?=$this->lang->line('ir-situation')?></th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+							foreach ($issues_record as $item) {
 								?>
-							</tbody>
-						</table> 
+								<tr>
+									<td><?php echo $item->responsable;?></td>
+									<td><?php echo $item->identification_date;?></td>
+									<td><?php echo $item->question_description;?></td>
+									<td><?php echo $item->situation;  ?></td>
 
-			<!-- /.row -->
-			</div> 
-						
-					</div>
+									<td>
+										<div class="row center">
+											<div class="col-sm-3">
+												<form action="<?php echo base_url() ?>Issues_Record/edit/<?php echo $item->issues_record_id; ?>" method="post">
+													<input type="hidden" name="project_id" value="<?=$item->project_id?>">
+													<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
+												</form>
+											</div>
+											<div class="col-sm-2">||</div>
+											<div class="col-sm-1">
+												<form action="<?php echo base_url() ?>Issues_Record/delete/<?php echo $item->issues_record_id; ?>" method="post">
+													<input type="hidden" name="project_id" value="<?=$project_id?>">
+													<button type="submit" class="btn btn-danger" ><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
 
-			<script type="text/javascript">
+												</form>
+											</div>
+										</div>
+									</td>
+								</tr> 
+								</div> 
+			</div>
+		</div>
+								<?php
+							}
+							?>
+						</tbody>
+					</table> 
+
+					<!-- /.row -->
+
+
+		<script type="text/javascript">
  //////////////////////////////////
  // Date Normal
  //////////////////////////////////
@@ -204,7 +207,7 @@
   orientation: "bottom",
   todayHighlight : true,
   // startDate: today,
-});
+ });
 
 	//var currentDate = new Date();
  //var today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 0, 0, 0, 0);
@@ -219,7 +222,7 @@
   orientation: "bottom",
   todayHighlight : true,
   // startDate: today,
-});
+ });
 
 
  var replan_date = $("#replan_date").datepicker({
@@ -231,20 +234,19 @@
   orientation: "bottom",
   todayHighlight : true,
   // startDate: today,
-});
+ });
 </script>
 
-	<script src="<?=base_url()?>assets/js/jquery-2.1.3.min.js"></script>
-					<script src="<?=base_url()?>assets/js/jquery.dataTables.min.js"></script>
-					<script src="<?=base_url()?>assets/js/dataTables.bootstrap.js"></script>
-					<script src="<?=base_url()?>assets/js/dataTables.responsive.js"></script>
-					<script src="<?=base_url()?>assets/js/jquery.fixedheadertable.min.js" type="text/javascript"></script>
+<script src="<?=base_url()?>assets/js/jquery-2.1.3.min.js"></script>
+<script src="<?=base_url()?>assets/js/jquery.dataTables.min.js"></script>
+<script src="<?=base_url()?>assets/js/dataTables.bootstrap.js"></script>
+<script src="<?=base_url()?>assets/js/dataTables.responsive.js"></script>
+<script src="<?=base_url()?>assets/js/jquery.fixedheadertable.min.js" type="text/javascript"></script>
 
-					<script type="text/javascript">
-						$(document).ready( function () {
-							$('#tableNB').DataTable();
-						} );
-					</script>          
+<script type="text/javascript">
+	$(document).ready( function () {
+		$('#tableNB').DataTable();
+	} );
+</script>          
 
-								<?php $this->load->view('frame/footer_view')?>            
-						
+<?php $this->load->view('frame/footer_view')?>            
