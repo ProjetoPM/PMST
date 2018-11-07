@@ -665,7 +665,7 @@
                     
                     <div class=" col-lg-1 midBox hideBox"></div>
 
-                    <a href="<?=base_url("Issues_Record/addIssuesRecord/".$project[0]->project_id) ?>">
+                    <a href="<?=base_url("Issues_Record/list/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
                         Issues Record
                       </div>
