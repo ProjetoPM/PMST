@@ -16,16 +16,23 @@ class Issues_Record extends CI_Controller{
 		$this->load->model('Issues_record_stakeholder_model');
 	}
 
-	public function addIssuesRecord($project_id){
+	public function list($project_id){
 		$query['issues_record'] = $this->Issues_record_model->getIssues_recordProject_id($project_id);
 		$query['project_id'] = $project_id;
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
-		$this->load->view('project/issues_record', $query);
+		$this->load->view('project/risk/issues_record/list', $query);
 
 	}
 
-
+	public function new($project_id) {
+		$query['issues_record'] = $this->Issues_record_model->getIssues_recordProject_id($project_id);
+		$query['project_id'] = $project_id;
+		$query['project_id'] = $project_id;
+		$this->load->view('frame/header_view.php');
+		$this->load->view('frame/sidebar_nav_view.php');
+		$this->load->view('project/risk/issues_record/new', $query);
+	}
 
 	public function insert() {
 		$issues_record['identification'] = $this->input->post('identification');
@@ -44,7 +51,7 @@ class Issues_Record extends CI_Controller{
 		$query = $this->Issues_record_model->insertIssues_record($issues_record);
 
 		if ($query) {
-			redirect('Issues_Record/addIssuesRecord/' . $issues_record['project_id']);
+			redirect('Issues_Record/list/' . $issues_record['project_id']);
 		//	$this->load->view('project/issues_record/');
 		}
 	}
@@ -57,7 +64,7 @@ class Issues_Record extends CI_Controller{
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
 		//passa pra view todo array de objetos
-		$this->load->view('project/editIssuesRecord', $query);
+		$this->load->view('project/risk/issues_record/edit', $query);
 	}
 	public function update($issues_record_id) {
 		
@@ -86,7 +93,7 @@ class Issues_Record extends CI_Controller{
 	public function delete($issues_record_id){
         $query = $this->Issues_record_model->deleteIssues_record($issues_record_id);
         if($query){
-            redirect('projects/' . $id);
+            redirect('projects/risks/issues_record/list' . $id);
         }
     }
 }
