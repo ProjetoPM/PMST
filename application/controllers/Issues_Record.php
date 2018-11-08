@@ -47,7 +47,7 @@ class Issues_Record extends CI_Controller{
 		$issues_record['observations'] = $this->input->post('observations');
 		$issues_record['status'] = $this->input->post('status');
 		$issues_record['project_id'] = $this->input->post('project_id');
-	
+
 		$query = $this->Issues_record_model->insertIssues_record($issues_record);
 
 		if ($query) {
@@ -80,21 +80,25 @@ class Issues_Record extends CI_Controller{
 		$issues_record['observations'] = $this->input->post('observations');
 		$issues_record['status'] = $this->input->post('status');
 		$issues_record['project_id'] = $this->input->post('project_id');
-	
+
 		//var_dump($issues_record);
-	    $data['issues_record'] = $issues_record;
-      	$query = $this->Issues_record_model->updateIssues_record($data['issues_record'], $issues_record_id);
+		$data['issues_record'] = $issues_record;
+		$query = $this->Issues_record_model->updateIssues_record($data['issues_record'], $issues_record_id);
 
 		if ($query) {
-			$this->addIssuesRecord($issues_record['project_id']);
+			redirect('Issues_Record/list/' . $issues_record['project_id']);
 		}
 	}
 
 	public function delete($issues_record_id){
-        $query = $this->Issues_record_model->deleteIssues_record($issues_record_id);
-        if($query){
-            redirect('projects/risks/issues_record/list' . $id);
-        }
-    }
+		$data['issues_record'] = $this->Issues_record_model->getIssues_record($issues_record_id);
+		$project_id = $data['project_id'];
+		$query = $this->Issues_record_model->deleteIssues_record($issues_record_id);
+		if($query){
+			$this->load->view('frame/header_view');
+            $this->load->view('frame/sidebar_nav_view');
+            redirect(base_url() . 'Issues_Record/list/' . $data);
+		}
+	}
 }
 ?>
