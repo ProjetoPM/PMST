@@ -22,19 +22,19 @@ $lang['stakeholder'] = 'Stakeholder';
 
 // 
 $lang['project-charter'] = '';
-$lang['stakeholder-register'] = '';
-$lang['project-management'] = '';
+$lang['stakeholder-register'] = 'Registrar Stakeholder';
+$lang['project-management'] = 'Gerenciar Projeto';
 $lang['requirement-management'] = '';
 $lang['scope-management'] = '';
 $lang['schedule-management'] = '';
 $lang['activity-attributes'] = '';
 $lang['activity-list'] = '';
 $lang['milestone-list'] = '';
-$lang['cost-management'] = '';
+$lang['cost-management'] = 'Gerenciar Custos';
 $lang['activity-cost'] = '';
 $lang['quality-management'] = '';
 $lang['process-quality'] = '';
-$lang['hr-management'] = '';
+$lang['hr-management'] = 'Gerenciar Recursos Humanos';
 $lang['communication-management'] = '';
 $lang['risk-management'] = '';
 $lang['change-request'] = '';
@@ -50,7 +50,7 @@ $lang['cost-baseline'] = '';
 $lang['project-funding'] = '';
 $lang['product-quality'] = '';
 $lang['quality-metrics'] = '';
-$lang['risk-register'] = '';
+$lang['risk-register'] = 'Registrar Riscos';
 $lang['procurement-management'] = '';
 $lang['procurement-statement'] = '';
 $lang['project-scope'] = '';
@@ -71,6 +71,6 @@ $lang['earned-value'] = '';
 $lang['lessons-learned'] = '';
 
 // btn NOTIFICATION BOARD
-$lang['notiFication-board'] = '';
+$lang['notification-board'] = 'Quadro de Notificação';
 
 ?>

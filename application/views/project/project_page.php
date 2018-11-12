@@ -23,12 +23,12 @@
          <div class="panel-body text-justify">
             <div class="panel-body text-center">
 
-               <div class="col-lg-12 wrapper">
-                <div> 
+               <div class="col-lg-12 wrapper noSpaceSide">  
+                <div class="noSpaceSide"> 
 
                   <div class="col-lg-1 transparentBox"></div>
 
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
                     <div class=" col-lg-1 menuBox hideBox">
                       Initiating
                     </div>
@@ -53,13 +53,13 @@
                 </div>
               </div> <!-- End Header Phases -->
 
-              <div class="col-lg-12 wrapper"> <!-- Body Phases -->
-                <div> 
+              <div class="col-lg-12 wrapper noSpaceSide">  
+                <div class="noSpaceSide"> 
                   <div class="col-lg-1 sideBox integrationBox">
                     Integration
                   </div>
 
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
                     <a  href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
                         Project Charter
@@ -96,7 +96,7 @@
                     </a>
                   </div>
                   <!--  -->
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
                     
@@ -122,7 +122,7 @@
 
                   </div>
                   <!--  -->
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
                     
@@ -153,13 +153,13 @@
 
                 <!-- [] -->
 
-              <div class="col-lg-12 wrapper">
-                <div> 
+              <div class="col-lg-12 wrapper noSpaceSide">  
+                <div class="noSpaceSide">  
                   <div class="col-lg-1 sideBox scopeBox">
                     Scope
                   </div>
                   
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
 
@@ -193,7 +193,7 @@
 
                   </div>
                   <!--  -->
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
                     
@@ -228,13 +228,13 @@
 
                 <!-- [] -->
 
-              <div class="col-lg-12 wrapper">
-                <div> 
+              <div class="col-lg-12 wrapper noSpaceSide">  
+                <div class="noSpaceSide">  
                   <div class="col-lg-1 sideBox timeBox">
                     Time
                   </div>
                   
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
 
@@ -268,7 +268,7 @@
 
                   </div>
                   <!--  -->
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
                     
@@ -298,7 +298,7 @@
 
                   </div>
                   <!--  -->
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
                     
@@ -328,7 +328,7 @@
 
                   </div>
                   <!--  -->
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
                     
@@ -359,13 +359,13 @@
 
                 <!-- [] -->
                 
-              <div class="col-lg-12 wrapper">
-                <div> 
+              <div class="col-lg-12 wrapper noSpaceSide">  
+                <div class="noSpaceSide">  
                   <div class="col-lg-1 sideBox costBox">
                     Cost
                   </div>
                   
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
                     
@@ -395,7 +395,7 @@
 
                   </div>
                   <!--  -->
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
                     
@@ -426,13 +426,13 @@
 
                 <!-- [] -->
                 
-              <div class="col-lg-12 wrapper">
-                <div> 
+              <div class="col-lg-12 wrapper noSpaceSide">  
+                <div class="noSpaceSide"> 
                   <div class="col-lg-1 sideBox qualityBox">
                     Quality
                   </div>
 
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
                     
@@ -470,7 +470,7 @@
 
                   </div>
                   <!--  -->
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
                     
@@ -501,13 +501,13 @@
 
                 <!-- [] -->
                 
-              <div class="col-lg-12 wrapper">
-                <div> 
+              <div class="col-lg-12 wrapper noSpaceSide">  
+                <div class="noSpaceSide"> 
                   <div class="col-lg-1 sideBox hrBox">
                     Human Resource
                   </div>
 
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
                     
@@ -533,7 +533,7 @@
 
                   </div>
                   <!--  -->
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
 
@@ -555,7 +555,7 @@
 
                   </div>
                   <!--  -->
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
 
@@ -577,7 +577,7 @@
 
                   </div>
                   <!--  -->
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
 
@@ -604,13 +604,13 @@
 
                 <!-- [] -->
                 
-              <div class="col-lg-12 wrapper">
-                <div> 
+              <div class="col-lg-12 wrapper noSpaceSide">  
+                <div class="noSpaceSide">  
                   <div class="col-lg-1 sideBox verticalOneBox">
                     Communication
                   </div>
 
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
                     
@@ -641,13 +641,13 @@
 
                 <!-- [] -->
                 
-              <div class="col-lg-12 wrapper">
-                <div> 
+              <div class="col-lg-12 wrapper noSpaceSide">  
+                <div class="noSpaceSide"> 
                   <div class="col-lg-1 sideBox verticalOneBox">
                     Risk
                   </div>
 
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
                     
@@ -686,13 +686,13 @@
 
                 <!-- [] -->
                 
-              <div class="col-lg-12 wrapper">
-                <div> 
+              <div class="col-lg-12 wrapper noSpaceSide">  
+                <div class="noSpaceSide"> 
                   <div class="col-lg-1 sideBox procurementBox">
                     Procurement
                   </div>
                   
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
                     
@@ -726,7 +726,7 @@
 
                   </div>
                   <!--  -->
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
                     
@@ -761,13 +761,13 @@
 
                 <!-- [] -->
                 
-              <div class="col-lg-12 wrapper">  
-                <div> 
+              <div class="col-lg-12 wrapper noSpaceSide">  
+                <div class="noSpaceSide"> 
                   <div class="col-lg-1 sideBox stakeholderBox">
                     Stakeholder
                   </div>
 
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
                     <a href="<?=base_url("ManagementStakeholder/addnew/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
                         Stakeholder Register
@@ -800,7 +800,7 @@
 
                   </div>
                   <!--  -->
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 noSpaceSide floatRight">
 
                     <div class=" col-lg-1 midBox hideBox"></div>
                     
@@ -827,8 +827,10 @@
 
 
           
-              <div class="col-md-12">
-                <a class="btn btn-warning btn-lg btn-block" href="<?=base_url()?>Notification_board/list/<?php echo $project[0]->project_id;?>">NOTIFICATION BOARD</a>
+              <div class="col-md-12 noSpaceSide ">
+                <div class="col-lg-12 wrapper noSpaceSide"> 
+                  <a class="btn btn-warning btn-lg btn-block" href="<?=base_url()?>Notification_board/list/<?php echo $project[0]->project_id;?>">NOTIFICATION BOARD</a>
+                </div>
               </div>
 
             </div>

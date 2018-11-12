@@ -119,12 +119,32 @@
 }
 
 @media (min-width: 1200px) {
+    .noSpaceSide{
+        margin-right: 0;
+        padding-right: 0;  
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .floatRight{
+        float: right;
+    }
+
+    #panelPhases{
+		margin-left: 5em;
+	}
+
+	.wrapper{
+		font-size: 0.7em;
+		text-align: center;
+	}
+    
     .midBox{
         background-color: #66d065;
         padding: 0.5em;
         height: 5em;
         margin: 0.5%;
-        width: 12%;
+        width: 13%;
         /*width: 7em;*/
     }
 
@@ -202,8 +222,6 @@
 
     .verticalOneBox{
         line-height: 5.6em;
-        opacity: 1; 
-        color: #ccc ;
         /*width: 9em;*/
     }
 
@@ -227,15 +245,33 @@
         /*width: 9em;*/
     }
 
-
     .transparentBox, .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
-        width: 7.5em;
+        width: 11.2em;
         margin-top: 0;
     }
 }
 
 
 @media (min-width: 1342px) {
+    .noSpaceSide{
+        margin-right: 0;
+        padding-right: 0;  
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .floatRight{
+        float: right;
+    }
+
+    #panelPhases{
+		margin-left: 3em;
+	}
+
+	.wrapper{
+		font-size: 0.8em;
+    }
+    
     .midBox{
         background-color: #66d065;
         padding: 0.5em;
@@ -284,30 +320,29 @@
     }
 
     .integrationBox{
-        line-height: 17.5em;
+        line-height: 18em;
         /*width: 9em;*/
     }
 
-    .scopeBox{
-        line-height: 11.7em;
-        /*width: 9em;*/
+    .integrationBox, .initiatingColor{
+        
     }
-
+    
     .timeBox{
-        line-height: 23.5em;
+        line-height: 24.2em;
         /*width: 9em;*/
     }
 
     .hrBox{
-        line-height: 4em;
+        line-height: 10em;
         /*width: 9em;*/
-        height: 23.4em;
+        height: 24.2em;
         padding-top: 7.2em;
 
     }
 
     .verticalOneBox{
-        line-height: 5.6em;
+        line-height: 5.7em;
         /*width: 9em;*/
     }
 
@@ -315,29 +350,12 @@
         line-height: 5.6em;
     }
 
-    .costBox{
-        line-height: 11.7em;
-        /*width: 9em;*/
+    .scopeBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
+        line-height: 11.9em;
     }
-
-    .qualityBox{
-        line-height: 11.7em;
-        /*width: 9em;*/
-    }
-
-    .procurementBox{
-        line-height: 11.7em;
-        /*width: 9em;*/
-    }
-
-    .stakeholderBox{
-        line-height: 11.7em;
-        /*width: 9em;*/
-    }
-
 
     .transparentBox, .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
-        width: 9em;
+        width: 11.4em;
         margin-top: 0;
     }
 
