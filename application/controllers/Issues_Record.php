@@ -91,13 +91,15 @@ class Issues_Record extends CI_Controller{
 	}
 
 	public function delete($issues_record_id){
-		$data['issues_record'] = $this->Issues_record_model->getIssues_record($issues_record_id);
-		$project_id = $data['project_id'];
+		
+		//$data['issues_record'] = $this->Issues_record_model->getIssues_record($issues_record_id);
+		$project_id['issues_record_id'] = $this->input->post('project_id');
+		//$project_id = $data['project_id'];
 		$query = $this->Issues_record_model->deleteIssues_record($issues_record_id);
 		if($query){
 			$this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'Issues_Record/list/' . $data);
+            redirect(base_url() . 'Issues_Record/list/' . $project_id['issues_record_id']);
 		}
 	}
 }
