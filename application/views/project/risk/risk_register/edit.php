@@ -24,7 +24,7 @@
 		
 		<form action="<?=base_url()?>RegisterRisk/update/<?php echo $risk_register_id; ?>" method="post">
 
-			<input type="hidden" name="project_id" value="<?php echo $project_id; ?>">                          
+			<input type="hidden" id="project_id" name="project_id" value="<?php echo $project_id; ?>">                          
 			<!-- Textarea -->
 
 			<div class=" col-lg-6 form-group">
@@ -106,7 +106,7 @@
 				</button> 
 			</form>
 
-			<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>" >
+			<form action="<?php echo base_url('RegisterRisk/list/'); ?><?php echo $project_id; ?>" >
 				<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 			</form>
 		</div>
