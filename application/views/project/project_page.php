@@ -657,7 +657,7 @@
                       </div>
                     </a>
 
-                    <a href="<?=base_url("RegisterRisk/addnew/".$project[0]->project_id) ?>">
+                    <a href="<?=base_url("RegisterRisk/list/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
                         Risk Register
                       </div>
