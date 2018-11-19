@@ -24,7 +24,7 @@
 		
 		<form action="<?=base_url()?>RegisterRisk/update/<?php echo $risk_register_id; ?>" method="post">
 
-			<input type="hidden" name="project_id" value="<?php echo $project_id; ?>">                          
+			<input type="hidden" id="project_id" name="project_id" value="<?php echo $project_id; ?>">                          
 			<!-- Textarea -->
 
 			<div class=" col-lg-6 form-group">

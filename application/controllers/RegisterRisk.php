@@ -18,6 +18,7 @@ class RegisterRisk extends CI_Controller {
 
 	public function list($project_id){
 		$dado['project_id'] = $project_id;
+
 		$dado['risk_register'] = $this->Risk_model->getAllRiskProject($project_id);
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
@@ -67,7 +68,9 @@ class RegisterRisk extends CI_Controller {
 		$risk_register['date'] = $this->input->post('date');
 		$risk_register['identifier'] = $this->input->post('identifier');
 		$risk_register['type'] = $this->input->post('type');
-		$risk_register['project_id'] = $this->input->post('poject_id');
+		$risk_register['project_id'] = $this->input->post('project_id');
+
+
 
 		$query = $this->Risk_model->updateRisk($risk_register,$risk_register_id);
 
