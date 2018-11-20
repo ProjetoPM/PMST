@@ -231,7 +231,7 @@
               <div class="col-lg-12 wrapper noSpaceSide">  
                 <div class="noSpaceSide">  
                   <div class="col-lg-1 sideBox timeBox">
-                    Time
+                    <i class="glyphicon glyphicon-time"></i> Time
                   </div>
                   
                   <div class="col-lg-10 noSpaceSide floatRight">
@@ -240,19 +240,19 @@
 
                     <a href="<?=base_url("Schedule/schedule_form/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
-                        Schedule Management
+                        <i class="glyphicon glyphicon-time"></i> Schedule Management
                       </div>
                     </a>
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
-                        Project Schedule Network
+                        <i class="glyphicon glyphicon-time"></i> Project Schedule Network
                       </div>
                     </a>
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
-                        Project Calendar
+                        <i class="glyphicon glyphicon-time"></i> Project Calendar
                       </div>
                     </a> 
 
@@ -260,7 +260,7 @@
 
                     <a  href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
-                        Change Request
+                        <i class="glyphicon glyphicon-time"></i> Change Request
                       </div>
                     </a>
 
@@ -274,49 +274,19 @@
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
-                        Activity Attributes
+                        <i class="glyphicon glyphicon-time"></i> Activity Attributes
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
-                        Activity Resource Requirement
-                      </div>
-                    </a>
-                    
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
-                      <div class=" col-lg-1 midBox timeColor">
-                        Project Schedule
-                      </div>
-                    </a>
-
-                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
-
-                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
-
-                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
-
-                  </div>
-                  <!--  -->
-                  <div class="col-lg-10 noSpaceSide floatRight">
-
-                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
-                    
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
-                      <div class=" col-lg-1 midBox timeColor">
-                        Activity List
+                        <i class="glyphicon glyphicon-time"></i> Activity Resource Requirement
                       </div>
                     </a>
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
-                        Resource Breakdown Structure
-                      </div>
-                    </a>
-                    
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
-                      <div class=" col-lg-1 midBox timeColor">
-                        Schedule Baseline
+                        <i class="glyphicon glyphicon-time"></i> Project Schedule
                       </div>
                     </a>
 
@@ -334,13 +304,43 @@
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
-                        Milestone List
+                        <i class="glyphicon glyphicon-time"></i> Activity List
+                      </div>
+                    </a>
+                    
+                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                      <div class=" col-lg-1 midBox timeColor">
+                        <i class="glyphicon glyphicon-time"></i> Resource Breakdown Structure
+                      </div>
+                    </a>
+                    
+                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                      <div class=" col-lg-1 midBox timeColor">
+                        <i class="glyphicon glyphicon-time"></i> Schedule Baseline
+                      </div>
+                    </a>
+
+                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
+
+                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
+
+                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
+
+                  </div>
+                  <!--  -->
+                  <div class="col-lg-10 noSpaceSide floatRight">
+
+                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
+                    
+                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                      <div class=" col-lg-1 midBox timeColor">
+                        <i class="glyphicon glyphicon-time"></i> Milestone List
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
-                        Activity Duration Estimates
+                        <i class="glyphicon glyphicon-time"></i> Activity Duration Estimates
                       </div>
                     </a>
                     
@@ -689,7 +689,7 @@
               <div class="col-lg-12 wrapper noSpaceSide">  
                 <div class="noSpaceSide"> 
                   <div class="col-lg-1 sideBox procurementColor procurementBox">
-                    Procurement
+                    <i class="glyphicon glyphicon-shopping-cart"></i> Procurement
                   </div>
                   
                   <div class="col-lg-10 noSpaceSide floatRight">
@@ -698,13 +698,13 @@
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox procurementColor">
-                        Change Request
+                        <i class="glyphicon glyphicon-shopping-cart"></i> Change Request
                       </div>
                     </a>
 
                     <a href="<?=base_url()?>/procurement/procurement_form/<?php echo $project[0]->project_id;?>">
                       <div class=" col-lg-1 midBox procurementColor">
-                        Procurement Management
+                        <i class="glyphicon glyphicon-shopping-cart"></i> Procurement Management
                       </div>
                     </a>
                     
@@ -712,13 +712,13 @@
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox procurementColor">
-                        Procurement Agreement
+                        <i class="glyphicon glyphicon-shopping-cart"></i> Procurement Agreement
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox procurementColor">
-                        Change Request
+                        <i class="glyphicon glyphicon-shopping-cart"></i> Change Request
                       </div>
                     </a>
 
@@ -732,13 +732,13 @@
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox procurementColor">
-                        Make-or-Buy Decisions
+                        <i class="glyphicon glyphicon-shopping-cart"></i> Make-or-Buy Decisions
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox procurementColor">
-                        Procurement Statement of Work
+                        <i class="glyphicon glyphicon-shopping-cart"></i> Procurement Statement of Work
                       </div>
                     </a>
                     
@@ -746,7 +746,7 @@
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox procurementColor">
-                        Change Request
+                        <i class="glyphicon glyphicon-shopping-cart"></i> Change Request
                       </div>
                     </a>
 

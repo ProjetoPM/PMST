@@ -103,77 +103,82 @@
 }
 
 .menuBox{
-    background-color: #0006ff;
+    background-color: rgb(88, 95, 94);
 }
 
 .integrationColor{
-    background: #535050;
+    background: rgb(131, 156, 175);
 }
 .wrapper a:hover .integrationColor{
-    background: #1d1c1c; 
+    background: rgb(88, 105, 117); 
 }
 
 .scopeColor{
-    background: #dbdb00;
+    background: #469F33;
 }
 .wrapper a:hover .scopeColor{
-    background: #9c9c01; 
+    background: rgb(55, 122, 40); 
 }
 
 .timeBox, .timeColor{
-    background: #20b2aa;
+    background: #C95F4F;
 }
 .wrapper a:hover .timeColor{
-    background: #188882; 
+    background: rgb(141, 65, 54); 
 }
 
 .costBox, .costColor{
-    background: rgb(223, 48, 48);
+    background: #00BABA;
 }
 .wrapper a:hover .costColor{
-    background: rgb(160, 27, 27);
+    background: #157974;
 }
 
 .qualityBox, .qualityColor{
-    background: rgb(211, 125, 44);
+    background: #FFC842;
 }
 .wrapper a:hover .qualityColor{
-    background: rgb(180, 104, 33);
+    /* background: rgb(180, 104, 33); */
+    background: rgb(204, 161, 52);
 }
 
 .hrBox, .hrColor{
-    background: #66d065;
+    background: #8F78A4;
 }
 .wrapper a:hover .hrColor{
-    background: #4d9b4c; 
+    background: rgb(104, 87, 119); 
 }
 
 .communicColor{
-    background: rgb(117, 100, 212);
+    background: #E49A6E;
 }
 .wrapper a:hover .communicColor{
-    background: rgb(80, 69, 145);
+    background: rgb(180, 121, 86);
 }
 
 .riskColor{
-    background: #797171;
+    background: #8E3636;
 }
 .wrapper a:hover .riskColor{
-    background: #474343; 
+    background: rgb(110, 41, 41); 
 }
 
 .procurementColor{
-    background: #d138c4;
+    background: #79BF73;
 }
 .wrapper a:hover .procurementColor{
-    background: #a72e9c; 
+    background: rgb(87, 138, 82); 
 }
 
 .stakeholderColor{
-    background: #a135c2;
+    background: #5792F2;
 }
 .wrapper a:hover .stakeholderColor{
-    background: #75268d; 
+    background: rgb(67, 111, 182); 
+}
+
+.notifBoardColor{
+    background: #E5BE7B;
 }
 
 .midBox, .menuBox, .sideBox{
