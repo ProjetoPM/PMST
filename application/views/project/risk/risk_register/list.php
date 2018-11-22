@@ -36,9 +36,8 @@
 								<th class="text-center">#</th>
 								<th><?=$this->lang->line('risk-impacted_objective')?></th>
 								<th><?=$this->lang->line('risk-priority')?></th>
-								<th><?=$this->lang->line('risk-risk_status')?></th>
+								<th><?=$this->lang->line('risk-event')?></th>
 								<th><?=$this->lang->line('risk-date')?></th>
-								<th><?=$this->lang->line('risk-type')?></th>
 
 								<th><?=$this->lang->line('btn-actions')?></th>
 							</tr>
@@ -50,10 +49,25 @@
 								<tr dados='<?= json_encode($risk); ?>'>
 									<td class="moreInformationTable"></td>
 									<td><?php echo $risk->impacted_objective;?></td>
-									<td><?php echo $risk->priority;?></td>
-									<td><?php echo $risk->risk_status;?></td>
+									<td>
+										<?php 
+									if($risk->priority == '0'){
+									?>
+										<?=$this->lang->line('risk-priority-low') ?>
+									<?php
+									}else if($risk->priority == '1'){
+									?>
+										<?=$this->lang->line('risk-priority-medium') ?>
+									<?php
+									}else if($risk->priority == '2'){
+									?>
+										<?=$this->lang->line('risk-priority-high') ?>
+									<?php
+									}  
+									?>	
+									</td>
+									<td><?php echo $risk->event;?></td>
 									<td><?php echo $risk->date;?></td>
-									<td><?php echo $risk->type;?></td>
 
 									<td style="max-width: 20px">
 										<div class="row center">
@@ -119,9 +133,8 @@
 								{ "data": "#", "orderable": false},
 								{ "data": "impacted_objective" },
 								{ "data": "priority" },
-								{ "data": "risk_status" },
+								{ "data": "event" },
 								{ "data": "date" },
-								{ "data": "type" },
 								{ "data": "btn-actions", "orderable": false}
 								],
 								"order": [[1, 'attr']]
@@ -140,7 +153,7 @@
 								tr.removeClass('shown');
 							}
 							else {
-								row.child( format(dados) ).show();
+								row.child( format(dados).bold() ).show();
 								tr.addClass('shown');
 							}
 						});
@@ -148,8 +161,8 @@
 						function format (dados) {
 							return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
 							'<tr>'+
-							'<td><?=$this->lang->line('risk-event')?>: </td>'+
-							'<td>'+dados.event+'</td>'+
+							'<td><?=$this->lang->line('risk-risk_status')?>: </td>'+
+							'<td>'+dados.risk_status+'</td>'+
 							'</tr>'+
 							'<tr>'+
 							'<td><?=$this->lang->line('risk-identifier')?>: </td>'+
