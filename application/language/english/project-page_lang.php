@@ -1,5 +1,5 @@
 <?php
-$lang['phases'] = 'Phases';
+$lang['phases'] = 'PHASES';
 
 // Top Phases
 $lang['initiating'] = 'Initiating';
@@ -40,7 +40,7 @@ $lang['risk-management'] = 'Risk Management';
 $lang['change-request'] = 'Change Request';
 $lang['make-decisions'] = 'Make-or-Buy Decisions';
 $lang['stakeholder-management'] = 'Stakeholder Management';
-$lang['requirement-documentati'] = 'Requirement Documentati';
+$lang['requirement-documentation'] = 'Requirement Documentation';
 $lang['requirement-traceability'] = 'Requirement Traceability Matrix';
 $lang['project-schedule-network'] = 'Project Schedule Network';
 $lang['activity-resource'] = 'Activity Resource Requirement';
@@ -71,6 +71,6 @@ $lang['earned-value'] = 'Earned Value Status Report';
 $lang['lessons-learned'] = 'Lessons Learned';
 
 // btn NOTIFICATION BOARD
-$lang['notiFication-board'] = 'NOTIFICATION BOARD';
+$lang['notification-board'] = 'NOTIFICATION BOARD';
 
 ?>
