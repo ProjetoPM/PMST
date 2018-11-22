@@ -33,7 +33,7 @@ class Human_resource extends CI_Controller{
         $data['id'] = $project_id;
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
-        $this->load->view('human_resource/human_resource_mp', $data);
+        $this->load->view('project/human_resource/human_resource_mp', $data);
     }
 
     public function insert($id){

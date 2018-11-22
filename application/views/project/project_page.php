@@ -112,7 +112,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Change_log/list/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox ">
                         Change Log
                       </div>
