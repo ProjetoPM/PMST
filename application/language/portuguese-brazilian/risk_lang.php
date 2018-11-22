@@ -13,9 +13,9 @@ $lang['risk-identifier'] = 'Identificador';
 $lang['risk-type'] = 'Tipo de Risco';
 
 //options
-$lang['risk-priority-low'] = 'baixa';
-$lang['risk-priority-medium'] = 'media';
-$lang['risk-priority-high'] = 'alta';
+$lang['risk-priority-low'] = 'Baixa';
+$lang['risk-priority-medium'] = 'Média';
+$lang['risk-priority-high'] = 'Alta';
 
 
 

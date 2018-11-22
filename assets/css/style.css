@@ -72,6 +72,9 @@
     margin-bottom: 2em;
 }
 
+.pad-modal{
+    padding: 3%;
+}
 
 /* CSS esconder box da project page*/
 @media (max-width: 1199px) {
