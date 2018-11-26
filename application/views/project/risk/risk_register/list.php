@@ -51,20 +51,20 @@
 									<td><?php echo $risk->impacted_objective;?></td>
 									<td>
 										<?php 
-									if($risk->priority == '0'){
-									?>
-										<?=$this->lang->line('risk-priority-low') ?>
-									<?php
-									}else if($risk->priority == '1'){
-									?>
-										<?=$this->lang->line('risk-priority-medium') ?>
-									<?php
-									}else if($risk->priority == '2'){
-									?>
-										<?=$this->lang->line('risk-priority-high') ?>
-									<?php
-									}  
-									?>	
+										if($risk->priority == '0'){
+											?>
+											<?=$this->lang->line('risk-priority-low') ?>
+											<?php
+										}else if($risk->priority == '1'){
+											?>
+											<?=$this->lang->line('risk-priority-medium') ?>
+											<?php
+										}else if($risk->priority == '2'){
+											?>
+											<?=$this->lang->line('risk-priority-high') ?>
+											<?php
+										}  
+										?>	
 									</td>
 									<td><?php echo $risk->event;?></td>
 									<td><?php echo $risk->date;?></td>
@@ -80,17 +80,9 @@
 
 											<div class="col-sm-4">
 												<!--<form action="<?php echo base_url() ?>RegisterRisk/delete/<?php echo $risk->risk_register_id; ?>" method="post">
-												-->
-												<!--<form oncomplete="run()" method="post">
-
-													<input type="hidden" name="project_id" value="<?=$risk->project_id?>">
-													<button type="submit" class="btn btn-danger"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
-												</form>-->
-												<form oncomplete="<?php echo base_url() ?>RegisterRisk/delete/<?php echo $risk->risk_register_id; ?>" method="post">
-
-													<input type="hidden" name="project_id" value="<?=$risk->project_id?>">
-													<button type="submit" class="btn btn-danger run"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
-												</form>
+												<input type="hidden" name="project_id" value="<?=$risk->project_id?>"> -->
+												<button type="submit" class="btn btn-danger" onclick="deletar(<?=$risk->project_id?>, <?= $risk->risk_register_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+												<!-- </form> -->
 											</div>
 										</div>
 									</td>
@@ -173,26 +165,34 @@
 					</script>
 
 					<script type="text/javascript">
-						$(function run(){
-							//$('.run').click(function(event) {
-								$(function(event) {
-									alertify.confirm('Do you agree?').setting({
-										'labels':{
-											ok: 'Agree',
-											cancel: 'Cancel'
-										},
-										'reverseButtons': false,
-										'onok': function(){
-									//	load(<?php echo base_url('RegisterRisk/delete/'); ?><?php echo $risk->risk_register_id; ?>);
-											//<?php echo base_url() ?>RegisterRisk/delete/<?php echo $risk->risk_register_id; ?>),
+
+						function deletar(idProjeto, idRisk){
+							//e.preventDefault();
+							alertify.confirm('Do you agree?').setting({
+								'labels':{
+									ok: 'Agree',
+									cancel: 'Cancel'
+								},
+								'reverseButtons': false,
+								'onok': function(){
+
+									console.log(`Passei o ${idProjeto} e ${idRisk}`);
+
+							$.post("<?php echo base_url() ?>RegisterRisk/delete/" + idRisk,
+							{
+								project_id: idProjeto,
+							},
+							function(data, status){
+								location.reload();
+							});
 											alertify.success('You agree.');
-											//action("<?php echo base_url() ?>RegisterRisk/delete/<?php echo $risk->risk_register_id; ?>");
 										},
 										'oncancel': function(){
 											alertify.error('You did not agree.');
 										}
 									}).show();
-								});
-							});
+
+						}
 						
 					</script>
+
