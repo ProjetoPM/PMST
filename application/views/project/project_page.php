@@ -30,23 +30,33 @@
 
                   <div class="col-lg-10 noSpaceSide floatRight">
                     <div class=" col-lg-1 menuBox hideBox">
-                      <?=$this->lang->line('initiating')?>
+                      <div class="verticalAlign">
+                        <?=$this->lang->line('initiating')?>
+                      </div>
                     </div>
                     
                     <div class=" col-lg-1 menuBox planningBox hideBox">
-                      <?=$this->lang->line('planning')?>
+                      <div class="verticalAlign horizontalAlign">
+                        <?=$this->lang->line('planning')?>
+                      </div>
                     </div>
 
                     <div class=" col-lg-1 menuBox hideBox">
-                      <?=$this->lang->line('executing')?>
+                      <div class="verticalAlign">
+                        <?=$this->lang->line('executing')?>
+                      </div>
                     </div>
-                  
+
                     <div class=" col-lg-1 menuBox hideBox">
-                      <?=$this->lang->line('monitoring-controlling')?>
-                    </div>
-                  
+                      <div class="verticalAlign">
+                        <?=$this->lang->line('monitoring-controlling')?>
+                      </div>
+                    </div>            
+                    
                     <div class=" col-lg-1 menuBox hideBox">
-                      <?=$this->lang->line('closing')?>
+                      <div class="verticalAlign">
+                        <?=$this->lang->line('closing')?>
+                      </div>
                     </div>
                   </div>
                   <!--  -->
@@ -63,18 +73,21 @@
                   <div class="col-lg-10 noSpaceSide floatRight">
                     <a  href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
-                        <i class="glyphicon glyphicon-star"></i> 
-                        <?=$this->lang->line('project-charter')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-star"></i> 
+                          <?=$this->lang->line('project-charter')?>
+                        </div>
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
-                        <i class="glyphicon glyphicon-star"></i> 
-                        <?=$this->lang->line('project-management')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-star"></i> 
+                          <?=$this->lang->line('project-management')?>
+                        </div>
                       </div>
-                    </a>
-                    
+                    </a>                 
                     
                     <div class=" col-lg-1 midBox integrationColor hideBox"></div>
                     
@@ -82,22 +95,28 @@
 
                     <a  href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
-                        <i class="glyphicon glyphicon-star"></i> 
-                        <?=$this->lang->line('project-status')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-star"></i> 
+                          <?=$this->lang->line('project-status')?>
+                        </div>
                       </div>
                     </a>
 
                     <a  href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
-                        <i class="glyphicon glyphicon-star"></i> 
-                        <?=$this->lang->line('change-request')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-star"></i> 
+                          <?=$this->lang->line('change-request')?>
+                        </div>
                       </div>
                     </a>
 
                     <a href="<?=base_url("TEP/addnew/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
-                        <i class="glyphicon glyphicon-star"></i> 
-                        <?=$this->lang->line('lessons-learned')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-star"></i> 
+                          <?=$this->lang->line('lessons-learned')?>
+                        </div>
                       </div>
                     </a>
                   </div>
@@ -114,15 +133,19 @@
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
-                        <i class="glyphicon glyphicon-star"></i> 
-                        <?=$this->lang->line('deliverables-status')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-star"></i> 
+                          <?=$this->lang->line('deliverables-status')?>
+                        </div>
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
-                        <i class="glyphicon glyphicon-star"></i> 
-                        <?=$this->lang->line('change-log')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-star"></i> 
+                          <?=$this->lang->line('change-log')?>
+                        </div>
                       </div>
                     </a>
 
@@ -142,15 +165,19 @@
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
-                        <i class="glyphicon glyphicon-star"></i> 
-                        <?=$this->lang->line('change-request')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-star"></i> 
+                          <?=$this->lang->line('change-request')?>
+                        </div> 
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
-                        <i class="glyphicon glyphicon-star"></i> 
-                        <?=$this->lang->line('earned-value')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-star"></i> 
+                          <?=$this->lang->line('earned-value')?>
+                        </div>
                       </div>
                     </a>
 
@@ -176,22 +203,28 @@
 
                     <a  href="<?=base_url("Requirement_registration/list/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox scopeColor">
-                        <i class="glyphicon glyphicon-search"></i> 
-                        <?=$this->lang->line('requirement-management')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-search"></i> 
+                          <?=$this->lang->line('requirement-management')?>
+                        </div>
                       </div>
                     </a>
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox scopeColor">
-                        <i class="glyphicon glyphicon-search"></i> 
-                        <?=$this->lang->line('requirement-documentation')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-search"></i> 
+                          <?=$this->lang->line('requirement-documentation')?>
+                        </div>
                       </div>
                     </a>
                   
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox scopeColor">
-                        <i class="glyphicon glyphicon-search"></i> 
-                        <?=$this->lang->line('project-scope')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-search"></i> 
+                          <?=$this->lang->line('project-scope')?>
+                        </div>
                       </div>
                     </a>
 
@@ -199,8 +232,10 @@
                   
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox scopeColor">
-                        <i class="glyphicon glyphicon-search"></i> 
-                        <?=$this->lang->line('change-request')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-search"></i> 
+                          <?=$this->lang->line('change-request')?>
+                        </div>
                       </div>
                     </a>
 
@@ -214,22 +249,28 @@
                     
                     <a  href="<?=base_url("Scope_specification/addnew/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox scopeColor">
-                        <i class="glyphicon glyphicon-search"></i> 
-                        <?=$this->lang->line('scope-management')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-search"></i> 
+                          <?=$this->lang->line('scope-management')?>
+                        </div>
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox scopeColor">
-                        <i class="glyphicon glyphicon-search"></i> 
-                        <?=$this->lang->line('requirement-traceability')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-search"></i> 
+                          <?=$this->lang->line('requirement-traceability')?>
+                        </div>
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox scopeColor">
-                        <i class="glyphicon glyphicon-search"></i> 
-                        <?=$this->lang->line('scope-baseline')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-search"></i> 
+                          <?=$this->lang->line('scope-baseline')?>
+                        </div>
                       </div>
                     </a>
 
@@ -259,22 +300,28 @@
 
                     <a href="<?=base_url("Schedule/schedule_form/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
-                        <i class="glyphicon glyphicon-time"></i> 
-                        <?=$this->lang->line('schedule-management')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-time"></i> 
+                          <?=$this->lang->line('schedule-management')?>
+                        </div>      
                       </div>
                     </a>
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
-                        <i class="glyphicon glyphicon-time"></i> 
-                        <?=$this->lang->line('project-schedule-network')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-time"></i> 
+                          <?=$this->lang->line('project-schedule-network')?>
+                        </div>
                       </div>
                     </a>
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
-                        <i class="glyphicon glyphicon-time"></i> 
-                        <?=$this->lang->line('project-calendar')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-time"></i> 
+                          <?=$this->lang->line('project-calendar')?>
+                        </div>
                       </div>
                     </a> 
 
@@ -282,8 +329,10 @@
 
                     <a  href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
-                        <i class="glyphicon glyphicon-time"></i> 
-                        <?=$this->lang->line('change-request')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-time"></i> 
+                          <?=$this->lang->line('change-request')?>
+                        </div>
                       </div>
                     </a>
 
@@ -297,55 +346,28 @@
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
-                        <i class="glyphicon glyphicon-time"></i> 
-                        <?=$this->lang->line('activity-attributes')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-time"></i> 
+                          <?=$this->lang->line('activity-attributes')?>
+                        </div>
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
-                        <i class="glyphicon glyphicon-time"></i> 
-                        <?=$this->lang->line('activity-resource')?>
-                      </div>
-                    </a>
-                    
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
-                      <div class=" col-lg-1 midBox timeColor">
-                        <i class="glyphicon glyphicon-time"></i> 
-                        <?=$this->lang->line('project-schedule')?>
-                      </div>
-                    </a>
-
-                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
-
-                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
-
-                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
-
-                  </div>
-                  <!--  -->
-                  <div class="col-lg-10 noSpaceSide floatRight">
-
-                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
-                    
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
-                      <div class=" col-lg-1 midBox timeColor">
-                        <i class="glyphicon glyphicon-time"></i> 
-                        <?=$this->lang->line('activity-list')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-time"></i> 
+                          <?=$this->lang->line('activity-resource')?>
+                        </div>
                       </div>
                     </a>
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
-                        <i class="glyphicon glyphicon-time"></i> 
-                        <?=$this->lang->line('resource-breakdown')?>
-                      </div>
-                    </a>
-                    
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
-                      <div class=" col-lg-1 midBox timeColor">
-                        <i class="glyphicon glyphicon-time"></i> 
-                        <?=$this->lang->line('schedule-baseline')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-time"></i> 
+                          <?=$this->lang->line('project-schedule')?>
+                        </div>
                       </div>
                     </a>
 
@@ -363,15 +385,58 @@
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
-                        <i class="glyphicon glyphicon-time"></i> 
-                        <?=$this->lang->line('milestone-list')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-time"></i> 
+                          <?=$this->lang->line('activity-list')?>
+                        </div>
+                      </div>
+                    </a>
+                    
+                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                      <div class=" col-lg-1 midBox timeColor">
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-time"></i> 
+                          <?=$this->lang->line('resource-breakdown')?>
+                        </div>
+                      </div>
+                    </a>
+                    
+                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                      <div class=" col-lg-1 midBox timeColor">
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-time"></i> 
+                          <?=$this->lang->line('schedule-baseline')?>
+                        </div>
+                      </div>
+                    </a>
+
+                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
+
+                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
+
+                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
+
+                  </div>
+                  <!--  -->
+                  <div class="col-lg-10 noSpaceSide floatRight">
+
+                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
+                    
+                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                      <div class=" col-lg-1 midBox timeColor">
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-time"></i> 
+                          <?=$this->lang->line('milestone-list')?>
+                        </div>
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
-                        <i class="glyphicon glyphicon-time"></i> 
-                        <?=$this->lang->line('activity-duration')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-time"></i> 
+                          <?=$this->lang->line('activity-duration')?>
+                        </div>
                       </div>
                     </a>
                     
@@ -403,15 +468,19 @@
                     
                     <a href="<?=base_url("ManagementCost/addnew/".$project[0]->project_id)?>">
                       <div class=" col-lg-1 midBox costColor">
-                        <i class="fa fa-money"></i> 
-                        <?=$this->lang->line('cost-management')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-money"></i> 
+                          <?=$this->lang->line('cost-management')?>
+                        </div>
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox costColor">
-                        <i class="fa fa-money"></i> 
-                        <?=$this->lang->line('cost-baseline')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-money"></i> 
+                          <?=$this->lang->line('cost-baseline')?>
+                        </div>
                       </div>
                     </a>
                     
@@ -421,8 +490,10 @@
 
                     <a  href="<?=base_url("Tap/addTap/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox costColor">
-                        <i class="fa fa-money"></i> 
-                        <?=$this->lang->line('change-request')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-money"></i> 
+                          <?=$this->lang->line('change-request')?>
+                        </div>
                       </div>
                     </a>
 
@@ -436,15 +507,19 @@
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox costColor">
-                        <i class="fa fa-money"></i> 
-                        <?=$this->lang->line('activity-cost')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-money"></i> 
+                          <?=$this->lang->line('activity-cost')?>
+                        </div>
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox costColor">
-                        <i class="fa fa-money"></i> 
-                        <?=$this->lang->line('project-funding')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-money"></i> 
+                          <?=$this->lang->line('project-funding')?>
+                        </div>
                       </div>
                     </a>
                     
@@ -476,36 +551,46 @@
                     
                     <a href="<?=base_url()?>Charter_Quality/addnew/<?php echo $project[0]->project_id;?>">
                       <div class=" col-lg-1 midBox qualityColor">
-                        <i class="fa fa-trophy"></i> 
-                        <?=$this->lang->line('quality-management')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-trophy"></i> 
+                          <?=$this->lang->line('quality-management')?>
+                        </div>
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox qualityColor">
-                        <i class="fa fa-trophy"></i> 
-                        <?=$this->lang->line('product-quality')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-trophy"></i> 
+                          <?=$this->lang->line('product-quality')?>
+                        </div>
                       </div>
                     </a>
                     
                     <a  href="<?=base_url("Process_plan/addnew/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox qualityColor">
-                        <i class="fa fa-trophy"></i> 
-                        <?=$this->lang->line('process-improvement')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-trophy"></i> 
+                          <?=$this->lang->line('process-improvement')?>
+                        </div>
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox qualityColor">
-                        <i class="fa fa-trophy"></i> 
-                        <?=$this->lang->line('change-request')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-trophy"></i> 
+                          <?=$this->lang->line('change-request')?>
+                        </div>
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox qualityColor">
-                        <i class="fa fa-trophy"></i> 
-                        <?=$this->lang->line('change-request')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-trophy"></i> 
+                          <?=$this->lang->line('change-request')?>
+                        </div>
                       </div>
                     </a>
 
@@ -519,15 +604,19 @@
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox qualityColor">
-                        <i class="fa fa-trophy"></i> 
-                        <?=$this->lang->line('process-quality')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-trophy"></i> 
+                          <?=$this->lang->line('process-quality')?>
+                        </div>
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox qualityColor">
-                        <i class="fa fa-trophy"></i> 
-                        <?=$this->lang->line('quality-metrics')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-trophy"></i> 
+                          <?=$this->lang->line('quality-metrics')?>
+                        </div>
                       </div>
                     </a>
                     
@@ -559,8 +648,10 @@
                     
                     <a href="<?=base_url("Human_resource/human_resource_form/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox hrColor">
-                        <i class="fa fa-male"></i> 
-                        <?=$this->lang->line('hr-management')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-male"></i> 
+                          <?=$this->lang->line('hr-management')?>
+                        </div>
                       </div>
                     </a>
 
@@ -570,8 +661,10 @@
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox hrColor">
-                        <i class="fa fa-male"></i> 
-                        <?=$this->lang->line('project-team')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-male"></i> 
+                          <?=$this->lang->line('project-team')?>
+                        </div>
                       </div>
                     </a>
 
@@ -593,8 +686,10 @@
 
                     <a href="<?=base_url("Ade/getAde_form/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox hrColor">
-                        <i class="fa fa-male"></i> 
-                        <?=$this->lang->line('team-performance')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-male"></i> 
+                          <?=$this->lang->line('team-performance')?>
+                        </div> 
                       </div>
                     </a>
 
@@ -616,8 +711,10 @@
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox hrColor">
-                        <i class="fa fa-male"></i> 
-                        <?=$this->lang->line('enterprise-environment')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-male"></i> 
+                          <?=$this->lang->line('enterprise-environment')?>
+                        </div>
                       </div>
                     </a>
 
@@ -639,8 +736,10 @@
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox hrColor">
-                        <i class="fa fa-male"></i> 
-                        <?=$this->lang->line('change-request')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-male"></i> 
+                          <?=$this->lang->line('change-request')?>
+                        </div>
                       </div>
                     </a>
 
@@ -668,8 +767,10 @@
                     
                     <a href="<?=base_url()?>Communication_item/list/<?php echo $project[0]->project_id;?>">
                       <div class=" col-lg-1 midBox communicColor">
-                        <i class="glyphicon glyphicon-bullhorn"></i> 
-                        <?=$this->lang->line('communication-management')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-bullhorn"></i> 
+                          <?=$this->lang->line('communication-management')?>
+                        </div>
                       </div>
                     </a>
 
@@ -681,8 +782,10 @@
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox communicColor">
-                        <i class="glyphicon glyphicon-bullhorn"></i> 
-                        <?=$this->lang->line('change-request')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-bullhorn"></i> 
+                          <?=$this->lang->line('change-request')?>
+                        </div>
                       </div>
                     </a>
 
@@ -708,15 +811,19 @@
                     
                     <a href="<?=base_url()?>Risk/risk_form/<?php echo $project[0]->project_id;?>">
                       <div class=" col-lg-1 midBox riskColor">
-                        <i class="glyphicon glyphicon-exclamation-sign"></i> 
-                        <?=$this->lang->line('risk-management')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-exclamation-sign"></i> 
+                          <?=$this->lang->line('risk-management')?>
+                        </div>
                       </div>
                     </a>
 
                     <a href="<?=base_url("RegisterRisk/addnew/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox riskColor">
-                        <i class="glyphicon glyphicon-exclamation-sign"></i> 
-                        <?=$this->lang->line('risk-register')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-exclamation-sign"></i> 
+                          <?=$this->lang->line('risk-register')?>
+                        </div>
                       </div>
                     </a>
                     
@@ -724,16 +831,19 @@
 
                     <a href="<?=base_url("Issues_Record/list/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox riskColor">
-                        <i class="glyphicon glyphicon-exclamation-sign"></i> 
-                        <?=$this->lang->line('')?>
-                        Issues Record
+                        <div class="verticalAlign"> 
+                          <i class="glyphicon glyphicon-exclamation-sign"></i> 
+                          <?=$this->lang->line('issues-record')?>
+                        </div>
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox riskColor">
-                        <i class="glyphicon glyphicon-exclamation-sign"></i> 
-                        <?=$this->lang->line('change-request')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-exclamation-sign"></i> 
+                          <?=$this->lang->line('change-request')?>
+                        </div>
                       </div>
                     </a>
 
@@ -759,16 +869,19 @@
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox procurementColor">
-                        <i class="glyphicon glyphicon-shopping-cart"></i> 
-                        <?=$this->lang->line('change-request')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-shopping-cart"></i> 
+                          <?=$this->lang->line('change-request')?>
+                        </div>
                       </div>
                     </a>
 
                     <a href="<?=base_url()?>/procurement/procurement_form/<?php echo $project[0]->project_id;?>">
                       <div class=" col-lg-1 midBox procurementColor">
-                        <i class="glyphicon glyphicon-shopping-cart"></i> 
-                        <?=$this->lang->line('')?>
-                        Procurement Management
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-shopping-cart"></i> 
+                          <?=$this->lang->line('procurement-management')?>
+                        </div>
                       </div>
                     </a>
                     
@@ -776,16 +889,19 @@
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox procurementColor">
-                        <i class="glyphicon glyphicon-shopping-cart"></i> 
-                        <?=$this->lang->line('')?>
-                        Procurement Agreement
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-shopping-cart"></i> 
+                          <?=$this->lang->line('procurement-agreement')?>
+                        </div>
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox procurementColor">
-                        <i class="glyphicon glyphicon-shopping-cart"></i> 
-                        <?=$this->lang->line('change-request')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-shopping-cart"></i> 
+                          <?=$this->lang->line('change-request')?>
+                        </div>
                       </div>
                     </a>
 
@@ -799,17 +915,19 @@
                     
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox procurementColor">
-                        <i class="glyphicon glyphicon-shopping-cart"></i> 
-                        <?=$this->lang->line('')?>
-                        Make-or-Buy Decisions
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-shopping-cart"></i> 
+                          <?=$this->lang->line('make-decisions')?>
+                        </div>
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox procurementColor">
-                        <i class="glyphicon glyphicon-shopping-cart"></i> 
-                        <?=$this->lang->line('')?>
-                        Procurement Statement of Work
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-shopping-cart"></i> 
+                          <?=$this->lang->line('procurement-statement')?>
+                        </div>
                       </div>
                     </a>
                     
@@ -817,8 +935,10 @@
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox procurementColor">
-                        <i class="glyphicon glyphicon-shopping-cart"></i> 
-                        <?=$this->lang->line('change-request')?>
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-shopping-cart"></i> 
+                          <?=$this->lang->line('change-request')?>
+                        </div>
                       </div>
                     </a>
 
@@ -843,17 +963,19 @@
                   <div class="col-lg-10 noSpaceSide floatRight">
                     <a href="<?=base_url("ManagementStakeholder/addnew/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox stakeholderColor">
-                        <i class="fa fa-users"></i> 
-                        <?=$this->lang->line('')?>
-                        Stakeholder Register
+                        <div class="verticalAlign">
+                          <i class="fa fa-users"></i> 
+                          <?=$this->lang->line('stakeholder-register')?>
+                        </div>
                       </div>
                     </a>
                     
                     <a href="<?=base_url("Stakeholder_mp/stakeholder_mp_form/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox stakeholderColor">
-                        <i class="fa fa-users"></i> 
-                        <?=$this->lang->line('')?>
-                        Stakeholder Management
+                        <div class="verticalAlign">
+                          <i class="fa fa-users"></i> 
+                          <?=$this->lang->line('stakeholder-management')?>
+                        </div>
                       </div>
                     </a>
 
@@ -863,16 +985,19 @@
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox stakeholderColor">
-                        <i class="fa fa-users"></i> 
-                        <?=$this->lang->line('')?>
-                        Issue Log
+                        <div class="verticalAlign">
+                          <i class="fa fa-users"></i> 
+                          <?=$this->lang->line('issue-log')?>
+                        </div>
                       </div>
                     </a>
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox stakeholderColor">
-                        <i class="fa fa-users"></i> 
-                        <?=$this->lang->line('change-request')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-users"></i> 
+                          <?=$this->lang->line('change-request')?>
+                        </div>
                       </div>
                     </a>
 
@@ -892,8 +1017,10 @@
 
                     <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox stakeholderColor">
-                        <i class="fa fa-users"></i> 
-                        <?=$this->lang->line('change-request')?>
+                        <div class="verticalAlign">
+                          <i class="fa fa-users"></i> 
+                          <?=$this->lang->line('change-request')?>
+                        </div>
                       </div>
                     </a>
 

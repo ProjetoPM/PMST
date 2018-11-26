@@ -68,7 +68,6 @@
     color: #4c3221; cursor: pointer;
 }
 
-
 /*  */
 .logo{
     width: 100%;
@@ -192,6 +191,20 @@
 }
 
 @media (min-width: 1200px) {
+    .verticalAlign{
+        /* height:90px; */
+        height:4em;
+        /* line-height: 18em; */
+        width:8em;
+        text-align:center;
+        display: table-cell; 
+        vertical-align:middle; 
+    }
+
+    .horizontalAlign{
+        width:27em;
+    }
+
     .noSpaceSide{
         margin-right: 0;
         padding-right: 0;  
@@ -278,7 +291,7 @@
     }
 
     .hrBox{
-        line-height: 4em;
+        /* line-height: 4em; */
         height: 23.4em;
         padding-top: 7.2em;
     }
@@ -319,6 +332,7 @@
 }
 
 @media (min-width: 1342px) {
+
     .noSpaceSide{
         margin-right: 0;
         padding-right: 0;  
@@ -384,7 +398,7 @@
     }
 
     .hrBox{
-        line-height: 10em;
+        /* line-height: 10em; */
         height: 24.2em;
         padding-top: 7.2em;
     }
