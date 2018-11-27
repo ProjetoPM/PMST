@@ -3,7 +3,7 @@
       <ul class="nav" id="side-menu">
          <!-- photo and name -->
          <div class="sidebar-nav text-center">
-            <img src="<?=base_url()?>assets/images/lesse_logo_head.png" class="welcome">
+            <img src="<?=base_url()?>assets/images/silverbullet_logo.png" class="welcome logo">
          </div><br>
          <!-- /lesse logo -->
          <!-- main panel -->

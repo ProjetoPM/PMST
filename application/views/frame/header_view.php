@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>SLR Tool</title>
+  <title>Silver Bullet</title>
   <!-- Bootstrap Core CSS -->
   <link href="<?=base_url()?>assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?=base_url()?>assets/css/stepbystep.css" rel="stylesheet">
@@ -15,7 +15,7 @@
   <!-- Custom Fonts -->
   <link href="<?=base_url()?>assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom tab icons -->
-  <link rel="shortcut icon" href="<?=base_url()?>assets/images/lesse.png" type="image/x-icon">        
+  <link rel="shortcut icon" href="<?=base_url()?>assets/images/silverbullet_logo.png" type="image/x-icon">        
 
   <!-- Cod Elastic TextArea -->
   <script src="<?=base_url()?>assets/js/elasticTextarea.js" type="text/javascript"></script>
@@ -58,7 +58,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="<?=base_url();?>">
-          <div class="inline"> &nbsp;SLR Tool </div>
+          <div class="inline"> &nbsp;Silver Bullet </div>
         </a>
       </div>
       <!-- /.navbar-header -->

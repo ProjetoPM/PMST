@@ -287,7 +287,10 @@ class Project extends CI_Controller
        		$this->db->where('project_id', $id);
        		$this->db->join('user', 'user.user_id = project_user.user_id');
        		$dataproject['members'] = $this->db->get('project_user')->result();
-       		
+			   
+			$this->lang->load('project-page','english');
+			// $this->lang->load('project-page','portuguese-brazilian');   
+			
        		$this->load->view('frame/header_view');
        		$this->load->view('frame/sidebar_nav_view');
        		$this->load->view('project/top-menu', $dataproject);
