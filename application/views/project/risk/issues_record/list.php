@@ -61,13 +61,10 @@
 												<input type="hidden" name="project_id" value="<?=$item->project_id?>">
 												<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 											</form>
-										</div>
-
-
-										<div class="col-sm-4">
-											<form action="<?php echo base_url() ?>Issues_Record/delete/<?php echo $item->issues_record_id; ?>" method="post">
-												<input type="hidden" name="project_id" value="<?=$project_id?>">
-												<button type="submit" class="btn btn-danger" ><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+										</div>						
+												
+												<button type="submit" class="btn btn-danger" onclick="deletar(<?=$item->project_id?>, <?= $item->issues_record_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+												
 											</form>
 										</div>
 									</div>
@@ -79,8 +76,6 @@
 
 					</tbody>
 				</table> 
-
-
 
 				<!-- loading footer and script-->
 				<div class="col-sm-12" position= "absolute">
@@ -94,6 +89,43 @@
 			<script src="<?=base_url()?>assets/js/jquery.dataTables.min.js"></script>
 			<script src="<?=base_url()?>assets/js/dataTables.bootstrap.js"></script>
 			<script src="<?=base_url()?>assets/js/dataTables.responsive.js"></script>
+
+			
+	<!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css"/>
+
+			<script type="text/javascript">
+
+						function deletar(idProjeto, idEval){
+							//e.preventDefault();
+							alertify.confirm('Do you agree?').setting({
+								'labels':{
+									ok: 'Agree',
+									cancel: 'Cancel'
+								},
+								'reverseButtons': false,
+								'onok': function(){
+
+									console.log(`Passei o ${idProjeto} e ${idEval}`);
+
+							$.post("<?php echo base_url() ?>Issues_Record/delete/" + idEval,
+							{
+								project_id: idProjeto,
+							});
+							location.reload();
+											alertify.success('You agree.');
+										},
+										'oncancel': function(){
+											alertify.error('You did not agree.');
+										}
+									}).show();
+
+						}
+						
+					</script>
 
 			<script type="text/javascript">
 				'use strict'
@@ -133,11 +165,11 @@
 				function format (dados) {
 					return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
 					'<tr>'+
-					'<td>Planned Resolution Date: </td>'+
+					'<td><b><?=$this->lang->line('ir-resolution_date')?></b> </td>'+
 					'<td>'+dados.resolution_date+'</td>'+
 					'</tr>'+
 					'<tr>'+
-					'<td>Reorganized Resolution Date: </td>'+
+					'<td><b><?=$this->lang->line('ir-replan_date')?></b></td>'+
 					'<td>'+dados.replan_date+'</td>'+
 					'</tr>'+
 					'</table>';
