@@ -1,8 +1,8 @@
 <div id="page-wrapper">
 	<div class="row">
-		                <div class="col-lg-12">
+		<div class="col-lg-12">
 			<h1 class="page-header"><?= $this->lang->line('tep-title') ?></h1>
-						</div>
+		</div>
 		<!-- /.col-lg-12 -->
 	</div>
 	<!-- /.row -->
@@ -21,7 +21,9 @@
 		<div class="row">
 			<div class="col-lg-12">
 
-				<form method="POST" action="<?php echo base_url('Change_log/insert/'); ?><?php echo $id; ?>">
+				<form method="POST" action="<?php echo base_url()?>Change_log/insert/">
+
+					<input type="hidden" name="project_id"  value="<?= $project_id?>">
 
 					<div class="col-lg-4 form-group">
 						<label for="change_description"><?= $this->lang->line('tep-client') ?> *</label>  
@@ -131,20 +133,18 @@
 						</button> 
 					</form>
 
-
-					<form action="<?php echo base_url('project/'); ?><?php echo $id; ?>" >
+					<form action="<?php echo base_url()?>/Change_log/list/<?=$project_id?>">
 						<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 					</form>
 				</div>
 
-
-			</section>
+			</div>
 		</div>
-	</div>	
-	<script type="text/javascript">
-		var currentDate = new Date();
-		var today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 0, 0, 0, 0);
-		var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+
+		<script type="text/javascript">
+			var currentDate = new Date();
+			var today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 0, 0, 0, 0);
+			var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
 
 		//Start Date Ends Here
 		var endDate = $("#comments_date").datepicker({
@@ -158,5 +158,11 @@
 			/*todayHighlight : true,*/
 		});
 	        //End Date Ends Here
-	       </script>
-	       <?php $this->load->view('frame/footer_view'); ?>
+	    </script>
+
+	    <div class="col-sm-12" position= "absolute">
+	    	<div class="container">
+	    		<?php $this->load->view('frame/footer_view') ?>            
+	    	</div>
+	    </div>
+	</div>
