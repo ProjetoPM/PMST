@@ -22,14 +22,14 @@ class Team_Performance_Evaluation extends CI_Controller {
 		$dado['team_performance_evaluation'] = $this->Team_Performance_Evaluation_model->getAllTeamEvalProject($project_id);
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('human_resource/team_performance_evaluation/list',$dado);
+		$this->load->view('project/human_resource/team_performance_evaluation/list',$dado);
 	}
 
 	public function addnew($project_id){
 		$dado['id'] = $project_id;
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('human_resource/team_performance_evaluation/new',$dado);
+		$this->load->view('project/human_resource/team_performance_evaluation/new',$dado);
 	}
 
 	public function edit($team_performance_evaluation_id) {
@@ -37,7 +37,7 @@ class Team_Performance_Evaluation extends CI_Controller {
 		$query['team_performance_evaluation'] = $this->Team_Performance_Evaluation_model->getTeamEval($team_performance_evaluation_id);
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
-		$this->load->view('human_resource/team_performance_evaluation/edit', $query);
+		$this->load->view('project/human_resource/team_performance_evaluation/edit', $query);
 	}
 
 	public function insert($project_id){

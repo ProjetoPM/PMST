@@ -134,40 +134,31 @@
 						function format (dados) {
 							return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
 							'<tr>'+
-							'<td><b><?=$this->lang->line('eval-role')?>:</b> </td>'+
-							'<td>'+dados.role+'</td>'+
+							'<td><b><?=$this->lang->line('eval-role')?>: </b>'+dados.role+'</td>'+
 							'</tr>'+
 							'<tr>'+
-							'<td><b><?=$this->lang->line('eval-team_member_comments')?>:</b> </td>'+
-							'<td>'+dados.team_member_comments+'</td>'+
+							'<td><b><?=$this->lang->line('eval-team_member_comments')?>: </b>'+dados.team_member_comments+'</td>'+
 							'</tr>'+
 							'<tr>'+
-							'<td><b><?=$this->lang->line('eval-strong_points')?>:</b> </td>'+
-							'<td>'+dados.strong_points+'</td>'+
+							'<td><b><?=$this->lang->line('eval-strong_points')?>: </b>'+dados.strong_points+'</td>'+
 							'</tr>'+
 							'<tr>'+
-							'<td><b><?=$this->lang->line('eval-improvement')?>:</b> </td>'+
-							'<td>'+dados.improvement+'</td>'+
+							'<td><b><?=$this->lang->line('eval-improvement')?>: </b>'+dados.improvement+'</td>'+
 							'</tr>'+
 							'<tr>'+
-							'<td><b><?=$this->lang->line('eval-development_plan')?>:</b> </td>'+
-							'<td>'+dados.development_plan+'</td>'+
+							'<td><b><?=$this->lang->line('eval-development_plan')?>: </b>'+dados.development_plan+'</td>'+
 							'</tr>'+
 							'<tr>'+
-							'<td><b><?=$this->lang->line('eval-already_developed')?>:</b> </td>'+
-							'<td>'+dados.already_developed+'</td>'+
+							'<td><b><?=$this->lang->line('eval-already_developed')?>: </b>'+dados.already_developed+'</td>'+
 							'</tr>'+
 							'<tr>'+
-							'<td><b><?=$this->lang->line('eval-external_comments')?>:</b> </td>'+
-							'<td>'+dados.external_comments+'</td>'+
+							'<td><b><?=$this->lang->line('eval-external_comments')?>: </b>'+dados.external_comments+'</td>'+
 							'</tr>'+
 							'<tr>'+
-							'<td><b><?=$this->lang->line('eval-team_mates_comments')?>:</b> </td>'+
-							'<td>'+dados.team_mates_comments+'</td>'+
+							'<td><b><?=$this->lang->line('eval-team_mates_comments')?>: </b>'+dados.team_mates_comments+'</td>'+
 							'</tr>'+
 							'<tr>'+
-							'<td><b><?=$this->lang->line('eval-team_performance_evaluationcol')?>:</b> </td>'+
-							'<td>'+dados.team_performance_evaluationcol+'</td>'+
+							'<td><b><?=$this->lang->line('eval-team_performance_evaluationcol')?>: </b>'+dados.team_performance_evaluationcol+'</td>'+
 							'</tr>'+
 							'</table>';
 						}
@@ -191,9 +182,9 @@
 							{
 								project_id: idProjeto,
 							});
-
-											alertify.success('You agree.');
 											location.reload();
+											alertify.success('You agree.');
+											
 							//location.reload();
 										},
 										'oncancel': function(){

@@ -167,7 +167,7 @@
 									        keyboardNavigation: true,
 									        orientation: "bottom",
 									        todayHighlight : true,
-									        startDate: today,
+									        //startDate: today,
 									    }).on('changeDate', function(ev) {
 									    	var newDate = new Date(ev.date.setDate(ev.date.getDate() + 1));
 									    	endDate.datepicker("setStartDate", newDate);
