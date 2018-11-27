@@ -66,8 +66,10 @@
               <div class="col-lg-12 wrapper noSpaceSide">  
                 <div class="noSpaceSide"> 
                   <div class="col-lg-1 sideBox integrationBox integrationColor">
-                    <i class="glyphicon glyphicon-star"></i> 
-                    <?=$this->lang->line('integration')?>
+                    <div class="verticalAlign">
+                      <i class="glyphicon glyphicon-star"></i> 
+                      <?=$this->lang->line('integration')?>
+                    </div>
                   </div>
 
                   <div class="col-lg-10 noSpaceSide floatRight">
@@ -193,8 +195,10 @@
               <div class="col-lg-12 wrapper noSpaceSide">  
                 <div class="noSpaceSide">  
                   <div class="col-lg-1 sideBox scopeBox scopeColor">
-                    <i class="glyphicon glyphicon-search"></i> 
-                    <?=$this->lang->line('scope')?>
+                    <div class="verticalAlign">
+                      <i class="glyphicon glyphicon-search"></i> 
+                      <?=$this->lang->line('scope')?>
+                    </div>
                   </div>
                   
                   <div class="col-lg-10 noSpaceSide floatRight">
@@ -290,8 +294,10 @@
               <div class="col-lg-12 wrapper noSpaceSide">  
                 <div class="noSpaceSide">  
                   <div class="col-lg-1 sideBox timeBox">
-                    <i class="glyphicon glyphicon-time"></i> 
-                    <?=$this->lang->line('time')?>
+                    <div class="verticalAlign">
+                      <i class="glyphicon glyphicon-time"></i> 
+                      <?=$this->lang->line('time')?>
+                    </div>
                   </div>
                   
                   <div class="col-lg-10 noSpaceSide floatRight">
@@ -458,8 +464,10 @@
               <div class="col-lg-12 wrapper noSpaceSide">  
                 <div class="noSpaceSide">  
                   <div class="col-lg-1 sideBox costBox">
-                    <i class="fa fa-money"></i> 
-                    <?=$this->lang->line('cost')?>
+                    <div class="verticalAlign">
+                      <i class="fa fa-money"></i> 
+                      <?=$this->lang->line('cost')?>
+                    </div>
                   </div>
                   
                   <div class="col-lg-10 noSpaceSide floatRight">
@@ -541,8 +549,10 @@
               <div class="col-lg-12 wrapper noSpaceSide">  
                 <div class="noSpaceSide"> 
                   <div class="col-lg-1 sideBox qualityBox">
-                    <i class="fa fa-trophy"></i> 
-                    <?=$this->lang->line('quality')?>
+                    <div class="verticalAlign">
+                      <i class="fa fa-trophy"></i> 
+                      <?=$this->lang->line('quality')?>
+                    </div>
                   </div>
 
                   <div class="col-lg-10 noSpaceSide floatRight">
@@ -638,8 +648,10 @@
               <div class="col-lg-12 wrapper noSpaceSide">  
                 <div class="noSpaceSide"> 
                   <div class="col-lg-1 sideBox hrBox">
-                    <i class="fa fa-male"></i> 
-                    <?=$this->lang->line('hr')?>
+                    <div class="verticalAlign">
+                      <i class="fa fa-male"></i> 
+                      <?=$this->lang->line('hr')?>
+                    </div>      
                   </div>
 
                   <div class="col-lg-10 noSpaceSide floatRight">
@@ -757,8 +769,10 @@
               <div class="col-lg-12 wrapper noSpaceSide">  
                 <div class="noSpaceSide">  
                   <div class="col-lg-1 sideBox communicColor verticalOneBox">
-                    <i class="glyphicon glyphicon-bullhorn"></i> 
-                    <?=$this->lang->line('communication')?>
+                    <div class="verticalAlign">
+                      <i class="glyphicon glyphicon-bullhorn"></i> 
+                      <?=$this->lang->line('communication')?>
+                    </div>
                   </div>
 
                   <div class="col-lg-10 noSpaceSide floatRight">
@@ -801,8 +815,10 @@
               <div class="col-lg-12 wrapper noSpaceSide">  
                 <div class="noSpaceSide"> 
                   <div class="col-lg-1 sideBox riskColor verticalOneBox">
-                    <i class="glyphicon glyphicon-exclamation-sign"></i> 
-                    <?=$this->lang->line('risk')?>
+                    <div class="verticalAlign">
+                      <i class="glyphicon glyphicon-exclamation-sign"></i> 
+                      <?=$this->lang->line('risk')?>
+                    </div>
                   </div>
 
                   <div class="col-lg-10 noSpaceSide floatRight">
@@ -859,8 +875,10 @@
               <div class="col-lg-12 wrapper noSpaceSide">  
                 <div class="noSpaceSide"> 
                   <div class="col-lg-1 sideBox procurementColor procurementBox">
-                    <i class="glyphicon glyphicon-shopping-cart"></i> 
-                    <?=$this->lang->line('procurement')?>
+                    <div class="verticalAlign">
+                      <i class="glyphicon glyphicon-shopping-cart"></i> 
+                      <?=$this->lang->line('procurement')?>
+                    </div>
                   </div>
                   
                   <div class="col-lg-10 noSpaceSide floatRight">
@@ -956,8 +974,10 @@
               <div class="col-lg-12 wrapper noSpaceSide">  
                 <div class="noSpaceSide"> 
                   <div class="col-lg-1 sideBox stakeholderColor stakeholderBox">
-                    <i class="fa fa-users"></i> 
-                    <?=$this->lang->line('stakeholder')?>
+                    <div class="verticalAlign">
+                      <i class="fa fa-users"></i> 
+                      <?=$this->lang->line('stakeholder')?>
+                    </div>
                   </div>
 
                   <div class="col-lg-10 noSpaceSide floatRight">
