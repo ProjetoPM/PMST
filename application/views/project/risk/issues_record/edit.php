@@ -19,7 +19,8 @@
 		<?php endif; ?>
 		<!-- /.row -->   
 		<!-- acessa o objeto do array -->
-
+		<div class="row">
+			<div class="col-lg-12">
 		<?php extract($issues_record); ?>
 		
 		<form action="<?=base_url()?>Issues_Record/update/<?php echo $issues_record_id; ?>" method="post">
@@ -101,16 +102,16 @@
 				<textarea class="form-control" id="observations" name="observations" maxlength="45"><?php echo $observations; ?></textarea>
 			</div>
 
-			<div><button type="submit" class="btn btn-lg btn-success pull-right">Save</button>
-
-
-			</div>
+			<!-- buttons -->
+			<div class="col-lg-12"><button type="submit" class="btn btn-lg btn-success pull-right">
+				<i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
+			</button>
 				</form>
 				
 					<form action="<?php echo base_url()?>/Issues_Record/list/<?=$project_id?>">
 					<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 				</form>
-				
+				</div>
 
 		</div>
 	</div>

@@ -77,6 +77,11 @@
 					</tbody>
 				</table> 
 
+				<div class="col-lg-12">
+					<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>">
+					<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
+				</form>
+				</div>
 				<!-- loading footer and script-->
 				<div class="col-sm-12" position= "absolute">
 					<div class="container">
