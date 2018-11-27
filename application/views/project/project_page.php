@@ -696,7 +696,7 @@
 
                     <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
-                    <a href="<?=base_url("Ade/getAde_form/".$project[0]->project_id) ?>">
+                    <a href="<?=base_url("Team_Performance_Evaluation/list/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox hrColor">
                         <div class="verticalAlign">
                           <i class="fa fa-male"></i> 
