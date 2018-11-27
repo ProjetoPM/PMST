@@ -62,9 +62,9 @@
 												<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 											</form>
 										</div>						
-												
+												<div class="col-sm-4">
 												<button type="submit" class="btn btn-danger" onclick="deletar(<?=$item->project_id?>, <?= $item->issues_record_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
-												
+												</div>
 											</form>
 										</div>
 									</div>
