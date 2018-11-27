@@ -21,7 +21,7 @@ class Scope_specification extends CI_Controller {
 		//$dado['verific'] = true;
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/scope_specification',$dado);
+		$this->load->view('project/scope/scope_specification',$dado);
 	}
 
 	public function insert($id){
@@ -33,10 +33,10 @@ class Scope_specification extends CI_Controller {
 		$Scope_specification['restrictions'] = $this->input->post('restrictions');
 		$Scope_specification['assumptions'] = $this->input->post('assumptions');
 		$Scope_specification['project_id'] = $id;
-		$Scope_specification['status'] = 1;
+	
 		$query=false;
-		if($dado['Scope_specification']!=null){
-			foreach($dado['Scope_specification'] as $scope){
+		if($dado['scope_specification']!=null){
+			foreach($dado['scope_specification'] as $scope){
 				$verific = $scope->project_id;
 				if($id==$verific){
 					$query = $this->Scope_specification_model->update($Scope_specification, $id);

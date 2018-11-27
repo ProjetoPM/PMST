@@ -1,5 +1,5 @@
 <?php
-$lang['phases'] = 'Phases';
+$lang['phases'] = 'PHASES';
 
 // Top Phases
 $lang['initiating'] = 'Initiating';
@@ -13,7 +13,7 @@ $lang['integration'] = 'Integration';
 $lang['scope'] = 'Scope';
 $lang['time'] = 'Time';
 $lang['cost'] = 'Cost';
-$lang['quality'] = 'Quaçity';
+$lang['quality'] = 'Quality';
 $lang['hr'] = 'Human Resources';
 $lang['communication'] = 'Communication';
 $lang['risk'] = 'Risk';
@@ -40,7 +40,7 @@ $lang['risk-management'] = 'Risk Management';
 $lang['change-request'] = 'Change Request';
 $lang['make-decisions'] = 'Make-or-Buy Decisions';
 $lang['stakeholder-management'] = 'Stakeholder Management';
-$lang['requirement-documentati'] = 'Requirement Documentati';
+$lang['requirement-documentation'] = 'Requirement Documentation';
 $lang['requirement-traceability'] = 'Requirement Traceability Matrix';
 $lang['project-schedule-network'] = 'Project Schedule Network';
 $lang['activity-resource'] = 'Activity Resource Requirement';
@@ -64,6 +64,7 @@ $lang['deliverables-status'] = 'Deliverables Status';
 $lang['project-team'] = 'Project Team Directory';
 $lang['team-performance'] = 'Team Performance Assessment';
 $lang['enterprise-environment'] = 'Enterprise Environment Factors';
+$lang['issues-record'] ='Issues Record';
 $lang['procurement-agreement'] = 'Procurement Agreement';
 $lang['issue-log'] = 'Issue Log';
 $lang['change-log'] = 'Change Log';
@@ -71,6 +72,6 @@ $lang['earned-value'] = 'Earned Value Status Report';
 $lang['lessons-learned'] = 'Lessons Learned';
 
 // btn NOTIFICATION BOARD
-$lang['notiFication-board'] = 'NOTIFICATION BOARD';
+$lang['notification-board'] = 'NOTIFICATION BOARD';
 
 ?>

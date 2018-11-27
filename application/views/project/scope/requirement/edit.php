@@ -18,7 +18,6 @@
         <strong><?php echo $this->session->flashdata('error'); ?></strong>
       </div>
     <?php endif;?>
-    <div class="container">
       <div class="row">
         <form method="POST" action="<?php echo base_url()?>Requirement_registration/update/<?php echo $requirement_registration[0]->requirement_registration_id; ?>">
 
@@ -242,5 +241,4 @@
            <button class="btn btn-lg btn-info pull-left">  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
          </form>
        </div>
-     </div>
 <?php $this->load->view('frame/footer_view')?>

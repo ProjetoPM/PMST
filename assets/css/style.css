@@ -68,6 +68,11 @@
     color: #4c3221; cursor: pointer;
 }
 
+/*  */
+.logo{
+    width: 100%;
+}
+
 .padCalendar{
     margin-bottom: 2em;
 }
@@ -75,6 +80,7 @@
 .pad-modal{
     padding: 3%;
 }
+
 
 /* CSS esconder box da project page*/
 @media (max-width: 1199px) {
@@ -95,21 +101,87 @@
     display: grid;
 }
 
-.midBox{
-    background-color: #66d065;
-}
-
 .menuBox{
-    background-color: #0006ff;
+    background-color: rgb(88, 95, 94);
 }
 
-.sideBox{
-    background-color: #20b2aa;
+.integrationColor{
+    background: rgb(131, 156, 175);
+}
+.wrapper a:hover .integrationColor{
+    background: rgb(88, 105, 117); 
+}
+
+.scopeColor{
+    background: #469F33;
+}
+.wrapper a:hover .scopeColor{
+    background: rgb(55, 122, 40); 
+}
+
+.timeBox, .timeColor{
+    background: #C95F4F;
+}
+.wrapper a:hover .timeColor{
+    background: rgb(141, 65, 54); 
+}
+
+.costBox, .costColor{
+    background: #00BABA;
+}
+.wrapper a:hover .costColor{
+    background: #157974;
+}
+
+.qualityBox, .qualityColor{
+    background: #FFC842;
+}
+.wrapper a:hover .qualityColor{
+    /* background: rgb(180, 104, 33); */
+    background: rgb(204, 161, 52);
+}
+
+.hrBox, .hrColor{
+    background: #8F78A4;
+}
+.wrapper a:hover .hrColor{
+    background: rgb(104, 87, 119); 
+}
+
+.communicColor{
+    background: #E49A6E;
+}
+.wrapper a:hover .communicColor{
+    background: rgb(180, 121, 86);
+}
+
+.riskColor{
+    background: #8E3636;
+}
+.wrapper a:hover .riskColor{
+    background: rgb(110, 41, 41); 
+}
+
+.procurementColor{
+    background: #79BF73;
+}
+.wrapper a:hover .procurementColor{
+    background: rgb(87, 138, 82); 
+}
+
+.stakeholderColor{
+    background: #5792F2;
+}
+.wrapper a:hover .stakeholderColor{
+    background: rgb(67, 111, 182); 
+}
+
+.notifBoardColor{
+    background: #E5BE7B;
 }
 
 .midBox, .menuBox, .sideBox{
         color: #FFF;
-        /*margin-bottom: 5px;*/
 }
 
 .midBox, .menuBox, .sideBox, .transparentBox{
@@ -119,26 +191,53 @@
 }
 
 @media (min-width: 1200px) {
+    .verticalAlign{
+        height:4em;
+        width:8em;
+        text-align:center;
+        display: table-cell; 
+        vertical-align:middle; 
+    }
+
+    .horizontalAlign{
+        width:27em;
+    }
+
+    .noSpaceSide{
+        margin-right: 0;
+        padding-right: 0;  
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .floatRight{
+        float: right;
+    }
+
+    #panelPhases{
+		margin-left: 5em;
+	}
+
+	.wrapper{
+		font-size: 0.7em;
+		text-align: center;
+	}
+    
     .midBox{
-        background-color: #66d065;
         padding: 0.5em;
         height: 5em;
         margin: 0.5%;
-        width: 12%;
-        /*width: 7em;*/
+        width: 13%;
     }
 
     .menuBox{
-        background-color: #0006ff;
         padding: 0.5em;
         height: 5em;
         margin: 0.5%;
         width: 12%;
-        /*width: 7em;*/
     }
 
     .sideBox{
-        background-color: #20b2aa;
         margin: 1%;
     }
 
@@ -176,86 +275,117 @@
         padding-top: 1em;
     }
 
-    /*side*/
     .integrationBox{
-        line-height: 17.5em;
-        /*width: 9em;*/
+        height:18.5em;
     }
-
-    .scopeBox{
-        line-height: 11.7em;
-        /*width: 9em;*/
+    
+    .integrationBox .verticalAlign{
+        height:18.5em;
+        width:10em;
+        text-align:center;
+        display: table-cell; 
+        vertical-align:middle; 
     }
 
     .timeBox{
-        line-height: 23.5em;
-        /*width: 9em;*/
+        height: 24.6em;
+    }
+
+    .timeBox .verticalAlign{
+        height:24.6em;
+        width:10em;
+        text-align:center;
+        display: table-cell; 
+        vertical-align:middle; 
     }
 
     .hrBox{
-        line-height: 4em;
-        /*width: 9em;*/
-        height: 23.4em;
-        padding-top: 7.2em;
+        height: 24.5em;
+    }
 
+    .hrBox .verticalAlign{
+        height:24.5em;
+        width:10em;
+        text-align:center;
+        display: table-cell; 
+        vertical-align:middle; 
     }
 
     .verticalOneBox{
-        line-height: 5.6em;
-        opacity: 1; 
-        color: #ccc ;
-        /*width: 9em;*/
+        height: 5.7em;
     }
 
-    .costBox{
-        line-height: 11.7em;
-        /*width: 9em;*/
+    .verticalOneBox .verticalAlign{
+        height:5.7em;
+        width:10em;
+        text-align:center;
+        display: table-cell; 
+        vertical-align:middle; 
     }
 
-    .qualityBox{
-        line-height: 11.7em;
-        /*width: 9em;*/
+    .stakeholderBox, .scopeBox, .costBox, .qualityBox, .procurementBox{
+        height: 12em;
     }
 
-    .procurementBox{
-        line-height: 11.7em;
-        /*width: 9em;*/
+    .stakeholderBox .verticalAlign, .scopeBox .verticalAlign, .costBox .verticalAlign, .qualityBox .verticalAlign, .procurementBox .verticalAlign{
+        height:12em;
+        width:10em;
+        text-align:center;
+        display: table-cell; 
+        vertical-align:middle; 
     }
-
-    .stakeholderBox{
-        line-height: 11.7em;
-        /*width: 9em;*/
-    }
-
 
     .transparentBox, .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
-        width: 7.5em;
+        width: 14.6%;
         margin-top: 0;
     }
 }
 
+@media (max-width: 1341px){
+    .menuBox{
+        width: 13%;
+    }
+    .planningBox{
+        width: 41%;
+    }
+}
 
 @media (min-width: 1342px) {
+
+    .noSpaceSide{
+        margin-right: 0;
+        padding-right: 0;  
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .floatRight{
+        float: right;
+    }
+
+    #panelPhases{
+		margin-left: 3em;
+	}
+
+	.wrapper{
+		font-size: 0.8em;
+    }
+    
     .midBox{
-        background-color: #66d065;
         padding: 0.5em;
         height: 5em;
         margin: 0.5%;
         width: 13.2%;
-        /*width: 7em;*/
     }
 
     .menuBox{
-        background-color: #0006ff;
         padding: 0.5em;
         height: 5em;
         margin: 0.5%;
         width: 13.2%;
-        /*width: 7em;*/
     }
 
     .sideBox{
-        background-color: #20b2aa;
         margin: 1%;
     }
 
@@ -278,66 +408,52 @@
         border-radius: 5px;
     }
 
-    .planningBox{
-        /*line-height: 1em;
-        width: 25em;*/
-    }
-
     .integrationBox{
-        line-height: 17.5em;
-        /*width: 9em;*/
+        height:18.2em;
     }
 
-    .scopeBox{
-        line-height: 11.7em;
-        /*width: 9em;*/
+    .integrationBox .verticalAlign{
+        height:18.2em;
     }
 
     .timeBox{
-        line-height: 23.5em;
-        /*width: 9em;*/
+        height: 24.3em;
+    }
+
+    .timeBox .verticalAlign{
+        height: 24.3em;
     }
 
     .hrBox{
-        line-height: 4em;
-        /*width: 9em;*/
-        height: 23.4em;
-        padding-top: 7.2em;
+        height: 24.3em;
+    }
 
+    .hrBox .verticalAlign{
+        height:24.3em;
     }
 
     .verticalOneBox{
-        line-height: 5.6em;
-        /*width: 9em;*/
+        height: 5.7em;
+    }
+
+    .verticalOneBox .verticalAlign{
+        height:5.7em;
+    }
+
+    .stakeholderBox, .scopeBox, .costBox, .qualityBox, .procurementBox{
+        height: 12em;
+    }
+
+    .stakeholderBox .verticalAlign, .scopeBox .verticalAlign, .costBox .verticalAlign, .qualityBox .verticalAlign, .procurementBox .verticalAlign{
+        height:12em;
     }
 
     .transparentBox{
         line-height: 5.6em;
     }
 
-    .costBox{
-        line-height: 11.7em;
-        /*width: 9em;*/
-    }
-
-    .qualityBox{
-        line-height: 11.7em;
-        /*width: 9em;*/
-    }
-
-    .procurementBox{
-        line-height: 11.7em;
-        /*width: 9em;*/
-    }
-
-    .stakeholderBox{
-        line-height: 11.7em;
-        /*width: 9em;*/
-    }
-
-
     .transparentBox, .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
-        width: 9em;
+        width: 14.6%;
         margin-top: 0;
     }
 
@@ -346,11 +462,6 @@
 /* Formatações links da Phases Project Page*/
 .wrapper  a:link .midBox{
     /*color: #FFF;*/
-}
-
-.wrapper a:hover .midBox{
-    /*color: red;*/
-    background: #00ad0f; 
 }
 
 .wrapper a:hover{
@@ -366,6 +477,7 @@
     line-height: 20px;
 }
 
+
 /* Icone para DataTables */
 td.moreInformationTable {
     background: url('../images/icons/details_open.png') no-repeat center center;
@@ -374,3 +486,4 @@ td.moreInformationTable {
 tr.shown td.moreInformationTable {
     background: url('../images/icons/details_close.png') no-repeat center center;
 }
+
