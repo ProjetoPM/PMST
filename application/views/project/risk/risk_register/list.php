@@ -80,38 +80,38 @@
 
 											<div class="col-sm-4">
 												<!--<form action="<?php echo base_url() ?>RegisterRisk/delete/<?php echo $risk->risk_register_id; ?>" method="post">
-												<input type="hidden" name="project_id" value="<?=$risk->project_id?>"> -->
-												<button type="submit" class="btn btn-danger" onclick="deletar(<?=$risk->project_id?>, <?= $risk->risk_register_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
-												<!-- </form> -->
+													<input type="hidden" name="project_id" value="<?=$risk->project_id?>"> -->
+													<button type="submit" class="btn btn-danger" onclick="deletar(<?=$risk->project_id?>, <?= $risk->risk_register_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+													<!-- </form> -->
+												</div>
 											</div>
-										</div>
-									</td>
-								</tr> 
-								<?php
-							}
-							?>
+										</td>
+									</tr> 
+									<?php
+								}
+								?>
 
-						</tbody>
-					</table> 
-
+							</tbody>
+						</table> 
 
 
-					<!-- loading footer and script-->
-					<div class="col-sm-12" position= "absolute">
-						<div class="container">
-							<?php $this->load->view('frame/footer_view') ?>            
+
+						<!-- loading footer and script-->
+						<div class="col-sm-12" position= "absolute">
+							<div class="container">
+								<?php $this->load->view('frame/footer_view') ?>            
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<script src="<?=base_url()?>assets/js/jquery-2.1.3.min.js"></script>
-				<script src="<?=base_url()?>assets/js/jquery.dataTables.min.js"></script>
-				<script src="<?=base_url()?>assets/js/dataTables.bootstrap.js"></script>
-				<script src="<?=base_url()?>assets/js/dataTables.responsive.js"></script>
-				<!-- JavaScript -->
-				<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
-				<!-- CSS -->
-				<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css"/>
+					<script src="<?=base_url()?>assets/js/jquery-2.1.3.min.js"></script>
+					<script src="<?=base_url()?>assets/js/jquery.dataTables.min.js"></script>
+					<script src="<?=base_url()?>assets/js/dataTables.bootstrap.js"></script>
+					<script src="<?=base_url()?>assets/js/dataTables.responsive.js"></script>
+					<!-- JavaScript -->
+					<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
+					<!-- CSS -->
+					<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css"/>
 
 					<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 					-->
@@ -145,7 +145,7 @@
 								tr.removeClass('shown');
 							}
 							else {
-								row.child( format(dados).bold() ).show();
+								row.child( format(dados) ).show();
 								tr.addClass('shown');
 							}
 						});
@@ -153,12 +153,10 @@
 						function format (dados) {
 							return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
 							'<tr>'+
-							'<td><?=$this->lang->line('risk-risk_status')?>: </td>'+
-							'<td>'+dados.risk_status+'</td>'+
+							'<td><b><?=$this->lang->line('risk-risk_status')?>: </b>'+dados.risk_status+'</td>'+
 							'</tr>'+
 							'<tr>'+
-							'<td><?=$this->lang->line('risk-identifier')?>: </td>'+
-							'<td>'+dados.identifier+'</td>'+
+							'<td><b><?=$this->lang->line('risk-identifier')?>: </b>'+dados.identifier+'</td>'+
 							'</tr>'+
 							'</table>';
 						}
@@ -178,19 +176,17 @@
 
 									console.log(`Passei o ${idProjeto} e ${idRisk}`);
 
-							$.post("<?php echo base_url() ?>RegisterRisk/delete/" + idRisk,
-							{
-								project_id: idProjeto,
-							},
-							function(data, status){
-								location.reload();
-							});
-											alertify.success('You agree.');
-										},
-										'oncancel': function(){
-											alertify.error('You did not agree.');
-										}
-									}).show();
+									$.post("<?php echo base_url() ?>RegisterRisk/delete/" + idRisk,
+									{
+										project_id: idProjeto,
+									});
+									location.reload();
+									alertify.success('You agree.');
+								},
+								'oncancel': function(){
+									alertify.error('You did not agree.');
+								}
+							}).show();
 
 						}
 						
