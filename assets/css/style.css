@@ -199,10 +199,6 @@
         vertical-align:middle; 
     }
 
-    .horizontalAlign{
-        width:27em;
-    }
-
     .noSpaceSide{
         margin-right: 0;
         padding-right: 0;  
@@ -243,6 +239,10 @@
 
     .planningBox{
         width: 37.7%;
+    }
+
+    .planningBox .verticalAlign{
+        width: 1%;
     }
 
     .transparentBox{
@@ -351,6 +351,9 @@
 }
 
 @media (min-width: 1342px) {
+    .verticalAlign{
+        width: 14.6%;
+    }
 
     .noSpaceSide{
         margin-right: 0;
@@ -393,6 +396,10 @@
         width: 41.5%;
     }
 
+    .planningBox .verticalAlign{
+        width: 1%;
+    }
+
     .transparentBox{
         opacity: 1; 
         color: #ccc ;
@@ -414,6 +421,10 @@
 
     .integrationBox .verticalAlign{
         height:18.2em;
+        width: 14.6%;
+        text-align:center;
+        display: table-cell; 
+        vertical-align:middle; 
     }
 
     .timeBox{
@@ -422,6 +433,10 @@
 
     .timeBox .verticalAlign{
         height: 24.3em;
+        width: 14.6%;
+        text-align:center;
+        display: table-cell; 
+        vertical-align:middle; 
     }
 
     .hrBox{
@@ -430,6 +445,10 @@
 
     .hrBox .verticalAlign{
         height:24.3em;
+        width: 14.6%;
+        text-align:center;
+        display: table-cell; 
+        vertical-align:middle; 
     }
 
     .verticalOneBox{
@@ -438,6 +457,10 @@
 
     .verticalOneBox .verticalAlign{
         height:5.7em;
+        width: 14.6%;
+        text-align:center;
+        display: table-cell; 
+        vertical-align:middle; 
     }
 
     .stakeholderBox, .scopeBox, .costBox, .qualityBox, .procurementBox{
@@ -446,6 +469,10 @@
 
     .stakeholderBox .verticalAlign, .scopeBox .verticalAlign, .costBox .verticalAlign, .qualityBox .verticalAlign, .procurementBox .verticalAlign{
         height:12em;
+        width: 14.6%;
+        text-align:center;
+        display: table-cell; 
+        vertical-align:middle; 
     }
 
     .transparentBox{
@@ -458,6 +485,125 @@
     }
 
 }
+
+@media (min-width:1600px){
+    .integrationBox{
+        height: 18.8em;
+        /* border: 5px solid red; */
+    }
+}
+
+@media (min-width: 1700px){
+    .timeBox{
+        height: 25.2em;        
+    }
+
+    .hrBox{
+        height: 25em;        
+    }
+}
+
+@media (min-width:1900px){
+    .integrationBox{
+        height: 19.2em;
+    }
+
+    .stakeholderBox, .scopeBox, .costBox, .qualityBox, .procurementBox{
+        height: 12.7em;
+    }
+
+    .timeBox{
+        height: 25.5em;
+    }
+
+    .hrBox{
+        height: 25.5em;
+    }
+
+    .verticalOneBox{
+        height: 6.2em;
+    }
+}
+
+@media (min-width: 2400px){
+    .planningBox{
+        width: 41.5%;
+    }
+
+    .planningBox .verticalAlign{
+        width: 1%;
+    }
+
+    .integrationBox{
+        height:19.5em;
+    }
+
+    .integrationBox .verticalAlign{
+        height:19.5em;
+        width: 14.6%;
+        text-align:center;
+        display: table-cell; 
+        vertical-align:middle; 
+    }
+
+    .timeBox{
+        height: 26em;
+    }
+
+    .timeBox .verticalAlign{
+        height: 26em;
+        width: 1%;
+        text-align:center;
+        display: table-cell; 
+        vertical-align:middle; 
+    }
+
+    .hrBox{
+        height: 26em;
+    }
+
+    .hrBox .verticalAlign{
+        height: 26em;
+        width: 14.6%;
+        text-align:center;
+        display: table-cell; 
+        vertical-align:middle; 
+    }
+
+    .verticalOneBox{
+        height: 6.5em;
+    }
+
+    .verticalOneBox .verticalAlign{
+        height: 6em;
+        width: 1%;
+        text-align:center;
+        display: table-cell; 
+        vertical-align:middle; 
+    }
+
+    .stakeholderBox, .scopeBox, .costBox, .qualityBox, .procurementBox{
+        height: 13em;
+    }
+
+    .stakeholderBox .verticalAlign, .scopeBox .verticalAlign, .costBox .verticalAlign, .qualityBox .verticalAlign, .procurementBox .verticalAlign{
+        height: 13em;
+        width: 1%;
+        text-align:center;
+        display: table-cell; 
+        vertical-align:middle; 
+    }
+
+    .transparentBox{
+        line-height: 5.6em;
+    }
+
+    .transparentBox, .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
+        width: 14.6%;
+        margin-top: 0;
+    }
+}
+
 
 /* Formatações links da Phases Project Page*/
 .wrapper  a:link .midBox{
