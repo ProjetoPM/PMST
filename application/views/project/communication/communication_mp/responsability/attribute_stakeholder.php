@@ -20,80 +20,112 @@
       </div>
     <?php endif;?>
 
+    <!-- -->
+    <!-- <input type="hidden" name="project_id"  value="<?php echo $project_id; ?>">  -->
 
-    <div class="col-lg-12 form-group"> 
-      <select id="mySelect" onchange="myFunction()">
-        <option value="Audi">Audi
-          <option value="BMW">BMW
-            <option value="Mercedes">Mercedes
-              <option value="Volvo">Volvo
-              </select>
-
-              <p class="col-lg-12 form-group">When you select a new car, a function is triggered which outputs the value of the selected car.</p>
-              <p class="col-lg-12 form-group" id="demo"></p>
-
-            </div>
-
+           <form method="POST" action="<?php echo base_url()?>communication_item/insertStakeResponsability/">
 
             <div class="col-lg-12 form-group"> 
               <label>Select Stakeholder</label> 
-              <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="stakeholder"><i class="glyphicon glyphicon-comment"></i></a> 
+              <a class="btn-sm b2tn-default" data-toggle="tooltip" data-placement="right" title="stakeholder"><i class="glyphicon glyphicon-comment"></i></a> 
 
+              <select id="stakeholder_id" name="stakeholder_id" class="form-control" onchange="myFunction2()">
 
-              <select name="stakeholder_id" class="form-control"> 
+                <?php
+                foreach ($stakeholders as $stakeholder) {
+                  ?><!-- <?php echo $stakeholder->stakeholder_id;?> -->
+                  <option id="stake" name="stakeholder" value="<?php echo $stakeholder->stakeholder_id;?>"><?php echo $stakeholder->name;?></option>
+                  <?php } ?>
 
+              </select>
 
-
-                <option name="stakeholder_id1" value="nome1">Lucas Abner</option> 
-                <option name="stakeholder_id2" value="nome1">Fulano</option> 
-                <option name="stakeholder_id3" value="nome1">Ciclano</option> 
-                
-
-              </select> 
             </div> 
 
 
-            <div class="col-lg-2 form-group"> 
-              <label> Interest</label> 
-              <a class="btn-sm b2tn-default" data-toggle="tooltip" data-placement="right" title=interest><i class="glyphicon glyphicon-comment"></i></a> 
-              <select name="interest" class="form-control average" id="interest" onchange="changed(this)"> 
-                <option value="0">0%</option> 
-                <option value="10">10%</option> 
-                <option value="30">30%</option> 
-                <option value="50">50%</option> 
-                <option value="70">70%</option> 
-                <option value="90">90%</option> 
-              </select> 
-            </div> 
+            <table class="table table-bordered table-striped" >
+              <caption>Legenda</caption>
+              <thead>
+                <tr>
+                  <th>Initials</th>
+                  <th>Name</th>
+                </tr>
+              </thead>
+              <body>
+                <!-- Nessa Tabela as Initials tem q ficar no meio!!-->
+                <tr>
+                 <?php
+                 foreach ($communication_responsability as $res) {
+                  ?>
+                  <td style="text-align: center;"><?php echo $res->initials;?></td>
+                  <td><?php echo $res->name;?></td>
+                </tr>
+              <?php } ?>
+            </body>
+          </table>
+          <br></br>
 
 
+          <!-- Segunda Tabela!!-->
+          <div   align = "center">
+            <table class="table table-bordered table-striped" align="center">
+              <caption>Tabela Stakeholder</caption>
+              <thead>
+                <tr>
+                  <th >Description</th>
+                  <th id="nameStake"> 
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <?php
+                  foreach ($communication_item as $item) {
+                    ?>
+                    <td><?php echo $item->description; ?></td>
+                    <td>
+                      <label>Responsability</label>
+                      <select class="form-control" <select style="width:90px;">>
+                        <option></option>
+                        <?php foreach ($communication_responsability as $responsability) { ?>
+                          <option><?php echo $responsability->initials;?> </option>
+                        <?php } ?>
+                      </select>
+                    </td>
+                  </tr>
+                <?php } ?>
+              </tbody>
+            </table> 
 
-            <div  id="demo2" class="col-lg-2 form-group"> 
-              <label>Mudança</label> 
-              <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="campo de mudança"><i class="glyphicon glyphicon-comment"></i></a> 
-              <input type="text" class="form-control" name="average" id="average" onchange="changed(this)" > 
-            </div> 
+             <div class="col-lg-12">
+          <button id="new_comunication_stakeholder-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+            <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
+          </button> 
+        </form>
+
+        <form action="<?php echo base_url()?>/communication_item/list/<?=$project_id?>">
+         <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
+       </form>
+     </div>
 
 
+           <script type="text/javascript"> 
 
-            <script type="text/javascript"> 
+            function changedd(){ 
+             var stake = document.getElementById('stake').value; 
+             document.getElementById('nameStake').innerHTML = stake; 
+           } 
 
-              function changed(){ 
-               var interest = document.getElementById('interest').value; 
-               var aux  = interest * 10; 
-               document.getElementById('average').value = parseFloat(aux.toFixed(2)); 
-             } 
+         </script> 
 
-           </script> 
-
-           <script>
-            function myFunction() {
-              var x = document.getElementById("mySelect").value;
-              document.getElementById("demo").innerHTML = "You selected: " + x;
-            }
-          </script>
+        <script>
+          function myFunction2() {
+            // var x2 = document.getElementById("stakeholder_id").value;
+            var x2 = $('#stakeholder_id :selected').text()
+            document.getElementById("nameStake").innerHTML = x2;
+          }
+        </script>
 
 
-        </div>
       </div>
-      <?php $this->load->view('frame/footer_view')?>
+    </div>
+    <?php $this->load->view('frame/footer_view')?>

@@ -19,6 +19,9 @@ class Communication_stakeholder extends CI_Controller {
         // $this->lang->load('btn','portuguese-brazilian');
 	//	$this->lang->load('change_log','english');
         // $this->lang->load('change_log_view','portuguese-brazilian');
+        $this->load->model('communication_item_model');
+         $this->load->model('Stakeholder_mp_model'); // stakeholders
+         $this->load->model('Communication_item_stakeholder_model'); // stakeholder responsability
 	}
 
 
@@ -29,9 +32,14 @@ class Communication_stakeholder extends CI_Controller {
 	}
 
 	public function list($project_id){
+		 $query['communication_item'] = $this->communication_item_model->getWithProject_id($project_id);
+		 $query['communication_responsability'] = $this->Communication_item_stakeholder_model->getAllCommunication_responsability();
+        $query['stakeholders'] = $this->Stakeholder_mp_model->getStakeholder();
+        //$query['stakeholder'] = $this->communication_item_model->getCommunication_stakeholder_item_id($project_id);
+        $query['project_id'] = $project_id;
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/communication/communication_mp/responsability/attribute_stakeholder', $project_id);
+		$this->load->view('project/communication/communication_mp/responsability/attribute_stakeholder', $query);
 
 	}
 
