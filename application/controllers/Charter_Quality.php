@@ -31,7 +31,7 @@ class Charter_Quality extends CI_Controller {
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
 
-		$this->load->view('quality/quality_mp',$dado);
+		$this->load->view('project/quality/quality_mp',$dado);
 
 	}
 
