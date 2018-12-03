@@ -84,14 +84,14 @@ class Communication_item extends CI_Controller{
 
     public function insertStakeResponsability() {
 
-     $communication_item['local'] = $this->input->post('local');
-     $communication_item['project_id'] = $this->input->post('project_id');
-     $communication_item['status'] = 1;
+       $communication_item['local'] = $this->input->post('local');
+       $communication_item['project_id'] = $this->input->post('project_id');
+       $communication_item['status'] = 1;
 
-     $data['communication_item'] = $communication_item;
-     $query = $this->communication_item_model->insert($data['communication_item']);
+       $data['communication_item'] = $communication_item;
+       $query = $this->communication_item_model->insert($data['communication_item']);
 
-     if($query){
+       if($query){
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
         redirect(base_url() . 'Communication_item/list/' . $communication_item['project_id']);
@@ -118,8 +118,7 @@ public function insertResponasibility() {
 public function insertStakeResp() {
 
     $communication_responsability['communication_item_id'] = $this->input->post('communication_item_id');
-    $communication_responsability['nameStake'] = $this->input->post('nameStake');
-    $communication_responsability['communication_responsability_id'] = $this->input->post('communication_responsability_id')
+    $communication_responsability['stakeholder_id'] = $this->input->post('stakeholder_id');
 
     $query = $this->communication_item_model->insertCSR($communication_responsability);
 
