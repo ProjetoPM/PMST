@@ -21,7 +21,6 @@
 
 			<div class="row">
 				<div class="col-lg-12">
-					<div class="container">
 						<button type="button" class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Communication_item/new/<?php echo $project_id ?>'"><?=$this->lang->line('btn-new')?> <?=$this->lang->line('communication-item')?></button>
 						<button type="button" class="btn btn-info btn-lg" data-target=""  onclick="window.location.href='<?php echo base_url() ?>Communication_stakeholder/list/<?php echo $project_id ?>'"  ><em class="fa fa-pencil"></em><span class="hidden-xs"> <?=$this->lang->line('stakeholder')?></span></button>
 
@@ -61,9 +60,7 @@
 																<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 															</form>
 														</div>
-														<div class="col-sm-3">
-															||
-														</div>
+														
 														<div class="col-sm-2">
 															<form action="<?php echo base_url() ?>Communication_item/delete/<?php echo $item->communication_item_id; ?>" method="post">
 																<input type="hidden" name="project_id" value="<?=$project_id?>">
@@ -79,10 +76,14 @@
 									</tbody>
 								</table>
 							</div>
+						<div class="col-sm-12">
+							<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>" >
+								<button class="btn btn-lg btn-info pull-left" > <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
+							</form>
 						</div>
 						<!-- /.row --> </div> 
 						<div class="col-sm-12" position= "absolute">
-							<div class="container">
+							<div >
 								<?php $this->load->view('frame/footer_view') ?>            
 							</div>
 						</div>
