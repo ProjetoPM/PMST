@@ -28,4 +28,6 @@ $lang['risk-date-tooltip'] = 'Identification Date Example';
 $lang['risk-identifier-tooltip'] = 'Identifier Example';
 $lang['risk-type-tooltip'] = 'Risk Type Example';
 
+
+
 ?>
