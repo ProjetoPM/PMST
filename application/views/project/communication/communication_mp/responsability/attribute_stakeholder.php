@@ -23,9 +23,9 @@
     <!-- -->
     <!-- <input type="hidden" name="project_id"  value="<?php echo $project_id; ?>">  -->
 
-           <form method="POST" action="<?php echo base_url()?>communication_item/insertStakeResponsability/">
+           <form method="POST" action="<?php echo base_url()?>communication_item/insertStakeResp/">
 
-            <div class="col-lg-12 form-group"> 
+            <div class="col-lg-8 form-group"> 
               <label>Select Stakeholder</label> 
               <a class="btn-sm b2tn-default" data-toggle="tooltip" data-placement="right" title="stakeholder"><i class="glyphicon glyphicon-comment"></i></a> 
 
@@ -41,8 +41,8 @@
 
             </div> 
 
-
-            <table class="table table-bordered table-striped" >
+            <div class="col-lg-4 form-group"> 
+            <table style="max-width: 600px" class="table table-bordered table-striped" >
               <caption>Legenda</caption>
               <thead>
                 <tr>
@@ -62,9 +62,7 @@
               <?php } ?>
             </body>
           </table>
-          <br></br>
-
-
+        </div>
           <!-- Segunda Tabela!!-->
           <div   align = "center">
             <table class="table table-bordered table-striped" align="center">
@@ -81,10 +79,10 @@
                   <?php
                   foreach ($communication_item as $item) {
                     ?>
-                    <td><?php echo $item->description; ?></td>
+                    <td id="communication_item_id"><?php echo $item->description; ?></td>
                     <td>
                       <label>Responsability</label>
-                      <select class="form-control" <select style="width:90px;">>
+                      <select id="communication_responsability_id" class="form-control" <select style="width:90px;">>
                         <option></option>
                         <?php foreach ($communication_responsability as $responsability) { ?>
                           <option><?php echo $responsability->initials;?> </option>
