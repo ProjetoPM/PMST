@@ -36,7 +36,7 @@
                     </div>
                     
                     <div class=" col-lg-1 menuBox planningBox hideBox">
-                      <div class="verticalAlign horizontalAlign">
+                      <div class="verticalAlign">
                         <?=$this->lang->line('planning')?>
                       </div>
                     </div>
@@ -142,7 +142,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Change_log/list/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-star"></i> 
@@ -223,7 +223,7 @@
                       </div>
                     </a>
                   
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Scope_specification/addnew/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox scopeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-search"></i> 
@@ -251,7 +251,7 @@
 
                     <div class=" col-lg-1 midBox scopeColor hideBox"></div>
                     
-                    <a  href="<?=base_url("Scope_specification/addnew/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox scopeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-search"></i> 
@@ -834,7 +834,7 @@
                       </div>
                     </a>
 
-                    <a href="<?=base_url("RegisterRisk/addnew/".$project[0]->project_id) ?>">
+                    <a href="<?=base_url("RegisterRisk/list/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox riskColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-exclamation-sign"></i> 
