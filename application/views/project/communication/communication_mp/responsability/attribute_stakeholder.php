@@ -1,7 +1,7 @@
 <div id="page-wrapper">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header"><?=$this->lang->line('quality_plan-title')?></h1>
+      <h1 class="page-header">Stakeholder Responsability</h1>
     </div>
     <!-- /.col-lg-12 -->
   </div>
@@ -20,63 +20,111 @@
       </div>
     <?php endif;?>
 
+    <!-- -->
+    <!-- <input type="hidden" name="project_id"  value="<?php echo $project_id; ?>">  -->
 
-     <form method="POST" action="<?php echo base_url('communication_item/insert/'); ?>">
+    <form method="POST" action="<?php echo base_url()?>communication_item/insertStakeResp/">
 
-      <input type="hidden" name="project_id"  value="<?php echo $id; ?>">
-      <input type="hidden" name="status" value="1">
+      <div class="col-lg-7 form-group"> 
+        <label>Select Stakeholder</label> 
+        <a class="btn-sm b2tn-default" data-toggle="tooltip" data-placement="right" title="stakeholder"><i class="glyphicon glyphicon-comment"></i></a> 
 
+        <select id="stakeId" name="stakeholder_id" class="form-control" onchange="myFunction2()">
+          <?php
+          foreach ($stakeholders as $stakeholder) {
+            ?>
+            <option id="stake" value="<?php echo $stakeholder->stakeholder_id;?>"><?php echo $stakeholder->name;?></option>
+            <?php 
+          } 
+          ?>
+        </select>
+      </div> 
 
+      <div class="col-lg-4 form-group"> 
+        <table style="max-width: 600px" class="table table-bordered table-striped" >
+          <caption>Legenda</caption>
+          <thead>
+            <tr>
+              <th>Initials</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <body>
+            <!-- Nessa Tabela as Initials tem q ficar no meio!!-->
+            <tr>
+             <?php
+             foreach ($communication_responsability as $res) {
+              ?>
+              <td style="text-align: center;"><?php echo $res->initials;?></td>
+              <td><?php echo $res->name;?></td>
+            </tr>
+          <?php } ?>
+        </body>
+      </table>
+    </div>
+    <!-- Segunda Tabela!!-->
+    <div   align = "center">
+      <table class="table table-bordered table-striped" align="center">
+        <caption>Tabela Stakeholder</caption>
+        <thead>
+          <tr>
+            <th >Description</th>
+            <th id="nameStake"> 
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <?php
+            foreach ($communication_item as $item) {
+              ?>
+              <td id="communication_item_id"><?php echo $item->description; ?></td>
+              <input type="hidden" name="communication_item_id" value="<?php echo $item->communication_item_id; ?>">
+              <td>
+                <label>Responsability</label>
+                <select id="communication_responsability_id" class="form-control" style="width:90px;">
+                  <option></option>
+                  <?php foreach ($communication_responsability as $responsability) { ?>
+                    <option value="<?php echo $responsability->communication_responsability_id;?>"><?php echo $responsability->initials;?> </option>
+                    <?php 
+                  } 
+                  ?>
+                </select>
+              </td>
+            </tr>
+          <?php } ?>
+        </tbody>
+      </table> 
 
-      <div class=" col-lg-12 form-group">
+      <div class="col-lg-12">
+        <button id="new_comunication_stakeholder-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+          <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
+        </button> 
+      </form>
 
-        <label for="methodology"><?=$this->lang->line('quality_plan-methodology')?> </label> 
-        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('quality_plan-methodology-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+      <form action="<?php echo base_url()?>/communication_item/list/<?=$project_id?>">
+       <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
+     </form>
+   </div>
 
-        <div >                 
-          <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="methodology" name="methodology"></textarea>  
-        </div>
+   <script type="text/javascript"> 
+
+    function changedd(){ 
+     var stake = document.getElementById('stake').value; 
+     document.getElementById('nameStake').innerHTML = stake; 
+   } 
+
+ </script> 
+
+ <script>
+  function myFunction2() {
+            // var x2 = document.getElementById("stakeholder_id").value;
+            var x2 = $('#stakeId :selected').text();
+            document.getElementById("nameStake").innerHTML = x2;
+          }
+        </script>
+
 
       </div>
-
-      <div class=" col-lg-6 form-group">
-
-        <label for="related_processes"><?=$this->lang->line('quality_plan-related_processes')?> </label> 
-        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('quality_plan-related_processes-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-        <div >                 
-          <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="related_processes" name="related_processes"></textarea>  
-        </div>
-      </div>
-
-
-      <div class=" col-lg-6 form-group">
-       <label for="expectations_tolerances"><?=$this->lang->line('quality_plan-expectations_tolerances')?> </label> 
-       <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('quality_plan-expectations_tolerances-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-       <div>
-         <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="expectations_tolerances" name="expectations_tolerances"></textarea>
-       </div>
-     </div>
-
-     <div class=" col-lg-12 form-group">
-       <label for="traceability"><?=$this->lang->line('quality_plan-traceability')?> </label> 
-       <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('quality_plan-related_processes-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-       <div>
-         <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="traceability" name="traceability"></textarea>
-       </div>
-     </div>
-
-
-     <div class="col-lg-12">
-      <button id="new_quality_plan-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
-        <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
-      </button> 
-    </form>
-
-    <form action="<?php echo base_url('project/'); ?><?php echo $id; ?>" >
-     <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
-   </form>
-
- </div>
-</div>
-<?php $this->load->view('frame/footer_view')?>
+    </div>
+    <?php $this->load->view('frame/footer_view')?>
