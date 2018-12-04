@@ -27,9 +27,10 @@
 				<div class="col-lg-12">
 					<br><br>
 					<div>
-						<table class="table table-bordered table-striped" id="tableNB">
+						<table class="table table-bordered table-striped" id="tableCI">
 							<thead>
 								<tr>
+									<th class="text-center">#</th>
 									<th><?=$this->lang->line('type')?></th>
 									<th><?=$this->lang->line('description')?></th>
 									<th><?=$this->lang->line('content')?></th>
@@ -44,7 +45,8 @@
 								<?php
 								foreach ($communication_item as $item) {
 									?>
-									<tr>
+									<tr dados='<?= json_encode($item); ?>'>
+										<td class="moreInformationTable"></td>
 										<td><?php echo $item->type;?></td>
 										<td><?php echo $item->description;?></td>
 										<td><?php echo $item->content;?></td>
@@ -61,7 +63,6 @@
 													</form>
 												</div>
 												<div class="col-sm-3">
-													
 												</div>
 												<div class="col-sm-2">
 													<form action="<?php echo base_url() ?>Communication_item/delete/<?php echo $item->communication_item_id; ?>" method="post">
@@ -79,7 +80,12 @@
 						</table>
 					</div>
 				</div>
-				<!-- /.row --> </div> 
+				<!-- /.row --> </div>
+				<div class="col-lg-12">
+					<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>" >
+						<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
+					</form>
+				</div>
 				<?php $this->load->view('frame/footer_view') ?>            
 			</div> 
 			<!--DataTable -->
@@ -127,10 +133,8 @@
 				function format (dados) {
 					return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
 					'<tr>'+
-					'<td>Supporting Documentation: </td>'+
+					'<td>Supporting Documentation:</br>' + dados. + '</td>'+
 					'<td>'+dados.supporting_documentation+'</td>'+
-					'</tr>'+
-					'<tr>'+
 					'<td>Type: </td>'+
 					'<td>'+dados.type+'</td>'+
 					'</tr>'+

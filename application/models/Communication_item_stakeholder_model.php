@@ -12,7 +12,7 @@ class Communication_item_stakeholder_model extends CI_Model {
 	}
 
 
-	public function insertResponasibility($communication_responsability){
+	public function insert($communication_responsability){
 
 		return $this->db->insert('communication_stakeholder_responsability', $communication_responsability);
 	}
