@@ -30,7 +30,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					
-					<table class="table table-bordered table-striped" id="tableNB">
+					<table class="table table-bordered table-striped" id="tableTPE">
 						<thead>
 							<tr>
 								<th class="text-center">#</th>
@@ -62,38 +62,38 @@
 
 											<div class="col-sm-4">
 												<!--<form action="<?php echo base_url() ?>Team_Performance_Evaluation/delete/<?php echo $team->team_performance_evaluation_id; ?>" method="post">
-												<input type="hidden" name="project_id" value="<?=$team->project_id?>"> -->
-												<button type="submit" class="btn btn-danger" onclick="deletar(<?=$team->project_id?>, <?= $team->team_performance_evaluation_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
-												<!-- </form> -->
+													<input type="hidden" name="project_id" value="<?=$team->project_id?>"> -->
+													<button type="submit" class="btn btn-danger" onclick="deletar(<?=$team->project_id?>, <?= $team->team_performance_evaluation_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+													<!-- </form> -->
+												</div>
 											</div>
-										</div>
-									</td>
-								</tr> 
-								<?php
-							}
-							?>
+										</td>
+									</tr> 
+									<?php
+								}
+								?>
 
-						</tbody>
-					</table> 
-
+							</tbody>
+						</table> 
 
 
-					<!-- loading footer and script-->
-					<div class="col-sm-12" position= "absolute">
-						<div class="container">
-							<?php $this->load->view('frame/footer_view') ?>            
+
+						<!-- loading footer and script-->
+						<div class="col-sm-12" position= "absolute">
+							<div class="container">
+								<?php $this->load->view('frame/footer_view') ?>            
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<script src="<?=base_url()?>assets/js/jquery-2.1.3.min.js"></script>
-				<script src="<?=base_url()?>assets/js/jquery.dataTables.min.js"></script>
-				<script src="<?=base_url()?>assets/js/dataTables.bootstrap.js"></script>
-				<script src="<?=base_url()?>assets/js/dataTables.responsive.js"></script>
-				<!-- JavaScript -->
-				<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
-				<!-- CSS -->
-				<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css"/>
+					<script src="<?=base_url()?>assets/js/jquery-2.1.3.min.js"></script>
+					<script src="<?=base_url()?>assets/js/jquery.dataTables.min.js"></script>
+					<script src="<?=base_url()?>assets/js/dataTables.bootstrap.js"></script>
+					<script src="<?=base_url()?>assets/js/dataTables.responsive.js"></script>
+					<!-- JavaScript -->
+					<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
+					<!-- CSS -->
+					<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css"/>
 
 					<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 					-->
@@ -102,7 +102,7 @@
 						let table;
 
 						$(document).ready( function () {
-							table = $('#tableNB').DataTable({
+							table = $('#tableTPE').DataTable({
 								"columns": [
 								{ "data": "#", "orderable": false},
 								{ "data": "team_member_name" },
@@ -114,7 +114,7 @@
 							});
 						} );
 
-						$("#tableNB tbody td.moreInformationTable").on("click", function() {
+						$("#tableTPE tbody td.moreInformationTable").on("click", function() {
 							let element = jQuery($(this)[0].parentNode);
 							let tr = element.closest('tr');
 							let row = table.row(tr);
@@ -134,31 +134,31 @@
 						function format (dados) {
 							return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
 							'<tr>'+
-							'<td><b><?=$this->lang->line('eval-role')?>: </b>'+dados.role+'</td>'+
+							'<td><strong><?=$this->lang->line('eval-role')?>: </strong>'+dados.role+'</td>'+
 							'</tr>'+
 							'<tr>'+
-							'<td><b><?=$this->lang->line('eval-team_member_comments')?>: </b>'+dados.team_member_comments+'</td>'+
+							'<td><strong><?=$this->lang->line('eval-team_member_comments')?>: </strong>'+dados.team_member_comments+'</td>'+
 							'</tr>'+
 							'<tr>'+
-							'<td><b><?=$this->lang->line('eval-strong_points')?>: </b>'+dados.strong_points+'</td>'+
+							'<td><strong><?=$this->lang->line('eval-strong_points')?>: </strong>'+dados.strong_points+'</td>'+
 							'</tr>'+
 							'<tr>'+
-							'<td><b><?=$this->lang->line('eval-improvement')?>: </b>'+dados.improvement+'</td>'+
+							'<td><strong><?=$this->lang->line('eval-improvement')?>: </strong>'+dados.improvement+'</td>'+
 							'</tr>'+
 							'<tr>'+
-							'<td><b><?=$this->lang->line('eval-development_plan')?>: </b>'+dados.development_plan+'</td>'+
+							'<td><strong><?=$this->lang->line('eval-development_plan')?>: </strong>'+dados.development_plan+'</td>'+
 							'</tr>'+
 							'<tr>'+
-							'<td><b><?=$this->lang->line('eval-already_developed')?>: </b>'+dados.already_developed+'</td>'+
+							'<td><strong><?=$this->lang->line('eval-already_developed')?>: </strong>'+dados.already_developed+'</td>'+
 							'</tr>'+
 							'<tr>'+
-							'<td><b><?=$this->lang->line('eval-external_comments')?>: </b>'+dados.external_comments+'</td>'+
+							'<td><strong><?=$this->lang->line('eval-external_comments')?>: </strong>'+dados.external_comments+'</td>'+
 							'</tr>'+
 							'<tr>'+
-							'<td><b><?=$this->lang->line('eval-team_mates_comments')?>: </b>'+dados.team_mates_comments+'</td>'+
+							'<td><strong><?=$this->lang->line('eval-team_mates_comments')?>: </strong>'+dados.team_mates_comments+'</td>'+
 							'</tr>'+
 							'<tr>'+
-							'<td><b><?=$this->lang->line('eval-team_performance_evaluationcol')?>: </b>'+dados.team_performance_evaluationcol+'</td>'+
+							'<td><strong><?=$this->lang->line('eval-team_performance_evaluationcol')?>: </strong>'+dados.team_performance_evaluationcol+'</td>'+
 							'</tr>'+
 							'</table>';
 						}
@@ -166,33 +166,38 @@
 
 					<script type="text/javascript">
 
+
 						function deletar(idProjeto, idEval){
 							//e.preventDefault();
-							alertify.confirm('Do you agree?').setting({
+							alertify.confirm('<?=$this->lang->line('alertfy-delete-mensage')?>').setting({
 								'labels':{
-									ok: 'Agree',
-									cancel: 'Cancel'
+									ok: '<?=$this->lang->line('alertfy-delete-confirm')?>',
+									cancel: '<?=$this->lang->line('alertfy-delete-cancel')?>'
 								},
 								'reverseButtons': false,
 								'onok': function(){
 
-									console.log(`Passei o ${idProjeto} e ${idEval}`);
+									//console.log(`Passei o ${idProjeto} e ${idEval}`);
 
-							$.post("<?php echo base_url() ?>Team_Performance_Evaluation/delete/" + idEval,
-							{
-								project_id: idProjeto,
-							});
-											location.reload();
-											alertify.success('You agree.');
-											
-							//location.reload();
-										},
-										'oncancel': function(){
-											alertify.error('You did not agree.');
-										}
-									}).show();
+									$.post("<?php echo base_url() ?>Team_Performance_Evaluation/delete/" + idEval,
+									{
+										project_id: idProjeto,
+									}).done(() => {
+										alertify.success('<?=$this->lang->line('alertfy-delete-success')?>');
+										setTimeout(() => {
+											location.reload()
+										}, 1500)
+									}).fail(() => {
+										alertify.error('<?=$this->lang->line('alertfy-delete-error')?>');
+									})
+								},
+								'oncancel': function(){
+									alertify.warning('<?=$this->lang->line('alertfy-delete-warning')?>');
+								}
+							}).show();
 
 						}
-						
+
 					</script>
+
 

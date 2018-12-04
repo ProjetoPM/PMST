@@ -20,7 +20,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 
-				<form method="POST" action="<?php echo base_url('Team_Performance_Evaluation/insert/'); ?><?php echo $id; ?>">
+				<form id="form" method="POST">
 					
 					<div class=" col-lg-6 form-group">
 						<label for="team_member_name"><?=$this->lang->line('eval-team_member_name')?> *</label> 
@@ -129,7 +129,7 @@
 					</div>
 
 					<div class="col-lg-12">
-						<button id="team_performance_evaluation-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+						<button id="team_performance_evaluation-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right" > <!-- onclick="inserir(<?=$id; ?>)" -->
 							<i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
 						</button> 
 					</form>
@@ -167,4 +167,43 @@
 
 									      //Start Date Ends Here
 									  </script>
-									  <?php $this->load->view('frame/footer_view')?>
+
+									  <!-- JavaScript -->
+									  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
+									  <!-- CSS -->
+									  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css"/>
+
+									  <script type="text/javascript">
+
+
+									  	$('#form').on('submit', (e) => {
+									  		e.preventDefault()
+
+									  		$.post("<?php echo base_url() ?>Team_Performance_Evaluation/insert/", {
+									  			project_id: <?= $id ?>,
+									  			team_member_name: $('#team_member_name').val(),
+									  			role: $('#role').val(),
+									  			project_function: $('#project_function').val(),
+									  			report_date: $('#report_date').val(),
+									  			team_member_comments: $('#team_member_comments').val(),
+									  			strong_points: $('#strong_points').val(),
+									  			improvement: $('#improvement').val(),
+									  			development_plan: $('#development_plan').val(),
+									  			already_developed: $('#already_developed').val(),
+									  			external_comments: $('#external_comments').val(),
+									  			team_mates_comments: $('#team_mates_comments').val(),
+									  			team_performance_evaluationcol: $('#team_performance_evaluationcol').val()
+									  		}).done(() => {
+									  			alertify.success('<?=$this->lang->line('alertfy-save-success')?>');
+									  			setTimeout(() => {
+									  				location.href = "../list/<?= $id ?>"
+									  			}, 1500)
+									  			// location.href = "../list/<?= $id ?>"
+									  		}).fail(() => {
+									  			alertify.error('<?=$this->lang->line('alertfy-save-error')?>');
+									  		})
+
+									})
+									  
+		  						</script>
+		  						<?php $this->load->view('frame/footer_view')?>

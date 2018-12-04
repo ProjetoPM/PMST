@@ -11,8 +11,10 @@ class Team_Performance_Evaluation extends CI_Controller {
 
 		$this->lang->load('btn','english');
         // $this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('team-performance-evaluation','english');
+		$this->lang->load('team-performance-evaluation','english');
         // $this->lang->load('team-performance-evaluation','portuguese-brazilian');
+        $this->lang->load('alertfy','english');
+        // $this->lang->load('alertfy','portuguese-brazilian');
 
 	}
 
@@ -40,7 +42,7 @@ class Team_Performance_Evaluation extends CI_Controller {
 		$this->load->view('project/human_resource/team_performance_evaluation/edit', $query);
 	}
 
-	public function insert($project_id){
+	public function insert(){
 		$team_performance_evaluation['team_member_name'] = $this->input->post('team_member_name');
 		$team_performance_evaluation['role'] = $this->input->post('role');
 		$team_performance_evaluation['project_function'] = $this->input->post('project_function');
@@ -55,18 +57,14 @@ class Team_Performance_Evaluation extends CI_Controller {
 		$team_performance_evaluation['team_performance_evaluationcol'] = $this->input->post('team_performance_evaluationcol');
 
 
-		$team_performance_evaluation['project_id'] = $project_id;
+		$team_performance_evaluation['project_id'] = $this->input->post('project_id');
 		$query = $this->Team_Performance_Evaluation_model->insert($team_performance_evaluation);
 		
-		if($query){
-			$this->load->view('frame/header_view');
-			$this->load->view('frame/sidebar_nav_view');
-			redirect('Team_Performance_Evaluation/list/' . $team_performance_evaluation['project_id']);
-		}
+		$query ?: http_response_code(400);
 	}
 
 	public function update($team_performance_evaluation_id) {
-		
+
 		$team_performance_evaluation['team_member_name'] = $this->input->post('team_member_name');
 		$team_performance_evaluation['role'] = $this->input->post('role');
 		$team_performance_evaluation['project_function'] = $this->input->post('project_function');
@@ -80,27 +78,24 @@ class Team_Performance_Evaluation extends CI_Controller {
 		$team_performance_evaluation['team_mates_comments'] = $this->input->post('team_mates_comments');
 		$team_performance_evaluation['team_performance_evaluationcol'] = $this->input->post('team_performance_evaluationcol');
 		$team_performance_evaluation['project_id'] = $this->input->post('project_id');
-		//var_dump($team_performance_evaluation['project_id']);
-		//die();
+		
 
 		$query = $this->Team_Performance_Evaluation_model->updateTeamEval($team_performance_evaluation,$team_performance_evaluation_id);
 
-		if ($query) {
-			redirect('Team_Performance_Evaluation/list/' . $team_performance_evaluation['project_id']);
-		}
+		
+		$query ?: http_response_code(400);
+
 	}
 
 	public function delete($team_performance_evaluation_id){
-		
+
 		$project_id['project_id'] = $this->input->post('project_id');
 		//$project_id['project_id'] = $project_id;
 		$query = $this->Team_Performance_Evaluation_model->deleteTeamEval($team_performance_evaluation_id);
-		if($query){
-			$this->load->view('frame/header_view');
-            $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'Team_Performance_Evaluation/list/' . $team_performance_evaluation['project_id']);
-		}
+		
+		$query ?: http_response_code(400);
+
 	}
-	
+
 }
 ?>
