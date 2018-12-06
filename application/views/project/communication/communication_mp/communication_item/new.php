@@ -1,7 +1,7 @@
 <div id="page-wrapper">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header"><?=$this->lang->line('communication')?></h1>
+      <h1 class="page-header"><?=$this->lang->line('communication-item')?></h1>
     </div>
     <!-- /.col-lg-12 -->
   </div>
@@ -127,7 +127,7 @@
       </button> 
     </form>
 
-    <form action="<?php echo base_url()?>/Notification_board/list/<?=$project_id?>" >
+    <form action="<?php echo base_url()?>/Communication_item/list/<?=$project_id?>" >
      <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
    </form>
 

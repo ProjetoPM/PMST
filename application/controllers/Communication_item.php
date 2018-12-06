@@ -82,53 +82,6 @@ class Communication_item extends CI_Controller{
         }
     }
 
-    public function insertStakeResponsability() {
-
-       $communication_item['local'] = $this->input->post('local');
-       $communication_item['project_id'] = $this->input->post('project_id');
-       $communication_item['status'] = 1;
-
-       $data['communication_item'] = $communication_item;
-       $query = $this->communication_item_model->insert($data['communication_item']);
-
-       if($query){
-        $this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view');
-        redirect(base_url() . 'Communication_item/list/' . $communication_item['project_id']);
-    }
-}
-
-public function insertResponasibility() {
-    $communication = $this->input->post('ids');
-    $communication_exploded = explode(',', $communication);
-
-    $communication_responsability['communication_item_id'] = $communication_exploded[0];
-    $communication_responsability['stakeholder_id'] = $communication_exploded[1];
-    $communication_responsability['communication_responsability_id'] = $communication_exploded[2];
-
-
-    $data['communication_responsability'] = $communication_responsability;
-    $query = $this->Communication_item_stakeholder_model->insertResponasibility($data['communication_responsability']);
-
-    if($query){
-        redirect(base_url() . 'Communication_item/list/' . $communication_item['project_id']);
-    }
-}
-
-public function insertStakeResp() {
-
-    $communication_responsability['communication_item_id'] = $this->input->post('communication_item_id');
-    $communication_responsability['stakeholder_id'] = $this->input->post('stakeholder_id');
-
-    $query = $this->communication_item_model->insertCSR($communication_responsability);
-
-    if($query){
-        $this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view');
-        redirect(base_url() . 'Communication_item/list/' . $communication_item['project_id']);
-    }
-}
-
 public function update($id){
     $communication_item['type'] = $this->input->post('type');
     $communication_item['description'] = $this->input->post('description');

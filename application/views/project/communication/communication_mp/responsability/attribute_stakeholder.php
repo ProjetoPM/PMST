@@ -30,9 +30,11 @@
           <a class="btn-sm b2tn-default" data-toggle="tooltip" data-placement="right" title="stakeholder"><i class="glyphicon glyphicon-comment"></i></a> 
 
           <select id="stakeId" name="stakeholder_id" class="form-control" onchange="myFunction2()">
+            <option></option>
             <?php
             foreach ($stakeholders as $stakeholder) {
               ?>
+
               <option id="stake" value="<?php echo $stakeholder->stakeholder_id;?>"><?php echo $stakeholder->name;?></option>
               <?php 
             } 

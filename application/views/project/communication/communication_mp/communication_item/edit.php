@@ -1,7 +1,7 @@
 <div id="page-wrapper">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header"><?=$this->lang->line('communication')?></h1>
+      <h1 class="page-header"><?=$this->lang->line('communication-item')?></h1>
     </div>
     <!-- /.col-lg-12 -->
   </div>
@@ -19,9 +19,9 @@
         <strong><?php echo $this->session->flashdata('error'); ?></strong>
       </div>
     <?php endif;?>
-<?php
-  extract($communication_item);
-?>
+    <?php
+    extract($communication_item);
+    ?>
     <form method="POST" action="<?php echo base_url()?>Communication_item/update/<?php echo $communication_item_id?>">
 
       <input type="hidden" name="project_id"  value="<?php echo $project_id; ?>">
@@ -123,16 +123,16 @@
         </div>
       </div>
 
-     <div class="col-lg-12">
-      <button id="new_quality_plan-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
-        <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
-      </button> 
-    </form>
+      <div class="col-lg-12">
+        <button id="new_quality_plan-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+          <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
+        </button> 
+      </form>
 
-    <form action="<?php echo base_url()?>/Communication_item/list/<?=$project_id?>" >
-     <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
-   </form>
+      <form action="<?php echo base_url()?>/Communication_item/list/<?=$project_id?>" >
+       <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
+     </form>
 
+   </div>
  </div>
-</div>
-<?php $this->load->view('frame/footer_view')?>
+ <?php $this->load->view('frame/footer_view')?>
