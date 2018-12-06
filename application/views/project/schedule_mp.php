@@ -17,7 +17,7 @@
 						<label for="schedule_model"><?=$this->lang->line('schedule-model')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-model-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="schedule_model" name="schedule_model" required="true"></textarea>
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="schedule_model" name="schedule_model" ></textarea>
 						</div>
 					</div>
 
@@ -25,7 +25,7 @@
 						<label for="accuracy_level"><?=$this->lang->line('schedule-level')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="accuracy_level" name="accuracy_level" required="true"></textarea>
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="accuracy_level" name="accuracy_level" ></textarea>
 						</div>
 					</div>
 
@@ -33,7 +33,7 @@
 						<label for="organizational_procedures"><?=$this->lang->line('schedule-procedures')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-procedures-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="organizational_procedures" name="organizational_procedures" required="true"></textarea>
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="organizational_procedures" name="organizational_procedures" ></textarea>
 						</div>
 					</div>
 
@@ -41,7 +41,7 @@
 						<label for="schedule_maintenance"><?=$this->lang->line('schedule-maintenance')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-maintenance-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="schedule_maintenance" name="schedule_maintenance" required="true"></textarea>
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="schedule_maintenance" name="schedule_maintenance" ></textarea>
 						</div>
 					</div>
 
@@ -49,7 +49,7 @@
 						<label for="performance_measurement"><?=$this->lang->line('schedule-performance')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-performance-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="performance_measurement" name="performance_measurement" required="true"></textarea>
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="performance_measurement" name="performance_measurement" ></textarea>
 						</div>
 					</div>
 
@@ -57,7 +57,7 @@
 						<label for="report_format"><?=$this->lang->line('schedule-report')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-report-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="report_format" name="report_format" required="true"></textarea>
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="report_format" name="report_format" ></textarea>
 						</div>
 					</div>
 
@@ -89,7 +89,7 @@
 						<label for="schedule_model"><?=$this->lang->line('schedule-model')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-model-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div>                     
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="schedule_model" name="schedule_model" required="true"><?php echo $schedule_mp[0]->schedule_model; ?></textarea>
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="schedule_model" name="schedule_model" ><?php echo $schedule_mp[0]->schedule_model; ?></textarea>
 						</div>
 					</div>
 
@@ -97,7 +97,7 @@
 						<label for="accuracy_level"><?=$this->lang->line('schedule-level')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="accuracy_level" name="accuracy_level" required="true"><?php echo $schedule_mp[0]->accuracy_level; ?></textarea>
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="accuracy_level" name="accuracy_level" ><?php echo $schedule_mp[0]->accuracy_level; ?></textarea>
 						</div>
 					</div>
 
@@ -105,7 +105,7 @@
 						<label for="organizational_procedures"><?=$this->lang->line('schedule-procedures')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-procedures-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="organizational_procedures" name="organizational_procedures" required="true"><?php echo $schedule_mp[0]->organizational_procedures; ?></textarea>
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="organizational_procedures" name="organizational_procedures" ><?php echo $schedule_mp[0]->organizational_procedures; ?></textarea>
 						</div>
 					</div>
 
@@ -113,7 +113,7 @@
 						<label for="schedule_maintenance"><?=$this->lang->line('schedule-maintenance')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-maintenance-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="schedule_maintenance" name="schedule_maintenance" required="true"><?php echo $schedule_mp[0]->schedule_maintenance; ?></textarea>
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="schedule_maintenance" name="schedule_maintenance" ><?php echo $schedule_mp[0]->schedule_maintenance; ?></textarea>
 						</div>
 					</div>
 
@@ -121,7 +121,7 @@
 						<label for="performance_measurement"><?=$this->lang->line('schedule-performance')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-performance-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="performance_measurement" name="performance_measurement" required="true"><?php echo $schedule_mp[0]->performance_measurement; ?></textarea>
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="performance_measurement" name="performance_measurement" ><?php echo $schedule_mp[0]->performance_measurement; ?></textarea>
 						</div>
 					</div>
 
@@ -129,7 +129,7 @@
 						<label for="report_format"><?=$this->lang->line('schedule-report')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-report-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >                     
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="report_format" name="report_format" required="true"><?php echo $schedule_mp[0]->report_format; ?></textarea>
+							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="report_format" name="report_format" ><?php echo $schedule_mp[0]->report_format; ?></textarea>
 						</div>
 					</div>
 
