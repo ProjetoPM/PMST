@@ -1,22 +1,18 @@
 <?php
 
 // Title
-$lang['schedule-title'] = 'Schedule';
+$lang['schedule-title'] = 'Schedule Management';
+$lang['schedule-model'] = 'Schedule Model';
+$lang['schedule-level'] = 'Accuracy Level';
+$lang['schedule-procedures'] = 'Organization Procedures';
+$lang['schedule-maintenance'] = 'Schedule Maintenance';
+$lang['schedule-performance'] = 'Performance Measurement';
+$lang['schedule-report'] = 'Report Format';
 
-<<<<<<< HEAD
-=======
-//Form 
-
-
-//Tooltip
-$lang['schedule-model-tooltip'] = 'Your Model Schedule';
-$lang['accuary-level-tooltip'] = 'Accuary Level Of Your Project';
-$lang['organization-procedures-tooltip'] = 'Organizational Procedures Of Your Project';
-$lang['schedule-maintenance-tooltip'] = 'Schedule Maintenance Of Your Project';
-$lang['performance_measurement-tooltip'] = 'Performance Measurement Of Your Project';
-$lang['report_format-tooltip'] = 'Report Format Of Your Project';
-
-
-
->>>>>>> master
-?>
+// Description
+$lang['schedule-model-tooltip'] = 'Schedule Model Example';
+$lang['schedule-level-tooltip'] = 'Accuracy Level Example';
+$lang['schedule-procedures-tooltip'] = 'Organization Procedures Example';
+$lang['schedule-maintenance-tooltip'] = 'Schedule Maintenance Example';
+$lang['schedule-performance-tooltip'] = 'Performance Measurement Example';
+$lang['schedule-report-tooltip'] = 'Report Format Example';
