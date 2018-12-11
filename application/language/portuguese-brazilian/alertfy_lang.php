@@ -9,7 +9,8 @@ $lang['alertfy-delete-success'] = 'Deletado!';
 $lang['alertfy-delete-error'] = 'Erro ao deletar!';
 $lang['alertfy-delete-warning'] = 'Não deletado.';
 
-$lang['alertfy-delete-mensage'] = 'Você deseja deletar?';
+$lang['alertfy-delete-tittle'] = 'Mensagem';
+$lang['alertfy-delete-message'] = 'Você deseja deletar?';
 $lang['alertfy-delete-confirm'] = 'Desejo';
 $lang['alertfy-delete-cancel'] = 'Cancelar';
 

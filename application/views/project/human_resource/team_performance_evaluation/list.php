@@ -76,6 +76,10 @@
 							</tbody>
 						</table> 
 
+						<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>" >
+						<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
+					</form>
+
 
 
 						<!-- loading footer and script-->
@@ -169,7 +173,11 @@
 
 						function deletar(idProjeto, idEval){
 							//e.preventDefault();
-							alertify.confirm('<?=$this->lang->line('alertfy-delete-mensage')?>').setting({
+							alertify.defaults.glossary.title = '<?=$this->lang->line('alertfy-delete-tittle')?>';
+							alertify.defaults.theme.ok = "btn btn-lg btn-success pull";
+							alertify.defaults.theme.cancel = "btn btn-danger";
+							alertify.defaults.theme.input = "form-control";
+							alertify.confirm('<?=$this->lang->line('alertfy-delete-message')?>').setting({
 								'labels':{
 									ok: '<?=$this->lang->line('alertfy-delete-confirm')?>',
 									cancel: '<?=$this->lang->line('alertfy-delete-cancel')?>'
