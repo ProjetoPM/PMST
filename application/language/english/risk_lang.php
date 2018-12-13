@@ -1,7 +1,7 @@
 <?php
 
 // Title
-$lang['risk-title'] = 'Risk Registration';
+$lang['risk-title'] = 'Risk Register';
 
 //Form 
 $lang['risk-impacted_objective'] = 'Impacted objective';
