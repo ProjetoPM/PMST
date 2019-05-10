@@ -2,7 +2,7 @@
 $lang['risk_mp'] = 'Risk Management Plan';
 
 $lang['methodology'] = 'Methodology';
-$lang['roles_responsabilities'] = 'Roles responsabilites';
+$lang['roles_responsibilities'] = 'Roles responsibilities';
 $lang['probability_impact_matrix'] = 'Probability impact matrix';
 $lang['risk_management_processes'] = 'Risk management processes';
 $lang['risks_categories'] = 'Risks categories';
@@ -12,7 +12,7 @@ $lang['traceability'] = 'Traceability';
 
 
 $lang['methodology-tp'] = 'Methodology Example';
-$lang['roles_responsabilities-tp'] = 'Roles responsabilites Example';
+$lang['roles_responsabilities-tp'] = 'Roles responsibilities Example';
 $lang['probability_impact_matrix-tp'] = 'Probability impact matrix Wxample';
 $lang['risk_management_processes-tp'] = 'Risk management processes Example';
 $lang['risks_categories-tp'] = 'Risks categories Example';

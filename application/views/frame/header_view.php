@@ -17,8 +17,14 @@
   <!-- Custom tab icons -->
   <link rel="shortcut icon" href="<?=base_url()?>assets/images/silverbullet_logo.png" type="image/x-icon">        
 
+   <!-- PDF -->
+  <link  href="<?=base_url()?>assets/images/oi.pdf" type="image/PDF">     
+
   <!-- Cod Elastic TextArea -->
   <script src="<?=base_url()?>assets/js/elasticTextarea.js" type="text/javascript"></script>
+
+  <!-- Cod Upload Files -->
+  <script src="<?=base_url()?>assets/js/upload.js" type="text/javascript"></script>
 
   <!-- Inclusão do jQuery-->
   <script src="<?=base_url()?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
