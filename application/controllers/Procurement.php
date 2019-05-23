@@ -26,7 +26,7 @@ class Procurement extends CI_Controller{
         }
     }
 
-    public function procurement_form($project_id){
+    public function new($project_id){
         $query['procurement_mp'] = $this->procurement_mp_model->getProcurement_mpProject_id($project_id);
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');

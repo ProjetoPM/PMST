@@ -19,7 +19,7 @@ class Charter_Quality extends CI_Controller {
 		$this->load->model('Quality_model');
 	}
 
-	public function addnew($project_id){
+	public function new($project_id){
 		$dado['quality_mp'] = $this->Quality_model->readQuality($project_id);
 		$dado['id'] = $project_id;
 		$this->db->where('project_id', $project_id);
@@ -35,7 +35,7 @@ class Charter_Quality extends CI_Controller {
 
 	}
 
-	function create()
+	function insert()
 	{
 		 //$this->ajax_checking();
 

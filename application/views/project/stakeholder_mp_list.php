@@ -27,7 +27,7 @@
         </div>
       </div>
       
-       <a href="<?=base_url("stakeholder_mp/stakeholder_mp_form/".$project_id) ?>">
+       <a href="<?=base_url("stakeholder_mp/new/".$project_id) ?>">
                      <div class="btn btn-info btn-lg glyphicon-plus"><?=$this->lang->line('select-1')?>
                      </div>
                      </a>

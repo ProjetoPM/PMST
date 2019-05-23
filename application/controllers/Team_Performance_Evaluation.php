@@ -25,7 +25,7 @@ class Team_Performance_Evaluation extends CI_Controller {
 		$this->load->view('human_resource/team_performance_evaluation/list',$dado);
 	}
 
-	public function addnew($project_id){
+	public function new($project_id){
 		$dado['id'] = $project_id;
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');

@@ -3,8 +3,6 @@
 // Title
 $lang['schedule-title'] = 'Schedule';
 
-<<<<<<< HEAD
-=======
 //Form 
 
 
@@ -18,5 +16,4 @@ $lang['report_format-tooltip'] = 'Report Format Of Your Project';
 
 
 
->>>>>>> master
 ?>

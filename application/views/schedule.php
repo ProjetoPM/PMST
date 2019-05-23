@@ -22,7 +22,7 @@
 		<?php if($schedule_mp==null)
 		{
 			?>
-			<form method="post" action="<?php echo base_url('schedule/createSchedule/');?>">
+			<form method="post" action="<?php echo base_url('schedule/insert/');?>">
 
 				<input type="hidden" name="project_id" value="<?php echo $project[0]->project_id; ?>">
 
@@ -70,12 +70,12 @@
 				</div>
 
 
-			</form>
+			
 			<div class="col-lg-12">
-				<button id="new_human_resource-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+				<button id="schedule-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
 					<i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
 				</button> 
-
+				</form>
 				<form action="<?php echo base_url('project/'); ?><?php echo $id; ?>" >
 					<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 				</form>
@@ -85,7 +85,7 @@
 			foreach ($schedule_mp as $schedule) {
 				?>
 
-				<form method="post" action="<?php echo base_url('schedule/updateSchedule/');?> <?php echo $id; ?>">
+				<form method="post" action="<?php echo base_url('schedule/update/');?> <?php echo $id; ?>">
 
 
 

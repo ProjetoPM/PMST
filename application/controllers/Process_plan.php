@@ -15,7 +15,7 @@ class Process_plan extends CI_Controller {
 
 	}
 
-	public function addnew($project_id){
+	public function new($project_id){
 		$data['process_plan'] = $this->Process_plan_model->getAll();
 		$data['id'] = $project_id;
 		$this->load->view('frame/header_view');

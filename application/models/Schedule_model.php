@@ -18,11 +18,11 @@ class Schedule_model extends CI_Model{
 // armazenar o schedule com o mesmo project_id da tabela project
 	public function createSchedule($postData){
 		$data = array(
-			'schedule_model' => $postData['	schedule_model'],
+			'schedule_model' => $postData['schedule_model'],
 			'accuracy_level' => $postData['accuracy_level'],
 			'organizational_procedures' => $postData['organizational_procedures'],
 			'schedule_maintenance' => $postData['schedule_maintenance'],
-			'performance_measurement	' => $postData['performance_measurement	'],
+			'performance_measurement' => $postData['performance_measurement'],
 			'report_format' => $postData['report_format'],
 			'project_id' => $postData['project_id']);
 		$this->db->insert('schedule_mp',$data);

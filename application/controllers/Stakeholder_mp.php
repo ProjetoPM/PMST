@@ -20,7 +20,7 @@ class Stakeholder_mp extends CI_Controller{
 	}
 
 
-	function stakeholder_mp_form($project_id){
+	function new($project_id){
 		//chamar db da model
 	    $query['stake_mp'] = $this->Stakeholder_mp_model->getStakeholder_mpStakeholder_item_id($project_id);
         $query['stakeholders'] = $this->Stakeholder_mp_model->getStakeholder();
@@ -32,7 +32,7 @@ class Stakeholder_mp extends CI_Controller{
 	}
 
 
-	function stakeholder_mp_list($project_id){
+	function list($project_id){
 		$query['stake_mp'] = $this->Stakeholder_mp_model->getStakeholder_mpStakeholder_item_id($project_id);
         $query['stakeholder'] = $this->Stakeholder_mp_model->getStakeholder();
         $query['project_id'] = $project_id;

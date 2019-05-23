@@ -17,7 +17,7 @@ class TEP extends CI_Controller {
 		
 	}
 
-	public function addnew($project_id){
+	public function new($project_id){
 		$dado['project_closure_term'] = $this->Tep_model->getTep();
 		$dado['id'] = $project_id;
 		//$dado['verific'] = true;

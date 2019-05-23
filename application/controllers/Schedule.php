@@ -11,11 +11,7 @@ class Schedule extends CI_Controller
 
 		$this->lang->load('btn','english');
         // $this->lang->load('btn','portuguese-brazilian');
-<<<<<<< HEAD
         $this->lang->load('schedule','english');
-=======
-		$this->lang->load('schedule','english');
->>>>>>> master
         // $this->lang->load('schedule','portuguese-brazilian');
 
 
@@ -23,7 +19,7 @@ class Schedule extends CI_Controller
 		$this->load->model('Schedule_model');
 	}
 
-	public function schedule_form($id){
+	public function new($id){
 		
 		$dados['schedule_mp'] = $this->Schedule_model->getSchedule($id);
 		$dados['id'] = $id;
@@ -36,7 +32,7 @@ class Schedule extends CI_Controller
 	}
 
 //Criar o Schedule 1 Vez
-	public function createSchedule(){
+	public function insert(){
 		$postData = $this->input->post();
 		$insert = $this->Schedule_model->createSchedule($postData);
 		redirect('project/' . $postData['project_id']);
@@ -47,7 +43,7 @@ class Schedule extends CI_Controller
 
 
 // esse parametro vai ser inicializado la na view
-	public function updateSchedule($id){
+	public function update($id){
 		$schedule_mp['schedule_model'] = $this->input->post('schedule_model');
 		$schedule_mp['accuracy_level'] = $this->input->post('accuracy_level');
 		$schedule_mp['organizational_procedures'] = $this->input->post('organizational_procedures');

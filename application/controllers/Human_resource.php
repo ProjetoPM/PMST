@@ -28,7 +28,7 @@ class Human_resource extends CI_Controller{
         }
     }
 
-    public function human_resource_form($project_id){
+    public function new($project_id){
         $data['human_resources_mp'] = $this->human_resource_model->getHumanResourceProject_id($project_id);
         $data['id'] = $project_id;
         $this->load->view('frame/header_view');

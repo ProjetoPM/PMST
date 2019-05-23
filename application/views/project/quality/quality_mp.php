@@ -24,7 +24,7 @@
     <?php
     if($quality_mp==null){              
      ?> 
-     <form method="POST" action="<?php echo base_url('Charter_Quality/create/'); ?>">
+     <form method="POST" action="<?php echo base_url('Charter_Quality/insert/'); ?>">
 
       <input type="hidden" name="project_id"  value="<?php echo $project[0]->project_id; ?>">
       <input type="hidden" name="status" value="1">

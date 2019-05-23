@@ -21,7 +21,7 @@
 			<div class="row">
 				<div class="col-lg-10">
 
-					<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Team_Performance_Evaluation/addnew/<?php echo $project_id ?>'"> <?=$this->lang->line('btn-new')?> <?=$this->lang->line('eval-title')?></button>			
+					<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Team_Performance_Evaluation/new/<?php echo $project_id ?>'"> <?=$this->lang->line('btn-new')?> <?=$this->lang->line('eval-title')?></button>			
 					
 				</div>
 			</div>

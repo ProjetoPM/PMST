@@ -25,7 +25,7 @@ class Risk extends CI_Controller{
         }
     }
 
-    public function risk_form($project_id){
+    public function new($project_id){
         $query['risk_mp'] = $this->risk_mp_model->getWithProject_id($project_id);
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
