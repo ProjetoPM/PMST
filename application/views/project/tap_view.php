@@ -313,7 +313,8 @@
 																		<div class="input-group-addon">
 																			<i class="fa fa-calendar"></i>
 																		</div>
-																		<input class="form-control" id="start_date" placeholder="YYYY/MM/DD" type="text" name="start_date" value="<?php echo $project_charter[0]->start_date;?>" />
+																		<input class="form-control" id="start_date" placeholder="YYYY/MM/DD" type="text"
+                                                                               name="start_date" value="<?php echo $project_charter[0]->start_date;?>" />
 																	</div>
 																</div>
 															</div>

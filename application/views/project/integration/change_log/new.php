@@ -28,38 +28,39 @@
 
           <div class=" col-lg-4 form-group">
             <label for="requester"><?=$this->lang->line('change_log-requester')?> </label> 
-            <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('change_log-requester-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+            <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right"
+               title="<?=$this->lang->line('change_log-requester-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <input class="form-control" type="text" id="requester" name="requester" maxlength="45">
-
           </div>
 
           <div class=" col-lg-4 form-group">
             <label for="id_number"><?=$this->lang->line('change_log-id_number')?> </label> 
-            <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('priority-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
+            <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right"
+               title="<?=$this->lang->line('priority-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-            <input class="form-control" type="text" id="priority" name="priority" maxlength="255">
+            <input class="form-control" type="text" id="id_number" name="id_number" maxlength="255">
 
           </div>
 
-
-          <div class="col-lg-4 form-group">
-            <label for="request_date"><?= $this->lang->line('change_log-request_date') ?></label>
-            <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('change_log-request_date-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-            <div class="input-group">
-              <div class="input-group-addon">
-                <i class="fa fa-calendar"></i>
-              </div>
-              <input class="form-control" id="comments_date" placeholder="YYYY/MM/DD" type="text" name="comments_date"  />
+            <div class="col-lg-6 form-group">
+                <label for="request_date"><?= $this->lang->line('change_log-request_date') ?></label>
+                <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right"
+                   title="<?= $this->lang->line('tep-request_date-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <input class="form-control" id="request_date" placeholder="YYYY/MM/DD" type="text" name="request_date"  />
+                </div>
             </div>
-          </div>
 
 
           <div class=" col-lg-4 form-group">
             <label for="change_type"><?=$this->lang->line('change_log-change_type')?> </label> 
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('change_log-change_type-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-            <select class="form-control" id="type" name="type">
+            <select class="form-control" id="change_type" name="change_type">
               <option value="Corrective Action"><?=$this->lang->line('type_change-corrective')?></option>
               <option value="Preventive Action"><?=$this->lang->line('type_change-preventive')?></option>
               <option value="Defect Repair"><?=$this->lang->line('type_change-defect')?></option>
@@ -74,7 +75,7 @@
             <label for="situation"><?=$this->lang->line('change_log-situation')?> </label> 
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('change_log-situation-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-            <select class="form-control" id="type" name="type">
+            <select class="form-control" id="situation" name="situation">
               <option value="Under Analysis"><?=$this->lang->line('type_situation-analysis')?></option>
               <option value="Approved"><?=$this->lang->line('type_situation-approved')?></option>
               <option value="Rejected"><?=$this->lang->line('type_situation-rejected')?></option>
@@ -83,7 +84,7 @@
             </select>
           </div>
 
-          <div class=" col-lg-12 form-group">
+          <div class=" col-lg-10 form-group">
            <label for="change_description"><?=$this->lang->line('change_log-change_description')?> </label> 
            <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('change_log-change_description-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
@@ -91,7 +92,7 @@
 
          </div>
 
-          <div class=" col-lg-12 form-group">
+          <div class=" col-lg-10 form-group">
            <label for="project_management_feedback"><?=$this->lang->line('change_log-project_management_feedback')?> </label> 
            <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('change_log-project_management_feedback-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
@@ -100,26 +101,29 @@
          </div>
 
           
-          <div class=" col-lg-12 form-group">
+          <div class=" col-lg-10 form-group">
            <label for="ccc_feedback"><?=$this->lang->line('change_log-ccc_feedback')?> </label> 
            <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('change_log-ccc_feedback-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
            <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="ccc_feedback" name="ccc_feedback" maxlength="255"></textarea> 
          </div>
 
-          <div class="col-lg-4 form-group">
-            <label for="request_date"><?= $this->lang->line('change_log-request_date') ?></label>
-            <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('change_log-request_date-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-            <div class="input-group">
-              <div class="input-group-addon">
-                <i class="fa fa-calendar"></i>
-              </div>
-              <input class="form-control" id="comments_date" placeholder="YYYY/MM/DD" type="text" name="comments_date"  />
+
+            <div class="col-lg-6 form-group">
+                <label for="ccc_feedback_date"><?= $this->lang->line('change_log-ccc_feedback_date') ?> Date</label>
+                <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right"
+                   title="<?= $this->lang->line('tep-ccc_feedback_date-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <input class="form-control" id="ccc_feedback_date" placeholder="YYYY/MM/DD" type="text" name="ccc_feedback_date"  />
+                </div>
             </div>
-          </div>
 
 
-         <div class=" col-lg-12 form-group">
+
+         <div class=" col-lg-10 form-group">
           <label for="comments"><?=$this->lang->line('change_log-comments')?> </label> 
           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('change_log-comments-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
@@ -131,18 +135,46 @@
         
 
        
-        <div class="col-lg-12">
+        <div class="col-lg-10">
           <button id="new_change_log-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
             <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
           </button> 
         </form>
 
-        <form action="<?php echo base_url()?>/Requirement_registration/list/<?=$project_id?>">
+        <form action="<?php echo base_url()?>/Change_log/list/<?=$project_id?>">
          <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
        </form>
 
      </div>
    </div>
+    <script type="text/javascript">
+        var currentDate = new Date();
+        var today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 0, 0, 0, 0);
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+
+        //Start Date Ends Here
+        var endDate = $("#request_date").datepicker({
+            autoclose: true,
+            format: 'yyyy/mm/dd',
+            //language: 'pt-BR', //Idioma do Calendario
+            container: container,
+            keyboardNavigation: true,
+            orientation: "bottom",
+            startDate: today,
+            /*todayHighlight : true,*/
+        });
+        //End Date Ends Here
+        var endDate = $("#ccc_feedback_date").datepicker({
+            autoclose: true,
+            format: 'yyyy/mm/dd',
+            //language: 'pt-BR', //Idioma do Calendario
+            container: container,
+            keyboardNavigation: true,
+            orientation: "bottom",
+            startDate: today,
+            /*todayHighlight : true,*/
+        });
+    </script>
    <!-- /.row --> </div> 
    <div class="col-sm-12" position= "absolute">
     <div class="container">

@@ -40,7 +40,7 @@ class Change_log extends CI_Controller {
 	public function new($project_id){
 		$query['project_id'] = $project_id;
 		$this->load->view('frame/header_view');
-		$this->load->view('frame/sidebar_nav_view'); 
+		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('project/integration/change_log/new', $query);
 	}
 
@@ -79,8 +79,23 @@ class Change_log extends CI_Controller {
         $change_log['id_number'] = $this->input->post('id_number');
         $change_log['requester'] = $this->input->post('requester');
         $change_log['request_date'] = $this->input->post('request_date');
-        $change_log['change_type'] = $this->input->post('change_type');
-        $change_log['situation'] = $this->input->post('situation');
+
+      $opcoes=array("Corrective Action", "Preventive Action", "Defect Repair", "Update");
+      foreach ($opcoes as $teste)
+      {
+          $pieces = explode(" ", $teste);
+          if($pieces[0]==$this->input->post('change_type'))
+              $change_log['change_type'] = $teste;
+      }
+
+      $opc=array("Under Analysis", "Approved", "Rejected", "Canceled", "Suspended");
+      foreach ($opc as $testes)
+      {
+          $piece = explode(" ", $testes);
+          if($piece[0]==$this->input->post('situation'))
+              $change_log['situation'] = $testes;
+      }
+
         $change_log['change_description'] = $this->input->post('change_description');
         $change_log['project_management_feedback'] = $this->input->post('project_management_feedback');
         $change_log['ccc_feedback'] = $this->input->post('ccc_feedback');
