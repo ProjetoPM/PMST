@@ -47,12 +47,20 @@ class RiskRegister extends CI_Controller {
 		$risk_register['project_id'] = $this->input->post('project_id');
 		$risk_register['impacted_objective'] = $this->input->post('impacted_objective');
 		$risk_register['priority'] = $this->input->post('priority');
-		
 		$risk_register['risk_status'] = $this->input->post('risk_status');
 		$risk_register['event'] = $this->input->post('event');
 		$risk_register['date'] = $this->input->post('date');
 		$risk_register['identifier'] = $this->input->post('identifier');
 		$risk_register['type'] = $this->input->post('type');
+		$risk_register['result'] = $this->input->post('result');
+		$risk_register['strategy'] = $this->input->post('strategy');
+		$risk_register['triggers'] = $this->input->post('triggers');
+		$risk_register['response_action'] = $this->input->post('response_action');
+		$risk_register['contingency_action'] = $this->input->post('contingency_action');
+		$risk_register['responsible_contingency'] = $this->input->post('responsible_contingency');
+		$risk_register['contingency_reserve'] = $this->input->post('contingency_reserve');
+		$risk_register['category'] = $this->input->post('category');
+		$risk_register['lessons_learned'] = $this->input->post('lessons_learned');
 		$risk_register['status'] = 1;
 
 		$query = $this->Risk_model->insert($risk_register);
@@ -69,9 +77,16 @@ class RiskRegister extends CI_Controller {
 		$risk_register['date'] = $this->input->post('date');
 		$risk_register['identifier'] = $this->input->post('identifier');
 		$risk_register['type'] = $this->input->post('type');
+		$risk_register['result'] = $this->input->post('result');
+		$risk_register['strategy'] = $this->input->post('strategy');
+		$risk_register['triggers'] = $this->input->post('triggers');
+		$risk_register['response_action'] = $this->input->post('response_action');
+		$risk_register['contingency_action'] = $this->input->post('contingency_action');
+		$risk_register['responsible_contingency'] = $this->input->post('responsible_contingency');
+		$risk_register['contingency_reserve'] = $this->input->post('contingency_reserve');
+		$risk_register['category'] = $this->input->post('category');
+		$risk_register['lessons_learned'] = $this->input->post('lessons_learned');
 		$risk_register['project_id'] = $this->input->post('project_id');
-
-
 
 		$query = $this->Risk_model->updateRisk($risk_register,$risk_register_id);
 

@@ -1,7 +1,7 @@
 <div id="page-wrapper">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="pageheader"> <?=$this->lang->line('risk-title')  ?></h1>
+			<h1 class="page-header"> <?=$this->lang->line('risk-title')  ?></h1>
 		</div>
 		<!-- /.col-lg-12 -->
 	</div>
@@ -24,6 +24,7 @@
 		
 	<!--	<form action="<?=base_url()?>RiskRegister/update/<?php echo $risk_register_id; ?>" method="post">
 	-->
+	<div class="row">
 	<form id="form" method="post">
 
 		<input type="hidden" id="project_id" name="project_id" value="<?php echo $project_id; ?>">                          
@@ -43,13 +44,14 @@
 		<div class="col-lg-6 form-group">
 			<label for="priority"><?=$this->lang->line('risk-priority')?></label>
 			<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-priority-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-			<select name="priority" class="form-control" value="<?php echo $priority; ?>">
+			<select name="priority" id="priority" class="form-control" value="<?php echo $priority; ?>">
 				<option value="0"><?=$this->lang->line('risk-priority-low')?></option>
 				<option value="1"><?=$this->lang->line('risk-priority-medium')?></option>
 				<option value="2"><?=$this->lang->line('risk-priority-high')?></option>
 
 			</select>
 		</div>
+
 		<div class=" col-lg-6 form-group">
 			<label for="risk_status"><?=$this->lang->line('risk-risk_status')?></label> 
 			<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-risk_status-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -103,6 +105,87 @@
 			</div>
 		</div>	
 
+		<div class=" col-lg-6 form-group">
+			<label for="result"><?=$this->lang->line('risk-result')?></label> 
+			<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-result-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+			<div >                 
+				<input id="result" name="result" type="text" class="form-control input-md"  value="<?php echo $result; ?>">
+			</div>
+		</div>	
+
+		<div class=" col-lg-6 form-group">
+			<label for="strategy"><?=$this->lang->line('risk-strategy')?></label> 
+			<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-strategy-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+			<div >                 
+				<input id="strategy" name="strategy" type="text" class="form-control input-md" value="<?php echo $strategy; ?>">
+			</div>
+		</div>	
+
+		<div class=" col-lg-6 form-group">
+			<label for="triggers"><?=$this->lang->line('risk-triggers')?></label> 
+			<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-triggers-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+			<div >                 
+				<input id="triggers" name="triggers" type="text" class="form-control input-md" value="<?php echo $triggers; ?>">
+			</div>
+		</div>	
+
+		<div class=" col-lg-6 form-group">
+			<label for="response_action"><?=$this->lang->line('risk-response_action')?></label> 
+			<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-response_action-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+			<div >                 
+				<input id="response_action" name="response_action" type="text" class="form-control input-md" value="<?php echo $response_action; ?>">
+			</div>
+		</div>	
+
+		<div class=" col-lg-6 form-group">
+			<label for="contingency_action"><?=$this->lang->line('risk-contingency_action')?></label>
+			<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-contingency_action-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+			<div >                 
+				<input id="contingency_action" name="contingency_action" type="text" class="form-control input-md" value="<?php echo $contingency_action; ?>">
+			</div>
+		</div>
+
+		<div class=" col-lg-6 form-group">
+			<label for="responsible_contingency"><?=$this->lang->line('risk-responsible_contingency')?></label>
+			<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-responsible_contingency-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+			<div >                 
+				<input id="responsible_contingency" name="responsible_contingency" type="text" class="form-control input-md" value="<?php echo $responsible_contingency; ?>">
+			</div>
+		</div>
+
+		<div class=" col-lg-6 form-group">
+			<label for="contingency_reserve"><?=$this->lang->line('risk-contingency_reserve')?></label>
+			<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-contingency_reserve')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+			<div >                 
+				<input id="contingency_reserve" name="contingency_reserve" type="text" class="form-control input-md" value="<?php echo $contingency_reserve; ?>">
+			</div>
+		</div>
+
+		<div class=" col-lg-6 form-group">
+			<label for="category"><?=$this->lang->line('risk-category')?></label>
+			<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-category-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+			<div >                 
+				<input id="category" name="category" type="text" class="form-control input-md" value="<?php echo $category; ?>">
+			</div>
+		</div>
+
+		<div class=" col-lg-6 form-group">
+			<label for="lessons_learned"><?=$this->lang->line('risk-lessons_learned')?></label>
+			<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-lessons_learned-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+			<div >                 
+				<input id="lessons_learned" name="lessons_learned" type="text" class="form-control input-md" value="<?php echo $lessons_learned; ?>">
+			</div>
+		</div>
+
 		<div class="col-lg-12">
 			<button id="stakeholder-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
 				<i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
@@ -113,12 +196,10 @@
 			<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 		</form>
 	</div>
-
 </div>
 
 </section>
-</div>
-</div>
+
 <script type="text/javascript">
 
 									      //////////////////////////////////
@@ -156,28 +237,35 @@
 									  		e.preventDefault()
 
 									  	//	var project_id = $('#project_id').val();
-									  		
-									  		$.post("<?php echo base_url() ?>RiskRegister/update/<?= $risk_register_id ?>", {
 
-									  			
-									  			impacted_objective: $('#impacted_objective').val(),
-									  			priority: $('#priority').val(),
-									  			risk_status: $('#risk_status').val(),
-									  			event: $('#event').val(),
-									  			date: $('#date').val(),
-									  			identifier: $('#identifier').val(),
-									  			type: $('#type').val(),
-									  			project_id: $('#project_id').val()
-									  		}).done(() => {
-									  			alertify.success('<?=$this->lang->line('alertfy-edit-success')?>');
-									  			setTimeout(() => {
-									  				location.href = "../list/<?= $project_id ?>"
-									  			}, 1500)
-									  		}).fail(() => {
-									  			alertify.error('<?=$this->lang->line('alertfy-edit-error')?>');
-									  		})
+									  	$.post("<?php echo base_url() ?>RiskRegister/update/<?= $risk_register_id ?>", {
+									  		impacted_objective: $('#impacted_objective').val(),
+									  		priority: $('#priority').val(),
+									  		risk_status: $('#risk_status').val(),
+									  		event: $('#event').val(),
+									  		date: $('#date').val(),
+									  		identifier: $('#identifier').val(),
+									  		type: $('#type').val(),
+									  		result: $('#result').val(),
+									     	strategy: $('#strategy').val(),
+									     	triggers: $('#triggers').val(),
+									     	response_action: $('#response_action').val(),
+									     	contingency_action: $('#contingency_action').val(),
+									     	responsible_contingency: $('#responsible_contingency').val(),
+									     	contingency_reserve: $('#contingency_reserve').val(),
+									     	category: $('#category').val(),
+									     	lessons_learned: $('#lessons_learned').val(),
+									  		project_id: $('#project_id').val()
+									  	}).done(() => {
+									  		alertify.success('<?=$this->lang->line('alertfy-edit-success')?>');
+									  		setTimeout(() => {
+									  			location.href = "../list/<?= $project_id ?>"
+									  		}, 1500)
+									  	}).fail(() => {
+									  		alertify.error('<?=$this->lang->line('alertfy-edit-error')?>');
+									  	})
 
-									})
+									  })
 
-		  						</script>
-									  <?php $this->load->view('frame/footer_view')?>
+									</script>
+									<?php $this->load->view('frame/footer_view')?>
