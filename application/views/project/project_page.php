@@ -133,7 +133,7 @@
 
                     <div class=" col-lg-1 midBox integrationColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox integrationColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-star"></i>
@@ -165,7 +165,7 @@
 
                     <div class=" col-lg-1 midBox integrationColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox integrationColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-star"></i>
@@ -174,7 +174,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox integrationColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-star"></i>
@@ -214,7 +214,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox scopeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-search"></i>
@@ -234,7 +234,7 @@
 
                     <div class=" col-lg-1 midBox scopeColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox scopeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-search"></i>
@@ -251,7 +251,7 @@
 
                     <div class=" col-lg-1 midBox scopeColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox scopeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-search"></i>
@@ -260,7 +260,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox scopeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-search"></i>
@@ -269,7 +269,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox scopeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-search"></i>
@@ -313,7 +313,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox timeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
@@ -322,7 +322,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox timeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
@@ -350,7 +350,7 @@
 
                     <div class=" col-lg-1 midBox timeColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox timeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
@@ -359,7 +359,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox timeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
@@ -368,7 +368,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox timeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
@@ -389,7 +389,7 @@
 
                     <div class=" col-lg-1 midBox timeColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox timeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
@@ -398,7 +398,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox timeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
@@ -407,7 +407,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox timeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
@@ -428,7 +428,7 @@
 
                     <div class=" col-lg-1 midBox timeColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox timeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
@@ -437,7 +437,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox timeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
@@ -483,7 +483,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox costColor">
                         <div class="verticalAlign">
                           <i class="fa fa-money"></i>
@@ -513,7 +513,7 @@
 
                     <div class=" col-lg-1 midBox costColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox costColor">
                         <div class="verticalAlign">
                           <i class="fa fa-money"></i>
@@ -522,7 +522,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox costColor">
                         <div class="verticalAlign">
                           <i class="fa fa-money"></i>
@@ -568,7 +568,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox qualityColor">
                         <div class="verticalAlign">
                           <i class="fa fa-trophy"></i>
@@ -586,7 +586,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox qualityColor">
                         <div class="verticalAlign">
                           <i class="fa fa-trophy"></i>
@@ -595,7 +595,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox qualityColor">
                         <div class="verticalAlign">
                           <i class="fa fa-trophy"></i>
@@ -612,7 +612,7 @@
 
                     <div class=" col-lg-1 midBox qualityColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox qualityColor">
                         <div class="verticalAlign">
                           <i class="fa fa-trophy"></i>
@@ -621,7 +621,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox qualityColor">
                         <div class="verticalAlign">
                           <i class="fa fa-trophy"></i>
@@ -671,7 +671,7 @@
 
                     <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox hrColor">
                         <div class="verticalAlign">
                           <i class="fa fa-male"></i>
@@ -721,7 +721,7 @@
 
                     <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox hrColor">
                         <div class="verticalAlign">
                           <i class="fa fa-male"></i>
@@ -746,7 +746,7 @@
 
                     <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox hrColor">
                         <div class="verticalAlign">
                           <i class="fa fa-male"></i>
@@ -794,7 +794,7 @@
 
                     <div class=" col-lg-1 midBox communicColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox communicColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-bullhorn"></i>
@@ -854,7 +854,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox riskColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-exclamation-sign"></i>
@@ -885,7 +885,7 @@
 
                     <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox procurementColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-shopping-cart"></i>
@@ -905,7 +905,7 @@
 
                     <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox procurementColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-shopping-cart"></i>
@@ -914,7 +914,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox procurementColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-shopping-cart"></i>
@@ -931,7 +931,7 @@
 
                     <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox procurementColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-shopping-cart"></i>
@@ -940,7 +940,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox procurementColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-shopping-cart"></i>
@@ -951,7 +951,7 @@
 
                     <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox procurementColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-shopping-cart"></i>
@@ -1003,7 +1003,7 @@
 
                     <div class=" col-lg-1 midBox stakeholderColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox stakeholderColor">
                         <div class="verticalAlign">
                           <i class="fa fa-users"></i>
@@ -1012,7 +1012,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox stakeholderColor">
                         <div class="verticalAlign">
                           <i class="fa fa-users"></i>
@@ -1035,7 +1035,7 @@
 
                     <div class=" col-lg-1 midBox stakeholderColor hideBox"></div>
 
-                    <a  href="<?=base_url("CONTROLER/METODO/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Maintenance") ?>">
                       <div class=" col-lg-1 midBox stakeholderColor">
                         <div class="verticalAlign">
                           <i class="fa fa-users"></i>
