@@ -109,21 +109,21 @@
     background: rgb(131, 156, 175);
 }
 .wrapper a:hover .integrationColor{
-    background: rgb(88, 105, 117); 
+    background: rgb(88, 105, 117);
 }
 
 .scopeColor{
     background: #469F33;
 }
 .wrapper a:hover .scopeColor{
-    background: rgb(55, 122, 40); 
+    background: rgb(55, 122, 40);
 }
 
 .timeBox, .timeColor{
     background: #C95F4F;
 }
 .wrapper a:hover .timeColor{
-    background: rgb(141, 65, 54); 
+    background: rgb(141, 65, 54);
 }
 
 .costBox, .costColor{
@@ -145,7 +145,7 @@
     background: #8F78A4;
 }
 .wrapper a:hover .hrColor{
-    background: rgb(104, 87, 119); 
+    background: rgb(104, 87, 119);
 }
 
 .communicColor{
@@ -159,21 +159,21 @@
     background: #8E3636;
 }
 .wrapper a:hover .riskColor{
-    background: rgb(110, 41, 41); 
+    background: rgb(110, 41, 41);
 }
 
 .procurementColor{
     background: #79BF73;
 }
 .wrapper a:hover .procurementColor{
-    background: rgb(87, 138, 82); 
+    background: rgb(87, 138, 82);
 }
 
 .stakeholderColor{
     background: #5792F2;
 }
 .wrapper a:hover .stakeholderColor{
-    background: rgb(67, 111, 182); 
+    background: rgb(67, 111, 182);
 }
 
 .notifBoardColor{
@@ -195,13 +195,13 @@
         height:4em;
         width:8em;
         text-align:center;
-        display: table-cell; 
-        vertical-align:middle; 
+        display: table-cell;
+        vertical-align:middle;
     }
 
     .noSpaceSide{
         margin-right: 0;
-        padding-right: 0;  
+        padding-right: 0;
         margin-left: 0;
         padding-left: 0;
     }
@@ -218,7 +218,7 @@
 		font-size: 0.7em;
 		text-align: center;
 	}
-    
+
     .midBox{
         padding: 0.5em;
         height: 5em;
@@ -246,7 +246,7 @@
     }
 
     .transparentBox{
-        opacity: 1; 
+        opacity: 1;
         color: #ccc ;
         margin: 1%;
     }
@@ -278,13 +278,13 @@
     .integrationBox{
         height:18.5em;
     }
-    
+
     .integrationBox .verticalAlign{
         height:18.5em;
         width:10em;
         text-align:center;
-        display: table-cell; 
-        vertical-align:middle; 
+        display: table-cell;
+        vertical-align:middle;
     }
 
     .timeBox{
@@ -295,8 +295,8 @@
         height:24.6em;
         width:10em;
         text-align:center;
-        display: table-cell; 
-        vertical-align:middle; 
+        display: table-cell;
+        vertical-align:middle;
     }
 
     .hrBox{
@@ -307,8 +307,8 @@
         height:24.5em;
         width:10em;
         text-align:center;
-        display: table-cell; 
-        vertical-align:middle; 
+        display: table-cell;
+        vertical-align:middle;
     }
 
     .verticalOneBox{
@@ -319,8 +319,8 @@
         height:5.7em;
         width:10em;
         text-align:center;
-        display: table-cell; 
-        vertical-align:middle; 
+        display: table-cell;
+        vertical-align:middle;
     }
 
     .stakeholderBox, .scopeBox, .costBox, .qualityBox, .procurementBox{
@@ -331,8 +331,8 @@
         height:12em;
         width:10em;
         text-align:center;
-        display: table-cell; 
-        vertical-align:middle; 
+        display: table-cell;
+        vertical-align:middle;
     }
 
     .transparentBox, .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
@@ -357,7 +357,7 @@
 
     .noSpaceSide{
         margin-right: 0;
-        padding-right: 0;  
+        padding-right: 0;
         margin-left: 0;
         padding-left: 0;
     }
@@ -373,7 +373,7 @@
 	.wrapper{
 		font-size: 0.8em;
     }
-    
+
     .midBox{
         padding: 0.5em;
         height: 5em;
@@ -401,7 +401,7 @@
     }
 
     .transparentBox{
-        opacity: 1; 
+        opacity: 1;
         color: #ccc ;
     }
 
@@ -423,8 +423,8 @@
         height:18.2em;
         width: 14.6%;
         text-align:center;
-        display: table-cell; 
-        vertical-align:middle; 
+        display: table-cell;
+        vertical-align:middle;
     }
 
     .timeBox{
@@ -435,8 +435,8 @@
         height: 24.3em;
         width: 14.6%;
         text-align:center;
-        display: table-cell; 
-        vertical-align:middle; 
+        display: table-cell;
+        vertical-align:middle;
     }
 
     .hrBox{
@@ -447,8 +447,8 @@
         height:24.3em;
         width: 14.6%;
         text-align:center;
-        display: table-cell; 
-        vertical-align:middle; 
+        display: table-cell;
+        vertical-align:middle;
     }
 
     .verticalOneBox{
@@ -459,8 +459,8 @@
         height:5.7em;
         width: 14.6%;
         text-align:center;
-        display: table-cell; 
-        vertical-align:middle; 
+        display: table-cell;
+        vertical-align:middle;
     }
 
     .stakeholderBox, .scopeBox, .costBox, .qualityBox, .procurementBox{
@@ -471,8 +471,8 @@
         height:12em;
         width: 14.6%;
         text-align:center;
-        display: table-cell; 
-        vertical-align:middle; 
+        display: table-cell;
+        vertical-align:middle;
     }
 
     .transparentBox{
@@ -495,11 +495,11 @@
 
 @media (min-width: 1700px){
     .timeBox{
-        height: 25.2em;        
+        height: 25.2em;
     }
 
     .hrBox{
-        height: 25em;        
+        height: 25em;
     }
 }
 
@@ -542,8 +542,8 @@
         height:19.5em;
         width: 14.6%;
         text-align:center;
-        display: table-cell; 
-        vertical-align:middle; 
+        display: table-cell;
+        vertical-align:middle;
     }
 
     .timeBox{
@@ -554,8 +554,8 @@
         height: 26em;
         width: 1%;
         text-align:center;
-        display: table-cell; 
-        vertical-align:middle; 
+        display: table-cell;
+        vertical-align:middle;
     }
 
     .hrBox{
@@ -566,8 +566,8 @@
         height: 26em;
         width: 14.6%;
         text-align:center;
-        display: table-cell; 
-        vertical-align:middle; 
+        display: table-cell;
+        vertical-align:middle;
     }
 
     .verticalOneBox{
@@ -578,8 +578,8 @@
         height: 6em;
         width: 1%;
         text-align:center;
-        display: table-cell; 
-        vertical-align:middle; 
+        display: table-cell;
+        vertical-align:middle;
     }
 
     .stakeholderBox, .scopeBox, .costBox, .qualityBox, .procurementBox{
@@ -590,8 +590,8 @@
         height: 13em;
         width: 1%;
         text-align:center;
-        display: table-cell; 
-        vertical-align:middle; 
+        display: table-cell;
+        vertical-align:middle;
     }
 
     .transparentBox{
@@ -632,4 +632,3 @@ td.moreInformationTable {
 tr.shown td.moreInformationTable {
     background: url('../images/icons/details_close.png') no-repeat center center;
 }
-
