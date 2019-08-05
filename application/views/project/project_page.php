@@ -251,7 +251,7 @@
 
                     <div class=" col-lg-1 midBox scopeColor hideBox"></div>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
+                    <a  href="<?=base_url("ScopeManagement/new/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox scopeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-search"></i>

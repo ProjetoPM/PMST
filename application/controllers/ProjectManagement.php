@@ -67,9 +67,9 @@ class ProjectManagement extends CI_Controller{
 		$project_mp['status'] = $this->input->post('status');
 
 		if ($this->input->post('status') == 1) {
-			$project_charter['status'] = 1;
+			$project_mp['status'] = 1;
 		} else {
-			$project_charter['status'] = 0;
+			$project_mp['status'] = 0;
 		}
 		$query = $this->Project_management_model->updateProjectMp($project_mp, $project_mp_id);
 
