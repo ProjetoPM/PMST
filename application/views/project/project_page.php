@@ -205,7 +205,7 @@
 
                     <div class=" col-lg-1 midBox scopeColor hideBox"></div>
 
-                    <a  href="<?=base_url("Requirement_registration/list/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("RequirementsManagement/new/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox scopeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-search"></i>
@@ -214,7 +214,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
+                    <a  href="<?=base_url("Requirement_registration/list/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox scopeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-search"></i>

@@ -1,7 +1,7 @@
 <?php
 
 // Title
-$lang['projectmp-title'] = 'Project Management Plan';
+$lang['scope_mp-title'] = 'Scope Management Plan';
 
 //Form
 $lang['scope_specification'] = 'Project Scope Specification Process';
