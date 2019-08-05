@@ -43,7 +43,7 @@
                   <div class="container-login100-form-btn">
                      <button class="login100-form-btn" id="login-submit" type="submit" value="Login" class="btn btn-lg btn-success btn-block">
                      Login
-                     </button>                     
+                     </button>
                   </div>
                   <div class="text-center p-t-12">
                      <span class="txt1">
@@ -57,14 +57,14 @@
                         <p class='flashMsg flashSuccess text-center' style="color: #2ce14a"> <?=$this->session->flashdata('flashSuccess')?> </p>
                      </strong>
                      <strong>
-                        <p class='flashMsg flashFail text-center' style="color: #ff4d4d"> <?=$this->session->flashdata('flashFail')?> 
+                        <p class='flashMsg flashFail text-center' style="color: #ff4d4d"> <?=$this->session->flashdata('flashFail')?>
                         </p>
                      </strong>
                      <strong>
                         <p class='flashMsg flashSuccess text-center' style="color: #2ce14a"> <?=$this->session->flashdata('flashCreated')?> </p>
                      </strong>
                      <strong>
-                        <p class='flashMsg flashFail text-center' style="color: #ff4d4d"> <?=$this->session->flashdata('flashError')?> 
+                        <p class='flashMsg flashFail text-center' style="color: #ff4d4d"> <?=$this->session->flashdata('flashError')?>
                         </p>
                      </strong>
                   </div>
@@ -98,7 +98,7 @@
                </div>
                <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-               <input style="background: #d68e39; border-color: #333300;" id="login-submit" id="login-submit" type="submit" class="btn btn-primary" value="Send Password"> 
+               <input style="background: #d68e39; border-color: #333300;" id="login-submit" id="login-submit" type="submit" class="btn btn-primary" value="Send Password">
                </div> </form>
             </div>
          </div>
@@ -112,6 +112,6 @@
          $('.js-tilt').tilt({
             scale: 1.1
          })
-      </script>      
+      </script>
    </body>
 </html>

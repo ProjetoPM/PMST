@@ -14,7 +14,7 @@ class Dashboard extends CI_Controller {
     }
 
     public function index() {
-        
+
         $this->db->where('user_id', $_SESSION['user_id']);
         $datauser['user'] = $this->db->get('user')->result();
         $this->load->view('frame/header_view', $datauser);

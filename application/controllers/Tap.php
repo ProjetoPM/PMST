@@ -4,7 +4,7 @@ if (!defined('BASEPATH')) {
 }
 
 class Tap extends CI_Controller{
-	
+
 	function __construct(){
 		parent::__construct();
 		//$this->load->helper('url');
@@ -16,7 +16,7 @@ class Tap extends CI_Controller{
 		$this->load->model('Stakeholder_mp_model');
 	}
 
-	public function addTap($project_id){
+	public function new($project_id){
 
 		//buscando stakeholders
 		$data['stakeholder'] = $this->Tap_model->getAllStk();
