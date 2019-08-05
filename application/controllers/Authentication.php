@@ -12,9 +12,9 @@ class Authentication extends CI_Controller {
     }
 
     public function index() {
-    
+
         if($this->session->userdata('logged_in')) {
-            redirect(base_url("dashboard"));
+            redirect(base_url("projects"));
         }else {
             $data = array('alert' => false);
             $this->load->view('login',$data);
@@ -45,17 +45,17 @@ class Authentication extends CI_Controller {
                 'role' => $validate[0]->role,
                 'user_id' => $validate[0]->user_id,
                 'logged_in' => TRUE,
-              
+
             );
             $this->session->set_userdata($newdata);
-            redirect(base_url("dashboard")); 
+            redirect(base_url("projects"));
         }
         else{
             $data = array('alert' => true);
             $this->load->view('login',$data);
             $this->session->set_flashdata('flashError', 'the email or password is incorrect!');
         }
-     
+
     }
 
     function change_password(){
