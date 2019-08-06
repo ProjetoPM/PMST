@@ -28,35 +28,35 @@
 
 				<div class="col-lg-12">
 					<div class="form-group">
-						<label>Shedule Model</label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-model-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+						<label for="schedule_model"><?=$this->lang->line('schedule_model')?></label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-model-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="schedule_model"></textarea>
 					</div>
 				</div>
 
 				<div class="col-lg-6">
 					<div class="form-group">
-						<label>Accuary Level</label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('accuary-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+						<label for="accuary_level"><?=$this->lang->line('accuary_level')?></label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('accuary-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<textarea oninput="eylem(this, this.value)" class="form-control elasticteste"  name="accuracy_level"></textarea>
 					</div>
 				</div>
 
 				<div class="col-lg-6">
 					<div class="form-group">
-						<label>Organizational Procedures</label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('organization-procedures-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+						<label for="organizational_procedures"><?=$this->lang->line('organizational_procedures')?></label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('organization-procedures-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<textarea oninput="eylem(this, this.value)" class="form-control elasticteste"  name="organizational_procedures"></textarea>
 					</div>
 				</div>
 
 				<div class="col-lg-12">
 					<div class="form-group">
-						<label>Shedule Maintenance</label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-maintenance-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+						<label for="schedule_maintenance"><?=$this->lang->line('schedule_maintenance')?></label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-maintenance-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<textarea oninput="eylem(this, this.value)" class="form-control elasticteste"  name="schedule_maintenance"></textarea>
 					</div>
 				</div>
 
 				<div class="col-lg-6">
 					<div class="form-group">
-						<label>Performance Measurement</label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('performance_measurement-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+						<label for="performance_measurement"><?=$this->lang->line('performance_measurement')?></label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('performance_measurement-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="performance_measurement"></textarea>
 					</div>
 				</div>
@@ -64,7 +64,7 @@
 				<!-- Textarea-->
 				<div class="col-lg-6">
 					<div class="form-group">
-						<label>Report Format</label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('report_format-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+							<label for="report_format"><?=$this->lang->line('report_format')?></label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('report_format-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="report_format"></textarea>
 					</div>
 				</div>
@@ -90,35 +90,35 @@
 
 				<div class="col-lg-12">
 					<div class="form-group">
-						<label>Shedule Model</label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-model-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+							<label for="schedule_model"><?=$this->lang->line('schedule_model')?></label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-model-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="schedule_model"><?php echo $schedule_mp[0]->schedule_model; ?></textarea>
 					</div>
 				</div>
 
 				<div class="col-lg-6">
 					<div class="form-group">
-						<label>Accuary Level</label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('accuary-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+						<label for="accuary_level"><?=$this->lang->line('accuary_level')?></label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('accuary-level-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<textarea oninput="eylem(this, this.value)" class="form-control elasticteste"  name="accuracy_level"><?php echo $schedule_mp[0]->accuracy_level; ?></textarea>
 					</div>
 				</div>
 
 				<div class="col-lg-6">
 					<div class="form-group">
-						<label>Organizational Procedures</label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('organization-procedures-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+							<label for="organizational_procedures"><?=$this->lang->line('organizational_procedures')?></label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('organization-procedures-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<textarea oninput="eylem(this, this.value)" class="form-control elasticteste"  name="organizational_procedures"><?php echo $schedule_mp[0]->organizational_procedures; ?></textarea>
 					</div>
 				</div>
 
 				<div class="col-lg-12">
 					<div class="form-group">
-						<label>Shedule Maintenance</label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-maintenance-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+						<label for="schedule_maintenance"><?=$this->lang->line('schedule_maintenance')?></label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('schedule-maintenance-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<textarea oninput="eylem(this, this.value)" class="form-control elasticteste"  name="schedule_maintenance"><?php echo $schedule_mp[0]->schedule_maintenance; ?></textarea>
 					</div>
 				</div>
 
 				<div class="col-lg-6">
 					<div class="form-group">
-						<label>Performance Measurement</label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('performance_measurement-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+						<label for="performance_measurement"><?=$this->lang->line('performance_measurement')?></label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('performance_measurement-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="performance_measurement"><?php echo $schedule_mp[0]->performance_measurement; ?></textarea>
 					</div>
 				</div>
@@ -126,7 +126,7 @@
 				<!-- Textarea-->
 				<div class="col-lg-6">
 					<div class="form-group">
-						<label>Report Format</label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('report_format-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+						<label for="report_format"><?=$this->lang->line('report_format')?></label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('report_format-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="report_format"><?php echo $schedule_mp[0]->report_format; ?></textarea>
 					</div>
 				</div>
