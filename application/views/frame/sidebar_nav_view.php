@@ -29,7 +29,7 @@
          <li>
             <a href="#"><i class="fa fa-user fa-fw"></i> Account<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
-               <li> <a data-toggle="modal" data-target="#myAccount" href="#myAccount">&raquo; My Profile</a> </li>
+               <li> <a data-toggle="modal" data-target="#myAccount" href="#myAccount"><i class= "fa fa-user fa-fw"></i> My Profile</a> </li>
             </ul>
          </li>
          <!-- fim do main panel -->
