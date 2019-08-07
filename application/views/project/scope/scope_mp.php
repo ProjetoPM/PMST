@@ -116,4 +116,7 @@
 
 														<?php } ?>
 
+														<br />
+														<?php $this->load->view('frame/upload_view')?>
+
 									      <?php $this->load->view('frame/footer_view')?>
