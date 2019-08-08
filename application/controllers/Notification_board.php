@@ -29,7 +29,7 @@ class Notification_board extends CI_Controller{
         }
     }
 
-    public function list($project_id){
+    public function listp($project_id){
         $query['notification_board'] = $this->notification_board_model->getWithProject_id($project_id);
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
@@ -75,7 +75,7 @@ class Notification_board extends CI_Controller{
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'Notification_board/list/' . $notification_board['project_id']);
+            redirect(base_url() . 'Notification_board/listp/' . $notification_board['project_id']);
         }
     }
 
@@ -92,7 +92,7 @@ class Notification_board extends CI_Controller{
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'Notification_board/list/' . $notification_board['project_id']);
+            redirect(base_url() . 'Notification_board/listp/' . $notification_board['project_id']);
         }
     }
 
@@ -102,7 +102,7 @@ class Notification_board extends CI_Controller{
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'Notification_board/list/' . $project_id['id']);
+            redirect(base_url() . 'Notification_board/listp/' . $project_id['id']);
         }
     }
 }

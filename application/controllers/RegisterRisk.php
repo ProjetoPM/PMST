@@ -19,7 +19,7 @@ class RegisterRisk extends CI_Controller {
 
 	}
 
-	public function list($project_id){
+	public function listp($project_id){
 		$dado['project_id'] = $project_id;
 
 		$dado['risk_register'] = $this->Risk_model->getAllRiskProject($project_id);
@@ -68,7 +68,7 @@ class RegisterRisk extends CI_Controller {
 		if($query){
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/sidebar_nav_view');
-			redirect('RegisterRisk/list/' . $risk_register['project_id']);
+			redirect('RegisterRisk/listp/' . $risk_register['project_id']);
 		}
 	}
 
@@ -88,7 +88,7 @@ class RegisterRisk extends CI_Controller {
 		$query = $this->Risk_model->updateRisk($risk_register,$risk_register_id);
 
 		if ($query) {
-			redirect('RegisterRisk/list/' . $risk_register['project_id']);
+			redirect('RegisterRisk/listp/' . $risk_register['project_id']);
 		}
 	}
 
@@ -100,7 +100,7 @@ class RegisterRisk extends CI_Controller {
 		if($query){
 			$this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'RegisterRisk/list/' . $project_id['project_id']);
+            redirect(base_url() . 'RegisterRisk/listp/' . $project_id['project_id']);
 		}
 	}
 	

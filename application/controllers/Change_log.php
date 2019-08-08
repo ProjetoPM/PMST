@@ -28,7 +28,7 @@ class Change_log extends CI_Controller {
 		}
 	}
 
-	public function list($project_id){
+	public function listp($project_id){
 		$query['change_log'] = $this->Change_log_model->getWithProject_id($project_id);
 		$query['project_id'] = $project_id;
 		$this->load->view('frame/header_view');
@@ -72,7 +72,7 @@ class Change_log extends CI_Controller {
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'Change_log/list/' . $change_log['project_id']);
+            redirect(base_url() . 'Change_log/listp/' . $change_log['project_id']);
         }
     }
   public function update($id){
@@ -108,7 +108,7 @@ class Change_log extends CI_Controller {
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'Change_log/list/' . $change_log['project_id']);
+            redirect(base_url() . 'Change_log/listp/' . $change_log['project_id']);
         }
     }
 
@@ -118,7 +118,7 @@ class Change_log extends CI_Controller {
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'Change_log/list/' . $project_id['id']);
+            redirect(base_url() . 'Change_log/listp/' . $project_id['id']);
         }
     }
 

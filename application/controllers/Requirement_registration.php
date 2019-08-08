@@ -26,7 +26,7 @@ class Requirement_registration extends CI_Controller{
         }
     }
 
-    public function list($project_id){
+    public function listp($project_id){
         $query['requirement_registration'] = $this->requirement_registration_model->getWithProject_id($project_id);
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
@@ -82,7 +82,7 @@ $query['project_id'] = $project_id;
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'Requirement_registration/list/' . $requirement_registration['project_id']);
+            redirect(base_url() . 'Requirement_registration/listp/' . $requirement_registration['project_id']);
         }
     }
 
@@ -108,7 +108,7 @@ $query['project_id'] = $project_id;
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'Requirement_registration/list/' . $requirement_registration['project_id']);
+            redirect(base_url() . 'Requirement_registration/listp/' . $requirement_registration['project_id']);
         }
     }
 
@@ -118,7 +118,7 @@ $query['project_id'] = $project_id;
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'Requirement_registration/list/' . $project_id['id']);
+            redirect(base_url() . 'Requirement_registration/listp/' . $project_id['id']);
         }
     }
 }

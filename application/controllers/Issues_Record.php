@@ -19,7 +19,7 @@ class Issues_Record extends CI_Controller{
 		$this->load->model('Issues_record_stakeholder_model');
 	}
 
-	public function list($project_id){
+	public function listp($project_id){
 		$query['issues_record'] = $this->Issues_record_model->getIssues_recordProject_id($project_id);
 		$query['project_id'] = $project_id;
 		$this->load->view('frame/header_view.php');
@@ -64,7 +64,7 @@ $query['issues_record'] = $this->Issues_record_model->getIssues_recordProject_id
 		$query = $this->Issues_record_model->insertIssues_record($issues_record);
 
 		if ($query) {
-			redirect('Issues_Record/list/' . $issues_record['project_id']);
+			redirect('Issues_Record/listp/' . $issues_record['project_id']);
 		//	$this->load->view('project/issues_record/');
 		}
 	}
@@ -99,7 +99,7 @@ $query['issues_record'] = $this->Issues_record_model->getIssues_recordProject_id
 		$query = $this->Issues_record_model->updateIssues_record($data['issues_record'], $issues_record_id);
 
 		if ($query) {
-			redirect('Issues_Record/list/' . $issues_record['project_id']);
+			redirect('Issues_Record/listp/' . $issues_record['project_id']);
 		}
 	}
 
@@ -112,7 +112,7 @@ $query['issues_record'] = $this->Issues_record_model->getIssues_recordProject_id
 		if($query){
 			$this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'Issues_Record/list/' . $project_id['issues_record_id']);
+            redirect(base_url() . 'Issues_Record/listp/' . $project_id['issues_record_id']);
 		}
 	}
 }

@@ -44,11 +44,11 @@ class ManagementStakeholder extends CI_Controller {
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'ManagementStakeholder/list/' . $project_id['project_id']);
+            redirect(base_url() . 'ManagementStakeholder/listp/' . $project_id['project_id']);
         }
     }
 
-    public function list($project_id){
+    public function listp($project_id){
         $dado['project_id'] = $project_id;
 
         $dado['stakeholder'] = $this->Stakeholder_model->getAllStakeholders($project_id);
@@ -86,7 +86,7 @@ class ManagementStakeholder extends CI_Controller {
         $query = $this->Stakeholder_model->updateStakeholder($stakeholder,$stakeholder_id);
 
         if ($query) {
-            redirect('ManagementStakeholder/list/' . $stakeholder_id['project_id']);
+            redirect('ManagementStakeholder/listp/' . $stakeholder_id['project_id']);
         }
 
     }

@@ -27,7 +27,7 @@ class Communication_item extends CI_Controller{
         }
     }
 
-    public function list($project_id){
+    public function listp($project_id){
         $query['communication_item'] = $this->communication_item_model->getWithProject_id($project_id);
         //$query['communication_responsability'] = $this->communication_item_model->getAllCommunication_responsability();
         //$query['stakeholder'] = $this->communication_item_model->getCommunication_stakeholder_item_id($project_id);
@@ -86,7 +86,7 @@ class Communication_item extends CI_Controller{
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'Communication_item/list/' . $communication_item['project_id']);
+            redirect(base_url() . 'Communication_item/listp/' . $communication_item['project_id']);
         }
     }
 
@@ -104,7 +104,7 @@ class Communication_item extends CI_Controller{
         $query = $this->Communication_item_stakeholder_model->insertResponasibility($data['communication_responsability']);
 
         if($query){
-            redirect(base_url() . 'Communication_item/list/' . $communication_item['project_id']);
+            redirect(base_url() . 'Communication_item/listp/' . $communication_item['project_id']);
         }
     }
 
@@ -130,7 +130,7 @@ class Communication_item extends CI_Controller{
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'Communication_item/list/' . $communication_item['project_id']);
+            redirect(base_url() . 'Communication_item/listp/' . $communication_item['project_id']);
         }
    }
 
@@ -140,7 +140,7 @@ class Communication_item extends CI_Controller{
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'Communication_item/list/' . $project_id['id']);
+            redirect(base_url() . 'Communication_item/listp/' . $project_id['id']);
         }
     }
 }

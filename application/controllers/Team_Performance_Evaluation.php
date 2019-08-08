@@ -19,7 +19,7 @@ class Team_Performance_Evaluation extends CI_Controller {
 
 	}
 
-	public function list($project_id){
+	public function listp($project_id){
 		$dado['project_id'] = $project_id;
 
 		$dado['team_performance_evaluation'] = $this->Team_Performance_Evaluation_model->getAllTeamEvalProject($project_id);
@@ -75,7 +75,7 @@ class Team_Performance_Evaluation extends CI_Controller {
 		if($query){
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/sidebar_nav_view');
-			redirect('Team_Performance_Evaluation/list/' . $team_performance_evaluation['project_id']);
+			redirect('Team_Performance_Evaluation/listp/' . $team_performance_evaluation['project_id']);
 		}
 	}
 
@@ -100,7 +100,7 @@ class Team_Performance_Evaluation extends CI_Controller {
 		$query = $this->Team_Performance_Evaluation_model->updateTeamEval($team_performance_evaluation,$team_performance_evaluation_id);
 
 		if ($query) {
-			redirect('Team_Performance_Evaluation/list/' . $team_performance_evaluation['project_id']);
+			redirect('Team_Performance_Evaluation/listp/' . $team_performance_evaluation['project_id']);
 		}
 	}
 
@@ -112,7 +112,7 @@ class Team_Performance_Evaluation extends CI_Controller {
 		if($query){
 			$this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'Team_Performance_Evaluation/list/' . $team_performance_evaluation['project_id']);
+            redirect(base_url() . 'Team_Performance_Evaluation/listp/' . $team_performance_evaluation['project_id']);
 		}
 	}
 
