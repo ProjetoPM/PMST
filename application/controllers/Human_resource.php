@@ -9,26 +9,26 @@ class Human_resource extends CI_Controller{
         parent::__Construct();
 
         // $this->load->helper('url', 'english');
-        
+
         $this->lang->load('btn','english');
         // $this->lang->load('btn','portuguese-brazilian');
         $this->lang->load('human-resource','english');
         // $this->lang->load('human-resource','portuguese-brazilian');
-        
+
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }
         $this->load->model('project_model');
         $this->load->model('human_resource_model');
     }
-    
+
     private function ajax_checking(){
         if (!$this->input->is_ajax_request()) {
             redirect(base_url());
         }
     }
 
-    public function new($project_id){
+    public function newp($project_id){
         $data['human_resources_mp'] = $this->human_resource_model->getHumanResourceProject_id($project_id);
         $data['id'] = $project_id;
         $this->load->view('frame/header_view');
@@ -45,7 +45,7 @@ class Human_resource extends CI_Controller{
         $human_resource_mp['status'] = $this->input->post('status');
 
         $human_resource_mp['status'] = 1;
-        
+
         $query = $this->human_resource_model->insertHumanResource($human_resource_mp);
 
         if($query){
@@ -63,7 +63,7 @@ class Human_resource extends CI_Controller{
         $human_resources_mp['status'] = $this->input->post('status');
 
         $human_resources_mp['status'] = 1;
-        
+
         $query = $this->human_resource_model->updateHumanResource($human_resources_mp, $id);
 
         if($query){
@@ -71,5 +71,5 @@ class Human_resource extends CI_Controller{
             $this->load->view('frame/sidebar_nav_view');
             redirect('project/'.$human_resource_mp['project_id']);
         }
-    }  
+    }
 }

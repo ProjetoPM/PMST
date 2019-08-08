@@ -16,7 +16,7 @@ class Tap extends CI_Controller{
 		$this->load->model('Stakeholder_mp_model');
 	}
 
-	public function new($project_id){
+	public function newp($project_id){
 
 		//buscando stakeholders
 		$data['stakeholder'] = $this->Tap_model->getAllStk();

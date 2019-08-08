@@ -15,7 +15,7 @@ class RequirementsManagement extends CI_Controller{
 		$this->load->model('Requirements_mp_model');
 	}
 
-	public function new($project_id){
+	public function newp($project_id){
 
 		//buscando stakeholders
 		$data['requirements_mp'] = $this->Requirements_mp_model->tap_form($project_id);

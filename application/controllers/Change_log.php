@@ -14,7 +14,7 @@ class Change_log extends CI_Controller {
 		//$this->load->helper('url');
 		$this->load->model('project_model');
 		$this->load->model('Change_log_model');
-		
+
 		$this->lang->load('btn','english');
         // $this->lang->load('btn','portuguese-brazilian');
 		$this->lang->load('change_log','english');
@@ -37,7 +37,7 @@ class Change_log extends CI_Controller {
 
 	}
 
-	public function new($project_id){
+	public function newp($project_id){
 		$query['project_id'] = $project_id;
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
@@ -48,12 +48,12 @@ class Change_log extends CI_Controller {
 		$query['change_log'] = $this->Change_log_model->get($change_log);
 		$query['project_id'] = $this->input->post('project_id');
 		$this->load->view('frame/header_view');
-		$this->load->view('frame/sidebar_nav_view'); 
+		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('project/integration/change_log/edit', $query);
 	}
 
 
-	
+
   public function insert() {
         $change_log['id_number'] = $this->input->post('id_number');
         $change_log['requester'] = $this->input->post('requester');
@@ -66,7 +66,7 @@ class Change_log extends CI_Controller {
         $change_log['ccc_feedback_date'] = $this->input->post('ccc_feedback_date');
         $change_log['comments'] = $this->input->post('comments');
         $change_log['project_id'] = $this->input->post('project_id');
-        
+
         $query = $this->Change_log_model->insert($change_log);
 
         if($query){

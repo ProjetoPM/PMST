@@ -15,7 +15,7 @@ class ManagementCost extends CI_Controller {
 
 	}
 
-	public function new($project_id){
+	public function newp($project_id){
 		$dado['cost_mp'] = $this->Cost_model->getAll();
 		$dado['id'] = $project_id;
 		//$dado['verific'] = true;
@@ -45,7 +45,7 @@ class ManagementCost extends CI_Controller {
 		if($query!=true){
 			$query = $this->Cost_model->insert($cost_mp);
 		}
-		
+
 		if($query){
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/sidebar_nav_view');

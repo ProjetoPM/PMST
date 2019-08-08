@@ -4,7 +4,7 @@ if (!defined('BASEPATH')) {
 }
 
 class Risk extends CI_Controller{
-    
+
     public function __Construct(){
         parent::__Construct();
 
@@ -18,21 +18,21 @@ class Risk extends CI_Controller{
         $this->load->model('project_model');
         $this->load->model('risk_mp_model');
     }
-    
+
     private function ajax_checking(){
         if (!$this->input->is_ajax_request()) {
             redirect(base_url());
         }
     }
 
-    public function new($project_id){
+    public function newp($project_id){
         $query['risk_mp'] = $this->risk_mp_model->getWithProject_id($project_id);
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view'); 
+        $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/risk/risk_mp/risk_mp', $query);
     }
-    
+
     public function insert() {
         $risk_mp['methodology'] = $this->input->post('methodology');
         $risk_mp['roles_responsibilities'] = $this->input->post('roles_responsibilities');
@@ -64,7 +64,7 @@ class Risk extends CI_Controller{
         $risk_mp['project_id'] = $this->input->post('project_id');
         $risk_mp['status'] = $this->input->post('status');
         $risk_mp['status'] = 1;
-       
+
             $query = $this->risk_mp_model->update($risk_mp, $id);
 
         if($query){

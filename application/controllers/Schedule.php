@@ -19,8 +19,8 @@ class Schedule extends CI_Controller
 		$this->load->model('Schedule_model');
 	}
 
-	public function new($id){
-		
+	public function newp($id){
+
 		$dados['schedule_mp'] = $this->Schedule_model->getSchedule($id);
 		$dados['id'] = $id;
 		$this->db->where('project_id', $id);
@@ -63,7 +63,7 @@ class Schedule extends CI_Controller
 
 
 		//var_dump($shed);
-	
+
 
 
 

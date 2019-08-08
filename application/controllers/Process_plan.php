@@ -15,7 +15,7 @@ class Process_plan extends CI_Controller {
 
 	}
 
-	public function new($project_id){
+	public function newp($project_id){
 		$data['process_plan'] = $this->Process_plan_model->getAll();
 		$data['id'] = $project_id;
 		$this->load->view('frame/header_view');
@@ -30,7 +30,7 @@ class Process_plan extends CI_Controller {
 		$process_plan['process_metrics'] = $this->input->post('process_metrics');
 		$process_plan['goals_performance_improvement'] = $this->input->post('goals_performance_improvement');
 		$process_plan['project_id'] = $id;
-		
+
 		$query=false;
 		if($data['process_plan']!=null){
 			foreach($data['process_plan'] as $process){
@@ -43,7 +43,7 @@ class Process_plan extends CI_Controller {
 		if($query!=true){
 			$query = $this->Process_plan_model->insert($process_plan);
 		}
-		
+
 		if($query){
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/sidebar_nav_view');

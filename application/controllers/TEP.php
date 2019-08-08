@@ -8,16 +8,16 @@ class TEP extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('Tep_model');
-		
+
 		$this->lang->load('btn','english');
         // $this->lang->load('btn','portuguese-brazilian');
         $this->lang->load('tep','english');
         // $this->lang->load('tep','portuguese-brazilian');
 
-		
+
 	}
 
-	public function new($project_id){
+	public function newp($project_id){
 		$dado['project_closure_term'] = $this->Tep_model->getTep();
 		$dado['id'] = $project_id;
 		//$dado['verific'] = true;
@@ -48,7 +48,7 @@ class TEP extends CI_Controller {
 		if($query!=true){
 			$query = $this->Tep_model->insertTep($project_closure_term);
 		}
-		
+
 		if($query){
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/sidebar_nav_view');

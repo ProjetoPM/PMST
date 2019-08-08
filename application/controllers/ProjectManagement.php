@@ -15,7 +15,7 @@ class ProjectManagement extends CI_Controller{
 		$this->load->model('Project_management_model');
 	}
 
-	public function new($project_id){
+	public function newp($project_id){
 
 		//buscando stakeholders
 		$data['project_mp'] = $this->Project_management_model->tap_form($project_id);

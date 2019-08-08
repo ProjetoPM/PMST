@@ -73,7 +73,7 @@
                   </div>
 
                   <div class="col-lg-10 noSpaceSide floatRight">
-                    <a  href="<?=base_url("Tap/new/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Tap/newp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-star"></i>
@@ -82,7 +82,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("ProjectManagement/new/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("ProjectManagement/newp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-star"></i>
@@ -95,7 +95,7 @@
 
                     <div class=" col-lg-1 midBox integrationColor hideBox"></div>
 
-                    <a  href="<?=base_url("Tap/new/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Tap/newp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-star"></i>
@@ -104,7 +104,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("Tap/new/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Tap/newp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-star"></i>
@@ -113,7 +113,7 @@
                       </div>
                     </a>
 
-                    <a href="<?=base_url("TEP/new/".$project[0]->project_id) ?>">
+                    <a href="<?=base_url("TEP/newp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-star"></i>
@@ -205,7 +205,7 @@
 
                     <div class=" col-lg-1 midBox scopeColor hideBox"></div>
 
-                    <a  href="<?=base_url("RequirementsManagement/new/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("RequirementsManagement/newp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox scopeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-search"></i>
@@ -223,7 +223,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("Scope_specification/addnew/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Scope_specification/addnewp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox scopeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-search"></i>
@@ -251,7 +251,7 @@
 
                     <div class=" col-lg-1 midBox scopeColor hideBox"></div>
 
-                    <a  href="<?=base_url("ScopeManagement/new/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("ScopeManagement/newp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox scopeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-search"></i>
@@ -304,7 +304,7 @@
 
                     <div class=" col-lg-1 midBox timeColor hideBox"></div>
 
-                    <a href="<?=base_url("Schedule/new/".$project[0]->project_id) ?>">
+                    <a href="<?=base_url("Schedule/newp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
@@ -333,7 +333,7 @@
 
                     <div class=" col-lg-1 midBox timeColor hideBox"></div>
 
-                    <a  href="<?=base_url("Tap/new/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Tap/newp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox timeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
@@ -474,7 +474,7 @@
 
                     <div class=" col-lg-1 midBox costColor hideBox"></div>
 
-                    <a href="<?=base_url("ManagementCost/new/".$project[0]->project_id)?>">
+                    <a href="<?=base_url("ManagementCost/newp/".$project[0]->project_id)?>">
                       <div class=" col-lg-1 midBox costColor">
                         <div class="verticalAlign">
                           <i class="fa fa-money"></i>
@@ -496,7 +496,7 @@
 
                     <div class=" col-lg-1 midBox costColor hideBox"></div>
 
-                    <a  href="<?=base_url("Tap/new/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Tap/newp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox costColor">
                         <div class="verticalAlign">
                           <i class="fa fa-money"></i>
@@ -559,7 +559,7 @@
 
                     <div class=" col-lg-1 midBox qualityColor hideBox"></div>
 
-                    <a href="<?=base_url()?>Charter_Quality/new/<?php echo $project[0]->project_id;?>">
+                    <a href="<?=base_url()?>Charter_Quality/newp/<?php echo $project[0]->project_id;?>">
                       <div class=" col-lg-1 midBox qualityColor">
                         <div class="verticalAlign">
                           <i class="fa fa-trophy"></i>
@@ -577,7 +577,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("Process_plan/new/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Process_plan/newp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox qualityColor">
                         <div class="verticalAlign">
                           <i class="fa fa-trophy"></i>
@@ -658,7 +658,7 @@
 
                     <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
-                    <a href="<?=base_url("Human_resource/new/".$project[0]->project_id) ?>">
+                    <a href="<?=base_url("Human_resource/newp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox hrColor">
                         <div class="verticalAlign">
                           <i class="fa fa-male"></i>
@@ -825,7 +825,7 @@
 
                     <div class=" col-lg-1 midBox riskColor hideBox"></div>
 
-                    <a href="<?=base_url()?>Risk/new/<?php echo $project[0]->project_id;?>">
+                    <a href="<?=base_url()?>Risk/newp/<?php echo $project[0]->project_id;?>">
                       <div class=" col-lg-1 midBox riskColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-exclamation-sign"></i>
@@ -894,7 +894,7 @@
                       </div>
                     </a>
 
-                    <a href="<?=base_url()?>/procurement/new/<?php echo $project[0]->project_id;?>">
+                    <a href="<?=base_url()?>/procurement/newp/<?php echo $project[0]->project_id;?>">
                       <div class=" col-lg-1 midBox procurementColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-shopping-cart"></i>
@@ -990,7 +990,7 @@
                       </div>
                     </a>
 
-                    <a href="<?=base_url("Stakeholder_mp/new/".$project[0]->project_id) ?>">
+                    <a href="<?=base_url("Stakeholder_mp/newpp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox stakeholderColor">
                         <div class="verticalAlign">
                           <i class="fa fa-users"></i>

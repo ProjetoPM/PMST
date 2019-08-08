@@ -15,7 +15,7 @@ class ScopeManagement extends CI_Controller{
 		$this->load->model('Scope_mp_model');
 	}
 
-	public function new($project_id){
+	public function newp($project_id){
 		//buscando stakeholders
 		$data['scope_mp'] = $this->Scope_mp_model->tap_form($project_id);
 		$data['project_id'] = $project_id;

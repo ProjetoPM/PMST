@@ -94,7 +94,7 @@ class ManagementStakeholder extends CI_Controller {
         $stakeholder['observations'] = $this->input->post('observations');
         $stakeholder['project_id'] = $id;
 		$query = $this->Stakeholder_model->insert($stakeholder);
-		
+
 		if($query){
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/sidebar_nav_view');

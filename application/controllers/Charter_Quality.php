@@ -19,12 +19,12 @@ class Charter_Quality extends CI_Controller {
 		$this->load->model('Quality_model');
 	}
 
-	public function new($project_id){
+	public function newp($project_id){
 		$dado['quality_mp'] = $this->Quality_model->readQuality($project_id);
 		$dado['id'] = $project_id;
 		$this->db->where('project_id', $project_id);
 		$dado['project'] =  $this->db->get('project')->result();
-		
+
 		//$dado['verific'] = true;
 		$this->db->where('project_id', $project_id);
 		$dataproject['project'] = $this->db->get('project')->result();

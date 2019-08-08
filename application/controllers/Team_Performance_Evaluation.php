@@ -25,7 +25,7 @@ class Team_Performance_Evaluation extends CI_Controller {
 		$this->load->view('human_resource/team_performance_evaluation/list',$dado);
 	}
 
-	public function new($project_id){
+	public function newp($project_id){
 		$dado['id'] = $project_id;
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
@@ -33,7 +33,7 @@ class Team_Performance_Evaluation extends CI_Controller {
 	}
 
 	public function edit($team_performance_evaluation_id) {
-		
+
 		$query['team_performance_evaluation'] = $this->Team_Performance_Evaluation_model->getTeamEval($team_performance_evaluation_id);
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
@@ -57,7 +57,7 @@ class Team_Performance_Evaluation extends CI_Controller {
 
 		$team_performance_evaluation['project_id'] = $project_id;
 		$query = $this->Team_Performance_Evaluation_model->insert($team_performance_evaluation);
-		
+
 		if($query){
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/sidebar_nav_view');
@@ -66,7 +66,7 @@ class Team_Performance_Evaluation extends CI_Controller {
 	}
 
 	public function update($team_performance_evaluation_id) {
-		
+
 		$team_performance_evaluation['team_member_name'] = $this->input->post('team_member_name');
 		$team_performance_evaluation['role'] = $this->input->post('role');
 		$team_performance_evaluation['project_function'] = $this->input->post('project_function');
@@ -91,7 +91,7 @@ class Team_Performance_Evaluation extends CI_Controller {
 	}
 
 	public function delete($team_performance_evaluation_id){
-		
+
 		$project_id['project_id'] = $this->input->post('project_id');
 		//$project_id['project_id'] = $project_id;
 		$query = $this->Team_Performance_Evaluation_model->deleteTeamEval($team_performance_evaluation_id);
@@ -101,6 +101,6 @@ class Team_Performance_Evaluation extends CI_Controller {
             redirect(base_url() . 'Team_Performance_Evaluation/list/' . $team_performance_evaluation['project_id']);
 		}
 	}
-	
+
 }
 ?>

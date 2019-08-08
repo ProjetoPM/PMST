@@ -20,7 +20,7 @@ class Communication_item extends CI_Controller{
         $this->load->model('communication_item_model');
         $this->load->model('Communication_item_stakeholder_model');
     }
-    
+
     private function ajax_checking(){
         if (!$this->input->is_ajax_request()) {
             redirect(base_url());
@@ -33,15 +33,15 @@ class Communication_item extends CI_Controller{
         //$query['stakeholder'] = $this->communication_item_model->getCommunication_stakeholder_item_id($project_id);
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view'); 
+        $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/communication/communication_mp/communication_item/list', $query);
     }
 
-    public function new($project_id){
+    public function newp($project_id){
         $query['communication_item'] = $this->communication_item_model->getWithProject_id($project_id);
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view'); 
+        $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/communication/communication_mp/communication_item/new', $query);
 
     }
@@ -50,10 +50,10 @@ class Communication_item extends CI_Controller{
         $query['communication_item'] = $this->communication_item_model->get($communication_item);
         $query['project_id'] = $this->input->post('project_id');
         $this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view'); 
+        $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/communication/communication_mp/communication_item/edit', $query);
     }
-    
+
     public function insert() {
         $communication_item['type'] = $this->input->post('type');
         $communication_item['description'] = $this->input->post('description');
@@ -84,12 +84,12 @@ class Communication_item extends CI_Controller{
     public function insertResponasibility() {
         $communication = $this->input->post('ids');
         $communication_exploded = explode(',', $communication);
-        
+
         $communication_responsability['communication_item_id'] = $communication_exploded[0];
         $communication_responsability['stakeholder_id'] = $communication_exploded[1];
         $communication_responsability['communication_responsability_id'] = $communication_exploded[2];
-        
-        
+
+
         $data['communication_responsability'] = $communication_responsability;
         $query = $this->Communication_item_stakeholder_model->insertResponasibility($data['communication_responsability']);
 
@@ -97,7 +97,7 @@ class Communication_item extends CI_Controller{
             redirect(base_url() . 'Communication_item/list/' . $communication_item['project_id']);
         }
     }
-    
+
     public function update($id){
         $communication_item['type'] = $this->input->post('type');
         $communication_item['description'] = $this->input->post('description');
@@ -113,14 +113,14 @@ class Communication_item extends CI_Controller{
         $communication_item['local'] = $this->input->post('local');
         $communication_item['project_id'] = $this->input->post('project_id');
         $communication_item['status'] = 1;
-        
+
         $data['communication_item'] = $communication_item;
         $query = $this->communication_item_model->update($data['communication_item'], $id);
 
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'Communication_item/list/' . $communication_item['project_id']);       
+            redirect(base_url() . 'Communication_item/list/' . $communication_item['project_id']);
         }
    }
 
@@ -132,6 +132,6 @@ class Communication_item extends CI_Controller{
             $this->load->view('frame/sidebar_nav_view');
             redirect(base_url() . 'Communication_item/list/' . $project_id['id']);
         }
-    }        
+    }
 }
 ?>

@@ -19,7 +19,7 @@ class Requirement_registration extends CI_Controller{
         // $this->lang->load('requirement-registration','portuguese-brazilian');
 
     }
-    
+
     private function ajax_checking(){
         if (!$this->input->is_ajax_request()) {
             redirect(base_url());
@@ -30,14 +30,14 @@ class Requirement_registration extends CI_Controller{
         $query['requirement_registration'] = $this->requirement_registration_model->getWithProject_id($project_id);
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view'); 
+        $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/scope/requirement/list', $query);
     }
 
-    public function new($project_id){
+    public function newp($project_id){
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view'); 
+        $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/scope/requirement/new', $query);
     }
 
@@ -45,10 +45,10 @@ class Requirement_registration extends CI_Controller{
         $query['requirement_registration'] = $this->requirement_registration_model->get($requirement_registration);
         $query['project_id'] = $this->input->post('project_id');
         $this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view'); 
+        $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/scope/requirement/edit', $query);
     }
-    
+
     public function insert() {
         $requirement_registration['associated_id'] = $this->input->post('associated_id');
         $requirement_registration['business_strategy'] = $this->input->post('business_strategy');
@@ -66,7 +66,7 @@ class Requirement_registration extends CI_Controller{
         $requirement_registration['requirement_situation'] = $this->input->post('requirement_situation');
         $requirement_registration['supporting_documentation'] = $this->input->post('supporting_documentation');
         $requirement_registration['project_id'] = $this->input->post('project_id');
-        
+
         $query = $this->requirement_registration_model->insert($requirement_registration);
 
         if($query){

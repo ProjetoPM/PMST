@@ -8,19 +8,19 @@ class Stakeholder_mp extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 		// $this->load->helper('url', 'english');
-        
+
      $this->lang->load('btn','english');
        // $this->lang->load('btn','portuguese-brazilian');
        $this->lang->load('stakeholder_mp','english');
       //   $this->lang->load('stakeholder_mp','portuguese-brazilian');
-        
+
 
 		$this->load->helper('url');
 		$this->load->model('Stakeholder_mp_model');
 	}
 
 
-	function new($project_id){
+	function newp($project_id){
 		//chamar db da model
 	    $query['stake_mp'] = $this->Stakeholder_mp_model->getStakeholder_mpStakeholder_item_id($project_id);
         $query['stakeholders'] = $this->Stakeholder_mp_model->getStakeholder();
@@ -28,7 +28,7 @@ class Stakeholder_mp extends CI_Controller{
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
 		$this->load->view('project/stakeholder_mp.php', $query);
-		
+
 	}
 
 
@@ -37,9 +37,9 @@ class Stakeholder_mp extends CI_Controller{
         $query['stakeholder'] = $this->Stakeholder_mp_model->getStakeholder();
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view'); 
+        $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/stakeholder_mp_list', $query);
-		
+
 	}
 
 
@@ -92,7 +92,7 @@ class Stakeholder_mp extends CI_Controller{
 
 	public function delete($id){
     $query = $this->Stakeholder_mp_model->deleteStake_mp($id);
-    
+
     if($query){
         redirect(base_url('stakeholder_mp/stakeholder_mp_list').$stake_mp['project_id']);
     }

@@ -19,7 +19,7 @@ class Notification_board extends CI_Controller{
         $this->load->model('project_model');
         $this->load->model('notification_board_model');
     }
-    
+
     private function ajax_checking(){
         if (!$this->input->is_ajax_request()) {
             redirect(base_url());
@@ -30,14 +30,14 @@ class Notification_board extends CI_Controller{
         $query['notification_board'] = $this->notification_board_model->getWithProject_id($project_id);
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view'); 
+        $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/notification/notification_mp/list', $query);
     }
 
-    public function new($project_id){
+    public function newp($project_id){
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view'); 
+        $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/notification/notification_mp/new', $query);
     }
 
@@ -45,10 +45,10 @@ class Notification_board extends CI_Controller{
         $query['notification_board'] = $this->notification_board_model->get($notification_board);
         $query['project_id'] = $this->input->post('project_id');
         $this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view'); 
+        $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/notification/notification_mp/edit', $query);
     }
-    
+
     public function insert() {
         $notification_board['running_activities'] = $this->input->post('running_activities');
         $notification_board['important_activities'] = $this->input->post('important_activities');
@@ -56,7 +56,7 @@ class Notification_board extends CI_Controller{
         $notification_board['project_id'] = $this->input->post('project_id');
         $notification_board['changes_approval'] = $this->input->post('changes_approval');
         $notification_board['general_warnings'] = $this->input->post('general_warnings');
-        
+
         $query = $this->notification_board_model->insert($notification_board);
 
         if($query){
@@ -73,13 +73,13 @@ class Notification_board extends CI_Controller{
         $notification_board['project_id'] = $this->input->post('project_id');
         $notification_board['changes_approval'] = $this->input->post('changes_approval');
         $notification_board['general_warnings'] = $this->input->post('general_warnings');
-        
+
         $query = $this->notification_board_model->update($notification_board, $id);
 
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'Notification_board/list/' . $notification_board['project_id']);        
+            redirect(base_url() . 'Notification_board/list/' . $notification_board['project_id']);
         }
     }
 
@@ -91,6 +91,6 @@ class Notification_board extends CI_Controller{
             $this->load->view('frame/sidebar_nav_view');
             redirect(base_url() . 'Notification_board/list/' . $project_id['id']);
         }
-    }        
+    }
 }
 ?>

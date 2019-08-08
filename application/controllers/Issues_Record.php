@@ -4,7 +4,7 @@ if (!defined('BASEPATH')) {
 }
 
 class Issues_Record extends CI_Controller{
-	
+
 	function __construct(){
 		parent::__construct();
 		//$this->load->helper('url');
@@ -25,7 +25,7 @@ class Issues_Record extends CI_Controller{
 
 	}
 
-	public function new($project_id) {
+	public function newp($project_id) {
 		$query['issues_record'] = $this->Issues_record_model->getIssues_recordProject_id($project_id);
 		$query['project_id'] = $project_id;
 		$query['project_id'] = $project_id;
@@ -67,7 +67,7 @@ class Issues_Record extends CI_Controller{
 		$this->load->view('project/risk/issues_record/edit', $query);
 	}
 	public function update($issues_record_id) {
-		
+
 		$issues_record['identification'] = $this->input->post('identification');
 		$issues_record['identification_date'] = $this->input->post('identification_date');
 		$issues_record['question_description'] = $this->input->post('question_description');
@@ -91,7 +91,7 @@ class Issues_Record extends CI_Controller{
 	}
 
 	public function delete($issues_record_id){
-		
+
 		//$data['issues_record'] = $this->Issues_record_model->getIssues_record($issues_record_id);
 		$project_id['issues_record_id'] = $this->input->post('project_id');
 		//$project_id = $data['project_id'];

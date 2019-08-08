@@ -4,7 +4,7 @@ if (!defined('BASEPATH')) {
 }
 
 class Procurement extends CI_Controller{
-    
+
     public function __Construct(){
         parent::__Construct();
         if (!$this->session->userdata('logged_in')) {
@@ -19,22 +19,22 @@ class Procurement extends CI_Controller{
         // $this->lang->load('procurement_mp','portuguese-brazilian');
 
     }
-    
+
     private function ajax_checking(){
         if (!$this->input->is_ajax_request()) {
             redirect(base_url());
         }
     }
 
-    public function new($project_id){
+    public function newp($project_id){
         $query['procurement_mp'] = $this->procurement_mp_model->getProcurement_mpProject_id($project_id);
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view'); 
+        $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/procurement/procurement_mp', $query);
 
     }
-    
+
     public function insert() {
         $procurement_mp['products_services_obtained'] = $this->input->post('products_services_obtained');
         $procurement_mp['team_actions'] = $this->input->post('team_actions');
@@ -42,7 +42,7 @@ class Procurement extends CI_Controller{
         $procurement_mp['procurement_management'] = $this->input->post('procurement_management');
         $procurement_mp['project_id'] = $this->input->post('project_id');
         $procurement_mp['status'] = 1;
-        
+
         $query = $this->procurement_mp_model->insertProcurement_mp($procurement_mp);
 
         if($query){
@@ -59,7 +59,7 @@ class Procurement extends CI_Controller{
         $procurement_mp['procurement_management'] = $this->input->post('procurement_management');
         $procurement_mp['project_id'] = $this->input->post('project_id');
         $procurement_mp['status'] = 1;
-        
+
         $query = $this->procurement_mp_model->updateProcurement_mp($procurement_mp, $id);
 
         if($query){
@@ -67,6 +67,6 @@ class Procurement extends CI_Controller{
             $this->load->view('frame/sidebar_nav_view');
             redirect('project/' . $procurement_mp['project_id']);
         }
-    }        
+    }
 }
 ?>
