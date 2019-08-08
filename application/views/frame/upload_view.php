@@ -29,6 +29,10 @@
             </div>
             <div class="modal-body">
                 <form method="post" id="upload_form" align="center" enctype="multipart/form-data">
+                  <input type="hidden" name="project_id" value="<?php echo $project_id; ?>">
+                  <input type="hidden" name="view_id" value="4">
+
+
                     <input type="file" name="image_file" id="image_file" />
                     <br />
                     <br />
