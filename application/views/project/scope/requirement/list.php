@@ -20,16 +20,16 @@
 
 			<div class="row">
 				<div class="col-lg-10">
-					
-					<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Requirement_registration/new/<?php echo $project_id ?>'"> <?=$this->lang->line('btn-new')?> <?=$this->lang->line('requirement-registration')?></button>			
-					
+
+					<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Requirement_registration/newp/<?php echo $project_id ?>'"> <?=$this->lang->line('btn-new')?> <?=$this->lang->line('requirement-registration')?></button>
+
 				</div>
 			</div>
 
 			<br><br>
 			<div class="row">
 				<div class="col-lg-12">
-					
+
 					<table class="table table-bordered table-striped" id="tableNB">
 						<thead>
 							<tr>
@@ -38,7 +38,7 @@
 								<th><?=$this->lang->line('description')?></th>
 								<th><?=$this->lang->line('priority')?></th>
 								<th><?=$this->lang->line('business_strategy')?></th>
-								
+
 								<th><?=$this->lang->line('btn-actions')?></th>
 							</tr>
 						</thead>
@@ -52,7 +52,7 @@
 									<td><?php echo $requirement_registration->description;?></td>
 									<td><?php echo $requirement_registration->priority;?></td>
 									<td><?php echo $requirement_registration->business_strategy;?></td>
-									
+
 
 									<td style="max-width: 20px">
 									<div class="row center">
@@ -72,20 +72,20 @@
 										</div>
 									</div>
 								</td>
-							</tr> 
+							</tr>
 							<?php
 						}
 						?>
 
 					</tbody>
-				</table> 
+				</table>
 
 
 
-				<!-- /.row -->  
+				<!-- /.row -->
 				<div class="col-sm-12" position= "absolute">
 					<div class="container">
-						<?php $this->load->view('frame/footer_view') ?>            
+						<?php $this->load->view('frame/footer_view') ?>
 					</div>
 				</div>
 			</div>

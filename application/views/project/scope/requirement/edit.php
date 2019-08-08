@@ -24,7 +24,7 @@
           <input type="hidden" name="project_id"  value="<?= $requirement_registration[0]->project_id?>">
 
           <div class=" col-lg-4 form-group">
-            <label for="associated_id"><?=$this->lang->line('associated_id')?> </label> 
+            <label for="associated_id"><?=$this->lang->line('associated_id')?> </label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('associated_id-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <input class="form-control" type="text" id="associated_id" name="associated_id" maxlength="45" value="<?= $requirement_registration[0]->associated_id?>">
@@ -32,7 +32,7 @@
           </div>
 
           <div class=" col-lg-4 form-group">
-            <label for="business_strategy"><?=$this->lang->line('business_strategy')?> </label> 
+            <label for="business_strategy"><?=$this->lang->line('business_strategy')?> </label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_strategy-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <input class="form-control" type="text" id="business_strategy" name="business_strategy" maxlength="45" value="<?= $requirement_registration[0]->business_strategy?>">
@@ -40,7 +40,7 @@
           </div>
 
           <div class=" col-lg-4 form-group">
-            <label for="priority"><?=$this->lang->line('priority')?> </label> 
+            <label for="priority"><?=$this->lang->line('priority')?> </label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('priority-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <input class="form-control" type="text" id="priority" name="priority" maxlength="45" value="<?= $requirement_registration[0]->priority?>">
@@ -48,15 +48,15 @@
           </div>
 
           <div class=" col-lg-12 form-group">
-            <label for="description"><?=$this->lang->line('description')?> </label> 
+            <label for="description"><?=$this->lang->line('description')?> </label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('description-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-            <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="description" name="description" maxlength="255"><?= $requirement_registration[0]->description?></textarea> 
+            <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="description" name="description" maxlength="255"><?= $requirement_registration[0]->description?></textarea>
 
           </div>
 
           <div class=" col-lg-4 form-group">
-            <label for="version"><?=$this->lang->line('version')?> </label> 
+            <label for="version"><?=$this->lang->line('version')?> </label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('version-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <input class="form-control" type="text" id="version" name="version" maxlength="45" value="<?= $requirement_registration[0]->version?>">
@@ -64,7 +64,7 @@
           </div>
 
           <div class=" col-lg-4 form-group">
-            <label for="phase"><?=$this->lang->line('phase')?> </label> 
+            <label for="phase"><?=$this->lang->line('phase')?> </label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('phase-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <input class="form-control" type="text" id="phase" name="phase" maxlength="45" value="<?= $requirement_registration[0]->phase?>">
@@ -72,7 +72,7 @@
           </div>
 
           <div class=" col-lg-4 form-group">
-            <label for="associated_delivery"><?=$this->lang->line('associated_delivery')?> </label> 
+            <label for="associated_delivery"><?=$this->lang->line('associated_delivery')?> </label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('associated_delivery-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <input class="form-control" type="text" id="associated_delivery" name="associated_delivery" maxlength="45" value="<?= $requirement_registration[0]->associated_delivery?>">
@@ -80,7 +80,7 @@
           </div>
 
           <div class=" col-lg-4 form-group">
-            <label for="type"><?=$this->lang->line('type')?> </label> 
+            <label for="type"><?=$this->lang->line('type')?> </label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('type-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 
@@ -133,7 +133,7 @@
           </div>
 
           <div class=" col-lg-4 form-group">
-            <label for="requester"><?=$this->lang->line('requester')?> </label> 
+            <label for="requester"><?=$this->lang->line('requester')?> </label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('requester-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <input type="text" class="form-control" id="requester" name="requester" maxlength="45" value="<?= $requirement_registration[0]->requester?>">
@@ -141,7 +141,7 @@
           </div>
 
           <div class=" col-lg-4 form-group">
-            <label for="complexity"><?=$this->lang->line('complexity')?> </label> 
+            <label for="complexity"><?=$this->lang->line('complexity')?> </label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('complexity-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <select class="form-control" id="complexity" name="complexity">
@@ -192,7 +192,7 @@
           </div>
 
           <div class=" col-lg-4 form-group">
-            <label for="responsible"><?=$this->lang->line('responsible')?> </label> 
+            <label for="responsible"><?=$this->lang->line('responsible')?> </label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('responsible-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <input class="form-control" id="responsible" name="responsible" maxlength="45" value="<?= $requirement_registration[0]->responsible?>">
@@ -200,41 +200,41 @@
           </div>
 
           <div class=" col-lg-4 form-group">
-            <label for="validity"><?=$this->lang->line('validity')?> </label> 
+            <label for="validity"><?=$this->lang->line('validity')?> </label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('validity-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <input class="form-control" id="validity" name="validity" maxlength="45" value="<?= $requirement_registration[0]->validity?>">
-            
+
           </div>
 
           <div class=" col-lg-12 form-group">
-            <label for="acceptance_criteria"><?=$this->lang->line('acceptance_criteria')?> </label> 
+            <label for="acceptance_criteria"><?=$this->lang->line('acceptance_criteria')?> </label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('acceptance_criteria-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="acceptance_criteria" name="acceptance_criteria" maxlength="45"><?= $requirement_registration[0]->acceptance_criteria?> </textarea>
-            
+
           </div>
 
           <div class=" col-lg-12 form-group">
-            <label for="supporting_documentation"><?=$this->lang->line('supporting_documentation')?></label> 
+            <label for="supporting_documentation"><?=$this->lang->line('supporting_documentation')?></label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('supporting_documentation-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <input class="form-control" id="supporting_documentation" name="supporting_documentation" value="<?= $requirement_registration[0]->supporting_documentation?>" maxlength="45">
-            
+
           </div>
-          
+
           <div class=" col-lg-4 form-group">
-            <label for="situation"><?=$this->lang->line('requirement_situation')?></label> 
+            <label for="situation"><?=$this->lang->line('requirement_situation')?></label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('requirement_situation-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <input class="form-control" id="requirement_situation" name="requirement_situation" value="<?= $requirement_registration[0]->requirement_situation?>" maxlength="45">
-            
+
           </div>
-          
+
           <div class="col-lg-12">
             <button id="new_quality_plan-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
               <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
-            </button> 
+            </button>
           </form>
 
           <form action="<?php echo base_url()?>/Requirement_registration/list/<?=$project_id?>">
