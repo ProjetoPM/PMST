@@ -31,6 +31,24 @@ class ScopeManagement extends CI_Controller{
 
 
 	public function insert() {
+
+        if(isset($_FILES["image_file"]["name"]))
+        {
+            $config['upload_path'] = './upload/';
+            $config['allowed_types'] = 'jpg|jpeg|png|gif';
+
+            $this->load->library('upload', $config);
+            if(!$this->upload->do_upload('image_file'))
+            {
+                echo $this->upload->display_errors();
+            }
+            else
+            {
+                $data = $this->upload->data();
+                echo '<img src="'.base_url().'upload/'.$data["file_name"].'" width="300" height="225" class="img-thumbnail" />';
+            }
+        }
+
 		$scope_mp['scope_specification'] = $this->input->post('scope_specification');
 		$scope_mp['eap_process'] = $this->input->post('eap_process');
 		$scope_mp['deliveries_acceptance'] = $this->input->post('deliveries_acceptance');
@@ -79,6 +97,7 @@ class ScopeManagement extends CI_Controller{
 }
 
 	function ajax_upload() {
+
 			 if(isset($_FILES["image_file"]["name"]))
 			 {
 
