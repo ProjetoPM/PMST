@@ -990,7 +990,7 @@
                       </div>
                     </a>
 
-                    <a href="<?=base_url("Stakeholder_mp/newpp/".$project[0]->project_id) ?>">
+                    <a href="<?=base_url("Stakeholder_mp/newp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox stakeholderColor">
                         <div class="verticalAlign">
                           <i class="fa fa-users"></i>
