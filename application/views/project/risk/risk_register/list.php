@@ -21,7 +21,7 @@
 			<div class="row">
 				<div class="col-lg-10">
 
-					<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>RegisterRisk/addnew/<?php echo $project_id ?>'"> <?=$this->lang->line('btn-new')?> <?=$this->lang->line('risk-title')?></button>			
+					<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>RegisterRisk/addnew/<?php echo $project_id ?>'"> <?=$this->lang->line('btn-new')?> <?=$this->lang->line('risk-title')?></button>
 					
 				</div>
 			</div>
@@ -29,7 +29,7 @@
 			<br><br>
 			<div class="row">
 				<div class="col-lg-12">
-					
+
 					<table class="table table-bordered table-striped" id="tableNB">
 						<thead>
 							<tr>
@@ -50,7 +50,7 @@
 									<td class="moreInformationTable"></td>
 									<td><?php echo $risk->impacted_objective;?></td>
 									<td>
-										<?php 
+										<?php
 										if($risk->priority == '0'){
 											?>
 											<?=$this->lang->line('risk-priority-low') ?>
@@ -63,8 +63,8 @@
 											?>
 											<?=$this->lang->line('risk-priority-high') ?>
 											<?php
-										}  
-										?>	
+										}
+										?>
 									</td>
 									<td><?php echo $risk->event;?></td>
 									<td><?php echo $risk->date;?></td>
@@ -86,20 +86,20 @@
 												</div>
 											</div>
 										</td>
-									</tr> 
+									</tr>
 									<?php
 								}
 								?>
 
 							</tbody>
-						</table> 
+						</table>
 
 
 
 						<!-- loading footer and script-->
 						<div class="col-sm-12" position= "absolute">
 							<div class="container">
-								<?php $this->load->view('frame/footer_view') ?>            
+								<?php $this->load->view('frame/footer_view') ?>
 							</div>
 						</div>
 					</div>
@@ -189,6 +189,5 @@
 							}).show();
 
 						}
-						
-					</script>
 
+					</script>

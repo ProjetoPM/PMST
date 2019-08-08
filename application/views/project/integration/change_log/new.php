@@ -15,7 +15,7 @@
     </div>
     <?php elseif($this->session->flashdata('error')):?>
       <div class="alert alert-warning">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>  
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
         <strong><?php echo $this->session->flashdata('error'); ?></strong>
       </div>
     <?php endif;?>
@@ -27,7 +27,7 @@
           <input type="hidden" name="project_id"  value="<?= $project_id?>">
 
           <div class=" col-lg-4 form-group">
-            <label for="requester"><?=$this->lang->line('change_log-requester')?> </label> 
+            <label for="requester"><?=$this->lang->line('change_log-requester')?> </label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right"
                title="<?=$this->lang->line('change_log-requester-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
@@ -35,7 +35,7 @@
           </div>
 
           <div class=" col-lg-4 form-group">
-            <label for="id_number"><?=$this->lang->line('change_log-id_number')?> </label> 
+            <label for="id_number"><?=$this->lang->line('change_log-id_number')?> </label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right"
                title="<?=$this->lang->line('priority-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
@@ -57,7 +57,7 @@
 
 
           <div class=" col-lg-4 form-group">
-            <label for="change_type"><?=$this->lang->line('change_log-change_type')?> </label> 
+            <label for="change_type"><?=$this->lang->line('change_log-change_type')?> </label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('change_log-change_type-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <select class="form-control" id="change_type" name="change_type">
@@ -72,7 +72,7 @@
 
 
           <div class=" col-lg-4 form-group">
-            <label for="situation"><?=$this->lang->line('change_log-situation')?> </label> 
+            <label for="situation"><?=$this->lang->line('change_log-situation')?> </label>
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('change_log-situation-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
             <select class="form-control" id="situation" name="situation">
@@ -85,27 +85,27 @@
           </div>
 
           <div class=" col-lg-10 form-group">
-           <label for="change_description"><?=$this->lang->line('change_log-change_description')?> </label> 
+           <label for="change_description"><?=$this->lang->line('change_log-change_description')?> </label>
            <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('change_log-change_description-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-           <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="change_description" name="change_description" maxlength="255"></textarea> 
+           <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="change_description" name="change_description" maxlength="255"></textarea>
 
          </div>
 
           <div class=" col-lg-10 form-group">
-           <label for="project_management_feedback"><?=$this->lang->line('change_log-project_management_feedback')?> </label> 
+           <label for="project_management_feedback"><?=$this->lang->line('change_log-project_management_feedback')?> </label>
            <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('change_log-project_management_feedback-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-           <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="project_management_feedback" name="project_management_feedback" maxlength="255"></textarea> 
+           <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="project_management_feedback" name="project_management_feedback" maxlength="255"></textarea>
 
          </div>
 
-          
+
           <div class=" col-lg-10 form-group">
-           <label for="ccc_feedback"><?=$this->lang->line('change_log-ccc_feedback')?> </label> 
+           <label for="ccc_feedback"><?=$this->lang->line('change_log-ccc_feedback')?> </label>
            <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('change_log-ccc_feedback-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-           <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="ccc_feedback" name="ccc_feedback" maxlength="255"></textarea> 
+           <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="ccc_feedback" name="ccc_feedback" maxlength="255"></textarea>
          </div>
 
 
@@ -124,7 +124,7 @@
 
 
          <div class=" col-lg-10 form-group">
-          <label for="comments"><?=$this->lang->line('change_log-comments')?> </label> 
+          <label for="comments"><?=$this->lang->line('change_log-comments')?> </label>
           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('change_log-comments-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
           <input class="form-control" type="text" id="comments" name="comments" maxlength="45">
@@ -132,16 +132,16 @@
         </div>
 
 
-        
 
-       
+
+
         <div class="col-lg-10">
           <button id="new_change_log-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
             <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
-          </button> 
+          </button>
         </form>
 
-        <form action="<?php echo base_url()?>/Change_log/list/<?=$project_id?>">
+        <form action="<?php echo base_url()?>/Change_log/listp/<?=$project_id?>">
          <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
        </form>
 
@@ -175,10 +175,10 @@
             /*todayHighlight : true,*/
         });
     </script>
-   <!-- /.row --> </div> 
+   <!-- /.row --> </div>
    <div class="col-sm-12" position= "absolute">
     <div class="container">
-      <?php $this->load->view('frame/footer_view') ?>            
+      <?php $this->load->view('frame/footer_view') ?>
     </div>
   </div>
 </div>

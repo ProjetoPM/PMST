@@ -17,21 +17,21 @@
 				<strong><?php echo $this->session->flashdata('error'); ?></strong>
 			</div>
 		<?php endif; ?>
-		<!-- /.row -->   
+		<!-- /.row -->
 		<!-- acessa o objeto do array -->
 
 		<?php extract($risk_register); ?>
-		
+
 		<form action="<?=base_url()?>RegisterRisk/update/<?php echo $risk_register_id; ?>" method="post">
 
-			<input type="hidden" id="project_id" name="project_id" value="<?php echo $project_id; ?>">                          
+			<input type="hidden" id="project_id" name="project_id" value="<?php echo $project_id; ?>">
 			<!-- Textarea -->
 
 			<div class=" col-lg-6 form-group">
-				<label for="impacted_objective"><?=$this->lang->line('risk-impacted_objective')?> *</label> 
+				<label for="impacted_objective"><?=$this->lang->line('risk-impacted_objective')?> *</label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-impacted_objective-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-				<div >  
+				<div >
 					<input id="impacted_objective" name="impacted_objective" type="text" class="form-control input-md" required="true" value="<?php echo $impacted_objective; ?>">
 				</div>
 			</div>
@@ -48,7 +48,7 @@
 				</select>
 			</div>
 			<div class=" col-lg-6 form-group">
-				<label for="risk_status"><?=$this->lang->line('risk-risk_status')?></label> 
+				<label for="risk_status"><?=$this->lang->line('risk-risk_status')?></label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-risk_status-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 				<div >
@@ -58,10 +58,10 @@
 
 
 			<div class=" col-lg-6 form-group">
-				<label for="event"><?=$this->lang->line('risk-event')?></label> 
+				<label for="event"><?=$this->lang->line('risk-event')?></label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-event-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-				<div >            
+				<div >
 					<input id="event" name="event" type="text" class="form-control input-md" value="<?php echo $event; ?>">
 				</div>
 			</div>
@@ -83,30 +83,30 @@
 
 
 			<div class=" col-lg-6 form-group">
-				<label for="identifier"><?=$this->lang->line('risk-identifier')?></label> 
+				<label for="identifier"><?=$this->lang->line('risk-identifier')?></label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-identifier-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-				<div >               
+				<div >
 					<input id="identifier" name="identifier" type="text" class="form-control input-md" value="<?php echo $identifier; ?>">
 				</div>
 			</div>
 
 			<div class=" col-lg-6 form-group">
-				<label for="type"><?=$this->lang->line('risk-type')?></label> 
+				<label for="type"><?=$this->lang->line('risk-type')?></label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('risk-type-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-				<div >                 
+				<div >
 					<input id="type" name="type" type="text" class="form-control input-md" value="<?php echo $type; ?>">
 				</div>
-			</div>	
+			</div>
 
 			<div class="col-lg-12">
 				<button id="stakeholder-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
 					<i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
-				</button> 
+				</button>
 			</form>
 
-			<form action="<?php echo base_url('RegisterRisk/list/'); ?><?php echo $project_id; ?>" >
+			<form action="<?php echo base_url('RegisterRisk/listp/'); ?><?php echo $project_id; ?>" >
 				<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 			</form>
 		</div>
