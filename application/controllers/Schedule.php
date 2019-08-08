@@ -16,8 +16,6 @@ class Schedule extends CI_Controller
         // $this->lang->load('btn','portuguese-brazilian');
         $this->lang->load('schedule','english');
         // $this->lang->load('schedule','portuguese-brazilian');
-
-
 		$this->load->helper('url');
 		$this->load->model('Schedule_model');
 	}
@@ -25,11 +23,11 @@ class Schedule extends CI_Controller
 	public function newp($id){
     $idusuario = $_SESSION['user_id'];
     $this->db->where('user_id', $idusuario);
-    $this->db->where('project_id', $project_id);
+    $this->db->where('project_id', $id);
     $project['dados'] = $this->db->get('project_user')-> result();
 
-    if (count($project['dados']) > 0) {
-        
+  
+    if (count($project['dados']) > 0) {        
 		$dados['schedule_mp'] = $this->Schedule_model->getSchedule($id);
 		$dados['id'] = $id;
 		$this->db->where('project_id', $id);
