@@ -80,7 +80,7 @@ class ScopeManagement extends CI_Controller{
 	function ajax_upload() {
 			$project_id = $this->input->post('project_id');
 			$view_id = $this->input->post('view_id');
-			$folder = 'upload\Project'.$project_id.'View'.$view_id;
+			$folder = 'upload/Project'.$project_id.'View'.$view_id;
 			$path = 'Project'.$project_id.'View'.$view_id;
 			mkdir($folder, 0777);
 
