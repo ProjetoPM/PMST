@@ -17,12 +17,12 @@
 					<strong><?php echo $this->session->flashdata('error'); ?></strong>
 				</div>
 			<?php endif; ?>
-			<!-- /.row --> 
+			<!-- /.row -->
 
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="container">
-						<button type="button" class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Communication_item/new/<?php echo $project_id ?>'"><?=$this->lang->line('btn-new')?> <?=$this->lang->line('communication-item')?></button>
+						<button type="button" class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Communication_item/newp/<?php echo $project_id ?>'"><?=$this->lang->line('btn-new')?> <?=$this->lang->line('communication-item')?></button>
 						<button type="button" class="btn btn-info btn-lg" data-target=""><em class="fa fa-pencil"></em><span class="hidden-xs"> <?=$this->lang->line('stakeholder')?></span></button>
 
 						<div class="col-lg-12">
@@ -72,7 +72,7 @@
 														</div>
 													</div>
 												</td>
-											</tr> 
+											</tr>
 											<?php
 										}
 										?>
@@ -80,13 +80,13 @@
 								</table>
 							</div>
 						</div>
-						<!-- /.row --> </div> 
+						<!-- /.row --> </div>
 						<div class="col-sm-12" position= "absolute">
 							<div class="container">
-								<?php $this->load->view('frame/footer_view') ?>            
+								<?php $this->load->view('frame/footer_view') ?>
 							</div>
 						</div>
-					</div> 
+					</div>
 
 					<!--DataTable -->
 					<script src="<?=base_url()?>assets/js/jquery-2.1.3.min.js"></script>

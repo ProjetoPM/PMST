@@ -42,7 +42,7 @@ class Communication_item extends CI_Controller{
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
-        $this->load->view('project/communication/communication_mp/communication_item/new', $query);
+        $this->load->view('project/communication/communication_mp/communication_item/newp', $query);
 
     }
 
