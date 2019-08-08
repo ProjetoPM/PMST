@@ -35,10 +35,20 @@ class Requirement_registration extends CI_Controller{
     }
 
     public function newp($project_id){
-        $query['project_id'] = $project_id;
+            $idusuario = $_SESSION['user_id'];
+    $this->db->where('user_id', $idusuario);
+    $this->db->where('project_id', $project_id);
+    $project['dados'] = $this->db->get('project_user')-> result();
+
+    if (count($project['dados']) > 0) {
+        
+$query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/scope/requirement/new', $query);
+    } else {
+        redirect(base_url());
+    }
     }
 
     public function edit($requirement_registration){

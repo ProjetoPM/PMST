@@ -22,7 +22,13 @@ class Tap extends CI_Controller{
 	}
 
 	public function newp($project_id){
+    $idusuario = $_SESSION['user_id'];
+    $this->db->where('user_id', $idusuario);
+    $this->db->where('project_id', $project_id);
+    $project['dados'] = $this->db->get('project_user')-> result();
 
+    if (count($project['dados']) > 0) {
+        
 		//buscando stakeholders
 		$data['stakeholder'] = $this->Tap_model->getAllStk();
 		$data['stakeholder_mp'] = $this->Tap_model->getAllStk_mp();
@@ -33,6 +39,10 @@ class Tap extends CI_Controller{
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
 		$this->load->view('project/tap_view', $data);
+
+    } else {
+        redirect(base_url());
+    }
 
 	}
 

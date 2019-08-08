@@ -21,12 +21,23 @@ class TEP extends CI_Controller {
 	}
 
 	public function newp($project_id){
-		$dado['project_closure_term'] = $this->Tep_model->getTep();
+		    $idusuario = $_SESSION['user_id'];
+    $this->db->where('user_id', $idusuario);
+    $this->db->where('project_id', $project_id);
+    $project['dados'] = $this->db->get('project_user')-> result();
+
+    if (count($project['dados']) > 0) {
+    	$dado['project_closure_term'] = $this->Tep_model->getTep();
 		$dado['id'] = $project_id;
 		//$dado['verific'] = true;
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/tep',$dado);
+		$this->load->view('project/tep',$dado);    
+
+    } else {
+        redirect(base_url());
+    }
+	
 	}
 
 	public function insert($id){

@@ -29,11 +29,21 @@ class Risk extends CI_Controller{
     }
 
     public function newp($project_id){
+            $idusuario = $_SESSION['user_id'];
+    $this->db->where('user_id', $idusuario);
+    $this->db->where('project_id', $project_id);
+    $project['dados'] = $this->db->get('project_user')-> result();
+
+    if (count($project['dados']) > 0) {
         $query['risk_mp'] = $this->risk_mp_model->getWithProject_id($project_id);
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/risk/risk_mp/risk_mp', $query);
+
+    } else {
+        redirect(base_url());
+    }
     }
 
     public function insert() {

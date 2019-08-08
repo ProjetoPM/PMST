@@ -23,7 +23,13 @@ class Charter_Quality extends CI_Controller {
 	}
 
 	public function newp($project_id){
-		$dado['quality_mp'] = $this->Quality_model->readQuality($project_id);
+		    $idusuario = $_SESSION['user_id'];
+    $this->db->where('user_id', $idusuario);
+    $this->db->where('project_id', $project_id);
+    $project['dados'] = $this->db->get('project_user')-> result();
+
+    if (count($project['dados']) > 0) {
+        $dado['quality_mp'] = $this->Quality_model->readQuality($project_id);
 		$dado['id'] = $project_id;
 		$this->db->where('project_id', $project_id);
 		$dado['project'] =  $this->db->get('project')->result();
@@ -35,6 +41,10 @@ class Charter_Quality extends CI_Controller {
 		$this->load->view('frame/sidebar_nav_view');
 
 		$this->load->view('project/quality/quality_mp',$dado);
+
+    } else {
+        redirect(base_url());
+    }
 
 	}
 

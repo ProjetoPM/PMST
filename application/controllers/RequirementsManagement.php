@@ -19,7 +19,13 @@ class RequirementsManagement extends CI_Controller{
 	}
 
 	public function newp($project_id){
+    $idusuario = $_SESSION['user_id'];
+    $this->db->where('user_id', $idusuario);
+    $this->db->where('project_id', $project_id);
+    $project['dados'] = $this->db->get('project_user')-> result();
 
+    if (count($project['dados']) > 0) {
+        
 		//buscando stakeholders
 		$data['requirements_mp'] = $this->Requirements_mp_model->tap_form($project_id);
 		$data['project_id'] = $project_id;
@@ -28,6 +34,10 @@ class RequirementsManagement extends CI_Controller{
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
 		$this->load->view('project/scope/requirements_mp', $data);
+
+    } else {
+        redirect(base_url());
+    }
 
 	}
 

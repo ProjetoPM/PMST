@@ -23,7 +23,13 @@ class Schedule extends CI_Controller
 	}
 
 	public function newp($id){
+    $idusuario = $_SESSION['user_id'];
+    $this->db->where('user_id', $idusuario);
+    $this->db->where('project_id', $project_id);
+    $project['dados'] = $this->db->get('project_user')-> result();
 
+    if (count($project['dados']) > 0) {
+        
 		$dados['schedule_mp'] = $this->Schedule_model->getSchedule($id);
 		$dados['id'] = $id;
 		$this->db->where('project_id', $id);
@@ -31,6 +37,10 @@ class Schedule extends CI_Controller
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
 		$this->load->view('schedule',$dados);
+
+    } else {
+        redirect(base_url());
+    }
 		//var_dump($dados);
 	}
 

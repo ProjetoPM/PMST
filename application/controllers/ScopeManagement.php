@@ -19,17 +19,26 @@ class ScopeManagement extends CI_Controller{
 	}
 
 
-	public function newp($project_id){
-		//buscando stakeholders
-		$data['scope_mp'] = $this->Scope_mp_model->tap_form($project_id);
-		$data['project_id'] = $project_id;
-		$this->db->where('project_id', $project_id);
-		$data['scope_mp'] = $this->db->get('scope_mp')->result();
-		$this->load->view('frame/header_view.php');
-		$this->load->view('frame/sidebar_nav_view.php');
-		$this->load->view('project/scope/scope_mp', $data);
 
-	}
+public function newp($project_id) {
+    $idusuario = $_SESSION['user_id'];
+    $this->db->where('user_id', $idusuario);
+    $this->db->where('project_id', $project_id);
+    $project['dados'] = $this->db->get('project_user')-> result();
+
+    if (count($project['dados']) > 0) {
+        //buscando stakeholders
+        $data['scope_mp'] = $this->Scope_mp_model-> tap_form($project_id);
+        $data['project_id'] = $project_id;
+        $this->db-> where('project_id', $project_id);
+        $data['scope_mp'] = $this->db->get('scope_mp')-> result();
+        $this->load-> view('frame/header_view.php');
+        $this-> load-> view('frame/sidebar_nav_view.php');
+        $this->load-> view('project/scope/scope_mp', $data);
+    } else {
+        redirect(base_url());
+    }
+}
 
 	public function insert() {
 		$scope_mp['scope_specification'] = $this->input->post('scope_specification');

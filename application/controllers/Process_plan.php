@@ -19,11 +19,21 @@ class Process_plan extends CI_Controller {
 	}
 
 	public function newp($project_id){
-		$data['process_plan'] = $this->Process_plan_model->getAll();
+		    $idusuario = $_SESSION['user_id'];
+    $this->db->where('user_id', $idusuario);
+    $this->db->where('project_id', $project_id);
+    $project['dados'] = $this->db->get('project_user')-> result();
+
+    if (count($project['dados']) > 0) {
+        $data['process_plan'] = $this->Process_plan_model->getAll();
 		$data['id'] = $project_id;
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('project/process_plan',$data);
+
+    } else {
+        redirect(base_url());
+    }
 	}
 
 	public function insert($id){

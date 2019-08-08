@@ -24,13 +24,23 @@ class Stakeholder_mp extends CI_Controller{
 
 
 	function newp($project_id){
-		//chamar db da model
-	    $query['stake_mp'] = $this->Stakeholder_mp_model->getStakeholder_mpStakeholder_item_id($project_id);
+		    $idusuario = $_SESSION['user_id'];
+    $this->db->where('user_id', $idusuario);
+    $this->db->where('project_id', $project_id);
+    $project['dados'] = $this->db->get('project_user')-> result();
+
+    if (count($project['dados']) > 0) {
+        //chamar db da model
+        $query['stake_mp'] = $this->Stakeholder_mp_model->getStakeholder_mpStakeholder_item_id($project_id);
         $query['stakeholders'] = $this->Stakeholder_mp_model->getStakeholder();
-       	$query['project_id'] = $project_id;
-		$this->load->view('frame/header_view.php');
-		$this->load->view('frame/sidebar_nav_view.php');
-		$this->load->view('project/stakeholder_mp.php', $query);
+        $query['project_id'] = $project_id;
+        $this->load->view('frame/header_view.php');
+        $this->load->view('frame/sidebar_nav_view.php');
+        $this->load->view('project/stakeholder_mp.php', $query);
+
+    } else {
+        redirect(base_url());
+    }
 
 	}
 
