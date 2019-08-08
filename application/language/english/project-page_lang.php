@@ -11,7 +11,7 @@ $lang['closing'] = 'Closing';
 // Side Phases
 $lang['integration'] = 'Integration';
 $lang['scope'] = 'Scope';
-$lang['time'] = 'Time';
+$lang['time'] = 'Schedule';
 $lang['cost'] = 'Cost';
 $lang['quality'] = 'Quality';
 $lang['hr'] = 'Human Resources';
@@ -20,7 +20,7 @@ $lang['risk'] = 'Risk';
 $lang['procurement'] = 'Procurement';
 $lang['stakeholder'] = 'Stakeholder';
 
-// 
+//
 $lang['project-charter'] = 'Project Charter';
 $lang['stakeholder-register'] = 'Stakeholder Register';
 $lang['project-management'] = 'Project Management';

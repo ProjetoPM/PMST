@@ -16,12 +16,12 @@
 					<strong><?php echo $this->session->flashdata('error'); ?></strong>
 				</div>
 			<?php endif; ?>
-			<!-- /.row -->   
+			<!-- /.row -->
 
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="container">
-						<button type="button" class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Notification_board/new/<?php echo $project_id ?>'"><?=$this->lang->line('btn-new')?> <?=$this->lang->line('notification-board')?> </button>
+						<button type="button" class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Notification_board/newp/<?php echo $project_id ?>'"><?=$this->lang->line('btn-new')?> <?=$this->lang->line('notification-board')?> </button>
 
 						<div class="col-sm-12">
 							<br><br>
@@ -67,19 +67,19 @@
 														</div>
 													</div>
 												</td>
-											</tr> 
+											</tr>
 											<?php
 										}
 										?>
 									</tbody>
-								</table> 
-							</div>  
-						</div> 
+								</table>
+							</div>
+						</div>
 
-						<!-- /.row --> </div> 
+						<!-- /.row --> </div>
 						<div class="col-sm-12" position= "absolute">
 							<div class="container">
-								<?php $this->load->view('frame/footer_view') ?>            
+								<?php $this->load->view('frame/footer_view') ?>
 							</div>
 						</div>
 					</div>

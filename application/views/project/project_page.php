@@ -142,7 +142,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("Change_log/list/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Change_log/listp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-star"></i>
@@ -214,7 +214,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("Requirement_registration/list/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Requirement_registration/listp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox scopeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-search"></i>
@@ -696,7 +696,7 @@
 
                     <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
-                    <a href="<?=base_url("Team_Performance_Evaluation/list/".$project[0]->project_id) ?>">
+                    <a href="<?=base_url("Team_Performance_Evaluation/listp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox hrColor">
                         <div class="verticalAlign">
                           <i class="fa fa-male"></i>
@@ -779,7 +779,7 @@
 
                     <div class=" col-lg-1 midBox communicColor hideBox"></div>
 
-                    <a href="<?=base_url()?>Communication_item/list/<?php echo $project[0]->project_id;?>">
+                    <a href="<?=base_url()?>Communication_item/listp/<?php echo $project[0]->project_id;?>">
                       <div class=" col-lg-1 midBox communicColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-bullhorn"></i>
@@ -834,7 +834,7 @@
                       </div>
                     </a>
 
-                    <a href="<?=base_url("RegisterRisk/list/".$project[0]->project_id) ?>">
+                    <a href="<?=base_url("RegisterRisk/listp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox riskColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-exclamation-sign"></i>
@@ -845,7 +845,7 @@
 
                     <div class=" col-lg-1 midBox riskColor hideBox"></div>
 
-                    <a href="<?=base_url("Issues_Record/list/".$project[0]->project_id) ?>">
+                    <a href="<?=base_url("Issues_Record/listp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox riskColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-exclamation-sign"></i>
@@ -990,7 +990,7 @@
                       </div>
                     </a>
 
-                    <a href="<?=base_url("Stakeholder_mp/newpp/".$project[0]->project_id) ?>">
+                    <a href="<?=base_url("Stakeholder_mp/newp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox stakeholderColor">
                         <div class="verticalAlign">
                           <i class="fa fa-users"></i>
@@ -1057,7 +1057,7 @@
 
               <div class="col-md-12 noSpaceSide ">
                 <div class="col-lg-12 wrapper noSpaceSide">
-                  <a class="btn btn-warning btn-lg btn-block" href="<?=base_url()?>Notification_board/list/<?php echo $project[0]->project_id;?>">
+                  <a class="btn btn-warning btn-lg btn-block" href="<?=base_url()?>Notification_board/listp/<?php echo $project[0]->project_id;?>">
                     <i class="glyphicon glyphicon-blackboard"></i>
                     <?=$this->lang->line('notification-board')?>
                   </a>

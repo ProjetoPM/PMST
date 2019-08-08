@@ -27,98 +27,98 @@
       <input type="hidden" name="project_id"  value="<?php echo $project_id; ?>">
 
       <div class=" col-lg-6 form-group">
-        <label for="type"><?=$this->lang->line('type')?> </label> 
+        <label for="type"><?=$this->lang->line('type')?> </label>
         <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('type-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-        <div>                 
+        <div>
           <input type="text" class="form-control" id="type" name="type" value="<?php echo $type?>" maxlength="45" required>
         </div>
       </div>
 
       <div class=" col-lg-6 form-group">
-        <label for="description"><?=$this->lang->line('description')?> </label> 
+        <label for="description"><?=$this->lang->line('description')?> </label>
         <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('description-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-        <div>                 
+        <div>
           <input type="text" class="form-control" id="description" name="description" value="<?php echo $description?>"maxlength="45">
         </div>
       </div>
 
       <div class=" col-lg-12 form-group">
-        <label for="content"><?=$this->lang->line('content')?> </label> 
+        <label for="content"><?=$this->lang->line('content')?> </label>
         <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('content-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-        <div>                 
+        <div>
           <input type="text" class="form-control" id="content" name="content" value="<?php echo $content?>" maxlength="255">
         </div>
       </div>
 
       <div class=" col-lg-12 form-group">
-        <label for="distribution_reason"><?=$this->lang->line('distribution_reason')?> </label> 
+        <label for="distribution_reason"><?=$this->lang->line('distribution_reason')?> </label>
         <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('distribution_reason-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-        <div>                 
+        <div>
           <input type="text" class="form-control" id="distribution_reason" name="distribution_reason" value="<?php echo $distribution_reason?>" maxlength="255">
         </div>
       </div>
 
       <div class=" col-lg-6 form-group">
-        <label for="language"><?=$this->lang->line('language')?> </label> 
+        <label for="language"><?=$this->lang->line('language')?> </label>
         <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('language-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-        <div>                 
+        <div>
           <input type="text" class="form-control" id="language" name="language" value="<?php echo $language
           ?>" maxlength="45">
         </div>
       </div>
 
       <div class=" col-lg-6 form-group">
-        <label for="channel"><?=$this->lang->line('channel')?> </label> 
+        <label for="channel"><?=$this->lang->line('channel')?> </label>
         <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('channel-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-        <div>                 
+        <div>
           <input type="text" class="form-control" id="channel" name="channel" value="<?php echo $channel?>" maxlength="45">
         </div>
       </div>
 
       <div class=" col-lg-6 form-group">
-        <label for="document_format"><?=$this->lang->line('document_format')?> </label> 
+        <label for="document_format"><?=$this->lang->line('document_format')?> </label>
         <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('document_format-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-        <div>                 
+        <div>
           <input type="text" class="form-control" id="document_format" name="document_format" value="<?php echo $document_format?>" maxlength="45">
         </div>
       </div>
 
       <div class=" col-lg-6 form-group">
-        <label for="method"><?=$this->lang->line('method')?> </label> 
+        <label for="method"><?=$this->lang->line('method')?> </label>
         <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('method-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-        <div>                 
+        <div>
           <input type="text" class="form-control" id="method" name="method" value="<?php echo $method?>" maxlength="45">
         </div>
       </div>
 
       <div class=" col-lg-6 form-group">
-        <label for="frequency"><?=$this->lang->line('frequency')?> </label> 
+        <label for="frequency"><?=$this->lang->line('frequency')?> </label>
         <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('frequency-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-        <div>                 
+        <div>
           <input type="text" class="form-control" id="frequency" name="frequency" value="<?php echo $frequency?>" maxlength="45">
         </div>
       </div>
 
       <div class=" col-lg-6 form-group">
-        <label for="allocated_resources"><?=$this->lang->line('allocated_resources')?> </label> 
+        <label for="allocated_resources"><?=$this->lang->line('allocated_resources')?> </label>
         <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('allocated_resources-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-        <div>                 
+        <div>
           <input type="text" class="form-control" id="allocated_resources" name="allocated_resources" value="<?php echo $allocated_resources?>" maxlength="45">
         </div>
       </div>
-      
+
       <div class=" col-lg-6 form-group">
-        <label for="format"><?=$this->lang->line('format')?> </label> 
+        <label for="format"><?=$this->lang->line('format')?> </label>
         <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('format-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-        <div>                 
+        <div>
           <input type="text" class="form-control" id="format" name="format" value="<?php echo $format?>" maxlength="45">
         </div>
       </div>
 
       <div class=" col-lg-6 form-group">
-        <label for="local"><?=$this->lang->line('local')?> </label> 
+        <label for="local"><?=$this->lang->line('local')?> </label>
         <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('local-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-        <div>                 
+        <div>
           <input type="text" class="form-control" id="local" name="local" value="<?=$local?>" maxlength="45">
         </div>
       </div>
@@ -126,10 +126,10 @@
      <div class="col-lg-12">
       <button id="new_quality_plan-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
         <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
-      </button> 
+      </button>
     </form>
 
-    <form action="<?php echo base_url()?>/Communication_item/list/<?=$project_id?>" >
+    <form action="<?php echo base_url()?>/Communication_item/listp/<?=$project_id?>" >
      <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
    </form>
 
