@@ -80,14 +80,14 @@ class ScopeManagement extends CI_Controller{
 	function ajax_upload() {
 			$project_id = $this->input->post('project_id');
 			$view_id = $this->input->post('view_id');
-			$folder = '.\upload\Project'.$project_id.'View'.$view_id;
+			$folder = 'upload\Project'.$project_id.'View'.$view_id;
 			$path = 'Project'.$project_id.'View'.$view_id;
 			mkdir($folder, 0777);
 
 			 if(isset($_FILES["image_file"]["name"]))
 			 {
 
-						$config['upload_path'] = './upload/'.$path;
+						$config['upload_path'] = 'upload/'.$path;
 						$config['allowed_types'] = 'jpg|jpeg|png|gif';
 
 
