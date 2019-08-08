@@ -44,17 +44,21 @@ class User_register extends CI_Model {
         if ($query->num_rows() == 0) return true;
         else return false;
     }
+
     function insert_user($postData) {
         $validate = $this->validate_email($postData);
         if ($validate) {
-            $password = $this->generate_password();
-            $data = array('name' => $postData['name'], 'email' => $postData['email'], 'institution' => $postData['institution'], 'role' => 'user', 'password' => md5($password), 'created_at' => date('Y\-m\-d\ H:i:s A'),);
+            //$password = $this->generate_password();
+            $data = array('name' => $postData['name'], 'email' => $postData['email'], 'institution' => $postData['institution'], 'role' => 'user', 'password' => md5($postData['password']), 'created_at' => date('Y\-m\-d\ H:i:s A'),);
             $this->db->insert('user', $data);
-            $message = "Here is your account details:<br><br>Email: " . $postData['email'] . "<br>Tempolary password: " . $password . "<br>Please change your password after login.<br><br> you can login at " . base_url() . ".";
-            $subject = "New Account Creation";
-            $this->send_email($message, $subject, $postData['email']);
             
-            $this->session->set_flashdata('flashCreated', 'Account Created! A temporary password will be sent to your registered email address.');
+            //email temporariamente desativado
+            //$message = "Here is your account details:<br><br>Email: " . $postData['email'] . "<br>Tempolary password: " . $password . "<br>Please change your password after login.<br><br> you can login at " . base_url() . ".";
+            //$subject = "New Account Creation";
+            //$this->send_email($message, $subject, $postData['email']);
+            
+            //$this->session->set_flashdata('flashCreated', 'Account Created! A temporary password will be sent to your registered email address.');
+            $this->session->set_flashdata('flashCreated', 'Account Created!');
             redirect(site_url(), 'refresh');
             
             $module = "User Management";

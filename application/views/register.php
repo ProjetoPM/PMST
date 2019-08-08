@@ -48,6 +48,15 @@
                      <i class="fa fa-university" aria-hidden="true"></i>
                      </span>
                   </div>
+
+                  <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                     <input class="input100" id="institution" placeholder="Password" name="password" type="password" value="">
+                     <span class="focus-input100"></span>
+                     <span class="symbol-input100">
+                     <i class="fa  fa-unlock-alt" aria-hidden="true"></i>
+                     </span>
+                  </div>
+
                   <div class="container-login100-form-btn">
                      <button class="login100-form-btn" id="login-submit" type="submit" value="Create your account" class="btn btn-lg btn-success btn-block">
                      Register

@@ -14,7 +14,7 @@ class Register extends CI_Controller
         $this->load->model('user_register');
         $this->user_register->insert_user($user);
 
-            redirect(site_url().'/authentication', 'refresh');
+            redirect(site_url(), 'refresh');
     }
     
     public function c_recover_password(){
