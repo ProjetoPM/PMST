@@ -7,6 +7,9 @@ class ScopeManagement extends CI_Controller{
 
 	function __construct(){
 		parent::__construct();
+		if (!$this->session->userdata('logged_in')) {
+			redirect(base_url());
+		}
 		//$this->load->helper('url');
 		$this->lang->load('btn', 'english');
 		//$this->lang->load('btn', 'portuguese-brazilian');
@@ -14,6 +17,7 @@ class ScopeManagement extends CI_Controller{
 		//$this->lang->load('tap', 'portuguese-brazilian');
 		$this->load->model('Scope_mp_model');
 	}
+
 
 	public function newp($project_id){
 		//buscando stakeholders
@@ -26,8 +30,6 @@ class ScopeManagement extends CI_Controller{
 		$this->load->view('project/scope/scope_mp', $data);
 
 	}
-
-
 
 	public function insert() {
 		$scope_mp['scope_specification'] = $this->input->post('scope_specification');

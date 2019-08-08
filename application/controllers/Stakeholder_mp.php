@@ -7,6 +7,9 @@ class Stakeholder_mp extends CI_Controller{
 
 	function __construct(){
 		parent::__construct();
+        if (!$this->session->userdata('logged_in')) {
+            redirect(base_url());
+        }
 		// $this->load->helper('url', 'english');
 
      $this->lang->load('btn','english');

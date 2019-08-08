@@ -5,6 +5,9 @@ class Process_plan extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
+		if (!$this->session->userdata('logged_in')) {
+			redirect(base_url());
+		}
 		$this->load->helper('url');
 		$this->load->model('Process_plan_model');
 

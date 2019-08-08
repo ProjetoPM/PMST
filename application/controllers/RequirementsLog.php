@@ -5,6 +5,9 @@ class RequirementsLog extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
+		if (!$this->session->userdata('logged_in')) {
+			redirect(base_url());
+		}
 		$this->load->helper('url');
 		$this->load->model('Requirements_log_model');
 
