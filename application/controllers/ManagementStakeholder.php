@@ -59,7 +59,7 @@ class ManagementStakeholder extends CI_Controller {
 
     public function edit($stakeholder_id) {
 
-        $query['risk_register'] = $this->Stakeholder_model->getStakeholder($stakeholder_id);
+        $query['stakeholder'] = $this->Stakeholder_model->getStakeholder($stakeholder_id);
         $this->load->view('frame/header_view.php');
         $this->load->view('frame/sidebar_nav_view.php');
         $this->load->view('project/stakeholder/stakeholder_register/edit', $query);
@@ -79,13 +79,13 @@ class ManagementStakeholder extends CI_Controller {
         $stakeholder['main_expectations'] = $this->input->post('main_expectations');
         $stakeholder['interest_phase'] = $this->input->post('interest_phase');
         $stakeholder['observations'] = $this->input->post('observations');
-        $stakeholder['project_id'] = $id;
+        $stakeholder['project_id'] = $this->input->post('project_id');
 
-				$data['issues_record'] = $stakeholder;
+				$data['stakeholder'] = $stakeholder;
 				$query = $this->Stakeholder_model->updateStakeholder($data['stakeholder'], $stakeholder_id);
 
         if ($query) {
-            redirect('ManagementStakeholder/listp/' . $stakeholder_id['project_id']);
+            redirect('ManagementStakeholder/listp/' . $stakeholder['project_id']);
         }
 
     }

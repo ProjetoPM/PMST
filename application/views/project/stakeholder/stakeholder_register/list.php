@@ -44,30 +44,27 @@
 						</thead>
 						<tbody>
 							<?php
-							foreach ($stakeholder as $stakeholder) {
+							foreach ($stakeholder as $item) {
 								?>
-								<tr dados='<?= json_encode($stakeholder); ?>'>
+								<tr dados='<?= json_encode($item); ?>'>
 									<td class="moreInformationTable"></td>
-									<td><?php echo $stakeholder->name;?></td>
-									<td><?php echo $stakeholder->organization;?></td>
-                                    <td><?php echo $stakeholder->position;?></td>
-                                    <td><?php echo $stakeholder->email;?></td>
+									<td><?php echo $item->name;?></td>
+									<td><?php echo $item->organization;?></td>
+                                    <td><?php echo $item->position;?></td>
+                                    <td><?php echo $item->email;?></td>
 
 
                                     <td style="max-width: 20px">
 										<div class="row center">
 											<div class="col-sm-4">
-												<form action="<?php echo base_url() ?>ManagementStakeholder/edit/<?php echo $stakeholder->stakeholder_id; ?>" method="post">
-													<input type="hidden" name="project_id" value="<?=$stakeholder->project_id?>">
+												<form action="<?php echo base_url() ?>ManagementStakeholder/edit/<?php echo $item->stakeholder_id; ?>" method="post">
+													<input type="hidden" name="project_id" value="<?=$item->project_id?>">
 													<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 												</form>
 											</div>
 
 											<div class="col-sm-4">
-												<!--<form action="<?php echo base_url() ?>ManagementStakeholder/delete/<?php echo $stakeholder->stakeholder_id; ?>" method="post">
-													<input type="hidden" name="project_id" value="<?=$stakeholder->project_id?>"> -->
-													<button type="submit" class="btn btn-danger" onclick="deletar(<?=$stakeholder->project_id?>, <?= $stakeholder->stakeholder_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
-													<!-- </form> -->
+													<button type="submit" class="btn btn-danger" onclick="deletar(<?=$item->project_id?>, <?= $item->stakeholder_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
 												</div>
 											</div>
 										</td>

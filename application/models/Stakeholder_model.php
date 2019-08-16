@@ -9,8 +9,8 @@
 			return $this->db->insert('stakeholder', $stakeholder);
 		}
 
-        public function getStakeholder($stakeholder){
-            $query = $this->db->get_where('stakeholder',array('stakeholder_id'=>$stakeholder));
+        public function getStakeholder($id){
+            $query = $this->db->get_where('stakeholder',array('stakeholder_id'=>$id));
             return $query->row_array();
         }
 
