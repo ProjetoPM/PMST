@@ -42,8 +42,8 @@
 						<label for="type"><?=$this->lang->line('stakeholder-type')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-type-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<select name="type" class="form-control" value="<?php echo $type; ?>">
-							<option value="0"><?=$this->lang->line('stakeholder-type-external')?></option>
-							<option value="1"><?=$this->lang->line('stakeholder-type-internal')?></option>
+							<option value="0" <?php if ($role == 0 ) echo 'selected' ; ?>><?=$this->lang->line('stakeholder-type-external')?></option>
+							<option value="1" <?php if ($role == 1 ) echo 'selected' ; ?>><?=$this->lang->line('stakeholder-type-internal')?></option>
 						</select>
 					</div>
 
@@ -53,12 +53,12 @@
 						<label for="role"><?=$this->lang->line('stakeholder-role')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('stakeholder-role-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<select name="role" class="form-control" value="<?php echo $role; ?>">
-							<option value="0"><?=$this->lang->line('stakeholder-role-client')?></option>
-							<option value="1"><?=$this->lang->line('stakeholder-role-team')?></option>
-							<option value="2"><?=$this->lang->line('stakeholder-role-provider')?></option>
-							<option value="3"><?=$this->lang->line('stakeholder-role-project_manager')?></option>
-							<option value="4"><?=$this->lang->line('stakeholder-role-sponsor')?></option>
-							<option value="5"><?=$this->lang->line('stakeholder-role-others')?></option>
+							<option value="0" <?php if ($role == 0 ) echo 'selected' ; ?>><?=$this->lang->line('stakeholder-role-client')?></option>
+							<option value="1" <?php if ($role == 1 ) echo 'selected' ; ?>><?=$this->lang->line('stakeholder-role-team')?></option>
+							<option value="2" <?php if ($role == 2 ) echo 'selected' ; ?>><?=$this->lang->line('stakeholder-role-provider')?></option>
+							<option value="3" <?php if ($role == 3 ) echo 'selected' ; ?>><?=$this->lang->line('stakeholder-role-project_manager')?></option>
+							<option value="4" <?php if ($role == 4 ) echo 'selected' ; ?>><?=$this->lang->line('stakeholder-role-sponsor')?></option>
+							<option value="5" <?php if ($role == 5 ) echo 'selected' ; ?>><?=$this->lang->line('stakeholder-role-others')?></option>
 						</select>
 					</div>
 
