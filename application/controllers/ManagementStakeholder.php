@@ -65,8 +65,6 @@ class ManagementStakeholder extends CI_Controller {
         $this->load->view('project/stakeholder/stakeholder_register/edit', $query);
     }
 
-
-
     public function update($stakeholder_id) {
         $stakeholder['name'] = $this->input->post('name');
         $stakeholder['type'] = $this->input->post('type');
@@ -83,7 +81,8 @@ class ManagementStakeholder extends CI_Controller {
         $stakeholder['observations'] = $this->input->post('observations');
         $stakeholder['project_id'] = $id;
 
-        $query = $this->Stakeholder_model->updateStakeholder($stakeholder,$stakeholder_id);
+				$data['issues_record'] = $stakeholder;
+				$query = $this->Stakeholder_model->updateStakeholder($data['stakeholder'], $stakeholder_id);
 
         if ($query) {
             redirect('ManagementStakeholder/listp/' . $stakeholder_id['project_id']);

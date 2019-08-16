@@ -11,7 +11,7 @@ class Tap extends CI_Controller{
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
-		
+
 		//$this->load->helper('url');
 		$this->lang->load('btn', 'english');
 		//$this->lang->load('btn', 'portuguese-brazilian');
@@ -28,7 +28,7 @@ class Tap extends CI_Controller{
     $project['dados'] = $this->db->get('project_user')-> result();
 
     if (count($project['dados']) > 0) {
-        
+
 		//buscando stakeholders
 		$data['stakeholder'] = $this->Tap_model->getAllStk();
 		$data['stakeholder_mp'] = $this->Tap_model->getAllStk_mp();

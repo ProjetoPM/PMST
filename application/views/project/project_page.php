@@ -981,7 +981,7 @@
                   </div>
 
                   <div class="col-lg-10 noSpaceSide floatRight">
-                    <a href="<?=base_url("ManagementStakeholder/addnew/".$project[0]->project_id) ?>">
+                    <a href="<?=base_url("ManagementStakeholder/listp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox stakeholderColor">
                         <div class="verticalAlign">
                           <i class="fa fa-users"></i>

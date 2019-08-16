@@ -191,6 +191,102 @@
   SHOW WARNINGS;
 
   -- -----------------------------------------------------
+  -- Table `project_charter_high_level_requirements`
+  -- -----------------------------------------------------
+  DROP TABLE IF EXISTS `project_charter_high_level_requirements` ;
+
+  SHOW WARNINGS;
+  CREATE TABLE IF NOT EXISTS `project_charter_high_level_requirements` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `description` TEXT NULL DEFAULT NULL,
+    `project_id` INT(11) NOT NULL,
+    PRIMARY KEY (`id`))
+  ENGINE = InnoDB
+  DEFAULT CHARACTER SET = utf8;
+
+  SHOW WARNINGS;
+
+  -- -----------------------------------------------------
+  -- Table `project_charter_initial_assumptions`
+  -- -----------------------------------------------------
+  DROP TABLE IF EXISTS `project_charter_initial_assumptions` ;
+
+  SHOW WARNINGS;
+  CREATE TABLE IF NOT EXISTS `project_charter_initial_assumptions` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `description` TEXT NULL DEFAULT NULL,
+    `project_id` INT(11) NOT NULL,
+    PRIMARY KEY (`id`))
+  ENGINE = InnoDB
+  DEFAULT CHARACTER SET = utf8;
+
+  SHOW WARNINGS;
+
+  -- -----------------------------------------------------
+  -- Table `project_charter_initial_restrictions`
+  -- -----------------------------------------------------
+  DROP TABLE IF EXISTS `project_charter_initial_restrictions` ;
+
+  SHOW WARNINGS;
+  CREATE TABLE IF NOT EXISTS `project_charter_initial_restrictions` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `description` TEXT NULL DEFAULT NULL,
+    `project_id` INT(11) NOT NULL,
+    PRIMARY KEY (`id`))
+  ENGINE = InnoDB
+  DEFAULT CHARACTER SET = utf8;
+
+  SHOW WARNINGS;
+
+  -- -----------------------------------------------------
+  -- Table `project_charter_high_level_risks `
+  -- -----------------------------------------------------
+  DROP TABLE IF EXISTS `project_charter_high_level_risks` ;
+
+  SHOW WARNINGS;
+  CREATE TABLE IF NOT EXISTS `project_charter_high_level_risks` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `description` TEXT NULL DEFAULT NULL,
+    `project_id` INT(11) NOT NULL,
+    PRIMARY KEY (`id`))
+  ENGINE = InnoDB
+  DEFAULT CHARACTER SET = utf8;
+
+  SHOW WARNINGS;
+
+  -- -----------------------------------------------------
+  -- Table `project_charter_summary_schedule `
+  -- -----------------------------------------------------
+  DROP TABLE IF EXISTS `project_charter_summary_schedule` ;
+
+  SHOW WARNINGS;
+  CREATE TABLE IF NOT EXISTS `project_charter_summary_schedule` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `description` TEXT NULL DEFAULT NULL,
+    `project_id` INT(11) NOT NULL,
+    PRIMARY KEY (`id`))
+  ENGINE = InnoDB
+  DEFAULT CHARACTER SET = utf8;
+
+  SHOW WARNINGS;
+
+  -- -----------------------------------------------------
+  -- Table `project_charter_project_approval_requirements`
+  -- -----------------------------------------------------
+  DROP TABLE IF EXISTS `project_charter_project_approval_requirements` ;
+
+  SHOW WARNINGS;
+  CREATE TABLE IF NOT EXISTS `project_charter_project_approval_requirements` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `description` TEXT NULL DEFAULT NULL,
+    `project_id` INT(11) NOT NULL,
+    PRIMARY KEY (`id`))
+  ENGINE = InnoDB
+  DEFAULT CHARACTER SET = utf8;
+
+  SHOW WARNINGS;
+
+  -- -----------------------------------------------------
   -- Table `project_charter_stakeholder`
   -- -----------------------------------------------------
   DROP TABLE IF EXISTS `project_charter_stakeholder` ;

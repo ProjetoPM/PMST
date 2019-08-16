@@ -96,7 +96,6 @@
 						</div>
 					</div>
 
-
 					<div class=" col-lg-12 form-group">
 						<label for="budge_summary"><?=$this->lang->line('tap-budge')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('tap-budge-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>

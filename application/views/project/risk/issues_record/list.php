@@ -20,16 +20,16 @@
 
 			<div class="row">
 				<div class="col-lg-10">
-					
-					<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Issues_Record/new/<?php echo $project_id ?>'"> <?=$this->lang->line('btn-new')?> <?=$this->lang->line('issues_record-title')?></button>			
-					
+
+					<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Issues_Record/newp/<?php echo $project_id ?>'"> <?=$this->lang->line('btn-new')?> <?=$this->lang->line('issues_record-title')?></button>
+
 				</div>
 			</div>
 
 			<br><br>
 			<div class="row">
 				<div class="col-lg-12">
-					
+
 					<table class="table table-bordered table-striped" id="tableNB">
 						<thead>
 							<tr>
@@ -38,7 +38,7 @@
 								<th><?=$this->lang->line('ir-identification_date')?></th>
 								<th><?=$this->lang->line('ir-question_description')?></th>
 								<th><?=$this->lang->line('ir-situation')?></th>
-								
+
 								<th><?=$this->lang->line('btn-actions')?></th>
 							</tr>
 						</thead>
@@ -52,7 +52,7 @@
 									<td><?php echo $item->identification_date;?></td>
 									<td><?php echo $item->question_description;?></td>
 									<td><?php echo $item->situation;?></td>
-									
+
 
 									<td style="max-width: 20px">
 									<div class="row center">
@@ -61,7 +61,7 @@
 												<input type="hidden" name="project_id" value="<?=$item->project_id?>">
 												<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 											</form>
-										</div>						
+										</div>
 												<div class="col-sm-4">
 												<button type="submit" class="btn btn-danger" onclick="deletar(<?=$item->project_id?>, <?= $item->issues_record_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
 												</div>
@@ -69,13 +69,13 @@
 										</div>
 									</div>
 								</td>
-							</tr> 
+							</tr>
 							<?php
 						}
 						?>
 
 					</tbody>
-				</table> 
+				</table>
 
 				<div class="col-lg-12">
 					<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>">
@@ -85,7 +85,7 @@
 				<!-- loading footer and script-->
 				<div class="col-sm-12" position= "absolute">
 					<div class="container">
-						<?php $this->load->view('frame/footer_view') ?>            
+						<?php $this->load->view('frame/footer_view') ?>
 					</div>
 				</div>
 			</div>
@@ -95,7 +95,7 @@
 			<script src="<?=base_url()?>assets/js/dataTables.bootstrap.js"></script>
 			<script src="<?=base_url()?>assets/js/dataTables.responsive.js"></script>
 
-			
+
 	<!-- JavaScript -->
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
 
@@ -129,7 +129,7 @@
 									}).show();
 
 						}
-						
+
 					</script>
 
 			<script type="text/javascript">

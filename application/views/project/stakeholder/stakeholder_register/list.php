@@ -22,23 +22,22 @@
 				<div class="col-lg-10">
 
 					<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>ManagementStakeholder/addnew/<?php echo $project_id ?>'"> <?=$this->lang->line('btn-new')?> <?=$this->lang->line('stakeholder-title')?></button>
-					
+
 				</div>
 			</div>
 
 			<br><br>
 			<div class="row">
 				<div class="col-lg-12">
-					
+
 					<table class="table table-bordered table-striped" id="tableNB">
 						<thead>
 							<tr>
 								<th class="text-center">#</th>
-								<th><?=$this->lang->line('name')?></th>
-								<th><?=$this->lang->line('type')?></th>
-								<th><?=$this->lang->line('organization')?></th>
-								<th><?=$this->lang->line('position')?></th>
-                                <th><?=$this->lang->line('role')?></th>
+								<th>Name</th>
+								<th>Organization</th>
+								<th>Position</th>
+                <th>E-mail</th>
 
 								<th><?=$this->lang->line('btn-actions')?></th>
 							</tr>
@@ -50,10 +49,9 @@
 								<tr dados='<?= json_encode($stakeholder); ?>'>
 									<td class="moreInformationTable"></td>
 									<td><?php echo $stakeholder->name;?></td>
-									<td><?php echo $stakeholder->type;?></td>
 									<td><?php echo $stakeholder->organization;?></td>
                                     <td><?php echo $stakeholder->position;?></td>
-                                    <td><?php echo $stakeholder->role;?></td>
+                                    <td><?php echo $stakeholder->email;?></td>
 
 
                                     <td style="max-width: 20px">
@@ -73,20 +71,20 @@
 												</div>
 											</div>
 										</td>
-									</tr> 
+									</tr>
 									<?php
 								}
 								?>
 
 							</tbody>
-						</table> 
+						</table>
 
 
 
 						<!-- loading footer and script-->
 						<div class="col-sm-12" position= "absolute">
 							<div class="container">
-								<?php $this->load->view('frame/footer_view') ?>            
+								<?php $this->load->view('frame/footer_view') ?>
 							</div>
 						</div>
 					</div>
@@ -111,7 +109,6 @@
 								"columns": [
 								{ "data": "#", "orderable": false},
 								{ "data": "name" },
-								{ "data": "type" },
 								{ "data": "organization" },
 								{ "data": "position" },
 								{ "data": "btn-actions", "orderable": false}
@@ -176,6 +173,6 @@
 							}).show();
 
 						}
-						
-					</script>
 
+					</script>
+						<button onclick="history.go(-1);" class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
