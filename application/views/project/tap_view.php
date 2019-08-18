@@ -331,7 +331,7 @@
 						<div class="input-group-addon">
 							<i class="fa fa-calendar"></i>
 						</div>
-						<input class="form-control" id="start_date" placeholder="YYYY/MM/DD" type="text" name="start_date" required="true" />
+						<input class="form-control" id="start_date" placeholder="YYYY/MM/DD" type="text" name="start_date" required="true" value="<?php echo $tap->start_date;?>"/>
 					</div>
 				</div>
 			</div>
@@ -343,7 +343,7 @@
 						<div class="input-group-addon">
 							<i class="fa fa-calendar"></i>
 						</div>
-						<input class="form-control" id="end_date" placeholder="YYYY/MM/DD" type="text" name="end_date" required="true" />
+						<input class="form-control" id="end_date" placeholder="YYYY/MM/DD" type="text" name="end_date" required="true" value="<?php echo $tap->end_date;?>" />
 					</div>
 				</div>
 			</div>
@@ -409,8 +409,6 @@
 		<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 	</form>
 </div>
-</div>
-</form>
 
 														<?php } }?>
 
