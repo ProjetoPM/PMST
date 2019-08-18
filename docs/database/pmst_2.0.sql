@@ -27,18 +27,18 @@
   SHOW WARNINGS;
   CREATE TABLE IF NOT EXISTS `communication_item` (
     `communication_item_id` INT(11) NOT NULL AUTO_INCREMENT,
-    `type` VARCHAR(45) NULL DEFAULT NULL,
-    `description` VARCHAR(45) NULL DEFAULT NULL,
-    `content` VARCHAR(255) NULL DEFAULT NULL,
-    `distribution_reason` VARCHAR(255) NULL DEFAULT NULL,
-    `language` VARCHAR(45) NULL DEFAULT NULL,
-    `channel` VARCHAR(45) NULL DEFAULT NULL,
-    `document_format` VARCHAR(45) NULL DEFAULT NULL,
-    `method` VARCHAR(45) NULL DEFAULT NULL,
-    `frequency` VARCHAR(45) NULL DEFAULT NULL,
-    `allocated_resources` VARCHAR(45) NULL DEFAULT NULL,
-    `format` VARCHAR(45) NULL DEFAULT NULL,
-    `local` VARCHAR(45) NULL DEFAULT NULL,
+    `type` VARCHAR(1000) NULL DEFAULT NULL,
+    `description` VARCHAR(1000) NULL DEFAULT NULL,
+    `content` VARCHAR(1000) NULL DEFAULT NULL,
+    `distribution_reason` VARCHAR(1000) NULL DEFAULT NULL,
+    `language` VARCHAR(1000) NULL DEFAULT NULL,
+    `channel` VARCHAR(1000) NULL DEFAULT NULL,
+    `document_format` VARCHAR(1000) NULL DEFAULT NULL,
+    `method` VARCHAR(1000) NULL DEFAULT NULL,
+    `frequency` VARCHAR(1000) NULL DEFAULT NULL,
+    `allocated_resources` VARCHAR(1000) NULL DEFAULT NULL,
+    `format` VARCHAR(1000) NULL DEFAULT NULL,
+    `local` VARCHAR(1000) NULL DEFAULT NULL,
     `project_id` INT(11) NOT NULL,
     `status` BIT(1) NULL DEFAULT NULL,
     PRIMARY KEY (`communication_item_id`))
@@ -55,8 +55,8 @@
   SHOW WARNINGS;
   CREATE TABLE IF NOT EXISTS `communication_responsability` (
     `communication_responsability_id` INT(11) NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(45) NULL DEFAULT NULL,
-    `initials` VARCHAR(45) NULL DEFAULT NULL,
+    `name` VARCHAR(1000) NULL DEFAULT NULL,
+    `initials` VARCHAR(1000) NULL DEFAULT NULL,
     `status` BIT(1) NULL DEFAULT NULL,
     PRIMARY KEY (`communication_responsability_id`))
   ENGINE = InnoDB
@@ -90,11 +90,11 @@
   SHOW WARNINGS;
   CREATE TABLE IF NOT EXISTS `cost_mp` (
     `cost_mp_id` INT(11) NOT NULL AUTO_INCREMENT,
-    `project_costs_m` VARCHAR(255) NULL DEFAULT NULL,
+    `project_costs_m` VARCHAR(1000) NULL DEFAULT NULL,
     `accuracy_level` TEXT NULL DEFAULT NULL,
-    `organizational_procedures` VARCHAR(255) NULL DEFAULT NULL,
+    `organizational_procedures` VARCHAR(1000) NULL DEFAULT NULL,
     `measurement_rules` TEXT NULL DEFAULT NULL,
-    `format_report` VARCHAR(255) NULL DEFAULT NULL,
+    `format_report` VARCHAR(1000) NULL DEFAULT NULL,
     `project_id` INT(11) NOT NULL,
     `status` BIT(1) NULL DEFAULT NULL,
     PRIMARY KEY (`cost_mp_id`))
@@ -112,7 +112,7 @@
   CREATE TABLE IF NOT EXISTS `human_resources_mp` (
     `human_resources_mp_id` INT(11) NOT NULL AUTO_INCREMENT,
     `roles_responsibilities` TEXT NULL DEFAULT NULL,
-    `organizational_chart` VARCHAR(255) NULL DEFAULT NULL,
+    `organizational_chart` VARCHAR(1000) NULL DEFAULT NULL,
     `staff_mp` TEXT NULL DEFAULT NULL,
     `project_id` INT(11) NOT NULL,
     `status` BIT(1) NULL DEFAULT NULL,
@@ -133,7 +133,7 @@
     `products_services_obtained` TEXT NULL DEFAULT NULL,
     `team_actions` TEXT NULL DEFAULT NULL,
     `performance_metrics` TEXT NULL DEFAULT NULL,
-    `procurement_management` VARCHAR(45) NULL,
+    `procurement_management` VARCHAR(1000) NULL,
     `project_id` INT(11) NOT NULL,
     `status` BIT(1) NULL DEFAULT NULL,
     PRIMARY KEY (`procurement_mp_id`))
@@ -150,9 +150,9 @@
   SHOW WARNINGS;
   CREATE TABLE IF NOT EXISTS `project` (
     `project_id` INT(11) NOT NULL AUTO_INCREMENT,
-    `title` VARCHAR(255) NOT NULL,
-    `description` VARCHAR(255) NULL DEFAULT NULL,
-    `objectives` VARCHAR(255) NULL DEFAULT NULL,
+    `title` VARCHAR(1000) NOT NULL,
+    `description` VARCHAR(1000) NULL DEFAULT NULL,
+    `objectives` VARCHAR(1000) NULL DEFAULT NULL,
     `created_by` INT(11) NOT NULL,
     PRIMARY KEY (`project_id`))
   ENGINE = InnoDB
@@ -349,7 +349,7 @@
   CREATE TABLE IF NOT EXISTS `quality_mp` (
     `quality_mp_id` INT(11) NOT NULL AUTO_INCREMENT,
     `methodology` TEXT NULL DEFAULT NULL,
-    `related_processes` VARCHAR(255) NULL DEFAULT NULL,
+    `related_processes` VARCHAR(1000) NULL DEFAULT NULL,
     `expectations_tolerances` TEXT NULL DEFAULT NULL,
     `traceability` TEXT NULL DEFAULT NULL,
     `project_id` INT(11) NOT NULL,
@@ -389,12 +389,12 @@
     `risk_mp_id` INT(11) NOT NULL AUTO_INCREMENT,
     `methodology` TEXT NULL DEFAULT NULL,
     `roles_responsibilities` TEXT NULL DEFAULT NULL,
-    `risk_management_processes` VARCHAR(255) NULL DEFAULT NULL,
-    `risks_categories` VARCHAR(255) NULL DEFAULT NULL,
-    `risks_probability_impact` VARCHAR(255) NULL DEFAULT NULL,
-    `probability_impact_matrix` VARCHAR(255) NULL DEFAULT NULL,
+    `risk_management_processes` VARCHAR(1000) NULL DEFAULT NULL,
+    `risks_categories` VARCHAR(1000) NULL DEFAULT NULL,
+    `risks_probability_impact` VARCHAR(1000) NULL DEFAULT NULL,
+    `probability_impact_matrix` VARCHAR(1000) NULL DEFAULT NULL,
     `reviewed_tolerances` TEXT NULL DEFAULT NULL,
-    `traceability` VARCHAR(255) NULL DEFAULT NULL,
+    `traceability` VARCHAR(1000) NULL DEFAULT NULL,
     `project_id` INT(11) NOT NULL,
     `status` BIT(1) NULL DEFAULT NULL,
     PRIMARY KEY (`risk_mp_id`))
@@ -411,12 +411,12 @@
   SHOW WARNINGS;
   CREATE TABLE IF NOT EXISTS `schedule_mp` (
     `schedule_mp_id` INT(11) NOT NULL AUTO_INCREMENT,
-    `schedule_model` VARCHAR(255) NULL DEFAULT NULL,
-    `accuracy_level` VARCHAR(255) NULL DEFAULT NULL,
-    `organizational_procedures` VARCHAR(255) NULL DEFAULT NULL,
-    `schedule_maintenance` VARCHAR(255) NULL DEFAULT NULL,
+    `schedule_model` VARCHAR(1000) NULL DEFAULT NULL,
+    `accuracy_level` VARCHAR(1000) NULL DEFAULT NULL,
+    `organizational_procedures` VARCHAR(1000) NULL DEFAULT NULL,
+    `schedule_maintenance` VARCHAR(1000) NULL DEFAULT NULL,
     `performance_measurement` TEXT NULL DEFAULT NULL,
-    `report_format` VARCHAR(255) NULL DEFAULT NULL,
+    `report_format` VARCHAR(1000) NULL DEFAULT NULL,
     `project_id` INT(11) NOT NULL,
     `status` BIT(1) NULL DEFAULT NULL,
     PRIMARY KEY (`schedule_mp_id`))
@@ -453,15 +453,15 @@
   SHOW WARNINGS;
   CREATE TABLE IF NOT EXISTS `stakeholder` (
     `stakeholder_id` INT(11) NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(45) NULL DEFAULT NULL,
-    `type` VARCHAR(45) NULL DEFAULT NULL,
-    `organization` VARCHAR(45) NULL DEFAULT NULL,
-    `position` VARCHAR(45) NULL DEFAULT NULL,
-    `role` VARCHAR(45) NULL DEFAULT NULL,
-    `responsibility` VARCHAR(45) NULL DEFAULT NULL,
-    `email` VARCHAR(45) NULL DEFAULT NULL,
-    `phone_number` VARCHAR(45) NULL DEFAULT NULL,
-    `work_place` VARCHAR(45) NULL DEFAULT NULL,
+    `name` VARCHAR(1000) NULL DEFAULT NULL,
+    `type` VARCHAR(1000) NULL DEFAULT NULL,
+    `organization` VARCHAR(1000) NULL DEFAULT NULL,
+    `position` VARCHAR(1000) NULL DEFAULT NULL,
+    `role` VARCHAR(1000) NULL DEFAULT NULL,
+    `responsibility` VARCHAR(1000) NULL DEFAULT NULL,
+    `email` VARCHAR(1000) NULL DEFAULT NULL,
+    `phone_number` VARCHAR(1000) NULL DEFAULT NULL,
+    `work_place` VARCHAR(1000) NULL DEFAULT NULL,
     `essential_requirements` TEXT NULL DEFAULT NULL,
     `main_expectations` TEXT NULL DEFAULT NULL,
     `interest_phase` TEXT NULL DEFAULT NULL,
@@ -487,8 +487,8 @@
     `influence` INT(11) NULL DEFAULT NULL,
     `impact` INT(11) NULL DEFAULT NULL,
     `average` INT(11) NULL DEFAULT NULL,
-    `expected_engagement` VARCHAR(45) NULL DEFAULT NULL,
-    `current_engagement` VARCHAR(45) NULL DEFAULT NULL,
+    `expected_engagement` VARCHAR(1000) NULL DEFAULT NULL,
+    `current_engagement` VARCHAR(1000) NULL DEFAULT NULL,
     `strategy` TEXT NULL DEFAULT NULL,
     `scope` TEXT NULL DEFAULT NULL,
     `observation` TEXT NULL DEFAULT NULL,
@@ -507,13 +507,13 @@
   SHOW WARNINGS;
   CREATE TABLE IF NOT EXISTS `user` (
     `user_id` INT(11) NOT NULL AUTO_INCREMENT,
-    `email` VARCHAR(255) NOT NULL,
-    `password` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(1000) NOT NULL,
+    `password` VARCHAR(1000) NOT NULL,
     `name` VARCHAR(50) NOT NULL,
     `role` VARCHAR(50) NOT NULL,
     `status` TINYINT(1) NOT NULL DEFAULT '1',
-    `institution` VARCHAR(255) NULL DEFAULT NULL,
-    `lattes_address` VARCHAR(255) NULL DEFAULT NULL,
+    `institution` VARCHAR(1000) NULL DEFAULT NULL,
+    `lattes_address` VARCHAR(1000) NULL DEFAULT NULL,
     `created_at` DATETIME NULL DEFAULT NULL,
     `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`user_id`))
@@ -530,16 +530,16 @@
   SHOW WARNINGS;
   CREATE TABLE IF NOT EXISTS `issues_record` (
     `issues_record_id` INT NOT NULL AUTO_INCREMENT,
-    `identification` VARCHAR(45) NULL,
+    `identification` VARCHAR(1000) NULL,
     `identification_date` DATE NULL,
-    `question_description` VARCHAR(255) NULL,
-    `type` VARCHAR(45) NULL,
-    `responsable` VARCHAR(45) NULL,
-    `situation` VARCHAR(45) NULL,
-    `action` VARCHAR(255) NULL,
+    `question_description` VARCHAR(1000) NULL,
+    `type` VARCHAR(1000) NULL,
+    `responsable` VARCHAR(1000) NULL,
+    `situation` VARCHAR(1000) NULL,
+    `action` VARCHAR(1000) NULL,
     `resolution_date` DATE NULL,
     `replan_date` DATE NULL,
-    `observations` VARCHAR(255) NULL,
+    `observations` VARCHAR(1000) NULL,
     `status` BIT(1) NULL,
     `project_id` INT(11) NOT NULL,
     PRIMARY KEY (`issues_record_id`))
@@ -555,18 +555,18 @@
   SHOW WARNINGS;
   CREATE TABLE IF NOT EXISTS `team_performance_evaluation` (
     `team_performance_evaluation_id` INT NOT NULL AUTO_INCREMENT,
-    `team_member_name` VARCHAR(45) NULL,
-    `role` VARCHAR(45) NULL,
-    `project_function` VARCHAR(45) NULL,
+    `team_member_name` VARCHAR(1000) NULL,
+    `role` VARCHAR(1000) NULL,
+    `project_function` VARCHAR(1000) NULL,
     `report_date` DATE NULL,
-    `team_member_comments` VARCHAR(255) NULL,
-    `strong_points` VARCHAR(255) NULL,
-    `improvement` VARCHAR(255) NULL,
-    `development_plan` VARCHAR(255) NULL,
-    `already_developed` VARCHAR(255) NULL,
-    `external_comments` VARCHAR(255) NULL,
-    `team_mates_comments` VARCHAR(255) NULL,
-    `team_performance_evaluationcol` VARCHAR(255) NULL,
+    `team_member_comments` VARCHAR(1000) NULL,
+    `strong_points` VARCHAR(1000) NULL,
+    `improvement` VARCHAR(1000) NULL,
+    `development_plan` VARCHAR(1000) NULL,
+    `already_developed` VARCHAR(1000) NULL,
+    `external_comments` VARCHAR(1000) NULL,
+    `team_mates_comments` VARCHAR(1000) NULL,
+    `team_performance_evaluationcol` VARCHAR(1000) NULL,
     `project_id` INT(11) NOT NULL,
     PRIMARY KEY (`team_performance_evaluation_id`))
   ENGINE = InnoDB;
@@ -600,13 +600,13 @@
   SHOW WARNINGS;
   CREATE TABLE IF NOT EXISTS `project_closure_term` (
     `project_closure_term_id` INT NOT NULL AUTO_INCREMENT,
-    `client` VARCHAR(45) NULL,
+    `client` VARCHAR(1000) NULL,
     `project_closure_date` DATE NULL,
-    `main_changes_approved` VARCHAR(255) NULL,
-    `main_deviations` VARCHAR(255) NULL,
-    `main_lessons_learned` VARCHAR(255) NULL,
-    `client_comments` VARCHAR(255) NULL,
-    `sponsor_comments` VARCHAR(45) NULL,
+    `main_changes_approved` VARCHAR(1000) NULL,
+    `main_deviations` VARCHAR(1000) NULL,
+    `main_lessons_learned` VARCHAR(1000) NULL,
+    `client_comments` VARCHAR(1000) NULL,
+    `sponsor_comments` VARCHAR(1000) NULL,
     `project_id` INT(11) NOT NULL,
     PRIMARY KEY (`project_closure_term_id`))
   ENGINE = InnoDB;
@@ -621,13 +621,13 @@
   SHOW WARNINGS;
   CREATE TABLE IF NOT EXISTS `risk_register` (
     `risk_register_id` INT NOT NULL AUTO_INCREMENT,
-    `impacted_objective` VARCHAR(255) NULL,
-    `risk_status` VARCHAR(255) NULL,
+    `impacted_objective` VARCHAR(1000) NULL,
+    `risk_status` VARCHAR(1000) NULL,
     `date` DATE NULL,
-    `type` VARCHAR(255) NULL,
-    `priority` VARCHAR(255) NULL,
-    `event` VARCHAR(255) NULL,
-    `identifier` VARCHAR(255) NULL,
+    `type` VARCHAR(1000) NULL,
+    `priority` VARCHAR(1000) NULL,
+    `event` VARCHAR(1000) NULL,
+    `identifier` VARCHAR(1000) NULL,
     `status` BIT(1) NULL,
     `project_id` INT(11) NOT NULL,
     PRIMARY KEY (`risk_register_id`))
@@ -643,12 +643,12 @@
   SHOW WARNINGS;
   CREATE TABLE IF NOT EXISTS `scope_specification` (
     `scope_specification_id` INT NOT NULL AUTO_INCREMENT,
-    `scope_description` VARCHAR(255) NULL,
-    `acceptance_criteria` VARCHAR(255) NULL,
-    `deliveries` VARCHAR(255) NULL,
-    `exclusions` VARCHAR(255) NULL,
-    `restrictions` VARCHAR(255) NULL,
-    `assumptions` VARCHAR(45) NULL,
+    `scope_description` VARCHAR(1000) NULL,
+    `acceptance_criteria` VARCHAR(1000) NULL,
+    `deliveries` VARCHAR(1000) NULL,
+    `exclusions` VARCHAR(1000) NULL,
+    `restrictions` VARCHAR(1000) NULL,
+    `assumptions` VARCHAR(1000) NULL,
     `project_id` INT(11) NOT NULL,
     PRIMARY KEY (`scope_specification_id`))
   ENGINE = InnoDB;
@@ -663,22 +663,22 @@
   SHOW WARNINGS;
   CREATE TABLE IF NOT EXISTS `requirement_registration` (
     `requirement_registration_id` INT NOT NULL AUTO_INCREMENT,
-    `associated_id` VARCHAR(45) NULL,
-    `business_strategy` VARCHAR(45) NULL,
-    `requirement_name` VARCHAR(45) NULL,
-    `priority` VARCHAR(45) NULL,
-    `description` VARCHAR(255) NULL,
-    `version` VARCHAR(45) NULL,
-    `phase` VARCHAR(45) NULL,
-    `associated_delivery` VARCHAR(45) NULL,
-    `type` VARCHAR(45) NULL,
-    `requester` VARCHAR(45) NULL,
-    `complexity` VARCHAR(45) NULL,
-    `acceptance_criteria` VARCHAR(45) NULL,
-    `responsible` VARCHAR(45) NULL,
-    `validity` VARCHAR(45) NULL,
-    `supporting_documentation` VARCHAR(45) NULL,
-    `requirement_situation` VARCHAR(45) NULL,
+    `associated_id` VARCHAR(1000) NULL,
+    `business_strategy` VARCHAR(1000) NULL,
+    `requirement_name` VARCHAR(1000) NULL,
+    `priority` VARCHAR(1000) NULL,
+    `description` VARCHAR(1000) NULL,
+    `version` VARCHAR(1000) NULL,
+    `phase` VARCHAR(1000) NULL,
+    `associated_delivery` VARCHAR(1000) NULL,
+    `type` VARCHAR(1000) NULL,
+    `requester` VARCHAR(1000) NULL,
+    `complexity` VARCHAR(1000) NULL,
+    `acceptance_criteria` VARCHAR(1000) NULL,
+    `responsible` VARCHAR(1000) NULL,
+    `validity` VARCHAR(1000) NULL,
+    `supporting_documentation` VARCHAR(1000) NULL,
+    `requirement_situation` VARCHAR(1000) NULL,
     `project_id` INT(11) NOT NULL,
     PRIMARY KEY (`requirement_registration_id`))
   ENGINE = InnoDB;
@@ -693,12 +693,12 @@
   SHOW WARNINGS;
   CREATE TABLE IF NOT EXISTS `change_log` (
     `change_log_id` INT NOT NULL AUTO_INCREMENT,
-    `id_number` VARCHAR(45) NULL,
-    `requester` VARCHAR(45) NULL,
+    `id_number` VARCHAR(1000) NULL,
+    `requester` VARCHAR(1000) NULL,
     `request_date` DATE NULL,
-    `change_type` VARCHAR(45) NULL,
-    `situation` VARCHAR(45) NULL,
-    `change_description` VARCHAR(700) NULL,
+    `change_type` VARCHAR(1000) NULL,
+    `situation` VARCHAR(1000) NULL,
+    `change_description` VARCHAR(1000) NULL,
     `project_management_feedback` VARCHAR(1000) NULL,
     `ccc_feedback` VARCHAR(1000) NULL,
     `ccc_feedback_date` DATE NULL,
@@ -716,13 +716,34 @@
 
   SHOW WARNINGS;
   CREATE TABLE IF NOT EXISTS `process_improvement_plan` (
-    `process_improvement_plan_id` INT NOT NULL,
-    `process_limits` VARCHAR(45) NULL,
-    `process_configuration` VARCHAR(45) NULL,
-    `process_metrics` VARCHAR(45) NULL,
-    `goals_performace_improvement` VARCHAR(45) NULL,
+    `process_improvement_plan_id` INT NOT NULL AUTO_INCREMENT,
+    `process_limits` VARCHAR(1000) NULL,
+    `process_configuration` VARCHAR(1000) NULL,
+    `process_metrics` VARCHAR(1000) NULL,
+    `goals_performace_improvement` VARCHAR(1000) NULL,
     `project_id` INT(11) NOT NULL,
     PRIMARY KEY (`process_improvement_plan_id`))
+  ENGINE = InnoDB;
+
+  SHOW WARNINGS;
+
+    -- -----------------------------------------------------
+  -- Table `business_case`
+  -- -----------------------------------------------------
+  DROP TABLE IF EXISTS `business_case` ;
+
+  SHOW WARNINGS;
+  CREATE TABLE IF NOT EXISTS `business_case` (
+    `business_case_id` INT NOT NULL AUTO_INCREMENT,
+    `target_benefits` VARCHAR(1000) NULL,
+    `strategic_alignment` VARCHAR(1000) NULL,
+    `schedule_benefit` VARCHAR(1000) NULL,
+    `benefits_owner` VARCHAR(1000) NULL,
+    `indicators` VARCHAR(1000) NULL,
+    `premises` VARCHAR(1000) NULL,
+    `risks` VARCHAR(1000) NULL,
+    `project_id` INT(11) NOT NULL,
+    PRIMARY KEY (`business_case_id`))
   ENGINE = InnoDB;
 
   SHOW WARNINGS;
@@ -858,7 +879,7 @@
     `creation_date` DATE NULL,
     `last_change_date` DATE NULL,
     `last_change_responsible` DATE NULL,
-    `last_change_reason` VARCHAR(45) NULL,
+    `last_change_reason` VARCHAR(1000) NULL,
     `requirement_registration_id` INT NOT NULL,
     PRIMARY KEY (`requirement_log_id`))
   ENGINE = InnoDB;
