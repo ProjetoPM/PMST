@@ -2,6 +2,11 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header"> <?=$this->lang->line('tap-title')  ?></h1>
+			<form method="POST" action="<?php echo base_url('TapPdf');?>">
+			<button id="tap-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+				<i class="glyphicon glyphicon-file"></i> To PDF
+			</button>
+		</form>
 		</div>
 		<!-- /.col-lg-12 -->
 	</div>
@@ -201,10 +206,11 @@
 				<input type="hidden" name="status" value="1">
 
 				<div class="col-lg-12">
-	       <button id="new_business_case-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+	       <button id="tap-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
 	         <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
 	       </button>
 	     </form>
+
 
 	     <form action="<?php echo base_url('project/'); ?><?php echo $id; ?>" >
 	      <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
@@ -400,7 +406,7 @@
 		<input type="hidden" name="status" value="1">
 
 		<div class="col-lg-12">
-		 <button id="new_business_case-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+		 <button id="tap-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
 			 <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
 		 </button>
 	 </form>
