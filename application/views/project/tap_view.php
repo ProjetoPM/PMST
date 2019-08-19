@@ -2,8 +2,11 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header"> <?=$this->lang->line('tap-title')  ?></h1>
-			<form method="POST" action="<?php echo base_url('TapPdf');?>">
-			<button id="tap-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+			<form method="POST" action="<?php echo base_url('TapPdf/pdfGenerator/');?><?php echo $id; ?>">
+				<input type="hidden" name="project_id"  value="<?php echo $project[0]->project_id; ?>">
+				<input type="hidden" name="status" value="1">
+
+				<button id="tap-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
 				<i class="glyphicon glyphicon-file"></i> To PDF
 			</button>
 		</form>
