@@ -72,53 +72,143 @@ $html =
 <h1 align="center">Project Charter</h1>
 </br>
 
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#93a1a1;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#93a1a1;color:#002b36;background-color:#fdf6e3;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#93a1a1;color:#fdf6e3;background-color:#657b83;}
+.tg .tg-cly1{text-align:left;vertical-align:middle}
+.tg .tg-alz1{background-color:#eee8d5;text-align:left;vertical-align:top}
+</style>
 <div>
-<p class="foo">Project Description:</p>
-$tap->project_description
+<table class="tg">
+  <tr>
+    <th class="tg-cly1">Project Description:</th>
+  </tr>
+  <tr>
+    <td class="tg-alz1">$tap->project_description</td>
+  </tr>
+</table>
 </div>
+
 <div>
-<p>Project Purpose: </p>
-$tap->project_purpose
+<table class="tg">
+  <tr>
+    <th class="tg-cly1">Project Purpose:</th>
+  </tr>
+  <tr>
+    <td class="tg-alz1">$tap->project_purpose</td>
+  </tr>
+</table>
 </div>
+
 <div>
-<p>Project Objectives:</p>
-$tap->project_objective
+<table class="tg">
+  <tr>
+    <th class="tg-cly1">Project Objectives:</th>
+  </tr>
+  <tr>
+    <td class="tg-alz1">$tap->project_objective</td>
+  </tr>
+</table>
 </div>
+
 <div>
-<p>Benefits:</p>
-$tap->benefits
+<table class="tg">
+  <tr>
+    <th class="tg-cly1">Benefits:</th>
+  </tr>
+  <tr>
+    <td class="tg-alz1">$tap->benefits</td>
+  </tr>
+</table>
 </div>
+
 <div>
-<p>High Level Requirements:</p>
-$tap->high_level_requirements
+<table class="tg">
+  <tr>
+    <th class="tg-cly1">High Level Requirements:</th>
+  </tr>
+  <tr>
+    <td class="tg-alz1">$tap->high_level_requirements</td>
+  </tr>
+</table>
 </div>
+
 <div>
-<p>Initial Assumptions:</p>
-$tap->initial_assumptions
+<table class="tg">
+  <tr>
+    <th class="tg-cly1">Initial Assumptions:</th>
+  </tr>
+  <tr>
+    <td class="tg-alz1">$tap->initial_assumptions</td>
+  </tr>
+</table>
 </div>
+
 <div>
-<p>Initial Restrictions:</p>
-$tap->initial_restrictions
+<table class="tg">
+  <tr>
+    <th class="tg-cly1">Initial Restrictions:</th>
+  </tr>
+  <tr>
+    <td class="tg-alz1">$tap->initial_restrictions</td>
+  </tr>
+</table>
 </div>
+
 <div>
-<p>Project Limits:</p>
-$tap->project_limits
+<table class="tg">
+  <tr>
+    <th class="tg-cly1">Project Limits:</th>
+  </tr>
+  <tr>
+    <td class="tg-alz1">$tap->project_limits</td>
+  </tr>
+</table>
 </div>
+
 <div>
-<p>High Level Risks:</p>
-$tap->high_level_risks
+<table class="tg">
+  <tr>
+    <th class="tg-cly1">High Level Risks:</th>
+  </tr>
+  <tr>
+    <td class="tg-alz1">$tap->high_level_risks</td>
+  </tr>
+</table>
 </div>
+
 <div>
-<p>Summary Schedule:</p>
-$tap->summary_schedule
+<table class="tg">
+  <tr>
+    <th class="tg-cly1">Summary Schedule:</th>
+  </tr>
+  <tr>
+    <td class="tg-alz1">$tap->summary_schedule</td>
+  </tr>
+</table>
 </div>
+
 <div>
-<p>Budge Summary:</p>
-$tap->budge_summary
+<table class="tg">
+  <tr>
+    <th class="tg-cly1">Budge Summary:</th>
+  </tr>
+  <tr>
+    <td class="tg-alz1">$tap->budge_summary</td>
+  </tr>
+</table>
 </div>
+
 <div>
-<p>Project Approval Requirements:</p>
-$tap->project_approval_requirements
+<table class="tg">
+  <tr>
+    <th class="tg-cly1">Project Approval Requirements:</th>
+  </tr>
+  <tr>
+    <td class="tg-alz1">$tap->project_approval_requirements</td>
+  </tr>
+</table>
 </div>
 
 
