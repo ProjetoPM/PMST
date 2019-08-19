@@ -6,7 +6,7 @@
 				<input type="hidden" name="project_id"  value="<?php echo $project[0]->project_id; ?>">
 				<input type="hidden" name="status" value="1">
 
-				<button id="tap-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+				<button id="tap-pdf" type="submit" value="Save" class="btn btn-lg btn-success pull-right" <?php if ($project_charter == null){ ?> disabled <?php   } ?>>
 				<i class="glyphicon glyphicon-file"></i> To PDF
 			</button>
 		</form>
