@@ -7,13 +7,10 @@
 
 		function createBusinessCase($postData){
 			$data = array(
-				'target_benefits' => $postData['target_benefits'],
-				'strategic_alignment' => $postData['strategic_alignment'],
-				'schedule_benefit' => $postData['schedule_benefit'],
-				'benefits_owner' => $postData['benefits_owner'],
-				'indicators' => $postData['indicators'],
-				'premises' => $postData['premises'],
-				'risks' => $postData['risks'],
+				'business_deals' => $postData['target_benefits'],
+				'situation_analysis' => $postData['strategic_alignment'],
+				'recommendation' => $postData['schedule_benefit'],
+				'evaluation' => $postData['benefits_owner'],
 				'project_id' => $postData['project_id'],
 			);
 

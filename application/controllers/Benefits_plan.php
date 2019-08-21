@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Business_Case extends CI_Controller {
+class Benefits_plan extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
@@ -13,13 +13,13 @@ class Business_Case extends CI_Controller {
 
 		$this->lang->load('btn','english');
         // $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('business_case','english');
+		$this->lang->load('Benefits_plan','english');
         // $this->lang->load('quality_mp','portuguese-brazilian');
 
 
 		$this->load->model('Project_model');
 		$this->load->helper('url');
-		$this->load->model('Business_case_model');
+		$this->load->model('Benefits_plan_model');
 	}
 
 	public function newp($project_id){
@@ -29,7 +29,7 @@ class Business_Case extends CI_Controller {
     $project['dados'] = $this->db->get('project_user')-> result();
 
     if (count($project['dados']) > 0) {
-    $dado['business_case'] = $this->Business_case_model->readBusinessCase($project_id);
+    $dado['benefits_plan'] = $this->Benefits_plan_model->readBenefits($project_id);
 		$dado['id'] = $project_id;
 		$this->db->where('project_id', $project_id);
 		$dado['project'] =  $this->db->get('project')->result();
@@ -40,7 +40,7 @@ class Business_Case extends CI_Controller {
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
 
-		$this->load->view('project/integration/business_case',$dado);
+		$this->load->view('project/integration/benefits_plan',$dado);
 
     } else {
         redirect(base_url());
@@ -53,20 +53,23 @@ class Business_Case extends CI_Controller {
 		 //$this->ajax_checking();
 
 		$postData = $this->input->post();
-		$insert   = $this->Business_case_model->createBusinessCase($postData);
+		$insert   = $this->Benefits_plan_model->createBenefitsPlan($postData);
 		redirect('project/' . $postData['project_id']);
 		echo json_encode($insert);
 	}
 
 
 	public function update($id){
-		$business_case['business_deals'] = $this->input->post('business_deals');
-		$business_case['situation_analysis'] = $this->input->post('situation_analysis');
-		$business_case['recommendation'] = $this->input->post('recommendation');
-		$business_case['evaluation'] = $this->input->post('evaluation');
+		$benefits_plan['target_benefits'] = $this->input->post('target_benefits');
+		$benefits_plan['strategic_alignment'] = $this->input->post('strategic_alignment');
+		$benefits_plan['schedule_benefit'] = $this->input->post('schedule_benefit');
+		$benefits_plan['benefits_owner'] = $this->input->post('benefits_owner');
+		$benefits_plan['indicators'] = $this->input->post('indicators');
+		$benefits_plan['premises'] = $this->input->post('premises');
+		$benefits_plan['risks'] = $this->input->post('risks');
 
 		//$insert = $this->project_model->insert_project_pgq($quality_mp);
-		$query = $this->Business_case_model->updateBusinessCase($business_case, $id);
+		$query = $this->Benefits_plan_model->updateBenefitsPlan($benefits_plan, $id);
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');

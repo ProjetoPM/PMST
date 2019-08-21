@@ -23,6 +23,7 @@ $lang['stakeholder'] = 'Stakeholder';
 //
 $lang['project-charter'] = 'Project Charter';
 $lang['business_case'] = 'Business Case Management';
+$lang['benefits_plan'] = 'Benefits Management Plan';
 $lang['stakeholder-register'] = 'Stakeholder Register';
 $lang['project-management'] = 'Project Management';
 $lang['requirement-management'] = 'Requirement Management';

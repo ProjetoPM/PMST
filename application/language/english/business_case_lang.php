@@ -4,21 +4,16 @@
 $lang['business_case-title'] = 'Business Case Management Plan';
 
 //Form
-$lang['business_case-target_benefits'] = 'Target Benefits';
-$lang['business_case-strategic_alignment'] = 'Strategic Alignment';
-$lang['business_case-schedule_benefit'] = 'Schedule for Benefits';
-$lang['business_case-benefits_owner'] = 'Benefits Owner';
-$lang['business_case-indicators'] = 'Indicators';
-$lang['business_case-premises'] = 'Premises';
-$lang['business_case-risks'] = 'Risks';
+$lang['business_case-business_deals'] = 'Business Deals';
+$lang['business_case-situation_analysis'] = 'Situation Analysis';
+$lang['business_case-recommendation'] = 'Recommendation';
+$lang['business_case-evaluation'] = 'Evaluation';
+
 
 //Tooltip
-$lang['business_case-target_benefits-tooltip'] = '';
-$lang['business_case-strategic_alignment-tooltip'] =  '';
-$lang['business_case-schedule_benefit-tooltip'] =  '';
-$lang['business_case-benefits_owner-tooltip'] =  '';
-$lang['business_case-indicators-tooltip'] =  '';
-$lang['business_case-indicators-tooltip'] =  '';
-$lang['business_case-risks-tooltip'] =  '';
+$lang['business_case-business_deals-tooltip'] = '';
+$lang['business_case-situation_analysis-tooltip'] =  '';
+$lang['business_case-recommendation-tooltip'] =  '';
+$lang['business_case-evaluation-tooltip'] =  '';
 
 ?>

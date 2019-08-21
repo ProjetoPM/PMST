@@ -133,6 +133,7 @@
                         </div>
                       </div>
                     </a>
+
                     <div class=" col-lg-1 midBox integrationColor hideBox"></div>
 
                     <div class=" col-lg-1 midBox integrationColor hideBox"></div>
@@ -163,7 +164,14 @@
                   <!--  -->
                   <div class="col-lg-10 noSpaceSide floatRight">
 
-                    <div class=" col-lg-1 midBox integrationColor hideBox"></div>
+                    <a  href="<?=base_url("Benefits_plan/newp/".$project[0]->project_id) ?>">
+                      <div class=" col-lg-1 midBox integrationColor">
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-star"></i>
+                          <?=$this->lang->line('benefits_plan')?>
+                        </div>
+                      </div>
+                    </a>
 
                     <div class=" col-lg-1 midBox integrationColor hideBox"></div>
 

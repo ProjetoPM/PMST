@@ -27,65 +27,39 @@
      <form method="POST" action="<?php echo base_url('Business_Case/insert/'); ?>">
 
       <input type="hidden" name="project_id"  value="<?php echo $project[0]->project_id; ?>">
-      <input type="hidden" name="status" value="1">
 
       <div class=" col-lg-12 form-group">
-        <label for="target_benefits"><?=$this->lang->line('business_case-target_benefits')?> </label>
-        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-target_benefits-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+        <label for="business_deals"><?=$this->lang->line('business_case-business_deals')?> </label>
+        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-business_deals-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
         <div >
-          <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="target_benefits" name="target_benefits"></textarea>
+          <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="business_deals" name="business_deals"></textarea>
         </div>
       </div>
 
       <div class=" col-lg-12 form-group">
-        <label for="strategic_alignment"><?=$this->lang->line('business_case-strategic_alignment')?> </label>
-        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-strategic_alignment-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+        <label for="situation_analysis"><?=$this->lang->line('business_case-situation_analysis')?> </label>
+        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-situation_analysis-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
         <div >
-          <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="strategic_alignment" name="strategic_alignment"></textarea>
+          <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="situation_analysis" name="situation_analysis"></textarea>
         </div>
       </div>
 
       <div class=" col-lg-12 form-group">
-        <label for="schedule_benefit"><?=$this->lang->line('business_case-schedule_benefit')?> </label>
-        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-schedule_benefit-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+        <label for="recommendation"><?=$this->lang->line('business_case-recommendation')?> </label>
+        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-recommendation-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
         <div >
-          <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="schedule_benefit" name="schedule_benefit"></textarea>
+          <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="recommendation" name="recommendation"></textarea>
         </div>
       </div>
 
 
       <div class=" col-lg-12 form-group">
-       <label for="benefits_owner"><?=$this->lang->line('business_case-benefits_owner')?> </label>
-       <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-benefits_owner-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+       <label for="evaluation"><?=$this->lang->line('business_case-evaluation')?> </label>
+       <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-evaluation-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
        <div>
-         <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="benefits_owner" name="benefits_owner"></textarea>
+         <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="evaluation" name="evaluation"></textarea>
        </div>
      </div>
-
-     <div class=" col-lg-12 form-group">
-       <label for="indicators"><?=$this->lang->line('business_case-indicators')?> </label>
-       <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-indicators-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-       <div>
-         <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="indicators" name="indicators"></textarea>
-       </div>
-     </div>
-
-     <div class=" col-lg-12 form-group">
-       <label for="premises"><?=$this->lang->line('business_case-premises')?> </label>
-       <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-premises-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-       <div>
-         <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="premises" name="premises"></textarea>
-       </div>
-     </div>
-
-     <div class=" col-lg-12 form-group">
-       <label for="risks"><?=$this->lang->line('business_case-risks')?> </label>
-       <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-risks-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-       <div>
-         <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="risks" name="risks"></textarea>
-       </div>
-     </div>
-
 
      <div class="col-lg-12">
       <button id="new_business_case-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
@@ -109,62 +83,37 @@
 
 
      <div class=" col-lg-12 form-group">
-       <label for="target_benefits"><?=$this->lang->line('business_case-target_benefits')?> </label>
-       <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-target_benefits-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+       <label for="business_deals"><?=$this->lang->line('business_case-business_deals')?> </label>
+       <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-business_deals-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
       <div >
-        <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="target_benefits" name="target_benefits"><?php echo $bc->target_benefits; ?></textarea>
+        <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="business_deals" name="business_deals"><?php echo $bc->business_deals; ?></textarea>
       </div>
     </div>
 
     <div class=" col-lg-12 form-group">
-      <label for="strategic_alignment"><?=$this->lang->line('business_case-strategic_alignment')?> </label>
-      <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-strategic_alignment-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+      <label for="situation_analysis"><?=$this->lang->line('business_case-situation_analysis')?> </label>
+      <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-situation_analysis-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
      <div >
-       <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="strategic_alignment" name="strategic_alignment"><?php echo $bc->strategic_alignment; ?></textarea>
+       <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="situation_analysis" name="situation_analysis"><?php echo $bc->situation_analysis; ?></textarea>
      </div>
    </div>
 
     <div class=" col-lg-12 form-group">
-      <label for="schedule_benefit"><?=$this->lang->line('business_case-schedule_benefit')?> </label>
-      <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-schedule_benefit-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+      <label for="recommendation"><?=$this->lang->line('business_case-recommendation')?> </label>
+      <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-recommendation-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
       <div >
-        <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="schedule_benefit" name="schedule_benefit"><?php echo $bc->schedule_benefit; ?></textarea>
+        <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="recommendation" name="recommendation"><?php echo $bc->recommendation; ?></textarea>
       </div>
     </div>
 
 
     <div class=" col-lg-12 form-group">
-     <label for="benefits_owner"><?=$this->lang->line('business_case-benefits_owner')?> </label>
-     <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-benefits_owner-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
+     <label for="evaluation"><?=$this->lang->line('business_case-evaluation')?> </label>
+     <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-evaluation-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
      <div>
-       <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="benefits_owner" name="benefits_owner"><?php echo $bc->benefits_owner; ?></textarea>
+       <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="evaluation" name="evaluation"><?php echo $bc->evaluation; ?></textarea>
      </div>
    </div>
-
-   <div class=" col-lg-12 form-group">
-     <label for="indicators"><?=$this->lang->line('business_case-indicators')?> </label>
-     <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-indicators-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-     <div>
-       <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="indicators" name="indicators"><?php echo $bc->indicators; ?></textarea>
-     </div>
-   </div>
-
-   <div class=" col-lg-12 form-group">
-     <label for="premises"><?=$this->lang->line('business_case-premises')?> </label>
-     <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-premises-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-     <div>
-       <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="premises" name="premises"><?php echo $bc->premises; ?></textarea>
-     </div>
-   </div>
-
-   <div class=" col-lg-12 form-group">
-     <label for="risks"><?=$this->lang->line('business_case-risks')?> </label>
-     <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_case-risks-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-     <div>
-       <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="risks" name="risks"><?php echo $bc->risks; ?></textarea>
-     </div>
-   </div>
-
 
    <div class="col-lg-12">
     <button id="new_business_case-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
