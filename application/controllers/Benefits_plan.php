@@ -13,7 +13,7 @@ class Benefits_plan extends CI_Controller {
 
 		$this->lang->load('btn','english');
         // $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('Benefits_plan','english');
+		$this->lang->load('benefits_plan','english');
         // $this->lang->load('quality_mp','portuguese-brazilian');
 
 
