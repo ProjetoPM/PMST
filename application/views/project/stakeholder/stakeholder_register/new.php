@@ -155,7 +155,7 @@
                     </button>
             </form>
 
-            <form action="<?php echo base_url('project/'); ?><?php echo $id; ?>" >
+            <form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>" >
                 <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
             </form>
         </div>

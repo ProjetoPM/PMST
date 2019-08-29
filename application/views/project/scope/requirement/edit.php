@@ -237,8 +237,7 @@
             </button>
           </form>
 
-          <form action="<?php echo base_url()?>/Requirement_registration/list/<?=$project_id?>">
-           <button class="btn btn-lg btn-info pull-left">  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
-         </form>
+          <button onclick="history.go(-1);" class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
+
        </div>
 <?php $this->load->view('frame/footer_view')?>
