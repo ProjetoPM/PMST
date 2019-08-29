@@ -10,27 +10,27 @@ class Scope_mp_model extends CI_Model{
 
 	}
 
-	//inicia a view
-	public function tap_form($project_id){
-		$query = $this->db->get_where('scope_mp', array('project_id' => $project_id));
-		return $query->result();
-
+	function createScopeManagementPlan($postData){
+		$data = array(
+			'scope_specification' => $postData['scope_specification'],
+			'eap_process' => $postData['eap_process'],
+			'deliveries_acceptance' => $postData['deliveries_acceptance'],
+			'scope_change_mp' => $postData['scope_change_mp'],
+			'project_id' => $postData['project_id'],
+			'status' => $postData['status'],
+		);
+		$this->db->insert('scope_mp', $data);
 	}
 
-	public function getScope_MpProject_id($project_id) {
-		$query = $this->db->get_where('scope_mp', array('scope_mp_id.project_id'=>$project_id));
-		return $query->result();
-	}
+		public function readScopeManagementPlan($id){
+			$query = $this->db->get_where('scope_mp',array('project_id'=>$id));
+			return $query->result();
+		}
 
-	public function insertScopeMp($scope_mp) {
-		return $this->db->insert('scope_mp', $scope_mp);
-	}
-
-	public function updateScopeMp($scope_mp, $scope_mp_id) {
-		$this->db->where('scope_mp.scope_mp_id', $scope_mp_id);
-		return $this->db->update('scope_mp', $scope_mp);
-	}
-
+		public function updateScopeManagementPlan($project, $id){
+			$this->db->where('scope_mp.project_id', $id);
+			return $this->db->update('scope_mp', $project);
+		}
 }
 
 ?>

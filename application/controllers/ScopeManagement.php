@@ -15,70 +15,59 @@ class ScopeManagement extends CI_Controller{
 		//$this->lang->load('btn', 'portuguese-brazilian');
 		$this->lang->load('scope_mp', 'english');
 		//$this->lang->load('tap', 'portuguese-brazilian');
+
+		$this->load->model('Project_model');
+		$this->load->helper('url');
 		$this->load->model('Scope_mp_model');
 	}
 
 
 
-public function newp($project_id) {
-    $idusuario = $_SESSION['user_id'];
-    $this->db->where('user_id', $idusuario);
-    $this->db->where('project_id', $project_id);
-    $project['dados'] = $this->db->get('project_user')-> result();
+	public function newp($project_id){
+		$idusuario = $_SESSION['user_id'];
+		$this->db->where('user_id', $idusuario);
+		$this->db->where('project_id', $project_id);
+		$project['dados'] = $this->db->get('project_user')-> result();
 
-    if (count($project['dados']) > 0) {
-        //buscando stakeholders
-        $data['scope_mp'] = $this->Scope_mp_model-> tap_form($project_id);
-        $data['project_id'] = $project_id;
-        $this->db-> where('project_id', $project_id);
-        $data['scope_mp'] = $this->db->get('scope_mp')-> result();
-        $this->load-> view('frame/header_view.php');
-        $this-> load-> view('frame/sidebar_nav_view.php');
-        $this->load-> view('project/scope/scope_mp', $data);
-    } else {
-        redirect(base_url());
-    }
-}
+		if (count($project['dados']) > 0) {
+		$dado['scope_mp'] = $this->Scope_mp_model->readScopeManagementPlan($project_id);
+		$dado['id'] = $project_id;
+		$this->db->where('project_id', $project_id);
+		$dado['project'] =  $this->db->get('project')->result();
 
-	public function insert() {
-		$scope_mp['scope_specification'] = $this->input->post('scope_specification');
-		$scope_mp['eap_process'] = $this->input->post('eap_process');
-		$scope_mp['deliveries_acceptance'] = $this->input->post('deliveries_acceptance');
-		$scope_mp['scope_change_mp'] = $this->input->post('scope_change_mp');
-		$scope_mp['project_id'] = $this->input->post('project_id');
-		$scope_mp['status'] = $this->input->post('status');
+		//$dado['verific'] = true;
+		$this->db->where('project_id', $project_id);
+		$dataproject['project'] = $this->db->get('project')->result();
+		$this->load->view('frame/header_view');
+		$this->load->view('frame/sidebar_nav_view');
 
-		if ($this->input->post('status') == 1) {
-			$project_mp['status'] = 1;
+		$this->load->view('project/scope/scope_mp',$dado);
+
 		} else {
-			$project_mp['status'] = 0;
+				redirect(base_url());
 		}
-		$query = $this->Scope_mp_model->insertScopeMp($scope_mp);
 
-		if ($query) {
-			redirect('project/' . $scope_mp['project_id']);
-		}
 	}
 
-	public function update($scope_mp_id) {
+	public function insert() {
+		$postData = $this->input->post();
+		$insert   = $this->Scope_mp_model->createScopeManagementPlan($postData);
+		redirect('project/' . $postData['project_id']);
+		echo json_encode($insert);
+	}
+
+	public function update($id) {
 		$scope_mp['scope_specification'] = $this->input->post('scope_specification');
 		$scope_mp['eap_process'] = $this->input->post('eap_process');
 		$scope_mp['deliveries_acceptance'] = $this->input->post('deliveries_acceptance');
 		$scope_mp['scope_change_mp'] = $this->input->post('scope_change_mp');
-		$scope_mp['project_id'] = $this->input->post('project_id');
 		$scope_mp['status'] = $this->input->post('status');
 
+		$query = $this->Scope_mp_model->updateScopeManagementPlan($scope_mp, $id);
 
-		if ($this->input->post('status') == 1) {
-			$scope_mp['status'] = 1;
-		} else {
-			$scope_mp['status'] = 0;
-		}
-		$query = $this->Scope_mp_model->updateScopeMp($scope_mp, $scope_mp_id);
-
-		if ($query) {
-			redirect('project/' . $scope_mp['project_id']);
-		}
+		$this->load->view('frame/header_view');
+		$this->load->view('frame/sidebar_nav_view');
+		redirect('project/' . $id);
 	}
 
 	function image_upload()

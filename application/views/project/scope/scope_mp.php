@@ -6,12 +6,24 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
-    <div class="row">
-        <div class="col-lg-12">
+    <?php if($this->session->flashdata('success')):?>
+      <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong><?php echo $this->session->flashdata('success'); ?></strong>
+      </div>
+      <?php elseif($this->session->flashdata('error')):?>
+        <div class="alert alert-warning">
+          <a href="#" class="close" data-dismiss="alert">&times;</a>
+          <strong><?php echo $this->session->flashdata('error'); ?></strong>
+        </div>
+      <?php endif;?>
 
-            <?php if ($scope_mp == null) { ?>
-            <form action="<?= base_url() ?>ScopeManagement/insert/" method="post">
-                <input type="hidden" name="project_id" value="<?php echo $project_id[0]; ?>">
+            <?php
+            if ($scope_mp == null) { ?>
+                <form method="POST" action="<?php echo base_url('ScopeManagement/insert/'); ?>">
+
+                <input type="hidden" name="project_id"  value="<?php echo $project[0]->project_id; ?>">
+                <input type="hidden" name="status" value="1">
 
                 <div class="col-lg-12 form-group">
                     <label for="scope_specification"><?= $this->lang->line('scope_specification') ?></label>
@@ -65,7 +77,7 @@
                         <?= $this->lang->line('btn-save') ?>
                     </button>
             </form>
-            <form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>">
+            <form action="<?php echo base_url('project/'); ?><?php echo $id; ?>">
                 <button class="btn btn-lg btn-info pull-left"><i
                             class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
             </form>
@@ -73,22 +85,23 @@
         </div>
         </form>
 
-        <?php } else { ?>
+        <?php
+      }else{
+          foreach($scope_mp as $smp){
+          ?>
 
-        <form action="<?= base_url() ?>ScopeManagement/update/<?php echo $scope_mp[0]->scope_mp_id; ?>" method="post">
-
-            <input type="hidden" name="project_id" value="<?php echo $project_id; ?>">
+          <form method="POST" action="<?php echo base_url('ScopeManagement/update/');?><?php echo $id; ?>">
+            <input type="hidden" name="status" value="1">
 
             <div class=" col-lg-12 form-group">
                 <label for="scope_specification"><?= $this->lang->line('scope_specification') ?></label>
                 <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right"
                    title="<?= $this->lang->line('scope_specification-tooltip') ?>"><i
-                            class="glyphicon glyphicon-comment"></i></a
-                >
+                            class="glyphicon glyphicon-comment"></i></a>
                 <div>
                     <textarea oninput="eylem(this, this.value)" class="form-control elasticteste"
                               id="scope_specification"
-                              name="scope_specification"><?php echo $scope_mp[0]->scope_specification; ?></textarea>
+                              name="scope_specification"><?php echo $smp->scope_specification; ?></textarea>
                 </div>
             </div>
 
@@ -100,7 +113,7 @@
                 >
                 <div>
                     <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="eap_process"
-                              name="eap_process"><?php echo $scope_mp[0]->eap_process; ?></textarea>
+                              name="eap_process"><?php echo $smp->eap_process; ?></textarea>
                 </div>
             </div>
 
@@ -113,7 +126,7 @@
                 <div>
                     <textarea oninput="eylem(this, this.value)" class="form-control elasticteste"
                               id="deliveries_acceptance"
-                              name="deliveries_acceptance"><?php echo $scope_mp[0]->deliveries_acceptance; ?></textarea>
+                              name="deliveries_acceptance"><?php echo $smp->deliveries_acceptance; ?></textarea>
                 </div>
             </div>
 
@@ -125,12 +138,10 @@
                 >
                 <div>
                     <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="scope_change_mp"
-                              name="scope_change_mp"><?php echo $scope_mp[0]->scope_change_mp; ?></textarea>
+                              name="scope_change_mp"><?php echo $smp->scope_change_mp; ?></textarea>
                 </div>
             </div>
 
-
-            <input type="hidden" name="status" value="1">
 
             <div class="col-lg-12">
                 <button id="tap-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
@@ -138,7 +149,7 @@
                     <?= $this->lang->line('btn-save') ?>
                 </button>
         </form>
-        <form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>">
+        <form action="<?php echo base_url('project/'); ?><?php echo $id; ?>">
             <button class="btn btn-lg btn-info pull-left"><i
                         class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
         </form>
@@ -146,7 +157,7 @@
     </div>
     </form>
 
-    <?php } ?>
+  <?php } }?>
 
     <br/>
 
@@ -159,7 +170,7 @@
 		    <br /><br />
 		    <div id="gallery">
 		        <?php
-		        $images = glob("upload/Project".$project_id."View"."4"."/*.*");
+		        $images = glob("upload/Project".$id."View"."4"."/*.*");
 		     foreach($images as $image)
 		     {
 		         echo '<div class="col-md-1" align="center" >
@@ -188,7 +199,7 @@
 		            </div>
 		            <div class="modal-body">
 		                <form method="post" id="upload_form" align="center" enctype="multipart/form-data">
-		                  <input type="hidden" name="project_id" value="<?php echo $project_id; ?>">
+		                  <input type="hidden" name="project_id" value="<?php echo $id; ?>">
 		                  <input type="hidden" name="view_id" value="4">
 
 
