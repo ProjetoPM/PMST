@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="first">Img Description</label>
-                    <input type="text" class="form-control" placeholder="" name="alt">
+                    <input type="text" class="form-control" placeholder="" name="alt" required>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="first">Select File</label>
-                    <input type="file" placeholder="" name="pic">
+                    <input type="file" placeholder="" name="pic" required>
                 </div>
             </div>
         </div>
