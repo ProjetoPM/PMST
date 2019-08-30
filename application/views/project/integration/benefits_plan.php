@@ -32,7 +32,7 @@
       <div class=" col-lg-12 form-group">
         <label for="target_benefits"><?=$this->lang->line('benefits_plan-target_benefits')?> </label>
         <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('benefits_plan-target_benefits-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
-        <div >
+        <div>
           <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="target_benefits" name="target_benefits"></textarea>
         </div>
       </div>

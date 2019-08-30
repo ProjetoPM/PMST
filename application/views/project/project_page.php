@@ -839,7 +839,7 @@
 
                     <div class=" col-lg-1 midBox riskColor hideBox"></div>
 
-                    <a href="<?=base_url()?>Risk/newp/<?php echo $project[0]->project_id;?>">
+                    <a href="<?=base_url()?>RiskManagement/newp/<?php echo $project[0]->project_id;?>">
                       <div class=" col-lg-1 midBox riskColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-exclamation-sign"></i>

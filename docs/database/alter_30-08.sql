@@ -6,7 +6,7 @@
     `alt` VARCHAR(1000) NULL DEFAULT NULL,
     `project_id` INT(11) NOT NULL,
     PRIMARY KEY (`id`),
-    FOREIGN KEY (`project_id`) REFERENCES `Project`(`project_id`)
+    FOREIGN KEY (`project_id`) REFERENCES `project`(`project_id`)
 
     )
   ENGINE = InnoDB

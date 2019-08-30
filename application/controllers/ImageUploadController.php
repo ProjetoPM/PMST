@@ -50,7 +50,7 @@ class ImageUploadController extends CI_Controller {
         if (count($project['dados']) > 0) {
             $this->db->where('id', $id);
             $this->db->delete('upload');
-            redirect('project/' . $project_id);
+						echo "<script>window.location.href='javascript:history.back(-2);'</script>";
         } else {
             redirect(base_url());
         }
@@ -63,7 +63,9 @@ class ImageUploadController extends CI_Controller {
         $data['alt'] = $this->input->post('alt');
         $data['view']= $this->input->post('view');
         $this->db->insert('upload', $data);
-        redirect('project/' . $data['project_id']);
+				$this->session->set_userdata('previous_url', current_url());
+
+				echo "<script>window.location.href='javascript:history.back(-2);'</script>";
     }
 
     function images()

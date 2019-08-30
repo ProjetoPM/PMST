@@ -110,4 +110,18 @@
 
 														<?php } }?>
 
-									      <?php $this->load->view('frame/footer_view')?>
+									<!--1º preencher o nome da view-->
+									<?php $view = array(
+									  "name" => "requirements_management_plan",
+									); ?>
+
+
+									<!--Carrega o form de envio e envia para ele o nome da view que tu setou -->
+									<?php $this->load->view('upload/index', $view) ?>
+
+
+
+									<!--Carrega as imagens do projeto de acordo com a view, utiliza id ou project_id pra pegar o id do projeto e criar a query-->
+									<?php $this->load->view('upload/retrieve', $view) ?>
+
+									<?php $this->load->view('frame/footer_view')?>
