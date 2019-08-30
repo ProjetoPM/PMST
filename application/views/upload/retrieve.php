@@ -15,13 +15,9 @@ $this->db->where('project_id', $project_id);
 $this->db->where('view', $name);
 $images = $this->db->get('upload')->result_array();
 
-foreach($images as $row):
-?>
+foreach($images as $row){
+ echo '<img src="' . base_url().$row['path'] . '" class="img" alt="" />' ;
 
-<div class="container">
-    <img src="<?php echo base_url().$row['path'];?>" class="img" alt="" />
-</div>
+}
 
-<?
-endforeach;
-?>
+
