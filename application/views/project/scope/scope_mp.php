@@ -1,3 +1,19 @@
+<style>
+    .container {
+        padding: 2rem 0rem;
+    }
+
+    h4 {
+        margin: 2rem 0rem 1rem;
+    }
+
+    .table-image {
+    td, th {
+        vertical-align: middle;
+    }
+    }
+</style>
+
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
@@ -167,11 +183,13 @@
   "name" => "scope_management_plan",
 ); ?>
 
+<!--aqui-->
+
 <!--Carrega o form de envio-->
 <?php $this->load->view('upload/index', $view) ?>
-
 <!--Carrega as imagens do projeto-->
 <?php $this->load->view('upload/retrieve', $view) ?>
+
 
 </body>
 

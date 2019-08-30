@@ -29,10 +29,10 @@ class Risk extends CI_Controller{
     }
 
     public function newp($project_id){
-            $idusuario = $_SESSION['user_id'];
+    $idusuario = $_SESSION['user_id'];
     $this->db->where('user_id', $idusuario);
     $this->db->where('project_id', $project_id);
-    $project['dados'] = $this->db->get('project_user')-> result();
+    $project['dados'] = $this->db->get('project_user')->result();
 
     if (count($project['dados']) > 0) {
         $query['risk_mp'] = $this->risk_mp_model->getWithProject_id($project_id);

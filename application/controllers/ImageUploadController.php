@@ -40,10 +40,27 @@ class ImageUploadController extends CI_Controller {
         }
     }
 
+    function image_delete($id = null, $project_id)
+    {
+        $idusuario = $_SESSION['user_id'];
+        $this->db->where('user_id', $idusuario);
+        $this->db->where('project_id', $project_id);
+        $project['dados'] = $this->db->get('project_user')->result();
+
+        if (count($project['dados']) > 0) {
+            $this->db->where('id', $id);
+            $this->db->delete('upload');
+            redirect('project/' . $project_id);
+        } else {
+            redirect(base_url());
+        }
+    }
+
     function image_upload()
     {
         $data['path'] = $this->do_upload();
         $data['project_id'] = $this->input->post('project_id');
+        $data['alt'] = $this->input->post('alt');
         $data['view']= $this->input->post('view');
         $this->db->insert('upload', $data);
         redirect('project/' . $data['project_id']);

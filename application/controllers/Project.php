@@ -13,7 +13,7 @@ class Project extends CI_Controller
 		$dataproject['project'] = $this->db->get('project')->result();
 		
 		$this->load->view('project/my_projects', $dataproject);
-		$this->load->view('project', $data);
+//		$this->load->view('project', $data);
 	}
 	
 	public function __Construct()
