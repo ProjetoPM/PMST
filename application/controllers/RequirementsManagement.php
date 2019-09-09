@@ -49,7 +49,7 @@ class RequirementsManagement extends CI_Controller{
 	public function insert() {
 		$postData = $this->input->post();
 		$insert   = $this->Requirements_mp_model->createRequirementsManagementPlan($postData);
-		redirect('project/' . $postData['project_id']);
+		redirect('RequirementsManagement/newp/' . $postData['project_id']);
 		echo json_encode($insert);
 	}
 
@@ -63,7 +63,7 @@ class RequirementsManagement extends CI_Controller{
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		redirect('project/' . $id);
+		redirect('RequirementsManagement/newp/' . $id);
 	}
 }
 ?>

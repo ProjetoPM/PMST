@@ -19,7 +19,7 @@ class ManagementCost extends CI_Controller {
 	}
 
 	public function newp($project_id){
-		    $idusuario = $_SESSION['user_id'];
+		$idusuario = $_SESSION['user_id'];
     $this->db->where('user_id', $idusuario);
     $this->db->where('project_id', $project_id);
     $project['dados'] = $this->db->get('project_user')-> result();
@@ -62,7 +62,7 @@ class ManagementCost extends CI_Controller {
 		if($query){
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/sidebar_nav_view');
-			redirect('project/' . $cost_mp['project_id']);
+			redirect('ManagementCost/newp/' . $cost_mp['project_id']);
 		}
 
 	}

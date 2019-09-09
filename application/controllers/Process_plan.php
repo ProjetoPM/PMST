@@ -19,7 +19,7 @@ class Process_plan extends CI_Controller {
 	}
 
 	public function newp($project_id){
-		    $idusuario = $_SESSION['user_id'];
+		$idusuario = $_SESSION['user_id'];
     $this->db->where('user_id', $idusuario);
     $this->db->where('project_id', $project_id);
     $project['dados'] = $this->db->get('project_user')-> result();
@@ -60,7 +60,7 @@ class Process_plan extends CI_Controller {
 		if($query){
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/sidebar_nav_view');
-			redirect('project/' . $process_plan['project_id']);
+			redirect('Process_plan/newp/' . $process_plan['project_id']);
 		}
 
 	}

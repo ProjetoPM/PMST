@@ -47,7 +47,7 @@ class ProjectManagement extends CI_Controller{
 	public function insert() {
 		$postData = $this->input->post();
 		$insert   = $this->Project_management_model->createProjectManagementPlan($postData);
-		redirect('project/' . $postData['project_id']);
+		redirect('ProjectManagement/newp/' . $postData['project_id']);
 		echo json_encode($insert);
 	}
 
@@ -66,7 +66,7 @@ class ProjectManagement extends CI_Controller{
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		redirect('project/' . $id);
+		redirect('ProjectManagement/newp/' . $id);
 	}
 
 }

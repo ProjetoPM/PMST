@@ -54,7 +54,7 @@ class Business_Case extends CI_Controller {
 
 		$postData = $this->input->post();
 		$insert   = $this->Business_case_model->createBusinessCase($postData);
-		redirect('project/' . $postData['project_id']);
+		redirect('Business_Case/newp' . $postData['project_id']);
 		echo json_encode($insert);
 	}
 

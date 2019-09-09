@@ -26,8 +26,8 @@ class Schedule extends CI_Controller
     $this->db->where('project_id', $id);
     $project['dados'] = $this->db->get('project_user')-> result();
 
-  
-    if (count($project['dados']) > 0) {        
+
+    if (count($project['dados']) > 0) {
 		$dados['schedule_mp'] = $this->Schedule_model->getSchedule($id);
 		$dados['id'] = $id;
 		$this->db->where('project_id', $id);
@@ -46,7 +46,7 @@ class Schedule extends CI_Controller
 	public function insert(){
 		$postData = $this->input->post();
 		$insert = $this->Schedule_model->createSchedule($postData);
-		redirect('project/' . $postData['project_id']);
+		redirect('Schedule/newp/' . $postData['project_id']);
 		echo json_encode($insert);
 
 	//	$dados = $this->post('schedule_mp.schedule_model');
@@ -66,7 +66,7 @@ class Schedule extends CI_Controller
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		redirect('project/' . $id);
+		redirect('Schedule/newp/' . $id);
 		//if ($query) {
 		//header('location:'.base_url().//$this->schedule_form());
 	}

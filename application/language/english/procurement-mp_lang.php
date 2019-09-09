@@ -32,7 +32,7 @@ $lang['coins-tooltip'] = '';
 $lang['independent_estimates-tooltip'] = '';
 $lang['risk_issues-tooltip'] = '';
 $lang['sellers-tooltip'] = '';
-$lang['procurement_strategy-tooltip'] = '';
+$lang['procurement_strategy-tooltip'] = 'Delivery methods, contractual payment types and procurement phases';
 
 $lang['communication'] = 'Standards of Documents';
 $lang['change'] = 'Change Management';

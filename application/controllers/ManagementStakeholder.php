@@ -20,7 +20,7 @@ class ManagementStakeholder extends CI_Controller {
 	}
 
 	public function addnew($project_id){
-		    $idusuario = $_SESSION['user_id'];
+		$idusuario = $_SESSION['user_id'];
     $this->db->where('user_id', $idusuario);
     $this->db->where('project_id', $project_id);
     $project['dados'] = $this->db->get('project_user')-> result();

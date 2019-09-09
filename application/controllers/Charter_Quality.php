@@ -23,7 +23,7 @@ class Charter_Quality extends CI_Controller {
 	}
 
 	public function newp($project_id){
-		    $idusuario = $_SESSION['user_id'];
+		$idusuario = $_SESSION['user_id'];
     $this->db->where('user_id', $idusuario);
     $this->db->where('project_id', $project_id);
     $project['dados'] = $this->db->get('project_user')-> result();
@@ -54,7 +54,7 @@ class Charter_Quality extends CI_Controller {
 
 		$postData = $this->input->post();
 		$insert   = $this->Quality_model->createQuality($postData);
-		redirect('project/' . $postData['project_id']);
+		redirect('Charter_Quality/newp/' . $postData['project_id']);
 		echo json_encode($insert);
 	}
 
@@ -71,7 +71,7 @@ class Charter_Quality extends CI_Controller {
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		redirect('project/' . $id);
+		redirect('Charter_Quality/newp/' . $id);
 	}
 }
 ?>
