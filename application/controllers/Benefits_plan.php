@@ -54,7 +54,7 @@ class Benefits_plan extends CI_Controller {
 
 		$postData = $this->input->post();
 		$insert   = $this->Benefits_plan_model->createBenefitsPlan($postData);
-		redirect('project/' . $postData['project_id']);
+		redirect('Benefits_plan/newp/' . $postData['project_id']);
 		echo json_encode($insert);
 	}
 
@@ -73,7 +73,7 @@ class Benefits_plan extends CI_Controller {
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		redirect('project/' . $id);
+		redirect('Benefits_plan/newp/' . $id);
 	}
 }
 ?>

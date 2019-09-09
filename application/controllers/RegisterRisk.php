@@ -46,7 +46,7 @@ class RegisterRisk extends CI_Controller {
 	}
 
 	public function edit($risk_register_id) {
-		
+
 		$query['risk_register'] = $this->Risk_model->getRisk($risk_register_id);
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
@@ -64,7 +64,7 @@ class RegisterRisk extends CI_Controller {
 		$risk_register['status'] = 1;
 		$risk_register['project_id'] = $project_id;
 		$query = $this->Risk_model->insert($risk_register);
-		
+
 		if($query){
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/sidebar_nav_view');
@@ -73,7 +73,7 @@ class RegisterRisk extends CI_Controller {
 	}
 
 	public function update($risk_register_id) {
-		
+
 		$risk_register['impacted_objective'] = $this->input->post('impacted_objective');
 		$risk_register['priority'] = $this->input->post('priority');
 		$risk_register['risk_status'] = $this->input->post('risk_status');
@@ -93,7 +93,7 @@ class RegisterRisk extends CI_Controller {
 	}
 
 	public function delete($risk_register_id){
-		
+
 		$project_id['project_id'] = $this->input->post('project_id');
 		//$project_id['project_id'] = $project_id;
 		$query = $this->Risk_model->deleteRisk($risk_register_id);
@@ -103,6 +103,6 @@ class RegisterRisk extends CI_Controller {
             redirect(base_url() . 'RegisterRisk/listp/' . $project_id['project_id']);
 		}
 	}
-	
+
 }
 ?>

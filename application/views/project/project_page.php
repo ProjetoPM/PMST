@@ -908,7 +908,7 @@
                       </div>
                     </a>
 
-                    <a href="<?=base_url()?>/procurement/newp/<?php echo $project[0]->project_id;?>">
+                    <a href="<?=base_url()?>Procurement/newp/<?php echo $project[0]->project_id;?>">
                       <div class=" col-lg-1 midBox procurementColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-shopping-cart"></i>

@@ -50,7 +50,7 @@ class RiskManagement extends CI_Controller{
     public function insert() {
       $postData = $this->input->post();
   		$insert   = $this->Risk_mp_model->createRiskManagementPlan($postData);
-  		redirect('project/' . $postData['project_id']);
+  		redirect('RiskManagement/newp/' . $postData['project_id']);
   		echo json_encode($insert);
     }
 
@@ -69,7 +69,7 @@ class RiskManagement extends CI_Controller{
 
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
-        redirect('project/' . $id);
+        redirect('RiskManagement/newp/' . $id);
     }
 }
 ?>

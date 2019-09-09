@@ -110,6 +110,7 @@
 									<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="methodology" name="methodology"><?php echo $rmp->methodology; ?></textarea>
 								</div>
 							</div>
+
 							<div class="form-group">
 								<label for="roles_responsibilities"><?=$this->lang->line('roles_responsabilities')?></label>
 								<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('roles_responsabilities-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -169,7 +170,6 @@
 							<form action="<?php echo base_url('project/'); ?><?php echo  $id[0]; ?>" >
 								<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 							</form>
-
 					</div>
 					<?php
 						}

@@ -70,7 +70,7 @@ class Business_Case extends CI_Controller {
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		redirect('project/' . $id);
+		redirect('Business_Case/newp/' . $id);
 	}
 }
 ?>
