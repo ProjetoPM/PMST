@@ -297,6 +297,20 @@
           <!-- AQUI VAI FINALIZAR A VIEW DO GERENCIAMENTO DE RISCOS!!!! -->
         </div>
         <!-- /.row -->
+        <!-- Envia o nome da view como parametro -->
+        <?php $view = array(
+          "name" => "procurement_management_plan",
+        ); ?>
+
+        <!--aqui-->
+
+        <!--Carrega o form de envio-->
+        <?php $this->load->view('upload/index', $view) ?>
+        <!--Carrega as imagens do projeto-->
+        <?php $this->load->view('upload/retrieve', $view) ?>
+
       </div>
     </div>
+
+
     <?php $this->load->view('frame/footer_view')?>

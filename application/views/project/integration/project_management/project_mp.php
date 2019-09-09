@@ -215,4 +215,17 @@
 									       });
 									      //End Date Ends Here
 									     </script>
+
+											 <!-- Envia o nome da view como parametro -->
+											 <?php $view = array(
+											   "name" => "project_management_plan",
+											 ); ?>
+
+											 <!--aqui-->
+
+											 <!--Carrega o form de envio-->
+											 <?php $this->load->view('upload/index', $view) ?>
+											 <!--Carrega as imagens do projeto-->
+											 <?php $this->load->view('upload/retrieve', $view) ?>
+
 									      <?php $this->load->view('frame/footer_view')?>
