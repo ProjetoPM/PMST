@@ -22,7 +22,7 @@
 				<div class="col-lg-10">
 
 					<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>RegisterRisk/addnew/<?php echo $project_id ?>'"> <?=$this->lang->line('btn-new')?> <?=$this->lang->line('risk-title')?></button>
-					
+
 				</div>
 			</div>
 
@@ -93,6 +93,10 @@
 
 							</tbody>
 						</table>
+
+						<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>" >
+						 <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
+					 </form>
 
 
 

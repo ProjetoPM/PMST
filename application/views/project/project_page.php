@@ -26,7 +26,7 @@
                <div class="col-lg-12 wrapper noSpaceSide">
                 <div class="noSpaceSide">
 
-                  <div class="col-lg-1 transparentBox"></div>
+                  <div class="col-lg-1 C"></div>
 
                   <div class="col-lg-10 noSpaceSide floatRight">
                     <div class=" col-lg-1 menuBox hideBox">
@@ -248,14 +248,7 @@
 
                     <div class=" col-lg-1 midBox scopeColor hideBox"></div>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox scopeColor">
-                        <div class="verticalAlign">
-                          <i class="glyphicon glyphicon-search"></i>
-                          <?=$this->lang->line('change-request')?>
-                        </div>
-                      </div>
-                    </a>
+                    <div class=" col-lg-1 midBox scopeColor hideBox"></div>
 
                     <div class=" col-lg-1 midBox scopeColor hideBox"></div>
 
@@ -283,8 +276,8 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox scopeColor">
+                    <a  href="<?=base_url("Wbs/newp/".$project[0]->project_id) ?>">
+                        <div class=" col-lg-1 midBox scopeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-search"></i>
                           <?=$this->lang->line('scope-baseline')?>
@@ -347,14 +340,7 @@
 
                     <div class=" col-lg-1 midBox timeColor hideBox"></div>
 
-                    <a  href="<?=base_url("Tap/newp/".$project[0]->project_id) ?>">
-                      <div class=" col-lg-1 midBox timeColor">
-                        <div class="verticalAlign">
-                          <i class="glyphicon glyphicon-time"></i>
-                          <?=$this->lang->line('change-request')?>
-                        </div>
-                      </div>
-                    </a>
+                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
 
                     <div class=" col-lg-1 midBox timeColor hideBox"></div>
 
@@ -510,14 +496,7 @@
 
                     <div class=" col-lg-1 midBox costColor hideBox"></div>
 
-                    <a  href="<?=base_url("Tap/newp/".$project[0]->project_id) ?>">
-                      <div class=" col-lg-1 midBox costColor">
-                        <div class="verticalAlign">
-                          <i class="fa fa-money"></i>
-                          <?=$this->lang->line('change-request')?>
-                        </div>
-                      </div>
-                    </a>
+                    <div class=" col-lg-1 midBox costColor hideBox"></div>
 
                     <div class=" col-lg-1 midBox costColor hideBox"></div>
 
@@ -600,23 +579,11 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox qualityColor">
-                        <div class="verticalAlign">
-                          <i class="fa fa-trophy"></i>
-                          <?=$this->lang->line('change-request')?>
-                        </div>
-                      </div>
-                    </a>
+                    <div class=" col-lg-1 midBox qualityColor hideBox"></div>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox qualityColor">
-                        <div class="verticalAlign">
-                          <i class="fa fa-trophy"></i>
-                          <?=$this->lang->line('change-request')?>
-                        </div>
-                      </div>
-                    </a>
+
+                    <div class=" col-lg-1 midBox qualityColor hideBox"></div>
+
 
                     <div class=" col-lg-1 midBox qualityColor hideBox"></div>
 
@@ -760,14 +727,8 @@
 
                     <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox hrColor">
-                        <div class="verticalAlign">
-                          <i class="fa fa-male"></i>
-                          <?=$this->lang->line('change-request')?>
-                        </div>
-                      </div>
-                    </a>
+                    <div class=" col-lg-1 midBox hrColor hideBox"></div>
+
 
                     <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
@@ -808,14 +769,8 @@
 
                     <div class=" col-lg-1 midBox communicColor hideBox"></div>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox communicColor">
-                        <div class="verticalAlign">
-                          <i class="glyphicon glyphicon-bullhorn"></i>
-                          <?=$this->lang->line('change-request')?>
-                        </div>
-                      </div>
-                    </a>
+                    <div class=" col-lg-1 midBox communicColor hideBox"></div>
+
 
                     <div class=" col-lg-1 midBox communicColor hideBox"></div>
 
@@ -868,14 +823,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox riskColor">
-                        <div class="verticalAlign">
-                          <i class="glyphicon glyphicon-exclamation-sign"></i>
-                          <?=$this->lang->line('change-request')?>
-                        </div>
-                      </div>
-                    </a>
+                    <div class=" col-lg-1 midBox riskColor hideBox"></div>
 
                     <div class=" col-lg-1 midBox riskColor hideBox"></div>
 
@@ -899,14 +847,7 @@
 
                     <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox procurementColor">
-                        <div class="verticalAlign">
-                          <i class="glyphicon glyphicon-shopping-cart"></i>
-                          <?=$this->lang->line('change-request')?>
-                        </div>
-                      </div>
-                    </a>
+                    <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
                     <a href="<?=base_url()?>Procurement/newp/<?php echo $project[0]->project_id;?>">
                       <div class=" col-lg-1 midBox procurementColor">
@@ -928,14 +869,8 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox procurementColor">
-                        <div class="verticalAlign">
-                          <i class="glyphicon glyphicon-shopping-cart"></i>
-                          <?=$this->lang->line('change-request')?>
-                        </div>
-                      </div>
-                    </a>
+                    <div class=" col-lg-1 midBox procurementColor hideBox"></div>
+
 
                     <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
@@ -965,14 +900,8 @@
 
                     <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox procurementColor">
-                        <div class="verticalAlign">
-                          <i class="glyphicon glyphicon-shopping-cart"></i>
-                          <?=$this->lang->line('change-request')?>
-                        </div>
-                      </div>
-                    </a>
+                    <div class=" col-lg-1 midBox procurementColor hideBox"></div>
+
 
                     <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
@@ -1026,14 +955,8 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox stakeholderColor">
-                        <div class="verticalAlign">
-                          <i class="fa fa-users"></i>
-                          <?=$this->lang->line('change-request')?>
-                        </div>
-                      </div>
-                    </a>
+                    <div class=" col-lg-1 midBox stakeholderColor hideBox"></div>
+
 
                     <div class=" col-lg-1 midBox stakeholderColor hideBox"></div>
 

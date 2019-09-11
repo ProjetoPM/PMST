@@ -3,7 +3,7 @@
  padding-right: 0px !important;
 }
 </style>
-<div class="col-lg-12 text-center" style="padding:5px;"><small>&copy; 2018 by <a target="_blank" href="http://unipampa.edu.br">UNIPAMPA</a></small></div>
+<div class="col-lg-12 text-center" style="padding:5px;"><small>&copy; 2019 by <a target="_blank" href="http://unipampa.edu.br">UNIPAMPA</a></small></div>
 </div>
 
 <!-- jQuery -->
