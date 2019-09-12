@@ -1,9 +1,9 @@
 <?php
 
 // Title
-$lang['manage_cost-title'] = 'Manage Cost';
+$lang['manage_cost-title'] = 'Cost Management Plan';
 
-//Form 
+//Form
 $lang['manage_cost-project_costs_m'] = 'Processes for managing project costs';
 $lang['manage_cost-accuracy_level'] = 'Required accuracy level, limits and units of measure to be used';
 $lang['manage_cost-organizational_procedures'] = 'Related Organizational Procedures';

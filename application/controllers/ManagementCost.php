@@ -25,46 +25,45 @@ class ManagementCost extends CI_Controller {
     $project['dados'] = $this->db->get('project_user')-> result();
 
     if (count($project['dados']) > 0) {
-        $dado['cost_mp'] = $this->Cost_model->getAll();
-		$dado['id'] = $project_id;
-		//$dado['verific'] = true;
-		$this->load->view('frame/header_view');
-		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/cost',$dado);
+			$dado['cost_mp'] = $this->Cost_model->readCostManagementPlan($project_id);
+			$dado['id'] = $project_id;
+			$this->db->where('project_id', $project_id);
+			$dado['project'] =  $this->db->get('project')->result();
+
+			//$dado['verific'] = true;
+			$this->db->where('project_id', $project_id);
+			$dataproject['project'] = $this->db->get('project')->result();
+			$this->load->view('frame/header_view');
+			$this->load->view('frame/sidebar_nav_view');
+
+		$this->load->view('project/cost/cost_mp',$dado);
 
     } else {
         redirect(base_url());
     }
 	}
 
-	public function insert($id){
-		$dado['cost_mp'] = $this->Cost_model->getAll();
-		$cost_mp['accuracy_level'] = $this->input->post('accuracy_level');
+	function insert()	{
+		$postData = $this->input->post();
+		$insert   = $this->Cost_model->createCostManagementPlan($postData);
+		redirect('ManagementCost/newp/' . $postData['project_id']);
+		echo json_encode($insert);
+	}
+
+	public function update($id){
 		$cost_mp['project_costs_m'] = $this->input->post('project_costs_m');
+		$cost_mp['accuracy_level'] = $this->input->post('accuracy_level');
 		$cost_mp['organizational_procedures'] = $this->input->post('organizational_procedures');
 		$cost_mp['measurement_rules'] = $this->input->post('measurement_rules');
 		$cost_mp['format_report'] = $this->input->post('format_report');
-		$cost_mp['project_id'] = $id;
-		$cost_mp['status'] = 1;
-		$query=false;
-		if($dado['cost_mp']!=null){
-			foreach($dado['cost_mp'] as $cost){
-				$verific = $cost->project_id;
-				if($id==$verific){
-					$query = $this->Cost_model->update($cost_mp, $id);
-				}
-			}
-		}
-		if($query!=true){
-			$query = $this->Cost_model->insert($cost_mp);
-		}
+		$cost_mp['status'] = $this->input->post('status');
 
-		if($query){
-			$this->load->view('frame/header_view');
-			$this->load->view('frame/sidebar_nav_view');
-			redirect('ManagementCost/newp/' . $cost_mp['project_id']);
-		}
+		//$insert = $this->project_model->insert_project_pgq($quality_mp);
+		$query = $this->Cost_model->updateCostManagementPlan($cost_mp, $id);
 
+		$this->load->view('frame/header_view');
+		$this->load->view('frame/sidebar_nav_view');
+		redirect('ManagementCost/newp/' . $id);
 	}
 }
 ?>

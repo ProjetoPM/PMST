@@ -5,24 +5,28 @@
 			$this->load->database();
 		}
 
-		public function getAll(){
-			$query = $this->db->get('cost_mp');
-			return $query->result(); 
+		function createCostManagementPlan($postData){
+			$data = array(
+				'project_costs_m' => $postData['project_costs_m'],
+				'accuracy_level' => $postData['accuracy_level'],
+				'organizational_procedures' => $postData['organizational_procedures'],
+				'measurement_rules' => $postData['measurement_rules'],
+				'format_report' => $postData['format_report'],
+				'status' => $postData['status'],
+				'project_id' => $postData['project_id'],
+			);
+
+			$this->db->insert('cost_mp', $data);
+		}
+		
+		public function readCostManagementPlan($id){
+			$query = $this->db->get_where('cost_mp',array('project_id'=>$id));
+			return $query->result();
 		}
 
-		public function insert($cost_mp){
-			return $this->db->insert('cost_mp', $cost_mp);
-		}
-
-		//public function deletecustos($id){
-		//	$this->db->where('cost_mp.project_id', $id);
-		//	return $this->db->delete('cost_mp');
-		//}
-
-		public function update($cost_mp, $id){
+		public function updateCostManagementPlan($project, $id){
 			$this->db->where('cost_mp.project_id', $id);
-			return $this->db->update('cost_mp', $cost_mp);
+			return $this->db->update('cost_mp', $project);
 		}
-
 	}
 ?>
