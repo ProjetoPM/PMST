@@ -623,7 +623,7 @@
 
               <div class="col-lg-12 wrapper noSpaceSide">
                 <div class="noSpaceSide">
-                  <div class="col-lg-1 sideBox hrBox">
+                  <div class="col-lg-1 sideBox integrationBox hrColor">
                     <div class="verticalAlign">
                       <i class="fa fa-male"></i>
                       <?=$this->lang->line('hr')?>
@@ -719,24 +719,6 @@
 
                   </div>
                   <!--  -->
-                  <div class="col-lg-10 noSpaceSide floatRight">
-
-                    <div class=" col-lg-1 midBox hrColor hideBox"></div>
-
-                    <div class=" col-lg-1 midBox hrColor hideBox"></div>
-
-                    <div class=" col-lg-1 midBox hrColor hideBox"></div>
-
-                    <div class=" col-lg-1 midBox hrColor hideBox"></div>
-
-                    <div class=" col-lg-1 midBox hrColor hideBox"></div>
-
-
-                    <div class=" col-lg-1 midBox hrColor hideBox"></div>
-
-                    <div class=" col-lg-1 midBox hrColor hideBox"></div>
-
-                  </div>
                   <!--  -->
                 </div>
               </div>
@@ -859,14 +841,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox disableColor">
-                        <div class="verticalAlign">
-                          <i class="glyphicon glyphicon-shopping-cart"></i>
-                          <?=$this->lang->line('make-decisions')?>
-                        </div>
-                      </div>
-                    </a>
+                    <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
                     <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
