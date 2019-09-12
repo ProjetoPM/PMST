@@ -71,7 +71,7 @@
 										</div>
 
 										<div class="col-sm-3">
-											<form action="<?php echo base_url() ?>ChangeRequest_PDF/pdfGenerator/<?php echo $change_request->id; ?>" method="post">
+											<form target="_blank" action="<?php echo base_url() ?>ChangeRequest_PDF/pdfGenerator/<?php echo $change_request->id; ?>" method="post">
 												<input type="hidden" name="project_id" value="<?=$project_id?>">
 												<button type="submit" class="btn btn-success" ><em class="glyphicon glyphicon-file"></em> to PDF<span class="hidden-xs"></span></button>
 											</form>

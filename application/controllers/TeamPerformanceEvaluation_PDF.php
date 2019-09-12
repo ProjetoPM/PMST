@@ -1,5 +1,5 @@
 <?php
-    class ChangeRequest_PDF extends CI_Controller{
+    class TeamPerformanceEvaluation_PDF extends CI_Controller{
 
 			function __construct(){
 				parent::__construct();
@@ -11,8 +11,8 @@
 				//$this->load->helper('url');
 				$this->lang->load('btn', 'english');
 				//$this->lang->load('btn', 'portuguese-brazilian');
-				$this->lang->load('change_request', 'english');
-				$this->load->model('Change_request_model');
+        $this->lang->load('team-performance-evaluation','english');
+				$this->load->model('Team_Performance_Evaluation_model');
 				$this->load->model('Project_model');
 			}
 
@@ -28,12 +28,11 @@
 	    $pdf->SetDisplayMode('real', 'default');
 	    $pdf->Write(5, 'CodeIgniter TCPDF Integration');
 	    //$pdf->Output('tap.pdf', 'I'); }
-			$this->load->view('pdf/change_request_pdf');
+			$this->load->view('pdf/team_performance_evaluation_pdf');
     }
 
-		function pdfGenerator($id) {
+		function pdfGenerator($team_performance_evaluation_id) {
 			$this->load->library('Pdf');
-
 
 			$idusuario = $_SESSION['user_id'];
 	    $this->db->where('user_id', $idusuario);
@@ -41,8 +40,8 @@
 
 	    if (count($project['dados']) > 0) {
 
-				$dado['change_request'] = $this->Change_request_model->getChangeRequest($id);
-        $this->db->where('id', $id);
+				$dado['team_performance_evaluation'] = $this->Team_Performance_Evaluation_model->getTeamEval($team_performance_evaluation_id);
+        $this->db->where('team_performance_evaluation_id', $team_performance_evaluation_id);
 
 			$pdf = new Pdf('P', 'mm', 'A4', true, 'UTF-8', false);
 			$pdf->SetTitle('Termo de Abertura do Projeto');
@@ -54,7 +53,7 @@
 			$pdf->SetDisplayMode('real', 'default');
 			$pdf->Write(5, 'CodeIgniter TCPDF Integration');
 			//$pdf->Output('tap.pdf', 'I'); }
-			$this->load->view('pdf/change_request_pdf', $dado);
+			$this->load->view('pdf/team_performance_evaluation_pdf', $dado);
 		}
 
 		}

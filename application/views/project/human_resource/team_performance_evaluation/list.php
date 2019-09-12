@@ -21,15 +21,15 @@
 			<div class="row">
 				<div class="col-lg-10">
 
-					<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Team_Performance_Evaluation/new/<?php echo $project_id ?>'"> <?=$this->lang->line('btn-new')?> <?=$this->lang->line('eval-title')?></button>			
-					
+					<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Team_Performance_Evaluation/newp/<?php echo $project_id ?>'"> <?=$this->lang->line('btn-new')?> <?=$this->lang->line('eval-title')?></button>
+
 				</div>
 			</div>
 
 			<br><br>
 			<div class="row">
 				<div class="col-lg-12">
-					
+
 					<table class="table table-bordered table-striped" id="tableNB">
 						<thead>
 							<tr>
@@ -53,35 +53,42 @@
 
 									<td style="max-width: 20px">
 										<div class="row center">
-											<div class="col-sm-4">
+											<div class="col-sm-3">
 												<form action="<?php echo base_url() ?>Team_Performance_Evaluation/edit/<?php echo $team->team_performance_evaluation_id; ?>" method="post">
 													<input type="hidden" name="project_id" value="<?=$team->project_id; ?>">
 													<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 												</form>
 											</div>
 
-											<div class="col-sm-4">
+											<div class="col-sm-3">
 												<!--<form action="<?php echo base_url() ?>Team_Performance_Evaluation/delete/<?php echo $team->team_performance_evaluation_id; ?>" method="post">
 												<input type="hidden" name="project_id" value="<?=$team->project_id?>"> -->
 												<button type="submit" class="btn btn-danger" onclick="deletar(<?=$team->project_id?>, <?= $team->team_performance_evaluation_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
 												<!-- </form> -->
 											</div>
+
+											<div class="col-sm-3">
+												<form target="_blank" action="<?php echo base_url() ?>TeamPerformanceEvaluation_PDF/pdfGenerator/<?php echo $team->team_performance_evaluation_id; ?>" method="post">
+													<input type="hidden" name="project_id" value="<?=$project_id?>">
+													<button type="submit" class="btn btn-success" ><em class="glyphicon glyphicon-file"></em> to PDF<span class="hidden-xs"></span></button>
+												</form>
+											</div>
 										</div>
 									</td>
-								</tr> 
+								</tr>
 								<?php
 							}
 							?>
 
 						</tbody>
-					</table> 
+					</table>
 
 
 
 					<!-- loading footer and script-->
 					<div class="col-sm-12" position= "absolute">
 						<div class="container">
-							<?php $this->load->view('frame/footer_view') ?>            
+							<?php $this->load->view('frame/footer_view') ?>
 						</div>
 					</div>
 				</div>
@@ -120,7 +127,7 @@
 							let row = table.row(tr);
 							console.log(element)
 							let dados = JSON.parse(element.attr("dados"));
-							
+
 							if ( row.child.isShown() ) {
 								row.child.hide();
 								tr.removeClass('shown');
@@ -202,6 +209,5 @@
 									}).show();
 
 						}
-						
-					</script>
 
+					</script>
