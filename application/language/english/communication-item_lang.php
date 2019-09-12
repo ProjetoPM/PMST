@@ -1,4 +1,5 @@
 <?php
+$lang['communication-management'] = 'Communication Management';
 $lang['communication-item'] = 'Communication Item';
 $lang['stakeholder'] = 'Stakeholder';
 $lang['type'] = 'Type';

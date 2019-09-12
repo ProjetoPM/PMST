@@ -1,7 +1,7 @@
 <div id="page-wrapper">
 	<div class="row" position="absolute">
 		<div class="col-lg-12">
-			<h1 class="page-header"><?=$this->lang->line('communication-item')?></h1>
+			<h1 class="page-header"><?=$this->lang->line('communication-management')?></h1>
 			<!-- <?php var_dump($communication_responsability) ?> -->
 		</div>
 		<!-- /.col-lg-12 -->
@@ -80,14 +80,29 @@
 								</table>
 							</div>
 						</div>
-						<!-- /.row --> </div>
+						<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>" >
+						 <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
+					 </form>
+						<!-- /.row -->
 						<div class="col-sm-12" position= "absolute">
 							<div class="container">
-								<?php $this->load->view('frame/footer_view') ?>
+
+																	<!--1º preencher o nome da view-->
+																	<?php $view = array(
+																		"name" => "communication_management",
+																	); ?>
+
+																	<!--Carrega o form de envio e envia para ele o nome da view que tu setou -->
+																	<?php $this->load->view('upload/index', $view) ?>
+																	<br>
+																	<div>
+																	<!--Carrega as imagens do projeto de acordo com a view, utiliza id ou project_id pra pegar o id do projeto e criar a query-->
+																	<?php $this->load->view('upload/retrieve', $view) ?>
+
+																	<?php $this->load->view('frame/footer_view')?>
 							</div>
 						</div>
 					</div>
-
 					<!--DataTable -->
 					<script src="<?=base_url()?>assets/js/jquery-2.1.3.min.js"></script>
 					<script src="<?=base_url()?>assets/js/jquery.dataTables.min.js"></script>

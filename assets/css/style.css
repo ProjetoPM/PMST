@@ -105,6 +105,7 @@
     background-color: rgb(88, 95, 94);
 }
 
+
 .integrationColor{
     background: rgb(131, 156, 175);
 }
@@ -131,6 +132,13 @@
 }
 .wrapper a:hover .costColor{
     background: #157974;
+}
+
+.disableBox, .disableColor{
+    background: #A9A7B0;
+}
+.wrapper a:hover .disableColor{
+    background: #a9a7b0;
 }
 
 .qualityBox, .qualityColor{

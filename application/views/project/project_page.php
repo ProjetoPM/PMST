@@ -95,8 +95,8 @@
 
                     <div class=" col-lg-1 midBox integrationColor hideBox"></div>
 
-                    <a  href="<?=base_url("Tap/newp/".$project[0]->project_id) ?>">
-                      <div class=" col-lg-1 midBox integrationColor">
+                    <a  href="<?=base_url("Maintenance") ?>">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-star"></i>
                           <?=$this->lang->line('project-status')?>
@@ -141,7 +141,7 @@
                     <div class=" col-lg-1 midBox integrationColor hideBox"></div>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox integrationColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-star"></i>
                           <?=$this->lang->line('deliverables-status')?>
@@ -189,7 +189,7 @@
                     </a>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox integrationColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-star"></i>
                           <?=$this->lang->line('earned-value')?>
@@ -237,7 +237,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("Scope_specification/addnewp/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("Scope_specification/addnew/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox scopeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-search"></i>
@@ -268,7 +268,7 @@
                     </a>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox scopeColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-search"></i>
                           <?=$this->lang->line('requirement-traceability')?>
@@ -321,7 +321,7 @@
                     </a>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox timeColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
                           <?=$this->lang->line('project-schedule-network')?>
@@ -330,7 +330,7 @@
                     </a>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox timeColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
                           <?=$this->lang->line('project-calendar')?>
@@ -351,7 +351,7 @@
                     <div class=" col-lg-1 midBox timeColor hideBox"></div>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox timeColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
                           <?=$this->lang->line('activity-attributes')?>
@@ -360,7 +360,7 @@
                     </a>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox timeColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
                           <?=$this->lang->line('activity-resource')?>
@@ -369,7 +369,7 @@
                     </a>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox timeColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
                           <?=$this->lang->line('project-schedule')?>
@@ -390,7 +390,7 @@
                     <div class=" col-lg-1 midBox timeColor hideBox"></div>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox timeColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
                           <?=$this->lang->line('activity-list')?>
@@ -401,7 +401,7 @@
 
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                        <div class=" col-lg-1 midBox timeColor">
+                        <div class=" col-lg-1 midBox disableColor">
                           <div class="verticalAlign">
                               <i class="glyphicon glyphicon-time"></i>
                                 <?=$this->lang->line('activity-duration')?>
@@ -410,7 +410,7 @@
                     </a>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox timeColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
                           <?=$this->lang->line('schedule-baseline')?>
@@ -431,7 +431,7 @@
                     <div class=" col-lg-1 midBox timeColor hideBox"></div>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox timeColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
                           <?=$this->lang->line('milestone-list')?>
@@ -440,7 +440,6 @@
                     </a>
 
                     <div class=" col-lg-1 midBox timeColor hideBox"></div>
-
 
                     <div class=" col-lg-1 midBox timeColor hideBox"></div>
 
@@ -480,7 +479,7 @@
                     </a>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox costColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="fa fa-money"></i>
                           <?=$this->lang->line('cost-baseline')?>
@@ -503,7 +502,7 @@
                     <div class=" col-lg-1 midBox costColor hideBox"></div>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox costColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="fa fa-money"></i>
                           <?=$this->lang->line('activity-cost')?>
@@ -512,7 +511,7 @@
                     </a>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox costColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="fa fa-money"></i>
                           <?=$this->lang->line('project-funding')?>
@@ -558,7 +557,7 @@
                     </a>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox qualityColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="fa fa-trophy"></i>
                           <?=$this->lang->line('product-quality')?>
@@ -590,7 +589,7 @@
                     <div class=" col-lg-1 midBox qualityColor hideBox"></div>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox qualityColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="fa fa-trophy"></i>
                           <?=$this->lang->line('process-quality')?>
@@ -599,7 +598,7 @@
                     </a>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox qualityColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="fa fa-trophy"></i>
                           <?=$this->lang->line('quality-metrics')?>
@@ -861,7 +860,7 @@
                     </a>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox procurementColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-shopping-cart"></i>
                           <?=$this->lang->line('make-decisions')?>
@@ -872,7 +871,7 @@
                     <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox procurementColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-shopping-cart"></i>
                           <?=$this->lang->line('procurement-agreement')?>
