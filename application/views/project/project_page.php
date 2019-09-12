@@ -398,13 +398,15 @@
                       </div>
                     </a>
 
+
+
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox timeColor">
-                        <div class="verticalAlign">
-                          <i class="glyphicon glyphicon-time"></i>
-                          <?=$this->lang->line('resource-breakdown')?>
+                        <div class=" col-lg-1 midBox timeColor">
+                          <div class="verticalAlign">
+                              <i class="glyphicon glyphicon-time"></i>
+                                <?=$this->lang->line('activity-duration')?>
+                          </div>
                         </div>
-                      </div>
                     </a>
 
                     <a  href="<?=base_url("Maintenance") ?>">
@@ -437,14 +439,8 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox timeColor">
-                        <div class="verticalAlign">
-                          <i class="glyphicon glyphicon-time"></i>
-                          <?=$this->lang->line('activity-duration')?>
-                        </div>
-                      </div>
-                    </a>
+                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
+
 
                     <div class=" col-lg-1 midBox timeColor hideBox"></div>
 
@@ -648,7 +644,14 @@
                       </div>
                     </a>
 
-                    <div class=" col-lg-1 midBox hrColor hideBox"></div>
+                    <a  href="<?=base_url("ResourceBreakdownStructure/newp/".$project[0]->project_id) ?>">
+                      <div class=" col-lg-1 midBox hrColor">
+                        <div class="verticalAlign">
+                          <i class="fa fa-male"></i>
+                          <?=$this->lang->line('resource-breakdown')?>
+                        </div>
+                      </div>
+                    </a>
 
                     <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
@@ -847,13 +850,21 @@
 
                     <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
-                    <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
                     <a href="<?=base_url()?>Procurement/newp/<?php echo $project[0]->project_id;?>">
                       <div class=" col-lg-1 midBox procurementColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-shopping-cart"></i>
                           <?=$this->lang->line('procurement-management')?>
+                        </div>
+                      </div>
+                    </a>
+
+                    <a  href="<?=base_url("Maintenance") ?>">
+                      <div class=" col-lg-1 midBox procurementColor">
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-shopping-cart"></i>
+                          <?=$this->lang->line('make-decisions')?>
                         </div>
                       </div>
                     </a>
@@ -880,16 +891,9 @@
 
                     <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox procurementColor">
-                        <div class="verticalAlign">
-                          <i class="glyphicon glyphicon-shopping-cart"></i>
-                          <?=$this->lang->line('make-decisions')?>
-                        </div>
-                      </div>
-                    </a>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
+
+                    <a href="<?=base_url("ProcurementStatementOfWork/listp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox procurementColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-shopping-cart"></i>
@@ -897,6 +901,9 @@
                         </div>
                       </div>
                     </a>
+
+
+                    <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
                     <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
