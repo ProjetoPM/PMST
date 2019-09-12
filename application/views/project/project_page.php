@@ -104,7 +104,7 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("Tap/newp/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("ChangeRequest/listp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-star"></i>
@@ -179,7 +179,7 @@
 
                     <div class=" col-lg-1 midBox integrationColor hideBox"></div>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
+                    <a  href="<?=base_url("ChangeRequest/listp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-star"></i>
@@ -979,14 +979,7 @@
 
                     <div class=" col-lg-1 midBox stakeholderColor hideBox"></div>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox stakeholderColor">
-                        <div class="verticalAlign">
-                          <i class="fa fa-users"></i>
-                          <?=$this->lang->line('change-request')?>
-                        </div>
-                      </div>
-                    </a>
+                    <div class=" col-lg-1 midBox stakeholderColor hideBox"></div>
 
                     <div class=" col-lg-1 midBox stakeholderColor hideBox"></div>
 
