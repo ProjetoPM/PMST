@@ -1,66 +1,36 @@
 <?php
-if (!defined('BASEPATH')) {
-	exit('No direct script access allowed');
-}
-
-class Stakeholder_mp_model extends CI_Model{
-
-	function __construct() {
-		parent::__construct();
-	}
-
-public function insert_stake_mp($postData){
-		$interest = $postData ['interest'];
-		$power = $postData['power'];
-		$impact = $postData['impact'];
-		$influence = $postData['influence'];
-
-		$average = ($influence + $power + $interest + $impact) / 4;
-
-		$data = array(
-			'stakeholder_id' => $postData ['stakeholder_id'],
-			'project_id' => $postData ['project_id'],
-			'interest' => $postData['interest'],
-			'power' => $postData['power'],
-			'influence' => $postData['influence'],
-			'impact' => $postData['impact'],
-			'average' => $average,
-			'current_engagement' => $postData['current_engagement'],
-			'expected_engagement' => $postData['expected_engagement'],
-		    'strategy' => $postData['strategy'],
-		    'scope' => $postData['scope'],
-		    'observation' => $postData['observation']
-	     	);
-
-
-
-
-	 	$query = $this->db->insert('stakeholder_mp',$data);
-		if($query){
-				redirect('stakeholder_mp/stakeholder_mp_list/'.$data['project_id']);
-			}
-	}
-
-		public function getStakeholder_mpStakeholder_item_id($project_id){
-			$query = $this->db->get_where('stakeholder_mp', array('stakeholder_mp.project_id'=>$project_id));
-			return $query->result();
+	class Stakeholder_mp_model extends CI_Model {
+		function __construct(){
+			parent::__construct();
+			$this->load->database();
 		}
 
-
-	public function getStakeholder(){
-		$query = $this->db->get_where('stakeholder');
-		return $query->result();
-	}
-
-
-	public function getProjectId($id){
-		$query = $this->db->get_where('stakeholder_mp',array('project_id'=>$id));
-		return $query->result();
-	}
-
-	public function deleteStake_mp($id){
-			$this->db->where('stakeholder_mp.stakeholder_mp_id', $id);
-			return $this->db->delete('stakeholder_mp');
+		public function insert($stakeholder_mp){
+			return $this->db->insert('stakeholder_mp', $stakeholder_mp);
 		}
-}
-?>
+
+        public function getStakeholder($stakeholder_id){
+            $query = $this->db->get_where('stakeholder',array('stakeholder_id'=>$stakeholder_id));
+            return $query->row_array();
+        }
+
+				public function getStakeholderMp($stakeholder_id){
+						$query = $this->db->get_where('stakeholder_mp',array('stakeholder_id'=>$stakeholder_id));
+						return $query->row_array();
+				}
+
+        public function updateStakeholderMp($stakeholder_mp, $stakeholder_id){
+            $this->db->where('stakeholder_mp.stakeholder_id', $stakeholder_id);
+            return $this->db->update('stakeholder_mp', $stakeholder_mp);
+        }
+
+        public function deleteStakeholderMP($stakeholder_id){
+            $this->db->where('stakeholder_mp.stakeholder_id', $stakeholder_id);
+            return $this->db->delete('stakeholder_mp');
+        }
+
+        public function edit($stakeholder_id) {
+            $query = $this->db->get_where('stakeholder_mp', array('stakeholder_mp.stakeholder_id'=>$stakeholder_id));
+            return $query->result();
+        }
+	}

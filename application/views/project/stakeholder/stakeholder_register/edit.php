@@ -35,8 +35,6 @@
 						</div>
 					</div>
 
-
-
 					<!-- valor 0 para externo | valor 1 para interno -->
 					<div class="col-lg-4 form-group">
 						<label for="type"><?=$this->lang->line('stakeholder-type')?></label>

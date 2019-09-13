@@ -10,4 +10,3 @@ ALTER TABLE `stakeholder`
     ADD `strategy` TEXT NULL DEFAULT NULL,
     ADD `scope` TEXT NULL DEFAULT NULL,
     ADD `observation` TEXT NULL DEFAULT NULL;
-
