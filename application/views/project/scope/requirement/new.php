@@ -155,17 +155,17 @@
           <input class="form-control" id="requirement_situation" name="requirement_situation" maxlength="45">
 
         </div>
-
         <div class="col-lg-12">
           <button id="new_quality_plan-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
             <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
           </button>
         </form>
 
-        <form action="<?php echo base_url()?>/Requirement_registration/list/<?=$project_id?>">
+        <form action="<?php echo base_url()?>Requirement_registration/listp/<?=$project_id?>">
          <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
        </form>
      </div>
+
      <!-- /.row --> </div>
      <div class="col-sm-12" position= "absolute">
       <div class="container">

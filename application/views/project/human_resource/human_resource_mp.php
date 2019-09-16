@@ -22,7 +22,7 @@
                 <label for="roles_responsibilities"><?=$this->lang->line('human_resource-roles')?> *</label>
                 <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('human_resource-roles-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-                <div >
+                <div>
                   <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="roles_responsibilities" name="roles_responsibilities" required="true"></textarea>
                 </div>
               </div>

@@ -141,12 +141,13 @@ class ManagementStakeholder extends CI_Controller {
         $stakeholder['interest_phase'] = $this->input->post('interest_phase');
         $stakeholder['observations'] = $this->input->post('observations');
         $stakeholder['project_id'] = $id;
-		$query = $this->Stakeholder_model->insert($stakeholder);
+
+				$query = $this->Stakeholder_model->insert($stakeholder);
 
 		if($query){
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/sidebar_nav_view');
-			redirect('project/' . $stakeholder['project_id']);
+			redirect('project/ManagementStakeholder/listp' . $stakeholder['project_id']);
 		}
 
 	}
