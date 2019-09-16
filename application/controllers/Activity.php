@@ -62,12 +62,39 @@ class Activity extends CI_Controller {
         $this->load->view('project/schedule/activity_list/edit', $query);
     }
 
+		public function editResourceRequirement($id) {
+				$query['activity'] = $this->Activity_model->getActivity($id);
+				$this->load->view('frame/header_view.php');
+				$this->load->view('frame/sidebar_nav_view.php');
+				$this->load->view('project/schedule/resource_requirement/edit', $query);
+		}
+
+		public function updateResourceRequirement($id) {
+				$activity['predecessor_activity'] = $this->input->post('predecessor_activity');
+				$activity['dependence_type'] = $this->input->post('dependence_type');
+				$activity['anticipation'] = $this->input->post('anticipation');
+				$activity['wait'] = $this->input->post('wait');
+
+        $activity['project_id'] = $this->input->post('project_id');
+
+				$data['activity'] = $activity;
+				$query = $this->Activity_model->updateActivity($data['activity'], $id);
+
+        if ($query) {
+            redirect('Activity/listp/' . $activity['project_id']);
+        }
+    }
 
     public function updateActivity($id) {
         $activity['associated_id'] = $this->input->post('associated_id');
         $activity['project_phase'] = $this->input->post('project_phase');
         $activity['milestone'] = $this->input->post('milestone');
-        $activity['activity_name'] = $this->input->post('activity_name');
+				$activity['activity_name'] = $this->input->post('position');
+
+				$activity['predecessor_activity'] = $this->input->post('predecessor_activity');
+				$activity['dependence_type'] = $this->input->post('dependence_type');
+				$activity['anticipation'] = $this->input->post('anticipation');
+				$activity['wait'] = $this->input->post('wait');
 
         $activity['project_id'] = $this->input->post('project_id');
 

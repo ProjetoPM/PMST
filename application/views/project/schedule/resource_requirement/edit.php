@@ -23,45 +23,46 @@
 
 		<div class="row">
 			<div class="col-lg-12">
-					<form action="<?=base_url()?>Activity/updateActivity/<?php echo $id; ?>" method="post">
+					<form action="<?=base_url()?>Activity/updateResourceRequirement/<?php echo $id; ?>" method="post">
 
 			<input type="hidden" id="project_id" name="project_id" value="<?php echo $project_id; ?>">
 			<!-- Textarea -->
 			<ul class="abas">
 			    <!-- Aqui, criação da primeira aba -->
 
-			<div class=" col-lg-4 form-group">
-				<label for="associated_id"><?=$this->lang->line('associated_id')?> *</label>
-				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('associated_id-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-				<div>
-					<input id="associated_id" name="associated_id" class="form-control input-md" required="false" value="<?php echo $associated_id; ?>">
-				</div>
-			</div>
-
-			<div class=" col-lg-4 form-group">
-				<label for="milestone"><?=$this->lang->line('milestone')?></label>
-				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('milestone-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-				<div>
-					<input id="milestone" name="milestone" class="form-control input-md" value="<?php echo $milestone; ?>">
-				</div>
-			</div>
-
-			<div class=" col-lg-4 form-group">
-				<label for="project_phase"><?=$this->lang->line('project_phase')?></label>
-				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('project_phase-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-				<div>
-					<input id="project_phase" name="project_phase" class="form-control input-md" value="<?php echo $project_phase; ?>">
-				</div>
-			</div>
-
-
 			<div class=" col-lg-12 form-group">
-				<label for="activity_name"><?=$this->lang->line('activity_name')?></label>
-				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('activity_name-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
+				<label for="predecessor_activity"><?=$this->lang->line('predecessor_activity')?> *</label>
+				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('predecessor_activity-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 				<div>
-					<input id="activity_name" name="activity_name" type="text" class="form-control input-md" value="<?php echo $activity_name; ?>">
+					<input id="predecessor_activity" name="predecessor_activity" class="form-control input-md" required="false" value="<?php echo $predecessor_activity; ?>">
 				</div>
 			</div>
+
+			<div class=" col-lg-4 form-group">
+				<label for="dependence_type"><?=$this->lang->line('dependence_type')?></label>
+				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('dependence_type-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
+				<div>
+					<input id="dependence_type" name="dependence_type" class="form-control input-md" value="<?php echo $dependence_type; ?>">
+				</div>
+			</div>
+
+			<div class=" col-lg-4 form-group">
+				<label for="anticipation"><?=$this->lang->line('anticipation')?></label>
+				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('anticipation-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
+				<div>
+					<input id="anticipation" name="anticipation" class="form-control input-md" value="<?php echo $anticipation; ?>">
+				</div>
+			</div>
+
+
+			<div class=" col-lg-4 form-group">
+				<label for="wait"><?=$this->lang->line('wait')?></label>
+				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('wait-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
+				<div>
+					<input id="wait" name="wait" type="text" class="form-control input-md" value="<?php echo $wait; ?>">
+				</div>
+			</div>
+
 
 			<div class="col-lg-12">
 				<button id="activity-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
