@@ -1,7 +1,7 @@
 <div id="page-wrapper">
 	<div class="row" position="absolute">
 		<div class="col-lg-12">
-			<h1 class="page-header"><?=$this->lang->line('activity_list-title')?></h1>
+			<h1 class="page-header"><?=$this->lang->line('schedule_network-title')?></h1>
 		</div>
 		<!-- /.col-lg-12 -->
 
@@ -18,11 +18,6 @@
 			<?php endif; ?>
 			<!-- /.row -->
 
-			<div class="row">
-				<div class="col-lg-10">
-					<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Activity/newp/<?php echo $project_id ?>'"> <?=$this->lang->line('activity_list-btn')?> <?=$this->lang->line('eval-title')?></button>
-				</div>
-			</div>
 
 			<div class="row">
 				<div class="col-lg-12">
@@ -30,10 +25,11 @@
 					<table class="table table-bordered table-striped" id="tableNB">
 						<thead>
 							<tr>
-								<th class="text-center">#</th>
-								<th><?=$this->lang->line('associated_id')?></th>
-								<th><?=$this->lang->line('project_phase')?></th>
 								<th><?=$this->lang->line('activity_name')?></th>
+								<th><?=$this->lang->line('predecessor_activity')?></th>
+								<th><?=$this->lang->line('dependence_type')?></th>
+								<th><?=$this->lang->line('anticipation')?></th>
+								<th><?=$this->lang->line('wait')?></th>
 
 								<th><?=$this->lang->line('btn-actions')?></th>
 							</tr>
@@ -43,30 +39,21 @@
 							foreach ($activity as $a) {
 								?>
 								<tr dados='<?= json_encode($a); ?>'>
-									<td class="moreInformationTable"></td>
-									<td><?php echo $a->associated_id;?></td>
-									<td><?php echo $a->project_phase;?></td>
 									<td><?php echo $a->activity_name;?></td>
+									<td><?php echo $a->predecessor_activity;?></td>
+									<td><?php echo $a->dependence_type;?></td>
+									<td><?php echo $a->anticipation;?></td>
+									<td><?php echo $a->wait;?></td>
 
 									<td style="max-width: 20px">
 										<div class="row center">
 											<div class="col-sm-3">
-												<form action="<?php echo base_url() ?>Activity/editActivity/<?php echo $a->id; ?>" method="post">
+												<form action="<?php echo base_url() ?>Activity/editScheduleNetwork/<?php echo $a->id; ?>" method="post">
 													<input type="hidden" name="project_id" value="<?=$a->project_id; ?>">
 													<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 												</form>
 											</div>
 
-											<div class="col-sm-3">
-												<button type="submit" class="btn btn-danger" onclick="deletar(<?=$a->project_id?>, <?= $a->id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
-											</div>
-
-											<!-- <div class="col-sm-3">
-												<form target="_blank" action="<?php echo base_url() ?>TeamPerformanceEvaluation_PDF/pdfGenerator/<?php echo $a->id; ?>" method="post">
-													<input type="hidden" name="project_id" value="<?=$project_id?>">
-													<button type="submit" class="btn btn-success" ><em class="glyphicon glyphicon-file"></em> to PDF<span class="hidden-xs"></span></button>
-												</form>
-											</div> -->
 										</div>
 									</td>
 								</tr>
@@ -87,7 +74,7 @@
 
 																<!--1º preencher o nome da view-->
 																<?php $view = array(
-																  "name" => "activity_list",
+																  "name" => "schedule_network",
 																); ?>
 
 																<!--Carrega o form de envio e envia para ele o nome da view que tu setou -->
@@ -121,7 +108,6 @@
 						$(document).ready( function () {
 							table = $('#tableNB').DataTable({
 								"columns": [
-								{ "data": "#", "orderable": false},
 								{ "data": "associated_id" },
 								{ "data": "activity_name" },
 								{ "data": "btn-actions", "orderable": false}
@@ -130,32 +116,7 @@
 							});
 						} );
 
-						$("#tableNB tbody td.moreInformationTable").on("click", function() {
-							let element = jQuery($(this)[0].parentNode);
-							let tr = element.closest('tr');
-							let row = table.row(tr);
-							console.log(element)
-							let dados = JSON.parse(element.attr("dados"));
 
-							if ( row.child.isShown() ) {
-								row.child.hide();
-								tr.removeClass('shown');
-							}
-							else {
-								row.child( format(dados) ).show();
-								tr.addClass('shown');
-							}
-						});
-
-						function format (dados) {
-							return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
-							'<tr>'+
-							'<td><b><?=$this->lang->line('milestone')?>:</b> </td>'+
-							'<td>'+dados.milestone+'</td>'+
-							'</tr>'+
-
-							'</table>';
-						}
 					</script>
 
 					<script type="text/javascript">

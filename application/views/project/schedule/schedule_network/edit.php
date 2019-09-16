@@ -1,7 +1,7 @@
 <div id="page-wrapper">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header"> <?=$this->lang->line('resource_requirement_edit-title')?></h1>
+			<h1 class="page-header"> <?=$this->lang->line('schedule_network_edit-title')?></h1>
 		</div>
 		<!-- /.col-lg-12 -->
 	</div>
@@ -23,7 +23,7 @@
 
 		<div class="row">
 			<div class="col-lg-12">
-					<form action="<?=base_url()?>Activity/updateResourceRequirement/<?php echo $id; ?>" method="post">
+					<form action="<?=base_url()?>Activity/updateScheduleNetwork/<?php echo $id; ?>" method="post">
 
 			<input type="hidden" id="project_id" name="project_id" value="<?php echo $project_id; ?>">
 			<!-- Textarea -->
@@ -78,7 +78,7 @@
 				</button>
 			</form>
 
-			<form action="<?php echo base_url('Activity/listp/'); ?><?php echo $project_id; ?>" >
+			<form action="<?php echo base_url('Activity/listScheduleNetwork/'); ?><?php echo $project_id; ?>" >
 				<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 			</form>
 		</div>

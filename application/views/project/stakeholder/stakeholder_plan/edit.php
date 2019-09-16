@@ -18,7 +18,7 @@
 			</div>
 		<?php endif;?>
 
-<<script type="text/javascript">
+<script type="text/javascript">
   function avg(){
     document.getElementById('average').value = 0
     var interest = document.getElementById('interest').value;

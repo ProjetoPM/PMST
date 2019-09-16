@@ -5,6 +5,10 @@ $lang['activity_list-title'] = 'Activity List';
 $lang['activity_list-btn'] = 'new Activity';
 $lang['new_activity-title'] = 'Create Acitivity';
 $lang['edit_activity-title'] = 'Edit Acitivity';
+$lang['schedule_network-title'] = 'Project Schedule Network';
+$lang['schedule_network_edit-title'] = 'Activity Schedule Network';
+
+
 
 
 //Form
