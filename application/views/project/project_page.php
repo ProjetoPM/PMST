@@ -359,8 +359,8 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox disableColor">
+                    <a href="<?=base_url("Activity/listResourceRequirement/".$project[0]->project_id) ?>">
+                      <div class=" col-lg-1 midBox timeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
                           <?=$this->lang->line('activity-resource')?>

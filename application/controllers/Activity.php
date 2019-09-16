@@ -129,5 +129,39 @@ class Activity extends CI_Controller {
 	            redirect('Activity/listScheduleNetwork/' . $activity['project_id']);
 	        }
 	    }
+
+			//RESOURCE REQUIREMENT
+					public function listResourceRequirement($project_id){
+							$dado['project_id'] = $project_id;
+							$dado['activity'] = $this->Activity_model->getAllActivity($project_id);
+							$this->load->view('frame/header_view');
+							$this->load->view('frame/sidebar_nav_view');
+							$this->load->view('project/schedule/resource_requirement/list',$dado);
+					}
+
+					public function editResourceRequirement($id) {
+							$query['activity'] = $this->Activity_model->getActivity($id);
+
+							$this->load->view('frame/header_view.php');
+							$this->load->view('frame/sidebar_nav_view.php');
+							$this->load->view('project/schedule/resource_requirement/edit', $query);
+					}
+
+					public function updateResourceRequirement($id) {
+							$activity['resource_description'] = $this->input->post('resource_description');
+							$activity['required_amount_of_resource'] = $this->input->post('required_amount_of_resource');
+							$activity['resource_cost_per_unit'] = $this->input->post('resource_cost_per_unit');
+							$activity['resource_type'] = $this->input->post('resource_type');
+
+							$activity['project_id'] = $this->input->post('project_id');
+
+							$data['activity'] = $activity;
+							$query = $this->Activity_model->updateActivity($data['activity'], $id);
+
+							if ($query) {
+									redirect('Activity/listResourceRequirement/' . $activity['project_id']);
+							}
+					}
+
 }
 ?>

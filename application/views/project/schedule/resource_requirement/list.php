@@ -26,10 +26,10 @@
 						<thead>
 							<tr>
 								<th><?=$this->lang->line('activity_name')?></th>
-								<th><?=$this->lang->line('predecessor_activity')?></th>
-								<th><?=$this->lang->line('dependence_type')?></th>
-								<th><?=$this->lang->line('anticipation')?></th>
-								<th><?=$this->lang->line('wait')?></th>
+								<th><?=$this->lang->line('resource_description')?></th>
+								<th><?=$this->lang->line('required_amount_of_resource')?></th>
+								<th><?=$this->lang->line('resource_cost_per_unit')?></th>
+								<th><?=$this->lang->line('resource_type')?></th>
 
 								<th><?=$this->lang->line('btn-actions')?></th>
 							</tr>
@@ -40,10 +40,10 @@
 								?>
 								<tr dados='<?= json_encode($a); ?>'>
 									<td><?php echo $a->activity_name;?></td>
-									<td><?php echo $a->predecessor_activity;?></td>
-									<td><?php echo $a->dependence_type;?></td>
-									<td><?php echo $a->anticipation;?></td>
-									<td><?php echo $a->wait;?></td>
+									<td><?php echo $a->resource_description;?></td>
+									<td><?php echo $a->required_amount_of_resource;?></td>
+									<td><?php echo $a->resource_cost_per_unit;?></td>
+									<td><?php echo $a->resource_type;?></td>
 
 									<td style="max-width: 20px">
 										<div class="row center">
@@ -54,9 +54,7 @@
 												</form>
 											</div>
 
-											<div class="col-sm-3">
-												<button type="submit" class="btn btn-danger" onclick="deletar(<?=$a->project_id?>, <?= $a->id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
-											</div>
+
 
 										</div>
 									</td>
@@ -78,7 +76,7 @@
 
 																<!--1º preencher o nome da view-->
 																<?php $view = array(
-																  "name" => "schedule_resource_requirement",
+																  "name" => "resource_requirement",
 																); ?>
 
 																<!--Carrega o form de envio e envia para ele o nome da view que tu setou -->
@@ -112,8 +110,11 @@
 						$(document).ready( function () {
 							table = $('#tableNB').DataTable({
 								"columns": [
-								{ "data": "associated_id" },
 								{ "data": "activity_name" },
+								{ "data": "resource_description" },
+								{ "data": "required_amount_of_resource" },
+								{ "data": "resource_cost_per_unit" },
+								{ "data": "resource_type" },
 								{ "data": "btn-actions", "orderable": false}
 								],
 								"order": [[1, 'attr']]
@@ -150,7 +151,6 @@
 											alertify.error('You did not agree.');
 										}
 									}).show();
-
 						}
 
 					</script>

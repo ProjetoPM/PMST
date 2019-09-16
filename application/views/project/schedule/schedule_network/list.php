@@ -104,19 +104,19 @@
 						'use strict'
 						let table;
 
-
 						$(document).ready( function () {
 							table = $('#tableNB').DataTable({
 								"columns": [
-								{ "data": "associated_id" },
 								{ "data": "activity_name" },
+								{ "data": "predecessor_activity" },
+								{ "data": "dependence_type" },
+								{ "data": "anticipation" },
+								{ "data": "wait" },
 								{ "data": "btn-actions", "orderable": false}
 								],
 								"order": [[1, 'attr']]
 							});
 						} );
-
-
 					</script>
 
 					<script type="text/javascript">

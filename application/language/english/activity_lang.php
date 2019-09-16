@@ -7,6 +7,9 @@ $lang['new_activity-title'] = 'Create Acitivity';
 $lang['edit_activity-title'] = 'Edit Acitivity';
 $lang['schedule_network-title'] = 'Project Schedule Network';
 $lang['schedule_network_edit-title'] = 'Activity Schedule Network';
+$lang['resource_requirement-title'] = 'Resource Requirement';
+$lang['resource_requirement_edit-title'] = 'Activity Resource Requirement';
+
 
 
 

@@ -37,39 +37,39 @@
 					 </div>
 				 </div>
 
-			<div class=" col-lg-12 form-group">
-				<label for="predecessor_activity"><?=$this->lang->line('predecessor_activity')?></label>
-				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('predecessor_activity-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
+				 <div class=" col-lg-12 form-group">
+	 				<label for="resource_description"><?=$this->lang->line('resource_description')?></label>
+	 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('resource_description-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
+	 				<div>
+	 					<input id="resource_description" name="resource_description" class="form-control input-md" required="false" value="<?php echo $resource_description; ?>">
+	 				</div>
+	 			</div>
+
+			<div class=" col-lg-4 form-group">
+				<label for="required_amount_of_resource"><?=$this->lang->line('required_amount_of_resource')?></label>
+				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('required_amount_of_resource-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 				<div>
-					<input id="predecessor_activity" name="predecessor_activity" class="form-control input-md" required="false" value="<?php echo $predecessor_activity; ?>">
+					<input id="required_amount_of_resource" type="number" name="required_amount_of_resource" class="form-control input-md" required="false" value="<?php echo $required_amount_of_resource; ?>">
 				</div>
 			</div>
 
 
 			<div class=" col-lg-4 form-group">
-				<label for="dependence_type"><?=$this->lang->line('dependence_type')?></label>
-				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('dependence_type-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
+				<label for="resource_cost_per_unit"><?=$this->lang->line('resource_cost_per_unit')?></label>
+				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('resource_cost_per_unit-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 				<div>
-					<input id="dependence_type" name="dependence_type" class="form-control input-md" value="<?php echo $dependence_type; ?>">
+					<input id="resource_cost_per_unit" name="resource_cost_per_unit" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $resource_cost_per_unit; ?>">
 				</div>
 			</div>
 
 			<div class=" col-lg-4 form-group">
-				<label for="anticipation"><?=$this->lang->line('anticipation')?></label>
-				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('anticipation-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
+				<label for="resource_type"><?=$this->lang->line('resource_type')?></label>
+				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('resource_type-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 				<div>
-					<input id="anticipation" name="anticipation" class="form-control input-md" value="<?php echo $anticipation; ?>">
+					<input id="resource_type" name="resource_type" class="form-control input-md" value="<?php echo $resource_type; ?>">
 				</div>
 			</div>
 
-
-			<div class=" col-lg-4 form-group">
-				<label for="wait"><?=$this->lang->line('wait')?></label>
-				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('wait-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-				<div>
-					<input id="wait" name="wait" type="text" class="form-control input-md" value="<?php echo $wait; ?>">
-				</div>
-			</div>
 
 
 			<div class="col-lg-12">
@@ -78,7 +78,7 @@
 				</button>
 			</form>
 
-			<form action="<?php echo base_url('Activity/listp/'); ?><?php echo $project_id; ?>" >
+			<form action="<?php echo base_url('Activity/listResourceRequirement/'); ?><?php echo $project_id; ?>" >
 				<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 			</form>
 		</div>

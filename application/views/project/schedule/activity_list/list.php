@@ -23,6 +23,7 @@
 					<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Activity/newp/<?php echo $project_id ?>'"> <?=$this->lang->line('activity_list-btn')?> <?=$this->lang->line('eval-title')?></button>
 				</div>
 			</div>
+			<br>
 
 			<div class="row">
 				<div class="col-lg-12">
@@ -30,9 +31,9 @@
 					<table class="table table-bordered table-striped" id="tableNB">
 						<thead>
 							<tr>
-								<th class="text-center">#</th>
 								<th><?=$this->lang->line('associated_id')?></th>
 								<th><?=$this->lang->line('project_phase')?></th>
+								<th><?=$this->lang->line('milestone')?></th>
 								<th><?=$this->lang->line('activity_name')?></th>
 
 								<th><?=$this->lang->line('btn-actions')?></th>
@@ -43,9 +44,9 @@
 							foreach ($activity as $a) {
 								?>
 								<tr dados='<?= json_encode($a); ?>'>
-									<td class="moreInformationTable"></td>
 									<td><?php echo $a->associated_id;?></td>
 									<td><?php echo $a->project_phase;?></td>
+									<td><?php echo $a->milestone;?></td>
 									<td><?php echo $a->activity_name;?></td>
 
 									<td style="max-width: 20px">
@@ -121,9 +122,11 @@
 						$(document).ready( function () {
 							table = $('#tableNB').DataTable({
 								"columns": [
-								{ "data": "#", "orderable": false},
 								{ "data": "associated_id" },
 								{ "data": "activity_name" },
+								{ "data": "milestone" },
+								{ "data": "activity_name" },
+
 								{ "data": "btn-actions", "orderable": false}
 								],
 								"order": [[1, 'attr']]

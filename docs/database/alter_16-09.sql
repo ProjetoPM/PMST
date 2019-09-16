@@ -12,8 +12,8 @@
     `wait` VARCHAR(100) NULL DEFAULT NULL,
 
     `resource_description` VARCHAR(100) NULL DEFAULT NULL,
-    `required_amount_of_resource` VARCHAR(100) NULL DEFAULT NULL,
-    `resource_cost_per_unit` VARCHAR(100) NULL DEFAULT NULL,
+    `required_amount_of_resource` INT(11) NULL DEFAULT NULL,
+    `resource_cost_per_unit` DECIMAL(11,2) NULL DEFAULT NULL,
     `resource_type` VARCHAR(100) NULL DEFAULT NULL,
 
     `resource_name` VARCHAR(200) NULL DEFAULT NULL,
@@ -21,9 +21,9 @@
     `availability_start` DATE NULL DEFAULT NULL,
     `availability_ends` DATE NULL DEFAULT NULL,
 
-    `estimated_duration` FLOAT(11) NULL DEFAULT NULL,
-    `replanted_duration` FLOAT(11) NULL DEFAULT NULL,
-    `performed_duration` FLOAT(11) NULL DEFAULT NULL,
+    `estimated_duration` DECIMAL(11,2) NULL DEFAULT NULL,
+    `replanted_duration` DECIMAL(11,2) NULL DEFAULT NULL,
+    `performed_duration` DECIMAL(11,2) NULL DEFAULT NULL,
     `estimated_start_date` DATE NULL DEFAULT NULL,
     `replanted_start_date` DATE NULL DEFAULT NULL,
     `performed_start_date` DATE NULL DEFAULT NULL,
