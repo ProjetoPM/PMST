@@ -41,7 +41,7 @@
 				<label for="predecessor_activity"><?=$this->lang->line('predecessor_activity')?></label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('predecessor_activity-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 				<div>
-					<input id="predecessor_activity" name="predecessor_activity" class="form-control input-md" required="false" value="<?php echo $predecessor_activity; ?>">
+					<input id="predecessor_activity" name="predecessor_activity" class="form-control input-md" value="<?php echo $predecessor_activity; ?>">
 				</div>
 			</div>
 

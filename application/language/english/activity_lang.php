@@ -9,10 +9,8 @@ $lang['schedule_network-title'] = 'Project Schedule Network';
 $lang['schedule_network_edit-title'] = 'Activity Schedule Network';
 $lang['resource_requirement-title'] = 'Resource Requirement';
 $lang['resource_requirement_edit-title'] = 'Activity Resource Requirement';
-
-
-
-
+$lang['activity_duration_estimates-title'] = 'Activity Duration Estimates';
+$lang['activity_duration_estimates_edit-title'] = 'Activity Duration Estimates';
 
 //Form
 $lang['associated_id'] = 'Associated Id.';
@@ -35,9 +33,9 @@ $lang['function'] = 'Function';
 $lang['availability_start'] = 'Availability Start';
 $lang['availability_ends'] = 'Availability Ends';
 
-$lang['estimated_duration'] = 'Estimated Duration';
-$lang['replanted_duration'] = 'Replanted Duration';
-$lang['performed_duration'] = 'Performed Duration';
+$lang['estimated_duration'] = 'Estimated Duration in Hours';
+$lang['replanted_duration'] = 'Replanted Duration in Hours';
+$lang['performed_duration'] = 'Performed Duration in Hours';
 $lang['estimated_start_date'] = 'Estimated Start Date';
 $lang['replanted_start_date'] = 'Replanted Start Date';
 $lang['performed_start_date'] = 'Performed Start Date';

@@ -41,7 +41,7 @@
 	 				<label for="resource_description"><?=$this->lang->line('resource_description')?></label>
 	 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('resource_description-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 	 				<div>
-	 					<input id="resource_description" name="resource_description" class="form-control input-md" required="false" value="<?php echo $resource_description; ?>">
+	 					<input id="resource_description" name="resource_description" class="form-control input-md" value="<?php echo $resource_description; ?>">
 	 				</div>
 	 			</div>
 
@@ -49,7 +49,7 @@
 				<label for="required_amount_of_resource"><?=$this->lang->line('required_amount_of_resource')?></label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('required_amount_of_resource-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 				<div>
-					<input id="required_amount_of_resource" type="number" name="required_amount_of_resource" class="form-control input-md" required="false" value="<?php echo $required_amount_of_resource; ?>">
+					<input id="required_amount_of_resource" type="number" name="required_amount_of_resource" class="form-control input-md" value="<?php echo $required_amount_of_resource; ?>">
 				</div>
 			</div>
 

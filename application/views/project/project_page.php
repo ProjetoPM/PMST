@@ -300,7 +300,7 @@
 
               <div class="col-lg-12 wrapper noSpaceSide">
                 <div class="noSpaceSide">
-                  <div class="col-lg-1 sideBox timeBox">
+                  <div class="col-lg-1 sideBox integrationBox timeColor">
                     <div class="verticalAlign">
                       <i class="glyphicon glyphicon-time"></i>
                       <?=$this->lang->line('time')?>
@@ -354,7 +354,7 @@
                       <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
-                          <?=$this->lang->line('activity-attributes')?>
+                          <?=$this->lang->line('milestone-list')?>
                         </div>
                       </div>
                     </a>
@@ -400,8 +400,8 @@
 
 
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                        <div class=" col-lg-1 midBox disableColor">
+                    <a href="<?=base_url("Activity/listDurationEstimates/".$project[0]->project_id) ?>">
+                        <div class=" col-lg-1 midBox timeColor">
                           <div class="verticalAlign">
                               <i class="glyphicon glyphicon-time"></i>
                                 <?=$this->lang->line('activity-duration')?>
@@ -425,32 +425,7 @@
                     <div class=" col-lg-1 midBox timeColor hideBox"></div>
 
                   </div>
-                  <!--  -->
-                  <div class="col-lg-10 noSpaceSide floatRight">
 
-                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
-
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox disableColor">
-                        <div class="verticalAlign">
-                          <i class="glyphicon glyphicon-time"></i>
-                          <?=$this->lang->line('milestone-list')?>
-                        </div>
-                      </div>
-                    </a>
-
-                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
-
-                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
-
-                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
-
-                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
-
-                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
-
-                  </div>
-                  <!--  -->
                 </div>
               </div>
 
@@ -655,7 +630,7 @@
                     <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox hrColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="fa fa-male"></i>
                           <?=$this->lang->line('project-team')?>
@@ -705,7 +680,7 @@
                     <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
                     <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox hrColor">
+                      <div class=" col-lg-1 midBox disableColor">
                         <div class="verticalAlign">
                           <i class="fa fa-male"></i>
                           <?=$this->lang->line('enterprise-environment')?>

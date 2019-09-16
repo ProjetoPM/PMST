@@ -130,28 +130,33 @@ class Activity extends CI_Controller {
 	        }
 	    }
 
-			//RESOURCE REQUIREMENT
-					public function listResourceRequirement($project_id){
+			//DURATION ESTIMATES
+					public function listDurationEstimates($project_id){
 							$dado['project_id'] = $project_id;
 							$dado['activity'] = $this->Activity_model->getAllActivity($project_id);
 							$this->load->view('frame/header_view');
 							$this->load->view('frame/sidebar_nav_view');
-							$this->load->view('project/schedule/resource_requirement/list',$dado);
+							$this->load->view('project/schedule/duration_estimates/list',$dado);
 					}
 
-					public function editResourceRequirement($id) {
+					public function editDurationEstimates($id) {
 							$query['activity'] = $this->Activity_model->getActivity($id);
 
 							$this->load->view('frame/header_view.php');
 							$this->load->view('frame/sidebar_nav_view.php');
-							$this->load->view('project/schedule/resource_requirement/edit', $query);
+							$this->load->view('project/schedule/duration_estimates/edit', $query);
 					}
 
-					public function updateResourceRequirement($id) {
-							$activity['resource_description'] = $this->input->post('resource_description');
-							$activity['required_amount_of_resource'] = $this->input->post('required_amount_of_resource');
-							$activity['resource_cost_per_unit'] = $this->input->post('resource_cost_per_unit');
-							$activity['resource_type'] = $this->input->post('resource_type');
+					public function updateDurationEstimates($id) {
+							$activity['estimated_duration'] = $this->input->post('estimated_duration');
+							$activity['replanted_duration'] = $this->input->post('replanted_duration');
+							$activity['performed_duration'] = $this->input->post('performed_duration');
+							$activity['estimated_start_date'] = $this->input->post('estimated_start_date');
+							$activity['replanted_start_date'] = $this->input->post('replanted_start_date');
+							$activity['performed_start_date'] = $this->input->post('performed_start_date');
+							$activity['estimated_end_date'] = $this->input->post('estimated_end_date');
+							$activity['replanted_end_date'] = $this->input->post('replanted_end_date');
+							$activity['performed_end_date'] = $this->input->post('performed_end_date');
 
 							$activity['project_id'] = $this->input->post('project_id');
 
@@ -159,9 +164,42 @@ class Activity extends CI_Controller {
 							$query = $this->Activity_model->updateActivity($data['activity'], $id);
 
 							if ($query) {
-									redirect('Activity/listResourceRequirement/' . $activity['project_id']);
+									redirect('Activity/listDurationEstimates/' . $activity['project_id']);
 							}
 					}
+
+					//RESOURCE REQUIREMENT
+							public function listResourceRequirement($project_id){
+									$dado['project_id'] = $project_id;
+									$dado['activity'] = $this->Activity_model->getAllActivity($project_id);
+									$this->load->view('frame/header_view');
+									$this->load->view('frame/sidebar_nav_view');
+									$this->load->view('project/schedule/resource_requirement/list',$dado);
+							}
+
+							public function editResourceRequirement($id) {
+									$query['activity'] = $this->Activity_model->getActivity($id);
+
+									$this->load->view('frame/header_view.php');
+									$this->load->view('frame/sidebar_nav_view.php');
+									$this->load->view('project/schedule/resource_requirement/edit', $query);
+							}
+
+							public function updateResourceRequirement($id) {
+									$activity['resource_description'] = $this->input->post('resource_description');
+									$activity['required_amount_of_resource'] = $this->input->post('required_amount_of_resource');
+									$activity['resource_cost_per_unit'] = $this->input->post('resource_cost_per_unit');
+									$activity['resource_type'] = $this->input->post('resource_type');
+
+									$activity['project_id'] = $this->input->post('project_id');
+
+									$data['activity'] = $activity;
+									$query = $this->Activity_model->updateActivity($data['activity'], $id);
+
+									if ($query) {
+											redirect('Activity/listResourceRequirement/' . $activity['project_id']);
+									}
+							}
 
 }
 ?>
