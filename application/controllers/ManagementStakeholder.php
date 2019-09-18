@@ -147,7 +147,7 @@ class ManagementStakeholder extends CI_Controller {
 		if($query){
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/sidebar_nav_view');
-			redirect('project/ManagementStakeholder/listp' . $stakeholder['project_id']);
+			redirect('ManagementStakeholder/listp/' . $stakeholder['project_id']);
 		}
 
 	}

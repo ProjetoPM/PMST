@@ -17,21 +17,21 @@
 				<strong><?php echo $this->session->flashdata('error'); ?></strong>
 			</div>
 		<?php endif; ?>
-		<!-- /.row -->   
+		<!-- /.row -->
 		<!-- acessa o objeto do array -->
 		<div class="row">
 			<div class="col-lg-12">
 		<?php extract($issues_record); ?>
-		
+
 		<form action="<?=base_url()?>Issues_Record/update/<?php echo $issues_record_id; ?>" method="post">
 
 			<input type="hidden" name="project_id" value="<?php echo $project_id; ?>">
-			<input type="hidden" name="status" value="1">                           
+			<input type="hidden" name="status" value="1">
 			<!-- Textarea -->
 
 
 			<div class="form-group col-lg-12">
-				<label for="identification"><?=$this->lang->line('ir-identification')?></label>                    
+				<label for="identification"><?=$this->lang->line('ir-identification')?></label>
 				<textarea class="form-control" id="identification"  name="identification" maxlength="45"><?php echo $identification; ?></textarea>
 			</div>
 
@@ -49,26 +49,26 @@
 
 
 			<div class="form-group col-lg-6">
-				<label for="question_description"><?=$this->lang->line('ir-question_description')?></label>                    
+				<label for="question_description"><?=$this->lang->line('ir-question_description')?></label>
 				<textarea class="form-control" id="question_description"  name="question_description" maxlength="45"><?php echo $question_description; ?></textarea>
 			</div>
 
 			<div class="form-group col-lg-12">
-				<label for="type"><?=$this->lang->line('ir-type')?></label>                    
+				<label for="type"><?=$this->lang->line('ir-type')?></label>
 				<textarea class="form-control" id="type"  name="type" maxlength="45"><?php echo $type; ?></textarea>
 			</div>
 
 			<div class="form-group col-lg-6">
-				<label for="responsable"><?=$this->lang->line('ir-responsable')?></label>                    
+				<label for="responsable"><?=$this->lang->line('ir-responsable')?></label>
 				<textarea class="form-control" id="responsable"  name="responsable" maxlength="45"><?php echo $responsable; ?></textarea>
 			</div>
 			<div class="form-group col-lg-6">
-				<label for="situation"><?=$this->lang->line('ir-situation')?></label>                    
+				<label for="situation"><?=$this->lang->line('ir-situation')?></label>
 				<textarea class="form-control" id="situation"  name="situation" maxlength="45"><?php echo $situation; ?></textarea>
 			</div>
 
 			<div class="form-group col-lg-12">
-				<label for="action"><?=$this->lang->line('ir-action')?></label>                    
+				<label for="action"><?=$this->lang->line('ir-action')?></label>
 				<textarea class="form-control" id="action"  name="action" maxlength="45"><?php echo $action; ?></textarea>
 			</div>
 
@@ -98,7 +98,7 @@
 			</div>
 
 			<div class="form-group col-lg-12">
-				<label for="observations"><?=$this->lang->line('ir-observations')?></label>                    
+				<label for="observations"><?=$this->lang->line('ir-observations')?></label>
 				<textarea class="form-control" id="observations" name="observations" maxlength="45"><?php echo $observations; ?></textarea>
 			</div>
 
@@ -107,8 +107,8 @@
 				<i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
 			</button>
 				</form>
-				
-					<form action="<?php echo base_url()?>/Issues_Record/list/<?=$project_id?>">
+
+					<form action="<?php echo base_url()?>Issues_Record/listp/<?=$project_id?>">
 					<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 				</form>
 				</div>
@@ -117,7 +117,7 @@
 	</div>
 </div>
 </div>
-</div>  
+</div>
 </div>
 
 <!-- /.row -->
@@ -172,5 +172,5 @@
 
 
 <div>
-	<?php $this->load->view('frame/footer_view') ?>            
+	<?php $this->load->view('frame/footer_view') ?>
 </div>

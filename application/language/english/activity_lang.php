@@ -11,6 +11,8 @@ $lang['resource_requirement-title'] = 'Resource Requirement';
 $lang['resource_requirement_edit-title'] = 'Activity Resource Requirement';
 $lang['activity_duration_estimates-title'] = 'Activity Duration Estimates';
 $lang['activity_duration_estimates_edit-title'] = 'Activity Duration Estimates';
+$lang['resource_calendar-title'] = 'Designation of project team and Resource Calendar';
+$lang['resource_calendar_edit-title'] = 'Activity Resource Calendar';
 
 //Form
 $lang['associated_id'] = 'Associated Id.';
@@ -32,6 +34,8 @@ $lang['resource_name'] = 'Resource Name';
 $lang['function'] = 'Function';
 $lang['availability_start'] = 'Availability Start';
 $lang['availability_ends'] = 'Availability Ends';
+$lang['allocation_start'] = 'Allocation Start';
+$lang['allocation_ends'] = 'Allocation Ends';
 
 $lang['estimated_duration'] = 'Estimated Duration in Hours';
 $lang['replanted_duration'] = 'Replanted Duration in Hours';
@@ -101,6 +105,8 @@ $lang['resource_name-tp'] = 'Resource Name';
 $lang['function-tp'] = 'Function';
 $lang['availability_start-tp'] = 'Availability Start';
 $lang['availability_ends-tp'] = 'Availability Ends';
+$lang['allocation_start-tp'] = 'Allocation Start';
+$lang['allocation_ends-tp'] = 'Allocation Ends';
 
 $lang['estimated_duration-tp'] = 'Estimated Duration';
 $lang['replanted_duration-tp'] = 'Replanted Duration';

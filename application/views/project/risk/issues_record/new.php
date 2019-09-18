@@ -49,7 +49,7 @@
 			</div>
 
 			<div class="form-group col-lg-12">
-				<label for="type"><?=$this->lang->line('ir-type')?></label>                      
+				<label for="type"><?=$this->lang->line('ir-type')?></label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('ir-type-tooltip')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 				<textarea class="form-control" id="type"  name="type" maxlength="255"></textarea>
@@ -109,10 +109,10 @@
 				<button type="submit" class="btn btn-lg btn-success pull-right">
 					<i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
 				</button>
-			
+
 		</form>
-				
-				<form action="<?php echo base_url()?>/Issues_Record/list/<?=$project_id?>">
+
+				<form action="<?php echo base_url()?>Issues_Record/listp/<?=$project_id?>">
 					<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 				</form>
 			</div>

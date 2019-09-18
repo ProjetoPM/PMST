@@ -20,6 +20,8 @@
     `function` VARCHAR(100) NULL DEFAULT NULL,
     `availability_start` DATE NULL DEFAULT NULL,
     `availability_ends` DATE NULL DEFAULT NULL,
+    `allocation_start` DATE NULL DEFAULT NULL,
+    `allocation_ends` DATE NULL DEFAULT NULL,
 
     `estimated_duration` DECIMAL(11,2) NULL DEFAULT NULL,
     `replanted_duration` DECIMAL(11,2) NULL DEFAULT NULL,

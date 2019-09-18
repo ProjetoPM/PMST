@@ -329,11 +329,52 @@
                       </div>
                     </a>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox disableColor">
+                    <a href="<?=base_url("Activity/listResourceCalendar/".$project[0]->project_id) ?>">
+                      <div class=" col-lg-1 midBox timeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
                           <?=$this->lang->line('project-calendar')?>
+                        </div>
+                      </div>
+                    </a>
+
+                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
+
+                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
+
+                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
+
+                  </div>
+                  <!--  -->
+                  <div class="col-lg-10 noSpaceSide floatRight">
+
+                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
+
+
+
+                    <a href="<?=base_url("Activity/listp/".$project[0]->project_id) ?>">
+                      <div class=" col-lg-1 midBox timeColor">
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-time"></i>
+                          <?=$this->lang->line('activity-list')?>
+                        </div>
+                      </div>
+                    </a>
+
+                    <a href="<?=base_url("Activity/listResourceRequirement/".$project[0]->project_id) ?>">
+                      <div class=" col-lg-1 midBox timeColor">
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-time"></i>
+                          <?=$this->lang->line('activity-resource')?>
+                        </div>
+                      </div>
+                    </a>
+
+                    <a href="<?=base_url("Activity/listResourceCalendar/".$project[0]->project_id) ?>">
+                      <div class=" col-lg-1 midBox disableColor">
+                        <div class="verticalAlign">
+                          <i class="glyphicon glyphicon-time"></i>
+                          <?=$this->lang->line('project-schedule')?>
                         </div>
                       </div>
                     </a>
@@ -355,45 +396,6 @@
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
                           <?=$this->lang->line('milestone-list')?>
-                        </div>
-                      </div>
-                    </a>
-
-                    <a href="<?=base_url("Activity/listResourceRequirement/".$project[0]->project_id) ?>">
-                      <div class=" col-lg-1 midBox timeColor">
-                        <div class="verticalAlign">
-                          <i class="glyphicon glyphicon-time"></i>
-                          <?=$this->lang->line('activity-resource')?>
-                        </div>
-                      </div>
-                    </a>
-
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox disableColor">
-                        <div class="verticalAlign">
-                          <i class="glyphicon glyphicon-time"></i>
-                          <?=$this->lang->line('project-schedule')?>
-                        </div>
-                      </div>
-                    </a>
-
-                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
-
-                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
-
-                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
-
-                  </div>
-                  <!--  -->
-                  <div class="col-lg-10 noSpaceSide floatRight">
-
-                    <div class=" col-lg-1 midBox timeColor hideBox"></div>
-
-                    <a href="<?=base_url("Activity/listp/".$project[0]->project_id) ?>">
-                      <div class=" col-lg-1 midBox timeColor">
-                        <div class="verticalAlign">
-                          <i class="glyphicon glyphicon-time"></i>
-                          <?=$this->lang->line('activity-list')?>
                         </div>
                       </div>
                     </a>
@@ -902,7 +904,7 @@
 
                     <div class=" col-lg-1 midBox stakeholderColor hideBox"></div>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
+                    <a href="<?=base_url("Issues_Record/listp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox stakeholderColor">
                         <div class="verticalAlign">
                           <i class="fa fa-users"></i>

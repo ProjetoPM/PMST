@@ -201,5 +201,40 @@ class Activity extends CI_Controller {
 									}
 							}
 
+							//RESOURCE CALENDAR
+									public function listResourceCalendar($project_id){
+											$dado['project_id'] = $project_id;
+											$dado['activity'] = $this->Activity_model->getAllActivity($project_id);
+											$this->load->view('frame/header_view');
+											$this->load->view('frame/sidebar_nav_view');
+											$this->load->view('project/schedule/resource_calendar/list',$dado);
+									}
+
+									public function editResourceCalendar($id) {
+											$query['activity'] = $this->Activity_model->getActivity($id);
+
+											$this->load->view('frame/header_view.php');
+											$this->load->view('frame/sidebar_nav_view.php');
+											$this->load->view('project/schedule/resource_calendar/edit', $query);
+									}
+
+									public function updateResourceCalendar($id) {
+											$activity['resource_name'] = $this->input->post('resource_name');
+											$activity['function'] = $this->input->post('function');
+											$activity['availability_start'] = $this->input->post('availability_start');
+											$activity['availability_ends'] = $this->input->post('availability_ends');
+											$activity['allocation_start'] = $this->input->post('allocation_start');
+											$activity['allocation_ends'] = $this->input->post('allocation_ends');
+
+											$activity['project_id'] = $this->input->post('project_id');
+
+											$data['activity'] = $activity;
+											$query = $this->Activity_model->updateActivity($data['activity'], $id);
+
+											if ($query) {
+													redirect('Activity/listResourceCalendar/' . $activity['project_id']);
+											}
+									}
+
 }
 ?>
