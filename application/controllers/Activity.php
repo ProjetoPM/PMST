@@ -236,5 +236,45 @@ class Activity extends CI_Controller {
 											}
 									}
 
+									//COST ESTIMATION
+											public function listCostEstimation($project_id){
+													$dado['project_id'] = $project_id;
+													$dado['activity'] = $this->Activity_model->getAllActivity($project_id);
+													$this->load->view('frame/header_view');
+													$this->load->view('frame/sidebar_nav_view');
+													$this->load->view('project/schedule/cost_estimation/list',$dado);
+											}
+
+											public function editCostEstimation($id) {
+													$query['activity'] = $this->Activity_model->getActivity($id);
+
+													$this->load->view('frame/header_view.php');
+													$this->load->view('frame/sidebar_nav_view.php');
+													$this->load->view('project/schedule/cost_estimation/edit', $query);
+											}
+
+											public function updateCostEstimation($id) {
+													$activity['estimated_cost'] = $this->input->post('estimated_cost');
+													$activity['cumulative_estimated_cost'] = $this->input->post('cumulative_estimated_cost');
+													$activity['replanted_cost'] = $this->input->post('replanted_cost');
+													$activity['contingency_reserve'] = $this->input->post('contingency_reserve');
+													$activity['sum_of_work_packages'] = $this->input->post('sum_of_work_packages');
+													$activity['contingency_reserve_of_packages'] = $this->input->post('contingency_reserve_of_packages');
+													$activity['baseline'] = $this->input->post('baseline');
+													$activity['budget'] = $this->input->post('budget');
+													$activity['cumulative_replanted_cost'] = $this->input->post('cumulative_replanted_cost');
+													$activity['real_cost'] = $this->input->post('real_cost');
+													$activity['cumulative_real_cost'] = $this->input->post('cumulative_real_cost');
+
+													$activity['project_id'] = $this->input->post('project_id');
+
+													$data['activity'] = $activity;
+													$query = $this->Activity_model->updateActivity($data['activity'], $id);
+
+													if ($query) {
+															redirect('Activity/listCostEstimation/' . $activity['project_id']);
+													}
+											}
+
 }
 ?>

@@ -13,6 +13,8 @@ $lang['activity_duration_estimates-title'] = 'Activity Duration Estimates';
 $lang['activity_duration_estimates_edit-title'] = 'Activity Duration Estimates';
 $lang['resource_calendar-title'] = 'Designation of project team and Resource Calendar';
 $lang['resource_calendar_edit-title'] = 'Activity Resource Calendar';
+$lang['cost_estimation-title'] = 'Cost Estimation';
+$lang['cost_estimation_edit-title'] = 'Activity Cost Estimation';
 
 //Form
 $lang['associated_id'] = 'Associated Id.';

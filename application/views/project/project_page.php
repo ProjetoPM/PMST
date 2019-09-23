@@ -478,8 +478,8 @@
 
                     <div class=" col-lg-1 midBox costColor hideBox"></div>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox disableColor">
+                    <a href="<?=base_url("Activity/listCostEstimation/".$project[0]->project_id) ?>">
+                      <div class=" col-lg-1 midBox costColor">
                         <div class="verticalAlign">
                           <i class="fa fa-money"></i>
                           <?=$this->lang->line('activity-cost')?>
