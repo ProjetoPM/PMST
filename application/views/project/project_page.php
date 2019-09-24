@@ -391,11 +391,11 @@
 
                     <div class=" col-lg-1 midBox timeColor hideBox"></div>
 
-                    <a  href="<?=base_url("Maintenance") ?>">
-                      <div class=" col-lg-1 midBox disableColor">
+                    <a href="<?=base_url("Activity/listAgregateValue/".$project[0]->project_id) ?>">
+                      <div class=" col-lg-1 midBox timeColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-time"></i>
-                          <?=$this->lang->line('milestone-list')?>
+                          <?=$this->lang->line('agregate-value')?>
                         </div>
                       </div>
                     </a>

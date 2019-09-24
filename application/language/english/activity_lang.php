@@ -15,6 +15,8 @@ $lang['resource_calendar-title'] = 'Designation of project team and Resource Cal
 $lang['resource_calendar_edit-title'] = 'Activity Resource Calendar';
 $lang['cost_estimation-title'] = 'Cost Estimation';
 $lang['cost_estimation_edit-title'] = 'Activity Cost Estimation';
+$lang['agregate_value-title'] = 'Earned Value Management';
+$lang['agregate_value_edit-title'] = 'Activity Earned Value';
 
 //Form
 $lang['associated_id'] = 'Associated Id.';
@@ -65,15 +67,18 @@ $lang['estimated_completed'] = 'Estimated Completed';
 $lang['replanted_completed'] = 'Replanted Completed';
 $lang['real_completed'] = 'Real Completed';
 
-$lang['agregate_value'] = 'Agregate Value';
+$lang['agregate_value'] = 'Earned Value';
 $lang['planned_value'] = 'Planned Value';
-$lang['real_agregate_cost'] = 'Real Agregate Cost';
+$lang['real_agregate_cost'] = 'Real Cost';
+$lang['budget_at_cumulative_end'] = 'Budget at Cumulative Cost';
 $lang['variation_of_terms'] = 'Variation of Terms';
 $lang['variation_of_costs'] = 'Variation of Costs';
+$lang['variation_at_the_end'] = 'Variation at the end';
 $lang['deadline_performance_index'] = 'Deadline Performance Index';
 $lang['estimated_of_completation'] = 'Estimated of Completation';
 $lang['costs_performance_index'] = 'Costs Performance Index';
 $lang['estimated_of_completation'] = 'Estimated of Completation';
+$lang['estimate_for_completion'] = 'Estimate for Completation';
 
 $lang['duration_pessimistic'] = 'Pessimistic Duration';
 $lang['duration_probable'] = 'Probable Duration';
@@ -136,15 +141,18 @@ $lang['estimated_completed-tp'] = 'Estimated Completed';
 $lang['replanted_completed-tp'] = 'Replanted Completed';
 $lang['real_completed-tp'] = 'Real Completed';
 
-$lang['agregate_value-tp'] = 'Agregate Value';
+$lang['agregate_value-tp'] = 'Earned Value';
 $lang['planned_value-tp'] = 'Planned Value';
-$lang['real_agregate_cost-tp'] = 'Real Agregate Cost';
+$lang['real_agregate_cost-tp'] = 'Real Cost';
+$lang['budget_at_cumulative_end-tp'] = 'Budget at Cumulative End';
 $lang['variation_of_terms-tp'] = 'Variation of Terms';
 $lang['variation_of_costs-tp'] = 'Variation of Costs';
+$lang['variation_at_the_end-tp'] = 'Variation at the End';
 $lang['deadline_performance_index-tp'] = 'Deadline Performance Index';
 $lang['estimated_of_completation-tp'] = 'Estimated of Completation';
 $lang['costs_performance_index-tp'] = 'Costs Performance Index';
 $lang['estimated_of_completation-tp'] = 'Estimated of Completation';
+$lang['estimate_for_completion-tp'] = 'Estimate for Completation';
 
 $lang['duration_pessimistic-tp'] = 'Pessimistic Duration';
 $lang['duration_probable-tp'] = 'Probable Duration';

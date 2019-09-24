@@ -32,6 +32,7 @@ $lang['schedule-management'] = 'Schedule Management';
 $lang['activity-attributes'] = 'Activity Attributes';
 $lang['activity-list'] = 'Activity List';
 $lang['milestone-list'] = 'Milestone List';
+$lang['agregate-value'] = 'Earned Value Management';
 $lang['cost-management'] = 'Cost Management';
 $lang['activity-cost'] = 'Activity Cost Estimates';
 $lang['quality-management'] = 'Quality Management';

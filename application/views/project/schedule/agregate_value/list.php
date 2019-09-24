@@ -1,7 +1,7 @@
 <div id="page-wrapper">
 	<div class="row" position="absolute">
 		<div class="col-lg-12">
-			<h1 class="page-header"><?=$this->lang->line('activity_duration_estimates-title')?></h1>
+			<h1 class="page-header"><?=$this->lang->line('agregate_value-title')?></h1>
 		</div>
 		<!-- /.col-lg-12 -->
 
@@ -26,12 +26,12 @@
 						<thead>
 							<tr>
 								<th><?=$this->lang->line('activity_name')?></th>
-								<th><?=$this->lang->line('estimated_duration')?></th>
-								<th><?=$this->lang->line('performed_duration')?></th>
-								<th><?=$this->lang->line('estimated_start_date')?></th>
-								<th><?=$this->lang->line('performed_start_date')?></th>
-								<th><?=$this->lang->line('estimated_end_date')?></th>
-								<th><?=$this->lang->line('performed_end_date')?></th>
+								<th><?=$this->lang->line('agregate_value')?></th>
+								<th><?=$this->lang->line('planned_value')?></th>
+								<th><?=$this->lang->line('variation_of_terms')?></th>
+								<th><?=$this->lang->line('variation_of_costs')?></th>
+								<th><?=$this->lang->line('variation_at_the_end')?></th>
+								<th><?=$this->lang->line('estimate_for_completion')?></th>
 
 								<th><?=$this->lang->line('btn-actions')?></th>
 							</tr>
@@ -42,21 +42,23 @@
 								?>
 								<tr dados='<?= json_encode($a); ?>'>
 									<td><?php echo $a->activity_name;?></td>
-									<td><?php echo $a->estimated_duration;?></td>
-									<td><?php echo $a->performed_duration;?></td>
-									<td><?php echo $a->estimated_start_date;?></td>
-									<td><?php echo $a->performed_start_date;?></td>
-									<td><?php echo $a->estimated_end_date;?></td>
-									<td><?php echo $a->performed_end_date;?></td>
+									<td><?php echo $a->agregate_value;?></td>
+									<td><?php echo $a->planned_value;?></td>
+									<td><?php echo $a->variation_of_terms;?></td>
+									<td><?php echo $a->variation_of_costs;?></td>
+									<td><?php echo $a->variation_at_the_end;?></td>
+									<td><?php echo $a->estimate_for_completion;?></td>
 
 									<td style="max-width: 20px">
 										<div class="row center">
 											<div class="col-sm-3">
-												<form action="<?php echo base_url() ?>Activity/editDurationEstimates/<?php echo $a->id; ?>" method="post">
+												<form action="<?php echo base_url() ?>Activity/editAgregateValue/<?php echo $a->id; ?>" method="post">
 													<input type="hidden" name="project_id" value="<?=$a->project_id; ?>">
 													<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 												</form>
 											</div>
+
+
 
 										</div>
 									</td>
@@ -78,7 +80,7 @@
 
 																<!--1º preencher o nome da view-->
 																<?php $view = array(
-																  "name" => "duration_estimates",
+																  "name" => "agregate_value",
 																); ?>
 
 																<!--Carrega o form de envio e envia para ele o nome da view que tu setou -->
@@ -113,17 +115,18 @@
 							table = $('#tableNB').DataTable({
 								"columns": [
 								{ "data": "activity_name" },
-								{ "data": "estimated_duration" },
-								{ "data": "performed_duration" },
-								{ "data": "estimated_start_date" },
-								{ "data": "performed_start_date" },
-								{ "data": "estimated_end_date" },
-								{ "data": "performed_end_date" },
+								{ "data": "agregate_value" },
+								{ "data": "planned_value" },
+								{ "data": "variation_of_terms" },
+								{ "data": "variation_of_costs" },
+								{ "data": "variation_at_the_end" },
 								{ "data": "btn-actions", "orderable": false}
 								],
 								"order": [[1, 'attr']]
 							});
 						} );
+
+
 					</script>
 
 					<script type="text/javascript">
@@ -153,7 +156,6 @@
 											alertify.error('You did not agree.');
 										}
 									}).show();
-
 						}
 
 					</script>
