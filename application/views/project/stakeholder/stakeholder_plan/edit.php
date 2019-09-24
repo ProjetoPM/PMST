@@ -28,7 +28,6 @@
     var aux  = (((interest * 10) + (power * 10) + (influence * 10) + (impact * 10)) / 4) / 10;
     document.getElementById('average').value = parseFloat(aux.toFixed(2));
   }
-
 </script>
 
     <div class="row">
