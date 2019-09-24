@@ -19,3 +19,17 @@
     )
   ENGINE = InnoDB
   DEFAULT CHARACTER SET = utf8;
+
+   CREATE TABLE IF NOT EXISTS `delivery_acceptance_term` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `validator_name` VARCHAR(200) NULL DEFAULT NULL,    
+    `role` VARCHAR(200) NULL DEFAULT NULL,    
+    `function` VARCHAR(200) NULL DEFAULT NULL,    
+    `validation_date` DATE NULL DEFAULT NULL,    
+    `comments` VARCHAR(1000) NULL DEFAULT NULL,    
+
+    `project_id` INT(11) NOT NULL,
+    PRIMARY KEY (`id`)
+    )
+  ENGINE = InnoDB
+  DEFAULT CHARACTER SET = utf8;
