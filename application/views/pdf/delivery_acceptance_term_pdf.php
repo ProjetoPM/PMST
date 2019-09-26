@@ -60,7 +60,7 @@ $comments = str_replace('
 $html =
 <<<EOD
 
-<h1 align="center">Project Performance and Monitoring Report</h1>
+<h1 align="center">Delivery Acceptance Term</h1>
 </br>
 
 <style type="text/css">
