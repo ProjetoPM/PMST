@@ -21,7 +21,7 @@
 
 		<?php extract($activity); ?>
 
-		<div class="row">
+		<div class="form-row">
 			<div class="col-lg-12">
 					<form action="<?=base_url()?>Activity/updateCostEstimation/<?php echo $id; ?>" method="post">
 
@@ -38,7 +38,7 @@
 				 </div>
 
 
-			<div class=" col-lg-3 form-group">
+			<div class=" col-lg-4 form-group">
 				<label for="estimated_cost"><?=$this->lang->line('estimated_cost')?></label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('estimated_cost-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 				<div>
@@ -46,7 +46,7 @@
 				</div>
 			</div>
 
-			<div class=" col-lg-3 form-group">
+			<div class=" col-lg-4 form-group">
 				<label for="cumulative_estimated_cost"><?=$this->lang->line('cumulative_estimated_cost')?></label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('estimated_cost-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 				<div>
@@ -54,7 +54,7 @@
 				</div>
 			</div>
 
-			<div class=" col-lg-3 form-group">
+			<div class=" col-lg-4 form-group">
 				<label for="replanted_cost"><?=$this->lang->line('replanted_cost')?></label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('replanted_cost-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 				<div>
@@ -62,7 +62,7 @@
 				</div>
 			</div>
 
-			<div class=" col-lg-3 form-group">
+			<div class=" col-lg-4 form-group">
 				<label for="contingency_reserve"><?=$this->lang->line('contingency_reserve')?></label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('contingency_reserve-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 				<div>
@@ -70,7 +70,7 @@
 				</div>
 			</div>
 
-			<div class=" col-lg-3 form-group">
+			<div class=" col-lg-4 form-group">
 				<label for="sum_of_work_packages"><?=$this->lang->line('sum_of_work_packages')?></label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('sum_of_work_packages-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 				<div>
@@ -78,7 +78,7 @@
 				</div>
 			</div>
 
-			<div class=" col-lg-3 form-group">
+			<div class=" col-lg-4 form-group">
 				<label for="contingency_reserve_of_packages"><?=$this->lang->line('contingency_reserve_of_packages')?></label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('contingency_reserve_of_packages-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 				<div>
@@ -86,7 +86,7 @@
 				</div>
 			</div>
 
-			<div class=" col-lg-3 form-group">
+			<div class=" col-lg-4 form-group">
 				<label for="baseline"><?=$this->lang->line('baseline')?></label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('baseline-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 				<div>
@@ -94,7 +94,7 @@
 				</div>
 			</div>
 
-			<div class=" col-lg-3 form-group">
+			<div class=" col-lg-4 form-group">
 				<label for="budget"><?=$this->lang->line('budget')?></label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('budget-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 				<div>
@@ -102,7 +102,7 @@
 				</div>
 			</div>
 
-			<div class=" col-lg-3 form-group">
+			<div class=" col-lg-4 form-group">
 				<label for="cumulative_replanted_cost"><?=$this->lang->line('cumulative_replanted_cost')?></label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('cumulative_replanted_cost-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 				<div>
@@ -110,7 +110,7 @@
 				</div>
 			</div>
 
-			<div class=" col-lg-3 form-group">
+			<div class=" col-lg-4 form-group">
 				<label for="real_cost"><?=$this->lang->line('real_cost')?></label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('real_cost-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 				<div>
@@ -118,15 +118,13 @@
 				</div>
 			</div>
 
-			<div class=" col-lg-3 form-group">
+			<div class=" col-lg-4 form-group">
 				<label for="cumulative_real_cost"><?=$this->lang->line('cumulative_real_cost')?></label>
 				<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('cumulative_real_cost-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 				<div>
 					<input id="cumulative_real_cost" name="cumulative_real_cost" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $cumulative_real_cost; ?>">
 				</div>
 			</div>
-
-
 
 
 			<div class="col-lg-12">
