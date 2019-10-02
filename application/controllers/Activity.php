@@ -317,6 +317,46 @@ class Activity extends CI_Controller {
 															}
 													}
 
+													//QUANTITATIVE RISK ANALYSIS
+															public function listQuantitative($project_id){
+																	$dado['project_id'] = $project_id;
+																	$dado['activity'] = $this->Activity_model->getAllActivity($project_id);
+																	$this->load->view('frame/header_view');
+																	$this->load->view('frame/sidebar_nav_view');
+																	$this->load->view('project/schedule/quantitative_risk_analysis/list',$dado);
+															}
+
+															public function editQuantitative($id) {
+																	$query['activity'] = $this->Activity_model->getActivity($id);
+
+																	$this->load->view('frame/header_view.php');
+																	$this->load->view('frame/sidebar_nav_view.php');
+																	$this->load->view('project/schedule/quantitative_risk_analysis/edit', $query);
+															}
+
+															public function updateQuantitative($id) {
+																	$activity['duration_pessimistic'] = $this->input->post('duration_pessimistic');
+																	$activity['duration_probable'] = $this->input->post('duration_probable');
+																	$activity['duration_otimistic'] = $this->input->post('duration_otimistic');
+																	$activity['duration_beta'] = $this->input->post('duration_beta');
+																	$activity['duration_triangular'] = $this->input->post('duration_triangular');
+																	$activity['cost_pessimistic'] = $this->input->post('cost_pessimistic');
+																	$activity['cost_probable'] = $this->input->post('cost_probable');
+																	$activity['cost_otimistic'] = $this->input->post('cost_otimistic');
+																	$activity['cost_beta'] = $this->input->post('cost_beta');
+																	$activity['cost_triangular'] = $this->input->post('cost_triangular');
+
+
+																	$activity['project_id'] = $this->input->post('project_id');
+
+																	$data['activity'] = $activity;
+																	$query = $this->Activity_model->updateActivity($data['activity'], $id);
+
+																	if ($query) {
+																			redirect('Activity/listQuantitative/' . $activity['project_id']);
+																	}
+															}
+
 
 }
 ?>

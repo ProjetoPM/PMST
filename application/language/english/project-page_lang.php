@@ -36,6 +36,7 @@ $lang['milestone-list'] = 'Milestone List';
 $lang['agregate-value'] = 'Earned Value Management';
 $lang['cost-management'] = 'Cost Management';
 $lang['activity-cost'] = 'Activity Cost Estimates';
+$lang['quantitative_risk_analysis'] = 'Quantitative Risk Analysis';
 $lang['quality-management'] = 'Quality Management';
 $lang['process-quality'] = 'Process Quality Checklists';
 $lang['hr-management'] = 'Human Resource Management';

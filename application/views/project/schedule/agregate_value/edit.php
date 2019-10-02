@@ -155,7 +155,7 @@
 				</button>
 			</form>
 
-			<form action="<?php echo base_url('Activity/listResourceRequirement/'); ?><?php echo $project_id; ?>" >
+			<form action="<?php echo base_url('Activity/listAgregateValue/'); ?><?php echo $project_id; ?>" >
 				<button onclick="estimate()" onclick="variation()" class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 			</form>
 		</div>

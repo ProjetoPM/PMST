@@ -82,12 +82,12 @@ $lang['estimate_for_completion'] = 'Estimate for Completation';
 
 $lang['duration_pessimistic'] = 'Pessimistic Duration';
 $lang['duration_probable'] = 'Probable Duration';
-$lang['duration_optimistic'] = 'Optimistic Duration';
+$lang['duration_otimistic'] = 'Optimistic Duration';
 $lang['duration_beta'] = 'Beta Duration';
 $lang['duration_triangular'] = 'Triangular Duration';
-$lang['cost_pessimistic'] = 'Pesimistic Cost';
+$lang['cost_pessimistic'] = 'Pessimistic Cost';
 $lang['cost_probable'] = 'More Probable Cost';
-$lang['cost_optimistic'] = 'Optimistic Cost';
+$lang['cost_otimistic'] = 'Optimistic Cost';
 $lang['cost_beta'] = 'Beta Cost';
 $lang['cost_triangular'] = 'Trangular Cost';
 
@@ -156,13 +156,13 @@ $lang['estimate_for_completion-tp'] = 'Estimate for Completation';
 
 $lang['duration_pessimistic-tp'] = 'Pessimistic Duration';
 $lang['duration_probable-tp'] = 'Probable Duration';
-$lang['duration_optimistic-tp'] = 'Optimistic Duration';
-$lang['duration_beta-tp'] = 'Beta Duration';
-$lang['duration_triangular-tp'] = 'Triangular Duration';
-$lang['cost_pessimistic-tp'] = 'Pesimistic Cost';
+$lang['duration_otimistic-tp'] = 'Optimistic Duration';
+$lang['duration_beta-tp'] = 'Definition: (O + MP*4 + P) / 6';
+$lang['duration_triangular-tp'] = 'Definition: (O + MP + P) / 3';
+$lang['cost_pessimistic-tp'] = 'Pessimistic Cost';
 $lang['cost_probable-tp'] = 'More Probable Cost';
-$lang['cost_optimistic-tp'] = 'Optimistic Cost';
-$lang['cost_beta-tp'] = 'Beta Cost';
-$lang['cost_triangular-tp'] = 'Trangular Cost';
+$lang['cost_otimistic-tp'] = 'Optimistic Cost';
+$lang['cost_beta-tp'] = 'Definition: (O + MP*4 + P) / 6';
+$lang['cost_triangular-tp'] = 'Definition: (O + MP + P) / 3';
 
 ?>
