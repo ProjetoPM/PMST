@@ -1,5 +1,5 @@
 <?php
-    class DeliveryAcceptanceTerm_PDF extends CI_Controller{
+    class WorkPerformanceReport_PDF extends CI_Controller{
 
 			function __construct(){
 				parent::__construct();
@@ -11,8 +11,8 @@
 				//$this->load->helper('url');
 				$this->lang->load('btn', 'english');
 				//$this->lang->load('btn', 'portuguese-brazilian');
-        $this->lang->load('delivery_acceptance_term','english');
-				$this->load->model('Delivery_acceptance_term_model');
+        $this->lang->load('work_performance_report','english');
+				$this->load->model('Work_performance_report_model');
 				$this->load->model('Project_model');
 			}
 
@@ -28,7 +28,7 @@
 	    $pdf->SetDisplayMode('real', 'default');
 	    $pdf->Write(5, 'CodeIgniter TCPDF Integration');
 	    //$pdf->Output('tap.pdf', 'I'); }
-			$this->load->view('pdf/delivery_acceptance_term_pdf');
+			$this->load->view('pdf/work_performance_report_pdf');
     }
 
 		function pdfGenerator($id) {
@@ -40,11 +40,11 @@
 
 	    if (count($project['dados']) > 0) {
 
-				$dado['delivery_acceptance_term'] = $this->Delivery_acceptance_term_model->getDeliveryTerm($id);
+				$dado['work_performance_report'] = $this->Work_performance_report_model->getWorkPerformance($id);
         $this->db->where('id', $id);
 
 			$pdf = new Pdf('P', 'mm', 'A4', true, 'UTF-8', false);
-			$pdf->SetTitle('Delivery Acceptance Term');
+			$pdf->SetTitle('Work Performance Report');
 			$pdf->SetHeaderMargin(30);
 			$pdf->SetTopMargin(20);
 			$pdf->setFooterMargin(20);
@@ -53,7 +53,7 @@
 			$pdf->SetDisplayMode('real', 'default');
 			$pdf->Write(5, 'CodeIgniter TCPDF Integration');
 			//$pdf->Output('tap.pdf', 'I'); }
-			$this->load->view('pdf/delivery_acceptance_term_pdf', $dado);
+			$this->load->view('pdf/work_performance_report_pdf', $dado);
 		}
 
 		}

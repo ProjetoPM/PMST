@@ -179,11 +179,11 @@
 
                     <div class=" col-lg-1 midBox integrationColor hideBox"></div>
 
-                    <a  href="<?=base_url("ChangeRequest/listp/".$project[0]->project_id) ?>">
+                    <a  href="<?=base_url("WorkPerformanceReport/listp/".$project[0]->project_id) ?>">
                       <div class=" col-lg-1 midBox integrationColor">
                         <div class="verticalAlign">
                           <i class="glyphicon glyphicon-star"></i>
-                          <?=$this->lang->line('change-request')?>
+                          <?=$this->lang->line('work_performance_report')?>
                         </div>
                       </div>
                     </a>
