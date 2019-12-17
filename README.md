@@ -4,7 +4,7 @@
 
 ## Documentation
 
-- [LoremIpsum](https://github.com/ProjetoPM/PMST) - Wiki page here.
+- [Documento de Especificação de Requisitos](https://docs.google.com/document/d/1DAG-yT0Ycbkj7-5SAJ1IJzLKgAgdbfrFBoxuxfhW4ww/edit?usp=sharing).
 - [LoremIpsum](https://github.com/ProjetoPM/PMST) - Wiki page here.
 - [LoremIpsum](https://github.com/ProjetoPM/PMST) - Wiki page here.
 - [LoremIpsum](https://github.com/ProjetoPM/PMST) - Wiki page here.
