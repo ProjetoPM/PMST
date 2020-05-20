@@ -19,7 +19,10 @@
         <strong><?php echo $this->session->flashdata('error'); ?></strong>
       </div>
     <?php endif;?>
+
     <div class="row">
+    <div class="col-lg-12">
+
       <form method="POST" action="<?php echo base_url()?>Requirement_registration/insert/">
 
         <input type="hidden" name="project_id"  value="<?= $project_id?>">
@@ -164,12 +167,11 @@
         <form action="<?php echo base_url()?>Requirement_registration/listp/<?=$project_id?>">
          <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
        </form>
-     </div>
-
-     <!-- /.row --> </div>
-     <div class="col-sm-12" position= "absolute">
-      <div class="container">
-        <?php $this->load->view('frame/footer_view') ?>
-      </div>
+       </div>
     </div>
   </div>
+
+     <!-- /.row --> 
+    
+        <?php $this->load->view('frame/footer_view') ?>
+     

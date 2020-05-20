@@ -2,9 +2,9 @@
 
 // Title
 $lang['activity_list-title'] = 'Activity List';
-$lang['activity_list-btn'] = 'new Activity';
-$lang['new_activity-title'] = 'Create Acitivity';
-$lang['edit_activity-title'] = 'Edit Acitivity';
+$lang['activity_list-btn'] = 'New Activity';
+$lang['new_activity-title'] = 'Create Activity';
+$lang['edit_activity-title'] = 'Edit Activity';
 $lang['schedule_network-title'] = 'Project Schedule Network';
 $lang['schedule_network_edit-title'] = 'Activity Schedule Network';
 $lang['resource_requirement-title'] = 'Resource Requirement';
@@ -22,7 +22,7 @@ $lang['agregate_value_edit-title'] = 'Activity Earned Value';
 $lang['associated_id'] = 'Associated Id.';
 $lang['project_phase'] = 'Project Phase';
 $lang['milestone'] = 'Milestone';
-$lang['activity_name'] = 'Acitivity Name/Description';
+$lang['activity_name'] = 'Activity Name/Description';
 
 $lang['predecessor_activity'] = 'Predecessor Activity';
 $lang['dependence_type'] = 'Dependence Type';

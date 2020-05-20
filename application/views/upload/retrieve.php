@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <style>
     img {
+        padding-top: 5px;
         border: 1px solid #ddd; /* Gray border */
         border-radius: 4px; /* Rounded border */
         padding: 5px; /* Some padding */
@@ -29,8 +30,9 @@ $images = $this->db->get('upload')->result_array();
 
 ?>
 
-
-<div class="container">
+<div class="row" style="padding-top: 8px">
+<div class="col-lg-12">
+<div class="col-lg-12">
     <table class="table table-bordered table-striped" id="tableNB">
         <thead>
         <tr>
@@ -68,4 +70,6 @@ $images = $this->db->get('upload')->result_array();
         ?>
         </tbody>
     </table>
+</div>
+</div>
 </div>

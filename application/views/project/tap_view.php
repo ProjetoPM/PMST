@@ -26,6 +26,9 @@
 			</div>
 		<?php endif;?>
 
+		<div class="row">
+			<div class="col-lg-12">
+
 			<?php if ($project_charter == null) { ?>
 				<form method="POST" action="<?php echo base_url('Tap/insert/'); ?>">
 
@@ -219,10 +222,6 @@
 	      <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 	    </form>
 	  </div>
-	</div>
-</form>
-
-
 
 		<?php
 		}else{
@@ -458,5 +457,8 @@
 									        /*todayHighlight : true,*/
 									       });
 									      //End Date Ends Here
-									     </script>
+										 </script>
+										 	
+	</div>
+</div>
 									      <?php $this->load->view('frame/footer_view')?>

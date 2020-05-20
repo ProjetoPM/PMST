@@ -40,7 +40,6 @@
 						</div>
 					</div>
 
-
 					<div class="col-lg-12 form-group">
 						<label for="main_activities"><?=$this->lang->line('main_activities')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('main_activities-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -92,12 +91,11 @@
 					<div class="col-lg-12 form-group">
 						<label for="attention_points"><?=$this->lang->line('attention_points')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('attention_points-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-						<div >
+						<div>
 							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="attention_points" name="attention_points" ></textarea>
 						</div>
 					</div>
 
-					</div>
 
 					<div class="col-lg-12">
 						<button id="work_performance_report-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
@@ -109,10 +107,6 @@
 					</form>
 				</div>
 			</div>
-
-		</section>
 	</div>
-</div>
-
 
 <?php $this->load->view('frame/footer_view')?>

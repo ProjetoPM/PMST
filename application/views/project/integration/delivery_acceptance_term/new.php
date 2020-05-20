@@ -56,17 +56,12 @@
 						</div>
 					</div>
 
-
-
-
 					<div class="col-lg-12 form-group">
 						<label for="comments"><?=$this->lang->line('comments')?></label>
 						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('comments-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 						<div >
 							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="comments" name="comments" ></textarea>
 						</div>
-					</div>
-
 					</div>
 
 					<div class="col-lg-12">
@@ -78,9 +73,6 @@
 						<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 					</form>
 				</div>
-			</div>
-
-		</section>
 	</div>
 </div>
 

@@ -18,6 +18,8 @@
 				<strong><?php echo $this->session->flashdata('error'); ?></strong>
 			</div>
 		<?php endif;?>
+		<div class="row">
+		<div class="col-lg-12">
 
 		<?php if($schedule_mp==null)
 		{

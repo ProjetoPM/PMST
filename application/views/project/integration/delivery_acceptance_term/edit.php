@@ -79,11 +79,7 @@
 				<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 			</form>
 		</div>
-
 	</div>
 
-</section>
-</div>
-</div>
 
 									  <?php $this->load->view('frame/footer_view')?>

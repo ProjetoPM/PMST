@@ -19,6 +19,7 @@
       </div>
     <?php endif;?>
       <div class="row">
+      <div class="col-lg-12">
         <form method="POST" action="<?php echo base_url()?>Requirement_registration/update/<?php echo $requirement_registration[0]->requirement_registration_id; ?>">
 
           <input type="hidden" name="project_id"  value="<?= $requirement_registration[0]->project_id?>">
@@ -239,5 +240,7 @@
 
           <button onclick="history.go(-1);" class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 
+       </div>
+       </div>
        </div>
 <?php $this->load->view('frame/footer_view')?>

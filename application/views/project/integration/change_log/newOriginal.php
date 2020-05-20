@@ -137,9 +137,8 @@
             <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
           </form>
         </div>
-
-      </div>
-    </div>
+ </form>
+    
 
     <script type="text/javascript">
       var currentDate = new Date();

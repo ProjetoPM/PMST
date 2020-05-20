@@ -138,8 +138,7 @@
 					</form>
 				</div>
 
-			</div>
-		</div>
+		
 
 		<script type="text/javascript">
 			var currentDate = new Date();

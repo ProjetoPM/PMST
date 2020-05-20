@@ -19,7 +19,7 @@
 			<!-- /.row -->
 
 			<div class="row">
-				<div class="col-lg-10">
+				<div class="col-lg-12">
 					<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Activity/newp/<?php echo $project_id ?>'"> <?=$this->lang->line('activity_list-btn')?> <?=$this->lang->line('eval-title')?></button>
 				</div>
 			</div>
@@ -49,7 +49,7 @@
 									<td><?php echo $a->milestone;?></td>
 									<td><?php echo $a->activity_name;?></td>
 
-									<td style="max-width: 20px">
+									<td >
 										<div class="row center">
 											<div class="col-sm-3">
 												<form action="<?php echo base_url() ?>Activity/editActivity/<?php echo $a->id; ?>" method="post">
@@ -82,9 +82,11 @@
 					<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>" >
 				   <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 				 </form>
+				 </div>
+				 </div>
+				 </div>
 					<!-- /.row -->
-					<div class="col-sm-12" position= "absolute">
-						<div class="container">
+					
 
 																<!--1º preencher o nome da view-->
 																<?php $view = array(
@@ -93,15 +95,12 @@
 
 																<!--Carrega o form de envio e envia para ele o nome da view que tu setou -->
 																<?php $this->load->view('upload/index', $view) ?>
-							                  <br>
-							                  <div>
+							                 
 																<!--Carrega as imagens do projeto de acordo com a view, utiliza id ou project_id pra pegar o id do projeto e criar a query-->
 																<?php $this->load->view('upload/retrieve', $view) ?>
 
 																<?php $this->load->view('frame/footer_view')?>
-						</div>
-					</div>
-				</div>
+					
 
 				<script src="<?=base_url()?>assets/js/jquery-2.1.3.min.js"></script>
 				<script src="<?=base_url()?>assets/js/jquery.dataTables.min.js"></script>

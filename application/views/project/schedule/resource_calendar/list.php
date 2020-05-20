@@ -72,9 +72,11 @@
 					<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>" >
 				   <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
 				 </form>
+				 </div>
+					</div>
+				</div>
 					<!-- /.row -->
-					<div class="col-sm-12" position= "absolute">
-						<div class="container">
+					
 
 																<!--1º preencher o nome da view-->
 																<?php $view = array(
@@ -83,15 +85,12 @@
 
 																<!--Carrega o form de envio e envia para ele o nome da view que tu setou -->
 																<?php $this->load->view('upload/index', $view) ?>
-							                  <br>
-							                  <div>
+							                 
 																<!--Carrega as imagens do projeto de acordo com a view, utiliza id ou project_id pra pegar o id do projeto e criar a query-->
 																<?php $this->load->view('upload/retrieve', $view) ?>
 
 																<?php $this->load->view('frame/footer_view')?>
-						</div>
-					</div>
-				</div>
+						
 
 				<script src="<?=base_url()?>assets/js/jquery-2.1.3.min.js"></script>
 				<script src="<?=base_url()?>assets/js/jquery.dataTables.min.js"></script>

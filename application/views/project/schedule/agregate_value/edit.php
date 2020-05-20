@@ -160,11 +160,7 @@
 			</form>
 		</div>
 	</div>
-
 	</div>
 
-</section>
-</div>
-</div>
 
 									  <?php $this->load->view('frame/footer_view')?>
