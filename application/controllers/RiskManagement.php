@@ -54,7 +54,7 @@ class RiskManagement extends CI_Controller{
   		echo json_encode($insert);
     }
 
-    public function update($id){
+    public function update($project_id){
         $risk_mp['methodology'] = $this->input->post('methodology');
         $risk_mp['roles_responsibilities'] = $this->input->post('roles_responsibilities');
         $risk_mp['risk_management_processes'] = $this->input->post('risk_management_processes');
@@ -65,11 +65,11 @@ class RiskManagement extends CI_Controller{
         $risk_mp['traceability'] = $this->input->post('traceability');
         $risk_mp['status'] = $this->input->post('status');
 
-        $query = $this->Risk_mp_model->updateRiskManagementPlan($risk_mp, $id);
+        $query = $this->Risk_mp_model->updateRiskManagementPlan($risk_mp, $project_id);
 
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
-        redirect('RiskManagement/newp/' . $id);
+        redirect('RiskManagement/newp/' . $project_id);
     }
 }
 ?>

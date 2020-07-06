@@ -31,7 +31,7 @@
 			$this->load->view('pdf/delivery_acceptance_term_pdf');
     }
 
-		function pdfGenerator($id) {
+		function pdfGenerator($project_id) {
 			$this->load->library('Pdf');
 
 			$idusuario = $_SESSION['user_id'];
@@ -40,8 +40,8 @@
 
 	    if (count($project['dados']) > 0) {
 
-				$dado['delivery_acceptance_term'] = $this->Delivery_acceptance_term_model->getDeliveryTerm($id);
-        $this->db->where('id', $id);
+				$dado['delivery_acceptance_term'] = $this->Delivery_acceptance_term_model->getDeliveryTerm($project_id);
+        $this->db->where('id', $project_id);
 
 			$pdf = new Pdf('P', 'mm', 'A4', true, 'UTF-8', false);
 			$pdf->SetTitle('Delivery Acceptance Term');

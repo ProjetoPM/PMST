@@ -59,7 +59,7 @@
                     <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
                  </button> 
               </form>
-              <form action="<?php echo base_url('dashboard/'); ?>" >
+              <form action="<?php echo base_url('projects/'); ?>" >
                 <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
               </form>
               </div>

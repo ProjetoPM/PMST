@@ -13,7 +13,7 @@ class Scope_specification extends CI_Controller {
 
 		$this->lang->load('btn','english');
         // $this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('Scope_specification','english');
+        $this->lang->load('scope_specification','english');
         // $this->lang->load('manage-scope','portuguese-brazilian');
 
 	}
@@ -37,7 +37,7 @@ class Scope_specification extends CI_Controller {
     }
 	}
 
-	public function insert($id){
+	public function insert($project_id){
 		$dado['scope_specification'] = $this->Scope_specification_model->getAll();
 		$Scope_specification['scope_description'] = $this->input->post('scope_description');
 		$Scope_specification['acceptance_criteria'] = $this->input->post('acceptance_criteria');
@@ -45,14 +45,14 @@ class Scope_specification extends CI_Controller {
 		$Scope_specification['exclusions'] = $this->input->post('exclusions');
 		$Scope_specification['restrictions'] = $this->input->post('restrictions');
 		$Scope_specification['assumptions'] = $this->input->post('assumptions');
-		$Scope_specification['project_id'] = $id;
+		$Scope_specification['project_id'] = $project_id;
 	
 		$query=false;
 		if($dado['scope_specification']!=null){
 			foreach($dado['scope_specification'] as $scope){
 				$verific = $scope->project_id;
-				if($id==$verific){
-					$query = $this->Scope_specification_model->update($Scope_specification, $id);
+				if($project_id==$verific){
+					$query = $this->Scope_specification_model->update($Scope_specification, $project_id);
 				}
 			}
 		}

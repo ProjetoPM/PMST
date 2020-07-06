@@ -45,8 +45,8 @@ class ChangeRequest extends CI_Controller {
     }
 	}
 
-	public function edit($id) {
-		$query['change_request'] = $this->Change_request_model->getChangeRequest($id);
+	public function edit($project_id) {
+		$query['change_request'] = $this->Change_request_model->getChangeRequest($project_id);
 
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
@@ -78,7 +78,7 @@ class ChangeRequest extends CI_Controller {
 		}
 	}
 
-	public function update($id) {
+	public function update($project_id) {
 
 		$change_request['requester'] = $this->input->post('requester');
 		$change_request['number_id'] = $this->input->post('number_id');
@@ -95,18 +95,18 @@ class ChangeRequest extends CI_Controller {
 		$change_request['committee_date'] = $this->input->post('committee_date');
 		$change_request['project_id'] = $this->input->post('project_id');
 
-		$query = $this->Change_request_model->updateChangeRequest($change_request,$id);
+		$query = $this->Change_request_model->updateChangeRequest($change_request,$project_id);
 
 		if ($query) {
 			redirect('ChangeRequest/listp/' . $change_request['project_id']);
 		}
 	}
 
-	public function delete($id){
+	public function delete($project_id){
 
 		$project_id['project_id'] = $this->input->post('project_id');
 		//$project_id['project_id'] = $project_id;
-		$query = $this->Change_request_model->deleteChangeRequest($id);
+		$query = $this->Change_request_model->deleteChangeRequest($project_id);
 		if($query){
 			$this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');

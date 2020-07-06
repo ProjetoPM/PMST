@@ -38,7 +38,7 @@ class RequirementsLog extends CI_Controller {
     }
 	}
 
-	public function insert($id){
+	public function insert($project_id){
 		$dado['re_log'] = $this->Requirements_log_model->getLog();
 		$dado['re_regist'] = $this->Requirements_log_model->getRegistration();
 
@@ -69,14 +69,14 @@ class RequirementsLog extends CI_Controller {
 
 
 
-		$re_log['project_id'] = $id;
+		$re_log['project_id'] = $project_id;
 		//$re_log['status'] = 1;
 		$query=false;
 		if($dado['re_regist']!=null){
 			foreach($dado['re_regist'] as $re_regist){
 				$verific = $re_regist->project_id;
-				if($id==$verific){
-					$query = $this->Requirements_log_model->updateRegistration($re_regist, $id);
+				if($project_id==$verific){
+					$query = $this->Requirements_log_model->updateRegistration($re_regist, $project_id);
 					
 				}
 			}
@@ -84,8 +84,8 @@ class RequirementsLog extends CI_Controller {
 		if($dado['re_log']!=null){
 			foreach($dado['re_log'] as $re_log){
 				$verific = $re_log->project_id;
-				if($id==$verific){
-					$query = $this->Requirements_log_model->updateLog($re_log, $id);
+				if($project_id==$verific){
+					$query = $this->Requirements_log_model->updateLog($re_log, $project_id);
 
 				}
 			}

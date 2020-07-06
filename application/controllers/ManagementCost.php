@@ -50,7 +50,7 @@ class ManagementCost extends CI_Controller {
 		echo json_encode($insert);
 	}
 
-	public function update($id){
+	public function update($project_id){
 		$cost_mp['project_costs_m'] = $this->input->post('project_costs_m');
 		$cost_mp['accuracy_level'] = $this->input->post('accuracy_level');
 		$cost_mp['organizational_procedures'] = $this->input->post('organizational_procedures');
@@ -59,11 +59,11 @@ class ManagementCost extends CI_Controller {
 		$cost_mp['status'] = $this->input->post('status');
 
 		//$insert = $this->project_model->insert_project_pgq($quality_mp);
-		$query = $this->Cost_model->updateCostManagementPlan($cost_mp, $id);
+		$query = $this->Cost_model->updateCostManagementPlan($cost_mp, $project_id);
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		redirect('ManagementCost/newp/' . $id);
+		redirect('ManagementCost/newp/' . $project_id);
 	}
 }
 ?>

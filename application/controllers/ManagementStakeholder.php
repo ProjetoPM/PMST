@@ -126,7 +126,7 @@ class ManagementStakeholder extends CI_Controller {
 				}
 		}
 
-	public function insert($id){
+	public function insert($project_id){
 		$stakeholder['name'] = $this->input->post('name');
         $stakeholder['type'] = $this->input->post('type');
         $stakeholder['organization'] = $this->input->post('organization');
@@ -140,7 +140,7 @@ class ManagementStakeholder extends CI_Controller {
         $stakeholder['main_expectations'] = $this->input->post('main_expectations');
         $stakeholder['interest_phase'] = $this->input->post('interest_phase');
         $stakeholder['observations'] = $this->input->post('observations');
-        $stakeholder['project_id'] = $id;
+        $stakeholder['project_id'] = $project_id;
 
 				$query = $this->Stakeholder_model->insert($stakeholder);
 

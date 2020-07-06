@@ -40,7 +40,7 @@ class TEP extends CI_Controller {
 	
 	}
 
-	public function insert($id){
+	public function insert($project_id){
 		$dado['project_closure_term'] = $this->Tep_model->getTep();
 		$project_closure_term['client'] = $this->input->post('client');
 		$project_closure_term['project_closure_date'] = $this->input->post('project_closure_date');
@@ -49,13 +49,13 @@ class TEP extends CI_Controller {
 		$project_closure_term['main_lessons_learned'] = $this->input->post('main_lessons_learned');
 		$project_closure_term['client_comments'] = $this->input->post('client_comments');
 		$project_closure_term['sponsor_comments'] = $this->input->post('sponsor_comments');
-		$project_closure_term['project_id'] = $id;
+		$project_closure_term['project_id'] = $project_id;
 		$query=false;
 		if($dado['project_closure_term']!=null){
 			foreach($dado['project_closure_term'] as $tep){
 				$verific = $tep->project_id;
-				if($id==$verific){
-					$query = $this->Tep_model->updatetep($project_closure_term, $id);
+				if($project_id==$verific){
+					$query = $this->Tep_model->updatetep($project_closure_term, $project_id);
 				}
 			}
 		}

@@ -59,18 +59,18 @@ class Business_Case extends CI_Controller {
 	}
 
 
-	public function update($id){
+	public function update($project_id){
 		$business_case['business_deals'] = $this->input->post('business_deals');
 		$business_case['situation_analysis'] = $this->input->post('situation_analysis');
 		$business_case['recommendation'] = $this->input->post('recommendation');
 		$business_case['evaluation'] = $this->input->post('evaluation');
 
 		//$insert = $this->project_model->insert_project_pgq($quality_mp);
-		$query = $this->Business_case_model->updateBusinessCase($business_case, $id);
+		$query = $this->Business_case_model->updateBusinessCase($business_case, $project_id);
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		redirect('Business_Case/newp/' . $id);
+		redirect('Business_Case/newp/' . $project_id);
 	}
 }
 ?>

@@ -68,9 +68,9 @@ class Project extends CI_Controller
 	}
 	
     //<!-- Metodo deletar projeto, passa id projeto pra model --> 
-	public function delete($id = null)
+	public function delete($project_id = null)
 	{
-		$insert = $this->project_model->deleteProjectModel($id);
+		$insert = $this->project_model->deleteProjectModel($project_id);
 		if ($insert['status'] == 'success') {
 			$this->session->set_flashdata('success', 'Project Deleted!');
 		} else {
@@ -80,10 +80,10 @@ class Project extends CI_Controller
     //<!-- Fim do metodo deletar --> 
 	
     //<!-- Begin Update method --> 
-	public function update($id = null)
+	public function update($project_id = null)
 	{
 		
-		$this->db->where('project_id', $id);
+		$this->db->where('project_id', $project_id);
 		$dataproject['project'] = $this->db->get('project')->result();
 		
 		$this->load->view('frame/header_view');
@@ -111,9 +111,9 @@ class Project extends CI_Controller
 	
     //chama a pagina de adicionar pesquisador ao projeto
     //passando id como parametro
-	public function add_researcher_page($id = null)
+	public function add_researcher_page($project_id = null)
 	{
-		$this->db->where('project_id', $id);
+		$this->db->where('project_id', $project_id);
 		$dataproject['project'] = $this->db->get('project')->result();
 		
 		$this->load->view('frame/header_view');
@@ -162,11 +162,11 @@ class Project extends CI_Controller
 		$this->db->where('email', $email);
 		$userdata = $this->db->get('user');
 		foreach ($resultado = $userdata->result() as $row) {
-			$id   = $row->user_id;
+			$project_id   = $row->user_id;
 			$name = $row->name;
 		}
 		$retorna = array(
-			'$user_id' => $id
+			'$user_id' => $project_id
 		);
 		return $retorna['$user_id'];
 	}
@@ -208,15 +208,16 @@ class Project extends CI_Controller
         
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
-        $this->load->view('project/my_projects', $dataproject);
+		$this->load->view('project/my_projects', $dataproject);
+		// $this->load->view('construction_services/chat_template', $dataproject);
         
        }
        
        
     //busca o nome do dono do projeto pelo seu id atrelado no projeto
-       public function returnUserNameById($id = null)  {
+       public function returnUserNameById($project_id = null)  {
        	
-       	$this->db->where('user_id', $id);
+       	$this->db->where('user_id', $project_id);
         //$this->db->join('user', 'user.user_id = project_user.user_id');
        	$data['user'] = $this->db->get('user')->result();
        	
@@ -257,10 +258,10 @@ class Project extends CI_Controller
        }
 
     //implementação futura - não terminado
-       public function validaUsuario($id=null) {
+       public function validaUsuario($project_id=null) {
         $idusuario = $_SESSION['user_id']; //validar acesso do usuario
         $this->db->where('user_id', $idusuario);
-        $this->db->where('project_id', $id);
+        $this->db->where('project_id', $project_id);
         $project['dados'] = $this->db->get('project_user')->result();
 
         if (count($project['dados']) > 0) {
@@ -272,19 +273,19 @@ class Project extends CI_Controller
        
     //recebe id do projeto como parametro, faz a busca de todos os dados do mesmo
     //pagina inicial do projeto
-       public function initial($id=null) {
+       public function initial($project_id=null) {
        	
         //validar acesso do usuario
        	$idusuario = $_SESSION['user_id'];
        	$this->db->where('user_id', $idusuario);
-       	$this->db->where('project_id', $id);
+       	$this->db->where('project_id', $project_id);
        	$project['dados'] = $this->db->get('project_user')->result();
        	
        	if (count($project['dados']) > 0) {
-       		$this->db->where('project_id', $id);
+       		$this->db->where('project_id', $project_id);
        		$dataproject['project'] = $this->db->get('project')->result();
        		
-       		$this->db->where('project_id', $id);
+       		$this->db->where('project_id', $project_id);
        		$this->db->join('user', 'user.user_id = project_user.user_id');
        		$dataproject['members'] = $this->db->get('project_user')->result();
 			   
@@ -292,7 +293,7 @@ class Project extends CI_Controller
 			// $this->lang->load('project-page','portuguese-brazilian');   
 			
        		$this->load->view('frame/header_view');
-       		$this->load->view('frame/sidebar_nav_view');
+       		$this->load->view('frame/sidebar_nav_view2',$dataproject);
        		$this->load->view('project/top-menu', $dataproject);
        		$this->load->view('project/project_page', $dataproject);
        		
@@ -301,19 +302,19 @@ class Project extends CI_Controller
           }
          }
 
-         public function cost($id=null) {
+         public function cost($project_id=null) {
          	
         //validar acesso do usuario
          	$idusuario = $_SESSION['user_id'];
          	$this->db->where('user_id', $idusuario);
-         	$this->db->where('project_id', $id);
+         	$this->db->where('project_id', $project_id);
          	$project['dados'] = $this->db->get('project_user')->result();
          	
          	if (count($project['dados']) > 0) {
-         		$this->db->where('project_id', $id);
+         		$this->db->where('project_id', $project_id);
          		$dataproject['project'] = $this->db->get('project')->result();
          		
-         		$this->db->where('project_id', $id);
+         		$this->db->where('project_id', $project_id);
          		$this->db->join('user', 'user.user_id = project_user.user_id');
          		$dataproject['members'] = $this->db->get('project_user')->result();
          		

@@ -53,17 +53,17 @@ class RequirementsManagement extends CI_Controller{
 		echo json_encode($insert);
 	}
 
-	public function update($id) {
+	public function update($project_id) {
 		$requirements_mp['requirements_collection_proc'] = $this->input->post('requirements_collection_proc');
 		$requirements_mp['requirements_prioritization'] = $this->input->post('requirements_prioritization');
 		$requirements_mp['product_metrics'] = $this->input->post('product_metrics');
 		$requirements_mp['status'] = $this->input->post('status');
 
-		$query = $this->Requirements_mp_model->updateRequirementsManagementPlan($requirements_mp, $id);
+		$query = $this->Requirements_mp_model->updateRequirementsManagementPlan($requirements_mp, $project_id);
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		redirect('RequirementsManagement/newp/' . $id);
+		redirect('RequirementsManagement/newp/' . $project_id);
 	}
 }
 ?>

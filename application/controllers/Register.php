@@ -26,21 +26,21 @@ class Register extends CI_Controller
         //var_dump($user['email']);
     }
 
-    public function show_Edit_User($id = null)
+    public function show_Edit_User($project_id = null)
     {
         //$this->db->select('*');
         $datauser['user'] = $this->db->get_where('user', array(
             'user_id' => $this->session->userdata('user_id')
         ))->result();
-        $this->db->where('user_id', $id);
+        $this->db->where('user_id', $project_id);
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
         $this->load->view('frame/footer_view');
         $this->load->view('edit_user', $datauser);
     }
-    public function updateUser($id = null)
+    public function updateUser($project_id = null)
     {
-        $this->db->where('user_id', $id);
+        $this->db->where('user_id', $project_id);
         $datauser['user'] = $this->db->get('user')->result();
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');

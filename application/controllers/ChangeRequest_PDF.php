@@ -31,7 +31,7 @@
 			$this->load->view('pdf/change_request_pdf');
     }
 
-		function pdfGenerator($id) {
+		function pdfGenerator($project_id) {
 			$this->load->library('Pdf');
 
 
@@ -41,8 +41,8 @@
 
 	    if (count($project['dados']) > 0) {
 
-				$dado['change_request'] = $this->Change_request_model->getChangeRequest($id);
-        $this->db->where('id', $id);
+				$dado['change_request'] = $this->Change_request_model->getChangeRequest($project_id);
+        $this->db->where('id', $project_id);
 
 			$pdf = new Pdf('P', 'mm', 'A4', true, 'UTF-8', false);
 			$pdf->SetTitle('Termo de Abertura do Projeto');

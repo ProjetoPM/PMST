@@ -59,7 +59,7 @@ class Tap extends CI_Controller{
 		echo json_encode($insert);
 	}
 
-	public function update($id) {
+	public function update($project_id) {
 		$project_charter['project_description'] = $this->input->post('project_description');
 		$project_charter['project_purpose'] = $this->input->post('project_purpose');
 		$project_charter['project_objective'] = $this->input->post('project_objective');
@@ -81,10 +81,10 @@ class Tap extends CI_Controller{
 		} else {
 			$project_charter['status'] = 0;
 		}
-		$query = $this->Tap_model->updateTap($project_charter, $id);
+		$query = $this->Tap_model->updateTap($project_charter, $project_id);
 
 		if ($query) {
-			redirect('project/' . $id);
+			redirect('project/' . $project_id);
 		}
 	}
 

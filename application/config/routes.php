@@ -82,10 +82,16 @@ $route['authentication/register'] = 'authentication/register';
 $route['register'] = 'register/addUser';
 $route['projects'] = 'project/show_projects';
 $route['new'] = 'project/project_form';
+$route['chat'] = 'chatcontroller/index';
 $route['project/(:num)'] = 'project/initial/$1';
 $route['edit/(:num)'] = 'project/update/$1';
 $route['researcher/(:num)'] = 'project/add_researcher_page/$1';
 $route['delete/(:num)'] = 'project/delete/$1';
+
+$route['send-message'] = 'chatcontroller/send_text_message';
+$route['chat-attachment/upload'] = 'chatcontroller/send_text_message';
+$route['get-chat-history-vendor'] = 'chatcontroller/get_chat_history_by_vendor';
+$route['chat-clear'] = 'chatcontroller/chat_clear_client_cs';
 
 $route['myaccount'] = 'register/show_Edit_User';
 $route['404_override'] = '';

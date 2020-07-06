@@ -56,18 +56,18 @@ class ScopeManagement extends CI_Controller{
 		echo json_encode($insert);
 	}
 
-	public function update($id) {
+	public function update($project_id) {
 		$scope_mp['scope_specification'] = $this->input->post('scope_specification');
 		$scope_mp['eap_process'] = $this->input->post('eap_process');
 		$scope_mp['deliveries_acceptance'] = $this->input->post('deliveries_acceptance');
 		$scope_mp['scope_change_mp'] = $this->input->post('scope_change_mp');
 		$scope_mp['status'] = $this->input->post('status');
 
-		$query = $this->Scope_mp_model->updateScopeManagementPlan($scope_mp, $id);
+		$query = $this->Scope_mp_model->updateScopeManagementPlan($scope_mp, $project_id);
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		redirect('project/' . $id);
+		redirect('project/' . $project_id);
 	}
 
 	function image_upload()

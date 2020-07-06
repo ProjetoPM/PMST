@@ -46,12 +46,12 @@ class Human_resource extends CI_Controller{
     }
     }
 
-    public function insert($id){
-        $data['human_resource_mp'] = $this->human_resource_model->getHumanResourceProject_id($id);
+    public function insert($project_id){
+        $data['human_resource_mp'] = $this->human_resource_model->getHumanResourceProject_id($project_id);
         $human_resource_mp['roles_responsibilities'] = $this->input->post('roles_responsibilities');
         $human_resource_mp['organizational_chart'] = $this->input->post('organizational_chart');
         $human_resource_mp['staff_mp'] = $this->input->post('staff_mp');
-        $human_resource_mp['project_id'] = $id;
+        $human_resource_mp['project_id'] = $project_id;
         $human_resource_mp['status'] = $this->input->post('status');
 
         $human_resource_mp['status'] = 1;
@@ -65,7 +65,7 @@ class Human_resource extends CI_Controller{
         }
     }
 
-    public function update($id){
+    public function update($project_id){
         $human_resources_mp['roles_responsibilities'] = $this->input->post('roles_responsibilities');
         $human_resources_mp['organizational_chart'] = $this->input->post('organizational_chart');
         $human_resources_mp['staff_mp'] = $this->input->post('staff_mp');
@@ -74,7 +74,7 @@ class Human_resource extends CI_Controller{
 
         $human_resources_mp['status'] = 1;
 
-        $query = $this->human_resource_model->updateHumanResource($human_resources_mp, $id);
+        $query = $this->human_resource_model->updateHumanResource($human_resources_mp, $project_id);
 
         if($query){
             $this->load->view('frame/header_view');

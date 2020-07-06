@@ -59,7 +59,7 @@ class Charter_Quality extends CI_Controller {
 	}
 
 
-	public function update($id){
+	public function update($project_id){
 		$quality_mp['methodology'] = $this->input->post('methodology');
 		$quality_mp['related_processes'] = $this->input->post('related_processes');
 		$quality_mp['expectations_tolerances'] = $this->input->post('expectations_tolerances');
@@ -67,11 +67,11 @@ class Charter_Quality extends CI_Controller {
 		$quality_mp['status'] = (int) $this->input->post('status');
 
 		//$insert = $this->project_model->insert_project_pgq($quality_mp);
-		$query = $this->Quality_model->updateQuality($quality_mp, $id);
+		$query = $this->Quality_model->updateQuality($quality_mp, $project_id);
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		redirect('Charter_Quality/newp/' . $id);
+		redirect('Charter_Quality/newp/' . $project_id);
 	}
 }
 ?>

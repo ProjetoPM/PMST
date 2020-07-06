@@ -36,9 +36,9 @@ class ProjectPerformanceReport extends CI_Controller {
     }
 	}
 
-    public function delete($id){
+    public function delete($project_id){
         $project_id['project_id'] = $this->input->post('project_id');
-        $query = $this->Project_performance_report_model->deleteProjectReport($id);
+        $query = $this->Project_performance_report_model->deleteProjectReport($project_id);
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
@@ -55,8 +55,8 @@ class ProjectPerformanceReport extends CI_Controller {
     }
 
 
-    public function edit($id) {
-        $query['project_performance_report'] = $this->Project_performance_report_model->getProjectReport($id);
+    public function edit($project_id) {
+        $query['project_performance_report'] = $this->Project_performance_report_model->getProjectReport($project_id);
         $this->load->view('frame/header_view.php');
         $this->load->view('frame/sidebar_nav_view.php');
         $this->load->view('project/integration/project_performance_report/edit', $query);
@@ -64,7 +64,7 @@ class ProjectPerformanceReport extends CI_Controller {
 
 
 
-    public function update($id) {
+    public function update($project_id) {
 			$project_performance_report['date'] = $this->input->post('date');
 			$project_performance_report['current_performance_analysis'] = $this->input->post('current_performance_analysis');
 			$project_performance_report['planned_forecasts'] = $this->input->post('planned_forecasts');
@@ -80,14 +80,14 @@ class ProjectPerformanceReport extends CI_Controller {
         $project_performance_report['project_id'] = $this->input->post('project_id');
 
 				$data['project_performance_report'] = $project_performance_report;
-				$query = $this->Project_performance_report_model->updateProjectReport($data['project_performance_report'], $id);
+				$query = $this->Project_performance_report_model->updateProjectReport($data['project_performance_report'], $project_id);
 
         if ($query) {
             redirect('ProjectPerformanceReport/listp/' . $project_performance_report['project_id']);
         }
     }
 
-	public function insert($id){
+	public function insert($project_id){
 				$project_performance_report['date'] = $this->input->post('date');
 				$project_performance_report['current_performance_analysis'] = $this->input->post('current_performance_analysis');
 				$project_performance_report['planned_forecasts'] = $this->input->post('planned_forecasts');

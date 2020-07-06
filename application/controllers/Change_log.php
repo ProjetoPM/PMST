@@ -75,7 +75,7 @@ class Change_log extends CI_Controller {
             redirect(base_url() . 'Change_log/listp/' . $change_log['project_id']);
         }
     }
-  public function update($id){
+  public function update($project_id){
         $change_log['id_number'] = $this->input->post('id_number');
         $change_log['requester'] = $this->input->post('requester');
         $change_log['request_date'] = $this->input->post('request_date');
@@ -103,7 +103,7 @@ class Change_log extends CI_Controller {
         $change_log['comments'] = $this->input->post('comments');
         $change_log['project_id'] = $this->input->post('project_id');
 
-        $query = $this->Change_log_model->update($change_log, $id);
+        $query = $this->Change_log_model->update($change_log, $project_id);
 
         if($query){
             $this->load->view('frame/header_view');
@@ -112,9 +112,9 @@ class Change_log extends CI_Controller {
         }
     }
 
-    public function delete($id){
+    public function delete($project_id){
         $project_id['id'] = $this->input->post('project_id');
-        $query = $this->Change_log_model->delete($id);
+        $query = $this->Change_log_model->delete($project_id);
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');

@@ -86,7 +86,7 @@ $query['project_id'] = $project_id;
         }
     }
 
-    public function update($id){
+    public function update($project_id){
         $requirement_registration['business_strategy'] = $this->input->post('business_strategy');
         $requirement_registration['priority'] = $this->input->post('priority');
         $requirement_registration['description'] = $this->input->post('description');
@@ -103,7 +103,7 @@ $query['project_id'] = $project_id;
         $requirement_registration['supporting_documentation'] = $this->input->post('supporting_documentation');
         $requirement_registration['project_id'] = $this->input->post('project_id');
 
-        $query = $this->requirement_registration_model->update($requirement_registration, $id);
+        $query = $this->requirement_registration_model->update($requirement_registration, $project_id);
 
         if($query){
             $this->load->view('frame/header_view');
@@ -112,9 +112,9 @@ $query['project_id'] = $project_id;
         }
     }
 
-    public function delete($id){
+    public function delete($project_id){
         $project_id['id'] = $this->input->post('project_id');
-        $query = $this->requirement_registration_model->delete($id);
+        $query = $this->requirement_registration_model->delete($project_id);
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');

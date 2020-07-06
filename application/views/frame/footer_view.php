@@ -47,5 +47,21 @@
     $('[data-toggle="tooltip"]').tooltip();
   });
 </script>
+
+<?php if($this->uri->segment(1) != 'chat'){?>
+<script src="<?=base_url('assets')?>/PACE/pace.min.js"></script>
+ <?php }?>
+
+
+<script>
+  $(document).ready(function () {
+    $('.sidebar-menu').tree()
+  })
+  <?php if($this->uri->segment(1) != 'chat'){?>
+  $(document).ajaxStart(function () {
+    Pace.restart();
+  });
+  <?php }?>
+  </script>
 </body>
 </html>

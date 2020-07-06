@@ -51,7 +51,7 @@ class ProjectManagement extends CI_Controller{
 		echo json_encode($insert);
 	}
 
-	public function update($id) {
+	public function update($project_id) {
     $project_mp['project_lifecycle'] = $this->input->post('project_lifecycle');
 		$project_mp['project_guidelines'] = $this->input->post('project_guidelines');
 		$project_mp['project_guidelines'] = $this->input->post('project_guidelines');
@@ -62,11 +62,11 @@ class ProjectManagement extends CI_Controller{
 		$project_mp['key_review'] = $this->input->post('key_review');
 		$project_mp['status'] = $this->input->post('status');
 
-		$query = $this->Project_management_model->updateProjectManagementPlan($project_mp, $id);
+		$query = $this->Project_management_model->updateProjectManagementPlan($project_mp, $project_id);
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		redirect('ProjectManagement/newp/' . $id);
+		redirect('ProjectManagement/newp/' . $project_id);
 	}
 
 }

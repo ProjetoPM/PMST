@@ -45,8 +45,8 @@ class ProcurementStatementOfWork extends CI_Controller {
     }
 	}
 
-	public function edit($id) {
-		$query['procurement_statement_of_work'] = $this->Procurement_statement_of_work_model->getProcurementOfWork($id);
+	public function edit($project_id) {
+		$query['procurement_statement_of_work'] = $this->Procurement_statement_of_work_model->getProcurementOfWork($project_id);
 
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
@@ -73,7 +73,7 @@ class ProcurementStatementOfWork extends CI_Controller {
 		}
 	}
 
-	public function update($id) {
+	public function update($project_id) {
 
 		$procurement_statement_of_work['description'] = $this->input->post('description');
 		$procurement_statement_of_work['types'] = $this->input->post('types');
@@ -85,18 +85,18 @@ class ProcurementStatementOfWork extends CI_Controller {
 		$procurement_statement_of_work['selection_criterias'] = $this->input->post('selection_criterias');
 		$procurement_statement_of_work['project_id'] = $this->input->post('project_id');
 
-		$query = $this->Procurement_statement_of_work_model->updateProcurementOfWork($procurement_statement_of_work,$id);
+		$query = $this->Procurement_statement_of_work_model->updateProcurementOfWork($procurement_statement_of_work,$project_id);
 
 		if ($query) {
 			redirect('ProcurementStatementOfWork/listp/' . $procurement_statement_of_work['project_id']);
 		}
 	}
 
-	public function delete($id){
+	public function delete($project_id){
 
 		$project_id['project_id'] = $this->input->post('project_id');
 		//$project_id['project_id'] = $project_id;
-		$query = $this->Procurement_statement_of_work_model->deleteProcurementOfWork($id);
+		$query = $this->Procurement_statement_of_work_model->deleteProcurementOfWork($project_id);
 		if($query){
 			$this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');

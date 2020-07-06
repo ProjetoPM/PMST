@@ -31,7 +31,7 @@
 			$this->load->view('pdf/project_performance_report_pdf');
     }
 
-		function pdfGenerator($id) {
+		function pdfGenerator($project_id) {
 			$this->load->library('Pdf');
 
 			$idusuario = $_SESSION['user_id'];
@@ -40,8 +40,8 @@
 
 	    if (count($project['dados']) > 0) {
 
-				$dado['project_performance_report'] = $this->Project_performance_report_model->getProjectReport($id);
-        $this->db->where('id', $id);
+				$dado['project_performance_report'] = $this->Project_performance_report_model->getProjectReport($project_id);
+        $this->db->where('id', $project_id);
 
 			$pdf = new Pdf('P', 'mm', 'A4', true, 'UTF-8', false);
 			$pdf->SetTitle('Project Performance and Monitoring Report');

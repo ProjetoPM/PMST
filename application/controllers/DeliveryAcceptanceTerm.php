@@ -36,9 +36,9 @@ class DeliveryAcceptanceTerm extends CI_Controller {
     }
 	}
 
-    public function delete($id){
+    public function delete($project_id){
         $project_id['project_id'] = $this->input->post('project_id');
-        $query = $this->Delivery_acceptance_term_model->deleteDeliveryTerm($id);
+        $query = $this->Delivery_acceptance_term_model->deleteDeliveryTerm($project_id);
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
@@ -55,8 +55,8 @@ class DeliveryAcceptanceTerm extends CI_Controller {
     }
 
 
-    public function edit($id) {
-        $query['delivery_acceptance_term'] = $this->Delivery_acceptance_term_model->getDeliveryTerm($id);
+    public function edit($project_id) {
+        $query['delivery_acceptance_term'] = $this->Delivery_acceptance_term_model->getDeliveryTerm($project_id);
         $this->load->view('frame/header_view.php');
         $this->load->view('frame/sidebar_nav_view.php');
         $this->load->view('project/integration/delivery_acceptance_term/edit', $query);
@@ -64,7 +64,7 @@ class DeliveryAcceptanceTerm extends CI_Controller {
 
 
 
-    public function update($id) {
+    public function update($project_id) {
 				$delivery_acceptance_term['validator_name'] = $this->input->post('validator_name');
 				$delivery_acceptance_term['role'] = $this->input->post('role');
 				$delivery_acceptance_term['function'] = $this->input->post('function');
@@ -74,14 +74,14 @@ class DeliveryAcceptanceTerm extends CI_Controller {
         $delivery_acceptance_term['project_id'] = $this->input->post('project_id');
 
 				$data['delivery_acceptance_term'] = $delivery_acceptance_term;
-				$query = $this->Delivery_acceptance_term_model->updateDeliveryTerm($data['delivery_acceptance_term'], $id);
+				$query = $this->Delivery_acceptance_term_model->updateDeliveryTerm($data['delivery_acceptance_term'], $project_id);
 
         if ($query) {
             redirect('DeliveryAcceptanceTerm/listp/' . $delivery_acceptance_term['project_id']);
         }
     }
 
-		public function insert($id){
+		public function insert($project_id){
 			$delivery_acceptance_term['validator_name'] = $this->input->post('validator_name');
 			$delivery_acceptance_term['role'] = $this->input->post('role');
 			$delivery_acceptance_term['function'] = $this->input->post('function');

@@ -74,7 +74,7 @@ $lang['procurement-agreement'] = 'Procurement Agreement';
 $lang['issue-log'] = 'Issue Log';
 $lang['change-log'] = 'Change Log';
 $lang['earned-value'] = 'Earned Value Status Report';
-$lang['lessons-learned'] = 'Lessons Learned';
+$lang['lessons-learned'] = 'Project Closure Term';
 
 // btn NOTIFICATION BOARD
 $lang['notification-board'] = 'NOTIFICATION BOARD';

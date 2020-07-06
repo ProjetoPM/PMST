@@ -58,7 +58,7 @@ class Wbs extends CI_Controller {
 	}
 
 
-	public function update($id){
+	public function update($project_id){
 		$benefits_plan['target_benefits'] = $this->input->post('target_benefits');
 		$benefits_plan['strategic_alignment'] = $this->input->post('strategic_alignment');
 		$benefits_plan['schedule_benefit'] = $this->input->post('schedule_benefit');
@@ -68,11 +68,11 @@ class Wbs extends CI_Controller {
 		$benefits_plan['risks'] = $this->input->post('risks');
 
 		//$insert = $this->project_model->insert_project_pgq($quality_mp);
-		$query = $this->Benefits_plan_model->updateBenefitsPlan($benefits_plan, $id);
+		$query = $this->Benefits_plan_model->updateBenefitsPlan($benefits_plan, $project_id);
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
-		redirect('Benefits_plan/newp/' . $id);
+		redirect('Benefits_plan/newp/' . $project_id);
 	}
 }
 ?>

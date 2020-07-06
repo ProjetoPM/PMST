@@ -56,7 +56,7 @@ class Procurement extends CI_Controller{
       echo json_encode($insert);
         }
 
-    public function update($id){
+    public function update($project_id){
         $procurement_mp['products_services_obtained'] = $this->input->post('products_services_obtained');
         $procurement_mp['team_actions'] = $this->input->post('team_actions');
         $procurement_mp['performance_metrics'] = $this->input->post('performance_metrics');
@@ -72,11 +72,11 @@ class Procurement extends CI_Controller{
         $procurement_mp['procurement_strategy'] = $this->input->post('procurement_strategy');
         $procurement_mp['status'] = $this->input->post('status');
 
-        $query = $this->Procurement_mp_model->updateProcurementManagementPlan($procurement_mp, $id);
+        $query = $this->Procurement_mp_model->updateProcurementManagementPlan($procurement_mp, $project_id);
 
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
-        redirect('Procurement/newp/' . $id);
+        redirect('Procurement/newp/' . $project_id);
     }
 }
 ?>

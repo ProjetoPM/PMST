@@ -36,9 +36,9 @@ class WorkPerformanceReport extends CI_Controller {
     }
 	}
 
-    public function delete($id){
+    public function delete($project_id){
         $project_id['project_id'] = $this->input->post('project_id');
-        $query = $this->Work_performance_report_model->deleteWorkPerformance($id);
+        $query = $this->Work_performance_report_model->deleteWorkPerformance($project_id);
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
@@ -55,8 +55,8 @@ class WorkPerformanceReport extends CI_Controller {
     }
 
 
-    public function edit($id) {
-        $query['work_performance_report'] = $this->Work_performance_report_model->getWorkPerformance($id);
+    public function edit($project_id) {
+        $query['work_performance_report'] = $this->Work_performance_report_model->getWorkPerformance($project_id);
         $this->load->view('frame/header_view.php');
         $this->load->view('frame/sidebar_nav_view.php');
         $this->load->view('project/integration/work_performance_report/edit', $query);
@@ -64,7 +64,7 @@ class WorkPerformanceReport extends CI_Controller {
 
 
 
-    public function update($id) {
+    public function update($project_id) {
 				$work_performance_report['responsible'] = $this->input->post('responsible');
 				$work_performance_report['date'] = $this->input->post('date');
 				$work_performance_report['main_activities'] = $this->input->post('main_activities');
@@ -78,14 +78,14 @@ class WorkPerformanceReport extends CI_Controller {
         $work_performance_report['project_id'] = $this->input->post('project_id');
 
 				$data['work_performance_report'] = $work_performance_report;
-				$query = $this->Work_performance_report_model->updateWorkPerformance($data['work_performance_report'], $id);
+				$query = $this->Work_performance_report_model->updateWorkPerformance($data['work_performance_report'], $project_id);
 
         if ($query) {
             redirect('WorkPerformanceReport/listp/' . $work_performance_report['project_id']);
         }
     }
 
-		public function insert($id){
+		public function insert($project_id){
 			$work_performance_report['responsible'] = $this->input->post('responsible');
 			$work_performance_report['date'] = $this->input->post('date');
 			$work_performance_report['main_activities'] = $this->input->post('main_activities');

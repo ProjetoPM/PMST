@@ -79,7 +79,7 @@ class Notification_board extends CI_Controller{
         }
     }
 
-    public function update($id){
+    public function update($project_id){
         $notification_board['running_activities'] = $this->input->post('running_activities');
         $notification_board['important_activities'] = $this->input->post('important_activities');
         $notification_board['open_issues'] = $this->input->post('open_issues');
@@ -87,7 +87,7 @@ class Notification_board extends CI_Controller{
         $notification_board['changes_approval'] = $this->input->post('changes_approval');
         $notification_board['general_warnings'] = $this->input->post('general_warnings');
 
-        $query = $this->notification_board_model->update($notification_board, $id);
+        $query = $this->notification_board_model->update($notification_board, $project_id);
 
         if($query){
             $this->load->view('frame/header_view');
@@ -96,9 +96,9 @@ class Notification_board extends CI_Controller{
         }
     }
 
-    public function delete($id){
+    public function delete($project_id){
         $project_id['id'] = $this->input->post('project_id');
-        $query = $this->notification_board_model->delete($id);
+        $query = $this->notification_board_model->delete($project_id);
         if($query){
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
