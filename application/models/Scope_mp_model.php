@@ -10,7 +10,7 @@ class Scope_mp_model extends CI_Model{
 
 	}
 
-	function createScopeManagementPlan($postData){
+	function insert($postData){
 		$data = array(
 			'scope_specification' => $postData['scope_specification'],
 			'eap_process' => $postData['eap_process'],
@@ -22,12 +22,12 @@ class Scope_mp_model extends CI_Model{
 		$this->db->insert('scope_mp', $data);
 	}
 
-		public function readScopeManagementPlan($id){
+		public function get($id){
 			$query = $this->db->get_where('scope_mp',array('project_id'=>$id));
 			return $query->result();
 		}
 
-		public function updateScopeManagementPlan($project, $id){
+		public function update($project, $id){
 			$this->db->where('scope_mp.project_id', $id);
 			return $this->db->update('scope_mp', $project);
 		}

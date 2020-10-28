@@ -1,15 +1,14 @@
 <?php
 
 // Title
-$lang['scope_spec-title'] = 'Scope Specification';
+$lang['eep-title'] = 'Scope Management Specification';
 
 //Form 
 $lang['scope_spec-desc'] = 'Scope Description';
 $lang['scope_spec-accept'] = 'Product Acceptance Criteria';
 $lang['scope_spec-deli'] = 'Project Deliveries';
 $lang['scope_spec-exclu'] = 'Project Exclusions';
-$lang['scope_spec-rest'] = 'Project Restrictions';
-$lang['scope_spec-assumpt'] = 'Project Assumptions';
+
 
 
 //Tooltip

@@ -212,6 +212,7 @@
         padding-right: 0;
         margin-left: 0;
         padding-left: 0;
+        background-color:#f5f5f5;
     }
 
     .floatRight{
@@ -223,8 +224,8 @@
 	}
 
 	.wrapper{
-		font-size: 0.7em;
-		text-align: center;
+		font-size: 0.9em;
+		
 	}
 
     .midBox{
@@ -283,11 +284,20 @@
         padding-top: 1em;
     }
 
-    .integrationBox{
+    .scheduleBox{
         height:18.5em;
     }
 
-    .integrationBox .verticalAlign{
+
+     .humanBox{
+        height:18.5em;
+    }
+
+     .integrationBox{
+        height:23.8em;
+    }
+
+    .integrationBox .verticalAlign, .scheduleBox .verticalAlign, .humanBox .verticalAlign{
         height:18.5em;
         width:10em;
         text-align:center;
@@ -343,7 +353,7 @@
         vertical-align:middle;
     }
 
-    .transparentBox, .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
+    .transparentBox, .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox, .scheduleBox, .humanBox{
         width: 14.6%;
         margin-top: 0;
     }
@@ -368,6 +378,7 @@
         padding-right: 0;
         margin-left: 0;
         padding-left: 0;
+        background-color:#f5f5f5;
     }
 
     .floatRight{
@@ -423,11 +434,8 @@
         border-radius: 5px;
     }
 
-    .integrationBox{
-        height:18.2em;
-    }
 
-    .integrationBox .verticalAlign{
+    .integrationBox .verticalAlign, .scheduleBox .verticalAlign, .humanBox .verticalAlign{
         height:18.2em;
         width: 14.6%;
         text-align:center;
@@ -542,11 +550,15 @@
         width: 1%;
     }
 
-    .integrationBox{
+     .scheduleBox{
         height:19.5em;
     }
 
-    .integrationBox .verticalAlign{
+     .humanBox{
+        height:19.5em;
+    }
+
+    .integrationBox .verticalAlign, .scheduleBox .verticalAlign, .humanBox .verticalAlign{
         height:19.5em;
         width: 14.6%;
         text-align:center;
@@ -606,7 +618,7 @@
         line-height: 5.6em;
     }
 
-    .transparentBox, .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox{
+    .transparentBox, .integrationBox, .scopeBox, .timeBox, .hrBox, .verticalOneBox, .costBox, .qualityBox, .procurementBox, .stakeholderBox, .scheduleBox, .humanBox{
         width: 14.6%;
         margin-top: 0;
     }
@@ -625,7 +637,7 @@
 
 /* CSS Elastic-TextArea*/
 .elasticteste{
-    min-height: 50px;
+    min-height: 70px;
     /*outline: 0;*/
     resize: none;
     line-height: 20px;
@@ -640,3 +652,23 @@ td.moreInformationTable {
 tr.shown td.moreInformationTable {
     background: url('../images/icons/details_close.png') no-repeat center center;
 }
+
+.content-wrapper{
+padding-top:50px;
+}
+
+.page-header{
+   border-bottom: 1px solid #eee; font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;font-size: 2em;  
+}   
+.panel-body{
+background-color: #fff
+}
+.h1, h1{
+    font-size: 2em;
+    font-family: inherit;
+    font-weight: 500;
+}
+   

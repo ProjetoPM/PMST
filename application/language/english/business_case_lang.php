@@ -1,7 +1,7 @@
 <?php
 
 // Title
-$lang['business_case-title'] = 'Business Case Management Plan';
+$lang['business_case-title'] = 'Business Case';
 
 //Form
 $lang['business_case-business_deals'] = 'Business Deals';

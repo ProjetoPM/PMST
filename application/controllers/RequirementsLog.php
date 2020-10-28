@@ -10,6 +10,8 @@ class RequirementsLog extends CI_Controller {
 		}
 		$this->load->helper('url');
 		$this->load->model('Requirements_log_model');
+		$this->load->model('view_model');
+		$this->load->model('log_model');
 
 		//$this->lang->load('requirements-log','portuguese-brazilian');
    
@@ -18,7 +20,7 @@ class RequirementsLog extends CI_Controller {
 
 	}
 
-	public function addnew($project_id){
+	public function new($project_id){
 		    $idusuario = $_SESSION['user_id'];
     $this->db->where('user_id', $idusuario);
     $this->db->where('project_id', $project_id);
@@ -29,7 +31,8 @@ class RequirementsLog extends CI_Controller {
 		$dado['re_regist'] = $this->Requirements_log_model->getRegistration();
 		$dado['id'] = $project_id;
 		//$dado['verific'] = true;
-		$this->load->view('frame/header_view');
+		$this->load->view('frame/header_view'); 
+		 $this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('project/requirements_log',$dado); 
 
@@ -97,7 +100,8 @@ class RequirementsLog extends CI_Controller {
 		}
 		
 		if($query){
-			$this->load->view('frame/header_view');
+			$this->load->view('frame/header_view'); 
+		 $this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');
 			redirect('project/' . $re_log['project_id']);
 		}

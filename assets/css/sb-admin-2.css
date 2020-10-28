@@ -421,11 +421,11 @@ background-color: #FFFFFF;
 div#content{
 width: 100%;
 padding:12px auto;
-overflow: hidden;
+
 word-break: break-all;
-overflow-wrap: break-word;
+
 border-radius: 0 0 10px 10px;
-border: solid #079BAE;
+
 }
 header#sign_in{
 font-family:raleway;

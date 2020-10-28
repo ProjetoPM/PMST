@@ -1,38 +1,37 @@
 <?php
 
 // Title
-$lang['change_request-title'] = 'Change Request';
-$lang['change_request-btn'] = 'Change Request Register';
+$lang['cr_title'] = 'Change Request';
 
 //Form
-$lang['requester'] = 'Requester';
-$lang['number_id'] = 'Request Identification Number';
-$lang['request_date'] = 'Request Date';
-$lang['type'] = 'Type of Change';
-$lang['description'] = 'Description of Change';
-$lang['impacted_areas'] = 'Impacted Areas';
-$lang['impacted_docs'] = 'Deliveries/Documents Impacted';
-$lang['justification'] = 'Justification';
-$lang['comments'] = 'Additional comments';
-$lang['manager_opinion'] = 'Opinion of Project Manager';
-$lang['committee_opinion'] = 'Opinion of the Change Control Committee';
-$lang['status'] = 'Status/Situation';
-$lang['committee_date'] = 'Date of Opinion of the Change Control Committee';
+$lang['cr_requester'] = 'Requester';
+$lang['cr_number_id'] = 'Request Identification Number';
+$lang['cr_request_date'] = 'Request Date';
+$lang['cr_type'] = 'Type of Change';
+$lang['cr_description'] = 'Description of Change';
+$lang['cr_impacted_areas'] = 'Impacted Knowledge Areas';
+$lang['cr_impacted_docs'] = 'Impacted Deliveries/Documents';
+$lang['cr_justification'] = 'Justification';
+$lang['cr_comments'] = 'Additional Comments';
+$lang['cr_manager_opinion'] = 'Opinion of Project Manager';
+$lang['cr_committee_opinion'] = 'Opinion of the CCB';
+$lang['cr_status'] = 'Status/Situation';
+$lang['cr_committee_date'] = 'Date of Opinion of the CCB';
 
 
 //Tooltip
-$lang['requester-tp'] = '';
-$lang['number_id-tp'] = '';
-$lang['request_date-tp'] = '';
-$lang['type-tp'] = '';
-$lang['description-tp'] = '';
-$lang['impacted_areas-tp'] = '';
-$lang['impacted_docs-tp'] = '';
-$lang['justification-tp'] = '';
-$lang['comments-tp'] = '';
-$lang['manager_opinion-tp'] = '';
-$lang['committee_opinion-tp'] = '';
-$lang['status-tp'] = '';
-$lang['committee_date-tp'] = '';
+$lang['cr_requester-tp'] = '';
+$lang['cr_number_id-tp'] = '';
+$lang['cr_request_date-tp'] = '';
+$lang['cr_type-tp'] = '';
+$lang['cr_description-tp'] = '';
+$lang['cr_impacted_areas-tp'] = '';
+$lang['cr_impacted_docs-tp'] = '';
+$lang['cr_justification-tp'] = '';
+$lang['cr_comments-tp'] = '';
+$lang['cr_manager_opinion-tp'] = '';
+$lang['cr_committee_opinion-tp'] = '';
+$lang['cr_status-tp'] = '';
+$lang['cr_committee_date-tp'] = '';
 
 ?>

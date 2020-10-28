@@ -12,7 +12,7 @@ class Requirements_mp_model extends CI_Model{
 	}
 
 	//inicia a view
-	function createRequirementsManagementPlan($postData){
+	function insert($postData){
 		$data = array(
 			'requirements_collection_proc' => $postData['requirements_collection_proc'],
 			'requirements_prioritization' => $postData['requirements_prioritization'],
@@ -24,12 +24,12 @@ class Requirements_mp_model extends CI_Model{
 		$this->db->insert('requirements_mp', $data);
 	}
 
-	public function readRequirementsManagementPlan($id){
+	public function get($id){
 		$query = $this->db->get_where('requirements_mp',array('project_id'=>$id));
 		return $query->result();
 	}
 
-	public function updateRequirementsManagementPlan($project, $id){
+	public function update($project, $id){
 		$this->db->where('requirements_mp.project_id', $id);
 		return $this->db->update('requirements_mp', $project);
 	}

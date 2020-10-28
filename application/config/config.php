@@ -28,6 +28,12 @@ $base_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT
 
 $config['base_url'] = $base_url;
 
+$config['csrf_exclude_uris'] = array(
+'send-message','chat-attachment/upload',
+'blog-post',
+'delete-post','update-blog','trash-blog',
+);
+
 /*
 |--------------------------------------------------------------------------
 | Index File

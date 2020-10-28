@@ -10,7 +10,7 @@ class ProcurementStatementOfWork extends CI_Controller {
 		}
 		$this->load->helper('url');
 		$this->load->model('Procurement_statement_of_work_model');
-
+		$this->load->helper('log_activity');
 
 		$this->lang->load('btn','english');
         // $this->lang->load('btn','portuguese-brazilian');
@@ -19,16 +19,17 @@ class ProcurementStatementOfWork extends CI_Controller {
 
 	}
 
-	public function listp($project_id){
+	public function list($project_id){
 		$dado['project_id'] = $project_id;
 
-		$dado['procurement_statement_of_work'] = $this->Procurement_statement_of_work_model->getAllProcurementOfWork($project_id);
-		$this->load->view('frame/header_view');
+		$dado['procurement_statement_of_work'] = $this->Procurement_statement_of_work_model->getAll($project_id);
+		$this->load->view('frame/header_view'); 
+		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('project/procurement/procurement_statement_of_work/list',$dado);
 	}
 
-	public function addnew($project_id){
+	public function new($project_id){
 		$idusuario = $_SESSION['user_id'];
     $this->db->where('user_id', $idusuario);
     $this->db->where('project_id', $project_id);
@@ -36,7 +37,8 @@ class ProcurementStatementOfWork extends CI_Controller {
 
     if (count($project['dados']) > 0) {
     $dado['project_id'] = $project_id;
-		$this->load->view('frame/header_view');
+		$this->load->view('frame/header_view'); 
+		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('project/procurement/procurement_statement_of_work/new',$dado);
 
@@ -46,7 +48,7 @@ class ProcurementStatementOfWork extends CI_Controller {
 	}
 
 	public function edit($project_id) {
-		$query['procurement_statement_of_work'] = $this->Procurement_statement_of_work_model->getProcurementOfWork($project_id);
+		$query['procurement_statement_of_work'] = $this->Procurement_statement_of_work_model->get($project_id);
 
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/sidebar_nav_view.php');
@@ -67,9 +69,8 @@ class ProcurementStatementOfWork extends CI_Controller {
 		$query = $this->Procurement_statement_of_work_model->insert($procurement_statement_of_work);
 
 		if($query){
-			$this->load->view('frame/header_view');
-			$this->load->view('frame/sidebar_nav_view');
-			redirect('ProcurementStatementOfWork/listp/' . $procurement_statement_of_work['project_id']);
+			insertLogActivity('insert', 'procurement statement of the work');
+			redirect('procurement/procurement-statement-of-work/list/' . $procurement_statement_of_work['project_id']);
 		}
 	}
 
@@ -85,24 +86,23 @@ class ProcurementStatementOfWork extends CI_Controller {
 		$procurement_statement_of_work['selection_criterias'] = $this->input->post('selection_criterias');
 		$procurement_statement_of_work['project_id'] = $this->input->post('project_id');
 
-		$query = $this->Procurement_statement_of_work_model->updateProcurementOfWork($procurement_statement_of_work,$project_id);
+		$query = $this->Procurement_statement_of_work_model->update($procurement_statement_of_work,$project_id);
 
 		if ($query) {
-			redirect('ProcurementStatementOfWork/listp/' . $procurement_statement_of_work['project_id']);
+			insertLogActivity('update', 'procurement statement of the work');
+			redirect('procurement/procurement-statement-of-work/list/' . $procurement_statement_of_work['project_id']);
 		}
 	}
 
-	public function delete($project_id){
+	public function delete($id){
 
 		$project_id['project_id'] = $this->input->post('project_id');
 		//$project_id['project_id'] = $project_id;
-		$query = $this->Procurement_statement_of_work_model->deleteProcurementOfWork($project_id);
+		$query = $this->Procurement_statement_of_work_model->delete($id);
 		if($query){
-			$this->load->view('frame/header_view');
-            $this->load->view('frame/sidebar_nav_view');
-            redirect(base_url() . 'ProcurementStatementOfWork/listp/' . $project_id['project_id']);
+			insertLogActivity('delete', 'procurement statement of the work');
+            redirect('procurement/procurement-statement-of-work/list/' . $_SESSION['project_id']);
 		}
 	}
 
 }
-?>

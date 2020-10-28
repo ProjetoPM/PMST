@@ -33,7 +33,8 @@ class Register extends CI_Controller
             'user_id' => $this->session->userdata('user_id')
         ))->result();
         $this->db->where('user_id', $project_id);
-        $this->load->view('frame/header_view');
+        $this->load->view('frame/header_view'); 
+		 $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');
         $this->load->view('frame/footer_view');
         $this->load->view('edit_user', $datauser);
@@ -42,7 +43,8 @@ class Register extends CI_Controller
     {
         $this->db->where('user_id', $project_id);
         $datauser['user'] = $this->db->get('user')->result();
-        $this->load->view('frame/header_view');
+        $this->load->view('frame/header_view'); 
+		 $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');
         $this->load->view('edit_user', $datauser);
     }

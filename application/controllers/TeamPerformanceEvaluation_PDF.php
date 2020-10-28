@@ -40,7 +40,7 @@
 
 	    if (count($project['dados']) > 0) {
 
-				$dado['team_performance_evaluation'] = $this->Team_Performance_Evaluation_model->getTeamEval($team_performance_evaluation_id);
+				$dado['team_performance_evaluation'] = $this->Team_Performance_Evaluation_model->get($team_performance_evaluation_id);
         $this->db->where('team_performance_evaluation_id', $team_performance_evaluation_id);
 
 			$pdf = new Pdf('P', 'mm', 'A4', true, 'UTF-8', false);

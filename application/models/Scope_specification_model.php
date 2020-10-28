@@ -5,11 +5,10 @@
 			$this->load->database();
 		}
 
-		public function getAll(){
-			$query = $this->db->get('scope_specification');
-			return $query->result(); 
+		public function get($id){
+			$query = $this->db->get_where('scope_specification',array('project_id'=>$id));
+			return $query->result();
 		}
-
 		public function insert($scope_specification){
 			return $this->db->insert('scope_specification', $scope_specification);
 		}

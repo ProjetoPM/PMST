@@ -1,6 +1,6 @@
 <?php
 // Title
-$lang['delivery_acceptance_term-title'] = 'Delivery Acceptance Term';
+$lang['title'] = 'Deliverable Status';
 
 //Form
 $lang['validator_name'] = 'Validator Name';

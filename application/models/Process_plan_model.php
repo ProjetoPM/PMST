@@ -5,8 +5,8 @@
 			$this->load->database();
 		}
 
-		public function getAll(){
-			$query = $this->db->get('process_improvement_plan');
+		public function get($id){
+			$query = $this->db->get_where('process_improvement_plan',array('project_id'=>$id));
 			return $query->result(); 
 		}
 

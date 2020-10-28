@@ -9,22 +9,22 @@
 			return $this->db->insert('activity', $activity);
 		}
 
-        public function getActivity($id){
+        public function get($id){
             $query = $this->db->get_where('activity',array('id'=>$id));
             return $query->row_array();
         }
 
-        public function getAllActivity($project_id){
+        public function getAll($project_id){
             $query = $this->db->get_where('activity', array('activity.project_id'=>$project_id));
             return $query->result();
         }
 
-        public function updateActivity($activity, $id){
+        public function update($activity, $id){
             $this->db->where('activity.id', $id);
             return $this->db->update('activity', $activity);
         }
 
-        public function deleteActivity($id){
+        public function delete($id){
             $this->db->where('activity.id', $id);
             return $this->db->delete('activity');
         }

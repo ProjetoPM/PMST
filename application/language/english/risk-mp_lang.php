@@ -1,14 +1,17 @@
 <?php
-$lang['risk_mp'] = 'Risk Management Plan';
+$lang['rimp_title'] = 'Risk Management Plan';
 
-$lang['methodology'] = 'Methodology';
-$lang['roles_responsabilities'] = 'Roles responsabilites';
-$lang['probability_impact_matrix'] = 'Probability impact matrix';
-$lang['risk_management_processes'] = 'Risk management processes';
-$lang['risks_categories'] = 'Risks categories';
-$lang['risks_probability_impact'] = 'Risks probability impact';
-$lang['reviewed_tolerances'] = 'Rewiewed tolerances';
-$lang['traceability'] = 'Traceability';
+$lang['rimp_methodology'] = 'Methodology';
+$lang['rimp_roles_responsibilities'] = 'Roles and Responsibilities';
+$lang['rimp_probability_impact_matrix'] = 'Probability and Impact Matrix';
+$lang['rimp_tracking'] = 'Tracking';
+$lang['rimp_risks_categories'] = 'Risks Categories';
+$lang['rimp_strategy'] = 'Risk Strategy';
+$lang['rimp_funding'] = 'Funding';
+$lang['rimp_timing'] = 'Timing';
+$lang['rimp_stakeholder'] = 'Stakeholder Risk Appetite';
+$lang['rimp_definitions'] = 'Definitions of Risk Probability and Impacts';
+$lang['rimp_format'] = 'Reporting Formats';
 
 
 $lang['methodology-tp'] = 'Methodology Example';

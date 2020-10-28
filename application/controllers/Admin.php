@@ -35,7 +35,8 @@ class Admin extends CI_Controller {
 			'users' => $this->admin_model->get_user_list(),
 		);
 
-		$this->load->view('frame/header_view');
+		$this->load->view('frame/header_view'); 
+		 $this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('admin/user_list', $data);
 
@@ -88,7 +89,8 @@ class Admin extends CI_Controller {
 			'formTitle' => 'Activity Log',
 			'title' => 'Activity Log',
 		);
-		$this->load->view('frame/header_view');
+		$this->load->view('frame/header_view'); 
+		 $this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('admin/activity_log', $data);
 

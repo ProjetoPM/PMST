@@ -10,7 +10,7 @@
 			return $query->row_array();
 		}
 
-		public function getWithProject_id($project_id){
+		public function getAll($project_id){
 			$query = $this->db->get_where('notification_board', array('notification_board.project_id'=>$project_id));
 			return $query->result();
 		}

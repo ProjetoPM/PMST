@@ -40,7 +40,7 @@
 
 	    if (count($project['dados']) > 0) {
 
-				$dado['delivery_acceptance_term'] = $this->Delivery_acceptance_term_model->getDeliveryTerm($project_id);
+				$dado['delivery_acceptance_term'] = $this->Delivery_acceptance_term_model->get($project_id);
         $this->db->where('id', $project_id);
 
 			$pdf = new Pdf('P', 'mm', 'A4', true, 'UTF-8', false);

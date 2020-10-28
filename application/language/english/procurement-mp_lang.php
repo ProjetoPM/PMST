@@ -1,13 +1,23 @@
 <?php
 
 // Title
-$lang['procurement_mp'] = 'Procurement Management Plan';
+$lang['pcmp_title'] = 'Procurement Management Plan';
 
 //Form
-$lang['products_services_obtained'] = 'Products Services Obtained';
-$lang['performance_metrics'] = 'Performance Metrics';
-$lang['procurement_management'] = 'Procurement Management';
-$lang['schedule_procurement_activities'] = 'Schedule for main procurement activities';
+$lang['pcmp_products'] = 'Products or Services Will be Obtained *';
+$lang['pcmp_metrics'] = 'Procurement metrics';
+$lang['pcmp_procurement'] = 'How Procurement will be Coordinated';
+$lang['pcmp_timetable'] = 'Timetable of Key Procurement Activities';
+$lang['pcmp_roles'] = 'Stakeholder Roles and Responsibilities';
+$lang['pcmp_constraints'] = 'Constraints and Assumptions';
+$lang['pcmp_jurisdiction'] = 'The Legal Jurisdiction';
+$lang['pcmp_estimates'] = 'Independent Estimates';
+$lang['pcmp_issues'] = 'Risk Management Issues';
+$lang['pcmp_sellers'] = 'Prequalified Sellers';
+$lang['pcmp_strategy'] = 'Procurement Strategy';
+
+
+// Não usados
 $lang['functions'] = 'Functions and responsalities for stakeholders';
 $lang['restriction'] = 'Restrictions related to procurement';
 $lang['premises'] = 'Premises related to procurement';
@@ -15,29 +25,25 @@ $lang['coins'] = 'Legal Jurisdiction and Coins';
 $lang['independent_estimates'] = 'Independent Estimates';
 $lang['risk_issues'] = 'Questions related risks';
 $lang['sellers'] = 'Sellers';
-$lang['procurement_strategy'] = 'Procurement Strategy';
+$lang['strategy'] = 'Procurement Strategy';
 $lang['team_actions'] = 'Team Actions';
 
 
 //Tooltip
-$lang['products_services_obtained-tooltip'] = 'Products Services Obtained Example';
-$lang['team_actions-tooltip'] = 'Team Actions Example';
-$lang['performance_metrics-tooltip'] = '';
-$lang['procurement_management-tooltip'] = '';
-$lang['schedule_procurement_activities-tooltip'] = '';
-$lang['functions-tooltip'] = '';
-$lang['restriction-tooltip'] = '';
-$lang['premises-tooltip'] = '';
-$lang['coins-tooltip'] = '';
-$lang['independent_estimates-tooltip'] = '';
-$lang['risk_issues-tooltip'] = '';
-$lang['sellers-tooltip'] = '';
-$lang['procurement_strategy-tooltip'] = 'Delivery methods, contractual payment types and procurement phases';
-
-$lang['communication'] = 'Standards of Documents';
-$lang['change'] = 'Change Management';
-$lang['configuration'] = 'Configuration Management';
-
+$lang['products-tooltip'] = '';
+$lang['procurement-tp'] = 'How procurement will be coordinated with other project aspects, such as project schedule development and
+control processes';
+$lang['metrics-tp'] = 'Procurement Metrics to be Used to Manage Contracts';
+$lang['roles-tp'] = 'Stakeholder roles and responsibilities related to procurement, including authority and constraints of the project eam when the performing organization has a procurement department';
+$lang['constraints-tp'] = 'Constraints and assumptions that could affect planned procurements';
+$lang['jurisdiction-tp'] = 'The legal jurisdiction and the currency in which payments will be made';
+$lang['estimates-tp'] = 'Determination of whether independent estimates will be used and whether they are needed as evaluation criteria';
+$lang['risk-tp'] = 'Risk management issues including identifying requirements for performance bonds or insurance contracts to mitigate some forms of project risk';
+$lang['sellers-tp'] = 'Prequalified sellers, if any, to be used.';
+$lang['strategy-tp'] = 'Delivery methods. Delivery methods are different for professional services versus construction projects.
+Contract payment types. Contract payment types are separate from the project delivery methods and are
+coordinated with the buying organization’s internal financial systems.
+Procurement phases. The procurement strategy can also include information on procurement phases';
 //Links
 $lang['communication_link'] = 'Standards of documents to be used in the Procurement - As specified in the Communications Management Plan.';
 $lang['change_link'] = 'Change Management - As specified in the Project Management Plan.';

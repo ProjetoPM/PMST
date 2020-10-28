@@ -1,0 +1,4 @@
+{
+    "editor.renderLineHighlightOnlyWhenFocus": true,
+    "prettier.resolveGlobalModules": true
+}

@@ -27,6 +27,16 @@ class Admin_model extends CI_Model {
         return $query->result_array();
     }
 
+    function get_user_name($userID){
+        $this->db->select('user_id,name');
+		$this->db->from('user');
+		$this->db->where("user_id",$userID);
+		$this->db->limit(1);
+  		$query = $this->db->get();
+		$res = $query->row_array();
+ 		return $res['name'];
+    }
+
     function validate_email($postData){
         $this->db->where('email', $postData['email']);
         $this->db->where('status', 1);

@@ -18,7 +18,6 @@
 		}
 
 
-
 		public function insertLog($re_log){
 			return $this->db->insert('requirement_log', $re_log);
 		}

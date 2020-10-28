@@ -40,7 +40,7 @@
 
 	    if (count($project['dados']) > 0) {
 
-				$dado['work_performance_report'] = $this->Work_performance_report_model->getWorkPerformance($project_id);
+				$dado['work_performance_report'] = $this->Work_performance_report_model->get($project_id);
         $this->db->where('id', $project_id);
 
 			$pdf = new Pdf('P', 'mm', 'A4', true, 'UTF-8', false);

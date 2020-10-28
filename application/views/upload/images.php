@@ -79,7 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             padding: 0;
             width: 100%;
         }
-        .img{
+        .imagem{
             width: 100%;
             margin-top: 20px;
             display: inline-block;
@@ -170,7 +170,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     foreach($images as $row):
         ?>
         <fieldset>
-            <img src="<?php echo base_url().$row['image_url'];?>" class="img" alt="" />
+            <img src="<?php echo base_url().$row['image_url'];?>" class="imagem" alt="" />
         </fieldset>
     <?
     endforeach;
@@ -180,4 +180,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 </body>
-</html>

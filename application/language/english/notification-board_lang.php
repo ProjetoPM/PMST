@@ -1,15 +1,15 @@
 <?php
-$lang['notification-board'] = 'Notification Board';
+$lang['nb_title'] = 'Notification Board';
 
-$lang['running_activities'] = 'Running activities';
-$lang['important_activities'] = 'Important activities';
-$lang['open_issues'] = 'Open issues';
-$lang['changes_approval'] = 'Changes approval';
-$lang['general_warnings'] = 'General warnings';
+$lang['nb_running_activities'] = 'Running Activities';
+$lang['nb_important_activities'] = 'Important Activities';
+$lang['nb_open_issues'] = 'Open Issues';
+$lang['nb_changes_approval'] = 'Changes Approval';
+$lang['nb_general_warnings'] = 'General Warnings';
 
-$lang['running_activities-tp'] = 'Running activities Example';
-$lang['important_activities-tp'] = 'Important activities Example';
-$lang['open_issues-tp'] = 'Open issues Example';
-$lang['changes_approval-tp'] = 'Changes approval Example';
-$lang['general_warnings-tp'] = 'General warnings Example';
+$lang['running_activities-tp'] = 'Running Activities Example';
+$lang['important_activities-tp'] = 'Important Activities Example';
+$lang['open_issues-tp'] = 'Open Issues Example';
+$lang['changes_approval-tp'] = 'Changes Approval Example';
+$lang['general_warnings-tp'] = 'General Warnings Example';
 ?>

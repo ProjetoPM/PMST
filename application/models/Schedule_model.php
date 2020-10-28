@@ -6,17 +6,17 @@ class Schedule_model extends CI_Model{
 	function __construct() {
 		parent::__construct();
 	}
-	public function updateScheduleDB($schedule_mp,$id){
+	public function update($schedule_mp,$id){
 		$this->db->where('schedule_mp.project_id', $id);
 		return $this->db->update('schedule_mp',$schedule_mp);
 	}
 //pegar o Schedule com id do projeto
-	public function getSchedule($id){
+	public function get($id){
 		$query = $this->db->get_where('schedule_mp',array('project_id'=>$id));
 		return $query->result();
 	}
 // armazenar o schedule com o mesmo project_id da tabela project
-	public function createSchedule($postData){
+	public function insert($postData){
 		$data = array(
 			'schedule_model' => $postData['schedule_model'],
 			'accuracy_level' => $postData['accuracy_level'],

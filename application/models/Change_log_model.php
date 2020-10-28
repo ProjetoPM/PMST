@@ -10,12 +10,7 @@
 			return $query->result();
 		}
 
-		public function getAll(){
-			$query = $this->db->get('change_log');
-			return $query->result();
-		}
-
-		public function getWithProject_id($project_id){
+		public function getAll($project_id){
 			$query = $this->db->get_where('change_log', array('change_log.project_id'=>$project_id));
 			return $query->result();
 		}

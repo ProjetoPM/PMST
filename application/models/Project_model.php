@@ -9,6 +9,27 @@
            parent::__construct();
        }
    
+
+       public function getProjectName($project_id) 
+
+       {  
+   
+            $this->db->select('*');
+   
+           $this->db->from('project');
+   
+           $this->db->where("project_id",$project_id);
+   
+           $this->db->limit(1);
+   
+             $query = $this->db->get();
+   
+            $u=$query->row_array();
+   
+           return $u['title'];
+   
+          }
+
        function insert_project($postData){
    
            $data = array(
@@ -28,7 +49,13 @@
               'user_id' => $this->session->userdata('user_id'),
               'access_level' => 2
            );
-           $this->db->insert('project_user', $projectUser);
+           $_SESSION['project_id'] = $project_id;
+
+           $status= $this->db->insert('project_user', $projectUser);
+           if($status == 1)
+ 			return true;
+ 		   else
+ 			return false;
    
        }
    
@@ -74,4 +101,3 @@
    
    
    /* End of file */
-   ?>

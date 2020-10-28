@@ -1,6 +1,6 @@
 <?php
 // Title
-$lang['work_performance_report-title'] = 'Work Performance Report';
+$lang['wp-title'] = 'Work Performance Reports';
 
 //Form
 $lang['responsible'] = 'Responsible';

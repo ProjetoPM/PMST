@@ -10,12 +10,7 @@
 			return $query->result();
 		}
 
-		public function getAll(){
-			$query = $this->db->get('requirement_registration');
-			return $query->result();
-		}
-
-		public function getWithProject_id($project_id){
+		public function getAll($project_id){
 			$query = $this->db->get_where('requirement_registration', array('requirement_registration.project_id'=>$project_id));
 			return $query->result();
 		}

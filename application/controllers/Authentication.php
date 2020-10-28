@@ -36,7 +36,11 @@ class Authentication extends CI_Controller {
     }
 
     public function login(){
+        $_SESSION['project_id'] = null;
         $postData = $this->input->post();
+        if(($postData) == null){
+            redirect(base_url());
+        }
         $validate = $this->authentication_model->validate_login($postData);
         if ($validate){
             $newdata = array(

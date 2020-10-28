@@ -1,50 +1,50 @@
 <?php
 
 // Title
-$lang['stakeholder-title'] = 'Stakeholder Registration';
+$lang['shr-title'] = 'Stakeholder Registration';
 
 //Form
-$lang['stakeholder-name'] = 'Name';
-$lang['stakeholder-type'] = 'Type';
-$lang['stakeholder-organization'] = 'Organization';
-$lang['stakeholder-position'] = 'Position in organization';
-$lang['stakeholder-role'] = 'Main Role in the Project';
-$lang['stakeholder-responsibility'] = 'Main Project Responsibility';
-$lang['stakeholder-email'] = 'E-mail';
-$lang['stakeholder-phone_number'] = 'Phone';
-$lang['stakeholder-work_place'] = 'Workplace';
-$lang['stakeholder-essential_requirements'] = 'Essential Requirements';
-$lang['stakeholder-main_expectations'] = 'Main Expectations';
-$lang['stakeholder-interest_phase'] = 'Phase of Greater Interest';
-$lang['stakeholder-observations'] = 'Observations';
+$lang['shr-name'] = 'Name';
+$lang['shr-type'] = 'Type';
+$lang['shr-organization'] = 'Organization';
+$lang['shr-position'] = 'Position in organization';
+$lang['shr-role'] = 'Main Role in the Project';
+$lang['shr-responsibility'] = 'Main Project Responsibility';
+$lang['shr-email'] = 'E-mail';
+$lang['shr-phone_number'] = 'Phone';
+$lang['shr-work_place'] = 'Workplace';
+$lang['shr-essential_requirements'] = 'Essential Requirements';
+$lang['shr-main_expectations'] = 'Main Expectations';
+$lang['shr-interest_phase'] = 'Phase of Greater Interest';
+$lang['shr-observations'] = 'Observations';
 
 //options
-$lang['stakeholder-type-external'] = 'External';
-$lang['stakeholder-type-internal'] = 'Internal';
+$lang['shr-type-external'] = 'External';
+$lang['shr-type-internal'] = 'Internal';
 
-$lang['stakeholder-role-client'] = 'Client';
-$lang['stakeholder-role-team'] = 'Team';
-$lang['stakeholder-role-provider'] = 'Provider';
-$lang['stakeholder-role-project_manager'] = 'Project manager';
-$lang['stakeholder-role-sponsor'] = 'Sponsor';
-$lang['stakeholder-role-others'] = 'Others';
+$lang['shr-role-client'] = 'Client';
+$lang['shr-role-team'] = 'Team';
+$lang['shr-role-provider'] = 'Provider';
+$lang['shr-role-project_manager'] = 'Project manager';
+$lang['shr-role-sponsor'] = 'Sponsor';
+$lang['shr-role-others'] = 'Others';
 
 
 //Tooltip
-$lang['stakeholder-name-tooltip'] = 'Name Example';
-$lang['stakeholder-type-tooltip'] = 'Type Example';
-$lang['stakeholder-organization-tooltip'] = 'Organization Example';
-$lang['stakeholder-position-tooltip'] = 'Position in organization Example';
-$lang['stakeholder-role-tooltip'] = 'Main Role in the Project Example';
-$lang['stakeholder-responsibility-tooltip'] = 'Main Project Responsibility Example';
-$lang['stakeholder-email-tooltip'] = 'E-mail Example';
-$lang['stakeholder-phone_number-tooltip'] = 'Fone Example';
-$lang['stakeholder-work_place-tooltip'] = 'Workplace Example';
-$lang['stakeholder-essential_requirements-tooltip'] = 'Essential Requirements Example';
-$lang['stakeholder-main_expectations-tooltip'] = 'Main Expectations Example';
-$lang['stakeholder-interest_phase-tooltip'] = 'Phase of Greater Interest Example';
-$lang['stakeholder-observations-tooltip'] = 'Observations Example';
-$lang['select-stakeholder-tooltip'] = 'Select Stakeholder Example';
+$lang['shr-name-tooltip'] = 'Name Example';
+$lang['shr-type-tooltip'] = 'Type Example';
+$lang['shr-organization-tooltip'] = 'Organization Example';
+$lang['shr-position-tooltip'] = 'Position in organization Example';
+$lang['shr-role-tooltip'] = 'Main Role in the Project Example';
+$lang['shr-responsibility-tooltip'] = 'Main Project Responsibility Example';
+$lang['shr-email-tooltip'] = 'E-mail Example';
+$lang['shr-phone_number-tooltip'] = 'Fone Example';
+$lang['shr-work_place-tooltip'] = 'Workplace Example';
+$lang['shr-essential_requirements-tooltip'] = 'Essential Requirements Example';
+$lang['shr-main_expectations-tooltip'] = 'Main Expectations Example';
+$lang['shr-interest_phase-tooltip'] = 'Phase of Greater Interest Example';
+$lang['shr-observations-tooltip'] = 'Observations Example';
+$lang['select-shr-tooltip'] = 'Select Stakeholder Example';
 $lang['select-interest-level-tooltip'] = 'Select Interest Level Example';
 $lang['select-power-level-tooltip'] = 'Select Power Level Example';
 $lang['select-influence-level-tooltip'] = 'Select Influece Level Example';
@@ -74,7 +74,7 @@ $lang['option-5'] = 'Resistant';
 $lang['stakeholder_mp-text1-tooltip'] = 'Engagement / Management Strategy Example';
 $lang['stakeholder_mp-text2-tooltip'] = 'Scope and Impact of Changes to Stakeholder Example';
 $lang['stakeholder_mp-text3-tooltip'] = 'Observations with other Stakeholders Example';
-$lang['stakeholder-name'] = 'Stakeholder Name:';
+$lang['shr-name'] = 'Stakeholder Name:';
 
 
 //Table

@@ -9,29 +9,25 @@
 			return $this->db->insert('work_performance_report', $work_performance_report);
 		}
 
-        public function getWorkPerformance($id){
-            $query = $this->db->get_where('work_performance_report',array('id'=>$id));
+        public function get($id){
+            $query = $this->db->get_where('work_performance_report',array('work_performance_report_id'=>$id));
             return $query->row_array();
         }
 
-        public function getAllWorkPerformance($project_id){
+        public function getAll($project_id){
             $query = $this->db->get_where('work_performance_report', array('work_performance_report.project_id'=>$project_id));
             return $query->result();
         }
 
-        public function updateWorkPerformance($work_performance_report, $id){
-            $this->db->where('work_performance_report.id', $id);
+        public function update($work_performance_report, $id){
+            $this->db->where('work_performance_report.work_performance_report_id', $id);
             return $this->db->update('work_performance_report', $work_performance_report);
         }
 
-        public function deleteWorkPerformance($id){
-            $this->db->where('work_performance_report.id', $id);
+        public function delete($id){
+            $this->db->where('work_performance_report.work_performance_report_id', $id);
             return $this->db->delete('work_performance_report');
         }
 
-        public function edit($id) {
-            $query = $this->db->get_where('work_performance_report', array('work_performance_report.id'=>$id));
-            return $query->result();
-        }
 	}
 ?>

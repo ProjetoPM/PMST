@@ -1,122 +1,58 @@
 $(function() {
 $('.message').keypress(function(event){
     var keycode = (event.keyCode ? event.keyCode : event.which);
-    if(keycode == '13'){
-       sendTxtMessage($(this).val());
-    }
+	if(keycode == '13'){
+		sendTxtMessage($(this).val());
+	 }
+     
+    
 });
 $('.btnSend').click(function(){
        sendTxtMessage($('.message').val());
-});
-$('.selectVendor').click(function(){
-	ChatSection(1);
-      var receiver_id = $(this).attr('id');
-	 // alert(receiver_id);
-	  
-	  $('#ReciverId_txt').val(receiver_id);
-	  $('#ReciverName_txt').html($(this).attr('title'));
-	  
-	  GetChatHistory(receiver_id);
- 				
-});
-$('.upload_attachmentfile').change(function(){
-	
-	DisplayMessage('<div class="spiner"><i class="fa fa-circle-o-notch fa-spin"></i></div>');
-	ScrollDown();
-	
-	var file_data = $('.upload_attachmentfile').prop('files')[0];
-	var receiver_id = $('#ReciverId_txt').val();   
-    var form_data = new FormData();
-    form_data.append('attachmentfile', file_data);
-	form_data.append('type', 'Attachment');
-	form_data.append('receiver_id', receiver_id);
-	
-	$.ajax({
-                url: 'chat-attachment/upload', 
-                dataType: 'json',  
-                cache: false,
-                contentType: false,
-                processData: false,
-                data: form_data,                        
-                type: 'post',
-                success: function(response){
-					
-					$('.upload_attachmentfile').val('');
-					GetChatHistory(receiver_id);
-				},
-				error: function (jqXHR, status, err) {
- 							 // alert('Local error callback');
-				}
-	 });
-	
-});
-$('.ClearChat').click(function(){
-       var receiver_id = $('#ReciverId_txt').val();
-  	 			$.ajax({
-						  //dataType : "json",
-  						  url: 'chat-clear?receiver_id='+receiver_id,
-						  success:function(data)
-						  {
-  							 GetChatHistory(receiver_id);		 
-						  },
-						  error: function (jqXHR, status, err) {
- 							 // alert('Local error callback');
-						  }
- 					});
- 				
 });
 
  
 
 });	///end of jquery
 
-function ViewAttachment(message_id){
-//alert(message_id);
-			/*$.ajax({
-						  //dataType : "json",
-  						  url: 'view-chat-attachment?message_id='+message_id,
-						  success:function(data)
-						  {
-  							 		 
-						  },
-						  error: function (jqXHR, status, err) {
- 							 // alert('Local error callback');
-						  }
- 					});*/
-}
-function ViewAttachmentImage(image_url,imageTitle){
-	$('#modelTitle').html(imageTitle); 
-	$('#modalImgs').attr('src',image_url);
-	$('#myModalImg').modal('show');
+
+
+function ChatSection(){
+	
+	var receiver_id = $(this).attr('itemid');
+	// alert(receiver_id);
+	console.log(receiver_id + "section");
+	  
+	  $('#receiver_id').val(receiver_id);
+	  $('#reciver_name').html($(this).attr('title'));
+	//  $('#ReciverName_txt').html($(this).attr('title'));
+	  GetChatHistory(receiver_id);
+	
+	//chatSection
+	
+       // $('#chatSection :input').removeAttr('disabled');
+       
 }
 
-function ChatSection(status){
-	//chatSection
-	if(status==0){
-		$('#chatSection :input').attr('disabled', true);
-    } else {
-        $('#chatSection :input').removeAttr('disabled');
-    }   
-}
-ChatSection(0);
 
 
 function ScrollDown(){
 	var elmnt = document.getElementById("content");
     var h = elmnt.scrollHeight;
-   $('#content').animate({scrollTop: h}, 1000);
+	$('#content').animate({ scrollTop: h }, 1);
+	console.log(receiver_id);
 }
 window.onload = ScrollDown();
 
 function DisplayMessage(message){
-	var Sender_Name = $('#Sender_Name').val();
-	var Sender_ProfilePic = $('#Sender_ProfilePic').val();
+	var Sender_Name = $('#sender_name').val();
+	//var Sender_ProfilePic = $('#Sender_ProfilePic').val();
 	
 		var str = '<div class="direct-chat-msg right">';
 				str+='<div class="direct-chat-info clearfix">';
 				 str+='<span class="direct-chat-name pull-right">'+Sender_Name ;
 				 str+='</span><span class="direct-chat-timestamp pull-left"></span>'; //23 Jan 2:05 pm
-				 str+='</div><img class="direct-chat-img" src="'+Sender_ProfilePic+'" alt="">';
+				// str+='</div><img class="direct-chat-img" src="'+Sender_ProfilePic+'" alt="">';
 				 str+='<div class="direct-chat-text">'+message;
 				 str+='</div></div>';
 		$('#dumppy').append(str);
@@ -125,10 +61,11 @@ function DisplayMessage(message){
 function sendTxtMessage(message){
 	var messageTxt = message.trim();
 	if(messageTxt!=''){
-		//console.log(message);
+		// console.log(message);
  		DisplayMessage(messageTxt);
 		
-				var receiver_id = $('#ReciverId_txt').val();
+				var receiver_id = $('#receiver_id').val();
+				console.log(receiver_id);
 				$.ajax({
 						  dataType : "json",
 						  type : 'post',
@@ -139,7 +76,8 @@ function sendTxtMessage(message){
   							GetChatHistory(receiver_id)		 
 						  },
 						  error: function (jqXHR, status, err) {
- 							 // alert('Local error callback');
+							   alert('Local error callback1');
+							   
 						  }
  					});
 					
@@ -154,21 +92,26 @@ function sendTxtMessage(message){
 }
 
 function GetChatHistory(receiver_id){
+	console.log(receiver_id);
 				$.ajax({
-						  //dataType : "json",
-  						  url: 'get-chat-history-vendor?receiver_id='+receiver_id,
+						 // dataType : "json",
+  						  url: 'get-chat-history?receiver_id='+receiver_id,
 						  success:function(data)
 						  {
   							$('#dumppy').html(data);
 							ScrollDown();	 
+							
 						  },
 						  error: function (jqXHR, status, err) {
- 							 // alert('Local error callback');
+							//   alert('Local error callback2');
+							   
 						  }
  					});
 }
 
 setInterval(function(){ 
-	var receiver_id = $('#ReciverId_txt').val();
+	var receiver_id = $('#receiver_id').val();
 	if(receiver_id!=''){GetChatHistory(receiver_id);}
 }, 3000);
+
+window.load = GetChatHistory($('#receiver_id').val());

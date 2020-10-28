@@ -1,7 +1,7 @@
 <?php
 
 // Title
-$lang['project_performance_report-title'] = 'Project Performance and Monitoring Report';
+$lang['ppr_title'] = 'Project Performance and Monitoring Report';
 
 //Form
 $lang['date'] = 'Date of Report';

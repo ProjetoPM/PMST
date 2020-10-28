@@ -33,7 +33,6 @@ class LanguageLoader
     //carrega todos os arquivos de idioma, dessa forma você poderá utilizar as
     //mensagens das bibliotecas nativas normalmente
     $ci->lang->load(array(
-      'calendar',
       'date',
       'db',
       'email',
@@ -47,7 +46,6 @@ class LanguageLoader
       'unit_test',
       'upload',
       'btn',
-      'human-resource'
     ),$idioma);
     
     //define o idioma a ser utilizado, diretamente nas configurações globais da aplicação.

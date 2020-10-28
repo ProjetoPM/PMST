@@ -19,6 +19,7 @@ class Dashboard extends CI_Controller {
         $datauser['user'] = $this->db->get('user')->result();
         $this->load->view('frame/header_view', $datauser);
         $this->load->view('frame/sidebar_nav_view');
+        $this->load->view('frame/topbar');
         $this->load->view('dashboard');
         $this->load->view('frame/footer_view');
     }
