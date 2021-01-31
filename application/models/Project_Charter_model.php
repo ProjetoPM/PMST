@@ -30,7 +30,7 @@ class Project_Charter_model extends CI_Model{
 			'status' => $postData['status'],
 		);
 
-		$this->db->insert('project_charter', $data);
+		return $this->db->insert('project_charter', $data);
 	}
 
 	public function get($project_id){

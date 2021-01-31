@@ -56,15 +56,22 @@ class ProjectCharter extends CI_Controller
 
 	public function edit($project_id)
 	{
+		// var_dump($_SESSION['project']);
+		// die;
+		// exit;
 		$this->db->where('user_id', $_SESSION['user_id']);
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
 
 		if (count($project['dados']) > 0) {
 			$dado['project_charter'] = $this->Project_Charter_model->get($_SESSION['project_id']);
+			
 			if ($dado['project_charter'] == null) {
 				redirect("integration/project-charter/new/" . $_SESSION['project_id']);
 			}
+
+			$dado['items'] = array_column($dado['project_charter'], 'project_charter_id');
+			$dado['items'] = $this->view_model->getAllSignature($dado['items'][0]);
 
 			$dado['stakeholder'] = $this->Project_Charter_model->getAllStk();
 			//$dado['stakeholder_mp'] = $this->Project_Charter_model->getAllStk_mp();
@@ -80,15 +87,26 @@ class ProjectCharter extends CI_Controller
 
 	public function insert()
 	{
+		if ($_SESSION['access_level'] == "1") {
+			$this->session->set_flashdata('error', 'You are not allowed to create or change documents!');
+			redirect("integration/project-charter/new/" . $_SESSION['project_id']);
+		}
 		insertLogActivity('insert', 'project charter');
 		$postData = $this->input->post();
 		$insert   = $this->Project_Charter_model->insert($postData);
+		if ($insert) {
+			$this->session->set_flashdata('success', 'Project Charter has been successfully created!');
+		}
 		redirect("integration/project-charter/edit/" . $postData['project_id']);
 		echo json_encode($insert);
 	}
 
 	public function update()
 	{
+		if ($_SESSION['acess_level'] == 1) {
+			$this->session->set_flashdata('error', 'You are not allowed to create or change documents!');
+			redirect("integration/project-charter/edit/" . $_SESSION['project_id']);
+		}
 		$project_charter['project_description'] = $this->input->post('project_description');
 		$project_charter['project_purpose'] = $this->input->post('project_purpose');
 		$project_charter['project_objective'] = $this->input->post('project_objective');
@@ -114,6 +132,8 @@ class ProjectCharter extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('update', 'project charter');
+			$this->session->set_flashdata('success', 'Project Charter has been successfully changed!');
+
 			redirect("integration/project-charter/edit/" . $_SESSION['project_id']);
 		}
 	}

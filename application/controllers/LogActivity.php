@@ -34,10 +34,10 @@ class LogActivity extends CI_Controller
 		$log['date'] = date('Y-m-d');
 		$log['time'] = date('H:i:s');
 		$log['project_id'] = $_SESSION['project_id'];
-		$log['view_id'] = $this->view_model->GetIDByName($view_name);;
+		$log['view_id'] = $this->view_model->GetIDByName($view_name);
 		$log['user_id'] = $this->session->userdata('user_id');
 		
-
+		
 		switch ($action_type) {
 			case "insert":
 				$midName = ' inserted a new register on ';
@@ -51,7 +51,14 @@ class LogActivity extends CI_Controller
 			case "send message":
 				$midName = ' sent a message on ';
 				break;
+			case "sign":
+				$midName = ' signed a register on ';
+				break;
+			case "unsubscribe":
+				$midName = ' disinherited a register on ';
+				
 		}
+		
 		$log['action'] = '['.$this->session->userdata('name').']'.$midName
 		.'<'.$view_name.'>';
 

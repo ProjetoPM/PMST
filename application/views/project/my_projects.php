@@ -1,41 +1,52 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
-<?php if ($this->session->flashdata('success')) : ?>
-    <div class="alert alert-success">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong><?php echo $this->session->flashdata('success'); ?></strong>
-    </div>
-<?php elseif ($this->session->flashdata('faildeleteproject')) : ?>
-    <div class="alert alert-warning">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong><?php echo $this->session->flashdata('faildeleteproject'); ?></strong>
-    </div>
-<?php elseif ($this->session->flashdata('error2')) : ?>
-    <div class="alert alert-success">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong><?php echo $this->session->flashdata('error2'); ?></strong>
-    </div>
-<?php elseif ($this->session->flashdata('error3')) : ?>
-    <div class="alert alert-warning">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong><?php echo $this->session->flashdata('error3'); ?></strong>
-    </div>
-<?php endif; ?>
+
 
 <body class="hold-transition skin-gray sidebar-mini">
 
     <script src="<?= base_url() ?>assets/js/sidebar-menu.js" type="text/javascript"></script>
-    
+
     <div class="wrapper">
         <div class="content-wrapper" style="padding-top: 50px;">
             <section class="content">
+                <?php if ($this->session->flashdata('success')) : ?>
+                    <div class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong><?php echo $this->session->flashdata('success'); ?></strong>
+                    </div>
+                <?php elseif ($this->session->flashdata('faildeleteproject')) : ?>
+                    <div class="alert alert-warning">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong><?php echo $this->session->flashdata('faildeleteproject'); ?></strong>
+                    </div>
+                <?php elseif ($this->session->flashdata('error2')) : ?>
+                    <div class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong><?php echo $this->session->flashdata('error2'); ?></strong>
+                    </div>
+                <?php elseif ($this->session->flashdata('error3')) : ?>
+                    <div class="alert alert-warning">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong><?php echo $this->session->flashdata('error3'); ?></strong>
+                    </div>
+                <?php endif; ?>
 
                 <div class="row">
                     <div class="col-lg-12">
                         <!-- Inicio dos meus projetos -->
                         <div class="panel panel-default panel-table">
                             <div class="panel-heading">
+
                                 <div class="row">
                                     <div class="col col-xs-2">
+
                                         <a type="button" href="<?= base_url("new/") ?>" class="btn btn-normal btn-info btn-create"><i class="glyphicon glyphicon-plus"></i> Create New Project</a>
                                     </div>
                                 </div>
@@ -52,6 +63,7 @@
                                             <th> Title</th>
                                             <th>Created By</th>
                                             <th><em class="fa fa-cog"></em> Actions</th>
+                                            <th>Access Level</th>
                                         </tr>
                                         <?php foreach ($convidado as $pro) { ?>
                                     </thead>
@@ -118,6 +130,15 @@
                                                 <a href="<?= base_url("edit/" . $pro->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-pencil"></em><span class="hidden-xs"> Edit</span></a>
                                                 <a href="<?= base_url("researcher/" . $pro->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-users"></em><span class="hidden-xs"> Add Member</span></a>
                                                 <a href="<?= base_url("delete/" . $pro->project_id) ?>" onclick="return confirm('Are you sure you want to delete <?= $pro->title; ?>?');" class="btn btn-danger <?php echo $view . $execute; ?>"><em class="fa fa-trash"></em><span class="hidden-xs"> Delete</span></a>
+                                            </td>
+                                            <td >
+                                                <?php if ($level == 0) {
+                                                    echo "Staff";
+                                                } elseif ($level == 1) {
+                                                    echo "Professor";
+                                                } elseif ($level == 2) {
+                                                    echo "Project Manager";
+                                                } ?>
                                             </td>
                                         </tr>
                                     <?php } //print_r($teste)  

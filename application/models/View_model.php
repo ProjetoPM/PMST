@@ -30,16 +30,14 @@ class View_model extends CI_Model {
 		$res = $query->row_array();
 
  		return $res['view_id'];
+	   }
+	   
+	public function getAllSignature($item_id)
+	{
+		$query = $this->db->get_where('signature', array('item_id' => $item_id));
+		return $query->result();
+	}
 
-		 
-
-   	}
-
-	
-
-	
-
-	
 
  }
 

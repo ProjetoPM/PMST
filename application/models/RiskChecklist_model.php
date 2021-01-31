@@ -1,5 +1,5 @@
 <?php
-class Communications_mp_model extends CI_Model
+class RiskChecklist_model extends CI_Model
 {
 	function __construct()
 	{
@@ -15,7 +15,7 @@ class Communications_mp_model extends CI_Model
 
 	public function getAll($project_id)
 	{
-		$query = $this->db->get_where('communication_item', array('communication_item.project_id' => $project_id));
+		$query = $this->db->get_where('risk_checklist', array('risk_checklist.project_id' => $project_id));
 		return $query->result();
 	}
 
@@ -48,7 +48,7 @@ class Communications_mp_model extends CI_Model
 		return $query->result();
 	}
 
-	function updateResponsability($communication_item_id, $communication_responsability_id, $stakeholder_responsability)
+	function updateRiskCheckList($risk_checklist, $project_id)
 	{
 		$this->db->trans_start();
 
@@ -58,19 +58,22 @@ class Communications_mp_model extends CI_Model
 
 		//DELETE DETAIL PACKAGE
 		$result = array();
-		$this->db->delete('communication_stakeholder_responsability', array('communication_item_id' => $communication_item_id, 'communication_responsability_id' => $communication_responsability_id));
-		if ($stakeholder_responsability != null) {
-			
-			foreach ($stakeholder_responsability as $key => $val) {
+		$this->db->delete('risk_checklist', array('project_id' => $project_id));
+		if ($risk_checklist != null) {
+			// count($_POST['pass_type'])
+			for ($i = 0; $i < count($risk_checklist); $i++) {
 				$result[] = array(
-					'communication_item_id'  	=> $communication_item_id,
-					'communication_responsability_id'  	=> $communication_responsability_id,
-					'stakeholder_id'  	=> $_POST['responsability'][$key],
+					'aspects'=> $_POST['aspects'][$i],
+					'weight'=> $_POST['weight'][$i],
+					'level'=> $_POST['level'][$i],
+					'project_id' => $project_id,
+					'score' => $_POST['score'][$i],
+					'comments' => $_POST['comments'][$i],
 				);
 			}
-		
-		//MULTIPLE INSERT TO DETAIL TABLE
-		$this->db->insert_batch('communication_stakeholder_responsability', $result);
+
+			//MULTIPLE INSERT TO DETAIL TABLE
+			$this->db->insert_batch('risk_checklist', $result);
 		}
 		$this->db->trans_complete();
 		return $result;

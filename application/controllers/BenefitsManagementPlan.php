@@ -78,6 +78,9 @@ class BenefitsManagementPlan extends CI_Controller
 
 		$postData = $this->input->post();
 		$insert   = $this->Benefits_plan_model->insert($postData);
+		if ($insert) {
+			$this->session->set_flashdata('success', 'Benefits Management Plan has been successfully created!');
+		}
 		redirect('integration/benefits-mp/edit/' . $postData['project_id']);
 		echo json_encode($insert);
 	}
@@ -85,8 +88,6 @@ class BenefitsManagementPlan extends CI_Controller
 
 	public function update()
 	{
-		insertLogActivity('update', 'benefits management plan');
-
 		$benefits_plan['target_benefits'] = $this->input->post('target_benefits');
 		$benefits_plan['strategic_alignment'] = $this->input->post('strategic_alignment');
 		$benefits_plan['schedule_benefit'] = $this->input->post('schedule_benefit');
@@ -97,7 +98,10 @@ class BenefitsManagementPlan extends CI_Controller
 
 		//$insert = $this->project_model->insert_project_pgq($quality_mp);
 		$query = $this->Benefits_plan_model->update($benefits_plan,  $_SESSION['project_id']);
-
+		if ($query) {
+			$this->session->set_flashdata('success', 'Benefits Management Plan has been successfully changed!');
+			insertLogActivity('update', 'benefits management plan');
+		}
 		redirect('integration/benefits-mp/edit/' . $_SESSION['project_id']);
 	}
 }

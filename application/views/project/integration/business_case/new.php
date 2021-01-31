@@ -28,12 +28,12 @@
             <div class="panel-body">
               <h1 class="page-header">
 
-                <?= $this->lang->line('tap-title')  ?>
+                <?= $this->lang->line('business_case-title')  ?>
 
               </h1>
 
 
-              <form method="POST" action="<?php echo base_url('integration/business-case/insert/'); ?>">
+              <form method="POST" action="<?php echo base_url('integration/business-case/insert'); ?>">
 
                 <input type="hidden" name="project_id" value="<?php echo $_SESSION['project_id']; ?>">
 

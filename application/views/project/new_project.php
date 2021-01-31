@@ -24,12 +24,16 @@
 
          <?php if ($this->session->flashdata('success')) : ?>
            <div class="alert alert-success">
-             <a href="#" class="close" data-dismiss="alert">&times;</a>
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
              <strong><?php echo $this->session->flashdata('success'); ?></strong>
            </div>
          <?php elseif ($this->session->flashdata('error')) : ?>
            <div class="alert alert-warning">
-             <a href="#" class="close" data-dismiss="alert">&times;</a>
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
              <strong><?php echo $this->session->flashdata('error'); ?></strong>
            </div>
          <?php endif; ?>

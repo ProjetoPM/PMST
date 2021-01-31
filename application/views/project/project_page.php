@@ -1,12 +1,16 @@
 <link href="<?= base_url() ?>assets/css/show_project_page_card.css" rel="stylesheet">
 <?php if ($this->session->flashdata('success')) : ?>
   <div class="alert alert-success">
-    <a href="#" class="close" data-dismiss="alert">&times;</a>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
     <strong><?php echo $this->session->flashdata('success'); ?></strong>
   </div>
 <?php elseif ($this->session->flashdata('error')) : ?>
   <div class="alert alert-warning">
-    <a href="#" class="close" data-dismiss="alert">&times;</a>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
     <strong><?php echo $this->session->flashdata('error'); ?></strong>
   </div>
 <?php endif; ?>
@@ -14,10 +18,10 @@
 
 <body class="hold-transition skin-gray sidebar-mini">
   <script src="<?= base_url() ?>assets/js/sidebar-menu.js" type="text/javascript"></script>
-  
+
   <div class="wrapper">
     <div class="content-wrapper">
-     
+
       <section class="content" style="padding-top: 5px;">
         <div class="row">
           <div class="col-md-12">
@@ -25,7 +29,8 @@
               <div class="panel-heading">
                 <h3 class="panel-title" style="text-align: center;padding-right: 53px;">
                   <strong><?= $this->lang->line('phases') ?>
-                    <!-- <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="Definir"><i class="glyphicon glyphicon-comment"></i></a> --></strong>
+                    <!-- <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="Definir"><i class="glyphicon glyphicon-comment"></i></a> -->
+                  </strong>
                 </h3>
               </div>
 

@@ -1,9 +1,11 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class BusinessCase extends CI_Controller {
+class BusinessCase extends CI_Controller
+{
 
-	function __construct(){
+	function __construct()
+	{
 		parent::__construct();
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
@@ -11,10 +13,10 @@ class BusinessCase extends CI_Controller {
 
 		// $this->load->helper('url', 'english');
 
-		$this->lang->load('btn','english');
-        // $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('business_case','english');
-        // $this->lang->load('quality_mp','portuguese-brazilian');
+		$this->lang->load('btn', 'english');
+		// $this->lang->load('btn','portuguese-brazilian');
+		$this->lang->load('business_case', 'english');
+		// $this->lang->load('quality_mp','portuguese-brazilian');
 
 		$this->load->model('view_model');
 		$this->load->model('Project_model');
@@ -33,11 +35,11 @@ class BusinessCase extends CI_Controller {
 
 		if (count($project['dados']) > 0) {
 			$dado['business_case'] = $this->Business_case_model->get($_SESSION['project_id']);
-			if($dado['business_case'] != null){
-				redirect("integration/business-case/edit/".$_SESSION['project_id']);
+			if ($dado['business_case'] != null) {
+				redirect("integration/business-case/edit/" . $_SESSION['project_id']);
 			}
-			$this->load->view('frame/header_view'); 
-		 $this->load->view('frame/topbar');
+			$this->load->view('frame/header_view');
+			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');
 			$this->load->view('project/integration/business_case/new', $dado);
 		} else {
@@ -53,11 +55,11 @@ class BusinessCase extends CI_Controller {
 
 		if (count($project['dados']) > 0) {
 			$dado['business_case'] = $this->Business_case_model->get($_SESSION['project_id']);
-			if($dado['business_case'] == null){
-				redirect(base_url("integration/business-case/new/".$_SESSION['project_id']));
+			if ($dado['business_case'] == null) {
+				redirect(base_url("integration/business-case/new/" . $_SESSION['project_id']));
 			}
-			$this->load->view('frame/header_view'); 
-		 $this->load->view('frame/topbar');
+			$this->load->view('frame/header_view');
+			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');
 			$this->load->view('project/integration/business_case/edit', $dado);
 		} else {
@@ -68,17 +70,21 @@ class BusinessCase extends CI_Controller {
 
 	function insert()
 	{
-		insertLogActivity('insert', 'business case'); 
+		insertLogActivity('insert', 'business case');
 
 		$postData = $this->input->post();
 		$insert   = $this->Business_case_model->insert($postData);
-		redirect("integration/business-case/edit/". $postData['project_id']);
-		echo json_encode($insert);
+		if ($insert) {
+			$this->session->set_flashdata('success', 'Bussiness Case has been successfully created!');
+		}
+		redirect("integration/business-case/edit/" . $_SESSION['project_id']);
+		// echo json_encode($insert);
 	}
 
 
-	public function update(){
-		insertLogActivity('update', 'business case'); 
+	public function update()
+	{
+		insertLogActivity('update', 'business case');
 
 		$business_case['business_deals'] = $this->input->post('business_deals');
 		$business_case['situation_analysis'] = $this->input->post('situation_analysis');
@@ -87,10 +93,13 @@ class BusinessCase extends CI_Controller {
 
 		//$insert = $this->project_model->insert_project_pgq($quality_mp);
 		$query = $this->Business_case_model->update($business_case, $_SESSION['project_id']);
+		if ($query) {
+			$this->session->set_flashdata('success', 'Bussiness Case has been successfully changed!');
+		}
 
-		$this->load->view('frame/header_view'); 
-		 $this->load->view('frame/topbar');
+		$this->load->view('frame/header_view');
+		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
-		redirect("integration/business-case/edit/".$_SESSION['project_id']);
+		redirect("integration/business-case/edit/" . $_SESSION['project_id']);
 	}
 }

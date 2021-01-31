@@ -96,6 +96,7 @@ class StakeholderRegister extends CI_Controller
 
         if ($query) {
             insertLogActivity('update', 'stakeholder register');
+            $this->session->set_flashdata('success', 'Stakeholder Register has been successfully changed!');
             redirect('stakeholder/stakeholder-register/list/' . $stakeholder['project_id']);
         }
     }
@@ -122,6 +123,7 @@ class StakeholderRegister extends CI_Controller
 
         if ($query) {
             insertLogActivity('insert', 'stakeholder register');
+            $this->session->set_flashdata('success', 'Stakeholder Register has been successfully created!');
             redirect('stakeholder/stakeholder-register/list/' . $stakeholder['project_id']);
         }
     }

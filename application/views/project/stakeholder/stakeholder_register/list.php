@@ -13,12 +13,16 @@
 
 				<?php if ($this->session->flashdata('success')) : ?>
 					<div class="alert alert-success">
-						<a href="#" class="close" data-dismiss="alert">&times;</a>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
 						<strong><?php echo $this->session->flashdata('success'); ?></strong>
 					</div>
 				<?php elseif ($this->session->flashdata('error')) : ?>
 					<div class="alert alert-warning">
-						<a href="#" class="close" data-dismiss="alert">&times;</a>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
 						<strong><?php echo $this->session->flashdata('error'); ?></strong>
 					</div>
 				<?php endif; ?>
@@ -29,15 +33,14 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-								<?= $this->lang->line('shr-title')  ?>
+								<?= $this->lang->line('shr_title')  ?>
 
 							</h1>
 
 							<div class="row">
 								<div class="col-lg-12">
 
-									<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>stakeholder/stakeholder-register/new/<?php echo $project_id ?>'"> <?= $this->lang->line('btn-new') ?> <?= $this->lang->line('shr-title') ?></button>
-
+									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>stakeholder/stakeholder-register/new/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
 								</div>
 							</div>
 
@@ -45,7 +48,7 @@
 							<div class="row">
 								<div class="col-lg-12">
 
-									<table class="table table-bordered table-striped" id="tableNB">
+									<table class="table table-bordered table-striped" id="table_stake">
 										<thead>
 											<tr>
 												<th class="text-center">#</th>
@@ -53,7 +56,6 @@
 												<th>Organization</th>
 												<th>Position</th>
 												<th>E-mail</th>
-
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
 										</thead>
@@ -67,12 +69,10 @@
 													<td><?php echo $item->organization; ?></td>
 													<td><?php echo $item->position; ?></td>
 													<td><?php echo $item->email; ?></td>
-
-
 													<td>
 														<div class="row center">
 															<div class="col-sm-4">
-																<form action="<?php echo base_url() ?>stakeholder/stakeholder-register/new/<?php echo $item->stakeholder_id; ?>" method="post">
+																<form action="<?php echo base_url() ?>stakeholder/stakeholder-register/edit/<?php echo $item->stakeholder_id; ?>" method="post">
 																	<input type="hidden" name="project_id" value="<?= $item->project_id ?>">
 																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 																</form>
@@ -111,6 +111,7 @@
 <script src="<?= base_url() ?>assets/js/jquery.dataTables.min.js"></script>
 <script src="<?= base_url() ?>assets/js/dataTables.bootstrap.js"></script>
 <script src="<?= base_url() ?>assets/js/dataTables.responsive.js"></script>
+
 <!-- JavaScript -->
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
 <!-- CSS -->
@@ -123,7 +124,7 @@
 	let table;
 
 	$(document).ready(function() {
-		table = $('#tableNB').DataTable({
+		table = $('#table_stake').DataTable({
 			"columns": [{
 					"data": "#",
 					"orderable": false
@@ -138,6 +139,9 @@
 					"data": "position"
 				},
 				{
+					"data": "email"
+				},
+				{
 					"data": "btn-actions",
 					"orderable": false
 				}
@@ -148,7 +152,7 @@
 		});
 	});
 
-	$("#tableNB tbody td.moreInformationTable").on("click", function() {
+	$("#table_stake tbody td.moreInformationTable").on("click", function() {
 		let element = jQuery($(this)[0].parentNode);
 		let tr = element.closest('tr');
 		let row = table.row(tr);
@@ -167,10 +171,12 @@
 	function format(dados) {
 		return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
 			'<tr>' +
-			'<td><b><?= $this->lang->line('responsability') ?>: </b>' + dados.responsability + '</td>' +
+			'<td> <span style="font-weight:bold;"><?= $this->lang->line('shr_responsibility') ?>: </span> </td>' +
+			'<td>' + dados.responsibility + '</td>' +
 			'</tr>' +
 			'<tr>' +
-			'<td><b><?= $this->lang->line('email') ?>: </b>' + dados.email + '</td>' +
+			'<td><span style="font-weight:bold;"><?= $this->lang->line('shr_phone_number') ?>: </span> </td>' +
+			'<td>' + dados.phone_number + '</td>' +
 			'</tr>' +
 			'</table>';
 	}
@@ -192,7 +198,8 @@
 				$.post("<?php echo base_url() ?>stakeholder/stakeholder-register/delete/" + stakeholder_id, {
 					project_id: idProjeto,
 				});
-				location.reload();
+				// location.reload();
+				window.location.reload();
 				alertify.success('You agree.');
 			},
 			'oncancel': function() {

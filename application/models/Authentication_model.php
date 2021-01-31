@@ -23,6 +23,17 @@ class Authentication_model extends CI_Model {
             return $query->result();
     }
 
+    public function insertSignature($signature)
+    {
+        return $this->db->insert('signature', $signature);
+    }
+
+    public function deleteAllSignature($item_id)
+    {
+        $this->db->where('signature.item_id', $item_id);
+        return $this->db->delete('signature');
+    }
+
     function change_password($postData){
         $this->load->model('admin_model');
         $validate = false;

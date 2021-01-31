@@ -17,7 +17,7 @@
 				'project_id' => $postData['project_id'],
 			);
 
-			$this->db->insert('benefits_plan', $data);
+			return $this->db->insert('benefits_plan', $data);
 		}
 		public function get($id){
 			$query = $this->db->get_where('benefits_plan',array('project_id'=>$id));

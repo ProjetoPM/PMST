@@ -37,6 +37,7 @@ class Project extends CI_Controller
 
 	public function project_form()
 	{
+		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
 		$data = array(
 			'formTitle' => 'New Project',
@@ -60,7 +61,8 @@ class Project extends CI_Controller
 	function add_project()
 	{
 		//$this->ajax_checking();
-
+		$_SESSION['access_level'] = null;
+		$_SESSION['project_id'] = null;
 		$postData = $this->input->post();
 		$status = $this->project_model->insert_project($postData);
 		if ($status == 1) {
@@ -85,12 +87,12 @@ class Project extends CI_Controller
 	//<!-- Begin Update method --> 
 	public function update($project_id = null)
 	{
-
+		$_SESSION['access_level'] = null;
+		$_SESSION['project_id'] = null;
 		// $this->db->where('project_id', $project_id);
 		$dataproject['project'] = $this->db->get('project')->result();
 
 		$this->load->view('frame/header_view');
-		$this->load->view('frame/topbar');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('project/edit_project', $dataproject);
@@ -121,6 +123,8 @@ class Project extends CI_Controller
 	//passando id como parametro
 	public function add_researcher_page($project_id = null)
 	{
+		$_SESSION['access_level'] = null;
+		$_SESSION['project_id'] = null;
 		$this->db->where('project_id', $project_id);
 		$dataproject['project'] = $this->db->get('project')->result();
 
@@ -133,7 +137,7 @@ class Project extends CI_Controller
 	//metodo para adicionar pesquisador a pesquisa
 	public function add_researcher()
 	{
-		insertLogActivity('insert', 'project members');
+		
 		$dados = $this->input->post();
 
 		$project_id   = $dados['project_id'];
@@ -158,8 +162,28 @@ class Project extends CI_Controller
 			'access_level' => $access_level
 		);
 
+		
+	
+		if ($this->project_model->getResearcher($project_id, $user_id)) {
+			$this->session->set_flashdata('error2', 'User update!');
+			$this->project_model->updateResearcher($project_id, $user_id, $data);
+			redirect('projects/');
+		}
+
 		//metodo que passa as infos para serem add no banco
-		$this->project_model->insertResearcher($data);
+		$query= $this->project_model->insertResearcher($data);
+		 if($query){
+			insertLogActivity('insert', 'project members');
+			$this->session->set_flashdata('error2', 'User added.');
+        // $error = $this->db->error();
+        // if ($error['code'] == 1062) {
+        //     $this->session->set_flashdata('error3', 'User already a member.');
+        //     redirect('projects/');
+		}else{
+			$this->session->set_flashdata('error3', 'User already a member.');
+		}
+
+		redirect('projects/');
 	}
 
 
@@ -196,6 +220,7 @@ class Project extends CI_Controller
 	public function show_projects()
 	{
 		$_SESSION['project_name'] = null;
+		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
 		$dataproject['project'] = $this->db->get_where('project', array(
 			'created_by' => $this->session->userdata('user_id')
@@ -293,6 +318,7 @@ class Project extends CI_Controller
 	//pagina inicial do projeto
 	public function initial($project_id = null)
 	{
+		$_SESSION['access_level'] = $this->project_model->getRole($project_id,$_SESSION['user_id']);
 		$_SESSION['project_id'] = $project_id;
 		if ($project_id == null) {
 			redirect(base_url());

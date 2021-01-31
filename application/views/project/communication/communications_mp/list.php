@@ -1,5 +1,6 @@
 <!-- /.col-lg-12 -->
 
+
 <?php if ($this->session->flashdata('success')) : ?>
 	<div class="alert alert-success">
 		<a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -25,6 +26,11 @@
 	<div class="wrapper">
 		<div class="content-wrapper">
 			<section class="content">
+				<style>
+					table th {
+						text-align: center;
+					}
+				</style>
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="panel-body">
@@ -33,7 +39,8 @@
 							</h1>
 							<div class="row">
 								<div class="col-lg-12">
-									<button type="button" class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>communication/communications-mp/new/<?php echo $project_id ?>'"><?= $this->lang->line('btn-new') ?> <?= $this->lang->line('communication-item') ?></button>
+									<button type="button" class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>communication/communications-mp/new/<?php echo $project_id ?>'"><?= $this->lang->line('btn-new') ?>
+										<?= $this->lang->line('communication-item') ?></button>
 								</div>
 							</div>
 							<br><br>
@@ -103,13 +110,13 @@
 										</div>
 									</div>
 								</div>
-								<div   class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+								<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 									<div class="row">
 										<div class="col-lg-12">
 											<table class="table table-bordered table-striped" id="tableNB">
 												<thead>
 													<tr>
-														<th><?= $this->lang->line('commp_type') ?></th>
+														<!-- <th><?= $this->lang->line('commp_type') ?></th> -->
 														<th><?= $this->lang->line('commp_name') ?></th>
 														<th><?= $this->lang->line('commp_A') ?></th>
 														<th><?= $this->lang->line('commp_D') ?></th>
@@ -124,31 +131,37 @@
 													foreach ($communication_item as $item) {
 													?>
 														<tr>
-															<td><?php echo $item->type; ?></td>
-															<td><?php echo $item->description; ?></td>
-															<td>
-																<div class="col-md-6 my-3" style="max-width: 20px;">
-																	<select id="table-comm2" multiple>
-																		<!-- <option value="" disabled selected> <?= $this->lang->line('commp_choose') ?></option> -->
-																		<?php
-																		foreach ($stakeholder as $stake) {
-																		?>
-																			<option value=<?php echo $stake->stakeholder_id ?>><?php echo $stake->name; ?></option>
-																		<?php
-																		}
-																		?>
-																	</select>
-
-																	<button class="btn-save btn btn-primary btn-sm"><?= $this->lang->line('btn-save') ?></button>
-																</div>
+															<!-- <td style="width: 6px;max-width: 7px;"><?php echo $item->type; ?></td> -->
+															<td style="width: 6px;max-width: 7px;"><?php echo $item->description; ?></td>
+															<td style="max-width: 8px;">
+																<?php $responsability = array("communication_responsability_id" => "1", "communication_item_id" => $item->communication_item_id);
+																?>
+																<?php $this->load->view('project/communication/communications_mp/table_stake', $responsability) ?>
 															</td>
-
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td>
-
+															<td style="max-width: 8px;">
+																<?php $responsability = array("communication_responsability_id" =>
+																"2", "communication_item_id" => $item->communication_item_id);  ?>
+																<?php $this->load->view('project/communication/communications_mp/table_stake', $responsability) ?>
+															</td>
+															<td style="max-width: 8px;">
+																<?php $responsability = array("communication_responsability_id" =>
+																"3", "communication_item_id" => $item->communication_item_id);  ?>
+																<?php $this->load->view('project/communication/communications_mp/table_stake', $responsability) ?>
+															</td>
+															<td style="max-width: 8px;">
+																<?php $responsability = array("communication_responsability_id" =>
+																"4", "communication_item_id" => $item->communication_item_id);  ?>
+																<?php $this->load->view('project/communication/communications_mp/table_stake', $responsability) ?>
+															</td>
+															<td style="max-width: 8px;">
+																<?php $responsability = array("communication_responsability_id" =>
+																"5", "communication_item_id" => $item->communication_item_id);  ?>
+																<?php $this->load->view('project/communication/communications_mp/table_stake', $responsability) ?>
+															</td>
+															<td style="max-width: 8px;">
+																<?php $responsability = array("communication_responsability_id" =>
+																"6", "communication_item_id" => $item->communication_item_id);  ?>
+																<?php $this->load->view('project/communication/communications_mp/table_stake', $responsability) ?>
 															</td>
 														</tr>
 													<?php
@@ -166,7 +179,8 @@
 
 
 									<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>">
-										<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
+										<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i>
+											<?= $this->lang->line('btn-back') ?></button>
 									</form>
 								</div>
 							</div>
@@ -176,6 +190,8 @@
 							<?php $view = array(
 								"name" => "communications_management_plan",
 							); ?>
+
+
 
 							<!--Carrega o form de envio e envia para ele o nome da view que tu setou -->
 							<?php $this->load->view('upload/index', $view) ?>
@@ -196,7 +212,7 @@
 <?php $this->load->view('frame/footer_view') ?>
 
 <!--DataTable -->
-<script src="<?= base_url() ?>assets/js/jquery-2.1.3.min.js"></script>
+<!-- <script src="<?= base_url() ?>assets/js/jquery-2.1.3.min.js"></script> -->
 <script src="<?= base_url() ?>assets/js/jquery.dataTables.min.js"></script>
 <script src="<?= base_url() ?>assets/js/dataTables.bootstrap.js"></script>
 <script src="<?= base_url() ?>assets/js/dataTables.responsive.js"></script>
@@ -205,5 +221,10 @@
 
 
 <script type="text/javascript">
-	document.multiselect('#table-comm2');
+	document.multiselect('#responsability_id_1');
+	document.multiselect('#responsability_id_2');
+	document.multiselect('#responsability_id_3');
+	document.multiselect('#responsability_id_4');
+	document.multiselect('#responsability_id_5');
+	document.multiselect('#responsability_id_6');
 </script>

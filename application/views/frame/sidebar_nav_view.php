@@ -24,7 +24,7 @@ position:-webkit-sticky
 
 
       <?php $uri1 = $this->uri->segment(1);
-      $uri2 = $this->uri->segment(2)
+      $uri2 = $this->uri->segment(2);
       ?>
       <ul class="sidebar-menu" data-widget="tree">
          <!-- <li class="header">MAIN NAVIGATION</li>

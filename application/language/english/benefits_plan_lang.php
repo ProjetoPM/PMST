@@ -1,7 +1,7 @@
 <?php
 
 // Title
-$lang['title'] = 'Benefits Management Plan';
+$lang['benefits-title'] = 'Benefits Management Plan';
 
 //Form
 $lang['benefits_plan-target_benefits'] = 'Target Benefits';

@@ -12,13 +12,24 @@
 			<section class="content">
 				<?php if ($this->session->flashdata('success')) : ?>
 					<div class="alert alert-success">
-						<a href="#" class="close" data-dismiss="alert">&times;</a>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
 						<strong><?php echo $this->session->flashdata('success'); ?></strong>
 					</div>
 				<?php elseif ($this->session->flashdata('error')) : ?>
 					<div class="alert alert-warning">
-						<a href="#" class="close" data-dismiss="alert">&times;</a>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
 						<strong><?php echo $this->session->flashdata('error'); ?></strong>
+					</div>
+				<?php elseif ($this->session->flashdata('delete_signature')) : ?>
+					<div class="alert alert-danger">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<strong><?php echo $this->session->flashdata('delete_signature'); ?></strong>
 					</div>
 				<?php endif; ?>
 
@@ -26,7 +37,9 @@
 					<div class="col-lg-12">
 						<div class="panel-body">
 							<h1 class="page-header">
-								<?= $this->lang->line('pch_title')  ?>
+								<?= $this->lang->line('pch_title')  ?> <?php if ($items != null) { ?>
+									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="Signed Document"> <i class="glyphicon glyphicon-check"></i></a>
+								<?php }  ?>
 							</h1>
 							<?php
 							foreach ($project_charter as $pj) {
@@ -36,7 +49,7 @@
 
 									<div class=" col-lg-12 form-group">
 										<label align="right" for="project_description"><?= $this->lang->line('pch_description') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_description-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="pch_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_description-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="project_description" name="project_description"><?php echo $pj->project_description; ?></textarea>
 										</div>
@@ -44,7 +57,7 @@
 
 									<div class=" col-lg-12 form-group">
 										<label for="project_purpose"><?= $this->lang->line('pch_purpose') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_purpose-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="pch_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_purpose-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="project_purpose" name="project_purpose"><?php echo $pj->project_purpose; ?></textarea>
 										</div>
@@ -52,7 +65,7 @@
 
 									<div class=" col-lg-12 form-group">
 										<label for="project_objective"><?= $this->lang->line('pch_objectives') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_objectives-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="pch_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_objectives-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="project_objective" name="project_objective"><?php echo $pj->project_objective; ?></textarea>
 										</div>
@@ -60,7 +73,7 @@
 
 									<div class="col-lg-12 form-group">
 										<label for="benefits"><?= $this->lang->line('pch_benefits') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_benefits-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="pch_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_benefits-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="benefits" name="benefits"><?php echo $pj->benefits; ?></textarea>
 										</div>
@@ -68,7 +81,7 @@
 
 									<div class=" col-lg-12 form-group">
 										<label for="high_level_requirements"><?= $this->lang->line('pch_high_level_req') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_high_level_req-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="pch_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_high_level_req-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="high_level_requirements" name="high_level_requirements"><?php echo $pj->high_level_requirements; ?></textarea>
 										</div>
@@ -76,25 +89,23 @@
 
 									<div class=" col-lg-12 form-group">
 										<label for="boundaries"><?= $this->lang->line('pch_boundaries') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_boundaries_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="pch_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_boundaries_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="boundaries" name="boundaries"><?php echo $pj->boundaries; ?></textarea>
 										</div>
 									</div>
 
-
 									<div class=" col-lg-12 form-group">
 										<label for="pch_risks"><?= $this->lang->line('pch_risks') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_risks-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="pch_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_risks-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="high_level_risks" name="high_level_risks"><?php echo $pj->high_level_risks; ?></textarea>
 										</div>
 									</div>
 
-
 									<div class=" col-lg-12 form-group">
 										<label for="summary_schedule"><?= $this->lang->line('pch_schedule') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_schedule-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="pch_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_schedule-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="summary_schedule" name="summary_schedule"><?php echo $pj->summary_schedule; ?></textarea>
 										</div>
@@ -102,7 +113,7 @@
 
 									<div class=" col-lg-12 form-group">
 										<label for="budge_summary"><?= $this->lang->line('pch_budge') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_budge-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="pch_tp_9" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_budge-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="budge_summary" name="budge_summary"><?php echo $pj->budge_summary; ?></textarea>
 										</div>
@@ -111,7 +122,7 @@
 
 									<div class=" col-lg-12 form-group">
 										<label for="project_approval_requirements"><?= $this->lang->line('pch_approval') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_approval-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="pch_tp_10" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_approval_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="project_approval_requirements" name="project_approval_requirements"><?php echo $pj->project_approval_requirements; ?></textarea>
 										</div>
@@ -119,7 +130,7 @@
 
 									<div class=" col-lg-6 form-group">
 										<label for="success_criteria"><?= $this->lang->line('pch_sucess_criteria') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="pch_tp_11" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_success_criteria-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="success_criteria" name="success_criteria"><?php echo $pj->success_criteria; ?></textarea>
 										</div>
@@ -127,7 +138,7 @@
 
 									<div class=" col-lg-6 form-group">
 										<label for="exit_criteria"><?= $this->lang->line('pch_exit_criteria') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_exit_criteria_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="pch_tp_12" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_exit_criteria_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="exit_criteria" name="exit_criteria"><?php echo $pj->exit_criteria; ?></textarea>
 										</div>
@@ -159,6 +170,7 @@
 									</div>
 									<!-- Fim teste Datas -->
 
+
 									<!-- Início modal da lista de stakeholder -->
 
 
@@ -175,7 +187,6 @@
 													<h4 class="modal-title"><?= $this->lang->line('pch_stakeholder') ?></h4>
 												</div>
 												<div class="modal-body">
-
 
 													<div class="row">
 														<table class="col-lg-12">
@@ -206,19 +217,148 @@
 											</div>
 										</div>
 									</div>
-
 									<input type="hidden" name="status" value="1">
 
-									<div class="col-lg-12">
-										<button id="pch_submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
-											<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
-										</button>
-								</form>
+									<?php $buttonsub = "";
+									if ($_SESSION['access_level'] == 1 || $items != null) {
+										$buttonsub = "disabled";
+									}
+									?>
 
+
+									<div class="col-lg-12">
+										<button id="pch_submit" type="submit" <?php echo $buttonsub ?> value="Save" class="btn btn-lg btn-success pull-right">
+											<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?> </button>
+								</form>
 								<form action="<?php echo base_url('project/'); ?><?php echo $_SESSION['project_id']; ?>">
 									<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 								</form>
 							<?php } ?>
+
+							<!-- Trigger the modal with a button 2-->
+							<button type="button" style="margin-top:10px;" class="open-AddBookDialog btn btn-default btn-lg center-block" data-toggle="modal" data-target="#signature"><i class="glyphicon glyphicon-edit"></i>Signature</button>
+							<!-- Modal2 -->
+							<div class="modal fade" id="signature" role="dialog">
+								<div class="modal-dialog">
+									<!-- Modal conten2t-->
+									<div class="modal-content pad-modal">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title">Signature - Your Access Level:
+												<?php if ($_SESSION['access_level'] == "2") : ?>
+													Project Manager
+												<?php elseif ($_SESSION['access_level'] == "1") : ?>
+													Professor
+												<?php else : ?>
+													Staff
+												<?php endif; ?> </h4>
+										</div>
+										<div class="modal-body">
+											<p>Signature Required: Professor</p>
+											<p>*When this document is signed by the Professor, the edition will no longer be available</p>
+											<?php if ($_SESSION['access_level'] == "1") {
+											?>
+												<div class="limiter">
+													<div class="container-login100">
+														<div class="wrap-login100">
+															<form class="login100-form validate-form" role="form" method="post" onsubmit="return checkEmptyInput();" action="<?= base_url() ?>authentication/signature/<?= $project_charter[0]->project_charter_id ?>/<?= $this->uri->segment(2); ?>">
+																<?php if ($items == null) : ?>
+																	<div>
+																		<input type="checkbox" id="terms" name="terms" value="1" required>
+																		<label for="scales">I agree to sign this document</label>
+																	</div>
+																<?php elseif ($items != null) : ?>
+																	<div>
+																		<input type="checkbox" id="terms" name="terms" value="2" required>
+																		<label for="scales">I agree to cancel all subscriptions</label>
+																	</div>
+																<?php endif; ?> </h4>
+
+																<span class="login100-form-title">
+																	Member Login
+																</span>
+																<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+																	<input class="input100" id="email" placeholder="E-mail" name="email" type="email" autofocus>
+																	<span class="focus-input100"></span>
+																	<span class="symbol-input100">
+																		<i class="fa fa-envelope" aria-hidden="true"></i>
+																	</span>
+																</div>
+																<div class="wrap-input100 validate-input" data-validate="Password is required">
+																	<input class="input100" id="password" placeholder="Password" name="password" type="password" value="">
+																	<span class="focus-input100"></span>
+																	<span class="symbol-input100">
+																		<i class="fa fa-lock" aria-hidden="true"></i>
+																	</span>
+																</div>
+																<div class="container-login100-form-btn">
+																	<button class="login100-form-btn" id="login-submit" type="submit" value="Login" class="btn btn-lg btn-success btn-block">
+																		Confirm credentials and signature
+																	</button>
+																</div>
+															</form>
+														</div>
+													</div>
+												</div>
+											<?php }
+											?>
+
+											<div class="row">
+												<table class="col-lg-12" style="margin-top: 10px;">
+													<thead>
+														<tr>
+															<th>Name</th>
+															<th>Acces Level</th>
+															<th>Date/Time</th>
+														</tr>
+													</thead>
+													<tbody>
+														<?php
+
+														foreach ($items as $item) {
+
+														?>
+															<tr>
+																<td><?php
+																	$this->db->select('name');
+																	$this->db->where('user_id', $item->user_id);
+																	$this->db->from('user');
+																	$this->db->limit(1);
+
+																	$query = $this->db->get();
+																	$res = $query->row_array();
+																	echo $res['name'];
+
+																	?></td>
+																<td>
+																	<?php if ($item->access_level == "2") : ?>
+																		Project Manager
+																	<?php elseif ($_SESSION['acess_level'] = "1") : ?>
+																		Professor
+																	<?php else : ?>
+																		Staff
+																	<?php endif; ?>
+
+
+																</td>
+																<td><?php echo $item->date; ?> / <?php echo $item->time; ?></td>
+															</tr>
+														<?php
+
+														}
+														?>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+
+
+							<!-- <input type="hidden" id="<?php echo $_SESSION['access_level']; ?>"> -->
 						</div>
 					</div>
 				</div>
@@ -232,6 +372,11 @@
 <!-- /.row -->
 
 <script type="text/javascript">
+	for (var i = 1; i <= 12; i++) {
+		if (document.getElementById("pch_tp_" + i).title == "") {
+			document.getElementById("pch_tp_" + i).hidden = true;
+		}
+	}
 	//////////////////////////////////
 	// Start Date & End Date
 	//////////////////////////////////

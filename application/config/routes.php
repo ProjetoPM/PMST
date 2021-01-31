@@ -108,13 +108,13 @@ $route['integration/project-charter/update'] = "projectcharter/update";
 
 $route['integration/business-case/new/(:num)'] = "businesscase/new/$1";
 $route['integration/business-case/edit/(:num)'] = "businesscase/edit/$1";
-$route['integration/business-case/insert/(:num)'] = "businesscase/insert/$1";
-$route['integration/business-case/update/(:num)'] = "businesscase/update/$1";
+$route['integration/business-case/insert'] = "businesscase/insert";
+$route['integration/business-case/update'] = "businesscase/update";
 
 $route['integration/benefits-mp/new/(:num)'] = "benefitsmanagementplan/new/$1";
 $route['integration/benefits-mp/edit/(:num)'] = "benefitsmanagementplan/edit/$1";
-$route['integration/benefits-mp/insert/(:num)'] = "benefitsmanagementplan/insert/$1";
-$route['integration/benefits-mp/update/(:num)'] = "benefitsmanagementplan/update/$1";
+$route['integration/benefits-mp/insert'] = "benefitsmanagementplan/insert";
+$route['integration/benefits-mp/update'] = "benefitsmanagementplan/update";
 
 $route['integration/project-mp/new/(:num)'] = "projectmanagementplan/new/$1";
 $route['integration/project-mp/edit/(:num)'] = "projectmanagementplan/edit/$1";
@@ -294,6 +294,7 @@ $route['communication/communications-mp/list/(:num)'] = "communicationsmanagemen
 $route['communication/communications-mp/insert/(:num)'] = "communicationsmanagementplan/insert/$1";
 $route['communication/communications-mp/update/(:num)'] = "communicationsmanagementplan/update/$1";
 $route['communication/communications-mp/delete/(:num)'] = "communicationsmanagementplan/delete/$1";
+$route['communication/communications-mp/update-responsability'] = "communicationsmanagementplan/updateResponsability";
 
 
 $route['risk/risk-mp/new/(:num)'] = "riskmanagementplan/new/$1";
@@ -307,6 +308,9 @@ $route['risk/risk-register/list/(:num)'] = "riskregister/list/$1";
 $route['risk/risk-register/insert/(:num)'] = "riskregister/insert/$1";
 $route['risk/risk-register/update/(:num)'] = "riskregister/update/$1";
 $route['risk/risk-register/delete/(:num)'] = "riskregister/delete/$1";
+
+$route['risk/risk-checklist/new/(:num)'] = "riskchecklist/new/$1";
+$route['risk/risk-checklist/insert/(:num)'] = "riskchecklist/insert/$1";
 
 
 $route['procurement/procurement-mp/new/(:num)'] = "procurementmanagementplan/new/$1";

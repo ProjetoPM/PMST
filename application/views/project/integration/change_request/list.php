@@ -185,7 +185,7 @@
 	function format(dados) {
 		return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
 			'<tr>' +
-			'<td>Description of Change: </td>' +
+			'<td> <span style="font-weight:bold;">Description of Change: </span> </td>' +
 			'<td>' + dados.description + '</td>' +
 			'</tr>' +
 			'<tr>' +

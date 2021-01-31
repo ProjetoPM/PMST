@@ -38,8 +38,19 @@ class CommunicationsManagementPlan extends CI_Controller
     public function list($project_id)
     {
         $query['communication_item'] = $this->communications_mp_model->getAll($project_id);
+        $query['communication_item_responsability'] = $this->communications_mp_model->getAll($project_id);
+        $query['communication_stakeholder_responsability'] =[];
+		foreach ($query['communication_item'] as $item) {
+            foreach ($this->communications_mp_model->getAllResponsability($item->communication_item_id) as $resp){
+                array_push($query['communication_stakeholder_responsability'],  $resp);
+            }
+           
+        }
+									
+
+       
         //$query['communication_responsability'] = $this->communication_item_model->getAllCommunication_responsability();
-        //$query['stakeholder'] = $this->communication_item_model->getCommunication_stakeholder_item_id($project_id);
+        //$query['stakeholder'] = $this->communication_item_ model->getCommunication_stakeholder_item_id($project_id);
         $query['project_id'] = $project_id;
       
         $query['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
@@ -157,5 +168,20 @@ class CommunicationsManagementPlan extends CI_Controller
             insertLogActivity('delete', 'communications management plan');
             redirect('communication/communications-mp/list/' . $_SESSION['project_id']);
         }
+    }
+    //UPDATE
+    function updateResponsability()
+    {
+        // var_dump($this->input->post('responsability'));
+        // die;
+        $communication_item_id = $this->input->post('communication_item_id');
+        $communication_responsability_id = $this->input->post('communication_responsability_id');
+        $stakeholder_responsability = $this->input->post('responsability');
+
+        $data = $this->communications_mp_model->updateResponsability($communication_item_id, $communication_responsability_id, $stakeholder_responsability);
+        echo json_encode($data);
+        // $this->package_model->update_package($id, $package, $product);
+        // redirect('package');
+        //  redirect('communication/communications-mp/list/' . $_SESSION['project_id']);
     }
 }

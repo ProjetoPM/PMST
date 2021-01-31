@@ -23,21 +23,22 @@ $lang['pch_sucess_criteria'] = 'Success Criteria';
 
 
 //Tooltip
-$lang['pch_description-tooltip'] = 'Project Description Example';
-$lang['pch_purpose-tooltip'] = 'Project Purpose Example';
-$lang['pch_objectives-tooltip'] = 'Project Objectives Example';
-$lang['pch_benefits-tooltip'] = 'Benefits Example';
-$lang['pch_high_level_req-tooltip'] = 'High Level Requirements Example';
+$lang['pch_description-tooltip'] = '';
+$lang['pch_purpose-tooltip'] = '';
+$lang['pch_objectives-tooltip'] = '';
+$lang['pch_benefits-tooltip'] = '';
+$lang['pch_high_level_req-tooltip'] = '';
 $lang['pch_initial_assumptions-tooltip'] = '';
 $lang['pch_restrictions-tooltip'] = '';
 $lang['pch_limits-tooltip'] = '';
 $lang['pch_risks-tooltip'] = '';
 $lang['pch_schedule-tooltip'] = '';
 $lang['pch_budge-tooltip'] = '';
-$lang['pch_approval_tooltip'] = '(i.e., what constitutes success, who decides the project is successful, who signs off on the project)';
-$lang['pch_stakeholder-tooltip'] = 'Stakeholder List Example';
-$lang['pch_start-tooltip'] = 'Start Date Example';
-$lang['pch_end-tooltip'] = 'End Date Example';
+$lang['pch_approval_tooltip'] = 'i.e., what constitutes success, who decides the project is successful, who signs off on the project';
+$lang['pch_stakeholder-tooltip'] = '';
+$lang['pch_start-tooltip'] = '';
+$lang['pch_end-tooltip'] = '';
+$lang['pch_success_criteria-tooltip'] = '';
 $lang['pch_boundaries_tooltip'] = 'Project Limits; Initial Assumptions; Initial Restrictions';
 $lang['pch_exit_criteria_tp'] = 'i.e., what are the conditions to be met in order to close or to cancel the project or phase';
 

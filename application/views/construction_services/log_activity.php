@@ -29,7 +29,8 @@
                 <div class="panel-heading">
                   <h3 class="panel-title" style="text-align: center;">
                     <strong>Notifications
-                      <!-- <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="Definir"><i class="glyphicon glyphicon-comment"></i></a> --></strong>
+                      <!-- <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="Definir"><i class="glyphicon glyphicon-comment"></i></a> -->
+                    </strong>
                   </h3>
                 </div>
               </div>
@@ -68,6 +69,9 @@
                     <li>
 
                       <?php
+                    // var_dump($l->action);
+                    // exit;
+                    // die;
                       if ($l->action_type == 'insert') { ?>
                         <i class=" fa fa-save bg-green"></i>
                       <?php } elseif ($l->action_type  == 'update') { ?>
@@ -76,7 +80,14 @@
                         <i class="fa fa-trash bg-red"></i>
                       <?php } elseif ($l->action_type  == 'send message') { ?>
                         <i class="fa fa-comments bg-blue"></i>
+                      <?php } elseif ($l->action_type  == 'sign') { ?>
+                        <i class="fa fa-check-square bg-green"></i>
+                      <?php } elseif ($l->action_type  == 'unsubscribe') { ?>
+                        <i class="fa fa-check-square bg-red"></i>
                       <?php } ?>
+                     
+
+
 
                       <div class="timeline-item" align="center">
                         <span class="time"><i class="fa fa-clock-o"></i> <?php echo $l->time ?> </span>

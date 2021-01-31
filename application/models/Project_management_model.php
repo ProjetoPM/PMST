@@ -24,7 +24,7 @@ class Project_Management_model extends CI_Model{
 
 		);
 
-		$this->db->insert('project_mp', $data);
+		return $this->db->insert('project_mp', $data);
 	}
 
 	public function get($id){
