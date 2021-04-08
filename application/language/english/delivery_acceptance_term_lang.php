@@ -1,6 +1,6 @@
 <?php
 // Title
-$lang['title'] = 'Deliverable Status';
+$lang['ds_title'] = 'Deliverable Status';
 
 //Form
 $lang['validator_name'] = 'Validator Name';

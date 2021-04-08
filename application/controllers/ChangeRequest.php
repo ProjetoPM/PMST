@@ -57,8 +57,9 @@ class ChangeRequest extends CI_Controller
 	{
 		$query['change_request'] = $this->Change_request_model->get($project_id);
 
-		$this->load->view('frame/header_view.php');
-		$this->load->view('frame/sidebar_nav_view.php');
+		$this->load->view('frame/header_view');
+		$this->load->view('frame/topbar');
+		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('project/integration/change_request/edit', $query);
 	}
 

@@ -29,6 +29,7 @@
   <!-- Inclusão do Plugin jQuery Validation-->
   <!-- <script src="<?= base_url() ?>assets/js/jquery.validate.js" type="text/javascript"></script> -->
 
+  <!-- debaixo desabilitado pq ta bugando o comunciation item/.; -->
   <!-- <script src="<?= base_url() ?>assets/js/jquery-1.11.3.min.js" type="text/javascript"></script> -->
   <!-- Inicio Import's para o datepicker -->
   <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->

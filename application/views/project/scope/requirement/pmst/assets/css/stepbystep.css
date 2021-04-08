@@ -1,0 +1,95 @@
+/* Latest compiled and minified CSS included as External Resource*/
+
+/* Optional theme */
+
+/*@import url('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css');*/
+
+.stepwizard-step p {
+    margin-top: 0px;
+    color:#666;
+}
+.stepwizard-row {
+    display: table-row;
+}
+.stepwizard {
+    display: table;
+    width: 100%;
+    position: relative;
+}
+.stepwizard-step button[disabled] {
+    /*opacity: 1 !important;
+    filter: alpha(opacity=100) !important;*/
+}
+.stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
+    opacity:1 !important;
+    color:#bbb;
+}
+.stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content:" ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    z-index: 0;
+}
+.stepwizard-step {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+.btn-workflow { 
+  color: #FFFFFF; 
+  background-color: #4c3221; 
+  border-color: #4c3221; 
+} 
+ 
+.btn-workflow:hover, 
+.btn-workflow:focus, 
+.btn-workflow:active, 
+.btn-workflow.active, 
+.open .dropdown-toggle.btn-workflow { 
+  color: #FFFFFF; 
+  background-color: #d68e39; 
+  border-color: #d68e39; 
+} 
+ 
+.btn-workflow:active, 
+.btn-workflow.active, 
+.open .dropdown-toggle.btn-workflow { 
+  background-image: none; 
+} 
+ 
+.btn-workflow.disabled, 
+.btn-workflow[disabled], 
+fieldset[disabled] .btn-workflow, 
+.btn-workflow.disabled:hover, 
+.btn-workflow[disabled]:hover, 
+fieldset[disabled] .btn-workflow:hover, 
+.btn-workflow.disabled:focus, 
+.btn-workflow[disabled]:focus, 
+fieldset[disabled] .btn-workflow:focus, 
+.btn-workflow.disabled:active, 
+.btn-workflow[disabled]:active, 
+fieldset[disabled] .btn-workflow:active, 
+.btn-workflow.disabled.active, 
+.btn-workflow[disabled].active, 
+fieldset[disabled] .btn-workflow.active { 
+  background-color: #4c3221; 
+  border-color: #4c3221; 
+} 
+ 
+.btn-workflow .badge { 
+  color: #4c3221; 
+  background-color: #FFFFFF; 
+}

@@ -13,7 +13,8 @@ position:-webkit-sticky
 
          <div class="pull-left image">
 
-            <img src="<?= base_url() ?>assets/images/user-icon.jpg" class="img-circle profileImgUrl" alt="User Image"> </div>
+            <img src="<?= base_url() ?>assets/images/user-icon.jpg" class="img-circle profileImgUrl" alt="User Image">
+         </div>
          <div class="pull-left info">
             <p class="NameEdt">
                <?= $this->session->userdata('name') ?>

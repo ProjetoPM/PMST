@@ -22,7 +22,7 @@
                <div class="login100-pic js-tilt" data-tilt>
                   <img src="<?=base_url()?>assets/images/lesse_logo.png" alt="IMG">
                </div>
-               <form class="login100-form validate-form" role="form" method="post" onsubmit="return checkEmptyInput();" action="<?=base_url()?>register/"">
+               <form class="login100-form validate-form" role="form" method="post" onsubmit="return checkEmptyInput();" action="<?=base_url()?>register/">
                   <span class="login100-form-title">
                   Create account
                   </span>

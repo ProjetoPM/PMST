@@ -1,0 +1,79 @@
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+section .section-title{
+   text-align:center;
+   color:#4c3221;
+   margin-bottom:20px;
+   text-transform:uppercase;
+}
+#what-we-do{
+   
+}
+#what-we-do .card{
+  background:#ffffff;
+  padding: 1rem!important;
+  border: none;
+  margin-bottom:1.5rem;
+  word-break: break-word;
+  -webkit-transition: .5s all ease;
+  -moz-transition: .5s all ease;
+  transition: .5s all ease;
+  -webkit-box-shadow: 2px 3px 4px -2px rgb(158, 158, 158);
+  -moz-box-shadow: 2px 3px 4px -2px rgb(158, 158, 158);
+  box-shadow: 2px 3px 4px -2px rgb(158, 158, 158);
+}
+#what-we-do .card:hover{
+   -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+   -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+   box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+}
+#what-we-do .card .card-block{
+   padding-left: 50px;
+    position: relative;
+}
+#what-we-do .card-title{
+    margin-top: 9px;
+   padding-left: 5px;
+   color: #4c3221;
+}
+#what-we-do .card .card-block a{
+   color: #4c3221 !important;
+   font-weight:700;
+   text-decoration:none;
+}
+#what-we-do .card .card-block a i{
+   display:none;
+   
+}
+#what-we-do .card:hover .card-block a i{
+   display:inline-block;
+   font-weight:700;
+   
+}
+#what-we-do .card .card-block:before{
+    margin-left: 10px;
+    font-family: FontAwesome;
+    position: absolute;
+    font-size: 39px;
+    color: #4c3221;
+    left: 0;
+   -webkit-transition: -webkit-transform .2s ease-in-out;
+    transition:transform .2s ease-in-out;
+}
+#what-we-do .card .block-1:before{
+    content: "\f039";
+}
+#what-we-do .card .block-2:before{
+    content: "\f1d8";
+}
+#what-we-do .card .block-3:before{
+    content: "\f0c0";
+}
+
+#what-we-do .card:hover .card-block:before{
+   -webkit-transform: rotate(360deg);
+   transform: rotate(360deg); 
+   -webkit-transition: .5s all ease;
+   -moz-transition: .5s all ease;
+   transition: .5s all ease;
+}

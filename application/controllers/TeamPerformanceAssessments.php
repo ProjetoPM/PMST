@@ -58,8 +58,9 @@ class TeamPerformanceAssessments extends CI_Controller
 	{
 
 		$query['team_performance_evaluation'] = $this->Team_Performance_Evaluation_model->get($team_performance_evaluation_id);
-		$this->load->view('frame/header_view.php');
-		$this->load->view('frame/sidebar_nav_view.php');
+		$this->load->view('frame/header_view');
+		$this->load->view('frame/topbar');
+		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('project/human_resource/team_performance_evaluation/edit', $query);
 	}
 
@@ -84,7 +85,7 @@ class TeamPerformanceAssessments extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('insert', 'team performance assessments');
-			redirect('human-resources/team-performance-assessments/list/' . $team_performance_evaluation['project_id']);
+			redirect('resources/team-performance-assessments/list/' . $team_performance_evaluation['project_id']);
 		}
 	}
 
@@ -110,7 +111,7 @@ class TeamPerformanceAssessments extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('update', 'team performance assessments');
-			redirect('human-resources/team-performance-assessments/list/' . $team_performance_evaluation['project_id']);
+			redirect('resources/team-performance-assessments/list/' . $team_performance_evaluation['project_id']);
 		}
 	}
 
@@ -122,7 +123,7 @@ class TeamPerformanceAssessments extends CI_Controller
 		$query = $this->Team_Performance_Evaluation_model->delete($team_performance_evaluation_id);
 		if ($query) {
 			insertLogActivity('delete', 'team performance assessments');
-			redirect('human-resources/team-performance-assessments/list/' . $_SESSION['project_id']);
+			redirect('resources/team-performance-assessments/list/' . $_SESSION['project_id']);
 		}
 	}
 }

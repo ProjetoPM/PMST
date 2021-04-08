@@ -24,6 +24,9 @@ class Schedule_model extends CI_Model{
 			'schedule_maintenance' => $postData['schedule_maintenance'],
 			'performance_measurement' => $postData['performance_measurement'],
 			'report_format' => $postData['report_format'],
+			'release_iteration' => $postData['release_iteration'],
+			'units_measure' => $postData['units_measure'],
+			'control_thresholds' => $postData['control_thresholds'],
 			'project_id' => $postData['project_id']);
 		$this->db->insert('schedule_mp',$data);
 	}

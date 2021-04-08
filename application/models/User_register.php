@@ -90,7 +90,7 @@ class User_register extends CI_Model {
     function insert_log($activity, $module) {
         $id = $this->session->userdata('user_id');
         $data = array('fk_user_id' => $id, 'activity' => $activity, 'module' => $module, 'created_at' => date('Y\-m\-d\ H:i:s A'));
-        $this->db->insert('activity_log', $data);
+        $this->db->insert('user', $data);
     }
     function send_email($message, $subject, $sendTo) {
         require_once APPPATH . 'libraries/mailer/class.phpmailer.php';

@@ -28,7 +28,7 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-								<?= $this->lang->line('tap-title')  ?>
+								<?= $this->lang->line('ds_title')  ?>
 
 							</h1>
 							<?php extract($delivery_acceptance_term); ?>

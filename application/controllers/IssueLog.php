@@ -81,7 +81,8 @@ class IssueLog extends CI_Controller
 		//issues_record = objeto do array query
 		$query['issues_record'] = $this->Issues_record_model->get($issues_record_id);
 		//var_dump($query);
-		$this->load->view('frame/header_view.php');
+		$this->load->view('frame/header_view');
+		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view.php');
 		//passa pra view todo array de objetos
 		$this->load->view('project/risk/issues_record/edit', $query);

@@ -1,7 +1,7 @@
 <?php
 
 // Title
-$lang['issues_record-title'] = 'Issue Log';
+$lang['is_title'] = 'Issue Log';
 
 //Form 
 $lang['ir-identification'] = 'Responsible for the Identifying';

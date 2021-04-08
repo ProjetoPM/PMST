@@ -52,8 +52,9 @@ class StakeholderEngagementPlan extends CI_Controller
     public function edit($stakeholder_id)
     {
         $query['stakeholder'] = $this->Stakeholder_model->get($stakeholder_id);
-        $this->load->view('frame/header_view.php');
-        $this->load->view('frame/sidebar_nav_view.php');
+        $this->load->view('frame/header_view');
+        $this->load->view('frame/topbar');
+        $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/stakeholder/stakeholder_plan/edit', $query);
     }
 
@@ -89,6 +90,7 @@ class StakeholderEngagementPlan extends CI_Controller
 
         if ($query) {
             insertLogActivity('update', 'stakeholder engagement plan');
+            $this->session->set_flashdata('success', 'Stakeholder Engagement Plan has been successfully changed!');
             redirect('stakeholder/stakeholder-engagement-plan/list/' . $stakeholder['project_id']);
         }
     }
@@ -99,6 +101,7 @@ class StakeholderEngagementPlan extends CI_Controller
         insertLogActivity('insert', 'stakeholder engagement plan');
         $postData = $this->input->post();
         $insert   = $this->Stakeholder_mp_model->insert($postData);
+        $this->session->set_flashdata('success', 'Stakeholder Engagement Plan has been successfully created!');
         redirect('stakeholder/stakeholder-engagement-plan/new/' . $postData['project_id']);
         echo json_encode($insert);
     }

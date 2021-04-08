@@ -69,8 +69,9 @@ class DeliverableStatus extends CI_Controller
     public function edit($project_id)
     {
         $query['delivery_acceptance_term'] = $this->Delivery_acceptance_term_model->get($project_id);
-        $this->load->view('frame/header_view.php');
-        $this->load->view('frame/sidebar_nav_view.php');
+        $this->load->view('frame/header_view');
+        $this->load->view('frame/topbar');
+        $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/integration/delivery_acceptance_term/edit', $query);
     }
 

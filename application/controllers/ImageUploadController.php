@@ -25,7 +25,7 @@ class ImageUploadController extends CI_Controller {
         $image=str_replace(' ','|',$image);
         $type = explode(".",$image);
         $type = $type[count($type)-1];
-        if (in_array($type,array('jpg','jpeg','png','gif')))
+        if (in_array($type,array('jpg','jpeg','png','gif', 'PNG', 'pdf')))
         {
             $tmppath="upload/".uniqid(rand()).".".$type;
             if(is_uploaded_file($_FILES["pic"]["tmp_name"]))

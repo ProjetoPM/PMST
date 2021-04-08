@@ -141,7 +141,7 @@ class Project_model extends CI_Model
     {
         $this->db->where('project_id', $id);
         if ($this->db->delete('project')) {
-            $this->session->set_flashdata('success', 'Project Deleted!');
+            $this->session->set_flashdata('error3', 'Project Deleted!');
             redirect('project/show_projects');
         } else {
             $this->session->set_flashdata('faildeleteproject', 'Problem to delete project!');

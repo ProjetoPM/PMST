@@ -30,7 +30,7 @@
                         <strong><?php echo $this->session->flashdata('error2'); ?></strong>
                     </div>
                 <?php elseif ($this->session->flashdata('error3')) : ?>
-                    <div class="alert alert-warning">
+                    <div class="alert alert-danger">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -103,8 +103,12 @@
                                                 // Busca do access_level por project e pelo user
                                                 $this->db->where('user_id', $retorna['$user_id']);
                                                 $this->db->where('project_id', $return['project_id']);
-                                                $resultados = $this->db->get('project_user')->result();
-                                                $level = $resultados[0]->access_level;
+                                                $this->db->from('project_user');
+                                                
+                                                $query = $this->db->get();
+                                                $res = $query->row_array();
+                                                $level = $res['access_level'];
+
 
                                                 foreach ($resultado as $key => $row) {
                                                     echo $row->name;
@@ -131,7 +135,7 @@
                                                 <a href="<?= base_url("researcher/" . $pro->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-users"></em><span class="hidden-xs"> Add Member</span></a>
                                                 <a href="<?= base_url("delete/" . $pro->project_id) ?>" onclick="return confirm('Are you sure you want to delete <?= $pro->title; ?>?');" class="btn btn-danger <?php echo $view . $execute; ?>"><em class="fa fa-trash"></em><span class="hidden-xs"> Delete</span></a>
                                             </td>
-                                            <td >
+                                            <td>
                                                 <?php if ($level == 0) {
                                                     echo "Staff";
                                                 } elseif ($level == 1) {

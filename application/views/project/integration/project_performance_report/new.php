@@ -26,7 +26,7 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-								<?= $this->lang->line('tap-title')  ?>
+								<?= $this->lang->line('ppr_title')  ?>
 
 							</h1>
 

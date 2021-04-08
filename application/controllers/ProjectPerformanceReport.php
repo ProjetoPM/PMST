@@ -68,6 +68,7 @@ class ProjectPerformanceReport extends CI_Controller
     {
         $query['project_performance_report'] = $this->Project_performance_report_model->get($project_id);
         $this->load->view('frame/header_view.php');
+        $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view.php');
         $this->load->view('project/integration/project_performance_report/edit', $query);
     }

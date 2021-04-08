@@ -50,6 +50,7 @@ class Authentication extends CI_Controller {
         $validate = $this->authentication_model->validate_login($postData);
         if ($validate && $this->project_model->getIdUser($this->input->post('email')) == $_SESSION['user_id']){
             if($this->input->post('terms') == "1"){
+                date_default_timezone_set('America/Sao_paulo');
                 $signature['date'] = date('Y-m-d');
                 $signature['time'] = date('H:i:s');
                 $signature['user_id'] = $_SESSION['user_id'];// o nome dele pega na model

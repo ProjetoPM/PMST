@@ -27,7 +27,7 @@ class LogActivity extends CI_Controller
 
 	public function insertLogActivity($action_type, $view_name)
 	{
-		date_default_timezone_set('America/Sao_paulo');
+		date_default_timezone_set('america/sao_paulo');
 		$log['action_type'] = $action_type;
 		$log['date'] = date('Y-m-d');
 		$log['time'] = date('H:i:s');

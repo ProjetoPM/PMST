@@ -85,11 +85,11 @@ class Project extends CI_Controller
 	//<!-- Fim do metodo deletar --> 
 
 	//<!-- Begin Update method --> 
-	public function update($project_id = null)
+	public function update($project_id)
 	{
 		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
-		// $this->db->where('project_id', $project_id);
+		 $this->db->where('project_id', $project_id);
 		$dataproject['project'] = $this->db->get('project')->result();
 
 		$this->load->view('frame/header_view');
@@ -106,7 +106,7 @@ class Project extends CI_Controller
 		$postData = $this->input->post();
 
 		$this->db->where('project_id', $postData['project_id']);
-		$_SESSION['project_id'] = $postData['project_id'];
+		// $_SESSION['project_id'] = $postData['project_id'];
 
 		if ($this->db->update('project', $postData)) {
 

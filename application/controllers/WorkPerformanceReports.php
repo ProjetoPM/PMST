@@ -67,8 +67,9 @@ class WorkPerformanceReports extends CI_Controller
     public function edit($project_id)
     {
         $query['work_performance_report'] = $this->Work_performance_report_model->get($project_id);
-        $this->load->view('frame/header_view.php');
-        $this->load->view('frame/sidebar_nav_view.php');
+        $this->load->view('frame/header_view');
+        $this->load->view('frame/topbar');
+        $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/integration/work_performance_report/edit', $query);
     }
 
