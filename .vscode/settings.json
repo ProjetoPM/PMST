@@ -1,6 +1,6 @@
 {
     "workbench.startupEditor": "newUntitledFile",
-    "window.zoomLevel": 3,
+    "window.zoomLevel": 1,
     "editor.formatOnSave": true,
     "files.watcherExclude": {
         "**/.git/objects/**": true,
