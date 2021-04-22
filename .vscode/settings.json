@@ -1,4 +1,29 @@
 {
-    "editor.renderLineHighlightOnlyWhenFocus": true,
-    "prettier.resolveGlobalModules": true
+    "workbench.startupEditor": "newUntitledFile",
+    "window.zoomLevel": 3,
+    "editor.formatOnSave": true,
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true,
+        "**/.hg/store/**": true,
+        "**/vendor/*/**": true
+    },
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    // PHP
+    // Here you can use your path to php
+    "php.validate.executablePath": "C:\\Users\\thiag\\XAAMP\\php\\php.exe",
+    "php.suggest.basic": false,
+    "phpSniffer.run": "onType",
+    "phpSniffer.autoDetect": true,
+    // Here you can use another coding-style
+    "phpSniffer.standard": "PSR12",
+    "[php]": {
+        "editor.defaultFormatter": "wongjn.php-sniffer"
+    }
 }
