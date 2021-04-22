@@ -2,7 +2,7 @@
 if (!defined('BASEPATH')) {
 	exit('No direct script access allowed');
 }
-
+//teste
 class IssueLog extends CI_Controller
 {
 
