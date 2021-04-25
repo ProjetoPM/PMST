@@ -325,6 +325,13 @@ $route['procurement/procurement-statement-of-work/update/(:num)'] = "Procurement
 $route['procurement/procurement-statement-of-work/delete/(:num)'] = "ProcurementStatementOfWork/delete/$1";
 
 
+$route['procurement/closed_procurement_documentation/new/(:num)'] = "ClosedProcurementDocumentation/new/$1";
+$route['procurement/closed_procurement_documentation/edit/(:num)'] = "ClosedProcurementDocumentation/edit/$1";
+$route['procurement/closed_procurement_documentation/list/(:num)'] = "ClosedProcurementDocumentation/list/$1";
+$route['procurement/closed_procurement_documentation/insert/(:num)'] = "ClosedProcurementDocumentation/insert/$1";
+$route['procurement/closed_procurement_documentation/update/(:num)'] = "ClosedProcurementDocumentation/update/$1";
+$route['procurement/closed_procurement_documentation/delete/(:num)'] = "ClosedProcurementDocumentation/delete/$1";
+
 
 $route['integration/assumption-log/new-assumption/(:num)'] = "AssumptionLog/new_assumption/$1";
 $route['integration/assumption-log/new-constraint/(:num)'] = "AssumptionLog/new_constraint/$1";

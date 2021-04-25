@@ -115,7 +115,7 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-								<?= $this->lang->line('shr_title')  ?>
+								<?= $this->lang->line('cpd_title')  ?>
 
 							</h1>
 
