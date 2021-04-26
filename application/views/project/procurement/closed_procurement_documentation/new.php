@@ -38,140 +38,55 @@
 
                             <form method="POST" action="<?php echo base_url('stakeholder/stakeholder-register/insert/'); ?><?php echo $id; ?>">
 
-                                <div class="col-lg-4 form-group">
-                                    <label for="name"><?= $this->lang->line('shr_name') ?> *</label>
-                                    <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_name_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                <div class="col-lg-5 form-group">
+                                    <label for="name"><?= $this->lang->line('cpd_provider') ?> *</label>
+                                    <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_provider_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="name_text" name="name" type="text" class="form-control input-md" required="true">
+                                        <input id="name_text" name="provider" type="text" class="form-control input-md" required="true">
                                     </div>
                                 </div>
 
 
 
-                                <!-- valor 0 para externo | valor 1 para interno -->
-                                <div class="col-lg-4 form-group">
-                                    <label for="type"><?= $this->lang->line('shr_type') ?></label>
-                                    <a class="btn-sm btn-default" id="shr_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_type_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                                    <select name="type" class="form-control">
-                                        <option value="0"><?= $this->lang->line('shr_type_external') ?></option>
-                                        <option value="1"><?= $this->lang->line('shr_type_internal') ?></option>
-                                    </select>
+                                <div class="col-lg-5 form-group">
+                                    <label for="supplier_representative"><?= $this->lang->line('cpd_supplier_representative') ?> *</label>
+                                    <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_supplier_representative_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    <div>
+                                        <input id="name_text" name="supplier representative" type="text" class="form-control input-md">
+                                    </div>
                                 </div>
 
-
-                                <!-- valor 0 para cliente| valor 1 para team| valor 2 para provedor | valor 3 para gerente | valor 4 para patrocinador | valor 5 para outros -->
-                                <div class="col-lg-4 form-group">
-                                    <label for="role"><?= $this->lang->line('shr_role') ?></label>
-                                    <a class="btn-sm btn-default" id="shr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_role_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                                    <select name="role" class="form-control">
-                                        <option value="0"><?= $this->lang->line('shr_role_client') ?></option>
-                                        <option value="1"><?= $this->lang->line('shr_role_team') ?></option>
-                                        <option value="2"><?= $this->lang->line('shr_role_provider') ?></option>
-                                        <option value="3"><?= $this->lang->line('shr_role_project_manager') ?></option>
-                                        <option value="4"><?= $this->lang->line('shr_role_sponsor') ?></option>
-                                        <option value="5"><?= $this->lang->line('shr_role_others') ?></option>
-                                    </select>
+                                <div class="col-lg-6 form-group">
+                                    <label for="main_deliveries"><?= $this->lang->line('cpd_main_deliveries') ?> *</label>
+                                    <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_main_deliveries_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    <div>
+                                        <input id="name_text" name="main deliveries" type="text" class="form-control input-md">
+                                    </div>
                                 </div>
 
-
-                                <div class="col-lg-4 form-group">
-                                    <label for="organization"><?= $this->lang->line('shr_organization') ?> </label>
-                                    <a class="btn-sm btn-default" id="shr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_organization_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                <div class="col-lg-2 form-group">
+                                    <label for="closing_date"><?= $this->lang->line('cpd_closing_date') ?> *</label>
+                                    <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_closing_date_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    <div>
+                                        <input id="name_text" name="closing date" type="date" class="form-control input-md">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-6 form-group">
+                                    <label for="comments"><?= $this->lang->line('cpd_comments') ?> </label>
+                                    <a class="btn-sm btn-default" id="shr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_comments_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
                                         <input id="organization" name="organization" type="text" class="form-control input-md">
                                     </div>
                                 </div>
 
-
-                                <div class=" col-lg-4 form-group">
-                                    <label for="position"><?= $this->lang->line('shr_position') ?></label>
-                                    <a class="btn-sm btn-default" id="shr_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_position_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-                                    <div>
-                                        <input id="position" name="position" type="text" class="form-control input-md">
-                                    </div>
-                                </div>
-
-                                <div class=" col-lg-4 form-group">
-                                    <label for="email"><?= $this->lang->line('shr_email') ?> *</label>
-                                    <a class="btn-sm btn-default" id="shr_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_email_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-                                    <div>
-                                        <input id="email" name="email" type="email" placeholder="name@email.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control input-md" required="true">
-                                    </div>
-                                </div>
-
-                                <div class=" col-lg-12 form-group">
-                                    <label for="responsibility"><?= $this->lang->line('shr_responsibility') ?></label>
-                                    <a class="btn-sm btn-default" id="shr_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_responsibility_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-                                    <div>
-                                        <textarea maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="responsibility" name="responsibility"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class=" col-lg-6 form-group">
-                                    <label for="phone_number"><?= $this->lang->line('shr_phone_number') ?></label>
-                                    <a class="btn-sm btn-default" id="shr_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_phone_number_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-                                    <div>
-                                        <input id="phone_number" name="phone_number" type="tel" class="form-control phone-ddd-mask" data-mask="(000) 0000-0000" placeholder="Ex.: (000) 0000-0000">
-                                    </div>
-                                </div>
-
-                                <div class=" col-lg-6 form-group">
-                                    <label for="work_place"><?= $this->lang->line('shr_work_place') ?></label>
-                                    <a class="btn-sm btn-default" id="shr_tp_9" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_work_place_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-                                    <div>
-                                        <input id="work_place" name="work_place" type="text" class="form-control input-md">
-                                    </div>
-                                </div>
-
-
-                                <div class=" col-lg-12 form-group">
-                                    <label for="essential_requirements"><?= $this->lang->line('shr_essential_requirements') ?></label>
-                                    <a class="btn-sm btn-default" id="shr_tp_10" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_essential_requirements_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-                                    <div>
-                                        <textarea maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="essential_requirements" name="essential_requirements"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class=" col-lg-12 form-group">
-                                    <label for="main_expectations"><?= $this->lang->line('shr_main_expectations') ?></label>
-                                    <a class="btn-sm btn-default" id="shr_tp_11" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_main_expectations_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-                                    <div>
-                                        <textarea maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="main_expectations" name="main_expectations"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class=" col-lg-12 form-group">
-                                    <label for="interest_phase"><?= $this->lang->line('shr_interest_phase') ?></label>
-                                    <a class="btn-sm btn-default" id="shr_tp_12" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_interest_phase_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-                                    <div>
-                                        <textarea maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="interest_phase" name="interest_phase"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class=" col-lg-12 form-group">
-                                    <label for="observations"><?= $this->lang->line('shr_observations') ?></label>
-                                    <a class="btn-sm btn-default" id="shr_tp_13" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_observations_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-                                    <div>
-                                        <textarea maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="observations" name="observations"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12">
-                                    <button id="stakeholder-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+                            <div class="col-lg-12">
+                                    <button id="closed_procurement_documentation-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
                                         <i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
                                     </button>
                             </form>
 
-                            <form action="<?php echo base_url('stakeholder/stakeholder-register/list/');  ?><?php echo $_SESSION['project_id']; ?>">
+                            <form action="<?php echo base_url('procurement/closed-procurement-documentation/list/');  ?><?php echo $_SESSION['project_id']; ?>">
                                 <button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
                             </form>
                         </div>

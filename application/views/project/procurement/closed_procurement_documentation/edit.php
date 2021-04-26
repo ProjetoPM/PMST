@@ -34,35 +34,61 @@
 								<?= $this->lang->line('cpd_title')  ?>
 
 							</h1>
-							<?php extract($stakeholder); ?>
+							<?php extract($closed_procurement_documentation); ?>
 
-							<form action="<?= base_url() ?>stakeholder/stakeholder-register/update/<?php echo $stakeholder_id; ?>" method="post">
+							<form action="<?= base_url() ?>procurement/closed_procurement_documentation/update/<?php echo $closed_procurement_documentation_id; ?>" method="post">
 
 								<input type="hidden" name="project_id" value="<?php echo $project_id; ?>">
 								<input type="hidden" name="status" value="1">
 
 								<div class="col-lg-5 form-group">
-									<label for="name"><?= $this->lang->line('cpd_provider') ?> *</label>
-									<a class="btn-sm btn-default" id="cpd_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_provider_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-									<div>
-										<input id="name_text" name="name" type="text" class="form-control input-md" required="true" value="<?php echo $name; ?>">
-									</div>
-								</div>
+                                    <label for="name"><?= $this->lang->line('cpd_provider') ?> *</label>
+                                    <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_provider_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    <div>
+                                        <input id="name_text" name="provider" type="text" class="form-control input-md" required="true">
+                                    </div>
+                                </div>
 
-								<div class="col-lg-5 form-group">
-									<label for="supplier_representative"><?= $this->lang->line('cpd_supplier_representative') ?> *</label>
-									<a class="btn-sm btn-default" id="cpd_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_supplier_representative_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-									<div>
-										<input id="supplier_representative_text" name="supplier_name" type="text" class="form-control input-md" required="true" value="<?php echo $name; ?>">
-									</div>
-								</div>
+
+
+                                <div class="col-lg-5 form-group">
+                                    <label for="supplier_representative"><?= $this->lang->line('cpd_supplier_representative') ?> *</label>
+                                    <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_supplier_representative_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    <div>
+                                        <input id="name_text" name="supplier representative" type="text" class="form-control input-md">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 form-group">
+                                    <label for="main_deliveries"><?= $this->lang->line('cpd_main_deliveries') ?> *</label>
+                                    <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_main_deliveries_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    <div>
+                                        <input id="name_text" name="main deliveries" type="text" class="form-control input-md">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-2 form-group">
+                                    <label for="closing_date"><?= $this->lang->line('cpd_closing_date') ?> *</label>
+                                    <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_closing_date_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    <div>
+                                        <input id="name_text" name="closing date" type="date" class="form-control input-md">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-6 form-group">
+                                    <label for="comments"><?= $this->lang->line('cpd_comments') ?> </label>
+                                    <a class="btn-sm btn-default" id="shr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_comments_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    <div>
+                                        <input id="organization" name="organization" type="text" class="form-control input-md">
+                                    </div>
+                                </div>
 		
 								<div class="col-lg-12">
-									<button id="stakeholder-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+									<button id="closed_procurement_documentation-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
 										<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
 									</button>
 							</form>
-							<form action="<?php echo base_url('stakeholder/stakeholder-register/list/');  ?><?php echo $_SESSION['project_id']; ?>">
+							<form action="<?php echo base_url('procurement/closed_procurement_documentation/list/');  ?><?php echo $_SESSION['project_id']; ?>">
 								<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 							</form>
 						</div>
