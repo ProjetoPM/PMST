@@ -122,7 +122,7 @@
 							<div class="row">
 								<div class="col-lg-12">
 
-									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>stakeholder/stakeholder-register/new/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
+									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>procurement/closed-procurement-documentation/new/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
 								</div>
 							</div>
 
@@ -130,31 +130,30 @@
 							<div class="row">
 								<div class="col-lg-12">
 
-									<table class="table table-bordered table-striped" id="table_stake">
+									<table class="table table-bordered table-striped" id="table_procurement">
 										<thead>
 											<tr>
 												<th class="text-center">#</th>
-												<th>Name</th>
-												<th>Organization</th>
-												<th>Position</th>
-												<th>E-mail</th>
+												<th>Provider's Name</th>
+												<th>Supplier Representative</th>
+												<th>Closing Date</th>
+												
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
 										</thead>
 										<tbody>
 											<?php
-											foreach ($stakeholder as $item) {
+											foreach ($documentation as $item) {
 											?>
 												<tr dados='<?= json_encode($item); ?>'>
 													<td class="moreInformationTable"></td>
-													<td><span class="texttd"><?php echo $item->name ?></span></td>
-													<td><span class="texttd"><?php echo $item->organization ?></span></td>
-													<td><span class="texttd"><?php echo $item->position ?></span></td>
-													<td><span class="texttd"><?php echo $item->email ?></span></td>
+													<td><span class="texttd"><?php echo $item->provider ?></span></td>
+													<td><span class="texttd"><?php echo $item->supplier_representative ?></span></td>
+													<td><span class="texttd"><?php echo $item->closing_date ?></span></td>
 													<td style="display: fixed;min-width: 100px;">
 														<div class="row center">
 															<div class="col-sm-4">
-																<form action="<?php echo base_url() ?>stakeholder/stakeholder-register/edit/<?php echo $item->stakeholder_id; ?>" method="post">
+																<form action="<?php echo base_url() ?>procurement/closed-procurement-documentation/edit/<?php echo $item->stakeholder_id; ?>" method="post">
 																	<input type="hidden" name="project_id" value="<?= $item->project_id ?>">
 																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 																</form>
@@ -212,16 +211,13 @@
 					"orderable": false
 				},
 				{
-					"data": "name"
+					"data": "provider\'s name"
 				},
 				{
-					"data": "organization"
+					"data": "supplier representative"
 				},
 				{
-					"data": "position"
-				},
-				{
-					"data": "email"
+					"data": "closing date"
 				},
 				{
 					"data": "btn-actions",
@@ -234,7 +230,7 @@
 		});
 	});
 
-	$("#table_stake tbody td.moreInformationTable").on("click", function() {
+	$("#table_procurement tbody td.moreInformationTable").on("click", function() {
 		let element = jQuery($(this)[0].parentNode);
 		let tr = element.closest('tr');
 		let row = table.row(tr);

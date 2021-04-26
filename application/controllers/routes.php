@@ -325,7 +325,12 @@ $route['procurement/procurement-statement-of-work/insert/(:num)'] = "procurement
 $route['procurement/procurement-statement-of-work/update/(:num)'] = "procurementstatementofwork/update/$1";
 $route['procurement/procurement-statement-of-work/delete/(:num)'] = "procurementstatementofwork/delete/$1";
 
-
+$route['procurement/closed-procurement-documentation/new/(:num)'] = "closedprocurementdocumentation/new/$1";
+$route['procurement/closed-procurement-documentation/edit/(:num)'] = "closedprocurementdocumentation/edit/$1";
+$route['procurement/closed-procurement-documentation/list/(:num)'] = "closedprocurementdocumentation/list/$1";
+$route['procurement/closed-procurement-documentation/insert/(:num)'] = "closedprocurementdocumentation/insert/$1";
+$route['procurement/closed-procurement-documentation/update/(:num)'] = "closedprocurementdocumentation/update/$1";
+$route['procurement/closed-procurement-documentation/delete/(:num)'] = "closedprocurementdocumentation/delete/$1";
 
 $route['stakeholder/stakeholder-register/new/(:num)'] = "stakeholderregister/new/$1";
 $route['stakeholder/stakeholder-register/edit/(:num)'] = "stakeholderregister/edit/$1";
