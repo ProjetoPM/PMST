@@ -55,7 +55,7 @@
                                     <label for="supplier_representative"><?= $this->lang->line('cpd_supplier_representative') ?> *</label>
                                     <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_supplier_representative_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="name_text" name="supplier representative" type="text" class="form-control input-md">
+                                        <input id="name_text" name="supplier_representative" type="text" class="form-control input-md">
                                     </div>
                                 </div>
 
@@ -63,7 +63,7 @@
                                     <label for="main_deliveries"><?= $this->lang->line('cpd_main_deliveries') ?> *</label>
                                     <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_main_deliveries_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="name_text" name="main deliveries" type="text" class="form-control input-md">
+                                        <input id="name_text" name="main_deliveries" type="text" class="form-control input-md">
                                     </div>
                                 </div>
 
@@ -71,7 +71,7 @@
                                     <label for="closing_date"><?= $this->lang->line('cpd_closing_date') ?> *</label>
                                     <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_closing_date_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="name_text" name="closing date" type="date" class="form-control input-md">
+                                        <input id="name_text" name="closing_date" type="date" class="form-control input-md">
                                     </div>
                                 </div>
                                 
@@ -79,7 +79,7 @@
                                     <label for="comments"><?= $this->lang->line('cpd_comments') ?> </label>
                                     <a class="btn-sm btn-default" id="shr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_comments_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="organization" name="organization" type="text" class="form-control input-md">
+                                        <input id="comments" name="comments" type="text" class="form-control input-md">
                                     </div>
                                 </div>
 		
