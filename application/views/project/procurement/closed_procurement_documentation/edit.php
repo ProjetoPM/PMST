@@ -36,7 +36,7 @@
 							</h1>
 							<?php extract($closed_procurement_documentation); ?>
 
-							<form action="<?= base_url() ?>procurement/closed_procurement_documentation/update/<?php echo $closed_procurement_documentation_id; ?>" method="post">
+							<form action="<?= base_url() ?>procurement/closed-procurement-documentation/update/<?php echo $closed_procurement_documentation_id; ?>" method="post">
 
 								<input type="hidden" name="project_id" value="<?php echo $project_id; ?>">
 								<input type="hidden" name="status" value="1">

@@ -978,8 +978,14 @@
                               </div>
                             </a>
 
-                            <div class=" col-lg-1 midBox procurementColor hideBox"></div>
-
+                            <a href="<?= base_url("procurement/closed-procurement-documentation/list/" . $project[0]->project_id) ?>">
+                              <div class=" col-lg-1 midBox procurementColor">
+                                <div class="verticalAlign">
+                                <i class="glyphicon glyphicon-shopping-cart"></i>
+                                  <?= $this->lang->line('closed-procurement-documentation') ?>
+                                </div>
+                              </div>
+                            </a>
 
                             <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 

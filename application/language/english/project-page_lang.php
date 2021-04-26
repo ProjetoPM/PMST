@@ -58,6 +58,7 @@ $lang['quality-metrics'] = 'Quality Metrics';
 $lang['risk-register'] = 'Risk Register';
 $lang['procurement-management'] = 'Procurement Management Plan';
 $lang['procurement-statement'] = 'Procurement Statement of Work';
+$lang['closed-procurement-documentation'] = 'Closed Procurement Documentation';
 $lang['project-scope'] = 'Project Scope Statement';
 $lang['scope-baseline'] = 'Work Breakdown Structure';
 $lang['project-calendar'] = 'Project Calendars';

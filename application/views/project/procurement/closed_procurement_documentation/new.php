@@ -32,11 +32,11 @@
                         <div class="panel-body">
                             <h1 class="page-header">
 
-                                <?= $this->lang->line('shr_title')  ?>
+                                <?= $this->lang->line('cpd_title')  ?>
 
                             </h1>
 
-                            <form method="POST" action="<?php echo base_url('stakeholder/stakeholder-register/insert/'); ?><?php echo $id; ?>">
+                            <form method="POST" action="<?php echo base_url('procurement/closed-procurement-documentation/insert/'); ?><?php echo $id; ?>">
 
                                 <div class="col-lg-5 form-group">
                                     <label for="name"><?= $this->lang->line('cpd_provider') ?> *</label>
@@ -56,27 +56,27 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6 form-group">
-                                    <label for="main_deliveries"><?= $this->lang->line('cpd_main_deliveries') ?> *</label>
-                                    <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_main_deliveries_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                                    <div>
-                                        <input id="name_text" name="main deliveries" type="text" class="form-control input-md">
-                                    </div>
-                                </div>
-
                                 <div class="col-lg-2 form-group">
                                     <label for="closing_date"><?= $this->lang->line('cpd_closing_date') ?> *</label>
                                     <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_closing_date_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="name_text" name="closing date" type="date" class="form-control input-md">
+                                        <input id="name_text" name="closing_date" type="date" class="form-control input-md">
                                     </div>
                                 </div>
-                                
+
+                                <div class="col-lg-6 form-group">
+                                    <label for="main_deliveries"><?= $this->lang->line('cpd_main_deliveries') ?> *</label>
+                                    <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_main_deliveries_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    <div>
+                                        <input id="name_text" name="main_deliveries" type="text" class="form-control input-md">
+                                    </div>
+                                </div>
+
                                 <div class="col-lg-6 form-group">
                                     <label for="comments"><?= $this->lang->line('cpd_comments') ?> </label>
                                     <a class="btn-sm btn-default" id="shr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_comments_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="organization" name="organization" type="text" class="form-control input-md">
+                                        <input id="comments" name="comments" type="text" class="form-control input-md">
                                     </div>
                                 </div>
 

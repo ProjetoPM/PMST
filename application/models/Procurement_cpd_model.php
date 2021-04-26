@@ -10,12 +10,12 @@
 		}
 
         public function get($id){
-            $query = $this->db->get_where('$closed_procurement_documentation',array('closed_procurement_documentation_id'=>$id));
+            $query = $this->db->get_where('closed_procurement_documentation',array('closed_procurement_documentation_id'=>$id));
             return $query->row_array();
         }
 
         public function getAll($project_id){
-            $query = $this->db->get_where('$closed_procurement_documentation', array('$closed_procurement_documentation.project_id'=>$project_id));
+            $query = $this->db->get_where('closed_procurement_documentation', array('closed_procurement_documentation.project_id'=>$project_id));
             return $query->result();
         }
 
@@ -27,7 +27,7 @@
 
         public function delete($closed_procurement_documentation_id){
             $this->db->where('closed_procurement_documentation.closed_procurement_documentation_id', $closed_procurement_documentation_id);
-            return $this->db->delete('$closed_procurement_documentation');
+            return $this->db->delete('closed_procurement_documentation');
         }
 
 	}

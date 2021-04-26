@@ -1,7 +1,7 @@
 <?php
 
 // Title
-$lang['cpd_title'] = 'Closed Procurements Documentation';
+$lang['cpd_title'] = 'Closed Procurement Documentation';
 
 //Form
 $lang['cpd_provider'] = 'Provider\'s name';

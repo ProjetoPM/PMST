@@ -19,7 +19,7 @@ class ClosedProcurementDocumentation extends CI_Controller
 
         $this->lang->load('btn', 'english');
         // $this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('procurement', 'english');
+        $this->lang->load('closed_procurement_documentation', 'english');
 
         // $this->lang->load('manage-cost','portuguese-brazilian');
 
@@ -37,7 +37,7 @@ class ClosedProcurementDocumentation extends CI_Controller
             $this->load->view('frame/header_view');
             $this->load->view('frame/topbar');
             $this->load->view('frame/sidebar_nav_view', $project_id);
-            $this->load->view('project/procurement/closed_procurement_documentation/new/', $dado);
+            $this->load->view('project/procurement/closed_procurement_documentation/new', $dado);
         } else {
             redirect(base_url());
         }
@@ -50,7 +50,7 @@ class ClosedProcurementDocumentation extends CI_Controller
         $query = $this->Procurement_cpd_model->delete($closed_procurement_documentation_id);
         if ($query) {
             insertLogActivity('delete', 'closed procurement documentation');
-            redirect('procurement/closed_procurement_documentation/list/' . $project_id['project_id']);
+            redirect('procurement/closed-procurement-documentation/list/' . $project_id['project_id']);
         }
     }
 
@@ -62,7 +62,7 @@ class ClosedProcurementDocumentation extends CI_Controller
         $this->load->view('frame/header_view');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');
-        $this->load->view('procurement/closed_procurement_documentation/list', $dado);
+        $this->load->view('project/procurement/closed_procurement_documentation/list', $dado);
     }
 
 
@@ -71,7 +71,7 @@ class ClosedProcurementDocumentation extends CI_Controller
         $query['closed_procurement_documentation'] = $this->Procurement_cpd_model->get($closed_procurement_documentation_id);
         $this->load->view('frame/header_view.php');
         $this->load->view('frame/sidebar_nav_view.php');
-        $this->load->view('project/procurement/closed_procurement_documentation/edit/', $query);
+        $this->load->view('project/procurement/closed_procurement_documentation/edit', $query);
     }
 
     public function update($closed_procurement_documentation_id)
@@ -82,7 +82,7 @@ class ClosedProcurementDocumentation extends CI_Controller
         $closed_procurement_documentation['closing_date'] = $this->input->post('closing_date');
         $closed_procurement_documentation['project_id'] = $this->input->post('project_id');
         $data['closed_procurement_documentation'] = $closed_procurement_documentation;
-        $query = $this->Stakeholder_model->update($data['closed_procurement_documentation'], $closed_procurement_documentation_id);
+        $query = $this->Procurement_cpd_model->update($data['closed_procurement_documentation'], $closed_procurement_documentation_id);
 
         if ($query) {
             insertLogActivity('update', 'closed procurement documentation register');
@@ -98,7 +98,7 @@ class ClosedProcurementDocumentation extends CI_Controller
         $closed_procurement_documentation['supplier_representative'] = $this->input->post('supplier representative');
         $closed_procurement_documentation['main_deliveries'] = $this->input->post('main deliveries of this project');
         $closed_procurement_documentation['closing_date'] = $this->input->post('closing_date');
-        $closed_procurement_documentation['project_id'] = $this->input->post('project_id');
+        $closed_procurement_documentation['project_id'] = $_SESSION["project_id"];
 
         $query = $this->Procurement_cpd_model->insert($closed_procurement_documentation);
 

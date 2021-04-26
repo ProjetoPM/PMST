@@ -143,7 +143,7 @@
 										</thead>
 										<tbody>
 											<?php
-											foreach ($documentation as $item) {
+											foreach ($closed_procurement_documentation as $item) {
 											?>
 												<tr dados='<?= json_encode($item); ?>'>
 													<td class="moreInformationTable"></td>
@@ -153,14 +153,14 @@
 													<td style="display: fixed;min-width: 100px;">
 														<div class="row center">
 															<div class="col-sm-4">
-																<form action="<?php echo base_url() ?>procurement/closed-procurement-documentation/edit/<?php echo $item->stakeholder_id; ?>" method="post">
+																<form action="<?php echo base_url() ?>procurement/closed-procurement-documentation/edit/<?php echo $item->closed_procurement_documentation_id; ?>" method="post">
 																	<input type="hidden" name="project_id" value="<?= $item->project_id ?>">
 																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 																</form>
 															</div>
 
 															<div class="col-sm-4">
-																<button type="submit" class="btn btn-danger" onclick="deletar(<?= $item->project_id ?>, <?= $item->stakeholder_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+																<button type="submit" class="btn btn-danger" onclick="deletar(<?= $item->project_id ?>, <?= $item->closed_procurement_documentation_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
 															</div>
 														</div>
 													</td>
@@ -280,7 +280,7 @@
 </script>
 
 <script type="text/javascript">
-	function deletar(idProjeto, stakeholder_id) {
+	function deletar(idProjeto, closed_procurement_documentation_id) {
 		//e.preventDefault();
 		alertify.confirm('Do you agree?').setting({
 			'labels': {
@@ -290,9 +290,8 @@
 			'reverseButtons': false,
 			'onok': function() {
 
-				console.log(`Passei o ${idProjeto} e ${stakeholder_id}`);
 
-				$.post("<?php echo base_url() ?>stakeholder/stakeholder-register/delete/" + stakeholder_id, {
+				$.post("<?php echo base_url() ?>procurement/closed-procurement-documentation/delete/" + closed_procurement_documentation_id, {
 					project_id: idProjeto,
 				});
 				// location.reload();
