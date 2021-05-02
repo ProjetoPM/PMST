@@ -207,7 +207,21 @@
                               </div>
                             </a>
 
-                            <div class=" col-lg-1 midBox integrationColor hideBox"></div>
+                            <?php
+                        $obj->load->model('Final_report_model');
+
+                        if ($obj->Final_report_model->get($project[0]->project_id) == null) { ?>
+                          <a href="<?= base_url("integration/final-report/new/" . $project[0]->project_id) ?>">
+                          <?php } else { ?>
+                            <a href="<?= base_url("integration/final-report/edit/" . $project[0]->project_id) ?>">
+                            <?php   } ?>
+                            <div class=" col-lg-1 midBox integrationColor">
+                              <div class="verticalAlign">
+                                <i class="glyphicon glyphicon-star"></i>
+                                <?= $this->lang->line('final_report') ?>
+                              </div>
+                            </div>
+                            </a>
 
                       </div>
                       <!--  -->

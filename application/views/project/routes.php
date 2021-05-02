@@ -168,7 +168,10 @@ $route['integration/project-closure/edit/(:num)'] = "projectclosure/edit/$1";
 $route['integration/project-closure/insert/(:num)'] = "projectclosure/insert/$1";
 $route['integration/project-closure/update/(:num)'] = "projectclosure/update/$1";
 
-
+$route['integration/final-report/new/(:num)'] = "FinalReport/new/$1";
+$route['integration/final-report/edit/(:num)'] = "FinalReport/edit/$1";
+$route['integration/final-report/insert'] = "FinalReport/insert";
+$route['integration/final-report/update'] = "FinalReport/update";
 
 $route['scope/requirements-mp/new/(:num)'] = "RequirementsManagementPlan/new/$1";
 $route['scope/requirements-mp/edit/(:num)'] = "RequirementsManagementPlan/edit/$1";
