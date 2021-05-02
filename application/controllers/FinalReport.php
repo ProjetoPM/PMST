@@ -68,33 +68,45 @@ class FinalReport extends CI_Controller
 	}
 
 
-	function insert()
+	function insert($project_id)
 	{
-		insertLogActivity('insert', 'final Report');
+		$final_report['description'] = $this->input->post('description');
+		$final_report['scope_objectives'] = $this->input->post('scope_objectives');
+		$final_report['quality_objectives'] = $this->input->post('quality_objectives');
+		$final_report['cost_objectives'] = $this->input->post('cost_objectives');
+		$final_report['schedule_objectives'] = $this->input->post('schedule_objectives');
+		$final_report['summary_validation'] = $this->input->post('summary_validation');
+		$final_report['summary_results'] = $this->input->post('summary_results');
+		$final_report['summary_risks'] = $this->input->post('summary_risks');
 
-		$postData = $this->input->post();
-		$insert   = $this->Final_report_model->insert($postData);
+		$insert = $this->Final_report_model->insert($final_report);
 		if ($insert) {
 			$this->session->set_flashdata('success', 'Final Report has been successfully created!');
+			insertLogActivity('insert', 'final Report');
 		}
 		redirect("integration/final-report/edit/" . $_SESSION['project_id']);
 		// echo json_encode($insert);
 	}
 
 
-	public function update()
+	public function update($final_report_id)
 	{
-		insertLogActivity('update', 'final Report');
+		
 
-		$final_report['business_deals'] = $this->input->post('business_deals');
-		$final_report['situation_analysis'] = $this->input->post('situation_analysis');
-		$final_report['recommendation'] = $this->input->post('recommendation');
-		$final_report['evaluation'] = $this->input->post('evaluation');
-
+		$final_report['description'] = $this->input->post('description');
+		$final_report['scope_objectives'] = $this->input->post('scope_objectives');
+		$final_report['quality_objectives'] = $this->input->post('quality_objectives');
+		$final_report['cost_objectives'] = $this->input->post('cost_objectives');
+		$final_report['schedule_objectives'] = $this->input->post('schedule_objectives');
+		$final_report['summary_validation'] = $this->input->post('summary_validation');
+		$final_report['summary_results'] = $this->input->post('summary_results');
+		$final_report['summary_risks'] = $this->input->post('summary_risks');
+        $data['final_report'] = $final_report;
 		//$insert = $this->project_model->insert_project_pgq($quality_mp);
 		$query = $this->Final_report_model->update($final_report, $_SESSION['project_id']);
 		if ($query) {
 			$this->session->set_flashdata('success', 'Final Report has been successfully changed!');
+			insertLogActivity('update', 'final Report');
 		}
 
 		$this->load->view('frame/header_view');
