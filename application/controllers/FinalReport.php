@@ -89,7 +89,7 @@ class FinalReport extends CI_Controller
 	}
 
 
-	public function update($final_report_id)
+	public function update($final_report_id, $project_id)
 	{
 		
 
@@ -103,7 +103,7 @@ class FinalReport extends CI_Controller
 		$final_report['summary_risks'] = $this->input->post('summary_risks');
         $data['final_report'] = $final_report;
 		//$insert = $this->project_model->insert_project_pgq($quality_mp);
-		$query = $this->Final_report_model->update($final_report, $_SESSION['project_id']);
+		$query = $this->Final_report_model->update($data['final_report'], $_SESSION['project_id']);
 		if ($query) {
 			$this->session->set_flashdata('success', 'Final Report has been successfully changed!');
 			insertLogActivity('update', 'final Report');
