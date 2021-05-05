@@ -78,6 +78,7 @@ $lang['earned-value'] = 'Earned Value Status Report';
 $lang['lessons-learned'] = 'Project Closure Term';
 $lang['assumption-log'] = 'Assumption Log';
 $lang['risk-checklist'] = 'General Project Risk Checklist';
+$lang['final-report'] = 'Final Report';
 
 
 // btn NOTIFICATION BOARD

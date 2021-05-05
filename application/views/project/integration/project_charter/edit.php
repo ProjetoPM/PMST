@@ -84,6 +84,7 @@
 										<span class="pch_1">2000</span><?= $this->lang->line('character') ?>
 										<div>
 											<textarea onkeyup="limite_textarea(this.value, 'pch_1')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pch_txt_1" name="project_description"><?php echo $pj->project_description; ?></textarea>
+											
 										</div>
 									</div>
 

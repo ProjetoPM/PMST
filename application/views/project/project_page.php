@@ -218,7 +218,7 @@
                             <div class=" col-lg-1 midBox integrationColor">
                               <div class="verticalAlign">
                                 <i class="glyphicon glyphicon-star"></i>
-                                <?= $this->lang->line('final_report') ?>
+                                <?= $this->lang->line('final-report') ?>
                               </div>
                             </div>
                             </a>
