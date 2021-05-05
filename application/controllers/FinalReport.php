@@ -89,7 +89,7 @@ class FinalReport extends CI_Controller
 	}
 
 
-	public function update($final_report_id, $project_id)
+	public function update($final_report, $project_id)
 	{
 		
 
