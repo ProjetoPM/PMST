@@ -168,6 +168,13 @@ $route['integration/project-closure/edit/(:num)'] = "projectclosure/edit/$1";
 $route['integration/project-closure/insert/(:num)'] = "projectclosure/insert/$1";
 $route['integration/project-closure/update/(:num)'] = "projectclosure/update/$1";
 
+$route['procurement/lesson-learned-register/new/(:num)'] = "LessonLearnedRegister/new/$1";
+$route['procurement/lesson-learned-register/edit/(:num)'] = "LessonLearnedRegister/edit/$1";
+$route['procurement/lesson-learned-register/list/(:num)'] = "LessonLearnedRegister/list/$1";
+$route['procurement/lesson-learned-register/insert/(:num)'] = "LessonLearnedRegister/insert/$1";
+$route['procurement/lesson-learned-register/update/(:num)'] = "LessonLearnedRegister/update/$1";
+$route['procurement/lesson-learned-register/delete/(:num)'] = "LessonLearnedRegister/delete/$1";
+
 $route['integration/final-report/new/(:num)'] = "FinalReport/new/$1";
 $route['integration/final-report/edit/(:num)'] = "FinalReport/edit/$1";
 $route['integration/final-report/insert'] = "FinalReport/insert";
@@ -328,12 +335,12 @@ $route['procurement/procurement-statement-of-work/update/(:num)'] = "Procurement
 $route['procurement/procurement-statement-of-work/delete/(:num)'] = "ProcurementStatementOfWork/delete/$1";
 
 
-$route['procurement/closed-procurement-documentation/new/(:num)'] = "ClosedProcurementDocumentation/new/$1";
-$route['procurement/closed-procurement-documentation/edit/(:num)'] = "ClosedProcurementDocumentation/edit/$1";
-$route['procurement/closed-procurement-documentation/list/(:num)'] = "ClosedProcurementDocumentation/list/$1";
-$route['procurement/closed-procurement-documentation/insert/(:num)'] = "ClosedProcurementDocumentation/insert/$1";
-$route['procurement/closed-procurement-documentation/update/(:num)'] = "ClosedProcurementDocumentation/update/$1";
-$route['procurement/closed-procurement-documentation/delete/(:num)'] = "ClosedProcurementDocumentation/delete/$1";
+$route['procurement/lesson-learned-register/new/(:num)'] = "LessonLearnedRegister/new/$1";
+$route['procurement/lesson-learned-register/edit/(:num)'] = "LessonLearnedRegister/edit/$1";
+$route['procurement/lesson-learned-register/list/(:num)'] = "LessonLearnedRegister/list/$1";
+$route['procurement/lesson-learned-register/insert/(:num)'] = "LessonLearnedRegister/insert/$1";
+$route['procurement/lesson-learned-register/update/(:num)'] = "LessonLearnedRegister/update/$1";
+$route['procurement/lesson-learned-register/delete/(:num)'] = "LessonLearnedRegister/delete/$1";
 
 
 $route['integration/assumption-log/new-assumption/(:num)'] = "AssumptionLog/new_assumption/$1";
