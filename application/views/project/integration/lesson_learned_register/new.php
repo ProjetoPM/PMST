@@ -117,7 +117,7 @@
                                     <select name="knowledge_area" size="1" class="form-control" tabindex="1">
                                         <?php foreach ($knowlege_area as $ka) { ?>
                                         <option value="<?= $ka->knowledge_area_id; ?>"
-                                            <?php if (getIdTecnica($kn_id) == $t->tecnica_id) echo 'selected'; ?>>
+                                            <?php if (getIdKnowlegeArea($knowledge_area_id) == $t->knowledge_area_id) echo 'selected'; ?>>
                                         </option>
                                     </select>        
                                 </div>
