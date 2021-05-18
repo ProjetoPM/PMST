@@ -115,14 +115,14 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-								<?= $this->lang->line('cpd_title')  ?>
+								<?= $this->lang->line('llr_title')  ?>
 
 							</h1>
 
 							<div class="row">
 								<div class="col-lg-12">
 
-									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>procurement/closed-procurement-documentation/new/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
+									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>integration/lesson-learned-register/new/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
 								</div>
 							</div>
 
@@ -130,37 +130,52 @@
 							<div class="row">
 								<div class="col-lg-12">
 
-									<table class="table table-bordered table-striped" id="table_procurement">
+									<table class="table table-bordered table-striped" id="table_integration">
 										<thead>
 											<tr>
 												<th class="text-center">#</th>
-												<th>Provider's Name</th>
-												<th>Supplier Representative</th>
-												<th>Closing Date</th>
+												<th>Stakeholder Who Identified</th>
+												<th>Identification Date</th>
+												<th>Situation Description</th>
+												<th>Category</th>
+												<th>Who Could Be Interested</th>
+												<th>Status</th>
+												<th>Impact</th>
+												<th>Recommendations</th>
+												<th>Associated Life Cycle Stage</th>
+												<th>Associated Knowledge Area</th>
+
 												
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
 										</thead>
 										<tbody>
 											<?php
-											foreach ($closed_procurement_documentation as $item) {
+											foreach ($lesson_learned_register as $item) {
 											?>
 												<tr dados='<?= json_encode($item); ?>'>
 													<td class="moreInformationTable"></td>
-													<td><span class="texttd"><?php echo $item->provider ?></span></td>
-													<td><span class="texttd"><?php echo $item->supplier_representative ?></span></td>
-													<td><span class="texttd"><?php echo $item->closing_date ?></span></td>
+													<td><span class="texttd"><?php echo $item->stakeholder ?></span></td>
+													<td><span class="texttd"><?php echo $item->date ?></span></td>
+													<td><span class="texttd"><?php echo $item->description ?></span></td>
+													<td><span class="texttd"><?php echo $item->category ?></span></td>
+													<td><span class="texttd"><?php echo $item->interested ?></span></td>
+													<td><span class="texttd"><?php echo $item->status ?></span></td>
+													<td><span class="texttd"><?php echo $item->impact ?></span></td>
+													<td><span class="texttd"><?php echo $item->recommendations ?></span></td>
+													<td><span class="texttd"><?php echo $item->life_cycle ?></span></td>
+													<td><span class="texttd"><?php echo $item->knowlege_area ?></span></td>
 													<td style="display: fixed;min-width: 100px;">
 														<div class="row center">
 															<div class="col-sm-4">
-																<form action="<?php echo base_url() ?>procurement/closed-procurement-documentation/edit/<?php echo $item->closed_procurement_documentation_id; ?>" method="post">
+																<form action="<?php echo base_url() ?>integration/lesson-learned-register/edit/<?php echo $item->lesson_learned_register_id; ?>" method="post">
 																	<input type="hidden" name="project_id" value="<?= $item->project_id ?>">
 																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 																</form>
 															</div>
 
 															<div class="col-sm-4">
-																<button type="submit" class="btn btn-danger" onclick="deletar(<?= $item->project_id ?>, <?= $item->closed_procurement_documentation_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+																<button type="submit" class="btn btn-danger" onclick="deletar(<?= $item->project_id ?>, <?= $item->lesson_learned_register_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
 															</div>
 														</div>
 													</td>
@@ -211,13 +226,34 @@
 					"orderable": false
 				},
 				{
-					"data": "provider\'s name"
+					"data": "stakeholder who identified"
 				},
 				{
-					"data": "supplier representative"
+					"data": "identification date"
 				},
 				{
-					"data": "closing date"
+					"data": "situation description"
+				},
+				{
+					"data": "category"
+				},
+				{
+					"data": "who could be interested"
+				},
+				{
+					"data": "status"
+				},
+				{
+					"data": "impact"
+				},
+				{
+					"data": "recommendations"
+				},
+				{
+					"data": "associated life cycle"
+				},
+				{
+					"data": "associated knowledge area"
 				},
 				{
 					"data": "btn-actions",
@@ -230,7 +266,7 @@
 		});
 	});
 
-	$("#table_procurement tbody td.moreInformationTable").on("click", function() {
+	$("#table_integration tbody td.moreInformationTable").on("click", function() {
 		let element = jQuery($(this)[0].parentNode);
 		let tr = element.closest('tr');
 		let row = table.row(tr);
@@ -291,7 +327,7 @@
 			'onok': function() {
 
 
-				$.post("<?php echo base_url() ?>procurement/closed-procurement-documentation/delete/" + closed_procurement_documentation_id, {
+				$.post("<?php echo base_url() ?>integration/lesson-learned-register/delete/" + closed_procurement_documentation_id, {
 					project_id: idProjeto,
 				});
 				// location.reload();

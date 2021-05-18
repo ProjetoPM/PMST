@@ -28,10 +28,10 @@
             <div class="panel-body">
               <h1 class="page-header">
 
-                <?= $this->lang->line('fr-title')  ?>
+                <?= $this->lang->line('llr_title')  ?>
 
               </h1>
-
+              <form action="<?= base_url() ?>procurement/closed-procurement-documentation/update/<?php echo $closed_procurement_documentation_id; ?>" method="post">
 
               <form method="POST" action="<?php echo base_url('integration/final-report/insert'); ?>">
 

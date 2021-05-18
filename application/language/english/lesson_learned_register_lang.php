@@ -20,16 +20,16 @@ $lang['llr_life_cycle'] = 'Associated Life Cycle Stage';
 
 
 //Tooltip
-$lang['llr_stakeholder_tooltip'] = '';
-$lang['llr_date_tooltip'] = '';
-$lang['llr_description_tooltip'] = '';
-$lang['llr_category_tooltip'] = '';
-$lang['llr_interested_tooltip'] = '';
-$lang['llr_status_tooltip'] = '';
-$lang['llr_impact_tooltip'] = '';
-$lang['llr_recommendations_tooltip'] = '';
-$lang['llr_knowledge_area_tooltip'] = '';
-$lang['llr_life_cycle_tooltip'] = '';
+$lang['llr_stakeholder_tp'] = '';
+$lang['llr_date_tp'] = '';
+$lang['llr_description_tp'] = '';
+$lang['llr_category_tp'] = '';
+$lang['llr_interested_tp'] = '';
+$lang['llr_status_tp'] = '';
+$lang['llr_impact_tp'] = '';
+$lang['llr_recommendations_tp'] = '';
+$lang['llr_knowledge_area_tp'] = '';
+$lang['llr_life_cycle_tp'] = '';
 
 
 //Select
@@ -51,9 +51,9 @@ $lang['option-4'] = 'Neutral';
 $lang['option-5'] = 'Resistant';**/
 
 //Form
-/**$lang['stakeholder_mp-text1-tooltip'] = 'Engagement / Management Strategy Example';
-$lang['stakeholder_mp-text2-tooltip'] = 'Scope and Impact of Changes to Stakeholder Example';
-$lang['stakeholder_mp-text3-tooltip'] = 'Observations with other Stakeholders Example';
+/**$lang['stakeholder_mp-text1-tp'] = 'Engagement / Management Strategy Example';
+$lang['stakeholder_mp-text2-tp'] = 'Scope and Impact of Changes to Stakeholder Example';
+$lang['stakeholder_mp-text3-tp'] = 'Observations with other Stakeholders Example';
 $lang['llr-provider'] = 'Provider\'s Name:';**/
 
 

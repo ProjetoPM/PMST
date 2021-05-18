@@ -47,10 +47,10 @@ class LessonLearnedRegister extends CI_Controller
     {
         $project_id['project_id'] = $this->input->post('project_id');
         //$project_id['project_id'] = $project_id;
-        $query = $this->Procurement_cpd_model->delete($lesson_learned_register_id);
+        $query = $this->Lesson_learned_register_model->delete($lesson_learned_register_id);
         if ($query) {
             insertLogActivity('delete', 'lesson learned register');
-            redirect('procurement/lesson-learned-register/list/' . $project_id['project_id']);
+            redirect('integration/lesson-learned-register/list/' . $project_id['project_id']);
         }
     }
 
@@ -58,7 +58,7 @@ class LessonLearnedRegister extends CI_Controller
     {
         $dado['project_id'] = $project_id;
 
-        $dado['lesson_learned_register'] = $this->Procurement_cpd_model->getAll($project_id);
+        $dado['lesson_learned_register'] = $this->Lesson_learned_register_model->getAll($project_id);
         $this->load->view('frame/header_view');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');
@@ -68,7 +68,7 @@ class LessonLearnedRegister extends CI_Controller
 
     public function edit($lesson_learned_register_id)
     {
-        $query['lesson_learned_register'] = $this->Procurement_cpd_model->get($lesson_learned_register_id);
+        $query['lesson_learned_register'] = $this->Lesson_learned_register_model->get($lesson_learned_register_id);
         $this->load->view('frame/header_view.php');
         $this->load->view('frame/sidebar_nav_view.php');
         $this->load->view('project/integration/lesson_learned_register/edit', $query);
