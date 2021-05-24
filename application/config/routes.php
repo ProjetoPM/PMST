@@ -168,12 +168,12 @@ $route['integration/project-closure/edit/(:num)'] = "projectclosure/edit/$1";
 $route['integration/project-closure/insert/(:num)'] = "projectclosure/insert/$1";
 $route['integration/project-closure/update/(:num)'] = "projectclosure/update/$1";
 
-$route['procurement/lesson-learned-register/new/(:num)'] = "LessonLearnedRegister/new/$1";
-$route['procurement/lesson-learned-register/edit/(:num)'] = "LessonLearnedRegister/edit/$1";
-$route['procurement/lesson-learned-register/list/(:num)'] = "LessonLearnedRegister/list/$1";
-$route['procurement/lesson-learned-register/insert/(:num)'] = "LessonLearnedRegister/insert/$1";
-$route['procurement/lesson-learned-register/update/(:num)'] = "LessonLearnedRegister/update/$1";
-$route['procurement/lesson-learned-register/delete/(:num)'] = "LessonLearnedRegister/delete/$1";
+$route['integration/lesson-learned-register/new/(:num)'] = "LessonLearnedRegister/new/$1";
+$route['integration/lesson-learned-register/edit/(:num)'] = "LessonLearnedRegister/edit/$1";
+$route['integration/lesson-learned-register/list/(:num)'] = "LessonLearnedRegister/list/$1";
+$route['integration/lesson-learned-register/insert/(:num)'] = "LessonLearnedRegister/insert/$1";
+$route['integration/lesson-learned-register/update/(:num)'] = "LessonLearnedRegister/update/$1";
+$route['integration/lesson-learned-register/delete/(:num)'] = "LessonLearnedRegister/delete/$1";
 
 $route['integration/final-report/new/(:num)'] = "FinalReport/new/$1";
 $route['integration/final-report/edit/(:num)'] = "FinalReport/edit/$1";
