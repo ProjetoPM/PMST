@@ -15,6 +15,7 @@ class LessonLearnedRegister extends CI_Controller
         $this->load->model('view_model');
         $this->load->model('log_model');
         $this->load->helper('log_activity');
+        $this->load->model('Project_model');
 
 
         $this->lang->load('btn', 'english');
@@ -27,6 +28,7 @@ class LessonLearnedRegister extends CI_Controller
 
     public function new($project_id)
     {
+        $dado['knowledge_area'] = $this->Project_model->getAllKnowledgeArea();
         $idusuario = $_SESSION['user_id'];
         $this->db->where('user_id', $idusuario);
         $this->db->where('project_id', $project_id);
@@ -68,10 +70,12 @@ class LessonLearnedRegister extends CI_Controller
 
     public function edit($lesson_learned_register_id)
     {
+        $query['knowledge_area'] = $this->Project_model->getAllKnowledgeArea();
         $query['lesson_learned_register'] = $this->Lesson_learned_register_model->get($lesson_learned_register_id);
         $this->load->view('frame/header_view.php');
         $this->load->view('frame/sidebar_nav_view.php');
         $this->load->view('project/integration/lesson_learned_register/edit', $query);
+    
     }
 
     public function update($lesson_learned_register_id)

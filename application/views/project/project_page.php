@@ -164,6 +164,8 @@
                                     </div>
                                     </a>
                       </div>
+                       <!--  -->
+                      
                       <!--  -->
                       <div class="col-lg-10 noSpaceSide floatRight">
 
@@ -285,6 +287,23 @@
                             <div class=" col-lg-1 midBox integrationColor hideBox"></div>
                             <div class=" col-lg-1 midBox integrationColor hideBox"></div>
 
+                      </div>
+                      <!--  -->
+                      <div class="col-lg-10 noSpaceSide floatRight">
+
+                               <div class=" col-lg-1 midBox integrationColor hideBox"></div>
+
+                               <div class=" col-lg-1 midBox integrationColor hideBox"></div>
+
+                                <div class=" col-lg-1 midBox integrationColor hideBox"></div>
+
+                                <div class=" col-lg-1 midBox integrationColor hideBox"></div>
+
+                                <div class=" col-lg-1 midBox integrationColor hideBox"></div>
+
+                                <div class=" col-lg-1 midBox integrationColor hideBox"></div>
+
+                                <div class=" col-lg-1 midBox integrationColor hideBox"></div>
                       </div>
                       <!--  -->
                     </div>

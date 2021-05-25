@@ -34,7 +34,7 @@
 								<?= $this->lang->line('cpd_title')  ?>
 
 							</h1>
-							<?php extract($lesson_learned_register); ?>
+							<?php extract($lesson_learned_register);?>
 
 							<form action="<?= base_url() ?>integration/lesson-learned-register/update/<?php echo $lesson_learned_register_id; ?>" method="post">
 
@@ -120,9 +120,11 @@
                                     <select name="knowledge_area" size="1" class="form-control" tabindex="1">
                                         <?php foreach ($knowlege_area as $ka) { ?>
                                         <option value="<?= $ka->knowledge_area_id; ?>"
-                                            <?php if (getIdKnowLedgeArea($knowledge_area_id) == $t->knowledge_area_id) echo 'selected'; ?>>
-										</option>
-									</select>
+                                            <?php if ($knowledge_area_id == $ka->knowledge_area_id) echo 'selected'; ?>>
+                                            <?php $ka-> name ?>
+                                            </option>
+                                            <?php } ?>
+                                            </select>
 								</div>
 		
 								<div class="col-lg-12">

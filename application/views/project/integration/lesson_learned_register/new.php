@@ -113,14 +113,17 @@
                                 </div>
 
                                 <div class="col-lg-4 form-group">
-                                    <label>knowledge_area</label>
+                                    <label>knowledge area</label>
                                     <select name="knowledge_area" size="1" class="form-control" tabindex="1">
-                                        <?php foreach ($knowlege_area as $ka) { ?>
-                                        <option value="<?= $ka->knowledge_area_id; ?>"
-                                            <?php if (getIdKnowlegeArea($knowledge_area_id) == $t->knowledge_area_id) echo 'selected'; ?>>
-                                        </option>
-                                    </select>        
-                                </div>
+                                        <?php foreach ($knowledge_area as $ka) { ?>
+                                        <option value="<?= $ka->knowledge_area_id; ?>">
+                                
+                                        <?= $ka->name ?>
+                                            </option>
+                                            <?php } ?>
+                                            </select>
+
+                                 </div>
 
                             <div class="col-lg-12">
                                     <button id="lesson_learned_register-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
