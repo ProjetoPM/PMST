@@ -17,16 +17,16 @@ $lang['earned_value_management'] = 'Earned Value Management';
 $lang['other_relevant_information'] = 'Other relevant information';
 
 //Tooltip
-$lang['date-tp'] = '';
-$lang['current_performance_analysis-tp'] = '';
-$lang['planned_forecasts-tp'] = '';
-$lang['forecasts_considering_current_performance-tp'] = '';
-$lang['current_risk_situation-tp'] = '';
-$lang['current_status_of_issues-tp'] = '';
-$lang['work_completed_during_the_period-tp'] = '';
-$lang['work_to_be_completed_in_the_next_period-tp'] = '';
-$lang['summary_of_changes-tp'] = '';
-$lang['earned_value_management-tp'] = '';
-$lang['other_relevant_information-tp'] = '';
+$lang['date_tp'] = '';
+$lang['current_performance_analysis_tp'] = '';
+$lang['planned_forecasts_tp'] = '';
+$lang['forecasts_considering_current_performance_tp'] = '';
+$lang['current_risk_situation_tp'] = '';
+$lang['current_status_of_issues_tp'] = '';
+$lang['work_completed_during_the_period_tp'] = '';
+$lang['work_to_be_completed_in_the_next_period_tp'] = '';
+$lang['summary_of_changes_tp'] = '';
+$lang['earned_value_management_tp'] = '';
+$lang['other_relevant_information_tp'] = '';
 
 ?>

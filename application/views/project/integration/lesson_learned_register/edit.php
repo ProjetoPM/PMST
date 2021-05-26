@@ -66,7 +66,7 @@
                                  </div>
                                 </div>
 
-                                <div class="col-lg-4 form-group">
+                                <div class="col-lg-6 form-group">
                                     <label for="category"><?= $this->lang->line('llr_category') ?> *</label>
                                     <a class="btn-sm btn-default" id="llr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_category_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>

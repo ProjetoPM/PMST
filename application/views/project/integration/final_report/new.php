@@ -31,7 +31,9 @@
                 <?= $this->lang->line('llr_title')  ?>
 
               </h1>
-              <form action="<?= base_url() ?>procurement/closed-procurement-documentation/update/<?php echo $closed_procurement_documentation_id; ?>" method="post">
+             
+              <!-- <form action="<?= base_url() ?>integration/final-report/update/<?php echo $final_report_id; ?>" method="post"> --> 
+            
 
               <form method="POST" action="<?php echo base_url('integration/final-report/insert'); ?>">
 

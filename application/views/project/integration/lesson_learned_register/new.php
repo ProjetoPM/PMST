@@ -35,7 +35,7 @@
                                 <?= $this->lang->line('llr_title')  ?>
 
                             </h1>
-                            <form action="<?= base_url() ?>integration/lesson-learned-register/update/<?php echo $lesson_learned_register_id; ?>" method="post">
+                            <!-- <form action="<?= base_url() ?>integration/lesson-learned-register/update/<?php echo $lesson_learned_register_id; ?>" method="post"> -->
                             <form method="POST" action="<?php echo base_url('integration/lesson-learned-register/insert/'); ?><?php echo $id; ?>">
 
                                 <div class="col-lg-8 form-group">
@@ -63,7 +63,7 @@
                                  </div>
                                 </div>
 
-                                <div class="col-lg-4 form-group">
+                                <div class="col-lg-6 form-group">
                                     <label for="category"><?= $this->lang->line('llr_category') ?> *</label>
                                     <a class="btn-sm btn-default" id="llr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_category_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
@@ -87,7 +87,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-5 form-group">
+                                <div class="col-lg-6 form-group">
                                     <label for="impact"><?= $this->lang->line('llr_impact') ?> *</label>
                                     <a class="btn-sm btn-default" id="llr_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_impact_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>

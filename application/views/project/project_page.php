@@ -299,7 +299,14 @@
 
                                 <div class=" col-lg-1 midBox integrationColor hideBox"></div>
 
-                                <div class=" col-lg-1 midBox integrationColor hideBox"></div>
+                                <a href="<?= base_url("integration/lesson-learned-register/list/" . $project[0]->project_id) ?>">
+                              <div class=" col-lg-1 midBox integrationColor">
+                                <div class="verticalAlign">
+                                  <i class="glyphicon glyphicon-star"></i>
+                                  <?= $this->lang->line('lesson-learned-register') ?>
+                                </div>
+                              </div>
+                            </a>
 
                                 <div class=" col-lg-1 midBox integrationColor hideBox"></div>
 
