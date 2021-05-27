@@ -33,27 +33,27 @@
                 <?= $this->lang->line('fr-title')  ?>
 
               </h1>
-              <?php
-              foreach ($final_report as $fr) {
-              ?>
+             
+              	<?php extract($change_request); ?>
+             
 
-                <form method="POST" action="<?php echo base_url('integration/final-report/update'); ?>">
+                <form action="<?= base_url() ?>integration/final-report/update/<?php echo $project_id; ?>" method="post">
                   <input type="hidden" name="status" value="1">
 
 
                   <div class=" col-lg-06 form-group">
                   <label for="description"><?= $this->lang->line('fr-description') ?> </label>
                   <span class="fr_1">2000</span><?= $this->lang->line('character') ?>
-                  <a class="btn-sm btn-default" id="fr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-description-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" id="fr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                  <textarea onkeyup="limite_textarea(this.value, 'fr_1')" id="fr_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="description"></textarea>
+                  <textarea onkeyup="limite_textarea(this.value, 'fr_1')" id="fr_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="description"><?php echo $description; ?></textarea>
                   </div>
                 </div>
 
                 <div class=" col-lg-06 form-group">
                   <label for="scope_objectives"><?= $this->lang->line('fr-scope_objectives') ?> </label>
                   <span class="fr_2">2000</span><?= $this->lang->line('character') ?>
-                  <a class="btn-sm btn-default" id="fr_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-scope_objectives-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" id="fr_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-scope_objectives_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
                   <textarea onkeyup="limite_textarea(this.value, 'fr_2')" id="fr_txt_2" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="scope_objectives"></textarea>
                   </div>
@@ -62,7 +62,7 @@
                 <div class=" col-lg-06 form-group">
                   <label for="quality_objectives"><?= $this->lang->line('fr-quality_objectives') ?> </label>
                   <span class="fr_3">2000</span><?= $this->lang->line('character') ?>
-                  <a class="btn-sm btn-default" id="fr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-quality_objectives-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" id="fr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-quality_objectives_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
                   <textarea onkeyup="limite_textarea(this.value, 'fr_3')" id="fr_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="quality_objectives"></textarea>
                   </div>
@@ -71,7 +71,7 @@
                 <div class=" col-lg-06 form-group">
                   <label for="cost_objectives"><?= $this->lang->line('fr-cost_objectives') ?> </label>
                   <span class="fr_4">2000</span><?= $this->lang->line('character') ?>
-                  <a class="btn-sm btn-default" id="fr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-cost_objectives-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" id="fr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-cost_objectives_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
                   <textarea onkeyup="limite_textarea(this.value, 'fr_4')" id="fr_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="cost_objectives"></textarea>
                   </div>
@@ -80,7 +80,7 @@
                 <div class=" col-lg-06 form-group">
                   <label for="schedule_objectives"><?= $this->lang->line('fr-schedule_objectives') ?> </label>
                   <span class="fr_5">2000</span><?= $this->lang->line('character') ?>
-                  <a class="btn-sm btn-default" id="fr_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-schedule_objectives-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" id="fr_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-schedule_objectives_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
                   <textarea onkeyup="limite_textarea(this.value, 'fr_5')" id="fr_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="schedule_objectives"></textarea>
                   </div>
@@ -89,7 +89,7 @@
                 <div class=" col-lg-06 form-group">
                   <label for="summary_validation"><?= $this->lang->line('fr-summary_validation') ?> </label>
                   <span class="fr_6">2000</span><?= $this->lang->line('character') ?>
-                  <a class="btn-sm btn-default" id="fr_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-summary_validation-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" id="fr_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-summary_validation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
                   <textarea onkeyup="limite_textarea(this.value, 'fr_6')" id="fr_txt_6" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="summary_validation"></textarea>
                   </div>
@@ -98,7 +98,7 @@
                 <div class=" col-lg-06 form-group">
                   <label for="summary_results"><?= $this->lang->line('fr-summary_results') ?> </label>
                   <span class="fr_7">2000</span><?= $this->lang->line('character') ?>
-                  <a class="btn-sm btn-default" id="fr_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-summary_results-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" id="fr_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-summary_results_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
                   <textarea onkeyup="limite_textarea(this.value, 'fr_7')" id="fr_txt_7" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="summary_results"></textarea>
                   </div>
@@ -107,7 +107,7 @@
                 <div class=" col-lg-06 form-group">
                   <label for="summary_risks"><?= $this->lang->line('fr-summary_risks') ?> </label>
                   <span class="fr_8">2000</span><?= $this->lang->line('character') ?>
-                  <a class="btn-sm btn-default" id="fr_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-summary_risks-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" id="fr_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-summary_risks_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
                   <textarea onkeyup="limite_textarea(this.value, 'fr_8')" id="fr_txt_8" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="summary_risks"></textarea>
                   </div>
@@ -122,9 +122,7 @@
                 <form action="<?php echo base_url('project/'); ?><?php echo $_SESSION['project_id']; ?>">
                   <button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
                 </form>
-              <?php
-              }
-              ?>
+            
             </div>
           </div>
         </div>

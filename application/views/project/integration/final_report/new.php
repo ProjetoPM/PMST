@@ -28,13 +28,10 @@
             <div class="panel-body">
               <h1 class="page-header">
 
-                <?= $this->lang->line('llr_title')  ?>
+                <?= $this->lang->line('fr_title')  ?>
 
               </h1>
-             
-              <!-- <form action="<?= base_url() ?>integration/final-report/update/<?php echo $final_report_id; ?>" method="post"> --> 
             
-
               <form method="POST" action="<?php echo base_url('integration/final-report/insert'); ?>">
 
                 <input type="hidden" name="project_id" value="<?php echo $_SESSION['project_id']; ?>">

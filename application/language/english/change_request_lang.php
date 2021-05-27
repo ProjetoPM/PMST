@@ -20,18 +20,18 @@ $lang['cr_committee_date'] = 'Date of Opinion of the CCB';
 
 
 //Tooltip
-$lang['cr_requester-tp'] = '';
-$lang['cr_number_id-tp'] = '';
-$lang['cr_request_date-tp'] = '';
-$lang['cr_type-tp'] = '';
-$lang['cr_description-tp'] = '';
-$lang['cr_impacted_areas-tp'] = '';
-$lang['cr_impacted_docs-tp'] = '';
-$lang['cr_justification-tp'] = '';
-$lang['cr_comments-tp'] = '';
-$lang['cr_manager_opinion-tp'] = '';
-$lang['cr_committee_opinion-tp'] = '';
-$lang['cr_status-tp'] = '';
-$lang['cr_committee_date-tp'] = '';
+$lang['cr_requester_tp'] = '';
+$lang['cr_number_id_tp'] = '';
+$lang['cr_request_date_tp'] = '';
+$lang['cr_type_tp'] = '';
+$lang['cr_description_tp'] = '';
+$lang['cr_impacted_areas_tp'] = '';
+$lang['cr_impacted_docs_tp'] = '';
+$lang['cr_justification_tp'] = '';
+$lang['cr_comments_tp'] = '';
+$lang['cr_manager_opinion_tp'] = '';
+$lang['cr_committee_opinion_tp'] = 'Opinion of the change control board';
+$lang['cr_status_tp'] = '';
+$lang['cr_committee_date_tp'] = 'Date of opinion of the change control board';
 
 ?>

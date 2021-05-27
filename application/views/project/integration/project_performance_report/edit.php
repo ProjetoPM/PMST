@@ -37,6 +37,7 @@
 							<?php extract($project_performance_report); ?>
 
 							<form method="POST" action="<?php echo base_url('integration/project-performance-report/update/'); ?><?php echo $id; ?>">
+							
 								<input type="hidden" id="project_id" name="project_id" value="<?php echo $project_id; ?>">
 
 								<div class="col-lg-12 form-group">
