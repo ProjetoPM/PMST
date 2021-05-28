@@ -146,8 +146,6 @@
                   </div>
                 </div>
 
-
-
                 <div class="col-lg-12">
                   <button id="change_request-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
                     <i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>

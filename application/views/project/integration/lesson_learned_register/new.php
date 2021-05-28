@@ -57,9 +57,9 @@
                                 <div class=" col-lg-06 form-group">
                                  <label for="description"><?= $this->lang->line('llr_description') ?> </label>
                                  <span class="llr_3">2000</span><?= $this->lang->line('character') ?>
-                                 <a class="btn-sm btn-default" id="llr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                 <a class="btn-sm btn-default" id="llr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                  <div>
-                                  <textarea onkeyup="limite_textarea(this.value, 'fr_3')" id="fr_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="description"></textarea>
+                                  <textarea onkeyup="limite_textarea(this.value, 'llr_3')" id="llr_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="description"></textarea>
                                  </div>
                                 </div>
 
@@ -97,10 +97,10 @@
 
                                 <div class=" col-lg-06 form-group">
                                  <label for="recommendations"><?= $this->lang->line('llr_recommendations') ?> </label>
-                                  <span class="fr_8">2000</span><?= $this->lang->line('character') ?>
-                                  <a class="btn-sm btn-default" id="fr_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr_recommendations_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                  <span class="llr_8">2000</span><?= $this->lang->line('character') ?>
+                                  <a class="btn-sm btn-default" id="llr_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_recommendations_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                  <div>
-                                 <textarea onkeyup="limite_textarea(this.value, 'fr_8')" id="fr_txt_8" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="recommendations"></textarea>
+                                 <textarea onkeyup="limite_textarea(this.value, 'llr_8')" id="llr_txt_8" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="recommendations"></textarea>
                                  </div>
                                 </div>
 
@@ -147,7 +147,7 @@
         if (document.getElementById("llr_tp_" + i).title == "") {
             document.getElementById("llr_tp_" + i).hidden = true;
         }
-        limite_textarea(document.getElementById("fr_txt_" + i).value, "fr_" + i);
+        limite_textarea(document.getElementById("llr_txt_" + i).value, "llr_" + i);
     }
     function limite_textarea(valor, txt) {
 		var limite = 2000;

@@ -38,31 +38,34 @@
 
 
 								<div class=" col-lg-6 form-group">
-									<label for="validator_name"><?= $this->lang->line('validator_name') ?></label>
+									<label for="validator_name"><?= $this->lang->line('ds_validator_name') ?></label>
+									<span class="ds_1">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('validator_name-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="validator_name" type="text" name="validator_name" class="form-control input-md" value="<?php echo $validator_name; ?>">
+										<input id="ds_txt_1" type="text" name="validator_name" class="form-control input-md" value="<?php echo $validator_name; ?>" onkeyup = "limite_textarea(this.value, 'ds_1')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
-									<label for="role"><?= $this->lang->line('role') ?></label>
+									<label for="role"><?= $this->lang->line('ds_role') ?></label>
+									<span class="ds_2">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('role-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="role" type="text" name="role" class="form-control input-md" value="<?php echo $role; ?>">
+									<input id="ds_txt_1" type="text" name="validator_name" class="form-control input-md" value="<?php echo $role; ?>" onkeyup = "limite_textarea(this.value, 'ds_2')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
-									<label for="function"><?= $this->lang->line('function') ?></label>
+									<label for="function"><?= $this->lang->line('ds_function') ?></label>
+									<span class="ds_3">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('function-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="function" type="text" name="function" class="form-control input-md" value="<?php echo $function; ?>">
+									<input id="ds_txt_1" type="text" name="validator_name" class="form-control input-md" value="<?php echo $function; ?>" onkeyup = "limite_textarea(this.value, 'ds_3')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
-									<label for="validation_date"><?= $this->lang->line('validation_date') ?></label>
+									<label for="validation_date"><?= $this->lang->line('ds_validation_date') ?></label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('validation_date-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 										<input id="validation_date" type="date" name="validation_date" class="form-control input-md" value="<?php echo $validation_date; ?>">
@@ -71,10 +74,11 @@
 
 
 								<div class="col-lg-12 form-group">
-									<label for="comments"><?= $this->lang->line('comments') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('comments-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<label for="comments"><?= $this->lang->line('ds_comments') ?></label>
+									<span class="ds_4">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ds_comments_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="comments" name="comments"><?php echo $comments; ?></textarea>
+									<textarea onkeyup="limite_textarea(this.value, 'ds_4')" id="ds_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="comments"><?php echo $comments; ?></textarea>
 									</div>
 								</div>
 
@@ -95,6 +99,20 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+	for (var i = 1; i <= 4; i++) {
+		if (document.getElementById("ds_tp_" + i).title == "") {
+			document.getElementById("ds_tp_" + i).hidden = true;
+		}
+		limite_textarea(document.getElementById("ds_txt_" + i).value, "ds_" + i);
+	}
 
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+  </script>
 
 <?php $this->load->view('frame/footer_view') ?>
