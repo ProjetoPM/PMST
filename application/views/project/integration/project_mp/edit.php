@@ -40,81 +40,91 @@
 
 									<div class=" col-lg-12 form-group">
 										<label for="project_guidelines"><?= $this->lang->line('pmp_guidelines') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('project_guidelines-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_1">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('project_guidelines_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="project_guidelines" name="project_guidelines"><?php echo $project_guidelines; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_1')" id="bmp_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="project_guidelines"><?php echo $pmp->project_guidelines;?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="requirements_mp"><?= $this->lang->line('pmp_requirements_mp') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_2">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_requirements_mp_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="" name="requirements_mp"><?php echo $requirements_mp; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_2')" id="bmp_txt_2" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="target_benefits"><?php echo $pmp->target_benefits;?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="schedule_mp"><?= $this->lang->line('pmp_schedule_mp') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_3">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_schedule_mp_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="" name="schedule_mp"><?php echo $schedule_mp; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_3')" id="bmp_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="schedule_mp"><?php echo $pmp->schedule_mp;?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="cost_mp"><?= $this->lang->line('pmp_cost_mp') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_4">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_cost_mp_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="" name="cost_mp"><?php echo $cost_mp; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_4')" id="bmp_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="cost_mp"><?php echo $pmp->cost_mp;?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="quality_mp"><?= $this->lang->line('pmp_quality_mp') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_5">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_quality_mp_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="" name="quality_mp"><?php echo $quality_mp; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_5')" id="bmp_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="quality_mp"><?php echo $pmp->quality_mp;?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="resource_mp"><?= $this->lang->line('pmp_resource_mp') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_6">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_resource_mp_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="" name="resource_mp"><?php echo $resource_mp; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_6')" id="bmp_txt_6" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="resource_mp"><?php echo $pmp->resource_mp;?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="stakeholders_communication"><?= $this->lang->line('pmp_stakeholders') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('stakeholders_communication-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_7">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_stakeholders_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="stakeholders_communication" name="stakeholders_communication"><?php echo $stakeholders_communication; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_7')" id="bmp_txt_7" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="stakeholders"><?php echo $pmp->stakeholders;?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="risk_mp"><?= $this->lang->line('pmp_risk_mp') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_8">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_risk_mp_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="" name="risk_mp"><?php echo $risk_mp; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_8')" id="bmp_txt_8" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="risk_mp"><?php echo $pmp->risk_mp;?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="procurement_mp"><?= $this->lang->line('pmp_procurement_mp') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_9">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_procurement_mp_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="" name="procurement_mp"><?php echo $procurement_mp; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_9')" id="bmp_txt_9" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="procurement_mp"><?php echo $pmp->procurement_mp;?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="stakeholder_mp"><?= $this->lang->line('pmp_stakeholder_mp') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_10">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_stakeholder_mp_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="" name="stakeholder_mp"><?php echo $stakeholder_mp; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_10')" id="bmp_txt_10" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="stakeholder_mp"><?php echo $pmp->stakeholder_mp;?></textarea>
 										</div>
 									</div>
 
@@ -122,25 +132,28 @@
 
 									<div class=" col-lg-12 form-group">
 										<label for="scope_baseline"><?= $this->lang->line('pmp_scope_baseline') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_11">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_scope_baseline_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="" name="scope_baseline"><?php echo $scope_baseline; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_11')" id="bmp_txt_11" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="scope_baseline"><?php echo $pmp->scope_baseline;?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="baseline_maintenance"><?= $this->lang->line('pmp_baseline') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('baseline_maintenance-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_12">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_baseline_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="baseline_maintenance" name="baseline_maintenance"><?php echo $baseline_maintenance; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_12')" id="bmp_txt_12" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="baseline"><?php echo $pmp->baseline;?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="cost_baseline"><?= $this->lang->line('pmp_cost_baseline') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_13">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_cost_baseline_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="" name="cost_baseline"><?php echo $cost_baseline; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_13')" id="bmp_txt_13" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="cost_baseline"><?php echo $pmp->cost_baseline;?></textarea>
 										</div>
 									</div>
 
@@ -148,49 +161,55 @@
 
 									<div class=" col-lg-12 form-group">
 										<label for="change_mp"><?= $this->lang->line('pmp_change_mp') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('change_mp-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_14">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_change_mp_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="change_mp" name="change_mp"><?php echo $change_mp; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_14')" id="bmp_txt_14" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="change_mp"><?php echo $pmp->change_mp;?></textarea>
 										</div>
 									</div>
 
 									<div class="col-lg-12 form-group">
 										<label for="configuration_mp"><?= $this->lang->line('pmp_configuration_mp') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('configuration_mp-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_15">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_configuration_mp_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="configuration_mp" name="configuration_mp"><?php echo $configuration_mp; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_15')" id="bmp_txt_15" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="configuration_mp"><?php echo $pmp->configuration_mp;?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="performance"><?= $this->lang->line('pmp_performance') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_16">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_performance_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="" name="performance"><?php echo $performance; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_16')" id="bmp_txt_16" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="performance"><?php echo $pmp->performance;?></textarea>
 										</div>
 									</div>
 
 									<div class="col-lg-12 form-group">
 										<label for="project_lifecycle"><?= $this->lang->line('pmp_lifecycle') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('project_lifecycle-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_17">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_lifecycle_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="project_lifecycle" name="project_lifecycle" required="false"><?php echo $project_lifecycle; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_17')" id="bmp_txt_17" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="lifecycle"><?php echo $pmp->lifecycle;?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="development"><?= $this->lang->line('pmp_development') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_18">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_development_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="" name="development"><?php echo $development; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_18')" id="bmp_txt_18" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="development"><?php echo $pmp->development;?></textarea>
 										</div>
 									</div>
 
 									<div class="col-lg-12 form-group">
 										<label for="key_review"><?= $this->lang->line('pmp_key_review') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('key_review-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span class="pmp_19">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_key_review_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="key_review" name="key_review"><?php echo $key_review; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'bmp_19')" id="bmp_txt_19" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="key_review"><?php echo $pmp->key_review;?></textarea>
 										</div>
 									</div>
 
@@ -267,5 +286,19 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+	for (var i = 1; i <= 19; i++) {
+		if (document.getElementById("pmp_tp_" + i).title == "") {
+			document.getElementById("pmp_tp_" + i).hidden = true;
+		}
+		limite_textarea(document.getElementById("pmp_txt_" + i).value, "pmp_" + i);
+	}
 
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+  </script>
 <?php $this->load->view('frame/footer_view') ?>
