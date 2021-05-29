@@ -17,16 +17,16 @@ $lang['cl_ccc_feedback_date'] = 'Change Control Committee Feedback';
 $lang['cl_comments'] = 'Comments';
 
 //Tooltip
-$lang['cl_id_number-tooltip'] = 'Id Number Example';
-$lang['cl_requester-tooltip'] = 'Requester Example';
-$lang['cl_request_date-tooltip'] = 'Process Date Example';
-$lang['cl_change_type-tooltip'] = 'Change Type Example';
-$lang['cl_situation-tooltip'] = 'Situation Example';
-$lang['cl_change_description-tooltip'] = 'Change Description Example';
-$lang['cl_project_management_feedback-tooltip'] = 'Project Management Feedback Example';
-$lang['cl_ccc_feedback-tooltip'] = 'Change Control Committee Feedback Example';
-$lang['cl_ccc_feedback_date-tooltip'] = 'Change Control Committee Feedback';
-$lang['cl_comments-tooltip'] = 'Comments Example';
+$lang['cl_id_number_tp'] = 'Id Number Example';
+$lang['cl_requester_tp'] = 'Requester Example';
+$lang['cl_request_date_tp'] = 'Process Date Example';
+$lang['cl_change_type_tp'] = 'Change Type Example';
+$lang['cl_situation_tp'] = 'Situation Example';
+$lang['cl_change_description_tp'] = 'Change Description Example';
+$lang['cl_project_management_feedback_tp'] = 'Project Management Feedback Example';
+$lang['cl_ccc_feedback_tp'] = 'Change Control Committee Feedback Example';
+$lang['cl_ccc_feedback_date_tp'] = 'Change Control Committee Feedback';
+$lang['cl_comments_tp'] = 'Comments Example';
 
 
 //Type

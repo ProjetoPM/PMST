@@ -42,7 +42,7 @@ class IssueLog extends CI_Controller
 		$project['dados'] = $this->db->get('project_user')->result();
 
 		if (count($project['dados']) > 0) {
-			$query['project_id'] = $_SESSION['project_id'];
+			$query['project_id'] = $project_id;
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view.php');
@@ -54,17 +54,17 @@ class IssueLog extends CI_Controller
 
 	public function insert()
 	{
-		$issues_record['identification'] = $this->input->post('identification');
-		$issues_record['identification_date'] = $this->input->post('identification_date');
-		$issues_record['question_description'] = $this->input->post('question_description');
-		$issues_record['type'] = $this->input->post('type');
-		$issues_record['responsable'] = $this->input->post('responsable');
-		$issues_record['situation'] = $this->input->post('situation');
-		$issues_record['action'] = $this->input->post('action');
-		$issues_record['resolution_date'] = $this->input->post('resolution_date');
-		$issues_record['replan_date'] = $this->input->post('replan_date');
-		$issues_record['observations'] = $this->input->post('observations');
-		$issues_record['status'] = $this->input->post('status');
+		$issues_record['identification'] = $this->input->post('ir_identification');
+		$issues_record['identification_date'] = $this->input->post('ir_identification_date');
+		$issues_record['question_description'] = $this->input->post('ir_question_description');
+		$issues_record['type'] = $this->input->post('ir_type');
+		$issues_record['responsable'] = $this->input->post('ir_responsable');
+		$issues_record['situation'] = $this->input->post('ir_situation');
+		$issues_record['action'] = $this->input->post('ir_action');
+		$issues_record['resolution_date'] = $this->input->post('ir_resolution_date');
+		$issues_record['replan_date'] = $this->input->post('ir_replan_date');
+		$issues_record['observations'] = $this->input->post('ir_observations');
+		$issues_record['status'] = $this->input->post('ir_status');
 		$issues_record['project_id'] = $_SESSION['project_id'];
 
 		$query = $this->Issues_record_model->insert($issues_record);

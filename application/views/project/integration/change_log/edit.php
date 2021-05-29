@@ -34,22 +34,23 @@
 
                                 <div class=" col-lg-3 form-group">
                                     <label for="requester"><?= $this->lang->line('cl_requester') ?> </label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_requester-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-                                    <input class="form-control" type="text" id="requester" name="requester" maxlength="45" value="<?= $change_log[0]->requester ?>">
+                                    <span class="cl_1">45</span><?= $this->lang->line('character3') ?>
+                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_requester_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    <input id="cl_txt_1" type="text" name="requester" class="form-control input-md"  value="<?= $change_log[0]->requester ?>" onkeyup = "limite_textarea3(this.value, 'cl_1')" maxlength="45" oninput="eylem(this, this.value)" required="false">
                                 </div>
-
+                               
                                 <div class=" col-lg-3 form-group">
                                     <label for="id_number"><?= $this->lang->line('cl_id_number') ?> </label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('priority-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    <span class="cl_2">45</span><?= $this->lang->line('character3') ?>
+                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_id_number_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-                                    <input class="form-control" type="text" id="id_number" name="id_number" maxlength="255" value="<?= $change_log[0]->id_number ?>">
+                                    <input id="cl_txt_2" type="text" name="id_number" class="form-control input-md"  value="<?= $change_log[0]->id_number ?>" onkeyup = "limite_textarea3(this.value, 'cl_2')" maxlength="45" oninput="eylem(this, this.value)" required="false">
 
                                 </div>
 
                                 <div class="col-lg-5 form-group">
                                     <label for="request_date"><?= $this->lang->line('cl_request_date') ?></label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-request_date-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-request_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
@@ -61,7 +62,7 @@
 
                                 <div class=" col-lg-4 form-group">
                                     <label for="change_type"><?= $this->lang->line('cl_change_type') ?> </label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_change_type-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_change_type_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                                     <select class="form-control" id="change_type" name="change_type">
                                         <?=
@@ -81,7 +82,7 @@
 
                                 <div class=" col-lg-4 form-group">
                                     <label for="situation"><?= $this->lang->line('cl_situation') ?> </label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_situation-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_situation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                                     <select class="form-control" id="situation" name="situation">
                                         <?=
@@ -98,7 +99,7 @@
 
                                 <div class=" col-lg-10 form-group">
                                     <label for="change_description"><?= $this->lang->line('cl_change_description') ?> </label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_change_description-tooltip') ?>">
+                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_change_description_tp') ?>">
                                         <i class="glyphicon glyphicon-comment"></i></a>
 
                                     <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="change_description" name="change_description" maxlength="255"><?= $change_log[0]->change_description ?></textarea>
@@ -107,7 +108,7 @@
 
                                 <div class=" col-lg-10 form-group">
                                     <label for="project_management_feedback"><?= $this->lang->line('cl_project_management_feedback') ?> </label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_project_management_feedback-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_project_management_feedback_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                                     <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="project_management_feedback" name="project_management_feedback" maxlength="255"><?= $change_log[0]->project_management_feedback ?></textarea>
 
@@ -116,7 +117,7 @@
 
                                 <div class=" col-lg-10 form-group">
                                     <label for="ccc_feedback"><?= $this->lang->line('cl_ccc_feedback') ?> </label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_ccc_feedback-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_ccc_feedback_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                                     <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="ccc_feedback" name="ccc_feedback" maxlength="255"><?= $change_log[0]->ccc_feedback ?></textarea>
                                 </div>
@@ -124,7 +125,7 @@
 
                                 <div class="col-lg-6 form-group">
                                     <label for="ccc_feedback_date"><?= $this->lang->line('cl_ccc_feedback_date') ?></label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-ccc_feedback_date-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-ccc_feedback_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
@@ -136,7 +137,7 @@
 
                                 <div class=" col-lg-12 form-group">
                                     <label for="comments"><?= $this->lang->line('cl_comments') ?> </label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_comments-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_comments_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                                     <input class="form-control" type="text" id="comments" name="comments" maxlength="45" value="<?= $change_log[0]->comments ?>">
 
@@ -188,6 +189,34 @@
         startDate: today,
         /*todayHighlight : true,*/
     });
+
+    for (var i = 1; i <= 7; i++) {
+		if (document.getElementById("cl_tp_" + i).title == "") {
+			document.getElementById("cl_tp_" + i).hidden = true;
+		}
+		limite_textarea(document.getElementById("cl_txt_" + i).value, "cl_" + i);
+	}
+
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+
+	function limite_textarea2(valor, txt) {
+		var limite = 255;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+
+	function limite_textarea3(valor, txt) {
+		var limite = 45;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
 </script>
 
 <?php $this->load->view('frame/footer_view') ?>

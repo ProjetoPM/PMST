@@ -79,12 +79,11 @@
 									<input type="hidden" name="status" value="1">
 
 									<div class=" col-lg-12 form-group">
-										<label align="right" for="project_description"><?= $this->lang->line('pch_description') ?></label>
-										<a class="btn-sm btn-default" id="pch_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<label for="project_description"><?= $this->lang->line('pch_description') ?></label>
 										<span class="pch_1">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" id="pch_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea onkeyup="limite_textarea(this.value, 'pch_1')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pch_txt_1" name="project_description"><?php echo $pj->project_description; ?></textarea>
-											
+											<textarea onkeyup="limite_textarea(this.value, 'pch_1')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pch_txt_1" name="project_description"><?php echo $pj->project_description; ?></textarea>	
 										</div>
 									</div>
 

@@ -3,27 +3,27 @@
 $lang['wp-title'] = 'Work Performance Reports';
 
 //Form
-$lang['responsible'] = 'Responsible';
-$lang['date'] = 'Date';
-$lang['main_activities'] = 'Main activities in execution (with %)';
-$lang['next_activities'] = 'Upcoming activities to perform';
-$lang['comments'] = 'General Comments';
-$lang['issues'] = 'Issues';
-$lang['changes'] = 'Changes';
-$lang['risks'] = 'Risks';
-$lang['attention_points'] = 'Attention Points';
+$lang['wpr_responsible'] = 'Responsible';
+$lang['wpr_date'] = 'Date';
+$lang['wpr_main_activities'] = 'Main activities in execution (with %)';
+$lang['wpr_next_activities'] = 'Upcoming activities to perform';
+$lang['wpr_comments'] = 'General Comments';
+$lang['wpr_issues'] = 'Issues';
+$lang['wpr_changes'] = 'Changes';
+$lang['wpr_risks'] = 'Risks';
+$lang['wpr_attention_points'] = 'Attention Points';
 
 
 //Tooltip
 //Form
-$lang['responsible-tp'] = '';
-$lang['date-tp'] = '';
-$lang['main_activities-tp'] = '';
-$lang['next_activities-tp'] = '';
-$lang['comments-tp'] = '';
-$lang['issues-tp'] = '';
-$lang['changes-tp'] = '';
-$lang['risks-tp'] = '';
-$lang['attention_points-tp'] = '';
+$lang['wpr_responsible_tp'] = '';
+$lang['wpr_date_tp'] = '';
+$lang['wpr_main_activities_tp'] = '';
+$lang['wpr_next_activities_tp'] = '';
+$lang['wpr_comments_tp'] = '';
+$lang['wpr_issues_tp'] = '';
+$lang['wpr_changes_tp'] = '';
+$lang['wpr_risks_tp'] = '';
+$lang['wpr_attention_points_tp'] = '';
 
 ?>

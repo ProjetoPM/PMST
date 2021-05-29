@@ -36,7 +36,7 @@
 
                 <div class=" col-lg-3 form-group">
                   <label for="requester"><?= $this->lang->line('cl_requester') ?> </label>
-                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_requester-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_requester_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <input class="form-control" type="text" id="requester" name="requester" maxlength="45">
                 </div>
@@ -51,7 +51,7 @@
 
                 <div class="col-lg-5 form-group">
                   <label for="request_date"><?= $this->lang->line('cl_request_date') ?></label>
-                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-request_date-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-request_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div class="input-group">
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
@@ -63,7 +63,7 @@
 
                 <div class=" col-lg-4 form-group">
                   <label for="change_type"><?= $this->lang->line('cl_change_type') ?> </label>
-                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_change_type-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_change_type_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <select class="form-control" id="change_type" name="change_type">
                     <option value="Corrective Action"><?= $this->lang->line('type_change-corrective') ?></option>
@@ -78,7 +78,7 @@
 
                 <div class=" col-lg-4 form-group">
                   <label for="situation"><?= $this->lang->line('cl_situation') ?> </label>
-                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_situation-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_situation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <select class="form-control" id="situation" name="situation">
                     <option value="Under Analysis"><?= $this->lang->line('type_situation-analysis') ?></option>
@@ -91,7 +91,7 @@
 
                 <div class=" col-lg-10 form-group">
                   <label for="change_description"><?= $this->lang->line('cl_change_description') ?> </label>
-                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_change_description-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_change_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="change_description" name="change_description" maxlength="255"></textarea>
 
@@ -99,7 +99,7 @@
 
                 <div class=" col-lg-10 form-group">
                   <label for="project_management_feedback"><?= $this->lang->line('cl_project_management_feedback') ?> </label>
-                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_project_management_feedback-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_project_management_feedback_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="project_management_feedback" name="project_management_feedback" maxlength="255"></textarea>
 
@@ -108,7 +108,7 @@
 
                 <div class=" col-lg-10 form-group">
                   <label for="ccc_feedback"><?= $this->lang->line('cl_ccc_feedback') ?> </label>
-                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_ccc_feedback-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_ccc_feedback_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="ccc_feedback" name="ccc_feedback" maxlength="255"></textarea>
                 </div>
@@ -116,7 +116,7 @@
 
                 <div class="col-lg-6 form-group">
                   <label for="ccc_feedback_date"><?= $this->lang->line('cl_ccc_feedback_date') ?> Date</label>
-                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-ccc_feedback_date-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-ccc_feedback_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div class="input-group">
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
@@ -129,7 +129,7 @@
 
                 <div class=" col-lg-12 form-group">
                   <label for="comments"><?= $this->lang->line('cl_comments') ?> </label>
-                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_comments-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_comments_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <input class="form-control" type="text" id="comments" name="comments" maxlength="45">
 

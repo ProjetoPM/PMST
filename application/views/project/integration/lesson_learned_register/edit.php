@@ -45,7 +45,7 @@
                                     <label for="stakeholder"><?= $this->lang->line('llr_stakeholder') ?> *</label>
                                     <a class="btn-sm btn-default" id="llr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_stakeholder_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="name_text" name="stakeholder" type="text" class="form-control input-md">
+                                        <input id="name_text" name="stakeholder" type="text" class="form-control input-md" value="<?php echo $stakeholder; ?>">
                                     </div>
                                 </div>
 
@@ -53,7 +53,7 @@
                                     <label for="date"><?= $this->lang->line('llr_date') ?> *</label>
                                     <a class="btn-sm btn-default" id="llr_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="date" name="date" type="date" class="form-control input-md">
+                                        <input id="date" name="date" type="date" class="form-control input-md" value="<?php echo $date; ?>">
                                     </div>
                                 </div>
 

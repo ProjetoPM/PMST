@@ -1,17 +1,17 @@
 <?php
 // Title
-$lang['business_case-title'] = 'Business Case';
+$lang['bc_title'] = 'Business Case';
 
 //Form
-$lang['business_case-business_deals'] = 'Business Deals';
-$lang['business_case-situation_analysis'] = 'Situation Analysis';
-$lang['business_case-recommendation'] = 'Recommendation';
-$lang['business_case-evaluation'] = 'Evaluation';
+$lang['bc_business_deals'] = 'Business Deals';
+$lang['bc_situation_analysis'] = 'Situation Analysis';
+$lang['bc_recommendation'] = 'Recommendation';
+$lang['bc_evaluation'] = 'Evaluation';
 
 //Tooltip
-$lang['business_case-business_deals-tooltip'] = '';
-$lang['business_case-situation_analysis-tooltip'] =  '';
-$lang['business_case-recommendation-tooltip'] =  '';
-$lang['business_case-evaluation-tooltip'] =  '';
+$lang['bc_business_deals_tp'] = '';
+$lang['bc_situation_analysis_tp'] =  '';
+$lang['bc_recommendation_tp'] =  '';
+$lang['bc_evaluation_tp'] =  '';
 
 ?>

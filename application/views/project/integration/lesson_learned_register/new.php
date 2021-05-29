@@ -40,9 +40,10 @@
 
                                 <div class="col-lg-8 form-group">
                                     <label for="stakeholder"><?= $this->lang->line('llr_stakeholder') ?> *</label>
+                                    <span class="llr_1">2000</span><?= $this->lang->line('character') ?>
                                     <a class="btn-sm btn-default" id="llr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_stakeholder_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="name_text" name="stakeholder" type="text" class="form-control input-md">
+                                    <input id="llr_txt_1" type="text" name="stakeholder" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'llr_1')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
                                     </div>
                                 </div>
 
@@ -65,33 +66,37 @@
 
                                 <div class="col-lg-6 form-group">
                                     <label for="category"><?= $this->lang->line('llr_category') ?> *</label>
+                                    <span class="llr_4">2000</span><?= $this->lang->line('character') ?>
                                     <a class="btn-sm btn-default" id="llr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_category_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="name_text" name="category" type="text" class="form-control input-md">
+                                    <input id="llr_txt_4" type="text" name="category" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'llr_4')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-5 form-group">
                                     <label for="interested"><?= $this->lang->line('llr_interested') ?> *</label>
+                                    <span class="llr_5">2000</span><?= $this->lang->line('character') ?>
                                     <a class="btn-sm btn-default" id="llr_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_interested_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="name_text" name="interested" type="text" class="form-control input-md">
+                                    <input id="llr_txt_5" type="text" name="interested" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'llr_5')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-5 form-group">
                                     <label for="status"><?= $this->lang->line('llr_status') ?> *</label>
+                                    <span class="llr_6">2000</span><?= $this->lang->line('character') ?>
                                     <a class="btn-sm btn-default" id="llr_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_status_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="name_text" name="status" type="text" class="form-control input-md">
+                                    <input id="llr_txt_6" type="text" name="status" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'llr_6')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 form-group">
                                     <label for="impact"><?= $this->lang->line('llr_impact') ?> *</label>
+                                    <span class="llr_7">2000</span><?= $this->lang->line('character') ?>
                                     <a class="btn-sm btn-default" id="llr_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_impact_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="name_text" name="impact" type="text" class="form-control input-md">
+                                    <input id="llr_txt_7" type="text" name="impact" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'llr_7')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
                                     </div>
                                 </div>
 
@@ -106,9 +111,10 @@
 
                                 <div class="col-lg-6 form-group">
                                     <label for="life_cycle"><?= $this->lang->line('llr_life_cycle') ?> *</label>
+                                    <span class="llr_9">2000</span><?= $this->lang->line('character') ?>
                                     <a class="btn-sm btn-default" id="llr_tp_9" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_life_cycle_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="name_text" name="life_cycle" type="text" class="form-control input-md">
+                                    <input id="llr_txt_9" type="text" name="life_cycle" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'llr_9')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
                                     </div>
                                 </div>
 
@@ -117,7 +123,7 @@
                                     <select name="knowledge_area" size="1" class="form-control" tabindex="1">
                                         <?php foreach ($knowledge_area as $ka) { ?>
                                         <option value="<?= $ka->knowledge_area_id; ?>">
-                                
+                                        
                                         <?= $ka->name ?>
                                             </option>
                                             <?php } ?>
