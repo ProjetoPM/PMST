@@ -4,43 +4,43 @@
 $lang['rd_title'] = 'Requirement Documentation';
 
 // Tooltip
-$lang['associated_id-tp'] = 'Associated ID Example';
-$lang['business_strategy-tp'] = 'Business Strategy Example';
-$lang['priority-tp'] = 'Priority Example';
-$lang['description-tp'] = 'Description Example';
-$lang['version-tp'] = 'Version Example';
-$lang['phase-tp'] = 'Phase Example';
-$lang['associeted_delivery-tp'] = 'Associated Delivery WBS Example';
-$lang['type-tp'] = 'Type Example';
-$lang['requester-tp'] = 'Requester Example';
-$lang['complexity-tp'] = 'Complexity Example';
-$lang['acceptance_criteria-tp'] = 'Acceptance Criteria Example';
-$lang['responsible-tp'] = 'Responsible Example';
-$lang['validity-tp'] = 'Validity Example';
-$lang['supporting_documentation-tp'] = 'Supporting Documentation Example';
-$lang['requirement_situation-tp'] = 'Requirement Situation Example';
+$lang['rd_associated_id_tp'] = 'Associated ID Example';
+$lang['rd_business_strategy_tp'] = 'Business Strategy Example';
+$lang['rd_priority_tp'] = 'Priority Example';
+$lang['rd_description_tp'] = 'Description Example';
+$lang['rd_version_tp'] = 'Version Example';
+$lang['rd_phase_tp'] = 'Phase Example';
+$lang['rd_associeted_delivery_tp'] = 'Associated Delivery WBS Example';
+$lang['rd_type_tp'] = 'Type Example';
+$lang['rd_requester_tp'] = 'Requester Example';
+$lang['rd_complexity_tp'] = 'Complexity Example';
+$lang['rd_acceptance_criteria_tp'] = 'Acceptance Criteria Example';
+$lang['rd_responsible_tp'] = 'Responsible Example';
+$lang['rd_validity_tp'] = 'Validity Example';
+$lang['rd_supporting_documentation_tp'] = 'Supporting Documentation Example';
+$lang['rd_requirement_situation_tp'] = 'Requirement Situation Example';
 
 //forms
-$lang['associated_id'] = 'Associated ID';
-$lang['business_strategy'] = 'Business needs, opportunities, goals, 
+$lang['rd_associated_id'] = 'Associated ID';
+$lang['rd_business_strategy'] = 'Business needs, opportunities, goals, 
 and objectives';
-$lang['priority'] = 'Priority';
-$lang['description'] = 'Requirement Description';
-$lang['version'] = 'Version';
-$lang['phase'] = 'Phase';
-$lang['associated_delivery'] = 'Associated Delivery';
-$lang['type'] = 'Type';
-$lang['requester'] = 'Requester';
-$lang['complexity'] = 'Complexity';
-$lang['acceptance_criteria'] = 'Acceptance Criteria';
-$lang['responsible'] = 'Responsible';
-$lang['validity'] = 'Validity';
-$lang['supporting_documentation'] = 'Supporting Documentation';
-$lang['requirement_situation'] = 'Requirement Situation';
-$lang['product_design'] = "Product Design";
-$lang['project_requirements'] = "Dependency Among Project Requirements";
-$lang['external_dependency'] = "External Dependency";
-$lang['project_objectives'] = "Project Objectives";
+$lang['rd_priority'] = 'Priority';
+$lang['rd_description'] = 'Requirement Description';
+$lang['rd_version'] = 'Version';
+$lang['rd_phase'] = 'Phase';
+$lang['rd_associated_delivery'] = 'Associated Delivery';
+$lang['rd_type'] = 'Type';
+$lang['rd_requester'] = 'Requester';
+$lang['rd_complexity'] = 'Complexity';
+$lang['rd_acceptance_criteria'] = 'Acceptance Criteria';
+$lang['rd_responsible'] = 'Responsible';
+$lang['rd_validity'] = 'Validity';
+$lang['rd_supporting_documentation'] = 'Supporting Documentation';
+$lang['rd_requirement_situation'] = 'Requirement Situation';
+$lang['rd_product_design'] = "Product Design";
+$lang['rd_project_requirements'] = "Dependency Among Project Requirements";
+$lang['rd_external_dependency'] = "External Dependency";
+$lang['rd_project_objectives'] = "Project Objectives";
 
 //options type
 $lang['type-legal'] = 'Legal';

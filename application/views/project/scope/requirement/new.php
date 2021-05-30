@@ -45,7 +45,7 @@
                 </div>
 
                 <div class=" col-lg-8 form-group">
-                  <label for="business_strategy"><?= $this->lang->line('business_strategy') ?> </label>
+                  <label for="business_strategy"><?= $this->lang->line('rd_business_strategy') ?> </label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('business_strategy-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <input class="form-control" type="text" id="business_strategy" name="business_strategy" maxlength="200">
@@ -53,7 +53,7 @@
                 </div>
 
                 <div class=" col-lg-12 form-group">
-                  <label for="description"><?= $this->lang->line('description') ?> </label>
+                  <label for="description"><?= $this->lang->line('rd_description') ?> </label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('description-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="description" name="description" maxlength="2000"></textarea>
@@ -61,7 +61,7 @@
                 </div>
 
                 <div class=" col-lg-4 form-group">
-                  <label for="version"><?= $this->lang->line('version') ?> </label>
+                  <label for="version"><?= $this->lang->line('rd_version') ?> </label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('version-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <input class="form-control" type="text" id="version" name="version" >
@@ -69,7 +69,7 @@
                 </div>
 
                 <div class=" col-lg-4 form-group">
-                  <label for="phase"><?= $this->lang->line('phase') ?> </label>
+                  <label for="phase"><?= $this->lang->line('rd_phase') ?> </label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('phase-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <input class="form-control" type="text" id="phase" name="phase" >
@@ -77,7 +77,7 @@
                 </div>
 
                 <div class=" col-lg-4 form-group">
-                  <label for="associated_delivery"><?= $this->lang->line('associated_delivery') ?> </label>
+                  <label for="associated_delivery"><?= $this->lang->line('rd_associated_delivery') ?> </label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('associated_delivery-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <input class="form-control" type="text" id="associated_delivery" name="associated_delivery" >
@@ -85,7 +85,7 @@
                 </div>
 
                 <div class=" col-lg-4 form-group">
-                  <label for="type"><?= $this->lang->line('type') ?> </label>
+                  <label for="type"><?= $this->lang->line('rd_type') ?> </label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('type-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <select class="form-control" id="type" name="type">
@@ -99,7 +99,7 @@
                 </div>
 
                 <div class=" col-lg-4 form-group">
-                  <label for="requester"><?= $this->lang->line('requester') ?> </label>
+                  <label for="requester"><?= $this->lang->line('rd_requester') ?> </label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('requester-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <input type="text" class="form-control" id="requester" name="requester" >
@@ -107,7 +107,7 @@
                 </div>
 
                 <div class=" col-lg-4 form-group">
-                  <label for="complexity"><?= $this->lang->line('complexity') ?> </label>
+                  <label for="complexity"><?= $this->lang->line('rd_complexity') ?> </label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('complexity-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <select class="form-control" id="complexity" name="complexity">
@@ -121,7 +121,7 @@
                 </div>
 
                 <div class=" col-lg-4 form-group">
-                  <label for="responsible"><?= $this->lang->line('responsible') ?> </label>
+                  <label for="responsible"><?= $this->lang->line('rd_responsible') ?> </label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('responsible-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <input class="form-control" id="responsible" name="responsible" >
@@ -129,7 +129,7 @@
                 </div>
 
                 <div class=" col-lg-4 form-group">
-                  <label for="validity"><?= $this->lang->line('validity') ?> </label>
+                  <label for="validity"><?= $this->lang->line('rd_validity') ?> </label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('validity-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <input class="form-control" id="validity" name="validity" >
@@ -137,7 +137,7 @@
                 </div>
 
                 <div class=" col-lg-4 form-group">
-                  <label for="priority"><?= $this->lang->line('priority') ?> </label>
+                  <label for="priority"><?= $this->lang->line('rd_priority') ?> </label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('priority-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <input class="form-control" type="text" id="priority" name="priority" maxlength="255">
@@ -145,7 +145,7 @@
                 </div>
 
                 <div class=" col-lg-12 form-group">
-                  <label for="acceptance_criteria"><?= $this->lang->line('acceptance_criteria') ?> </label>
+                  <label for="acceptance_criteria"><?= $this->lang->line('rd_acceptance_criteria') ?> </label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('acceptance_criteria-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="acceptance_criteria" name="acceptance_criteria" maxlength="2000"></textarea>
@@ -153,7 +153,7 @@
                 </div>
 
                 <div class=" col-lg-12 form-group">
-                  <label for="supporting_documentation"><?= $this->lang->line('supporting_documentation') ?></label>
+                  <label for="supporting_documentation"><?= $this->lang->line('rd_supporting_documentation') ?></label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('supporting_documentation-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
                   <input class="form-control" id="supporting_documentation" name="supporting_documentation" >
@@ -161,6 +161,7 @@
                 </div>
 
                 <div class=" col-lg-12 form-group">
+                  <label for="supporting_documentation"><?= $this->lang->line('rd_supporting_documentation') ?></label>
                   <label for="situation"><?= $this->lang->line('situation') ?>Situation</label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('situation-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
@@ -183,7 +184,35 @@
     </div>
   </div>
 </body>
+<script>
+for (var i = 1; i <= 7; i++) {
+		if (document.getElementById("cl_tp_" + i).title == "") {
+			document.getElementById("cl_tp_" + i).hidden = true;
+		}
+		limite_textarea(document.getElementById("cl_txt_" + i).value, "cl_" + i);
+	}
 
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+
+	function limite_textarea2(valor, txt) {
+		var limite = 255;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+
+	function limite_textarea3(valor, txt) {
+		var limite = 45;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+  </script>
 <!-- /.row -->
 
 <?php $this->load->view('frame/footer_view') ?>

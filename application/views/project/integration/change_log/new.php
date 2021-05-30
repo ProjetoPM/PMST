@@ -180,6 +180,34 @@
     startDate: today,
     /*todayHighlight : true,*/
   });
+
+  for (var i = 1; i <= 7; i++) {
+		if (document.getElementById("cl_tp_" + i).title == "") {
+			document.getElementById("cl_tp_" + i).hidden = true;
+		}
+		limite_textarea(document.getElementById("cl_txt_" + i).value, "cl_" + i);
+	}
+
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+
+	function limite_textarea2(valor, txt) {
+		var limite = 255;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+
+	function limite_textarea3(valor, txt) {
+		var limite = 45;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
 </script>
 <!-- /.row -->
 

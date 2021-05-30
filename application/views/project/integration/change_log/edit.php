@@ -99,10 +99,11 @@
 
                                 <div class=" col-lg-10 form-group">
                                     <label for="change_description"><?= $this->lang->line('cl_change_description') ?> </label>
+                                    <span class="cl_6">255</span><?= $this->lang->line('character3') ?>
                                     <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_change_description_tp') ?>">
                                         <i class="glyphicon glyphicon-comment"></i></a>
 
-                                    <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="change_description" name="change_description" maxlength="255"><?= $change_log[0]->change_description ?></textarea>
+                                        <textarea onkeyup="limite_textarea2(this.value, 'cl_6')" id="cl_txt_6" maxlength="255" oninput="eylem(this, this.value)" class="form-control elasticteste" name="change_description"><?= $change_log->change_description; ?></textarea>
 
                                 </div>
 
