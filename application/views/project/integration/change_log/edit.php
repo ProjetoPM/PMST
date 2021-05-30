@@ -99,28 +99,31 @@
 
                                 <div class=" col-lg-10 form-group">
                                     <label for="change_description"><?= $this->lang->line('cl_change_description') ?> </label>
-                                    <span class="cl_6">255</span><?= $this->lang->line('character3') ?>
+                                    <span class="cl_6">255</span><?= $this->lang->line('character2') ?>
                                     <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_change_description_tp') ?>">
                                         <i class="glyphicon glyphicon-comment"></i></a>
-
-                                        <textarea onkeyup="limite_textarea2(this.value, 'cl_6')" id="cl_txt_6" maxlength="255" oninput="eylem(this, this.value)" class="form-control elasticteste" name="change_description"><?= $change_log->change_description; ?></textarea>
-
+                                       <div>
+                                        <textarea onkeyup="limite_textarea2(this.value, 'cl_6')" id="cl_txt_6" maxlength="255" oninput="eylem(this, this.value)" class="form-control elasticteste" name="change_description"><?= $change_log[0]->change_description; ?></textarea>
+                                       </div>
                                 </div>
 
                                 <div class=" col-lg-10 form-group">
                                     <label for="project_management_feedback"><?= $this->lang->line('cl_project_management_feedback') ?> </label>
+                                    <span class="cl_7">255</span><?= $this->lang->line('character2') ?>
                                     <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_project_management_feedback_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-                                    <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="project_management_feedback" name="project_management_feedback" maxlength="255"><?= $change_log[0]->project_management_feedback ?></textarea>
-
+                                    <div>
+                                        <textarea onkeyup="limite_textarea2(this.value, 'cl_7')" id="cl_txt_7" maxlength="255" oninput="eylem(this, this.value)" class="form-control elasticteste" name="project_management_feedback"><?= $change_log[0]->project_management_feedback; ?></textarea>
+                                       </div>
                                 </div>
 
 
                                 <div class=" col-lg-10 form-group">
                                     <label for="ccc_feedback"><?= $this->lang->line('cl_ccc_feedback') ?> </label>
+                                    <span class="cl_8">255</span><?= $this->lang->line('character2') ?>
                                     <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_ccc_feedback_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-                                    <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="ccc_feedback" name="ccc_feedback" maxlength="255"><?= $change_log[0]->ccc_feedback ?></textarea>
+                                    <div>
+                                        <textarea onkeyup="limite_textarea2(this.value, 'cl_8')" id="cl_txt_8" maxlength="255" oninput="eylem(this, this.value)" class="form-control elasticteste" name="ccc_feedback"><?= $change_log[0]->ccc_feedback; ?></textarea>
+                                       </div>
                                 </div>
 
 
@@ -138,10 +141,11 @@
 
                                 <div class=" col-lg-12 form-group">
                                     <label for="comments"><?= $this->lang->line('cl_comments') ?> </label>
+                                    <span class="cl_10">45</span><?= $this->lang->line('character3') ?>
                                     <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_comments_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-                                    <input class="form-control" type="text" id="comments" name="comments" maxlength="45" value="<?= $change_log[0]->comments ?>">
-
+                                    <div>
+                                        <textarea onkeyup="limite_textarea3(this.value, 'cl_10')" id="cl_txt_10" maxlength="45" oninput="eylem(this, this.value)" class="form-control elasticteste" name="comments"><?= $change_log[0]->comments; ?></textarea>
+                                       </div>
                                 </div>
 
                                 <div class="col-lg-12">

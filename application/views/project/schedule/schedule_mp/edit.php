@@ -33,8 +33,7 @@
 							<form action="<?= base_url() ?>schedule/schedule-mp/update" method="post">
 								<input type="hidden" name="project_id" value="<?php echo $_SESSION['project_id']; ?>">
 
-								<div class="col-lg-12">
-									<div class="form-group">
+								<div class= "col-lg-12 form-group">
 										<label for="schedule_model"><?= $this->lang->line('schmp_model') ?></label><a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('schedule-model-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="schedule_model"><?php echo $schedule_mp[0]->schedule_model; ?></textarea>
 									</div>

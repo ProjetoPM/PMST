@@ -16,7 +16,7 @@ $lang['btn-actions'] = 'Actions';
 $lang['character'] = '/2000';
 $lang['character2'] = '/255';
 $lang['character3'] = '/45';
-
+$lang['character4'] = '/200';
 $lang['btn-create-project'] = 'Create New Project';
 $lang['btn-add-researcher'] = 'Add Researcher';
 

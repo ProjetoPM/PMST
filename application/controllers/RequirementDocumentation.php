@@ -86,7 +86,7 @@ class RequirementDocumentation extends CI_Controller
         $requirement_registration['acceptance_criteria'] = $this->input->post('acceptance_criteria');
         $requirement_registration['responsible'] = $this->input->post('responsible');
         $requirement_registration['validity'] = $this->input->post('validity');
-        $requirement_registration['requirement_situation'] = $this->input->post('requirement_situation');
+        $requirement_registration['requirement_situation'] = $this->input->post('situation');
         $requirement_registration['supporting_documentation'] = $this->input->post('supporting_documentation');
         $requirement_registration['project_id'] = $this->input->post('project_id');
 
@@ -113,7 +113,7 @@ class RequirementDocumentation extends CI_Controller
         $requirement_registration['acceptance_criteria'] = $this->input->post('acceptance_criteria');
         $requirement_registration['responsible'] = $this->input->post('responsible');
         $requirement_registration['validity'] = $this->input->post('validity');
-        $requirement_registration['requirement_situation'] = $this->input->post('requirement_situation');
+        $requirement_registration['situation'] = $this->input->post('situation');
         $requirement_registration['associated_id'] = $this->input->post('associated_id');
         $requirement_registration['supporting_documentation'] = $this->input->post('supporting_documentation');
         $requirement_registration['project_id'] = $this->input->post('project_id');
