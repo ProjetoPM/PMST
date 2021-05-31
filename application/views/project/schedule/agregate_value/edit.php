@@ -71,7 +71,7 @@
 
 									<div class=" col-lg-3 form-group">
 										<label for="agregate_value"><?= $this->lang->line('agregate_value') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('agregate_value-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="av_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_agregate_value_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<input id="agregate_value" name="agregate_value" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $agregate_value; ?>" onchange="variation()">
 										</div>
@@ -79,7 +79,7 @@
 
 									<div class=" col-lg-3 form-group">
 										<label for="planned_value"><?= $this->lang->line('planned_value') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('planned_value-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="av_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_planned_value_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<input id="planned_value" name="planned_value" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $planned_value; ?>">
 										</div>
@@ -87,7 +87,7 @@
 
 									<div class=" col-lg-3 form-group">
 										<label for="real_agregate_cost"><?= $this->lang->line('real_agregate_cost') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('real_agregate_cost-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="av_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_real_agregate_cost_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<input id="real_agregate_cost" name="real_agregate_cost" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" onchange="variation()" value="<?php echo $real_agregate_cost; ?>">
 										</div>
@@ -95,7 +95,7 @@
 
 									<div class=" col-lg-3 form-group">
 										<label for="budget_at_cumulative_end"><?= $this->lang->line('budget_at_cumulative_end') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('budget_at_cumulative_end-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="av_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_budget_at_cumulative_end_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<input id="budget_at_cumulative_end" name="budget_at_cumulative_end" onchange="estimate()" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $budget_at_cumulative_end; ?>">
 										</div>
@@ -103,7 +103,7 @@
 
 									<div class=" col-lg-3 form-group">
 										<label for="variation_of_terms"><?= $this->lang->line('variation_of_terms') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('variation_of_terms-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="av_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_variation_of_terms_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<input id="variation_of_terms" name="variation_of_terms" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $variation_of_terms; ?>">
 										</div>
@@ -111,7 +111,7 @@
 
 									<div class=" col-lg-3 form-group">
 										<label for="variation_of_costs"><?= $this->lang->line('variation_of_costs') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('variation_of_costs-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="av_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_variation_of_costs_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<input id="variation_of_costs" name="variation_of_costs" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $variation_of_costs; ?>">
 										</div>
@@ -119,7 +119,7 @@
 
 									<div class=" col-lg-3 form-group">
 										<label for="variation_at_the_end"><?= $this->lang->line('variation_at_the_end') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('variation_at_the_end-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="av_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_variation_at_the_end_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<input id="variation_at_the_end" name="variation_at_the_end" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" readonly=“true” value="<?php echo $variation_at_the_end; ?>">
 										</div>
@@ -127,7 +127,7 @@
 
 									<div class=" col-lg-3 form-group">
 										<label for="deadline_performance_index"><?= $this->lang->line('deadline_performance_index') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('deadline_performance_index-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="av_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_deadline_performance_index_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<input id="deadline_performance_index" name="deadline_performance_index" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $deadline_performance_index; ?>">
 										</div>
@@ -135,7 +135,7 @@
 
 									<div class=" col-lg-3 form-group">
 										<label for="costs_performance_index"><?= $this->lang->line('costs_performance_index') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('costs_performance_index-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="av_tp_9" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_costs_performance_index_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<input id="costs_performance_index" name="costs_performance_index" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $costs_performance_index; ?>">
 										</div>
@@ -143,7 +143,7 @@
 
 									<div class=" col-lg-3 form-group">
 										<label for="estimated_of_completation"><?= $this->lang->line('estimated_of_completation') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('estimated_of_completation-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="av_tp_10" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_estimated_of_completation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<input id="estimated_of_completation" name="estimated_of_completation" onchange="estimate()" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $estimated_of_completation; ?>">
 										</div>
@@ -151,7 +151,7 @@
 
 									<div class=" col-lg-3 form-group">
 										<label for="estimate_for_completion"><?= $this->lang->line('estimate_for_completion') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('estimate_for_completion-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="av_tp_11" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_estimate_for_completion_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<input id="estimate_for_completion" name="estimate_for_completion" readonly=“true” type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $estimate_for_completion; ?>">
 										</div>
@@ -175,6 +175,20 @@
 		</div>
 	</div>
 </body>
+<script>
+for (var i = 1; i <= 11; i++) {
+		if (document.getElementById("av_tp_"+i).title == "") {
+			document.getElementById("av_tp_"+i).hidden = true;
+		}
+		limite_textarea(document.getElementById("av_txt_" + i).value, "av_" + i);
+	}
 
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+</script>
 
 <?php $this->load->view('frame/footer_view') ?>

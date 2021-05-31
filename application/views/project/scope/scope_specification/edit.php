@@ -34,7 +34,7 @@
               ?>
                 <form method="POST" action="<?php echo base_url('scope/project-scope-statement/update'); ?>">
 
-                <div class=" col-lg-12 form-group">
+                <div class="col-lg-12 form-group">
 									<label for="scope_description"><?= $this->lang->line('pss_desc') ?></label>
 									<span class="pss_1">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="pss_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pss_desc_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
