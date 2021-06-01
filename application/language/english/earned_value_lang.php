@@ -19,16 +19,16 @@ $lang['estimated_of_completation'] = 'EAC-Estimate At Completion';
 $lang['estimate_for_completion'] = 'ETC-Estimate To Complete';
 
 //Tooltip
-$lang['agregate_value-tp'] = 'Earned Value';
-$lang['planned_value-tp'] = 'Planned Value';
-$lang['real_agregate_cost-tp'] = 'Real Cost';
-$lang['budget_at_cumulative_end-tp'] = 'Budget at Cumulative End';
-$lang['variation_of_terms-tp'] = 'Variation of Terms';
-$lang['variation_of_costs-tp'] = 'Variation of Costs';
-$lang['variation_at_the_end-tp'] = 'Variation at the End';
-$lang['deadline_performance_index-tp'] = 'Deadline Performance Index';
-$lang['estimated_of_completation-tp'] = 'Estimated of Completation';
-$lang['costs_performance_index-tp'] = 'Costs Performance Index';
-$lang['estimated_of_completation-tp'] = 'Estimated of Completation';
-$lang['estimate_for_completion-tp'] = 'Estimate for Completation';
+$lang['av_agregate_value_tp'] = 'Earned Value';
+$lang['av_planned_value_tp'] = 'Planned Value';
+$lang['av_real_agregate_cost_tp'] = 'Real Cost';
+$lang['av_budget_at_cumulative_end_tp'] = 'Budget at Cumulative End';
+$lang['av_variation_of_terms_tp'] = 'Variation of Terms';
+$lang['av_variation_of_costs_tp'] = 'Variation of Costs';
+$lang['av_variation_at_the_end_tp'] = 'Variation at the End';
+$lang['av_deadline_performance_index_tp'] = 'Deadline Performance Index';
+$lang['av_estimated_of_completation_tp'] = 'Estimated of Completation';
+$lang['av_costs_performance_index_tp'] = 'Costs Performance Index';
+$lang['av_estimated_of_completation_tp'] = 'Estimated of Completation';
+$lang['av_estimate_for_completion_tp'] = 'Estimate for Completation';
 ?>

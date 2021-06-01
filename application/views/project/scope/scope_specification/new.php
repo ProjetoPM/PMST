@@ -26,47 +26,48 @@
             <div class="panel-body">
               <h1 class="page-header">
 
-                <?= $this->lang->line('ssp_title')  ?>
+                <?= $this->lang->line('pss_title')  ?>
 
               </h1>
 
               <form method="POST" action="<?php echo base_url('scope/project-scope-statement/insert'); ?>">
 
-                <div class=" col-lg-12 form-group">
-                  <label for="scope_description"><?= $this->lang->line('scope_spec-desc') ?></label>
-                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('scope_spec-scope_desc-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+              <div class=" col-lg-12 form-group">
+									<label for="scope_description"><?= $this->lang->line('pss_desc') ?></label>
+									<span class="pss_1">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="pss_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pss_desc_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<div>
+										<textarea onkeyup="limite_textarea(this.value, 'pss_1')" id="pss_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="scope_description"></textarea>
+									</div>
+								</div>
 
+
+                <div class="col-lg-12 form-group">
+                  <label for="acceptance_criteria"><?= $this->lang->line('pss_accept') ?></label>
+                  <span class="pss_2">2000</span><?= $this->lang->line('character') ?>
+                  <a class="btn-sm btn-default" id="pss_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pss_accept_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                    <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="scope_description" name="scope_description" required="true"></textarea>
+                  <textarea onkeyup="limite_textarea(this.value, 'pss_2')" id="pss_txt_2" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="acceptance_criteria"></textarea>
                   </div>
                 </div>
 
 
                 <div class="col-lg-12 form-group">
-                  <label for="acceptance_criteria"><?= $this->lang->line('scope_spec-accept') ?>
-                  </label>
-                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('scope_spec-accept-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <label for="deliveries"><?= $this->lang->line('pss_deli') ?></label>
+                  <span class="pss_3">2000</span><?= $this->lang->line('character') ?>
+                  <a class="btn-sm btn-default" id="pss_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pss_deli_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                    <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="acceptance_criteria" name="acceptance_criteria"></textarea>
-                  </div>
-                </div>
-
-
-                <div class="col-lg-12 form-group">
-                  <label for="deliveries"><?= $this->lang->line('scope_spec-deli') ?>
-                  </label>
-                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('scope_spec-deli-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                  <div>
-                    <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="deliveries" name="deliveries"></textarea>
+                  <textarea onkeyup="limite_textarea(this.value, 'pss_3')" id="pss_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="deliveries"></textarea>
                   </div>
                 </div>
 
 
                 <div class=" col-lg-12 form-group">
-                  <label for="exclusions"><?= $this->lang->line('scope_spec-exclu') ?></label>
-                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('scope_spec-exclu-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <label for="exclusions"><?= $this->lang->line('pss_exclu') ?></label>
+                  <span class="pss_4">2000</span><?= $this->lang->line('character') ?>
+                  <a class="btn-sm btn-default" id="pss_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pss_exclu_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                    <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="exclusions" name="exclusions"></textarea>
+                  <textarea onkeyup="limite_textarea(this.value, 'pss_4')" id="pss_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="exclusions"></textarea>
                   </div>
                 </div>
 
@@ -86,6 +87,20 @@
     </div>
   </div>
 </body>
+<script>
+for (var i = 1; i <= 4; i++) {
+		if (document.getElementById("pss_tp_" + i).title == "") {
+			document.getElementById("pss_tp_" + i).hidden = true;
+		}
+		limite_textarea(document.getElementById("pss_txt_" + i).value, "pss_" + i);
+	}
 
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+  </script>
 
 <?php $this->load->view('frame/footer_view') ?>

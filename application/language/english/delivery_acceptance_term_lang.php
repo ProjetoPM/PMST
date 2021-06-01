@@ -3,18 +3,18 @@
 $lang['ds_title'] = 'Deliverable Status';
 
 //Form
-$lang['validator_name'] = 'Validator Name';
-$lang['role'] = 'Role';
-$lang['function'] = 'Function in the Project';
-$lang['validation_date'] = 'Validation Date';
-$lang['comments'] = 'Validator Comments';
+$lang['ds_validator_name'] = 'Validator Name';
+$lang['ds_role'] = 'Role';
+$lang['ds_function'] = 'Function in the Project';
+$lang['ds_validation_date'] = 'Validation Date';
+$lang['ds_comments'] = 'Validator Comments';
 
 
 //Tooltip
-$lang['validator_name-tp'] = '';
-$lang['role-tp'] = '';
-$lang['function-tp'] = '';
-$lang['validation_date-tp'] = '';
-$lang['comments-tp'] = '';
+$lang['ds_validator_name_tp'] = '';
+$lang['ds_role_tp'] = '';
+$lang['ds_function_tp'] = '';
+$lang['ds_validation_date_tp'] = '';
+$lang['ds_comments_tp'] = '';
 
 ?>

@@ -5,18 +5,18 @@ $lang['snd_title'] = 'Schedule Network Diagram';
 
 //Form
 $lang['activity_name'] = 'Activity Name';
-$lang['predecessor_activity'] = 'Predecessor Activity';
-$lang['dependence_type'] = 'Dependence Type';
-$lang['anticipation'] = 'Antecipation';
-$lang['wait'] = 'Wait';
+$lang['snd_predecessor_activity'] = 'Predecessor Activity';
+$lang['snd_dependence_type'] = 'Dependence Type';
+$lang['snd_anticipation'] = 'Antecipation';
+$lang['snd_wait'] = 'Wait';
 
 
 
 //Tooltip
-$lang['predecessor_activity-tp'] = 'Predecessor Activity';
-$lang['dependence_type-tp'] = 'Dependence Type';
-$lang['anticipation-tp'] = 'Antecipation';
-$lang['wait-tp'] = 'Wait';
+$lang['snd_predecessor_activity_tp'] = 'Predecessor Activity';
+$lang['snd_dependence_type_tp'] = 'Dependence Type';
+$lang['snd_anticipation_tp'] = 'Antecipation';
+$lang['snd_wait_tp'] = 'Wait';
 
 
 ?>

@@ -4,34 +4,34 @@
 $lang['eval_title'] = 'Team Performance Evaluation';
 
 //Form 
-$lang['eval-team_member_name'] = 'Team Member Name';
-$lang['eval-role'] = 'Job Role';
-$lang['eval-project_function'] = 'Function in the Project';
-$lang['eval-report_date'] = 'Evaluation Date';
-$lang['eval-team_member_comments'] = 'Review Evaluation';
-$lang['eval-strong_points'] = 'Strong points';
-$lang['eval-improvement'] = 'Opportunities for improvement';
-$lang['eval-development_plan'] = 'Development plan';
-$lang['eval-already_developed'] = 'Already developed';
-$lang['eval-external_comments'] = 'Comments external to the project team';
-$lang['eval-team_mates_comments'] = 'Team mates comments';
-$lang['eval-team_performance_evaluationcol'] = 'Evaluator Comments';
+$lang['eval_team_member_name'] = 'Team Member Name';
+$lang['eval_role'] = 'Job Role';
+$lang['eval_project_function'] = 'Function in the Project';
+$lang['eval_report_date'] = 'Evaluation Date';
+$lang['eval_team_member_comments'] = 'Review Evaluation';
+$lang['eval_strong_points'] = 'Strong points';
+$lang['eval_improvement'] = 'Opportunities for improvement';
+$lang['eval_development_plan'] = 'Development plan';
+$lang['eval_already_developed'] = 'Already developed';
+$lang['eval_external_comments'] = 'Comments external to the project team';
+$lang['eval_team_mates_comments'] = 'Team mates comments';
+$lang['eval_team_performance_evaluationcol'] = 'Evaluator Comments';
 
 
 
 //Tooltip
-$lang['eval-team_member_name-tooltip'] = 'Team Member Name Example';
-$lang['eval-role-tooltip'] = 'Job Role Example';
-$lang['eval-project_function-tooltip'] = 'Function in the Project Example';
-$lang['eval-report_date-tooltip'] = 'Evaluation Date Example';
-$lang['eval-team_member_comments-tooltip'] = 'Review Evaluation Example';
-$lang['eval-strong_points-tooltip'] = 'Strong points Example';
-$lang['eval-improvement-tooltip'] = 'Opportunities for improvement Example';
-$lang['eval-development_plan-tooltip'] = 'Development plan Example';
-$lang['eval-already_developed-tooltip'] = 'Already developed Example';
-$lang['eval-external_comments-tooltip'] = 'Comments external to the project team Example';
-$lang['eval-team_mates_comments-tooltip'] = 'Team mates comments Example';
-$lang['eval-team_performance_evaluationcol-tooltip'] = 'Evaluator Comments Example';
+$lang['eval_team_member_name_tp'] = 'Team Member Name Example';
+$lang['eval_role_tp'] = 'Job Role Example';
+$lang['eval_project_function_tp'] = 'Function in the Project Example';
+$lang['eval_report_date_tp'] = 'Evaluation Date Example';
+$lang['eval_team_member_comments_tp'] = 'Review Evaluation Example';
+$lang['eval_strong_points_tp'] = 'Strong points Example';
+$lang['eval_improvement_tp'] = 'Opportunities for improvement Example';
+$lang['eval_development_plan_tp'] = 'Development plan Example';
+$lang['eval_already_developed_tp'] = 'Already developed Example';
+$lang['eval_external_comments_tp'] = 'Comments external to the project team Example';
+$lang['eval_team_mates_comments_tp'] = 'Team mates comments Example';
+$lang['eval_team_performance_evaluationcol_tp'] = 'Evaluator Comments Example';
 
 
 

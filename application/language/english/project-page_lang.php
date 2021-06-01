@@ -58,6 +58,7 @@ $lang['quality-metrics'] = 'Quality Metrics';
 $lang['risk-register'] = 'Risk Register';
 $lang['procurement-management'] = 'Procurement Management Plan';
 $lang['procurement-statement'] = 'Procurement Statement of Work';
+$lang['closed-procurement-documentation'] = 'Closed Procurement Documentation';
 $lang['project-scope'] = 'Project Scope Statement';
 $lang['scope-baseline'] = 'Work Breakdown Structure';
 $lang['project-calendar'] = 'Project Calendars';
@@ -72,11 +73,13 @@ $lang['enterprise-environment'] = 'Enterprise Environment Factors';
 $lang['issues-record'] ='Issues Record';
 $lang['procurement-agreement'] = 'Procurement Agreement';
 $lang['issue-log'] = 'Issue Log';
+$lang['lesson-learned-register'] = 'Lesson Learned Register';
 $lang['change-log'] = 'Change Log';
 $lang['earned-value'] = 'Earned Value Status Report';
 $lang['lessons-learned'] = 'Project Closure Term';
 $lang['assumption-log'] = 'Assumption Log';
 $lang['risk-checklist'] = 'General Project Risk Checklist';
+$lang['final-report'] = 'Final Report';
 
 
 // btn NOTIFICATION BOARD

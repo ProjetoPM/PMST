@@ -115,6 +115,9 @@ position:-webkit-sticky
                   <li class="<?php if ($uri2 == 'project-closure') {
                                  echo 'active';
                               } ?>"><a href="<?= base_url("integration/project-closure/new/" . $_SESSION['project_id']) ?>"><i class="fa fa-star"></i>Project Closure Term</a></li>
+                   <li class="<?php if ($uri2 == 'final-report') {
+                                 echo 'active';
+                              } ?>"><a href="<?= base_url("integration/final-report/new/" . $_SESSION['project_id']) ?>"><i class="fa fa-star"></i>Final Report</a></li>            
                </ul>
             </li>
             <!-- FIM INTEGRATION -->

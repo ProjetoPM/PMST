@@ -298,7 +298,7 @@
     }
 
     .integrationBox .verticalAlign, .scheduleBox .verticalAlign, .humanBox .verticalAlign{
-        height:18.5em;
+        height:40em;
         width:10em;
         text-align:center;
         display: table-cell;

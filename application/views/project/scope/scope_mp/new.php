@@ -34,45 +34,50 @@
                                 <input type="hidden" name="project_id" value="<?php echo $_SESSION['project_id']; ?>">
                                 <input type="hidden" name="status" value="1">
 
-                                <div class="col-lg-12 form-group">
-                                    <label for="scope_specification"><?= $this->lang->line('scope_specification') ?></label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('scope_specification-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                                    <div>
-                                        <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="scope_specification" name="scope_specification" required="false"></textarea>
-                                    </div>
-                                </div>
-
                                 <div class=" col-lg-12 form-group">
-                                    <label for="eap_process"><?= $this->lang->line('eap_process') ?></label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eap_process-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                                    <div>
-                                        <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="eap_process" name="eap_process"></textarea>
+                                        <label for="scope_specification"><?= $this->lang->line('smp_scope_specification') ?></label>
+                                        <span class="smp_1">2000</span><?= $this->lang->line('character') ?>
+                                        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('smp_scope_specification_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                        <div>
+                                        <textarea onkeyup="limite_textarea(this.value, 'smp_1')" id="smp_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="scope_specification"></textarea>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class=" col-lg-12 form-group">
-                                    <label for="deliveries_acceptance"><?= $this->lang->line('deliveries_acceptance') ?></label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('deliveries_acceptance-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                                    <div>
-                                        <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="deliveries_acceptance" name="deliveries_acceptance"></textarea>
+                                    <div class=" col-lg-12 form-group">
+                                        <label for="eap_process"><?= $this->lang->line('smp_eap_process') ?></label>
+                                        <span class="smp_2">2000</span><?= $this->lang->line('character') ?>
+                                        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('smp_eap_process_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                        <div>
+                                        <textarea onkeyup="limite_textarea(this.value, 'smp_2')" id="smp_txt_2" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="eap_process"></textarea>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-lg-12 form-group">
-                                    <label for="scope_change_mp"><?= $this->lang->line('scope_change_mp') ?></label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('scope_change_mp-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                                    <div>
-                                        <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="scope_change_mp" name="scope_change_mp"></textarea>
+                                    <div class=" col-lg-12 form-group">
+                                        <label for="deliveries_acceptance"><?= $this->lang->line('smp_deliveries_acceptance') ?></label>
+                                        <span class="smp_3">2000</span><?= $this->lang->line('character') ?>
+                                        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('smp_deliveries_acceptance_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                        <div>
+                                        <textarea onkeyup="limite_textarea(this.value, 'smp_3')" id="smp_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="deliveries_acceptance"></textarea>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-lg-12 form-group">
-                                    <label for="baseline"><?= $this->lang->line('scomp_baseline') ?></label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('scomp_baseline_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                                    <div>
-                                        <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="" name="baseline"></textarea>
+                                    <div class=" col-lg-12 form-group">
+                                        <label for="scope_change_mp"><?= $this->lang->line('smp_scope_change_mp') ?></label>
+                                        <span class="smp_4">2000</span><?= $this->lang->line('character') ?>
+                                        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('smp_scope_change_mp_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                        <div>
+                                        <textarea onkeyup="limite_textarea(this.value, 'smp_4')" id="smp_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="scope_change_mp"></textarea>
+                                        </div>
                                     </div>
-                                </div>
+
+                                    <div class="col-lg-12 form-group">
+                                        <label for="baseline"><?= $this->lang->line('smp_scomp_baseline') ?></label>
+                                        <span class="smp_5">2000</span><?= $this->lang->line('character') ?>
+                                        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('smp_scomp_baseline_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                        <div>
+                                        <textarea onkeyup="limite_textarea(this.value, 'smp_5')" id="smp_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="scomp_baseline"></textarea>
+                                        </div>
+                                    </div>
 
                                 <input type="hidden" name="status" value="1">
 
@@ -105,7 +110,19 @@
         </div>
     </div>
 </body>
+<script>
+for (var i = 1; i <= 6; i++) {
+		if (document.getElementById("smp_tp_" + i).title == "") {
+			document.getElementById("smp_tp_" + i).hidden = true;
+		}
+		limite_textarea(document.getElementById("smp_txt_" + i).value, "smp_" + i);
+	}
 
-
-
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+</script>
 <?php $this->load->view('frame/footer_view') ?>

@@ -4,53 +4,53 @@
 $lang['al_title'] = 'Activity List';
 
 //Form
-$lang['activity_id'] = 'Activity Id';
+$lang['al_activity_id'] = 'Activity Id';
 $lang['wbs_id'] = 'WBS Id';
-$lang['label'] = 'Activity Label';
-$lang['activity_name'] = 'Activity Name';
-$lang['description'] = 'Activity Description';
-$lang['project_phase'] = 'Project Phase';
-$lang['milestone'] = 'Milestone';
+$lang['al_label'] = 'Activity Label';
+$lang['al_activity_name'] = 'Activity Name';
+$lang['al_description'] = 'Activity Description';
+$lang['al_project_phase'] = 'Project Phase';
+$lang['al_milestone'] = 'Milestone';
 
 
-$lang['estimated_completed'] = 'Estimated Completed';
-$lang['replanted_completed'] = 'Replanted Completed';
-$lang['real_completed'] = 'Real Completed';
+$lang['al_estimated_completed'] = 'Estimated Completed';
+$lang['al_replanted_completed'] = 'Replanted Completed';
+$lang['al_real_completed'] = 'Real Completed';
 
-$lang['duration_pessimistic'] = 'Pessimistic Duration';
-$lang['duration_probable'] = 'Probable Duration';
-$lang['duration_otimistic'] = 'Optimistic Duration';
-$lang['duration_beta'] = 'Beta Duration';
-$lang['duration_triangular'] = 'Triangular Duration';
-$lang['cost_pessimistic'] = 'Pessimistic Cost';
-$lang['cost_probable'] = 'More Probable Cost';
-$lang['cost_otimistic'] = 'Optimistic Cost';
-$lang['cost_beta'] = 'Beta Cost';
-$lang['cost_triangular'] = 'Trangular Cost';
+$lang['al_duration_pessimistic'] = 'Pessimistic Duration';
+$lang['al_duration_probable'] = 'Probable Duration';
+$lang['al_duration_otimistic'] = 'Optimistic Duration';
+$lang['al_duration_beta'] = 'Beta Duration';
+$lang['al_duration_triangular'] = 'Triangular Duration';
+$lang['al_cost_pessimistic'] = 'Pessimistic Cost';
+$lang['al_cost_probable'] = 'More Probable Cost';
+$lang['al_cost_otimistic'] = 'Optimistic Cost';
+$lang['al_cost_beta'] = 'Beta Cost';
+$lang['al_cost_triangular'] = 'Trangular Cost';
 
 
 //Tooltip
-$lang['associated_id-tp'] = 'Associated Id.';
-$lang['project_phase-tp'] = 'Project Phase';
-$lang['milestone-tp'] = 'Milestone';
-$lang['description_tp'] = 'Acitivity Name/Description';
+$lang['al_associated_id_tp'] = 'Associated Id.';
+$lang['al_project_phase_tp'] = 'Project Phase';
+$lang['al_milestone_tp'] = 'Milestone';
+$lang['al_description_tp'] = 'Acitivity Name/Description';
 $lang['wbs_id_tp'] = '';
 
 
-$lang['estimated_completed-tp'] = 'Estimated Completed';
-$lang['replanted_completed-tp'] = 'Replanted Completed';
-$lang['real_completed-tp'] = 'Real Completed';
+$lang['al_estimated_completed_tp'] = 'Estimated Completed';
+$lang['al_replanted_completed_tp'] = 'Replanted Completed';
+$lang['al_real_completed_tp'] = 'Real Completed';
 
 
-$lang['duration_pessimistic-tp'] = 'Pessimistic Duration';
-$lang['duration_probable-tp'] = 'Probable Duration';
-$lang['duration_otimistic-tp'] = 'Optimistic Duration';
-$lang['duration_beta-tp'] = 'Definition: (O + MP*4 + P) / 6';
-$lang['duration_triangular-tp'] = 'Definition: (O + MP + P) / 3';
-$lang['cost_pessimistic-tp'] = 'Pessimistic Cost';
-$lang['cost_probable-tp'] = 'More Probable Cost';
-$lang['cost_otimistic-tp'] = 'Optimistic Cost';
-$lang['cost_beta-tp'] = 'Definition: (O + MP*4 + P) / 6';
-$lang['cost_triangular-tp'] = 'Definition: (O + MP + P) / 3';
+$lang['al_duration_pessimistic_tp'] = 'Pessimistic Duration';
+$lang['al_duration_probable_tp'] = 'Probable Duration';
+$lang['al_duration_otimistic_tp'] = 'Optimistic Duration';
+$lang['al_duration_beta_tp'] = 'Definition: (O + MP*4 + P) / 6';
+$lang['al_duration_triangular_tp'] = 'Definition: (O + MP + P) / 3';
+$lang['al_cost_pessimistic_tp'] = 'Pessimistic Cost';
+$lang['al_cost_probable_tp'] = 'More Probable Cost';
+$lang['al_cost_otimistic_tp'] = 'Optimistic Cost';
+$lang['al_cost_beta_tp'] = 'Definition: (O + MP*4 + P) / 6';
+$lang['al_cost_triangular_tp'] = 'Definition: (O + MP + P) / 3';
 
 ?>

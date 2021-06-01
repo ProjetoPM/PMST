@@ -148,6 +148,10 @@ class Project_model extends CI_Model
             //echo "Problema ao deletar projeto";
         }
     }
+    public function getAllKnowledgeArea(){
+        $data = $this->db->get('knowledge_area');
+		return $data->result();
+    }
 }  
    
    

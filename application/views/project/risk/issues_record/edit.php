@@ -42,64 +42,88 @@
 								<!-- Textarea -->
 
 
-								<div class="form-group col-lg-12">
-									<label for="identification"><?= $this->lang->line('ir-identification') ?></label>
-									<textarea class="form-control" id="identification" name="identification" maxlength="45"><?php echo $identification; ?></textarea>
+								<div class="col-lg-12 form-group">
+									<label for="identification"><?= $this->lang->line('ir_identification') ?></label>
+									<span class="ir_1">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ir_identification_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<div>
+									<textarea onkeyup="limite_textarea(this.value, 'ir_1')" id="ir_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="identification"><?php echo $identification;?></textarea>
+									</div>
 								</div>
 
 								<div class="form-group">
 									<div class="col-lg-6">
-										<label><?= $this->lang->line('ir-identification_date') ?></label>
+										<label><?= $this->lang->line('ir_identification_date') ?></label>
 										<div class="input-group">
 											<div class="input-group-addon">
 												<i class="fa fa-calendar"></i>
 											</div>
-											<input class="form-control" id="identification_date" placeholder="YYYY/MM/DD" type="text" name="identification_date" value="<?php echo $identification_date; ?>" />
+											<input class="form-control" id="identification_date" placeholder="YYYY/MM/DD" type="text" name="identification_date" value="<?php echo $identification_date; ?>">
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group col-lg-6">
+									<label for="question_description"><?= $this->lang->line('ir_question_description') ?></label>
+									<span class="ir_2">255</span><?= $this->lang->line('character2') ?>
+									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ir_question_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<div>
+									<textarea onkeyup="limite_textarea2(this.value, 'ir_2')" id="ir_txt_2" maxlength="255" oninput="eylem(this, this.value)" class="form-control elasticteste" name="question_description"><?php echo $question_description;?></textarea>
+									</div>
+								</div>
+
+								<div class="form-group col-lg-12">
+									<label for="type"><?= $this->lang->line('ir_type') ?></label>
+									<span class="ir_3">255</span><?= $this->lang->line('character2') ?>
+									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ir_type_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<div>
+									<textarea onkeyup="limite_textarea2(this.value, 'ir_3')" id="ir_txt_3" maxlength="255" oninput="eylem(this, this.value)" class="form-control elasticteste" name="type"><?php echo $type;?></textarea>
+									</div>
+								</div>
+
+								<div class="form-group col-lg-6">
+									<label for="responsable"><?= $this->lang->line('ir_responsable') ?></label>
+									<span class="ir_4">45</span><?= $this->lang->line('character3') ?>
+									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ir_responsable_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<div>
+									<textarea onkeyup="limite_textarea3(this.value, 'ir_4')" id="ir_txt_4" maxlength="45" oninput="eylem(this, this.value)" class="form-control elasticteste" name="responsable"><?php echo $responsable;?></textarea>
+									</div>
+								</div>
+
+								<div class="form-group col-lg-6">
+									<label for="situation"><?= $this->lang->line('ir_situation') ?></label>
+									<span class="ir_5">45</span><?= $this->lang->line('character3') ?>
+									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ir_situation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<div>
+									<textarea onkeyup="limite_textarea3(this.value, 'ir_5')" id="ir_txt_5" maxlength="45" oninput="eylem(this, this.value)" class="form-control elasticteste" name="situation"><?php echo $situation;?></textarea>
+									</div>
+								</div>
+
+								<div class="form-group col-lg-12">
+									<label for="action"><?= $this->lang->line('ir_action') ?></label>
+									<span class="ir_6">45</span><?= $this->lang->line('character3') ?>
+									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ir_action_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<div>
+									<textarea onkeyup="limite_textarea3(this.value, 'ir_6')" id="ir_txt_6" maxlength="45" oninput="eylem(this, this.value)" class="form-control elasticteste" name="action"><?php echo $action;?></textarea>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="col-lg-6">
+										<label><?= $this->lang->line('ir_resolution_date') ?></label>
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-calendar"></i>
+											</div>
+											<input class="form-control" id="resolution_date" placeholder="YYYY/MM/DD" type="text" name="resolution_date" value="<?php echo $resolution_date; ?>"/>
 										</div>
 									</div>
 								</div>
 
 
-								<div class="form-group col-lg-6">
-									<label for="question_description"><?= $this->lang->line('ir-question_description') ?></label>
-									<textarea class="form-control" id="question_description" name="question_description" maxlength="45"><?php echo $question_description; ?></textarea>
-								</div>
-
-								<div class="form-group col-lg-12">
-									<label for="type"><?= $this->lang->line('ir-type') ?></label>
-									<textarea class="form-control" id="type" name="type" maxlength="45"><?php echo $type; ?></textarea>
-								</div>
-
-								<div class="form-group col-lg-6">
-									<label for="responsable"><?= $this->lang->line('ir-responsable') ?></label>
-									<textarea class="form-control" id="responsable" name="responsable" maxlength="45"><?php echo $responsable; ?></textarea>
-								</div>
-								<div class="form-group col-lg-6">
-									<label for="situation"><?= $this->lang->line('ir-situation') ?></label>
-									<textarea class="form-control" id="situation" name="situation" maxlength="45"><?php echo $situation; ?></textarea>
-								</div>
-
-								<div class="form-group col-lg-12">
-									<label for="action"><?= $this->lang->line('ir-action') ?></label>
-									<textarea class="form-control" id="action" name="action" maxlength="45"><?php echo $action; ?></textarea>
-								</div>
-
 								<div class="form-group">
 									<div class="col-lg-6">
-										<label><?= $this->lang->line('ir-resolution_date') ?></label>
-										<div class="input-group">
-											<div class="input-group-addon">
-												<i class="fa fa-calendar"></i>
-											</div>
-											<input class="form-control" id="resolution_date" placeholder="YYYY/MM/DD" type="text" name="resolution_date" value="<?php echo $resolution_date; ?>" />
-										</div>
-									</div>
-								</div>
-
-
-								<div class="form-group">
-									<div class="col-lg-6">
-										<label><?= $this->lang->line('ir-replan_date') ?></label>
+										<label><?= $this->lang->line('ir_replan_date') ?></label>
 										<div class="input-group">
 											<div class="input-group-addon">
 												<i class="fa fa-calendar"></i>
@@ -110,8 +134,12 @@
 								</div>
 
 								<div class="form-group col-lg-12">
-									<label for="observations"><?= $this->lang->line('ir-observations') ?></label>
-									<textarea class="form-control" id="observations" name="observations" maxlength="45"><?php echo $observations; ?></textarea>
+									<label for="observations"><?= $this->lang->line('ir_observations') ?></label>
+									<span class="ir_7">45</span><?= $this->lang->line('character3') ?>
+									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ir_observations_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<div>
+									<textarea onkeyup="limite_textarea3(this.value, 'ir_7')" id="ir_txt_7" maxlength="45" oninput="eylem(this, this.value)" class="form-control elasticteste" name="observations"><?php echo $observations; ?></textarea>
+									</div>
 								</div>
 
 								<!-- buttons -->
@@ -177,5 +205,33 @@
 		todayHighlight: true,
 		// startDate: today,
 	});
+
+	for (var i = 1; i <= 7; i++) {
+		if (document.getElementById("ir_tp_" + i).title == "") {
+			document.getElementById("ir_tp_" + i).hidden = true;
+		}
+		limite_textarea(document.getElementById("ir_txt_" + i).value, "ir_" + i);
+	}
+
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+
+	function limite_textarea2(valor, txt) {
+		var limite = 255;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+
+	function limite_textarea3(valor, txt) {
+		var limite = 45;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
 </script>
 <?php $this->load->view('frame/footer_view') ?>

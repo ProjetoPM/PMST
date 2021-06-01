@@ -39,7 +39,8 @@
 
                   <div class=" col-lg-6 form-group">
                     <label for="type"><?= $this->lang->line('commp_type') ?> </label>
-                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('type-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <span class="eval_2">2000</span><?= $this->lang->line('character') ?>
+                    <a class="btn-sm btn-default" id ="commp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('type-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
                       <input type="text" class="form-control" id="type" name="type" value="<?php echo $type ?>" maxlength="45" required>
                     </div>
@@ -47,7 +48,8 @@
 
                   <div class=" col-lg-6 form-group">
                     <label for="description"><?= $this->lang->line('commp_name') ?> </label>
-                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('description-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <span class="eval_2">2000</span><?= $this->lang->line('character') ?>
+                    <a class="btn-sm btn-default" id ="commp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('description-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
                       <input type="text" class="form-control" id="description" name="description" value="<?php echo $description ?>" maxlength="45">
                     </div>
@@ -55,7 +57,8 @@
 
                   <div class=" col-lg-12 form-group">
                     <label for="content"><?= $this->lang->line('commp_content') ?> </label>
-                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('content-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <span class="eval_2">2000</span><?= $this->lang->line('character') ?>
+                    <a class="btn-sm btn-default" id ="commp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('content-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
                       <input type="text" class="form-control" id="content" name="content" value="<?php echo $content ?>" maxlength="255">
                     </div>
@@ -63,7 +66,8 @@
 
                   <div class=" col-lg-12 form-group">
                     <label for="distribution_reason"><?= $this->lang->line('commp_distribution_reason') ?> </label>
-                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('distribution_reason-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <span class="eval_2">2000</span><?= $this->lang->line('character') ?>
+                    <a class="btn-sm btn-default" id ="commp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('distribution_reason-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
                       <input type="text" class="form-control" id="distribution_reason" name="distribution_reason" value="<?php echo $distribution_reason ?>" maxlength="255">
                     </div>
@@ -71,7 +75,8 @@
 
                   <div class=" col-lg-6 form-group">
                     <label for="language"><?= $this->lang->line('commp_language') ?> </label>
-                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('language-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <span class="eval_2">2000</span><?= $this->lang->line('character') ?>
+                    <a class="btn-sm btn-default" id ="commp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('language-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
                       <input type="text" class="form-control" id="language" name="language" value="<?php echo $language
                                                                                                     ?>" maxlength="45">
@@ -80,7 +85,8 @@
 
                   <div class=" col-lg-6 form-group">
                     <label for="channel"><?= $this->lang->line('commp_channel') ?> </label>
-                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('channel-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <span class="eval_2">2000</span><?= $this->lang->line('character') ?>
+                    <a class="btn-sm btn-default" id ="commp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('channel-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
                       <input type="text" class="form-control" id="channel" name="channel" value="<?php echo $channel ?>" maxlength="45">
                     </div>
@@ -88,7 +94,8 @@
 
                   <div class=" col-lg-6 form-group">
                     <label for="document_format"><?= $this->lang->line('commp_document_format') ?> </label>
-                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('document_format-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <span class="eval_2">2000</span><?= $this->lang->line('character') ?>
+                    <a class="btn-sm btn-default" id ="commp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('document_format-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
                       <input type="text" class="form-control" id="document_format" name="document_format" value="<?php echo $document_format ?>" maxlength="45">
                     </div>
@@ -96,7 +103,8 @@
 
                   <div class=" col-lg-6 form-group">
                     <label for="method"><?= $this->lang->line('commp_method') ?> </label>
-                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('method-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <span class="eval_2">2000</span><?= $this->lang->line('character') ?>
+                    <a class="btn-sm btn-default" id ="commp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('method-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
                       <input type="text" class="form-control" id="method" name="method" value="<?php echo $method ?>" maxlength="45">
                     </div>
@@ -104,7 +112,8 @@
 
                   <div class=" col-lg-6 form-group">
                     <label for="frequency"><?= $this->lang->line('commp_frequency') ?> </label>
-                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('frequency-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <span class="eval_2">2000</span><?= $this->lang->line('character') ?>
+                    <a class="btn-sm btn-default" id ="commp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('frequency-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
                       <input type="text" class="form-control" id="frequency" name="frequency" value="<?php echo $frequency ?>" maxlength="45">
                     </div>
@@ -112,7 +121,8 @@
 
                   <div class=" col-lg-6 form-group">
                     <label for="allocated_resources"><?= $this->lang->line('commp_allocated_resources') ?> </label>
-                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('allocated_resources-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <span class="eval_2">2000</span><?= $this->lang->line('character') ?>
+                    <a class="btn-sm btn-default" id ="commp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('allocated_resources-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
                       <input type="text" class="form-control" id="allocated_resources" name="allocated_resources" value="<?php echo $allocated_resources ?>" maxlength="45">
                     </div>
@@ -120,7 +130,8 @@
 
                   <div class=" col-lg-6 form-group">
                     <label for="format"><?= $this->lang->line('commp_format') ?> </label>
-                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('format-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <span class="eval_2">2000</span><?= $this->lang->line('character') ?>
+                    <a class="btn-sm btn-default" id ="commp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('format-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
                       <input type="text" class="form-control" id="format" name="format" value="<?php echo $format ?>" maxlength="45">
                     </div>
@@ -128,7 +139,8 @@
 
                   <div class=" col-lg-6 form-group">
                     <label for="local"><?= $this->lang->line('commp_local') ?> </label>
-                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('local-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <span class="eval_2">2000</span><?= $this->lang->line('character') ?>
+                    <a class="btn-sm btn-default" id ="commp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('local-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
                       <input type="text" class="form-control" id="local" name="local" value="<?= $local ?>" maxlength="45">
                     </div>
@@ -151,4 +163,19 @@
       </div>
     </div>
   </body>
+  <script>
+  for (var i = 1; i <= 6; i++) {
+		if (document.getElementById("eval_tp_"+i).title == "") {
+			document.getElementById("eval_tp_"+i).hidden = true;
+		}
+		limite_textarea(document.getElementById("eval_txt_" + i).value, "eval_" + i);
+	}
+
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+  </script>
   <?php $this->load->view('frame/footer_view') ?>

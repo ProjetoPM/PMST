@@ -4,17 +4,17 @@
 $lang['rr_title'] = 'Resource Requirements';
 //Form
 $lang['activity_name'] = 'Activity Name';
-$lang['resource_description'] = 'Resource Description';
-$lang['required_amount_of_resource'] = 'Required Amount of Resource';
-$lang['resource_cost_per_unit'] = 'Resource Cost per Unit';
-$lang['resource_type'] = 'Resource Type';
+$lang['rr_resource_description'] = 'Resource Description';
+$lang['rr_required_amount_of_resource'] = 'Required Amount of Resource';
+$lang['rr_resource_cost_per_unit'] = 'Resource Cost per Unit';
+$lang['rr_resource_type'] = 'Resource Type';
 
 
 //Tooltip
-$lang['resource_description-tp'] = 'Resource Description';
-$lang['required_amount_of_resource-tp'] = 'Required Amount of Resource';
-$lang['resource_cost_per_unit-tp'] = 'Resource Cost per Unit';
-$lang['resource_type-tp'] = 'Resource Type';
+$lang['rr_resource_description_tp'] = 'Resource Description';
+$lang['rr_required_amount_of_resource_tp'] = 'Required Amount of Resource';
+$lang['rr_resource_cost_per_unit_tp'] = 'Resource Cost per Unit';
+$lang['rr_resource_type_tp'] = 'Resource Type';
 
 
 

@@ -34,7 +34,7 @@
 								<div class="col-lg-12 form-group">
 									<label for="project_description"><?= $this->lang->line('pch_description') ?></label>
 									<span class="pch_1">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" id="pch_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_description-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="pch_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 										<textarea onkeyup="limite_textarea(this.value, 'pch_1')" id="pch_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="project_description" required="true"></textarea>
 									</div>
@@ -43,7 +43,7 @@
 								<div class=" col-lg-12 form-group">
 									<label for="project_purpose"><?= $this->lang->line('pch_purpose') ?></label>
 									<span class="pch_2">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" id="pch_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_purpose-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="pch_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_purpose_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 										<textarea onkeyup="limite_textarea(this.value, 'pch_2')" id="pch_txt_2" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="project_purpose"></textarea>
 									</div>
@@ -52,7 +52,7 @@
 								<div class=" col-lg-12 form-group">
 									<label for="project_objective"><?= $this->lang->line('pch_objectives') ?></label>
 									<span class="pch_3">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" id="pch_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_objectives-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="pch_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_objectives_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 										<textarea onkeyup="limite_textarea(this.value, 'pch_3')" id="pch_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="project_objective"></textarea>
 									</div>
@@ -61,7 +61,7 @@
 								<div class="col-lg-12 form-group">
 									<label for="benefits"><?= $this->lang->line('pch_benefits') ?></label>
 									<span class="pch_4">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" id="pch_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_benefits-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="pch_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_benefits_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 										<textarea onkeyup="limite_textarea(this.value, 'pch_4')" id="pch_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="benefits"></textarea>
 									</div>
@@ -70,7 +70,7 @@
 								<div class=" col-lg-12 form-group">
 									<label for="high_level_requirements"><?= $this->lang->line('pch_high_level_req') ?></label>
 									<span class="pch_5">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" id="pch_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_high_level_req-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="pch_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_high_level_req_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 										<textarea onkeyup="limite_textarea(this.value, 'pch_5')" id="pch_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="high_level_requirements"></textarea>
 									</div>
@@ -79,7 +79,7 @@
 								<div class=" col-lg-12 form-group">
 									<label for="boundaries"><?= $this->lang->line('pch_boundaries') ?></label>
 									<span class="pch_6">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" id="pch_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_boundaries_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="pch_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_boundaries_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 										<textarea onkeyup="limite_textarea(this.value, 'pch_6')" id="pch_txt_6" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="boundaries"></textarea>
 									</div>
@@ -89,7 +89,7 @@
 								<div class=" col-lg-12 form-group">
 									<label for="pch_risks"><?= $this->lang->line('pch_risks') ?></label>
 									<span class="pch_7">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" id="pch_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_risks-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="pch_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_risks_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 										<textarea onkeyup="limite_textarea(this.value, 'pch_7')" id="pch_txt_7" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="high_level_risks"></textarea>
 									</div>
@@ -99,7 +99,7 @@
 								<div class=" col-lg-12 form-group">
 									<label for="summary_schedule"><?= $this->lang->line('pch_schedule') ?></label>
 									<span class="pch_8">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" id="pch_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_schedule-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="pch_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_schedule_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 										<textarea onkeyup="limite_textarea(this.value, 'pch_8')" id="pch_txt_8" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="summary_schedule"></textarea>
 									</div>
@@ -108,7 +108,7 @@
 								<div class=" col-lg-12 form-group">
 									<label for="budge_summary"><?= $this->lang->line('pch_budge') ?></label>
 									<span class="pch_9">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" id="pch_tp_9" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_budge-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="pch_tp_9" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_budge_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 										<textarea onkeyup="limite_textarea(this.value, 'pch_9')" id="pch_txt_9" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="budge_summary"></textarea>
 									</div>
@@ -118,7 +118,7 @@
 								<div class=" col-lg-12 form-group">
 									<label for="project_approval_requirements"><?= $this->lang->line('pch_approval') ?></label>
 									<span class="pch_10">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" id="pch_tp_10" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_approval_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="pch_tp_10" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_approval_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 										<textarea onkeyup="limite_textarea(this.value, 'pch_10')" id="pch_txt_10" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="project_approval_requirements"></textarea>
 									</div>
@@ -127,7 +127,7 @@
 								<div class=" col-lg-6 form-group">
 									<label for="success_criteria"><?= $this->lang->line('pch_sucess_criteria') ?></label>
 									<span class="pch_11">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" id="pch_tp_11" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_success_criteria-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="pch_tp_11" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_success_criteria_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 										<textarea onkeyup="limite_textarea(this.value, 'pch_11')" id="pch_txt_11" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="success_criteria"></textarea>
 									</div>
@@ -244,7 +244,7 @@
 <script src="<?= base_url() ?>assets/js/bootstrap-datepicker.pt-BR.min.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-	for (var i = 1; i <= 12; i++) {
+	for (var i = 1; i <= 18; i++) {
 		if (document.getElementById("pch_tp_" + i).title == "") {
 			document.getElementById("pch_tp_" + i).hidden = true;
 		}

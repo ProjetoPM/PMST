@@ -14,11 +14,11 @@ $lang['rmp_requirements_traceability'] = 'Traceability structure that reflects t
 
 
 //Tooltip
-$lang['rmp_requirements_activities_tooltip'] = '';
-$lang['rmp_requirements_collection_proc_tooltip'] = 'The process can be created using the tool available at: https://www.heflo.com';
-$lang['rmp_requirements_prioritization_tooltip'] = '';
-$lang['rmp_configuration_management_tooltip'] = 'Such as: how changes will be initiated; how impacts will be analyzed; how
+$lang['rmp_requirements_activities_tp'] = '';
+$lang['rmp_requirements_collection_proc_tp'] = 'The process can be created using the tool available at: https://www.heflo.com';
+$lang['rmp_requirements_prioritization_tp'] = '';
+$lang['rmp_configuration_management_tp'] = 'Such as: how changes will be initiated; how impacts will be analyzed; how
 they will be traced, tracked, and reported; as well as the authorization levels required to approve these changes';
-$lang['rmp_product_metrics_tooltip'] = '';
-$lang['rmp_requirements_traceability_tooltip'] = '';
+$lang['rmp_product_metrics_tp'] = '';
+$lang['rmp_requirements_traceability_tp'] = '';
 ?>

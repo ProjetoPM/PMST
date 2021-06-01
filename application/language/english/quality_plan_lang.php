@@ -13,10 +13,13 @@ $lang['qmp_tools'] = 'Quality Tools that will be used for the Project';
 $lang['qmp_procedures'] = 'Major Procedures Relevant for the Project';
 
 //Tooltip
-$lang['quality_plan-methodology-tooltip'] = 'Methodology Example';
-$lang['quality_plan-related_processes-tooltip'] = 'Processes Related To Project Quality Management Example';
-$lang['quality_plan-expectations_tolerances-tooltip'] = 'Revised Expectations and Tolerances of Stakeholders Example';
-$lang['quality_plan-traceability-tooltip'] = 'Major procedures relevant for the project, such as dealing with nonconformance, corrective actions procedures, and continuous improvement procedures';
 
+$lang['qmp_standards_tp'] = "";
+$lang['qmp_objectives_tp'] = "";
+$lang['qmp_roles_tp'] = "";
+$lang['qmp_deliverables_tp'] = "";
+$lang['qmp_activities_tp'] = "";
+$lang['qmp_tools_tp'] = "";
+$lang['qmp_procedures_tp'] = "";
 ?>
 
