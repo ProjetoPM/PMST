@@ -40,30 +40,33 @@
 								<!-- Textarea -->
 
 								<div class=" col-lg-6 form-group">
-									<label for="team_member_name"><?= $this->lang->line('eval-team_member_name') ?> *</label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval-team_member_name-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<label for="team_member_name"><?= $this->lang->line('eval_team_member_name') ?> *</label>
+									<span class="eval_1">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id ="eval_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval_team_member_name_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 									<div>
-										<input id="team_member_name" name="team_member_name" type="text" class="form-control input-md" required="true" value="<?php echo $team_member_name; ?>">
+									<input id="eval_txt_1" type="text" name="team_member_name" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'eval_1')" maxlength="2000" oninput="eylem(this, this.value)" required="true" value="<?php echo $team_member_name; ?>">
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
-									<label for="role"><?= $this->lang->line('eval-role') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval-role-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<label for="role"><?= $this->lang->line('eval_role') ?></label>
+									<span class="eval_2">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id ="eval_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval_role_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 									<div>
-										<input id="role" name="role" type="text" class="form-control input-md" value="<?php echo $role; ?>">
+									<input id="eval_txt_2" type="text" name="role" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'eval_2')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value="<?php echo $role; ?>">
 									</div>
 								</div>
 
 
 								<div class=" col-lg-6 form-group">
-									<label for="project_function"><?= $this->lang->line('eval-project_function') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval-project_function-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<label for="project_function"><?= $this->lang->line('eval_project_function') ?></label>
+									<span class="eval_3">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id ="eval_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval_project_function_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 									<div>
-										<input id="project_function" name="project_function" type="text" class="form-control input-md" value="<?php echo $project_function; ?>">
+									<input id="eval_txt_3" type="text" name="project_function" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'eval_3')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value="<?php echo $project_function; ?>">
 									</div>
 								</div>
 
@@ -71,7 +74,7 @@
 								<!-- Inicio teste datas -->
 								<div class="form-group">
 									<div class="col-lg-6">
-										<label><?= $this->lang->line('eval-report_date') ?></label>
+										<label><?= $this->lang->line('eval_report_date') ?></label>
 										<div class="input-group">
 											<div class="input-group-addon">
 												<i class="fa fa-calendar"></i>
@@ -82,66 +85,74 @@
 								</div>
 
 								<div class="col-lg-12 form-group">
-									<label for="team_member_comments"><?= $this->lang->line('eval-team_member_comments') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval-team_member_comments-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<label for="team_member_comments"><?= $this->lang->line('eval_team_member_comments') ?></label>
+									<span class="eval_4">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id ="eval_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval_team_member_comments_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="team_member_comments" name="team_member_comments"><?php echo $team_member_comments; ?></textarea>
+									<textarea onkeyup="limite_textarea(this.value, 'eval_4')" id="eval_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="team_member_comments"><?php echo $team_member_comments; ?></textarea>
 									</div>
 								</div>
 
 								<div class="col-lg-12 form-group">
-									<label for="strong_points"><?= $this->lang->line('eval-strong_points') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval-strong_points-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<label for="strong_points"><?= $this->lang->line('eval_strong_points') ?></label>
+									<span class="eval_5">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id ="eval_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval_strong_points_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="strong_points" name="strong_points"><?php echo $strong_points; ?></textarea>
+									<textarea onkeyup="limite_textarea(this.value, 'eval_5')" id="eval_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="strong_points"><?php echo $strong_points; ?></textarea>
 									</div>
 								</div>
 
 								<div class="col-lg-12 form-group">
-									<label for="improvement"><?= $this->lang->line('eval-improvement') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval-improvement-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<label for="improvement"><?= $this->lang->line('eval_improvement') ?></label>
+									<span class="eval_6">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id ="eval_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval_improvement_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="improvement" name="improvement"><?php echo $improvement; ?></textarea>
+									<textarea onkeyup="limite_textarea(this.value, 'eval_6')" id="eval_txt_6" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="improvement"><?php echo $improvement; ?></textarea>
 									</div>
 								</div>
 
 								<div class="col-lg-12 form-group">
-									<label for="development_plan"><?= $this->lang->line('eval-development_plan') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval-development_plan-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<label for="development_plan"><?= $this->lang->line('eval_development_plan') ?></label>
+									<span class="eval_7">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id ="eval_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval_development_plan_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="development_plan" name="development_plan"><?php echo $development_plan; ?></textarea>
+									<textarea onkeyup="limite_textarea(this.value, 'eval_7')" id="eval_txt_7" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="development_plan"><?php echo $development_plan; ?></textarea>
 									</div>
 								</div>
 
 								<div class="col-lg-12 form-group">
-									<label for="already_developed"><?= $this->lang->line('eval-already_developed') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval-already_developed-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<label for="already_developed"><?= $this->lang->line('eval_already_developed') ?></label>
+									<span class="eval_8">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id ="eval_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval_already_developed_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="already_developed" name="already_developed"><?php echo $already_developed; ?></textarea>
+									<textarea onkeyup="limite_textarea(this.value, 'eval_8')" id="eval_txt_8" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="already_developed"><?php echo $already_developed; ?></textarea>
 									</div>
 								</div>
 
 								<div class="col-lg-12 form-group">
-									<label for="external_comments"><?= $this->lang->line('eval-external_comments') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval-external_comments-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<label for="external_comments"><?= $this->lang->line('eval_external_comments') ?></label>
+									<span class="eval_9">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id ="eval_tp_9" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval_external_comments_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="external_comments" name="external_comments"><?php echo $external_comments; ?></textarea>
+									<textarea onkeyup="limite_textarea(this.value, 'eval_9')" id="eval_txt_9" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="external_comments"><?php echo $external_comments; ?></textarea>
 									</div>
 								</div>
 
 								<div class="col-lg-12 form-group">
-									<label for="team_mates_comments"><?= $this->lang->line('eval-team_mates_comments') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval-team_mates_comments-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<label for="team_mates_comments"><?= $this->lang->line('eval_team_mates_comments') ?></label>
+									<span class="eval_10">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id ="eval_tp_10" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval_team_mates_comments_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="team_mates_comments" name="team_mates_comments"><?php echo $team_mates_comments; ?></textarea>
+									<textarea onkeyup="limite_textarea(this.value, 'eval_10')" id="eval_txt_10" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="team_mates_comments"><?php echo $team_mates_comments; ?></textarea>
 									</div>
 								</div>
 
 								<div class="col-lg-12 form-group">
-									<label for="team_performance_evaluationcol"><?= $this->lang->line('eval-team_performance_evaluationcol') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval-team_performance_evaluationcol-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<label for="team_performance_evaluationcol"><?= $this->lang->line('eval_team_performance_evaluationcol') ?></label>
+									<span class="eval_11">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id ="eval_tp_11" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('eval_team_performance_evaluationcol_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="team_performance_evaluationcol" name="team_performance_evaluationcol"><?php echo $team_performance_evaluationcol; ?></textarea>
+									<textarea onkeyup="limite_textarea(this.value, 'eval_11')" id="eval_txt_11" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="team_performance_evaluationcol"><?php echo $team_performance_evaluationcol; ?></textarea>
 									</div>
 								</div>
 
@@ -183,6 +194,20 @@
 		var newDate = new Date(ev.date.setDate(ev.date.getDate() + 1));
 		endDate.datepicker("setStartDate", newDate);
 	});
+
+	for (var i = 1; i <= 6; i++) {
+		if (document.getElementById("eval_tp_"+i).title == "") {
+			document.getElementById("eval_tp_"+i).hidden = true;
+		}
+		limite_textarea(document.getElementById("eval_txt_" + i).value, "eval_" + i);
+	}
+
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
 
 	//Start Date Ends Here
 </script>

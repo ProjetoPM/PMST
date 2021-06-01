@@ -33,82 +33,87 @@
 								<input type="hidden" name="status" value="1">
 
 								<div class=" col-lg-12 form-group">
-									<label for="project_costs_m"><?= $this->lang->line('cosmp_project_costs_m') ?> *</label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_project_costs_m_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="project_costs_m" name="project_costs_m" required="true"></textarea>
+										<label for="project_costs_m"><?= $this->lang->line('cosmp_project_costs_m') ?> *</label>
+										<span class="cosmp_1">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" id ="cosmp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_project_costs_m_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<div>
+										<textarea onkeyup="limite_textarea(this.value, 'cosmp_1')" id="cosmp_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="project_costs_m" required="true" ></textarea>
+										</div>
 									</div>
-								</div>
 
-								<div class="col-lg-12 form-group">
-									<label for="accuracy_level"><?= $this->lang->line('cosmp_accuracy') ?>
-									</label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_accuracy_level_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="accuracy_level" name="accuracy_level"></textarea>
+
+									<div class="col-lg-12 form-group">
+										<label for="accuracy_level"><?= $this->lang->line('cosmp_accuracy') ?></label>
+										<span class="cosmp_2">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" id ="cosmp_tp_2"data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_accuracy_level_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<div>
+										<textarea onkeyup="limite_textarea(this.value, 'cosmp_2')" id="cosmp_txt_2" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="accuracy_level"></textarea>
+										</div>
 									</div>
-								</div>
 
-
-								<div class="col-lg-12 form-group">
-									<label for="organizational_procedures"><?= $this->lang->line('cosmp_organizational_procedures') ?>
-									</label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_organizational_procedures_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="organizational_procedures" name="organizational_procedures"></textarea>
+									<div class="col-lg-12 form-group">
+										<label for="organizational_procedures"><?= $this->lang->line('cosmp_organizational_procedures') ?></label>
+										<span class="cosmp_3">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" id ="cosmp_tp_3"data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_organizational_procedures_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<div>
+										<textarea onkeyup="limite_textarea(this.value, 'cosmp_3')" id="cosmp_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="organizational_procedures"></textarea>
+										</div>
 									</div>
-								</div>
 
 
-								<div class=" col-lg-12 form-group">
-									<label for="measurement_rules"><?= $this->lang->line('cosmp_measurement_rules') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_measurement_rules_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="measurement_rules" name="measurement_rules"></textarea>
+									<div class=" col-lg-12 form-group">
+										<label for="measurement_rules"><?= $this->lang->line('cosmp_measurement_rules') ?></label>
+										<span class="cosmp_4">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" id ="cosmp_tp_4"data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_measurement_rules_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<div>
+										<textarea onkeyup="limite_textarea(this.value, 'cosmp_4')" id="cosmp_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="measurement_rules"></textarea>
+										</div>
 									</div>
-								</div>
 
-								<div class=" col-lg-12 form-group">
-									<label for="units_measure"><?= $this->lang->line('cosmp_units') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_units_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="units_measure" name="units_measure"></textarea>
+									<div class=" col-lg-12 form-group">
+										<label for="units_measure"><?= $this->lang->line('cosmp_units') ?></label>
+										<span class="cosmp_5">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" id ="cosmp_tp_5"data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_units_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<div>
+										<textarea onkeyup="limite_textarea(this.value, 'cosmp_5')" id="cosmp_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="units_measure"></textarea>
+										</div>
 									</div>
-								</div>
 
-								<div class=" col-lg-12 form-group">
-									<label for="precision_level"><?= $this->lang->line('cosmp_precision') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_precision_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="precision_level" name="precision_level"></textarea>
+									<div class=" col-lg-12 form-group">
+										<label for="precision_level"><?= $this->lang->line('cosmp_precision') ?></label>
+										<span class="cosmp_6">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" id ="cosmp_tp_6"data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_precision_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<div>
+										<textarea onkeyup="limite_textarea(this.value, 'cosmp_6')" id="cosmp_txt_6" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="precision_level"></textarea>
+										</div>
 									</div>
-								</div>
 
-								<div class=" col-lg-12 form-group">
-									<label for="control_thresholds"><?= $this->lang->line('cosmp_control') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_control_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="control_thresholds" name="control_thresholds"></textarea>
+									<div class=" col-lg-12 form-group">
+										<label for="control_thresholds"><?= $this->lang->line('cosmp_control') ?></label>
+										<span class="cosmp_7">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" id ="cosmp_tp_7"data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_control_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<div>
+										<textarea onkeyup="limite_textarea(this.value, 'cosmp_7')" id="cosmp_txt_7" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="control_thresholds"></textarea>
+										</div>
 									</div>
-								</div>
 
-								<div class=" col-lg-12 form-group">
-									<label for="details"><?= $this->lang->line('cosmp_details') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_details_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="details" name="details"></textarea>
+									<div class=" col-lg-12 form-group">
+										<label for="details"><?= $this->lang->line('cosmp_details') ?></label>
+										<span class="cosmp_8">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" id ="cosmp_tp_8"data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_details_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<div>
+										<textarea onkeyup="limite_textarea(this.value, 'cosmp_8')" id="cosmp_txt_8" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="details"></textarea>
+										</div>
 									</div>
-								</div>
 
-								<div class="col-lg-12 form-group">
-									<label for="format_report"><?= $this->lang->line('cosmp_format_report') ?>
-									</label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_format_report-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="format_report" name="format_report"></textarea>
+									<div class="col-lg-12 form-group">
+										<label for="format_report"><?= $this->lang->line('cosmp_format_report') ?></label>
+										<span class="cosmp_9">2000</span><?= $this->lang->line('character') ?>
+										<a class="btn-sm btn-default" id ="cosmp_tp_9"data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_format_report_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<div>
+										<textarea onkeyup="limite_textarea(this.value, 'cosmp_9')" id="cosmp_txt_9" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="format_report"></textarea>
+										</div>
 									</div>
-								</div>
 
 								<div class="col-lg-12">
 									<button id="new_human_resource-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
@@ -140,7 +145,21 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+	for (var i = 1; i <= 9; i++) {
+		if (document.getElementById("cosmp_tp_" + i).title == "") {
+			document.getElementById("cosmp_tp_" + i).hidden = true;
+		}
+		limite_textarea(document.getElementById("cosmp_txt_" + i).value, "cosmp_" + i);
+	}
 
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+  </script>
 
 
 <?php $this->load->view('frame/footer_view') ?>

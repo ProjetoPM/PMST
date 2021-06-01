@@ -3,27 +3,27 @@
 // Title
 $lang['ade_title'] = 'Activity Duration Estimates';
 //Form
-$lang['activity_name'] = 'Activity Name';
-$lang['estimated_duration'] = 'Estimated Duration in Hours';
-$lang['replanted_duration'] = 'Replanted Duration in Hours';
-$lang['performed_duration'] = 'Performed Duration in Hours';
-$lang['estimated_start_date'] = 'Estimated Start Date';
-$lang['replanted_start_date'] = 'Replanted Start Date';
-$lang['performed_start_date'] = 'Performed Start Date';
-$lang['estimated_end_date'] = 'Estimated End Date';
-$lang['replanted_end_date'] = 'Replanted End Date';
-$lang['performed_end_date'] = 'Performed End Date';
+$lang['ade_activity_name'] = 'Activity Name';
+$lang['ade_estimated_duration'] = 'Estimated Duration in Hours';
+$lang['ade_replanted_duration'] = 'Replanted Duration in Hours';
+$lang['ade_performed_duration'] = 'Performed Duration in Hours';
+$lang['ade_estimated_start_date'] = 'Estimated Start Date';
+$lang['ade_replanted_start_date'] = 'Replanted Start Date';
+$lang['ade_performed_start_date'] = 'Performed Start Date';
+$lang['ade_estimated_end_date'] = 'Estimated End Date';
+$lang['ade_replanted_end_date'] = 'Replanted End Date';
+$lang['ade_performed_end_date'] = 'Performed End Date';
 
 
 //Tooltip
-$lang['estimated_duration-tp'] = 'Estimated Duration';
-$lang['replanted_duration-tp'] = 'Replanted Duration';
-$lang['performed_duration-tp'] = 'Performed Duration';
-$lang['estimated_start_date-tp'] = 'Estimated Start Date';
-$lang['replanted_start_date-tp'] = 'Replanted Start Date';
-$lang['performed_start_date-tp'] = 'Performed Start Date';
-$lang['estimated_end_date-tp'] = 'Estimated End Date';
-$lang['replanted_end_date-tp'] = 'Replanted End Date';
-$lang['performed_end_date-tp'] = 'Performed End Date';
+$lang['ade_estimated_duration_tp'] = 'Estimated Duration';
+$lang['ade_replanted_duration_tp'] = 'Replanted Duration';
+$lang['ade_performed_duration_tp'] = 'Performed Duration';
+$lang['ade_estimated_start_date_tp'] = 'Estimated Start Date';
+$lang['ade_replanted_start_date_tp'] = 'Replanted Start Date';
+$lang['ade_performed_start_date_tp'] = 'Performed Start Date';
+$lang['ade_estimated_end_date_tp'] = 'Estimated End Date';
+$lang['ade_replanted_end_date_tp'] = 'Replanted End Date';
+$lang['ade_performed_end_date_tp'] = 'Performed End Date';
 
 ?>

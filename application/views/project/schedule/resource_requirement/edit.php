@@ -48,16 +48,16 @@
 									</div>
 
 									<div class=" col-lg-12 form-group">
-										<label for="resource_description"><?= $this->lang->line('resource_description') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('resource_description-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<label for="resource_description"><?= $this->lang->line('rr_resource_description') ?></label>
+										<a class="btn-sm btn-default" id="rr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rr_resource_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<input id="resource_description" name="resource_description" class="form-control input-md" value="<?php echo $resource_description; ?>">
 										</div>
 									</div>
 
 									<div class=" col-lg-4 form-group">
-										<label for="required_amount_of_resource"><?= $this->lang->line('required_amount_of_resource') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('required_amount_of_resource-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<label for="required_amount_of_resource"><?= $this->lang->line('rr_required_amount_of_resource') ?></label>
+										<a class="btn-sm btn-default" id="rr_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rr_required_amount_of_resource_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<input id="required_amount_of_resource" type="number" name="required_amount_of_resource" class="form-control input-md" value="<?php echo $required_amount_of_resource; ?>">
 										</div>
@@ -65,16 +65,16 @@
 
 
 									<div class=" col-lg-4 form-group">
-										<label for="resource_cost_per_unit"><?= $this->lang->line('resource_cost_per_unit') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('resource_cost_per_unit-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<label for="resource_cost_per_unit"><?= $this->lang->line('rr_resource_cost_per_unit') ?></label>
+										<a class="btn-sm btn-default" id="rr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rr_resource_cost_per_unit_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<input id="resource_cost_per_unit" name="resource_cost_per_unit" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $resource_cost_per_unit; ?>">
 										</div>
 									</div>
 
 									<div class=" col-lg-4 form-group">
-										<label for="resource_type"><?= $this->lang->line('resource_type') ?></label>
-										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('resource_type-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<label for="resource_type"><?= $this->lang->line('rr_resource_type') ?></label>
+										<a class="btn-sm btn-default" id="rr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rr_resource_type_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<input id="resource_type" name="resource_type" class="form-control input-md" value="<?php echo $resource_type; ?>">
 										</div>
@@ -98,4 +98,12 @@
 		</div>
 	</div>
 </body>
+<script>
+for (var i = 1; i <= 5; i++) {
+		if (document.getElementById("rr_tp_"+i).title == "") {
+			document.getElementById("rr_tp_"+i).hidden = true;
+		}
+		
+	}
+	</script>
 <?php $this->load->view('frame/footer_view') ?>
