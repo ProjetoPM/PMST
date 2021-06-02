@@ -128,30 +128,33 @@
                   <label for="average"><?= $this->lang->line('average') ?></label>
                   <input name="average" class="form-control" id="average" value="<?php echo $average; ?>" readonly=“true”>
                 </div>
-
                 <div class="col-lg-12 form-group">
                   <label for="strategy"><?= $this->lang->line('text-1') ?></label>
-                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('stakeholder_mp-text1-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <span class="shep_9">2000</span><?= $this->lang->line('character') ?>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('stakeholder_mp-text1_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                    <textarea class=" form-control elasticteste" oninput="eylem(this, this.value)" id="strategy" name="strategy"><?php echo $strategy; ?></textarea>
+                  <textarea onkeyup="limite_textarea(this.value, 'shep_9')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shep_txt_9" name="strategy" required ="false" ><?php echo $strategy; ?></textarea>
                   </div>
                 </div>
 
                 <div class="col-lg-12 form-group">
                   <label for="scope"><?= $this->lang->line('text-2') ?></label>
-                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('stakeholder_mp-text2-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <span class="shep_10">2000</span><?= $this->lang->line('character') ?>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('stakeholder_mp-text2_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                    <textarea class="form-control elasticteste" oninput="eylem(this, this.value)" id="scope" name="scope"><?php echo $scope; ?></textarea>
+                  <textarea onkeyup="limite_textarea(this.value, 'shep_10')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shep_txt_10" name="scope" required ="false" ><?php echo $scope; ?></textarea>
                   </div>
                 </div>
 
                 <div class="col-lg-12 form-group">
                   <label for="observation"><?= $this->lang->line('text-3') ?></label>
-                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('stakeholder_mp-text3-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <span class="shep_11">2000</span><?= $this->lang->line('character') ?>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('stakeholder_mp-text3_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                    <textarea class="col-lg-6 form-control elasticteste" oninput="eylem(this, this.value)" id="observation" name="observation"><?php echo $observation; ?></textarea>
+                  <textarea onkeyup="limite_textarea(this.value, 'shep_11')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shep_txt_11" name="observation" required ="false" ><?php echo $observation; ?></textarea>
                   </div>
                 </div>
+
                 <div class="col-lg-12">
                   <button id="new_human_resource-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
                     <i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
@@ -168,5 +171,22 @@
     </div>
   </div>
 </body>
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
 
+
+<script type="text/javascript">
+	for (var i = 1; i <= 11; i++) {
+		if (document.getElementById("shep_tp_" + i).title == "") {
+			document.getElementById("shep_tp_" + i).hidden = true;
+		}
+		limite_textarea(document.getElementById("shep_txt_" + i).value, "shep_" + i);
+	}
+
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+  </script>
 <?php $this->load->view('frame/footer_view') ?>

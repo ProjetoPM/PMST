@@ -100,7 +100,7 @@
                   <div class="form-group">
                     <label for="legal_jurisdiction"><?= $this->lang->line('pcmp_jurisdiction') ?></label>
                     <span class="pcmp_7">2000</span><?= $this->lang->line('character') ?>
-                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pcmp_jurisdiction_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
                     <textarea onkeyup="limite_textarea(this.value, 'pcmp_7')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pcmp_txt_7" name="roles"><?php echo $pmp->legal_jurisdiction; ?></textarea>
                     </div>
@@ -109,7 +109,7 @@
                   <div class="form-group">
                     <label for="estimates"><?= $this->lang->line('pcmp_estimates') ?></label>
                     <span class="pcmp_8">2000</span><?= $this->lang->line('character') ?>
-                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pcmp_estimates_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
                     <textarea onkeyup="limite_textarea(this.value, 'pcmp_8')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pcmp_txt_8" name="estimates"><?php echo $pmp->estimates; ?></textarea>
                     </div>
@@ -118,7 +118,7 @@
                   <div class="form-group">
                     <label for="issues"><?= $this->lang->line('pcmp_issues') ?></label>
                     <span class="pcmp_9">2000</span><?= $this->lang->line('character') ?>
-                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pcmp_risk_issues_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
                     <textarea onkeyup="limite_textarea(this.value, 'pcmp_9')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pcmp_txt_9" name="issues"><?php echo $pmp->issues; ?></textarea>
                     </div>
@@ -127,7 +127,7 @@
                   <div class="form-group">
                     <label for="sellers"><?= $this->lang->line('pcmp_sellers') ?></label>
                     <span class="pcmp_10">2000</span><?= $this->lang->line('character') ?>
-                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pcmp_sellers_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
                     <textarea onkeyup="limite_textarea(this.value, 'pcmp_10')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pcmp_txt_10" name="sellers"><?php echo $pmp->sellers; ?></textarea>
                     </div>
@@ -136,7 +136,7 @@
                   <div class="form-group">
                     <label for="strategy"><?= $this->lang->line('pcmp_strategy') ?></label>
                     <span class="pcmp_11">2000</span><?= $this->lang->line('character') ?>
-                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pcmp_strategy_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
                     <textarea onkeyup="limite_textarea(this.value, 'pcmp_11')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pcmp_txt_11" name="strategy"><?php echo $pmp->strategy; ?></textarea>
                     </div>

@@ -38,7 +38,7 @@ $lang['pcmp_roles_tp'] = 'Stakeholder roles and responsibilities related to proc
 $lang['pcmp_constraints_tp'] = 'Constraints and assumptions that could affect planned procurements';
 $lang['pcmp_jurisdiction_tp'] = 'The legal jurisdiction and the currency in which payments will be made';
 $lang['pcmp_estimates_tp'] = 'Determination of whether independent estimates will be used and whether they are needed as evaluation criteria';
-$lang['pcmp_risk_tp'] = 'Risk management issues including identifying requirements for performance bonds or insurance contracts to mitigate some forms of project risk';
+$lang['pcmp_risk_issues_tp'] = 'Risk management issues including identifying requirements for performance bonds or insurance contracts to mitigate some forms of project risk';
 $lang['pcmp_sellers_tp'] = 'Prequalified sellers, if any, to be used.';
 $lang['pcmp_strategy_tp'] = 'Delivery methods. Delivery methods are different for professional services versus construction projects.
 Contract payment types. Contract payment types are separate from the project delivery methods and are

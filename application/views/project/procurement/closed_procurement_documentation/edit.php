@@ -43,9 +43,11 @@
 
 								<div class="col-lg-5 form-group">
                                     <label for="name"><?= $this->lang->line('cpd_provider') ?> *</label>
-                                    <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_provider_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="cpd_1">2000</span><?= $this->lang->line('character') ?>
+                                    <a class="btn-sm btn-default" id="cpd_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_provider_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="name_text" name="provider" type="text" class="form-control input-md" required="true">
+									<input id="cpd_txt_2" type="text" name="name" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'cpd_2')" maxlength="2000" oninput="eylem(this, this.value)" required="true" value="<?php echo $name; ?>" >
+
                                     </div>
                                 </div>
 
@@ -53,33 +55,37 @@
 
                                 <div class="col-lg-5 form-group">
                                     <label for="supplier_representative"><?= $this->lang->line('cpd_supplier_representative') ?> *</label>
-                                    <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_supplier_representative_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="cpd_2">2000</span><?= $this->lang->line('character') ?>
+                                    <a class="btn-sm btn-default" id="cpd_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_supplier_representative_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="name_text" name="supplier_representative" type="text" class="form-control input-md">
+									<input id="cpd_txt_2" type="text" name="supplier_representative" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'cpd_2')" maxlength="2000" oninput="eylem(this, this.value)" required="true" value="<?php echo $supplier_representative; ?>" >
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 form-group">
                                     <label for="main_deliveries"><?= $this->lang->line('cpd_main_deliveries') ?> *</label>
-                                    <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_main_deliveries_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="cpd_3">2000</span><?= $this->lang->line('character') ?>
+                                    <a class="btn-sm btn-default" id="cpd_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_main_deliveries_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="name_text" name="main_deliveries" type="text" class="form-control input-md">
+									<input id="cpd_txt_3" type="text" name="main_deliveries" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'cpd_3')" maxlength="2000" oninput="eylem(this, this.value)" required="true" value="<?php echo $main_deliveries; ?>" >
                                     </div>
                                 </div>
 
                                 <div class="col-lg-2 form-group">
                                     <label for="closing_date"><?= $this->lang->line('cpd_closing_date') ?> *</label>
-                                    <a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_closing_date_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                                    <div>
-                                        <input id="name_text" name="closing_date" type="date" class="form-control input-md">
-                                    </div>
+
+                                    <a class="btn-sm btn-default" id="cpd_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_closing_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                    
+									<input id="cpd_txt_4" type="date" name="closing_date" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'cpd_4')" maxlength="2000" oninput="eylem(this, this.value)" required="true" value="<?php echo $closing_date; ?>" >
+                                    
                                 </div>
                                 
                                 <div class="col-lg-6 form-group">
                                     <label for="comments"><?= $this->lang->line('cpd_comments') ?> </label>
-                                    <a class="btn-sm btn-default" id="shr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_comments_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="cpd_5">2000</span><?= $this->lang->line('character') ?>
+                                    <a class="btn-sm btn-default" id="cpd_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_comments_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                        <input id="comments" name="comments" type="text" class="form-control input-md">
+									<input id="cpd_txt_5" type="text" name="comments" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'cpd_5')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value="<?php echo $comments; ?>" >
                                     </div>
                                 </div>
 		
@@ -98,13 +104,26 @@
 		</div>
 	</div>
 </body>
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
 
-<script>
-	for (var i = 1; i <= 13; i++) {
-		if (document.getElementById("shr_tp_" + i).title == "") {
-			document.getElementById("shr_tp_" + i).hidden = true;
+
+<script type="text/javascript">
+	for (var i = 1; i <= 5; i++) {
+		if (document.getElementById("cpd_tp_" + i).title == "") {
+			document.getElementById("cpd_tp_" + i).hidden = true;
 		}
+		limite_textarea(document.getElementById("cpd_txt_" + i).value, "cpd_" + i);
 	}
+
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+  </script>
+<script>
+	
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
