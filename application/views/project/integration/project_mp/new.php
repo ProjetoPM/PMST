@@ -96,7 +96,7 @@
 										<span class="pmp_7">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_stakeholders_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-										<textarea onkeyup="limite_textarea(this.value, 'pmp_7')" id="pmp_txt_7" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="stakeholders"></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'pmp_7')" id="pmp_txt_7" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="stakeholders_communication"></textarea>
 										</div>
 									</div>
 
@@ -143,7 +143,7 @@
 										<span class="pmp_12">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_baseline_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-										<textarea onkeyup="limite_textarea(this.value, 'pmp_12')" id="pmp_txt_12" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="baseline"></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'pmp_12')" id="pmp_txt_12" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="baseline_maintenance"></textarea>
 										</div>
 									</div>
 
