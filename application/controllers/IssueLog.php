@@ -71,6 +71,7 @@ class IssueLog extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('insert', 'issue log');
+			$this->session->set_flashdata('success', 'Issue Log has been successfully created!');
 			redirect('integration/issue-log/list/' . $_SESSION['project_id']);
 		}
 	}
@@ -107,6 +108,7 @@ class IssueLog extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('update', 'issue log');
+			$this->session->set_flashdata('success', 'Issue Log has been successfully changed!');
 			redirect('integration/issue-log/list/' . $_SESSION['project_id']);
 		}
 	}

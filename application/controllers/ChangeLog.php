@@ -83,6 +83,7 @@ class ChangeLog extends CI_Controller
 
         if ($query) {
             insertLogActivity('insert', 'change log');
+            $this->session->set_flashdata('success', 'Change Log has been successfully created!');
             redirect('integration/change-log/list/' . $change_log['project_id']);
         }
     }
@@ -117,6 +118,7 @@ class ChangeLog extends CI_Controller
 
         if ($query) {
             insertLogActivity('update', 'change log');
+            $this->session->set_flashdata('success', 'Change Log has been successfully changed!');
             redirect('integration/change-log/list/' . $change_log['project_id']);
         }
     }

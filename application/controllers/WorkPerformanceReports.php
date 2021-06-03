@@ -94,6 +94,7 @@ class WorkPerformanceReports extends CI_Controller
 
         if ($query) {
             insertLogActivity('update', 'work performance reports');
+            $this->session->set_flashdata('success', 'Work Performance Reports has been successfully changed!');
             redirect('integration/work-performance-reports/list/' . $work_performance_report['project_id']);
         }
     }
@@ -116,6 +117,7 @@ class WorkPerformanceReports extends CI_Controller
 
         if ($query) {
             insertLogActivity('insert', 'work performance reports');
+            $this->session->set_flashdata('success', 'Work Performance Reports has been successfully created!');
             redirect('integration/work-performance-reports/list/' . $work_performance_report['project_id']);
         }
     }

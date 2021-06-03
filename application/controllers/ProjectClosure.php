@@ -89,8 +89,9 @@ class ProjectClosure extends CI_Controller
 
 		$query = $this->Project_Closure_model->insert($project_closure_term);
 
-		if ($query) {
+		if ($query) {   
 			insertLogActivity('insert', 'project closure');
+			$this->session->set_flashdata('success', 'Project Closure Report has been successfully created!');
 			redirect("integration/project-closure/edit/" . $_SESSION['project_id']);
 		}
 	}
@@ -109,6 +110,7 @@ class ProjectClosure extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('update', 'project closure');
+			$this->session->set_flashdata('success', 'Project Closure Report has been successfully changed!');
 			redirect("integration/project-closure/edit/" . $_SESSION['project_id']);
 		}
 	}

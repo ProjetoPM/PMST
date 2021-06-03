@@ -84,6 +84,7 @@ class ChangeRequest extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('insert', 'change request');
+			$this->session->set_flashdata('success', 'Change Request has been successfully created!');
 			redirect('integration/change-request/list/' . $change_request['project_id']);
 		}
 	}
@@ -109,6 +110,7 @@ class ChangeRequest extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('update', 'change request');
+			$this->session->set_flashdata('success', 'Change Request has been successfully changed!');
 			redirect('integration/change-request/list/' . $change_request['project_id']);
 		}
 	}

@@ -98,6 +98,15 @@
     if (document.getElementById("bc_tp_" + i).title == "") {
       document.getElementById("bc_tp_" + i).hidden = true;
     }
-  }
+    limite_textarea(document.getElementById("bc_txt_" + i).value, "bc_" + i);
+	}
+
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+  
 </script>
 <?php $this->load->view('frame/footer_view') ?>
