@@ -132,7 +132,7 @@
 
 								<div class=" col-lg-3 form-group">
 									<label for="date"><?= $this->lang->line('ppr_date') ?></label>
-									<a class="btn-sm btn-default" id ="11" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ppr_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id ="ppr_tp_11" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ppr_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 										<input id="date" type="date" name="date" class="form-control input-md" value="<?php echo $date; ?>">
 									</div>
@@ -155,7 +155,8 @@
 		</div>
 	</div>
 </body>
-<script>
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
+<script type="text/javascript">
     for (var i = 1; i <= 11; i++) {
         if (document.getElementById("ppr_tp_" + i).title == "") {
             document.getElementById("ppr_tp_" + i).hidden = true;

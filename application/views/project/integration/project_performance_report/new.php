@@ -149,7 +149,8 @@
 		</div>
 	</div>
 </body>
-<script>
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
+<script type="text/javascript">
     for (var i = 1; i <= 11; i++) {
         if (document.getElementById("ppr_tp_" + i).title == "") {
             document.getElementById("ppr_tp_" + i).hidden = true;
