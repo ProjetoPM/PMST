@@ -97,6 +97,7 @@
     </div>
   </div>
 </body>
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
 <script type="text/javascript">
 	for (var i = 1; i <= 4; i++) {
 		if (document.getElementById("bc_tp_" + i).title == "") {
