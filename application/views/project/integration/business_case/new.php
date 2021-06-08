@@ -90,6 +90,7 @@
   </div>
 </body>
 <script type="text/javascript">
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
 	for (var i = 1; i <= 4; i++) {
 		if (document.getElementById("bc_tp_" + i).title == "") {
 			document.getElementById("bc_tp_" + i).hidden = true;
