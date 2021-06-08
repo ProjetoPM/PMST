@@ -150,7 +150,7 @@
 											<div class="input-group-addon">
 												<i class="fa fa-calendar"></i>
 											</div>
-											<input autocomplete="off" class=" form-control" id="start_date" placeholder="YYYY/MM/DD" type="text" name="start_date" required="true" />
+											<input autocomplete="off" class=" form-control" id="start_date" placeholder="YYYY/MM/DD" type="date" name="start_date" required="true" />
 										</div>
 									</div>
 								</div>
@@ -162,7 +162,7 @@
 											<div class="input-group-addon">
 												<i class="fa fa-calendar"></i>
 											</div>
-											<input autocomplete="off" class=" form-control" id="end_date" placeholder="YYYY/MM/DD" type="text" name="end_date" required="true" />
+											<input autocomplete="off" class=" form-control" id="end_date" placeholder="YYYY/MM/DD" type="date" name="end_date" required="true" />
 										</div>
 									</div>
 								</div>

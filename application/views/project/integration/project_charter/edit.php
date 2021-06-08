@@ -189,25 +189,25 @@
 
 									<!-- Inicio teste datas -->
 									<div class="form-group">
-										<div class="col-lg-6">
+										<div class="col-lg-3">
 											<label><?= $this->lang->line('pch_start') ?></label>
 											<div class="input-group padCalendar">
 												<div class="input-group-addon">
 													<i class="fa fa-calendar"></i>
 												</div>
-												<input class="form-control" id="start_date" autocomplete="off" placeholder="YYYY/MM/DD" type="text" name="start_date" required="true" value="<?php echo $pj->start_date; ?>" />
+												<input class="form-control" id="start_date" autocomplete="off" placeholder="YYYY/MM/DD" type="date" name="start_date" required="true" value="<?php echo $pj->start_date; ?>" />
 											</div>
 										</div>
 									</div>
 
 									<div class="form-group">
-										<div class="col-lg-6">
+										<div class="col-lg-3">
 											<label><?= $this->lang->line('pch_end') ?></label>
-											<div class="input-group padCalendar">
+											<div class="input-group">
 												<div class="input-group-addon">
 													<i class="fa fa-calendar"></i>
 												</div>
-												<input class="form-control" id="end_date" autocomplete="off" placeholder="YYYY/MM/DD" type="text" name="end_date" required="true" value="<?php echo $pj->end_date; ?>" />
+												<input class="form-control" id="end_date" autocomplete="off" placeholder="YYYY/MM/DD" type="date" name="end_date" required="true" value="<?php echo $pj->end_date; ?>" />
 											</div>
 										</div>
 									</div>
