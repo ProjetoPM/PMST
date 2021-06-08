@@ -71,7 +71,7 @@ class ProjectManagementPlan extends CI_Controller
 
 	public function insert()
 	{
-		$project_mp['lifecycle'] = $this->input->post('lifecycle');
+		$project_mp['lifecycle'] = $this->input->post('project_lifecycle');
 		$project_mp['project_guidelines'] = $this->input->post('project_guidelines');
 		$project_mp['change_mp'] = $this->input->post('change_mp');
 		$project_mp['configuration_mp'] = $this->input->post('configuration_mp');
@@ -104,12 +104,12 @@ class ProjectManagementPlan extends CI_Controller
 
 	public function update()
 	{
-		$project_mp['lifecycle'] = $this->input->post('lifecycle');
+		$project_mp['project_lifecycle'] = $this->input->post('project_lifecycle');
 		$project_mp['project_guidelines'] = $this->input->post('project_guidelines');
 		$project_mp['change_mp'] = $this->input->post('change_mp');
 		$project_mp['configuration_mp'] = $this->input->post('configuration_mp');
-		$project_mp['baseline'] = $this->input->post('baseline');
-		$project_mp['stakeholders'] = $this->input->post('stakeholders');
+		$project_mp['baseline_maintenance'] = $this->input->post('baseline_maintenance');
+		$project_mp['stakeholders_communication'] = $this->input->post('stakeholder_communication');
 		$project_mp['key_review'] = $this->input->post('key_review');
 		$project_mp['requirements_mp'] = $this->input->post('requirements_mp');
 		$project_mp['schedule_mp'] = $this->input->post('schedule_mp');

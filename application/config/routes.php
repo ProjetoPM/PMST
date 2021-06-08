@@ -219,6 +219,13 @@ $route['schedule/activity-list/insert/(:num)'] = "ActivityList/insert/$1";
 $route['schedule/activity-list/update/(:num)'] = "ActivityList/update/$1";
 $route['schedule/activity-list/delete/(:num)'] = "ActivityList/delete/$1";
 
+$route['procurement/closed-procurement-documentation/new/(:num)'] = "ClosedProcurementDocumentation/new/$1";
+$route['procurement/closed-procurement-documentation/edit/(:num)'] = "ClosedProcurementDocumentation/edit/$1";
+$route['procurement/closed-procurement-documentation/list/(:num)'] = "ClosedProcurementDocumentation/list/$1";
+$route['procurement/closed-procurement-documentation/insert/(:num)'] = "ClosedProcurementDocumentation/insert/$1";
+$route['procurement/closed-procurement-documentation/update/(:num)'] = "ClosedProcurementDocumentation/update/$1";
+$route['procurement/closed-procurement-documentation/delete/(:num)'] = "ClosedProcurementDocumentation/delete/$1";
+
 $route['schedule/earned-value-management/new/(:num)'] = "EVM/new/$1";
 $route['schedule/earned-value-management/edit/(:num)'] = "EVM/edit/$1";
 $route['schedule/earned-value-management/list/(:num)'] = "EVM/list/$1";

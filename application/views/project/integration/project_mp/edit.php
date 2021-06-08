@@ -97,7 +97,7 @@
 										<span class="pmp_7">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_stakeholders_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-										<textarea onkeyup="limite_textarea(this.value, 'pmp_7')" id="pmp_txt_7" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="stakeholders"><?php echo $stakeholders;?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'pmp_7')" id="pmp_txt_7" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="stakeholders_communication"><?php echo $stakeholders_communication;?></textarea>
 										</div>
 									</div>
 
@@ -144,7 +144,7 @@
 										<span class="pmp_12">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_baseline_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-										<textarea onkeyup="limite_textarea(this.value, 'pmp_12')" id="pmp_txt_12" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="baseline"><?php echo $baseline;?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'pmp_12')" id="pmp_txt_12" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="baseline_maintenance"><?php echo $baseline_maintenance;?></textarea>
 										</div>
 									</div>
 
@@ -187,11 +187,11 @@
 									</div>
 
 									<div class="col-lg-12 form-group">
-										<label for="lifecycle"><?= $this->lang->line('pmp_lifecycle') ?></label>
+										<label for="project_lifecycle"><?= $this->lang->line('pmp_lifecycle') ?></label>
 										<span class="pmp_17">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_lifecycle_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-										<textarea onkeyup="limite_textarea(this.value, 'pmp_17')" id="pmp_txt_17" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="lifecycle"><?php echo $lifecycle;?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'pmp_17')" id="pmp_txt_17" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="project_lifecycle"><?php echo $project_lifecycle;?></textarea>
 										</div>
 									</div>
 
@@ -286,6 +286,7 @@
 		</div>
 	</div>
 </body>
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
 <script type="text/javascript">
 	for (var i = 1; i <= 19; i++) {
 		if (document.getElementById("pmp_tp_" + i).title == "") {

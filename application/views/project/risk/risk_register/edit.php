@@ -43,41 +43,44 @@
 								<!-- Textarea -->
 
 								<div class=" col-lg-6 form-group">
-									<label for="impacted_objective"><?= $this->lang->line('risk-impacted_objective') ?> *</label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('risk-impacted_objective-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<label for="impacted_objective"><?= $this->lang->line('rir_impacted_objective') ?> *</label>
+									<span class="rir_1">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('risk-impacted_objective_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 									<div>
-										<input id="impacted_objective" name="impacted_objective" type="text" class="form-control input-md" required="true" value="<?php echo $impacted_objective; ?>">
+									<input id="rir_txt_1" type="text" name="impacted_objective" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_1')" maxlength="2000" oninput="eylem(this, this.value)" required="true" value =" <?php echo $impacted_objective; ?>" >
 									</div>
 								</div>
 
 								<!-- valor 0 para baixo | valor 1 para  medio | valor 2 para alta-->
 								<div class="col-lg-6 form-group">
-									<label for="priority"><?= $this->lang->line('risk-priority') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('risk-priority-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<label for="priority"><?= $this->lang->line('rir_priority') ?></label>
+									<a class="btn-sm btn-default" id="rir_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('risk-priority_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<select name="priority" class="form-control" value="<?php echo $priority; ?>">
-										<option value="0"><?= $this->lang->line('risk-priority-low') ?></option>
-										<option value="1"><?= $this->lang->line('risk-priority-medium') ?></option>
-										<option value="2"><?= $this->lang->line('risk-priority-high') ?></option>
+										<option value="0"><?= $this->lang->line('rir_priority-low') ?></option>
+										<option value="1"><?= $this->lang->line('rir_priority-medium') ?></option>
+										<option value="2"><?= $this->lang->line('rir_priority-high') ?></option>
 
 									</select>
 								</div>
 								<div class=" col-lg-6 form-group">
-									<label for="risk_status"><?= $this->lang->line('risk-risk_status') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('risk-risk_status-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<label for="risk_status"><?= $this->lang->line('rir_risk_status') ?></label>
+									<span class="rir_3">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_risk_status_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 									<div>
-										<input id="risk_status" name="risk_status" type="text" class="form-control input-md" value="<?php echo $risk_status; ?>">
+									<input id="rir_txt_3" type="text" name="risk_status" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_3')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $risk_status; ?>" >
 									</div>
 								</div>
 
 
 								<div class=" col-lg-6 form-group">
-									<label for="event"><?= $this->lang->line('risk-event') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('risk-event-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<label for="event"><?= $this->lang->line('rir_event') ?></label>
+									<span class="rir_4">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_event_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 									<div>
-										<input id="event" name="event" type="text" class="form-control input-md" value="<?php echo $event; ?>">
+									<input id="rir_txt_4" type="text" name="event" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_4')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $event; ?>" >
 									</div>
 								</div>
 
@@ -85,7 +88,7 @@
 								<!-- Inicio teste datas -->
 								<div class="form-group">
 									<div class="col-lg-6">
-										<label><?= $this->lang->line('risk-date') ?></label>
+										<label><?= $this->lang->line('rir_date') ?></label>
 										<div class="input-group">
 											<div class="input-group-addon">
 												<i class="fa fa-calendar"></i>
@@ -96,156 +99,175 @@
 								</div>
 
 								<div class=" col-lg-6 form-group">
-									<label for="identifier"><?= $this->lang->line('risk-identifier') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('risk-identifier-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<label for="identifier"><?= $this->lang->line('rir_identifier') ?></label>
+									<span class="rir_5">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_identifier_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 									<div>
-										<input id="identifier" name="identifier" type="text" class="form-control input-md" value="<?php echo $identifier; ?>">
+									<input id="rir_txt_5" type="text" name="identifier" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_5')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $identifier; ?>" >
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
-									<label for="type"><?= $this->lang->line('risk-type') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('risk-type-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<label for="type"><?= $this->lang->line('rir_type') ?></label>
+									<span class="rir_6">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_type_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 									<div>
-										<input id="type" name="type" type="text" class="form-control input-md" value="<?php echo $type; ?>">
+									<input id="rir_txt_6" type="text" name="type" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_6')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $type; ?>" >
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="lessons"><?= $this->lang->line('rir_lessons') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_lessons_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="rir_7">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="" name="lessons" type="text" class="form-control input-md" value="<?php echo $lessons; ?>">
+									<input id="rir_txt_7" type="text" name="lessons" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_7')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $lessons; ?>" >
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="category"><?= $this->lang->line('rir_category') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_category_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="rir_8">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_category_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="" name="category" type="text" class="form-control input-md" value="<?php echo $category; ?>">
+									<input id="rir_txt_8" type="text" name="category" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_8')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $category; ?>" >
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="fallback"><?= $this->lang->line('rir_fallback') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_fallback_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="rir_9">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_9" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_fallback_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="" name="fallback" type="text" class="form-control input-md" value="<?php echo $fallback; ?>">
+									<input id="rir_txt_9" type="text" name="fallback" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_9')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $fallback; ?>" >
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="contingency_owner"><?= $this->lang->line('rir_contingency_owner') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_contingency_owner_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="rir_10">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_10" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_contingency_owner_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="" name="contingency_owner" type="text" class="form-control input-md" value="<?php echo $contingency_owner; ?>">
+									<input id="rir_txt_10" type="text" name="contingency_owner" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_10')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $contingency_owner; ?>" >
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="contingency"><?= $this->lang->line('rir_contingency') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_contingency_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="rir_11">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_11" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_contingency_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="" name="contingency" type="text" class="form-control input-md" value="<?php echo $contingency; ?>">
+									<input id="rir_txt_11" type="text" name="contingency" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_11')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $contingency; ?>" >
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="secondary"><?= $this->lang->line('rir_secondary') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_secondary_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="rir_12">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_12" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_secondary_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="" name="secondary" type="text" class="form-control input-md" value="<?php echo $secondary; ?>">
+									<input id="rir_txt_12" type="text" name="secondary" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_12')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $secondary; ?>" >
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="residual"><?= $this->lang->line('rir_residual') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_residual_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="rir_13">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_13" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_residual_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="" name="residual" type="text" class="form-control input-md" value="<?php echo $residual; ?>">
+									<input id="rir_txt_13" type="text" name="residual" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_13')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $residual; ?>" >
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="timing"><?= $this->lang->line('rir_timing') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_timing_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="rir_14">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_14" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_timing_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="" name="timing" type="text" class="form-control input-md" value="<?php echo $timing; ?>">
+									<input id="rir_txt_14" type="text" name="timing" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_14')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $timing; ?>" >
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="responses_owner"><?= $this->lang->line('rir_responses_owner') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_responses_owner_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="rir_15">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_15" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_responses_owner_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="" name="responses_owner" type="text" class="form-control input-md" value="<?php echo $responses_owner; ?>">
+									<input id="rir_txt_15" type="text" name="responses_owner" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_15')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $responses_owner; ?>" >
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="responses"><?= $this->lang->line('rir_responses') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_responses_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="rir_16">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_16" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_responses_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="" name="responses" type="text" class="form-control input-md" value="<?php echo $responses; ?>">
+									<input id="rir_txt_16" type="text" name="responses" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_16')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $responses; ?>" >
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="triggers"><?= $this->lang->line('rir_triggers') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_triggers_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="rir_17">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_17" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_triggers_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="" name="triggers" type="text" class="form-control input-md" value="<?php echo $triggers; ?>">
+									<input id="rir_txt_17" type="text" name="triggers" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_17')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $triggers; ?>" >
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="causes"><?= $this->lang->line('rir_causes') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_causes_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="rir_18">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_18" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_causes_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="" name="causes" type="text" class="form-control input-md" value="<?php echo $causes; ?>">
+									<input id="rir_txt_18" type="text" name="causes" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_18')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $causes; ?>" >
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="strategy"><?= $this->lang->line('rir_strategy') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_strategy_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="rir_19">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_19" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_strategy_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="" name="strategy" type="text" class="form-control input-md" value="<?php echo $strategy; ?>">
+									<input id="rir_txt_19" type="text" name="strategy" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_19')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $strategy; ?>" >
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="effects"><?= $this->lang->line('rir_effects') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_effects_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="rir_20">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_20" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_effects_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="" name="effects" type="text" class="form-control input-md" value="<?php echo $effects; ?>">
+									<input id="rir_txt_20" type="text" name="effects" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_20')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $effects; ?>" >
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="score"><?= $this->lang->line('rir_score') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_score_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="rir_21">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_21" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_score_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="" name="score" type="text" class="form-control input-md" value="<?php echo $score; ?>">
+									<input id="rir_txt_21" type="text" name="score" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_21')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $score; ?>" >
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="impact"><?= $this->lang->line('rir_impact') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_impact_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="rir_22">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_22" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_impact_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="" name="impact" type="text" class="form-control input-md" value="<?php echo $impact; ?>">
+									<input id="rir_txt_22" type="text" name="impact" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_22')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $impact; ?>" >
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="probability"><?= $this->lang->line('rir_probability') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_probability_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="rir_23">2000</span><?= $this->lang->line('character') ?>
+									<a class="btn-sm btn-default" id="rir_tp_23" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_probability_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="" name="probability" type="text" class="form-control input-md" value="<?php echo $probability; ?>">
+									<input id="rir_txt_23" type="text" name="probability" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_23')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value =" <?php echo $probability; ?>" >
 									</div>
 								</div>
 
@@ -266,12 +288,12 @@
 	</div>
 </body>
 
-<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
+
 <link href="<?= base_url() ?>assets/css/bootstrap-iso.css" rel="stylesheet">
 <link href="<?= base_url() ?>assets/css/bootstrap-datepicker3.css" rel="stylesheet">
 <script src="<?= base_url() ?>assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
 <script src="<?= base_url() ?>assets/js/bootstrap-datepicker.pt-BR.min.js" type="text/javascript"></script>
-
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
 <script type="text/javascript">
 	//////////////////////////////////
 	// Start Date & End Date
@@ -294,6 +316,21 @@
 		endDate.datepicker("setStartDate", newDate);
 	});
 
+	
+	for (var i = 1; i <= 23; i++) {
+		if (document.getElementById("rir_tp_" + i).title == "") {
+			document.getElementById("rir_tp_" + i).hidden = true;
+		}
+		limite_textarea(document.getElementById("rir_txt_" + i).value, "rir_" + i);
+	}
+
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+ 
 	//Start Date Ends Here
 </script>
 <?php $this->load->view('frame/footer_view') ?>

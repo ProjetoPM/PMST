@@ -75,7 +75,7 @@ class BusinessCase extends CI_Controller
 		$postData = $this->input->post();
 		$insert   = $this->Business_case_model->insert($postData);
 		if ($insert) {
-			$this->session->set_flashdata('success', 'Bussiness Case has been successfully created!');
+			$this->session->set_flashdata('success', 'Business Case has been successfully created!');
 		}
 		redirect("integration/business-case/edit/" . $_SESSION['project_id']);
 		// echo json_encode($insert);
@@ -94,7 +94,7 @@ class BusinessCase extends CI_Controller
 		//$insert = $this->project_model->insert_project_pgq($quality_mp);
 		$query = $this->Business_case_model->update($business_case, $_SESSION['project_id']);
 		if ($query) {
-			$this->session->set_flashdata('success', 'Bussiness Case has been successfully changed!');
+			$this->session->set_flashdata('success', 'Business Case has been successfully changed!');
 		}
 
 		$this->load->view('frame/header_view');

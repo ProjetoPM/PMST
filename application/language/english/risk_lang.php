@@ -4,13 +4,13 @@
 $lang['rir_title'] = 'Risk Registration';
 
 //Form 
-$lang['risk-impacted_objective'] = 'Impacted Objective';
-$lang['risk-priority'] = 'Priority';
-$lang['risk-risk_status'] = 'Current Risk Status';
-$lang['risk-event'] = 'Event';
-$lang['risk-date'] = 'Identification Date';
-$lang['risk-identifier'] = 'Identifier';
-$lang['risk-type'] = 'Risk Type';
+$lang['rir_impacted_objective'] = 'Impacted Objective';
+$lang['rir_priority'] = 'Priority';
+$lang['rir_risk_status'] = 'Current Risk Status';
+$lang['rir_event'] = 'Event';
+$lang['rir_date'] = 'Identification Date';
+$lang['rir_identifier'] = 'Identifier';
+$lang['rir_type'] = 'Risk Type';
 
 $lang['rir_probability'] = 'Probability';
 $lang['rir_impact'] = 'Impact';
@@ -32,27 +32,28 @@ $lang['rir_category'] = 'Risk Category';
 $lang['rir_lessons'] = 'Lessons Learned';
 
 //options
-$lang['risk-priority-low'] = 'Low';
-$lang['risk-priority-medium'] = 'Medium';
-$lang['risk-priority-high'] = 'High';
+$lang['rir_priority-low'] = 'Low';
+$lang['rir_priority-medium'] = 'Medium';
+$lang['rir_priority-high'] = 'High';
 
 
 
 //Tooltip
-$lang['risk-impacted_objective-tooltip'] = 'Impacted objective Example';
-$lang['risk-priority-tooltip'] = 'Priority Example';
-$lang['risk-risk_status-tooltip'] = 'Risk Status Example';
-$lang['risk-event-tooltip'] = 'Event Example';
-$lang['risk-date-tooltip'] = 'Identification Date Example';
-$lang['risk-identifier-tooltip'] = 'Identifier Example';
-$lang['risk-type-tooltip'] = 'Risk Type Example';
-$lang['rir_score-tp'] = 'The risk score, often referred to as risk level or the degree of risk, is calculated by multiplying the two axes of the matrix (probability x impact)';
-$lang['rir_triggers-tp'] = 'Events or conditions that indicate that a risk is about to occurent';
-$lang['rir_responses-tp'] = 'Specific actions to implement the chosen response strategy';
-$lang['rir_timing-tp'] = 'When was the risk identified, when might the risk occur, when might it no longer be relevant, and what is the deadline for taking action';
-$lang['rir_residua-tp'] = 'Residual risks that are expected to remain after planned responses have been taken, as well as those that
+$lang['rir_impacted_objective_tp'] = 'Impacted objective Example';
+$lang['rir_priority_tp'] = 'Priority Example';
+$lang['rir_risk_status_tp'] = 'Risk Status Example';
+$lang['rir_event_tp'] = 'Event Example';
+$lang['rir_date_tp'] = 'Identification Date Example';
+$lang['rir_identifier_tp'] = 'Identifier Example';
+$lang['rir_type_tp'] = 'Risk Type Example';
+$lang['rir_score_tp'] = 'The risk score, often referred to as risk level or the degree of risk, is calculated by multiplying the two axes of the matrix (probability x impact)';
+$lang['rir_triggers_tp'] = 'Events or conditions that indicate that a risk is about to occurent';
+$lang['rir_responses_tp'] = 'Specific actions to implement the chosen response strategy';
+$lang['rir_timing_tp'] = 'When was the risk identified, when might the risk occur, when might it no longer be relevant, and what is the deadline for taking action';
+$lang['rir_residua_tp'] = 'Residual risks that are expected to remain after planned responses have been taken, as well as those that
 have been deliberately accepted';
-$lang['rir_secondary-tp'] = 'Secondary risks that arise as a direct outcome of implementing a risk response';
-$lang['rir_contingency-tp'] = 'Contingency plans and risk triggers that call for their execution';
-$lang['rir_fallback-tp'] = 'Fallback plans for use when a risk that has occurred and the primary response proves to be inadequate';
+$lang['rir_secondary_tp'] = 'Secondary risks that arise as a direct outcome of implementing a risk response';
+$lang['rir_contingency_tp'] = 'Contingency plans and risk triggers that call for their execution';
+$lang['rir_fallback_tp'] = 'Fallback plans for use when a risk that has occurred and the primary response proves to be inadequate';
+$lang['rir_lessons_tp'] = '';
 ?>

@@ -93,6 +93,7 @@ class DeliverableStatus extends CI_Controller
 
         if ($query) {
             insertLogActivity('update', 'deliverable status');
+            $this->session->set_flashdata('success', 'Deliverable Status has been successfully changed!');
             redirect('integration/deliverable-status/list/' . $delivery_acceptance_term['project_id']);
         }
     }
@@ -111,6 +112,7 @@ class DeliverableStatus extends CI_Controller
 
         if ($query) {
             insertLogActivity('insert', 'deliverable status');
+            $this->session->set_flashdata('success', 'Deliverable Status has been successfully created!');
             redirect('integration/deliverable-status/list/' . $delivery_acceptance_term['project_id']);
         }
     }

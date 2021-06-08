@@ -20,11 +20,11 @@ $lang['shr_role_others'] = 'Others'; **/
 
 
 //Tooltip
-$lang['cpd_provider_tooltip'] = '';
-$lang['cpd_supplier_representative_tooltip'] = '';
-$lang['cpd_main_deliveries_tooltip'] = '';
-$lang['cpd_closing_date_tooltip'] = '';
-$lang['cpd_comments_tooltip'] = '';
+$lang['cpd_provider_tp'] = '';
+$lang['cpd_supplier_representative_tp'] = '';
+$lang['cpd_main_deliveries_tp'] = '';
+$lang['cpd_closing_date_tp'] = '';
+$lang['cpd_comments_tp'] = '';
 
 
 //Select

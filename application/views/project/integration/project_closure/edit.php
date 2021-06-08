@@ -34,8 +34,8 @@
 							foreach ($project_closure as $pc) {
 							?>
 
-								<form method="POST" action="<?php echo base_url('integration/project-closure/update/'); ?>">
-
+								<form method="POST" action="<?php echo base_url('integration/project-closure/update'); ?>">
+								<input type="hidden" name="status" value="1">
 									<div class="col-lg-12 form-group">
 										<label for="client"><?= $this->lang->line('tep_client') ?> *</label>
 										<span class="tep_1">255</span><?= $this->lang->line('character2') ?>
