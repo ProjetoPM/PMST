@@ -48,9 +48,9 @@
 									<table class="table table-bordered table-striped" id="tableNB">
 										<thead>
 											<tr>
-												<th><?= $this->lang->line('responsible') ?></th>
-												<th><?= $this->lang->line('date') ?></th>
-												<th><?= $this->lang->line('main_activities') ?></th>
+												<th><?= $this->lang->line('wpr_responsible') ?></th>
+												<th><?= $this->lang->line('wpr_date') ?></th>
+												<th><?= $this->lang->line('wpr_main_activities') ?></th>
 
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>

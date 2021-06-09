@@ -40,7 +40,7 @@
 								<div class=" col-lg-6 form-group">
 									<label for="responsible"><?= $this->lang->line('wpr_responsible') ?></label>
 									<span class="wpr_1">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_responsible_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="wpr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_responsible_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 									<input id="wpr_txt_1" type="text" name="responsible" class="form-control input-md" value="<?php echo $responsible; ?>" onkeyup = "limite_textarea(this.value, 'wpr_1')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
 									</div>
@@ -48,7 +48,7 @@
 
 								<div class=" col-lg-6 form-group">
 									<label for="date"><?= $this->lang->line('wpr_date') ?></label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="wpr_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 										<input id="date" type="date" name="date" class="form-control input-md" value="<?php echo $date; ?>">
 									</div>
@@ -58,7 +58,7 @@
 								<div class="col-lg-12 form-group">
 									<label for="main_activities"><?= $this->lang->line('wpr_main_activities') ?></label>
 									<span class="wpr_2">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_main_activities_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="wpr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_main_activities_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 									<textarea onkeyup="limite_textarea(this.value, 'wpr_2')" id="wpr_txt_2" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="main_activities"><?php echo $main_activities; ?></textarea>
 									</div>
@@ -67,7 +67,7 @@
 								<div class="col-lg-12 form-group">
 									<label for="next_activities"><?= $this->lang->line('wpr_next_activities') ?></label>
 									<span class="wpr_3">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_next_activities_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="wpr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_next_activities_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 									<textarea onkeyup="limite_textarea(this.value, 'wpr_3')" id="wpr_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="next_activities"><?php echo $next_activities; ?></textarea>
 									</div>
@@ -76,7 +76,7 @@
 								<div class="col-lg-12 form-group">
 									<label for="comments"><?= $this->lang->line('wpr_comments') ?></label>
 									<span class="wpr_4">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_comments_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="wpr_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_comments_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 									<textarea onkeyup="limite_textarea(this.value, 'wpr_4')" id="wpr_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="comments"><?php echo $comments; ?></textarea>
 									</div>
@@ -85,7 +85,7 @@
 								<div class="col-lg-12 form-group">
 									<label for="issues"><?= $this->lang->line('wpr_issues') ?></label>
 									<span class="wpr_5">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_issues_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="wpr_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_issues_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 									<textarea onkeyup="limite_textarea(this.value, 'wpr_5')" id="wpr_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="issues"><?php echo $issues; ?></textarea>
 									</div>
@@ -94,7 +94,7 @@
 								<div class="col-lg-12 form-group">
 									<label for="changes"><?= $this->lang->line('wpr_changes') ?></label>
 									<span class="wpr_6">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_changes_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="wpr_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_changes_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 									<textarea onkeyup="limite_textarea(this.value, 'wpr_6')" id="wpr_txt_6" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="changes"><?php echo $changes; ?></textarea>
 									</div>
@@ -103,7 +103,7 @@
 								<div class="col-lg-12 form-group">
 									<label for="risks"><?= $this->lang->line('wpr_risks') ?></label>
 									<span class="wpr_7">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_risks_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="wpr_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_risks_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 									<textarea onkeyup="limite_textarea(this.value, 'wpr_7')" id="wpr_txt_7" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="risks"><?php echo $risks; ?></textarea>
 									</div>
@@ -112,7 +112,7 @@
 								<div class="col-lg-12 form-group">
 									<label for="attention_points"><?= $this->lang->line('wpr_attention_points') ?></label>
 									<span class="wpr_8">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_attention_points_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="wpr_tp_9" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_attention_points_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 									<textarea onkeyup="limite_textarea(this.value, 'wpr_8')" id="wpr_txt_8" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="attention_points"><?php echo $attention_points; ?></textarea>
 									</div>
@@ -134,8 +134,9 @@
 		</div>
 	</div>
 </body>
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
 <script type="text/javascript">
-	for (var i = 1; i <= 8; i++) {
+	for (var i = 1; i <= 9; i++) {
 		if (document.getElementById("wpr_tp_" + i).title == "") {
 			document.getElementById("wpr_tp_" + i).hidden = true;
 		}
