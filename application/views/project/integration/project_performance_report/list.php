@@ -48,6 +48,7 @@
 												<th><?= $this->lang->line('ppr_date') ?></th>
 												<th><?= $this->lang->line('ppr_current_performance_analysis') ?></th>
 												<th><?= $this->lang->line('ppr_planned_forecasts') ?></th>
+												<th><?= $this->lang->line('ppr_work_completed_during_the_period')?></th>
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
 										</thead>
@@ -59,6 +60,7 @@
 													<td><?php echo $report->date; ?></td>
 													<td><?php echo $report->current_performance_analysis; ?></td>
 													<td><?php echo $report->planned_forecasts; ?></td>
+													<td><?php echo $report->work_completed_during_the_period; ?></td>
 
 													<td>
 														<div class="row center">
