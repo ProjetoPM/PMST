@@ -35,13 +35,13 @@
 
 							</h1>
 							<?php extract($lesson_learned_register);?>
-
+<?php extract ($knowledge_area); ?>
 							<form action="<?= base_url() ?>integration/lesson-learned-register/update/<?php echo $lesson_learned_register_id; ?>" method="post">
 
 								<input type="hidden" name="project_id" value="<?php echo $project_id; ?>">
 								<input type="hidden" name="status" value="1">
 
-								<div class="col-lg-8 form-group">
+								<div class="col-lg-9 form-group">
                                     <label for="stakeholder"><?= $this->lang->line('llr_stakeholder') ?> *</label>
                                     <a class="btn-sm btn-default" id="llr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_stakeholder_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
@@ -49,7 +49,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-4 form-group">
+                                <div class="col-lg-3 form-group">
                                     <label for="date"><?= $this->lang->line('llr_date') ?> *</label>
                                     <a class="btn-sm btn-default" id="llr_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
@@ -57,7 +57,7 @@
                                     </div>
                                 </div>
 
-                                <div class=" col-lg-06 form-group">
+                                <div class=" col-lg-12 form-group">
                                  <label for="description"><?= $this->lang->line('llr_description') ?> </label>
                                  <span class="llr_3">2000</span><?= $this->lang->line('character') ?>
                                  <a class="btn-sm btn-default" id="llr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -74,7 +74,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-5 form-group">
+                                <div class="col-lg-6 form-group">
                                     <label for="interested"><?= $this->lang->line('llr_interested') ?> *</label>
                                     <a class="btn-sm btn-default" id="llr_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_interested_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
@@ -82,7 +82,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-5 form-group">
+                                <div class="col-lg-6 form-group">
                                     <label for="status"><?= $this->lang->line('llr_status') ?> *</label>
                                     <a class="btn-sm btn-default" id="llr_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_status_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
@@ -90,7 +90,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-5 form-group">
+                                <div class="col-lg-6 form-group">
                                     <label for="impact"><?= $this->lang->line('llr_impact') ?> *</label>
                                     <a class="btn-sm btn-default" id="llr_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_impact_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
@@ -98,7 +98,7 @@
                                     </div>
                                 </div>
 
-                                <div class=" col-lg-06 form-group">
+                                <div class=" col-lg-12 form-group">
                                  <label for="recommendations"><?= $this->lang->line('llr_recommendations') ?> </label>
                                   <span class="fr_8">2000</span><?= $this->lang->line('character') ?>
                                   <a class="btn-sm btn-default" id="fr_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr_recommendations_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -116,7 +116,7 @@
                                 </div>
 
                                 <div class="col-lg-4 form-group">
-                                    <label>knowledge_area</label>
+                                    <label for ="knowledge_area"><?= $this->lang->line('llr_knowledge_area') ?></label>
                                     <select name="knowledge_area" size="1" class="form-control" tabindex="1">
                                         <?php foreach ($knowlege_area as $ka) { ?>
                                         <option value="<?= $ka->knowledge_area_id; ?>"
@@ -126,7 +126,7 @@
                                             <?php } ?>
                                             </select>
 								</div>
-		
+
 								<div class="col-lg-12">
 									<button id="lesson_learned_register-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
 										<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>

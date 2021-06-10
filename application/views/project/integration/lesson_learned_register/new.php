@@ -38,7 +38,7 @@
                             <!-- <form action="<?= base_url() ?>integration/lesson-learned-register/update/<?php echo $lesson_learned_register_id; ?>" method="post"> -->
                             <form method="POST" action="<?php echo base_url('integration/lesson-learned-register/insert/'); ?><?php echo $id; ?>">
 
-                                <div class="col-lg-8 form-group">
+                                <div class="col-lg-9 form-group">
                                     <label for="stakeholder"><?= $this->lang->line('llr_stakeholder') ?> *</label>
                                     <span class="llr_1">2000</span><?= $this->lang->line('character') ?>
                                     <a class="btn-sm btn-default" id="llr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_stakeholder_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -47,7 +47,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-4 form-group">
+                                <div class="col-lg-3 form-group">
                                     <label for="date"><?= $this->lang->line('llr_date') ?> *</label>
                                     <a class="btn-sm btn-default" id="llr_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
@@ -55,10 +55,11 @@
                                     </div>
                                 </div>
 
-                                <div class=" col-lg-06 form-group">
+                                <div class=" col-lg-12 form-group">
                                  <label for="description"><?= $this->lang->line('llr_description') ?> </label>
                                  <span class="llr_3">2000</span><?= $this->lang->line('character') ?>
                                  <a class="btn-sm btn-default" id="llr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                 
                                  <div>
                                   <textarea onkeyup="limite_textarea(this.value, 'llr_3')" id="llr_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="description"></textarea>
                                  </div>
@@ -73,7 +74,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-5 form-group">
+                                <div class="col-lg-6 form-group">
                                     <label for="interested"><?= $this->lang->line('llr_interested') ?> *</label>
                                     <span class="llr_5">2000</span><?= $this->lang->line('character') ?>
                                     <a class="btn-sm btn-default" id="llr_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_interested_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -82,7 +83,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-5 form-group">
+                                <div class="col-lg-6 form-group">
                                     <label for="status"><?= $this->lang->line('llr_status') ?> *</label>
                                     <span class="llr_6">2000</span><?= $this->lang->line('character') ?>
                                     <a class="btn-sm btn-default" id="llr_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_status_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -100,7 +101,7 @@
                                     </div>
                                 </div>
 
-                                <div class=" col-lg-06 form-group">
+                                <div class=" col-lg-12 form-group">
                                  <label for="recommendations"><?= $this->lang->line('llr_recommendations') ?> </label>
                                   <span class="llr_8">2000</span><?= $this->lang->line('character') ?>
                                   <a class="btn-sm btn-default" id="llr_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_recommendations_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>

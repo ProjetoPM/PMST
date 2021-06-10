@@ -16,6 +16,7 @@
 						<a href="#" class="close" data-dismiss="alert">&times;</a>
 						<strong><?php echo $this->session->flashdata('success'); ?></strong>
 					</div>
+					
 				<?php elseif ($this->session->flashdata('error')) : ?>
 					<div class="alert alert-warning">
 						<a href="#" class="close" data-dismiss="alert">&times;</a>
