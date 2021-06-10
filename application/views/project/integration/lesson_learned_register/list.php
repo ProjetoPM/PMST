@@ -134,18 +134,9 @@
 										<thead>
 											<tr>
 												<th class="text-center">#</th>
-												<th>Stakeholder Who Identified</th>
-												<th>Identification Date</th>
-												<th>Situation Description</th>
-												<th>Category</th>
-												<th>Who Could Be Interested</th>
-												<th>Status</th>
-												<th>Impact</th>
-												<th>Recommendations</th>
-												<th>Associated Life Cycle Stage</th>
-												<th>Associated Knowledge Area</th>
-
-												
+												<th><?= $this->lang->line('llr_stakeholder') ?></th>
+												<th><?= $this->lang->line('llr_date') ?></th>
+												<th><?= $this->lang->line('llr_description') ?></th>
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
 										</thead>
@@ -158,13 +149,6 @@
 													<td><span class="texttd"><?php echo $item->stakeholder ?></span></td>
 													<td><span class="texttd"><?php echo $item->date ?></span></td>
 													<td><span class="texttd"><?php echo $item->description ?></span></td>
-													<td><span class="texttd"><?php echo $item->category ?></span></td>
-													<td><span class="texttd"><?php echo $item->interested ?></span></td>
-													<td><span class="texttd"><?php echo $item->status ?></span></td>
-													<td><span class="texttd"><?php echo $item->impact ?></span></td>
-													<td><span class="texttd"><?php echo $item->recommendations ?></span></td>
-													<td><span class="texttd"><?php echo $item->life_cycle ?></span></td>
-													<td><span class="texttd"><?php echo $item->knowlege_area ?></span></td>
 													<td style="display: fixed;min-width: 100px;">
 														<div class="row center">
 															<div class="col-sm-4">

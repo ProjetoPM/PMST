@@ -31,7 +31,7 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-								<?= $this->lang->line('cpd_title')  ?>
+								<?= $this->lang->line('llr_title')  ?>
 
 							</h1>
 							<?php extract($lesson_learned_register);?>
@@ -61,9 +61,9 @@
                                  <label for="description"><?= $this->lang->line('llr_description') ?> </label>
                                  <span class="llr_3">2000</span><?= $this->lang->line('character') ?>
                                  <a class="btn-sm btn-default" id="llr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                                 <div>
+                                 
                                   <textarea onkeyup="limite_textarea(this.value, 'fr_3')" id="fr_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="description"></textarea>
-                                 </div>
+                                 
                                 </div>
 
                                 <div class="col-lg-6 form-group">
