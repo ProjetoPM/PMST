@@ -40,6 +40,8 @@ class LessonLearnedRegister extends CI_Controller
             $this->load->view('frame/topbar');
             $this->load->view('frame/sidebar_nav_view', $project_id);
             $this->load->view('project/integration/lesson_learned_register/new', $dado);
+
+            
         } else {
             redirect(base_url());
         }
@@ -73,6 +75,7 @@ class LessonLearnedRegister extends CI_Controller
         $query['knowledge_area'] = $this->Project_model->getAllKnowledgeArea();
         $query['lesson_learned_register'] = $this->Lesson_learned_register_model->get($lesson_learned_register_id);
         $this->load->view('frame/header_view.php');
+        $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view.php');
         $this->load->view('project/integration/lesson_learned_register/edit', $query);
     
