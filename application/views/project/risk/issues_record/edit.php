@@ -64,7 +64,7 @@
 									</div>
 								</div>
 
-								<div class="form-group col-lg-6">
+								<div class="form-group col-lg-12">
 									<label for="question_description"><?= $this->lang->line('ir_question_description') ?></label>
 									<span class="ir_2">255</span><?= $this->lang->line('character2') ?>
 									<a class="btn-sm btn-default" id="ir_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ir_question_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
