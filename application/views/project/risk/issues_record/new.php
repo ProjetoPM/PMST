@@ -35,7 +35,7 @@
 								<input type="hidden" name="project_id" value="<?php echo $project_id[0]; ?>">
 								<input type="hidden" name="status" value="1">
 
-								<div class="col-lg-12 form-group">
+								<div class="col-lg-9 form-group">
 									<label for="identification"><?= $this->lang->line('ir_identification') ?></label>
 									<span class="ir_1">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="ir_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ir_identification_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -45,19 +45,19 @@
 								</div>
 
 								<div class="form-group">
-									<div class="col-lg-6">
+									<div class="col-lg-3">
 										<label><?= $this->lang->line('ir_identification_date') ?></label>
 										<a class="btn-sm btn-default" id="ir_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ir_identification_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div class="input-group">
 											<div class="input-group-addon">
 												<i class="fa fa-calendar"></i>
 											</div>
-											<input class="form-control" id="identification_date" placeholder="YYYY/MM/DD" type="text" name="identification_date" />
+											<input class="form-control" id="identification_date" placeholder="YYYY/MM/DD" type="date" name="identification_date" />
 										</div>
 									</div>
 								</div>
 
-								<div class="form-group col-lg-6">
+								<div class="form-group col-lg-12">
 									<label for="question_description"><?= $this->lang->line('ir_question_description') ?></label>
 									<span class="ir_2">255</span><?= $this->lang->line('character2') ?>
 									<a class="btn-sm btn-default" id="ir_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ir_question_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -93,7 +93,7 @@
 									</div>
 								</div>
 
-								<div class="form-group col-lg-12">
+								<div class="form-group col-lg-6">
 									<label for="action"><?= $this->lang->line('ir_action') ?></label>
 									<span class="ir_6">45</span><?= $this->lang->line('character3') ?>
 									<a class="btn-sm btn-default" id="ir_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ir_action_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -103,28 +103,28 @@
 								</div>
 
 								<div class="form-group">
-									<div class="col-lg-6">
+									<div class="col-lg-3">
 										<label><?= $this->lang->line('ir_resolution_date') ?></label>
 										<a class="btn-sm btn-default" id="ir_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ir_identification_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div class="input-group">
 											<div class="input-group-addon">
 												<i class="fa fa-calendar"></i>
 											</div>
-											<input class="form-control" id="resolution_date" placeholder="YYYY/MM/DD" type="text" name="resolution_date" />
+											<input class="form-control" id="resolution_date" placeholder="YYYY/MM/DD" type="date" name="resolution_date" />
 										</div>
 									</div>
 								</div>
 
 
 								<div class="form-group">
-									<div class="col-lg-6">
+									<div class="col-lg-3">
 										<label><?= $this->lang->line('ir_replan_date') ?></label>
 										<a class="btn-sm btn-default" id="ir_tp_9" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ir_identification_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div class="input-group">
 											<div class="input-group-addon">
 												<i class="fa fa-calendar"></i>
 											</div>
-											<input class="form-control" id="replan_date" placeholder="YYYY/MM/DD" type="text" name="replan_date" />
+											<input class="form-control" id="replan_date" placeholder="YYYY/MM/DD" type="date" name="replan_date" />
 										</div>
 									</div>
 								</div>
