@@ -43,7 +43,7 @@
 									</div>
 								</div>
 
-								<div class=" col-lg-6 form-group">
+								<div class=" col-lg-3 form-group">
 									<label for="date"><?= $this->lang->line('wpr_date') ?></label>
 									<a class="btn-sm btn-default" id="wpr_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wpr_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
