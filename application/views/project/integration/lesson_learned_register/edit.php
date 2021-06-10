@@ -118,7 +118,7 @@
                                 <div class="col-lg-4 form-group">
                                     <label for ="knowledge_area"><?= $this->lang->line('llr_knowledge_area') ?></label>
                                     <select name="knowledge_area" size="1" class="form-control" tabindex="1">
-                                        <?php foreach ($knowlege_area as $ka) { ?>
+                                        <?php foreach ($knowledge_area as $ka) { ?>
                                         <option value="<?= $ka->knowledge_area_id; ?>"
                                             <?php if ($knowledge_area_id == $ka->knowledge_area_id) echo 'selected'; ?>>
                                             <?php $ka-> name ?>

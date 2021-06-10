@@ -120,7 +120,7 @@
                                 </div>
 
                                 <div class="col-lg-4 form-group">
-                                    <label>knowledge area</label>
+                                <label for ="knowledge_area"><?= $this->lang->line('llr_knowledge_area') ?></label>
                                     <select name="knowledge_area" size="1" class="form-control" tabindex="1">
                                         <?php foreach ($knowledge_area as $ka) { ?>
                                         <option value="<?= $ka->knowledge_area_id; ?>">
