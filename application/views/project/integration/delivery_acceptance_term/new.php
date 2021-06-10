@@ -61,7 +61,7 @@
 									</div>
 								</div>
 
-								<div class=" col-lg-6 form-group">
+								<div class=" col-lg-3 form-group">
 									<label for="validation_date"><?= $this->lang->line('ds_validation_date') ?></label>
 									<a class="btn-sm btn-default" id="ds_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('validation_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
