@@ -47,12 +47,12 @@
 
                 <div class=" col-lg-3 form-group">
                   <label><?= $this->lang->line('cr_request_date') ?></label>
-                   <a class="btn-sm btn-default" id="cr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cr_request_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" id="cr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cr_request_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div class="input-group">
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </div>
-                    <input class="form-control" id="request_date" placeholder="YYYY/MM/DD" type="date" name="request_date" />
+                    <input class="form-control" id="request_date" placeholder="YYYY/MM/DD" type="date" name="request_date"  />
                   </div>
                 </div>
 
@@ -129,12 +129,11 @@
 									</div>
                 </div>
 
-
                 <div class=" col-lg-6 form-group">
                   <label for="status"><?= $this->lang->line('cr_status') ?> </label>
                   <span class="cr_12">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" id="cr_tp_12" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cr_status_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                  <input onkeyup="limite_textarea(this.value, 'cr_12')" id="cr_txt_12" maxlength="2000" oninput="eylem(this, this.value)"  class="form-control input-md" name="status" type="text" required="false">
+                  <input onkeyup="limite_textarea(this.value, 'cr_12')" id="cr_txt_12" maxlength="2000" oninput="eylem(this, this.value)"  class="form-control input-md" name="status" type="text" required="false" value="<?php echo $status; ?>">
                 </div>
 
                 <div class="col-lg-3">
@@ -144,7 +143,7 @@
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </div>
-                    <input class="form-control" id="committee_date" placeholder="YYYY/MM/DD" type="date" name="committee_date" />
+                    <input class="form-control" id="committee_date" placeholder="YYYY/MM/DD" type="date" name="committee_date"  />
                   </div>
                 </div>
 

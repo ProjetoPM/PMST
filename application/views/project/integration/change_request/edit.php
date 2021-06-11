@@ -134,7 +134,6 @@
 									</div>
                 </div>
 
-
                 <div class=" col-lg-6 form-group">
                   <label for="status"><?= $this->lang->line('cr_status') ?> </label>
                   <span class="cr_12">2000</span><?= $this->lang->line('character') ?>
@@ -153,12 +152,11 @@
                   </div>
                 </div>
 
-
-
 								<div class="col-lg-12">
 									<button id="change_request-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
 										<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
 									</button>
+
 							</form>
 
 							<form action="<?php echo base_url() ?>integration/change-request/list/<?= $project_id ?>">
@@ -172,6 +170,7 @@
 	</div>
 </body>
 <script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 	for (var i = 1; i <= 13; i++) {
 		if (document.getElementById("cr_tp_" + i).title == "") {
@@ -186,7 +185,7 @@
 		var caracteresRestantes = limite - caracteresDigitados;
 		$("." + txt).text(caracteresRestantes);
 	}
-  </script>
+</script>
 
   
 <?php $this->load->view('frame/footer_view') ?>
