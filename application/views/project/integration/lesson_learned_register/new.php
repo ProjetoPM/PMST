@@ -43,7 +43,7 @@
                                     <span class="llr_1">2000</span><?= $this->lang->line('character') ?>
                                     <a class="btn-sm btn-default" id="llr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_stakeholder_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                    <input id="llr_txt_1" type="text" name="stakeholder" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'llr_1')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
+                                    <input id="llr_txt_1" type="text" name="stakeholder" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'llr_1')" maxlength="2000" oninput="eylem(this, this.value)" required="true">
                                     </div>
                                 </div>
 

@@ -83,11 +83,11 @@ class LessonLearnedRegister extends CI_Controller
 
     public function update($lesson_learned_register_id)
     {
-        $lesson_learned_register['stakeholder'] = $this->input->post('stakeholder identified');
-        $lesson_learned_register['date'] = $this->input->post('identification date');
-        $lesson_learned_register['description'] = $this->input->post('situation description');
+        $lesson_learned_register['stakeholder'] = $this->input->post('stakeholder');
+        $lesson_learned_register['date'] = $this->input->post('date');
+        $lesson_learned_register['description'] = $this->input->post('description');
         $lesson_learned_register['category'] = $this->input->post('category');
-        $lesson_learned_register['interested'] = $this->input->post('who could be interested');
+        $lesson_learned_register['interested'] = $this->input->post('interested');
         $lesson_learned_register['status'] = $this->input->post('status');
         $lesson_learned_register['impact'] = $this->input->post('impact');
         $lesson_learned_register['recommendations'] = $this->input->post('recommendations');
