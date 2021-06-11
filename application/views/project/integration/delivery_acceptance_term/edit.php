@@ -44,6 +44,7 @@
 									<a class="btn-sm btn-default" id ="ds_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('validator_name_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 										<input id="ds_txt_1" type="text" name="validator_name" class="form-control input-md" value="<?php echo $validator_name; ?>" onkeyup = "limite_textarea(this.value, 'ds_1')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
+										
 									</div>
 								</div>
 
@@ -52,7 +53,8 @@
 									<span class="ds_2">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id ="ds_tp_2"  data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('role_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-									<input id="ds_txt_2" type="text" name="validator_name" class="form-control input-md" value="<?php echo $role; ?>" onkeyup = "limite_textarea(this.value, 'ds_2')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
+									<input id="ds_txt_2" type="text" name="role" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'ds_2')" maxlength="2000" oninput="eylem(this, this.value)" required="false"  value="<?php echo $role; ?>" >
+									
 									</div>
 								</div>
 
@@ -61,7 +63,7 @@
 									<span class="ds_3">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id ="ds_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('function_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-									<input id="ds_txt_3" type="text" name="validator_name" class="form-control input-md" value="<?php echo $function; ?>" onkeyup = "limite_textarea(this.value, 'ds_3')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
+									<input id="ds_txt_3" type="text" name="function" class="form-control input-md"onkeyup = "limite_textarea(this.value, 'ds_3')" maxlength="2000" oninput="eylem(this, this.value)" required="false"  value="<?php echo $function; ?>" >
 									</div>
 								</div>
 
@@ -108,7 +110,6 @@
 		}
 		limite_textarea(document.getElementById("ds_txt_" + i).value, "ds_" + i);
 	}
-
 	function limite_textarea(valor, txt) {
 		var limite = 2000;
 		var caracteresDigitados = valor.length;

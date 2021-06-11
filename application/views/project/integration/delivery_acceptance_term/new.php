@@ -48,7 +48,7 @@
 									<span class="ds_2">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('role_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-									<input id="ds_txt_2" type="text" name="validator_name" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'ds_2')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
+									<input id="ds_txt_2" type="text" name="role" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'ds_2')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
 									</div>
 								</div>
 
@@ -57,7 +57,7 @@
 									<span class="ds_3">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('function_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-									<input id="ds_txt_3" type="text" name="validator_name" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'ds_3')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
+									<input id="ds_txt_3" type="text" name="function" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'ds_3')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
 									</div>
 								</div>
 
@@ -94,12 +94,13 @@
 		</div>
 	</div>
 </body>
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
 <script type="text/javascript">
-	for (var i = 1; i <= 11; i++) {
-		if (document.getElementById("cr_tp_" + i).title == "") {
-			document.getElementById("cr_tp_" + i).hidden = true;
+	for (var i = 1; i <= 5; i++) {
+		if (document.getElementById("ds_tp_" + i).title == "") {
+			document.getElementById("ds_tp_" + i).hidden = true;
 		}
-		limite_textarea(document.getElementById("cr_txt_" + i).value, "cr_" + i);
+		limite_textarea(document.getElementById("ds_txt_" + i).value, "ds_" + i);
 	}
 
 	function limite_textarea(valor, txt) {
