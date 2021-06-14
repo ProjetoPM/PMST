@@ -124,6 +124,7 @@
     </div>
   </div>
 </body>
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
 <script>
   for (var i = 1; i <= 8; i++) {
     if (document.getElementById("fr_tp_" + i).title == "") {
