@@ -240,11 +240,11 @@
                 </div>
 
                 <div class=" col-lg-12 form-group">             
-                  <label for="situation"><?= $this->lang->line('rd_situation') ?>Situation</label>
+                  <label for="requirement_situation"><?= $this->lang->line('rd_requirement_situation') ?></label>
                   <span class="rd_15">2000</span><?= $this->lang->line('character') ?>
-                  <a class="btn-sm btn-default" id="rd_tp_15" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rd_situation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" id="rd_tp_15" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rd_requirement_situation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                      <textarea onkeyup="limite_textarea(this.value, 'rd_15')" id="rd_txt_15" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="situation"><?= $requirement_registration[0]->situation ?></textarea>
+                      <textarea onkeyup="limite_textarea(this.value, 'rd_15')" id="rd_txt_15" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="requirement_situation"><?= $requirement_registration[0]->requirement_situation ?></textarea>
                   </div>
                 </div>
 
@@ -263,7 +263,8 @@
     </div>
   </div>
 </body>
-<script>
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
+<script type="text/javascript">
 for (var i = 1; i <= 15; i++) {
 		if (document.getElementById("rd_tp_"+i).title == "") {
 			document.getElementById("rd_tp_"+i).hidden = true;

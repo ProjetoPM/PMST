@@ -85,12 +85,12 @@ class RequirementsManagementPlan extends CI_Controller
 
 	public function update()
 	{
-		$requirements_mp['requirements_collection_proc'] = $this->input->post('requirements_collection_proc');
-		$requirements_mp['requirements_prioritization'] = $this->input->post('requirements_prioritization');
-		$requirements_mp['product_metrics'] = $this->input->post('product_metrics');
-		$requirements_mp['traceability'] = $this->input->post('traceability');
-		$requirements_mp['configuration'] = $this->input->post('configuration');
-		$requirements_mp['status'] = $this->input->post('status');
+		$requirements_mp['rmp_requirements_collection_proc'] = $this->input->post('requirements_collection_proc');
+		$requirements_mp['rmp_requirements_prioritization'] = $this->input->post('requirements_prioritization');
+		$requirements_mp['rmp_product_metrics'] = $this->input->post('product_metrics');
+		$requirements_mp['rmp_traceability'] = $this->input->post('traceability');
+		$requirements_mp['rmp_configuration'] = $this->input->post('configuration');
+		$requirements_mp['rmp_status'] = $this->input->post('status');
 
 		$query = $this->Requirements_mp_model->update($requirements_mp, $_SESSION['project_id']);
 		insertLogActivity('update', 'requirements management plan');
