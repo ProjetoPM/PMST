@@ -62,7 +62,7 @@ class ProjectCalendars extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('update', 'project calendars');
-			$this->session->set_flashdata('success', 'project Calendars has been successfully changed!');
+			$this->session->set_flashdata('success', 'Project Calendars has been successfully changed!');
 			redirect('schedule/project-calendars/list/' . $activity['project_id']);
 		}
 	}

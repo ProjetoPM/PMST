@@ -188,6 +188,9 @@ for (var i = 1; i <= 15; i++) {
 			document.getElementById("rd_tp_" + i).hidden = true;
 		}
 		limite_textarea(document.getElementById("rd_txt_" + i).value, "rd_" + i);
+    limite_textarea2(document.getElementById("rd_txt_" + i).value, "rd_" + i);
+    limite_textarea3(document.getElementById("rd_txt_" + i).value, "rd_" + i);
+    limite_textarea4(document.getElementById("rd_txt_" + i).value, "rd_" + i);
 	}
 
 	function limite_textarea(valor, txt) {
