@@ -41,6 +41,7 @@ class EVM extends CI_Controller
 		$query['activity'] = $this->Activity_model->get($project_id);
 
 		$this->load->view('frame/header_view.php');
+		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view.php');
 		$this->load->view('project/schedule/agregate_value/edit', $query);
 	}

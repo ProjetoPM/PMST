@@ -70,6 +70,7 @@ class StakeholderRegister extends CI_Controller
     {
         $query['stakeholder'] = $this->Stakeholder_model->get($stakeholder_id);
         $this->load->view('frame/header_view.php');
+        $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view.php');
         $this->load->view('project/stakeholder/stakeholder_register/edit', $query);
     }
