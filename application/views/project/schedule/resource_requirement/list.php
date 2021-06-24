@@ -40,10 +40,10 @@
 										<thead>
 											<tr>
 												<th><?= $this->lang->line('activity_name') ?></th>
-												<th><?= $this->lang->line('resource_description') ?></th>
-												<th><?= $this->lang->line('required_amount_of_resource') ?></th>
-												<th><?= $this->lang->line('resource_cost_per_unit') ?></th>
-												<th><?= $this->lang->line('resource_type') ?></th>
+												<th><?= $this->lang->line('rr_resource_description') ?></th>
+												<th><?= $this->lang->line('rr_required_amount_of_resource') ?></th>
+												<th><?= $this->lang->line('rr_resource_cost_per_unit') ?></th>
+												<th><?= $this->lang->line('rr_resource_type') ?></th>
 
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>

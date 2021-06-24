@@ -62,9 +62,9 @@
                                  <label for="description"><?= $this->lang->line('llr_description') ?> </label>
                                  <span class="llr_3">2000</span><?= $this->lang->line('character') ?>
                                  <a class="btn-sm btn-default" id="llr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                                 
+                                 <div>
                                   <textarea onkeyup="limite_textarea(this.value, 'llr_3')" id="llr_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="description"><?php echo $description; ?></textarea>
-                                 
+                                 </div>
                                 </div>
 
                                 <div class="col-lg-6 form-group">
@@ -150,7 +150,7 @@
 </body>
 <script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
 <script type="text/javascript">
-	for (var i = 1; i <= 5; i++) {
+	for (var i = 1; i <= 9; i++) {
 		if (document.getElementById("llr_tp_" + i).title == "") {
 			document.getElementById("llr_tp_" + i).hidden = true;
 		}

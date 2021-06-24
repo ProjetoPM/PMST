@@ -41,10 +41,10 @@
 										<thead>
 											<tr>
 												<th><?= $this->lang->line('activity_name') ?></th>
-												<th><?= $this->lang->line('predecessor_activity') ?></th>
-												<th><?= $this->lang->line('dependence_type') ?></th>
-												<th><?= $this->lang->line('anticipation') ?></th>
-												<th><?= $this->lang->line('wait') ?></th>
+												<th><?= $this->lang->line('snd_predecessor_activity') ?></th>
+												<th><?= $this->lang->line('snd_dependence_type') ?></th>
+												<th><?= $this->lang->line('snd_anticipation') ?></th>
+												<th><?= $this->lang->line('snd_wait') ?></th>
 
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>

@@ -46,10 +46,10 @@
 									<table class="table table-bordered table-striped" id="tableNB">
 										<thead>
 											<tr>
-												<th><?= $this->lang->line('label') ?></th>
-												<th><?= $this->lang->line('project_phase') ?></th>
-												<th><?= $this->lang->line('milestone') ?></th>
-												<th><?= $this->lang->line('activity_name') ?></th>
+												<th><?= $this->lang->line('al_label') ?></th>
+												<th><?= $this->lang->line('al_project_phase') ?></th>
+												<th><?= $this->lang->line('al_milestone') ?></th>
+												<th><?= $this->lang->line('al_activity_name') ?></th>
 
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
