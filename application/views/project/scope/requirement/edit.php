@@ -38,10 +38,11 @@
                 <div class=" col-lg-4 form-group">
                   <label for="associated_id"><?= $this->lang->line('rd_associated_id') ?> </label>
                   <span class="rd_1">45</span><?= $this->lang->line('character3') ?>
-                  <a class="btn-sm btn-default"  id="rd_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rd_associated_id_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" id="rd_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rd_associated_id_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <input id="rd_txt_1" type="text" name="associated_id" class="form-control input-md" onkeyup = "limite_textarea3(this.value, 'rd_1')" maxlength="45" oninput="eylem(this, this.value)" required="false" value="<?= $requirement_registration[0]->associated_id ?>">
                 </div>
 
+              
                 <div class=" col-lg-8 form-group">
                   <label for="business_strategy"><?= $this->lang->line('rd_business_strategy') ?> </label>
                   <span class="rd_2">200</span><?= $this->lang->line('character4') ?>
