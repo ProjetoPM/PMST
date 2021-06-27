@@ -5,23 +5,23 @@ $lang['shep_title'] = 'Stakeholder Engagement Plan';
 
 
 // Select
-$lang['select-stakeholder-tooltip'] = 'Select Stakeholder Example';
-$lang['select-interest-level-tooltip'] = 'Select Interest Level Example';
-$lang['select-power-level-tooltip'] = 'Select Power Level Example';
-$lang['select-influence-level-tooltip'] = 'Select Influece Level Example';
-$lang['select-impact-level-tooltip'] = 'Select Impact Level Example';
-$lang['select-current-engagement-tooltip'] = 'Select current Engagement Example';
-$lang['select-expected-engagement-tooltip'] = 'Select Expected Engagement Example';
-$lang['select-current-average-tooltip'] = 'Select Current Average Example';
+$lang['shep_stakeholder_tooltip'] = 'Select Stakeholder Example';
+$lang['shep_interest-level_tooltip'] = 'Select Interest Level Example';
+$lang['shep_power-level_tooltip'] = 'Select Power Level Example';
+$lang['shep_influence-level_tooltip'] = 'Select Influece Level Example';
+$lang['shep_impact-level_tooltip'] = 'Select Impact Level Example';
+$lang['shep_current-engagement_tooltip'] = 'Select current Engagement Example';
+$lang['shep_expected-engagement_tooltip'] = 'Select Expected Engagement Example';
+$lang['shep_current-average_tooltip'] = 'Select Current Average Example';
 
-$lang['select-1'] = 'Select Stakeholder';
-$lang['select-2'] = 'Interest Level';
-$lang['select-3'] = 'Power Level';
-$lang['select-4'] = 'Influece Level';
-$lang['select-5'] = 'Impact Level';
-$lang['select-6'] = 'Current Engagement';
-$lang['select-7'] = 'Desired Engagement';
-$lang['select-8'] = "Add New Stakeholder";
+$lang['shep_1'] = 'Select Stakeholder';
+$lang['shep_2'] = 'Interest Level';
+$lang['shep_3'] = 'Power Level';
+$lang['shep_4'] = 'Influece Level';
+$lang['shep_5'] = 'Impact Level';
+$lang['shep_6'] = 'Current Engagement';
+$lang['shep_7'] = 'Desired Engagement';
+$lang['shep_8'] = "Add New Stakeholder";
 
 
 
@@ -32,10 +32,10 @@ $lang['option-3'] = 'Leanding';
 $lang['option-4'] = 'Neutral';
 $lang['option-5'] = 'Resistant';
 //Form
-$lang['stakeholder_mp-text1-tooltip'] = 'Engagement / Management Strategy Example';
-$lang['stakeholder_mp-text2-tooltip'] = 'Scope and Impact of Changes to Stakeholder Example';
-$lang['stakeholder_mp-text3-tooltip'] = 'Observations with other Stakeholders Example';
-$lang['stakeholder-name'] = 'Stakeholder Name:';
+$lang['shep_mp-text1_tooltip'] = 'Engagement / Management Strategy Example';
+$lang['shep_mp-text2_tooltip'] = 'Scope and Impact of Changes to Stakeholder Example';
+$lang['shep_mp-text3_tooltip'] = 'Observations with other Stakeholders Example';
+$lang['shep_name'] = 'Stakeholder Name:';
 
 
 //Table

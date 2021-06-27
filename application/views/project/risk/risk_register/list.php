@@ -48,10 +48,10 @@
 										<thead>
 											<tr>
 												<th class="text-center">#</th>
-												<th><?= $this->lang->line('risk-impacted_objective') ?></th>
-												<th><?= $this->lang->line('risk-priority') ?></th>
-												<th><?= $this->lang->line('risk-event') ?></th>
-												<th><?= $this->lang->line('risk-date') ?></th>
+												<th><?= $this->lang->line('rir_impacted_objective') ?></th>
+												<th><?= $this->lang->line('rir_priority') ?></th>
+												<th><?= $this->lang->line('rir_event') ?></th>
+												<th><?= $this->lang->line('rir_date') ?></th>
 
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>

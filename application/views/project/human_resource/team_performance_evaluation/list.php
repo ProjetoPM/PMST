@@ -43,9 +43,9 @@
 										<thead>
 											<tr>
 												<th class="text-center">#</th>
-												<th><?= $this->lang->line('eval-team_member_name') ?></th>
-												<th><?= $this->lang->line('eval-project_function') ?></th>
-												<th><?= $this->lang->line('eval-report_date') ?></th>
+												<th><?= $this->lang->line('eval_team_member_name') ?></th>
+												<th><?= $this->lang->line('eval_project_function') ?></th>
+												<th><?= $this->lang->line('eval_report_date') ?></th>
 
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>

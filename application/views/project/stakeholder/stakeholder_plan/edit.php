@@ -52,13 +52,14 @@
 
                 <div class="col-lg-4 form-group">
                   <label for="name"><?= $this->lang->line('stakeholder-name') ?></label>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('stakeholder_mp-text2_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
                     <input id="name_text" name="name" type="text" class="form-control input-md" required="false" value="<?php echo $name; ?>" disabled>
                   </div>
                 </div>
 
                 <div class="col-lg-4 form-group">
-                  <label for="current_engagement "><?= $this->lang->line('select-6') ?></label>
+                  <label for="current_engagement "><?= $this->lang->line('shep_6') ?></label>
                   <select name="current_engagement" class="form-control" onchange="avg()">
                     <option value="unaware" <?php if ($current_engagement == "unaware") echo 'selected'; ?>><?= $this->lang->line('option-1') ?></option>
                     <option value="supportive" <?php if ($current_engagement == "supportive") echo 'selected'; ?>><?= $this->lang->line('option-2') ?></option>
@@ -69,7 +70,7 @@
                 </div>
 
                 <div class="col-lg-4 form-group">
-                  <label for="expected_engagement "><?= $this->lang->line('select-7') ?></label>
+                  <label for="expected_engagement "><?= $this->lang->line('shep_7') ?></label>
                   <select name="expected_engagement" class="form-control" onchange="avg()">
                     <option value="unaware" <?php if ($expected_engagement == "unaware") echo 'selected'; ?>><?= $this->lang->line('option-1') ?></option>
                     <option value="supportive" <?php if ($expected_engagement == "supportive") echo 'selected'; ?>><?= $this->lang->line('option-2') ?></option>
@@ -81,7 +82,7 @@
                 <!-- Text input-->
                 <!-- Textarea -->
                 <div class="col-lg-2 form-group">
-                  <label for="interest"><?= $this->lang->line('select-2') ?></label>
+                  <label for="interest"><?= $this->lang->line('shep_2') ?></label>
                   <select name="interest" class="form-control" id="interest" onchange="avg()">
                     <option value=10 <?php if ($interest == 10) echo 'selected'; ?>>10%</option>
                     <option value=30 <?php if ($interest == 30) echo 'selected'; ?>>30%</option>
@@ -92,7 +93,7 @@
                 </div>
 
                 <div class="col-lg-2 form-group">
-                  <label for="power"><?= $this->lang->line('select-3') ?></label>
+                  <label for="power"><?= $this->lang->line('shep_3') ?></label>
                   <select name="power" class="form-control" id="power" onchange="avg()">
                     <option value=10 <?php if ($power == 10) echo 'selected'; ?>>10%</option>
                     <option value=30 <?php if ($power == 30) echo 'selected'; ?>>30%</option>
@@ -103,7 +104,7 @@
                 </div>
 
                 <div class="col-lg-2 form-group">
-                  <label for="influence"><?= $this->lang->line('select-4') ?></label>
+                  <label for="influence"><?= $this->lang->line('shep_4') ?></label>
                   <select name="influence" class="form-control" id="influence" onchange="avg()">
                     <option value=10 <?php if ($influence == 10) echo 'selected'; ?>>10%</option>
                     <option value=30 <?php if ($influence == 30) echo 'selected'; ?>>30%</option>
@@ -114,7 +115,7 @@
                 </div>
 
                 <div class="col-lg-2 form-group">
-                  <label for="impact"><?= $this->lang->line('select-5') ?></label>
+                  <label for="impact"><?= $this->lang->line('shep_5') ?></label>
                   <select name="impact" class="form-control" id="impact" onchange="avg()">
                     <option value=10 <?php if ($impact == 10) echo 'selected'; ?>>10%</option>
                     <option value=30 <?php if ($impact == 30) echo 'selected'; ?>>30%</option>

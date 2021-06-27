@@ -40,13 +40,13 @@
 									<table class="table table-bordered table-striped" id="tableNB">
 										<thead>
 											<tr>
-												<th><?= $this->lang->line('activity_name') ?></th>
-												<th><?= $this->lang->line('resource_name') ?></th>
-												<th><?= $this->lang->line('function') ?></th>
-												<th><?= $this->lang->line('availability_start') ?></th>
-												<th><?= $this->lang->line('availability_ends') ?></th>
-												<th><?= $this->lang->line('allocation_start') ?></th>
-												<th><?= $this->lang->line('allocation_ends') ?></th>
+												<th><?= $this->lang->line('pca_activity_name') ?></th>
+												<th><?= $this->lang->line('pca_resource_name') ?></th>
+												<th><?= $this->lang->line('pca_function') ?></th>
+												<th><?= $this->lang->line('pca_availability_start') ?></th>
+												<th><?= $this->lang->line('pca_availability_ends') ?></th>
+												<th><?= $this->lang->line('pca_allocation_start') ?></th>
+												<th><?= $this->lang->line('pca_allocation_ends') ?></th>
 
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>

@@ -40,18 +40,18 @@
 									<table class="table table-bordered table-striped" id="tableNB">
 										<thead>
 											<tr>
-												<th><?= $this->lang->line('activity_name') ?></th>
-												<th><?= $this->lang->line('estimated_cost') ?></th>
-												<th><?= $this->lang->line('cumulative_estimated_cost') ?></th>
-												<th><?= $this->lang->line('replanted_cost') ?></th>
-												<th><?= $this->lang->line('contingency_reserve') ?></th>
-												<th><?= $this->lang->line('sum_of_work_packages') ?></th>
-												<th><?= $this->lang->line('contingency_reserve_of_packages') ?></th>
-												<th><?= $this->lang->line('baseline') ?></th>
-												<th><?= $this->lang->line('budget') ?></th>
-												<th><?= $this->lang->line('cumulative_replanted_cost') ?></th>
-												<th><?= $this->lang->line('real_cost') ?></th>
-												<th><?= $this->lang->line('cumulative_real_cost') ?></th>
+												<th><?= $this->lang->line('ce_activity_name') ?></th>
+												<th><?= $this->lang->line('ce_estimated_cost') ?></th>
+												<th><?= $this->lang->line('ce_cumulative_estimated_cost') ?></th>
+												<th><?= $this->lang->line('ce_replanted_cost') ?></th>
+												<th><?= $this->lang->line('ce_contingency_reserve') ?></th>
+												<th><?= $this->lang->line('ce_sum_of_work_packages') ?></th>
+												<th><?= $this->lang->line('ce_contingency_reserve_of_packages') ?></th>
+												<th><?= $this->lang->line('ce_baseline') ?></th>
+												<th><?= $this->lang->line('ce_budget') ?></th>
+												<th><?= $this->lang->line('ce_cumulative_replanted_cost') ?></th>
+												<th><?= $this->lang->line('ce_real_cost') ?></th>
+												<th><?= $this->lang->line('ce_cumulative_real_cost') ?></th>
 
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
