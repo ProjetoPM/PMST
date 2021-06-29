@@ -55,7 +55,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input class="form-control" id="request_date" placeholder="YYYY/MM/DD" type="text" name="request_date" value="<?= $change_log[0]->request_date ?>" />
+                                        <input class="form-control" id="request_date" placeholder="YYYY/MM/DD" type="date" name="request_date" value="<?= $change_log[0]->request_date ?>" />
                                     </div>
                                 </div>
 
@@ -134,7 +134,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input class="form-control" id="ccc_feedback_date" placeholder="YYYY/MM/DD" type="text" name="ccc_feedback_date" value="<?= $change_log[0]->ccc_feedback_date ?>" />
+                                        <input class="form-control" id="ccc_feedback_date" placeholder="YYYY/MM/DD" type="date" name="ccc_feedback_date" value="<?= $change_log[0]->ccc_feedback_date ?>" />
                                     </div>
                                 </div>
 
@@ -165,7 +165,7 @@
     </div>
 </body>
 
-
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
 <script type="text/javascript">
     var currentDate = new Date();
     var today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 0, 0, 0, 0);
@@ -194,14 +194,13 @@
         startDate: today,
         /*todayHighlight : true,*/
     });
-</script>
-<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
-<script type="text/javascript">
+
     for (var i = 1; i <=10; i++) {
 		if (document.getElementById("cl_tp_" + i).title == "") {
 			document.getElementById("cl_tp_" + i).hidden = true;
 		}
 		limite_textarea(document.getElementById("cl_txt_" + i).value, "cl_" + i);
+        limite_textarea3(document.getElementById("cl_txt_" + i).value, "cl_" + i);
 	}
 
 	function limite_textarea(valor, txt) {
@@ -224,6 +223,6 @@
 		var caracteresRestantes = limite - caracteresDigitados;
 		$("." + txt).text(caracteresRestantes);
 	}
-
+</script>
 
 <?php $this->load->view('frame/footer_view') ?>

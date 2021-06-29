@@ -57,7 +57,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input class="form-control" id="request_date" placeholder="YYYY/MM/DD" type="text" name="request_date"/>
+                                        <input class="form-control" id="request_date" placeholder="YYYY/MM/DD" type="date" name="request_date"/>
                                     </div>
                                 </div>
 
@@ -136,7 +136,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input class="form-control" id="ccc_feedback_date" placeholder="YYYY/MM/DD" type="text" name="ccc_feedback_date" />
+                                        <input class="form-control" id="ccc_feedback_date" placeholder="YYYY/MM/DD" type="date" name="ccc_feedback_date" />
                                     </div>
                                 </div>
 

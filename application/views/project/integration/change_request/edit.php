@@ -141,6 +141,13 @@
                   <input onkeyup="limite_textarea(this.value, 'cr_12')" id="cr_txt_12" maxlength="2000" oninput="eylem(this, this.value)"  class="form-control input-md" name="status" type="text" required="false" value="<?php echo $status; ?>">
                 </div>
 
+                 <div class=" col-lg-6 form-group">
+                  <label for="status"><?= $this->lang->line('cr_status') ?> </label>
+                  <span class="cr_12">2000</span><?= $this->lang->line('character') ?>
+                  <a class="btn-sm btn-default" id="cr_tp_12" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cr_status_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <input onkeyup="limite_textarea(this.value, 'cr_12')" id="cr_txt_12" maxlength="2000" oninput="eylem(this, this.value)"  class="form-control input-md" name="status" type="text" required="false" value="<?php echo $status; ?>">
+                </div>
+
                 <div class="col-lg-3">
                   <label><?= $this->lang->line('cr_committee_date') ?></label>
                   <a class="btn-sm btn-default" id="cr_tp_13" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cr_committee_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -170,15 +177,14 @@
 	</div>
 </body>
 <script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
-
 <script type="text/javascript">
 	for (var i = 1; i <= 13; i++) {
 		if (document.getElementById("cr_tp_" + i).title == "") {
 			document.getElementById("cr_tp_" + i).hidden = true;
 		}
-		limite_textarea(document.getElementById("cr_txt_" + i).value, "cr_" + i);
+	
 	}
-
+	limite_textarea(document.getElementById("cr_txt_" + i).value, "cr_" + i);
 	function limite_textarea(valor, txt) {
 		var limite = 2000;
 		var caracteresDigitados = valor.length;

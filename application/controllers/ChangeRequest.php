@@ -76,7 +76,7 @@ class ChangeRequest extends CI_Controller
 		$change_request['comments'] = $this->input->post('comments');
 		$change_request['manager_opinion'] = $this->input->post('manager_opinion');
 		$change_request['committee_opinion'] = $this->input->post('committee_opinion');
-		$change_request['status'] = $this->input->post('status');
+		$change_request['cr_status'] = $this->input->post('status');
 		$change_request['committee_date'] = $this->input->post('committee_date');
 		$change_request['project_id'] = $project_id;
 

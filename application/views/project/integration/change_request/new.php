@@ -133,7 +133,7 @@
                   <label for="status"><?= $this->lang->line('cr_status') ?> </label>
                   <span class="cr_12">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" id="cr_tp_12" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cr_status_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                  <input onkeyup="limite_textarea(this.value, 'cr_12')" id="cr_txt_12" maxlength="2000" oninput="eylem(this, this.value)"  class="form-control input-md" name="status" type="text" required="false" value="<?php echo $status; ?>">
+                  <input onkeyup="limite_textarea(this.value, 'cr_12')" id="cr_txt_12" maxlength="2000" oninput="eylem(this, this.value)"  class="form-control input-md" name="status" type="text" required="false">
                 </div>
 
                 <div class="col-lg-3">
@@ -169,9 +169,9 @@
 		if (document.getElementById("cr_tp_" + i).title == "") {
 			document.getElementById("cr_tp_" + i).hidden = true;
 		}
-		limite_textarea(document.getElementById("cr_txt_" + i).value, "cr_" + i);
+	
 	}
-
+	limite_textarea(document.getElementById("cr_txt_" + i).value, "cr_" + i);
 	function limite_textarea(valor, txt) {
 		var limite = 2000;
 		var caracteresDigitados = valor.length;

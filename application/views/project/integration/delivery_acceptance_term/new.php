@@ -100,8 +100,9 @@
 		if (document.getElementById("ds_tp_" + i).title == "") {
 			document.getElementById("ds_tp_" + i).hidden = true;
 		}
-		limite_textarea(document.getElementById("ds_txt_" + i).value, "ds_" + i);
+		
 	}
+	limite_textarea(document.getElementById("ds_txt_" + i).value, "ds_" + i);
 
 	function limite_textarea(valor, txt) {
 		var limite = 2000;

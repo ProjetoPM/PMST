@@ -148,24 +148,9 @@
 		</div>
 	</div>
 </body>
-<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
-<script type="text/javascript">
-	for (var i = 1; i <= 9; i++) {
-		if (document.getElementById("llr_tp_" + i).title == "") {
-			document.getElementById("llr_tp_" + i).hidden = true;
-		}
-		limite_textarea(document.getElementById("llr_txt_" + i).value, "llr_" + i);
-	}
-
-	function limite_textarea(valor, txt) {
-		var limite = 2000;
-		var caracteresDigitados = valor.length;
-		var caracteresRestantes = limite - caracteresDigitados;
-		$("." + txt).text(caracteresRestantes);
-	}
-</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function testInput(event) {
 		var value = String.fromCharCode(event.which);
@@ -174,6 +159,19 @@
 	}
 
 	$('#name_text').bind('keypress', testInput);
+    for (var i = 1; i <= 9; i++) {
+		if (document.getElementById("llr_tp_" + i).title == "") {
+			document.getElementById("llr_tp_" + i).hidden = true;
+		}
+		
+	}
+    limite_textarea(document.getElementById("llr_txt_" + i).value, "llr_" + i);
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
 </script>
 
 
