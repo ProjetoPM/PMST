@@ -39,11 +39,11 @@
                             <form method="POST" action="<?php echo base_url('procurement/closed-procurement-documentation/insert/'); ?><?php echo $id; ?>">
 
                             <div class="col-lg-5 form-group">
-                                    <label for="name"><?= $this->lang->line('cpd_provider') ?> *</label>
+                                    <label for="provider"><?= $this->lang->line('cpd_provider') ?> *</label>
 									<span class="cpd_1">2000</span><?= $this->lang->line('character') ?>
                                     <a class="btn-sm btn-default" id="cpd_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_provider_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-									<input id="cpd_txt_1" type="text" name="name" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'cpd_1')" maxlength="2000" oninput="eylem(this, this.value)" required="true" >
+									<input id="cpd_txt_1" type="text" name="provider" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'cpd_1')" maxlength="2000" oninput="eylem(this, this.value)" required="true" >
 
                                     </div>
                                 </div>
