@@ -84,5 +84,6 @@ $lang['final-report'] = 'Final Report';
 
 // btn NOTIFICATION BOARD
 $lang['notification-board'] = 'NOTIFICATION BOARD';
+$lang['generate-overleaf'] = 'Generate Overleaf Project';
 
 ?>
