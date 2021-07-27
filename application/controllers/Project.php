@@ -270,6 +270,15 @@ class Project extends CI_Controller
 		//}
 		return $name;
 	}
+	public function getTitleById($project_id = null){
+    $this->db->where('title', $project_id);
+    $data['title'] = $this->db->get('title')->result();
+
+    foreach ($data['title']as $key => $value){
+	$name = $value->name;
+    }
+    return $name;
+	}
 
 	//retorna os projetos que o usuario foi convidado
 	public function returnInvitedProject()
