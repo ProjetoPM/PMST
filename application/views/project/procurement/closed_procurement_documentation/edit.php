@@ -71,7 +71,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-2 form-group">
+                                <div class="col-lg-3 form-group">
                                     <label for="closing_date"><?= $this->lang->line('cpd_closing_date') ?> *</label>
 
                                     <a class="btn-sm btn-default" id="cpd_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_closing_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
