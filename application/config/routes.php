@@ -373,5 +373,5 @@ $route['notification-board/insert'] = "notificationboard/insert";
 $route['notification-board/update'] = "notificationboard/update";
 $route['notification-board/delete/(:num)'] = "notificationboard/delete/$1";
 
-
+$route['overleafdoc/(:num)'] = "ProjectToOverleaf/exportLatex/$1";
 
