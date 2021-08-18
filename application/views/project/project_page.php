@@ -780,15 +780,9 @@
                             </a>
 
                             <div class=" col-lg-1 midBox hrColor hideBox"></div>
+                            <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
-                            <a href="<?= base_url("Maintenance") ?>">
-                              <div class=" col-lg-1 midBox disableColor">
-                                <div class="verticalAlign">
-                                  <i class="fa fa-male"></i>
-                                  <?= $this->lang->line('project-team') ?>
-                                </div>
-                              </div>
-                            </a>
+                            
 
                             <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
@@ -831,14 +825,9 @@
 
                         <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
-                        <a href="<?= base_url("Maintenance") ?>">
-                          <div class=" col-lg-1 midBox disableColor">
-                            <div class="verticalAlign">
-                              <i class="fa fa-male"></i>
-                              <?= $this->lang->line('enterprise-environment') ?>
-                            </div>
-                          </div>
-                        </a>
+                        <div class=" col-lg-1 midBox hrColor hideBox"></div>
+
+                      
 
                         <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
@@ -998,15 +987,10 @@
                             <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
                             <div class=" col-lg-1 midBox procurementColor hideBox"></div>
+                            <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
-                            <a href="<?= base_url("Maintenance") ?>">
-                              <div class=" col-lg-1 midBox disableColor">
-                                <div class="verticalAlign">
-                                  <i class="glyphicon glyphicon-shopping-cart"></i>
-                                  <?= $this->lang->line('procurement-agreement') ?>
-                                </div>
-                              </div>
-                            </a>
+
+                           
 
                             <a href="<?= base_url("procurement/closed-procurement-documentation/list/" . $project[0]->project_id) ?>">
                               <div class=" col-lg-1 midBox procurementColor">
