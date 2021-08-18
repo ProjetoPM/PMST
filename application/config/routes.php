@@ -77,22 +77,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-$route['default_controller'] = 'authentication';
-$route['authentication/register'] = 'authentication/register';
-$route['register'] = 'register/addUser';
-$route['projects'] = 'project/show_projects';
-$route['new'] = 'project/project_form';
+$route['default_controller'] = 'Authentication';
+$route['authentication/register'] = 'Authentication/register';
+$route['register'] = 'Register/addUser';
+$route['projects'] = 'Project/show_projects';
+$route['new'] = 'Project/project_form';
+$route['recover_password'] = 'Admin/reset_user_password';
+$route['register/update_password'] = 'Register/savePassword';
 
-$route['project/(:num)'] = 'project/initial/$1';
-$route['edit/(:num)'] = 'project/update/$1';
-$route['researcher/(:num)'] = 'project/add_researcher_page/$1';
-$route['delete/(:num)'] = 'project/delete/$1';
+$route['project/(:num)'] = 'Project/initial/$1';
+$route['edit/(:num)'] = 'Project/update/$1';
+$route['researcher/(:num)'] = 'Project/add_researcher_page/$1';
+$route['delete/(:num)'] = 'Project/delete/$1';
 
 
-$route['chat'] = 'chat/index';
+$route['chat'] = 'Chat/index';
 $route['view-all-notifications'] = 'LogActivity/index';
-$route['send-message'] = 'chat/send_text_message';
-$route['get-chat-history'] = 'chat/get_chat_history';
+$route['send-message'] = 'Chat/send_text_message';
+$route['get-chat-history'] = 'Chat/get_chat_history';
 $route['chat-clear'] = 'chatcontroller/chat_clear_client_cs';
 
 $route['myaccount'] = 'register/show_Edit_User';
@@ -121,50 +123,59 @@ $route['integration/project-mp/edit/(:num)'] = "ProjectManagementPlan/edit/$1";
 $route['integration/project-mp/insert'] = "ProjectManagementPlan/insert";
 $route['integration/project-mp/update'] = "ProjectManagementPlan/update";
 
-$route['integration/project-performance-report/new/(:num)'] = "projectperformancereport/new/$1";
-$route['integration/project-performance-report/edit/(:num)'] = "projectperformancereport/edit/$1";
-$route['integration/project-performance-report/list/(:num)'] = "projectperformancereport/list/$1";
-$route['integration/project-performance-report/insert/(:num)'] = "projectperformancereport/insert/$1";
-$route['integration/project-performance-report/update/(:num)'] = "projectperformancereport/update/$1";
-$route['integration/project-performance-report/delete/(:num)'] = "projectperformancereport/delete/$1";
+$route['integration/project-performance-report/new/(:num)'] = "ProjectPerformanceReport/new/$1";
+$route['integration/project-performance-report/edit/(:num)'] = "ProjectPerformanceReport/edit/$1";
+$route['integration/project-performance-report/list/(:num)'] = "ProjectPerformanceReport/list/$1";
+$route['integration/project-performance-report/insert/(:num)'] = "ProjectPerformanceReport/insert/$1";
+$route['integration/project-performance-report/update/(:num)'] = "ProjectPerformanceReport/update/$1";
+$route['integration/project-performance-report/delete/(:num)'] = "ProjectPerformanceReport/delete/$1";
 
-$route['integration/deliverable-status/new/(:num)'] = "deliverablestatus/new/$1";
-$route['integration/deliverable-status/edit/(:num)'] = "deliverablestatus/edit/$1";
-$route['integration/deliverable-status/list/(:num)'] = "deliverablestatus/list/$1";
-$route['integration/deliverable-status/insert/(:num)'] = "deliverablestatus/insert/$1";
-$route['integration/deliverable-status/update/(:num)'] = "deliverablestatus/update/$1";
-$route['integration/deliverable-status/delete/(:num)'] = "deliverablestatus/delete/$1";
+$route['integration/deliverable-status/new/(:num)'] = "DeliverableStatus/new/$1";
+$route['integration/deliverable-status/edit/(:num)'] = "DeliverableStatus/edit/$1";
+$route['integration/deliverable-status/list/(:num)'] = "DeliverableStatus/list/$1";
+$route['integration/deliverable-status/insert/(:num)'] = "DeliverableStatus/insert/$1";
+$route['integration/deliverable-status/update/(:num)'] = "DeliverableStatus/update/$1";
+$route['integration/deliverable-status/delete/(:num)'] = "DeliverableStatus/delete/$1";
 
-$route['integration/work-performance-reports/new/(:num)'] = "workperformancereports/new/$1";
-$route['integration/work-performance-reports/edit/(:num)'] = "workperformancereports/edit/$1";
-$route['integration/work-performance-reports/list/(:num)'] = "workperformancereports/list/$1";
-$route['integration/work-performance-reports/insert/(:num)'] = "workperformancereports/insert/$1";
-$route['integration/work-performance-reports/update/(:num)'] = "workperformancereports/update/$1";
-$route['integration/work-performance-reports/delete/(:num)'] = "workperformancereports/delete/$1";
+$route['integration/work-performance-reports/new/(:num)'] = "WorkPerformanceReports/new/$1";
+$route['integration/work-performance-reports/edit/(:num)'] = "WorkPerformanceReports/edit/$1";
+$route['integration/work-performance-reports/list/(:num)'] = "WorkPerformanceReports/list/$1";
+$route['integration/work-performance-reports/insert/(:num)'] = "WorkPerformanceReports/insert/$1";
+$route['integration/work-performance-reports/update/(:num)'] = "WorkPerformanceReports/update/$1";
+$route['integration/work-performance-reports/delete/(:num)'] = "WorkPerformanceReports/delete/$1";
 
-$route['integration/issue-log/new/(:num)'] = "issuelog/new/$1";
-$route['integration/issue-log/edit/(:num)'] = "issuelog/edit/$1";
-$route['integration/issue-log/list/(:num)'] = "issuelog/list/$1";
-$route['integration/issue-log/insert/(:num)'] = "issuelog/insert/$1";
-$route['integration/issue-log/update/(:num)'] = "issuelog/update/$1";
-$route['integration/issue-log/delete/(:num)'] = "issuelog/delete/$1";
 
-$route['integration/change-request/new/(:num)'] = "changerequest/new/$1";
-$route['integration/change-request/edit/(:num)'] = "changerequest/edit/$1";
-$route['integration/change-request/list/(:num)'] = "changerequest/list/$1";
-$route['integration/change-request/insert/(:num)'] = "changerequest/insert/$1";
-$route['integration/change-request/update/(:num)'] = "changerequest/update/$1";
-$route['integration/change-request/delete/(:num)'] = "changerequest/delete/$1";
 
-$route['integration/change-log/new/(:num)'] = "changelog/new/$1";
-$route['integration/change-log/edit/(:num)'] = "changelog/edit/$1";
-$route['integration/change-log/list/(:num)'] = "changelog/list/$1";
-$route['integration/change-log/insert'] = "changelog/insert";
-$route['integration/change-log/update'] = "changelog/update";
-$route['integration/change-log/delete/(:num)'] = "changelog/delete/$1";
+$route['quality/quality-reports/new/(:num)'] = "QualityReports/new/$1";
+$route['quality/quality-reports/edit/(:num)'] = "QualityReports/edit/$1";
+$route['quality/quality-reports/list/(:num)'] = "QualityReports/list/$1";
+$route['quality/quality-reports/insert/(:num)'] = "QualityReports/insert/$1";
+$route['quality/quality-reports/update/(:num)'] = "QualityReports/update/$1";
+$route['quality/quality-reports/delete/(:num)'] = "QualityReports/delete/$1";
 
-$route['integration/project-closure/new/(:num)'] = "projectclosure/new/$1";
-$route['integration/project-closure/edit/(:num)'] = "projectclosure/edit/$1";
+$route['integration/issue-log/new/(:num)'] = "IssueLog/new/$1";
+$route['integration/issue-log/edit/(:num)'] = "IssueLog/edit/$1";
+$route['integration/issue-log/list/(:num)'] = "IssueLog/list/$1";
+$route['integration/issue-log/insert'] = "IssueLog/insert";
+$route['integration/issue-log/update/(:num)'] = "IssueLog/update/$1";
+$route['integration/issue-log/delete/(:num)'] = "IssueLog/delete/$1";
+
+$route['integration/change-request/new/(:num)'] = "ChangeRequest/new/$1";
+$route['integration/change-request/edit/(:num)'] = "ChangeRequest/edit/$1";
+$route['integration/change-request/list/(:num)'] = "ChangeRequest/list/$1";
+$route['integration/change-request/insert/(:num)'] = "ChangeRequest/insert/$1";
+$route['integration/change-request/update/(:num)'] = "ChangeRequest/update/$1";
+$route['integration/change-request/delete/(:num)'] = "ChangeRequest/delete/$1";
+
+$route['integration/change-log/new/(:num)'] = "ChangeLog/new/$1";
+$route['integration/change-log/edit/(:num)'] = "ChangeLog/edit/$1";
+$route['integration/change-log/list/(:num)'] = "ChangeLog/list/$1";
+$route['integration/change-log/insert'] = "ChangeLog/insert";
+$route['integration/change-log/update'] = "ChangeLog/update";
+$route['integration/change-log/delete/(:num)'] = "ChangeLog/delete/$1";
+
+$route['integration/project-closure/new/(:num)'] = "ProjectClosure/new/$1";
+$route['integration/project-closure/edit/(:num)'] = "ProjectClosure/edit/$1";
 $route['integration/project-closure/insert/(:num)'] = "projectclosure/insert/$1";
 $route['integration/project-closure/update/(:num)'] = "projectclosure/update/$1";
 
@@ -205,7 +216,7 @@ $route['scope/project-scope-statement/update'] = "ProjectScopeStatement/update";
 $route['scope/work-breakdown-structure/new/(:num)'] = "Wbs/new/$1";
 $route['scope/work-breakdown-structure/edit/(:num)'] = "Wbs/edit/$1";
 $route['scope/work-breakdown-structure/insert/(:num)'] = "Wbs/insert/$1";
-$route['scope/work-breakdown-structure/udpate/(:num)'] = "Wbs/update/$1";
+$route['scope/work-breakdown-structure/update/(:num)'] = "Wbs/update/$1";
 
 $route['schedule/schedule-mp/new/(:num)'] = "ScheduleManagementPlan/new/$1";
 $route['schedule/schedule-mp/edit/(:num)'] = "ScheduleManagementPlan/edit/$1";
@@ -218,6 +229,19 @@ $route['schedule/activity-list/list/(:num)'] = "ActivityList/list/$1";
 $route['schedule/activity-list/insert/(:num)'] = "ActivityList/insert/$1";
 $route['schedule/activity-list/update/(:num)'] = "ActivityList/update/$1";
 $route['schedule/activity-list/delete/(:num)'] = "ActivityList/delete/$1";
+
+$route['schedule/activity-list/milestone/insert'] = "ActivityList/insertMilestone";
+$route['schedule/activity-list/milestone/delete/(:num)'] = "ActivityList/deleteMilestone/$1";
+
+$route['schedule/activity-list/project-phase/insert']= "ActivityList/insertPhase";
+$route['schedule/activity-list/project-phase/delete/(:num)']= "ActivityList/deletePhase/$1";
+
+$route['procurement/closed-procurement-documentation/new/(:num)'] = "ClosedProcurementDocumentation/new/$1";
+$route['procurement/closed-procurement-documentation/edit/(:num)'] = "ClosedProcurementDocumentation/edit/$1";
+$route['procurement/closed-procurement-documentation/list/(:num)'] = "ClosedProcurementDocumentation/list/$1";
+$route['procurement/closed-procurement-documentation/insert/(:num)'] = "ClosedProcurementDocumentation/insert/$1";
+$route['procurement/closed-procurement-documentation/update/(:num)'] = "ClosedProcurementDocumentation/update/$1";
+$route['procurement/closed-procurement-documentation/delete/(:num)'] = "ClosedProcurementDocumentation/delete/$1";
 
 $route['schedule/earned-value-management/new/(:num)'] = "EVM/new/$1";
 $route['schedule/earned-value-management/edit/(:num)'] = "EVM/edit/$1";
@@ -242,8 +266,9 @@ $route['schedule/resource-requirements/delete/(:num)'] = "ResourceRequirements/d
 
 $route['schedule/duration-estimates/new/(:num)'] = "DurationEstimates/new/$1";
 $route['schedule/duration-estimates/edit/(:num)'] = "DurationEstimates/edit/$1";
+$route['schedule/duration-estimates/read/(:num)'] = "DurationEstimates/read/$1";
 $route['schedule/duration-estimates/list/(:num)'] = "DurationEstimates/list/$1";
-$route['schedule/duration-estimates/insert/(:num)'] = "DurationEstimates/insert/$1";
+$route['schedule/duration-estimates/insert'] = "DurationEstimates/insert";
 $route['schedule/duration-estimates/update/(:num)'] = "DurationEstimates/update/$1";
 $route['schedule/duration-estimates/delete/(:num)'] = "DurationEstimates/delete/$1";
 
@@ -275,6 +300,13 @@ $route['quality/quality-mp/edit/(:num)'] = "QualityManagementPlan/edit/$1";
 $route['quality/quality-mp/insert'] = "QualityManagementPlan/insert";
 $route['quality/quality-mp/update'] = "QualityManagementPlan/update";
 
+$route['quality/quality-checklist/new/(:num)'] ="QualityChecklist/new/$1";
+$route['quality/quality-checklist/edit/(:num)'] ="QualityChecklist/edit/$1";
+$route['quality/quality-checklist/list/(:num)'] ="QualityChecklist/list/$1";
+$route['quality/quality-checklist/update/(:num)'] ="QualityChecklist/update/$1";
+$route['quality/quality-checklist/insert/(:num)'] ="QualityChecklist/insert/$1";
+$route['quality/quality-checklist/delete/(:num)'] ="QualityChecklist/delete/$1";
+
 
 
 $route['resources/resource-mp/new/(:num)'] = "ResourceManagementPlan/new/$1";
@@ -287,12 +319,12 @@ $route['resources/resource-breakdown-structure/edit/(:num)'] = "ResourceBreakdow
 $route['resources/resource-breakdown-structure/insert/(:num)'] = "ResourceBreakdownStructure/insert/$1";
 $route['resources/resource-breakdown-structure/update/(:num)'] = "ResourceBreakdownStructure/update/$1";
 
-$route['resources/team-performance-assessments/new/(:num)'] = "teamperformanceassessments/new/$1";
-$route['resources/team-performance-assessments/edit/(:num)'] = "teamperformanceassessments/edit/$1";
-$route['resources/team-performance-assessments/list/(:num)'] = "teamperformanceassessments/list/$1";
-$route['resources/team-performance-assessments/insert/(:num)'] = "teamperformanceassessments/insert/$1";
-$route['resources/team-performance-assessments/udpate/(:num)'] = "teamperformanceassessments/update/$1";
-$route['resources/team-performance-assessments/delete/(:num)'] = "teamperformanceassessments/delete/$1";
+$route['resources/team-performance-assessments/new/(:num)'] = "TeamPerformanceAssessments/new/$1";
+$route['resources/team-performance-assessments/edit/(:num)'] = "TeamPerformanceAssessments/edit/$1";
+$route['resources/team-performance-assessments/list/(:num)'] = "TeamPerformanceAssessments/list/$1";
+$route['resources/team-performance-assessments/insert/(:num)'] = "TeamPerformanceAssessments/insert/$1";
+$route['resources/team-performance-assessments/update/(:num)'] = "TeamPerformanceAssessments/update/$1";
+$route['resources/team-performance-assessments/delete/(:num)'] = "TeamPerformanceAssessments/delete/$1";
 
 
 
@@ -317,10 +349,8 @@ $route['risk/risk-register/insert/(:num)'] = "RiskRegister/insert/$1";
 $route['risk/risk-register/update/(:num)'] = "RiskRegister/update/$1";
 $route['risk/risk-register/delete/(:num)'] = "RiskRegister/delete/$1";
 
-// $route['risk/risk-checklist/new/(:num)'] = "riskchecklist/new/$1";
-$route['risk/risk-checklist/edit/(:num)'] = "riskchecklist/edit/$1";
-$route['risk/risk-checklist/insert/(:num)'] = "riskchecklist/insert/$1";
-
+$route['risk/risk-checklist/edit/(:num)'] = "RiskChecklist/edit/$1";
+$route['risk/risk-checklist/insert/(:num)'] = "RiskChecklist/insert/$1";
 
 $route['procurement/procurement-mp/new/(:num)'] = "ProcurementManagementPlan/new/$1";
 $route['procurement/procurement-mp/edit/(:num)'] = "ProcurementManagementPlan/edit/$1";
@@ -366,12 +396,9 @@ $route['stakeholder/stakeholder-engagement-plan/update/(:num)'] = "StakeholderEn
 $route['stakeholder/stakeholder-engagement-plan/delete/(:num)'] = "StakeholderEngagementPlan/delete/$1";
 
 
-$route['notification-board/new/(:num)'] = "notificationboard/new/$1";
-$route['notification-board/edit/(:num)'] = "notificationboard/edit/$1";
-$route['notification-board/list/(:num)'] = "notificationboard/list/$1";
-$route['notification-board/insert'] = "notificationboard/insert";
-$route['notification-board/update'] = "notificationboard/update";
-$route['notification-board/delete/(:num)'] = "notificationboard/delete/$1";
-
-
-
+$route['notification-board/new/(:num)'] = "NotificationBoard/new/$1";
+$route['notification-board/edit/(:num)'] = "NotificationBoard/edit/$1";
+$route['notification-board/list/(:num)'] = "NotificationBoard/list/$1";
+$route['notification-board/insert'] = "NotificationBoard/insert";
+$route['notification-board/update'] = "NotificationBoard/update";
+$route['notification-board/delete/(:num)'] = "NotificationBoard/delete/$1";

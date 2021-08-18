@@ -78,7 +78,7 @@
 								<form method="POST" action="<?php echo base_url('integration/project-charter/update'); ?>">
 									<input type="hidden" name="status" value="1">
 
-									<div class=" col-lg-12 form-group">
+									<div class=" col-lg-6 form-group">
 										<label for="project_description"><?= $this->lang->line('pch_description') ?></label>
 										<span class="pch_1">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id="pch_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -87,6 +87,32 @@
 										</div>
 									</div>
 
+                                        <!-- Inicio teste datas -->
+                                        <div class="form-group">
+										<div class="col-lg-3">
+											<label><?= $this->lang->line('pch_start') ?></label>
+											<div class="input-group padCalendar">
+												<div class="input-group-addon">
+													<i class="fa fa-calendar"></i>
+												</div>
+												<input class="form-control" id="start_date" autocomplete="off" placeholder="YYYY/MM/DD" type="date" name="start_date" required="true" value="<?php echo $pj->start_date; ?>" />
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-lg-3">
+											<label><?= $this->lang->line('pch_end') ?></label>
+											<div class="input-group padCalendar">
+												<div class="input-group-addon">
+													<i class="fa fa-calendar"></i>
+												</div>
+												<input class="form-control" id="end_date" autocomplete="off" placeholder="YYYY/MM/DD" type="date" name="end_date" required="true" value="<?php echo $pj->end_date; ?>" />
+											</div>
+										</div>
+									</div>
+									<!-- Fim teste Datas -->
+									
 									<div class=" col-lg-12 form-group">
 										<label for="project_purpose"><?= $this->lang->line('pch_purpose') ?></label>
 										<a class="btn-sm btn-default" id="pch_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_purpose_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -187,31 +213,7 @@
 										</div>
 									</div>
 
-									<!-- Inicio teste datas -->
-									<div class="form-group">
-										<div class="col-lg-3">
-											<label><?= $this->lang->line('pch_start') ?></label>
-											<div class="input-group padCalendar">
-												<div class="input-group-addon">
-													<i class="fa fa-calendar"></i>
-												</div>
-												<input class="form-control" id="start_date" autocomplete="off" placeholder="YYYY/MM/DD" type="date" name="start_date" required="true" value="<?php echo $pj->start_date; ?>" />
-											</div>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<div class="col-lg-3">
-											<label><?= $this->lang->line('pch_end') ?></label>
-											<div class="input-group">
-												<div class="input-group-addon">
-													<i class="fa fa-calendar"></i>
-												</div>
-												<input class="form-control" id="end_date" autocomplete="off" placeholder="YYYY/MM/DD" type="date" name="end_date" required="true" value="<?php echo $pj->end_date; ?>" />
-											</div>
-										</div>
-									</div>
-									<!-- Fim teste Datas -->
+									
 
 
 									<!-- Início modal da lista de stakeholder -->

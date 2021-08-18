@@ -4,27 +4,41 @@ if (!defined('BASEPATH')) {
 }
 class Register extends CI_Controller
 {
+
+    public function __Construct()
+    {
+        parent::__Construct();
+       
+        $this->load->model('Admin_model');
+    }
+
     public function addUser()
     {
-        $user['name']           = $this->input->post('name');
-        $user['email']          = $this->input->post('email');
-        $user['password']       = $this->input->post('password');
-        $user['institution']       = $this->input->post('institution');
-        $user['role']           = $this->input->post('role');
+        if($this->Admin_model->getUserByEmail($this->input->post('email')) != null){
+            $this->session->set_flashdata('flashError', 'User ' . $this->input->post('email') . '`s already created!');
+            redirect(site_url());
+        }
+        $user['name'] = $this->input->post('name');
+        $user['email'] = $this->input->post('email');
+        $user['password'] = md5($this->input->post('password'));
+        $user['institution'] = $this->input->post('institution');
+        $user['role'] = 'user';
+        $user['created_at'] = date('Y\-m\-d\ H:i:s A');
+
         $this->load->model('user_register');
         $this->user_register->insert_user($user);
-
-            redirect(site_url(), 'refresh');
+        $this->session->set_flashdata('flashCreated', 'User ' . $user['email'] . '`s password has been successfully created!');
+            redirect(site_url());
     }
     
-    public function c_recover_password(){
+    // public function c_recover_password(){
 
-        $user['email'] = $this->input->post('email');
-        $this->load->model('user_register');
-        $this->user_register->model_recover_password($user);
+    //     $user['email'] = $this->input->post('email');
+    //     $this->load->model('user_register');
+    //     $this->user_register->model_recover_password($user);
         
-        //var_dump($user['email']);
-    }
+    //     //var_dump($user['email']);
+    // }
 
     public function show_Edit_User($project_id = null)
     {
@@ -54,9 +68,19 @@ class Register extends CI_Controller
         $postData = $this->input->post();
         $this->db->where('user_id', $postData['user_id']);
         $_SESSION['name'] = $postData['name'];
-        if ($this->db->update('user', $postData)) {
-            $this->session->set_flashdata('userUpdate', 'User ' . $postData['name'] . ' has been updated created!');            
-        }
-        redirect(base_url());
+        $this->db->update('user', $postData);
+        $this->session->set_flashdata('success', 'User ' . $postData['name'] . ' has been updated!');   
+        redirect('project/show_projects');
+    }
+
+    public function savePassword()
+    {
+        $postData['user_id'] = $this->input->post('user_id');
+        $postData['password'] = md5($this->input->post('password'));
+        $this->db->where('user_id', $postData['user_id']);
+        $this->db->update('user', $postData);
+        $this->session->set_flashdata('success', 'Password has been updated!');
+        
+        redirect('project/show_projects');
     }
 }

@@ -1,3 +1,4 @@
+
 <style>
 	.multiselect-wrapper .multiselect-input {
 		width: 100%;
@@ -80,82 +81,7 @@ foreach ($responsabilityByCommunication as $respV) {
 
 
 <script type="text/javascript">
-	// $form1.find('input[type=submit]').click();
-	// document.getElementById('formResp_<?php echo $communication_responsability_id ?>').addEventListener('change', function() {
-	// 	this.form.submit();
-	// });
-	// function submeter() {
-	// 	$('#submit1').click();
-	// 	console.log($stakeholder);
-	// }
 
-	// jQuery("#responsability_id_<?php echo $communication_responsability_id ?>_<?php echo $communication_item_id; ?>").change(function() {
-	// // 	// Aqui você tem o value selecionado assim que o usuário muda o option
-
-	// 	alert("dwqdq");
-
-
-	// });
-
-	// $("select").on("change", function() {
-	// 	// var valor = $(this).val(); // aqui vc pega cada valor selecionado com o this
-	// 	// alert("evento disparado e o valor é: " + valor);
-	// 	alert("dwqdq");
-	// })
-
-	// var form1 = document.getElementById("responsability_id_<?php echo $communication_responsability_id ?>_<?php echo $communication_item_id; ?>");
-	// form1.addEventListener('change', function() {
-	// 	alert("dwqdq");
-	// 	// e.preventDefault(e);
-
-	// 	// var form_data = $(this).serialize();
-	// 	// var form_url = $(this).attr("action");
-	// 	// var form_method = $(this).attr("method").toUpperCase();
-	// 	// alert(form_data);
-	// 	// alert(form_url);
-	// 	// alert(form_method);
-
-	// 	// alertify.success('item saved successfully');
-	// 	// $.ajax({
-	// 	// 	url: form_url,
-	// 	// 	type: form_method,
-	// 	// 	data: form_data,
-	// 	// 	cache: false,
-	// 	// 	success: function(returnhtml) {
-	// 	// 		// $responsabilityByValue.html(returnhtml);
-
-	// 	// 	}
-
-	// 	// });
-
-	// });
-
-	// function save_item(e) {
-	// 	e.preventDefault();
-
-	// 	var form_data = $(this).serialize();
-	// 	var form_url = $(this).attr("action");
-	// 	var form_method = $(this).attr("method").toUpperCase();
-	// 	alert(form_data);
-	// 	alert(form_url);
-	// 	alert(form_method);
-
-
-
-	// 	alertify.success('item saved successfully');
-
-	// 	$.ajax({
-	// 		url: form_url,
-	// 		type: form_method,
-	// 		data: form_data,
-	// 		cache: false,
-	// 		success: function(returnhtml) {
-	// 			$responsabilityByValue.html(returnhtml);
-
-	// 		}
-
-	// 	});
-	// }
 	var form = document.getElementById('formResp_<?php echo $communication_responsability_id ?>_<?php echo $communication_item_id; ?>');
 	form.addEventListener('submit', function(e) {
 		e.preventDefault();
@@ -182,3 +108,4 @@ foreach ($responsabilityByCommunication as $respV) {
 
 	});
 </script>
+

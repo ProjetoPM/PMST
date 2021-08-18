@@ -20,6 +20,8 @@ class ProjectCalendars extends CI_Controller
 		$this->lang->load('btn', 'english');
 		// $this->lang->load('btn','portuguese-brazilian');
 		$this->lang->load('calendars', 'english');
+		$this->load->model('Stakeholder_model');
+		$query['stakeholders'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
 
 		// $this->lang->load('manage-cost','portuguese-brazilian');
 
@@ -39,9 +41,12 @@ class ProjectCalendars extends CI_Controller
 
 	public function edit($project_id)
 	{
+		$query['activities'] = $this->Activity_model->getAll($_SESSION['project_id']);
+		$query['stakeholders'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
 		$query['activity'] = $this->Activity_model->get($project_id);
 
 		$this->load->view('frame/header_view.php');
+		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view.php');
 		$this->load->view('project/schedule/resource_calendar/edit', $query);
 	}
@@ -62,7 +67,7 @@ class ProjectCalendars extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('update', 'project calendars');
-			$this->session->set_flashdata('success', 'project Calendars has been successfully changed!');
+			$this->session->set_flashdata('success', 'Project Calendars has been successfully changed!');
 			redirect('schedule/project-calendars/list/' . $activity['project_id']);
 		}
 	}

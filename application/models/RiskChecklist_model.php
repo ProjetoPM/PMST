@@ -60,27 +60,21 @@ class RiskChecklist_model extends CI_Model
 		$result = array();
 		$this->db->delete('risk_checklist', array('project_id' => $project_id));
 		if ($risk_checklist != null) {
-			// count($_POST['pass_type'])
-			
-			for ($j = 0; $j < count($risk_checklist)/5; $j++) {
-				// var_dump($_POST['aspects'][$j]);
-				// die;
-				// exit;
-				for($i = 0; $i < count($_POST['aspects']); $i++){
-				$result[] = array(
-					'aspects'=> $_POST['aspects'][$i],
-					'weight'=> $_POST['weight'][$i],
-					'level'=> $_POST['level'][$i],
-					'project_id' => $project_id,
-					'score' => $_POST['score'][$i],
-					'comments' => $_POST['comments'][$i],
-				);
-			}
-			
+
+			for ($j = 0; $j < count($risk_checklist) / 5; $j++) {
+				for ($i = 0; $i < count($_POST['aspects']); $i++) {
+					$result[] = array(
+						'aspects' => $_POST['aspects'][$i],
+						'weight' => $_POST['weight'][$i],
+						'level' => $_POST['level'][$i],
+						'project_id' => $project_id,
+						'score' => $_POST['score'][$i],
+						'comments' => $_POST['comments'][$i],
+					);
+				}
 			}
 			//MULTIPLE INSERT TO DETAIL TABLE
 			$this->db->insert_batch('risk_checklist', $result);
-			
 		}
 		$this->db->trans_complete();
 		return $result;
@@ -89,7 +83,7 @@ class RiskChecklist_model extends CI_Model
 	function templateRiskCheckList($project_id)
 	{
 		$this->db->trans_start();
-	
+
 		$data = array(
 			array(
 				'aspects' => 'Os objetivos do projeto foram validados com o cliente?',
@@ -153,11 +147,10 @@ class RiskChecklist_model extends CI_Model
 			),
 		);
 
-			//MULTIPLE INSERT TO DETAIL TABLE
+		//MULTIPLE INSERT TO DETAIL TABLE
 		$this->db->insert_batch('risk_checklist', $data);
-		
+
 		$this->db->trans_complete();
-		
 	}
 
 	public function getCommunication_stakeholder_item_id($project_id)

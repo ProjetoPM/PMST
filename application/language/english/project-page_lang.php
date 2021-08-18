@@ -38,6 +38,7 @@ $lang['cost-management'] = 'Cost Management Plan';
 $lang['activity-cost'] = 'Cost Estimates';
 $lang['quantitative_risk_analysis'] = 'Quantitative Risk Analysis';
 $lang['quality-management'] = 'Quality Management Plan';
+$lang['quality_reports'] = 'Quality Reports';
 $lang['process-quality'] = 'Process Quality Checklists';
 $lang['hr-management'] = 'Resource Management Plan';
 $lang['communication-management'] = 'Commun. Management Plan';
@@ -84,5 +85,6 @@ $lang['final-report'] = 'Final Report';
 
 // btn NOTIFICATION BOARD
 $lang['notification-board'] = 'NOTIFICATION BOARD';
+
 
 ?>

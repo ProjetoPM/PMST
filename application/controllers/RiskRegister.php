@@ -58,6 +58,7 @@ class RiskRegister extends CI_Controller
 
 		$query['risk_register'] = $this->Risk_model->get($risk_register_id);
 		$this->load->view('frame/header_view.php');
+		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view.php');
 		$this->load->view('project/risk/risk_register/edit', $query);
 	}

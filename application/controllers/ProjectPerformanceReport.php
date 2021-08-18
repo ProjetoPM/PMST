@@ -96,6 +96,7 @@ class ProjectPerformanceReport extends CI_Controller
 
         if ($query) {
             insertLogActivity('update', 'project performance and monitoring report');
+            $this->session->set_flashdata('success', 'Project Performance and Monitoring Report has been successfully changed!');
             redirect('integration/project-performance-report/list/' . $project_performance_report['project_id']);
         }
     }
@@ -121,6 +122,7 @@ class ProjectPerformanceReport extends CI_Controller
 
         if ($query) {
             insertLogActivity('insert', 'project performance and monitoring report');
+            $this->session->set_flashdata('success', 'Project Performance and Monitoring Report has been successfully created!');
             redirect('integration/project-performance-report/list/' . $project_performance_report['project_id']);
         }
     }

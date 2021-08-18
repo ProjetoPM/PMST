@@ -88,7 +88,7 @@
                   </button>
                </div>
                <div class="modal-body">
-                  <form role="form" method="post" onsubmit="return checkEmptyInput();" action="<?=base_url()?>register/c_recover_password">
+                  <form role="form" method="post" onsubmit="return checkEmptyInput();" action="<?=base_url()?>recover_password">
                      <fieldset>
                         <div class="form-group">
                            <input class="form-control" id="email" placeholder="E-mail" name="email" type="email" value="" autofocus>

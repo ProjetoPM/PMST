@@ -50,10 +50,10 @@
 										<thead>
 											<tr>
 												<th class="text-center">#</th>
-												<th><?= $this->lang->line('ir-responsable') ?></th>
-												<th><?= $this->lang->line('ir-identification_date') ?></th>
-												<th><?= $this->lang->line('ir-question_description') ?></th>
-												<th><?= $this->lang->line('ir-situation') ?></th>
+												<th><?= $this->lang->line('ir_responsable') ?></th>
+												<th><?= $this->lang->line('ir_identification_date') ?></th>
+												<th><?= $this->lang->line('ir_question_description') ?></th>
+												<th><?= $this->lang->line('ir_situation') ?></th>
 
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
@@ -93,11 +93,11 @@
 										</tbody>
 									</table>
 
-									<div class="col-lg-12">
+									
 										<form action="<?php echo base_url('project/'); ?><?php echo $_SESSION['project_id']; ?>">
 											<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 										</form>
-									</div>
+									
 								</div>
 							</div>
 						</div>
@@ -203,11 +203,11 @@
 	function format(dados) {
 		return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
 			'<tr>' +
-			'<td><b><?= $this->lang->line('ir-resolution_date') ?></b> </td>' +
+			'<td><b><?= $this->lang->line('ir_resolution_date') ?></b> </td>' +
 			'<td>' + dados.resolution_date + '</td>' +
 			'</tr>' +
 			'<tr>' +
-			'<td><b><?= $this->lang->line('ir-replan_date') ?></b></td>' +
+			'<td><b><?= $this->lang->line('ir_replan_date') ?></b></td>' +
 			'<td>' + dados.replan_date + '</td>' +
 			'</tr>' +
 			'</table>';

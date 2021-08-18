@@ -74,13 +74,12 @@
 
 									<div class=" col-lg-4 form-group">
 										<label for="resource_type"><?= $this->lang->line('rr_resource_type') ?></label>
+										<span class="rr_4">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id="rr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rr_resource_type_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<input id="resource_type" name="resource_type" class="form-control input-md" value="<?php echo $resource_type; ?>">
+										<input id="rr_txt_4" type="text" name="resource_type" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rr_4')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value="<?php echo $resource_type; ?>">
 										</div>
 									</div>
-
-
 
 									<div class="col-lg-12">
 										<button id="activity-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
@@ -98,12 +97,20 @@
 		</div>
 	</div>
 </body>
-<script>
-for (var i = 1; i <= 5; i++) {
-		if (document.getElementById("rr_tp_"+i).title == "") {
-			document.getElementById("rr_tp_"+i).hidden = true;
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+	for (var i = 1; i <= 4; i++) {
+		if (document.getElementById("rr_tp_" + i).title == "") {
+			document.getElementById("rr_tp_" + i).hidden = true;
 		}
-		
+		limite_textarea(document.getElementById("rr_txt_" + i).value, "rr_" + i);
 	}
-	</script>
+
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+  </script>
 <?php $this->load->view('frame/footer_view') ?>

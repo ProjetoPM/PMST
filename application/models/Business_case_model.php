@@ -5,15 +5,7 @@
 			$this->load->database();
 		}
 
-		function insert($postData){
-			$data = array(
-				'business_deals' => $postData['business_deals'],
-				'situation_analysis' => $postData['situation_analysis'],
-				'recommendation' => $postData['recommendation'],
-				'evaluation' => $postData['evaluation'],
-				'project_id' => $postData['project_id'],
-			);
-
+		function insert($data){
 			return $this->db->insert('business_case', $data);
 		}
 		public function get($project_id){

@@ -47,9 +47,9 @@
 									<table class="table table-bordered table-striped" id="tableNB">
 										<thead>
 											<tr>
-												<th><?= $this->lang->line('validator_name') ?></th>
-												<th><?= $this->lang->line('validation_date') ?></th>
-												<th><?= $this->lang->line('comments') ?></th>
+												<th><?= $this->lang->line('ds_validator_name') ?></th>
+												<th><?= $this->lang->line('ds_validation_date') ?></th>
+												<th><?= $this->lang->line('ds_comments') ?></th>
 
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
@@ -59,7 +59,7 @@
 											foreach ($delivery_acceptance_term as $delivery) {
 											?>
 												<tr dados='<?= json_encode($delivery); ?>'>
-													<td><?php echo $delivery->validator_name; ?></td>
+													<td><?php echo getStakeholderName($delivery->validator_name) ?></td>
 													<td><?php echo $delivery->validation_date; ?></td>
 													<td><?php echo $delivery->comments; ?></td>
 

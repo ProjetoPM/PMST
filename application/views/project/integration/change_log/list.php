@@ -22,73 +22,76 @@
 						<strong><?php echo $this->session->flashdata('error'); ?></strong>
 					</div>
 				<?php endif; ?>
-
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="panel-body">
 							<h1 class="page-header">
-								<?= $this->lang->line('cl_title')  ?>
-							</h1>
 
-							<div class="row">
-								<div class="col-lg-12">
-									<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>integration/change-log/new/<?php echo $project_id ?>'"> <?= $this->lang->line('btn-new') ?> <?= $this->lang->line('cl_new') ?></button>
-								</div>
-							</div>
+							Change log
+
+							</h1>
 
 							<br><br>
 							<div class="row">
 								<div class="col-lg-12">
 
-									<table class="table table-bordered table-striped" id="tableChange">
+									<table class="table table-bordered table-striped" id="tableNB">
 										<thead>
 											<tr>
 												<th class="text-center">#</th>
-												<th><?= $this->lang->line('cl_requester') ?></th>
-												<th><?= $this->lang->line('cl_request_date') ?></th>
-												<th><?= $this->lang->line('cl_change_description') ?></th>
-												<th><?= $this->lang->line('cl_situation') ?></th>
-
+												<th>Id.</th>
+												<th><?= $this->lang->line('cr_requester') ?></th>
+												<th><?= $this->lang->line('cr_request_date') ?></th>
+												<th><?= $this->lang->line('cr_type') ?></th>
+												<th><?= $this->lang->line('cr_status') ?></th>
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
 										</thead>
 										<tbody>
+
 											<?php
-											foreach ($change_log as $change) {
+											foreach ($change_request as $change_request) {
+												if ($change_request->log != 0) {
 											?>
-												<tr dados='<?= json_encode($change); ?>'>
-													<td class="moreInformationTable"></td>
-													<td><?php echo $change->requester; ?></td>
-													<td><?php echo $change->request_date; ?></td>
-													<td><?php echo $change->change_description; ?></td>
-													<td><?php echo $change->situation; ?></td>
+
+													<tr dados='<?= json_encode($change_request); ?>'>
+														<td class="moreInformationTable"></td>
+														<td><?php echo $change_request->number_id; ?></td>
+														<td><?php echo $change_request->requester; ?></td>
+														<td><?php echo $change_request->request_date; ?></td>
+														<td><?php echo $change_request->type; ?></td>
+														<td><?php echo $change_request->status; ?></td>
 
 
-													<td>
-														<div class="row center">
-															<div class="col-sm-4">
-																<form action="<?php echo base_url() ?>integration/change-log/edit/<?php echo $change->change_log_id; ?>" method="post">
-																	<input type="hidden" name="project_id" value="<?= $change->project_id ?>">
-																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
-																</form>
+														<td>
+															<div class="row center">
+																<div class="col-sm-3">
+																	<form action="<?php echo base_url() ?>integration/change-log/edit/<?php echo $change_request->id; ?>" method="post">
+																		<input type="hidden" name="project_id" value="<?= $change_request->project_id ?>">
+																		<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
+																	</form>
+																</div>
+
+
+													
+
+																<div class="col-sm-3">
+																	<form target="_blank" action="<?php echo base_url() ?>ChangeRequest_PDF/pdfGenerator/<?php echo $change_request->id; ?>" method="post">
+																		<input type="hidden" name="project_id" value="<?= $project_id ?>">
+																		<button type="submit" class="btn btn-success"><em class="glyphicon glyphicon-file"></em> to PDF<span class="hidden-xs"></span></button>
+																	</form>
+																</div>
 															</div>
-
-
-															<div class="col-sm-4">
-																<form action="<?php echo base_url() ?>integration/change-log/delete/<?php echo $change->change_log_id; ?>" method="post">
-																	<input type="hidden" name="project_id" value="<?= $project_id ?>">
-																	<button type="submit" class="btn btn-danger"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
-																</form>
-															</div>
-														</div>
-													</td>
-												</tr>
+														</td>
+													</tr>
 											<?php
+												}
 											}
 											?>
 
 										</tbody>
 									</table>
+
 
 									<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>">
 										<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
@@ -103,6 +106,18 @@
 	</div>
 </body>
 
+
+<!--1º preencher o nome da view-->
+<?php $view = array(
+	"name" => "change_request",
+); ?>
+
+<!--Carrega o form de envio e envia para ele o nome da view que tu setou -->
+<?php $this->load->view('upload/index', $view) ?>
+
+<!--Carrega as imagens do projeto de acordo com a view, utiliza id ou project_id pra pegar o id do projeto e criar a query-->
+<?php $this->load->view('upload/retrieve', $view) ?>
+
 <?php $this->load->view('frame/footer_view') ?>
 
 
@@ -116,10 +131,13 @@
 	let table;
 
 	$(document).ready(function() {
-		table = $('#tableChange').DataTable({
+		table = $('#tableNB').DataTable({
 			"columns": [{
 					"data": "#",
 					"orderable": false
+				},
+				{
+					"data": "number_id"
 				},
 				{
 					"data": "requester"
@@ -128,10 +146,7 @@
 					"data": "request_date"
 				},
 				{
-					"data": "change_description"
-				},
-				{
-					"data": "situation"
+					"data": "type"
 				},
 				{
 					"data": "btn-actions",
@@ -144,7 +159,7 @@
 		});
 	});
 
-	$("#tableChange tbody td.moreInformationTable").on("click", function() {
+	$("#tableNB tbody td.moreInformationTable").on("click", function() {
 		let element = jQuery($(this)[0].parentNode);
 		let tr = element.closest('tr');
 		let row = table.row(tr);
@@ -163,12 +178,18 @@
 	function format(dados) {
 		return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
 			'<tr>' +
-			'<td>comments: </td>' +
-			'<td>' + dados.comments + '</td>' +
+			'<td> <span style="font-weight:bold;">Description of Change: </span> </td>' +
+			'<td>' + dados.description + '</td>' +
 			'</tr>' +
 			'<tr>' +
-			'<td>Type: </td>' +
-			'<td>' + dados.change_type + '</td>' +
+			'<td>Impacted Areas: </td>' +
+			'<td>' + dados.impacted_areas + '</td>' +
+			'</tr>' +
+			'<td>Additional comments: </td>' +
+			'<td>' + dados.comments + '</td>' +
+			'</tr>' +
+			'<td>Status/Situation: </td>' +
+			'<td>' + dados.status + '</td>' +
 			'</tr>' +
 			'</table>';
 	}

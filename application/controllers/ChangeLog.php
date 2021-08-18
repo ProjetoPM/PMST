@@ -19,10 +19,12 @@ class ChangeLog extends CI_Controller
         $this->load->model('Change_log_model');
         $this->load->model('log_model');
         $this->load->helper('log_activity');
+        $this->load->model('Change_request_model');
 
         $this->lang->load('btn', 'english');
         // $this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('change_log', 'english');
+        // $this->lang->load('change_log', 'english');
+        $this->lang->load('change_request', 'english');
         // $this->lang->load('change_log_view','portuguese-brazilian');
     }
 
@@ -36,12 +38,12 @@ class ChangeLog extends CI_Controller
 
     public function list($project_id)
     {
-        $query['change_log'] = $this->Change_log_model->getAll($project_id);
-        $query['project_id'] = $project_id;
+        $dado['project_id'] = $project_id;
+		$dado['change_request'] = $this->Change_request_model->getAll($project_id);
         $this->load->view('frame/header_view');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');
-        $this->load->view('project/integration/change_log/list', $query);
+        $this->load->view('project/integration/change_log/list', $dado);
     }
 
     public function new($project_id)
@@ -55,8 +57,8 @@ class ChangeLog extends CI_Controller
 
     public function edit($change_log)
     {
-        $query['change_log'] = $this->Change_log_model->get($change_log);
-        $query['project_id'] = $this->input->post('project_id');
+        $query['change_request'] = $this->Change_request_model->get($change_log);
+
         $this->load->view('frame/header_view');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');

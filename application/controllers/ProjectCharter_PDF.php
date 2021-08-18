@@ -36,11 +36,6 @@
 		function pdfGenerator($project_id) {
 			$this->load->library('Pdf');
 
-      $dadinho = array(
-        'nome' => 'joaozinho',
-        'idade' => 'twste'
-      );
-
 			$idusuario = $_SESSION['user_id'];
 	    $this->db->where('user_id', $idusuario);
 	    $this->db->where('project_id', $project_id);

@@ -91,6 +91,9 @@ position:-webkit-sticky
                   <li class="<?php if ($uri2 == 'benefits-mp') {
                                  echo 'active';
                               } ?>"><a href="<?= base_url("integration/benefits-mp/new/" . $_SESSION['project_id']) ?>"><i class="fa fa-star"></i>Benefits Management Plan</a></li>
+                  <li class="<?php if ($uri2 == 'assumption-log') {
+                                 echo 'active';
+                              } ?>"><a href="<?= base_url("integration/assumption-log/list/" . $_SESSION['project_id']) ?>"><i class="fa fa-star"></i>Assumption Log</a></li>
                   <li class="<?php if ($uri2 == 'project-mp') {
                                  echo 'active';
                               } ?>"><a href="<?= base_url("integration/project-mp/new/" . $_SESSION['project_id']) ?>"><i class="fa fa-star"></i>Project Management Plan</a></li>
@@ -106,6 +109,9 @@ position:-webkit-sticky
                   <li class="<?php if ($uri2 == 'issue-log') {
                                  echo 'active';
                               } ?>"><a href="<?= base_url("integration/issue-log/list/" . $_SESSION['project_id']) ?>"><i class="fa fa-star"></i>Issue Log</a></li>
+                  <li class="<?php if ($uri2 == 'lesson-learned-register') {
+                                 echo 'active';
+                              } ?>"><a href="<?= base_url("integration/lesson-learned-register/list/" . $_SESSION['project_id']) ?>"><i class="fa fa-star"></i>Lesson Learned Register</a></li>
                   <li class="<?php if ($uri2 == 'change-request') {
                                  echo 'active';
                               } ?>"><a href="<?= base_url("integration/change-request/list/" . $_SESSION['project_id']) ?>"><i class="fa fa-star"></i>Change Request</a></li>
@@ -115,9 +121,9 @@ position:-webkit-sticky
                   <li class="<?php if ($uri2 == 'project-closure') {
                                  echo 'active';
                               } ?>"><a href="<?= base_url("integration/project-closure/new/" . $_SESSION['project_id']) ?>"><i class="fa fa-star"></i>Project Closure Term</a></li>
-                   <li class="<?php if ($uri2 == 'final-report') {
+                  <li class="<?php if ($uri2 == 'final-report') {
                                  echo 'active';
-                              } ?>"><a href="<?= base_url("integration/final-report/new/" . $_SESSION['project_id']) ?>"><i class="fa fa-star"></i>Final Report</a></li>            
+                              } ?>"><a href="<?= base_url("integration/final-report/new/" . $_SESSION['project_id']) ?>"><i class="fa fa-star"></i>Final Report</a></li>
                </ul>
             </li>
             <!-- FIM INTEGRATION -->
@@ -199,6 +205,12 @@ position:-webkit-sticky
                   <li class="<?php if ($uri2 == 'quality-mp') {
                                  echo 'active';
                               } ?>"><a href="<?= base_url("quality/quality-mp/new/" . $_SESSION['project_id']) ?>"><i class="fa fa-trophy"></i>Quality Management Plan</a></li>
+                  <li class="<?php if ($uri2 == 'quality-checklist') {
+                                 echo 'active';
+                              } ?>"><a href="<?= base_url("quality/quality-checklist/list/" . $_SESSION['project_id']) ?>"><i class="fa fa-trophy"></i>Quality Checklist</a></li>
+                  <li class="<?php if ($uri2 == 'quality-reports') {
+                                 echo 'active';
+                              } ?>"><a href="<?= base_url("quality/quality-reports/list/" . $_SESSION['project_id']) ?>"><i class="fa fa-trophy"></i>Quality Reports</a></li>
                </ul>
             </li>
             <!-- FIM QUALITY -->
@@ -244,6 +256,10 @@ position:-webkit-sticky
                   <li class="<?php if ($uri2 == 'risk-register') {
                                  echo 'active';
                               } ?>"><a href="<?= base_url("risk/risk-register/list/" . $_SESSION['project_id']) ?>"><i class="fa fa-exclamation-circle"></i>Risk Register</a></li>
+                  <li class="<?php if ($uri2 == 'risk-checklist') {
+                                 echo 'active';
+                              } ?>"><a href="<?= base_url("risk/risk-checklist/edit/" . $_SESSION['project_id']) ?>"><i class="fa fa-exclamation-circle"></i>General Project Risk Checklist</a></li>
+
                </ul>
             </li>
             <!-- FIM RISK -->
@@ -259,6 +275,10 @@ position:-webkit-sticky
                   <li class="<?php if ($uri2 == 'procurement-statement-of-work') {
                                  echo 'active';
                               } ?>"><a href="<?= base_url("procurement/procurement-statement-of-work/list/" . $_SESSION['project_id']) ?>"><i class="fa fa-shopping-cart"></i>Procurement Statement Of Work</a></li>
+                  <li class="<?php if ($uri2 == 'procurement-statement-of-work') {
+                                 echo 'active';
+                              } ?>"><a href="<?= base_url("procurement/procurement-statement-of-work/list/" . $_SESSION['project_id']) ?>"><i class="fa fa-shopping-cart"></i>Procurement Statement Of Work</a></li>
+
                </ul>
             </li>
             <!-- FIM PROCUREMENT -->

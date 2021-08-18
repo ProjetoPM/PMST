@@ -10,6 +10,7 @@ class StakeholderRegister extends CI_Controller
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }
+        
         $this->load->helper('url');
         $this->load->model('Stakeholder_model');
         $this->load->model('view_model');
@@ -37,6 +38,7 @@ class StakeholderRegister extends CI_Controller
             $this->load->view('frame/header_view');
             $this->load->view('frame/topbar');
             $this->load->view('frame/sidebar_nav_view', $project_id);
+            
             $this->load->view('project/stakeholder/stakeholder_register/new', $dado);
         } else {
             redirect(base_url());
@@ -70,6 +72,7 @@ class StakeholderRegister extends CI_Controller
     {
         $query['stakeholder'] = $this->Stakeholder_model->get($stakeholder_id);
         $this->load->view('frame/header_view.php');
+        $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view.php');
         $this->load->view('project/stakeholder/stakeholder_register/edit', $query);
     }
@@ -95,9 +98,9 @@ class StakeholderRegister extends CI_Controller
         $query = $this->Stakeholder_model->update($data['stakeholder'], $stakeholder_id);
 
         if ($query) {
-            insertLogActivity('update', 'stakeholder register');
-            $this->session->set_flashdata('success', 'Stakeholder Register has been successfully changed!');
-            redirect('stakeholder/stakeholder-register/list/' . $stakeholder['project_id']);
+            // insertLogActivity('update', 'stakeholder register');
+            $this->session->set_flashdata('update', 'Stakeholder Register has been successfully changed!');
+            redirect('stakeholder/stakeholder-register/list/' . $_SESSION['project_id']);
         }
     }
 
@@ -105,7 +108,7 @@ class StakeholderRegister extends CI_Controller
     public function insert($project_id)
     {
         $stakeholder['name'] = $this->input->post('name');
-        $stakeholder['type'] = $this->input->post('type');
+        $stakeholder['type'] = $this->input->post('closing_');
         $stakeholder['organization'] = $this->input->post('organization');
         $stakeholder['position'] = $this->input->post('position');
         $stakeholder['role'] = $this->input->post('role');

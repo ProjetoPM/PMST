@@ -44,8 +44,8 @@
            .title {
              position: absolute;
              padding-top: 12px;
-             left: 42%;
-             right: 54%;
+             left: 5%;
+             /* right: 54%; */
              color: black;
              white-space: nowrap;
              font-size: large;
@@ -55,10 +55,10 @@
 
          <?php if ($_SESSION['project_id'] != null) { ?>
            <div class="title">
-             <p >
-               <strong> <?php echo $_SESSION['project_name'] ?></strong>
+             <p>
+               <strong><?= $this->lang->line('project_title') ?> <?php echo $_SESSION['project_name'] ?></strong>
              </p>
-         </div>
+           </div>
 
          <?php } ?>
          <div class="load"> <i class="fa fa-cog fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span>
@@ -160,9 +160,6 @@
            </div>
          </div>
 
-
-
-
          <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="ModalmyAccount" aria-hidden="true">
            <div class="modal-dialog">
              <div class="modal-content">
@@ -171,49 +168,51 @@
                  <h2 class="modal-title w-100 font-weight-bold" id="myModalLabel">CHANGE PASSWORD (<?= $this->session->userdata('email') ?>)</h2>
                </div>
                <div class="modal-body">
-                 <div class="row">
-                   <div class="col-lg-12">
-                     <label class="error" id="error_changePassword">invalid current password</label>
-                     <label class="error" id="error_changePassword2">password must be at least 8 characters (alphanumeric or special characters)</label>
-                   </div>
-                 </div>
                  &nbsp;
-                 <div class="row">
-                   <div class="col-lg-12">
-                     <div class="form-group">
-                       <label>Current Password</label> &nbsp;&nbsp;
-                       <label class="error" id="error_currentPassword"> field is required.</label>
-                       <input class="form-control" id="currentPassword" placeholder="Current Password" name="currentPassword" type="password" autofocus>
+                 <form method="POST" name="formuser" action="<?= base_url() ?>register/update_password">
+                   <input name="user_id" type="hidden" placeholder="user_id" class="form-control input-md" value="<?= $_SESSION['user_id']; ?>" required="true" readonly>
+                   <div class="row">
+                     <div class="col-lg-6">
+                       <div class="form-group">
+                         <label>Password</label> &nbsp;&nbsp;
+                         <input class="form-control" id="newPassword" placeholder="New Password" name="password" type="password" required autofocus>
+                       </div>
+                     </div>
+                     <div class="col-lg-6">
+                       <div class="form-group">
+                         <label>Confirm Password</label> &nbsp;&nbsp;
+                         <input class="form-control" id="confirmNewPassword" placeholder="Confirm New Password" name="rep_senha" type="password" required autofocus>
+                       </div>
                      </div>
                    </div>
-                 </div>
-                 <div class="row">
-                   <div class="col-lg-6">
-                     <div class="form-group">
-                       <label>New Password</label> &nbsp;&nbsp;
-                       <label class="error" id="error_newPassword"> field is required.</label>
-                       <label class="error" id="error_newPassword2"> password not match</label>
-                       <input class="form-control" id="newPassword" placeholder="New Password" name="newPassword" type="password" autofocus>
-                     </div>
-                   </div>
-                   <div class="col-lg-6">
-                     <div class="form-group">
-                       <label>Confirm New Password</label> &nbsp;&nbsp;
-                       <input class="form-control" id="confirmNewPassword" placeholder="Confirm New Password" name="confirmNewPassword" type="password" autofocus>
-                     </div>
-                   </div>
-                 </div>
                </div>
                <div class="modal-footer">
                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                 <button id="changePasswordSubmit" type="button" class="btn btn-success">Save</button>
+                 <button type="submit" onclick="return validar()" class="btn btn-success">Save</button>
+                 </form>
                </div>
              </div>
-
            </div>
 
+           <!-- JavaScript -->
+           <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
+           <!-- CSS -->
+           <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css" />
 
+           <script>
+             function validar() {
+               var senha = formuser.password.value;
+               var rep_senha = formuser.rep_senha.value;
 
+               if (senha != rep_senha) {
+                 alertify.alert('The passwords are different!').setting({
+                   title: 'Alert!',
+                 }).show();
+                 formuser.password.focus();
+                 return false;
+               }
+             }
+           </script>
        </ul>
      </div>
    </nav>

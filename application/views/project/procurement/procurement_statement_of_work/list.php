@@ -47,10 +47,10 @@
 										<thead>
 											<tr>
 												<th class="text-center">#</th>
-												<th><?= $this->lang->line('description') ?></th>
-												<th><?= $this->lang->line('informations') ?></th>
-												<th><?= $this->lang->line('procurement_management') ?></th>
-												<th><?= $this->lang->line('selection_criterias') ?></th>
+												<th><?= $this->lang->line('psw_description') ?></th>
+												<th><?= $this->lang->line('psw_informations') ?></th>
+												<th><?= $this->lang->line('psw_procurement_management') ?></th>
+												<th><?= $this->lang->line('psw_selection_criterias') ?></th>
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
 										</thead>

@@ -4,7 +4,7 @@
 $lang['llr_title'] = 'Lesson Learned Register';
 
 //Form
-$lang['llr_stakeholder'] = 'StakeHolder Who Identified';
+$lang['llr_stakeholder'] = 'Stakeholder Who Identified';
 $lang['llr_date'] = 'Identification Date';
 $lang['llr_description'] = 'Situation Description';
 $lang['llr_category'] = 'Category';

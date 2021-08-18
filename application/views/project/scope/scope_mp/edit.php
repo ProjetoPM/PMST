@@ -40,7 +40,7 @@
                                     <div class=" col-lg-12 form-group">
                                         <label for="scope_specification"><?= $this->lang->line('smp_scope_specification') ?></label>
                                         <span class="smp_1">2000</span><?= $this->lang->line('character') ?>
-                                        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('smp_scope_specification_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                        <a class="btn-sm btn-default" id="smp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('smp_scope_specification_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                         <div>
                                         <textarea onkeyup="limite_textarea(this.value, 'smp_1')" id="smp_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="scope_specification"><?= $smp->scope_specification; ?></textarea>
                                         </div>
@@ -49,7 +49,7 @@
                                     <div class=" col-lg-12 form-group">
                                         <label for="eap_process"><?= $this->lang->line('smp_eap_process') ?></label>
                                         <span class="smp_2">2000</span><?= $this->lang->line('character') ?>
-                                        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('smp_eap_process_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                        <a class="btn-sm btn-default" id="smp_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('smp_eap_process_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                         <div>
                                         <textarea onkeyup="limite_textarea(this.value, 'smp_2')" id="smp_txt_2" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="eap_process"><?= $smp->eap_process; ?></textarea>
                                         </div>
@@ -58,7 +58,7 @@
                                     <div class=" col-lg-12 form-group">
                                         <label for="deliveries_acceptance"><?= $this->lang->line('smp_deliveries_acceptance') ?></label>
                                         <span class="smp_3">2000</span><?= $this->lang->line('character') ?>
-                                        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('smp_deliveries_acceptance_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                        <a class="btn-sm btn-default" id="smp_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('smp_deliveries_acceptance_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                         <div>
                                         <textarea onkeyup="limite_textarea(this.value, 'smp_3')" id="smp_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="deliveries_acceptance"><?= $smp->deliveries_acceptance; ?></textarea>
                                         </div>
@@ -67,18 +67,18 @@
                                     <div class=" col-lg-12 form-group">
                                         <label for="scope_change_mp"><?= $this->lang->line('smp_scope_change_mp') ?></label>
                                         <span class="smp_4">2000</span><?= $this->lang->line('character') ?>
-                                        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('smp_scope_change_mp_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                        <a class="btn-sm btn-default" id="smp_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('smp_scope_change_mp_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                         <div>
                                         <textarea onkeyup="limite_textarea(this.value, 'smp_4')" id="smp_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="scope_change_mp"><?= $smp->scope_change_mp; ?></textarea>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 form-group">
-                                        <label for="baseline"><?= $this->lang->line('smp_scomp_baseline') ?></label>
+                                        <label for="baseline"><?= $this->lang->line('smp_baseline') ?></label>
                                         <span class="smp_5">2000</span><?= $this->lang->line('character') ?>
-                                        <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('smp_scomp_baseline_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                        <a class="btn-sm btn-default" id="smp_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('smp_baseline_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                         <div>
-                                        <textarea onkeyup="limite_textarea(this.value, 'smp_5')" id="smp_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="scomp_baseline"><?= $smp->scomp_baseline; ?></textarea>
+                                        <textarea onkeyup="limite_textarea(this.value, 'smp_5')" id="smp_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="baseline"><?= $smp->baseline; ?></textarea>
                                         </div>
                                     </div>
 
@@ -114,7 +114,8 @@
         </div>
     </div>
 </body>
-<script>
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
+<script type="text/javascript">
 for (var i = 1; i <= 6; i++) {
 		if (document.getElementById("smp_tp_" + i).title == "") {
 			document.getElementById("smp_tp_" + i).hidden = true;

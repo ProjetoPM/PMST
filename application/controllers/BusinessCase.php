@@ -70,12 +70,16 @@ class BusinessCase extends CI_Controller
 
 	function insert()
 	{
-		insertLogActivity('insert', 'business case');
+		$business_case['business_deals'] = $this->input->post('business_deals');
+		$business_case['situation_analysis'] = $this->input->post('situation_analysis');
+		$business_case['recommendation'] = $this->input->post('recommendation');
+		$business_case['evaluation'] = $this->input->post('evaluation');
+		$business_case['project_id'] = $_SESSION['project_id'];
 
-		$postData = $this->input->post();
-		$insert   = $this->Business_case_model->insert($postData);
+		$insert  = $this->Business_case_model->insert($business_case);
 		if ($insert) {
 			$this->session->set_flashdata('success', 'Bussiness Case has been successfully created!');
+			insertLogActivity('insert', 'business case');
 		}
 		redirect("integration/business-case/edit/" . $_SESSION['project_id']);
 		// echo json_encode($insert);
@@ -84,8 +88,6 @@ class BusinessCase extends CI_Controller
 
 	public function update()
 	{
-		insertLogActivity('update', 'business case');
-
 		$business_case['business_deals'] = $this->input->post('business_deals');
 		$business_case['situation_analysis'] = $this->input->post('situation_analysis');
 		$business_case['recommendation'] = $this->input->post('recommendation');
@@ -95,6 +97,7 @@ class BusinessCase extends CI_Controller
 		$query = $this->Business_case_model->update($business_case, $_SESSION['project_id']);
 		if ($query) {
 			$this->session->set_flashdata('success', 'Bussiness Case has been successfully changed!');
+			insertLogActivity('update', 'business case');
 		}
 
 		$this->load->view('frame/header_view');

@@ -38,16 +38,16 @@
                             <!-- <form action="<?= base_url() ?>integration/lesson-learned-register/update/<?php echo $lesson_learned_register_id; ?>" method="post"> -->
                             <form method="POST" action="<?php echo base_url('integration/lesson-learned-register/insert/'); ?><?php echo $id; ?>">
 
-                                <div class="col-lg-8 form-group">
+                                <div class="col-lg-9 form-group">
                                     <label for="stakeholder"><?= $this->lang->line('llr_stakeholder') ?> *</label>
                                     <span class="llr_1">2000</span><?= $this->lang->line('character') ?>
                                     <a class="btn-sm btn-default" id="llr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_stakeholder_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-                                    <input id="llr_txt_1" type="text" name="stakeholder" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'llr_1')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
+                                    <input id="llr_txt_1" type="text" name="stakeholder" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'llr_1')" maxlength="2000" oninput="eylem(this, this.value)" required="true">
                                     </div>
                                 </div>
 
-                                <div class="col-lg-4 form-group">
+                                <div class="col-lg-3 form-group">
                                     <label for="date"><?= $this->lang->line('llr_date') ?> *</label>
                                     <a class="btn-sm btn-default" id="llr_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
@@ -55,10 +55,11 @@
                                     </div>
                                 </div>
 
-                                <div class=" col-lg-06 form-group">
+                                <div class=" col-lg-12 form-group">
                                  <label for="description"><?= $this->lang->line('llr_description') ?> </label>
                                  <span class="llr_3">2000</span><?= $this->lang->line('character') ?>
                                  <a class="btn-sm btn-default" id="llr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                 
                                  <div>
                                   <textarea onkeyup="limite_textarea(this.value, 'llr_3')" id="llr_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="description"></textarea>
                                  </div>
@@ -73,7 +74,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-5 form-group">
+                                <div class="col-lg-6 form-group">
                                     <label for="interested"><?= $this->lang->line('llr_interested') ?> *</label>
                                     <span class="llr_5">2000</span><?= $this->lang->line('character') ?>
                                     <a class="btn-sm btn-default" id="llr_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_interested_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -82,7 +83,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-5 form-group">
+                                <div class="col-lg-6 form-group">
                                     <label for="status"><?= $this->lang->line('llr_status') ?> *</label>
                                     <span class="llr_6">2000</span><?= $this->lang->line('character') ?>
                                     <a class="btn-sm btn-default" id="llr_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_status_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -100,7 +101,7 @@
                                     </div>
                                 </div>
 
-                                <div class=" col-lg-06 form-group">
+                                <div class=" col-lg-12 form-group">
                                  <label for="recommendations"><?= $this->lang->line('llr_recommendations') ?> </label>
                                   <span class="llr_8">2000</span><?= $this->lang->line('character') ?>
                                   <a class="btn-sm btn-default" id="llr_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('llr_recommendations_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -119,7 +120,7 @@
                                 </div>
 
                                 <div class="col-lg-4 form-group">
-                                    <label>knowledge area</label>
+                                <label for ="knowledge_area"><?= $this->lang->line('llr_knowledge_area') ?></label>
                                     <select name="knowledge_area" size="1" class="form-control" tabindex="1">
                                         <?php foreach ($knowledge_area as $ka) { ?>
                                         <option value="<?= $ka->knowledge_area_id; ?>">
@@ -147,21 +148,7 @@
         </div>
     </div>
 </body>
-
-<script>
-    for (var i = 1; i <= 10; i++) {
-        if (document.getElementById("llr_tp_" + i).title == "") {
-            document.getElementById("llr_tp_" + i).hidden = true;
-        }
-        limite_textarea(document.getElementById("llr_txt_" + i).value, "llr_" + i);
-    }
-    function limite_textarea(valor, txt) {
-		var limite = 2000;
-		var caracteresDigitados = valor.length;
-		var caracteresRestantes = limite - caracteresDigitados;
-		$("." + txt).text(caracteresRestantes);
-	}
-</script>
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 <script type="text/javascript">
@@ -172,6 +159,20 @@
     }
 
     $('#name_text').bind('keypress', testInput);
+
+    for (var i = 1; i <= 10; i++) {
+        if (document.getElementById("llr_tp_" + i).title == "") {
+            document.getElementById("llr_tp_" + i).hidden = true;
+        }
+        
+    }
+    limite_textarea(document.getElementById("llr_txt_" + i).value, "llr_" + i);
+    function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
 </script>
 
 <?php $this->load->view('frame/footer_view') ?>

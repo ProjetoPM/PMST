@@ -2,7 +2,7 @@
 if (!defined('BASEPATH')) {
 	exit('No direct script access allowed');
 }
-//teste a
+
 class IssueLog extends CI_Controller
 {
 
@@ -12,6 +12,10 @@ class IssueLog extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
+		if ($_SESSION['access_level'] == "0" ) {
+			$this->session->set_flashdata('error3', 'You do not have permission to access this document!');
+			redirect('project/'. $_SESSION['project_id']);
+		 }
 		//$this->load->helper('url');
 		$this->lang->load('btn', 'english');
 		//$this->lang->load('btn', 'portuguese-brazilian');
@@ -22,6 +26,7 @@ class IssueLog extends CI_Controller
 		$this->load->model('log_model');
 		$this->load->model('Issues_record_stakeholder_model');
 		$this->load->helper('log_activity');
+		$this->load->model('Stakeholder_model');
 	}
 
 	public function list($project_id)
@@ -36,13 +41,14 @@ class IssueLog extends CI_Controller
 
 	public function new($project_id)
 	{
+		$query['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
 		$idusuario = $_SESSION['user_id'];
 		$this->db->where('user_id', $idusuario);
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
 
 		if (count($project['dados']) > 0) {
-			$query['project_id'] = $project_id;
+			$query['project_id'] = $_SESSION['project_id'];
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view.php');
@@ -54,17 +60,17 @@ class IssueLog extends CI_Controller
 
 	public function insert()
 	{
-		$issues_record['identification'] = $this->input->post('ir_identification');
-		$issues_record['identification_date'] = $this->input->post('ir_identification_date');
-		$issues_record['question_description'] = $this->input->post('ir_question_description');
-		$issues_record['type'] = $this->input->post('ir_type');
-		$issues_record['responsable'] = $this->input->post('ir_responsable');
-		$issues_record['situation'] = $this->input->post('ir_situation');
-		$issues_record['action'] = $this->input->post('ir_action');
-		$issues_record['resolution_date'] = $this->input->post('ir_resolution_date');
-		$issues_record['replan_date'] = $this->input->post('ir_replan_date');
-		$issues_record['observations'] = $this->input->post('ir_observations');
-		$issues_record['status'] = $this->input->post('ir_status');
+		$issues_record['identification'] = $this->input->post('identification');
+		$issues_record['identification_date'] = $this->input->post('identification_date');
+		$issues_record['question_description'] = $this->input->post('question_description');
+		$issues_record['type'] = $this->input->post('type');
+		$issues_record['responsable'] = $this->input->post('responsable');
+		$issues_record['situation'] = $this->input->post('situation');
+		$issues_record['action'] = $this->input->post('action');
+		$issues_record['resolution_date'] = $this->input->post('resolution_date');
+		$issues_record['replan_date'] = $this->input->post('replan_date');
+		$issues_record['observations'] = $this->input->post('observations');
+		$issues_record['status'] = $this->input->post('status');
 		$issues_record['project_id'] = $_SESSION['project_id'];
 
 		$query = $this->Issues_record_model->insert($issues_record);
@@ -77,6 +83,7 @@ class IssueLog extends CI_Controller
 
 	public function edit($issues_record_id)
 	{
+		$query['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
 		//query = array de objetos
 		//issues_record = objeto do array query
 		$query['issues_record'] = $this->Issues_record_model->get($issues_record_id);

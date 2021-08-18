@@ -40,13 +40,13 @@
 									<table class="table table-bordered table-striped" id="tableNB">
 										<thead>
 											<tr>
-												<th><?= $this->lang->line('activity_name') ?></th>
-												<th><?= $this->lang->line('resource_name') ?></th>
-												<th><?= $this->lang->line('function') ?></th>
-												<th><?= $this->lang->line('availability_start') ?></th>
-												<th><?= $this->lang->line('availability_ends') ?></th>
-												<th><?= $this->lang->line('allocation_start') ?></th>
-												<th><?= $this->lang->line('allocation_ends') ?></th>
+												<th><?= $this->lang->line('pca_activity_name') ?></th>
+												<th><?= $this->lang->line('pca_resource_name') ?></th>
+												<th><?= $this->lang->line('pca_function') ?></th>
+												<th><?= $this->lang->line('pca_availability_start') ?></th>
+												<th><?= $this->lang->line('pca_availability_ends') ?></th>
+												<th><?= $this->lang->line('pca_allocation_start') ?></th>
+												<th><?= $this->lang->line('pca_allocation_ends') ?></th>
 
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
@@ -54,29 +54,31 @@
 										<tbody>
 											<?php
 											foreach ($activity as $a) {
+												if ($a->status = 1) {
 											?>
-												<tr dados='<?= json_encode($a); ?>'>
-													<td><?php echo $a->activity_name; ?></td>
-													<td><?php echo $a->resource_name; ?></td>
-													<td><?php echo $a->function; ?></td>
-													<td><?php echo $a->availability_start; ?></td>
-													<td><?php echo $a->availability_ends; ?></td>
-													<td><?php echo $a->allocation_start; ?></td>
-													<td><?php echo $a->allocation_ends; ?></td>
+													<tr dados='<?= json_encode($a); ?>'>
+														<td><?php echo $a->activity_name; ?></td>
+														<td><?php echo $a->resource_name; ?></td>
+														<td><?php echo $a->function; ?></td>
+														<td><?php echo $a->availability_start; ?></td>
+														<td><?php echo $a->availability_ends; ?></td>
+														<td><?php echo $a->allocation_start; ?></td>
+														<td><?php echo $a->allocation_ends; ?></td>
 
-													<td style="max-width: 20px">
-														<div class="row center">
-															<div class="col-sm-3">
-																<form action="<?php echo base_url() ?>schedule/project-calendars/edit/<?php echo $a->id; ?>" method="post">
-																	<input type="hidden" name="project_id" value="<?= $a->project_id; ?>">
-																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
-																</form>
+														<td style="max-width: 20px">
+															<div class="row center">
+																<div class="col-sm-3">
+																	<form action="<?php echo base_url() ?>schedule/project-calendars/edit/<?php echo $a->id; ?>" method="post">
+																		<input type="hidden" name="project_id" value="<?= $a->project_id; ?>">
+																		<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
+																	</form>
+																</div>
+
 															</div>
-
-														</div>
-													</td>
-												</tr>
+														</td>
+													</tr>
 											<?php
+												}
 											}
 											?>
 

@@ -11,10 +11,11 @@ class DurationEstimates extends CI_Controller
 			redirect(base_url());
 		}
 		$this->load->helper('url');
-		$this->load->model('Activity_model');
+		$this->load->model('DurationEstimates_model');
 		$this->load->model('view_model');
 		$this->load->model('log_model');
 		$this->load->helper('log_activity');
+		$this->load->model('Activity_model');
 
 
 		$this->lang->load('btn', 'english');
@@ -29,7 +30,7 @@ class DurationEstimates extends CI_Controller
 	public function list($project_id)
 	{
 		$dado['project_id'] = $project_id;
-		$dado['activity'] = $this->Activity_model->getAll($project_id);
+		$dado['duration_estimates'] = $this->DurationEstimates_model->getAll($project_id);
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
@@ -38,34 +39,97 @@ class DurationEstimates extends CI_Controller
 
 	public function edit($project_id)
 	{
-		$query['activity'] = $this->Activity_model->get($project_id);
+		$query['duration_estimates'] = $this->DurationEstimates_model->get($project_id);
 
 		$this->load->view('frame/header_view.php');
+		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view.php');
 		$this->load->view('project/schedule/duration_estimates/edit', $query);
 	}
 
-	public function update($project_id)
+	public function read($project_id)
 	{
-		$activity['estimated_duration'] = $this->input->post('estimated_duration');
-		$activity['replanted_duration'] = $this->input->post('replanted_duration');
-		$activity['performed_duration'] = $this->input->post('performed_duration');
-		$activity['estimated_start_date'] = $this->input->post('estimated_start_date');
-		$activity['replanted_start_date'] = $this->input->post('replanted_start_date');
-		$activity['performed_start_date'] = $this->input->post('performed_start_date');
-		$activity['estimated_end_date'] = $this->input->post('estimated_end_date');
-		$activity['replanted_end_date'] = $this->input->post('replanted_end_date');
-		$activity['performed_end_date'] = $this->input->post('performed_end_date');
+		$query['duration_estimates'] = $this->DurationEstimates_model->get($project_id);
 
-		$activity['project_id'] = $this->input->post('project_id');
+		$this->load->view('frame/header_view.php');
+		$this->load->view('frame/topbar');
+		$this->load->view('frame/sidebar_nav_view.php');
+		$this->load->view('project/schedule/duration_estimates/read', $query);
+	}
 
-		$data['activity'] = $activity;
-		$query = $this->Activity_model->update($data['activity'], $project_id);
+	public function update($id)
+	{
+		$duration_estimates['estimated_duration'] = $this->input->post('estimated_duration');
+		$duration_estimates['performed_duration'] = $this->input->post('performed_duration');
+		$duration_estimates['estimated_start_date'] = $this->input->post('estimated_start_date');
+		$duration_estimates['performed_start_date'] = $this->input->post('performed_start_date');
+		$duration_estimates['estimated_end_date'] = $this->input->post('estimated_end_date');
+		$duration_estimates['performed_end_date'] = $this->input->post('performed_end_date');
+		// $duration_estimates['project_id'] = $this->input->post('project_id');
+		$duration_estimates['status'] = 1;
+
+
+		// $duration_estimates['status'] = $this->input->post('status');
+
+		$status = $this->DurationEstimates_model->get($id);
+		if ($status['performed_duration'] != null) {
+			if ($duration_estimates['estimated_duration'] != $status['estimated_duration']) {
+				$duration_estimates['version'] = $status['version'] + 1;
+				$status['duration_estimates_id'] = "";
+				$status['status'] = "0";
+				$this->DurationEstimates_model->insert($status);
+			}
+		}
+		$data['duration_estimates'] = $duration_estimates;
+		$query = $this->DurationEstimates_model->update($data['duration_estimates'], $id);
 
 		if ($query) {
-			insertLogActivity('update', 'duration estimates');
+			// insertLogduration_estimates('update', 'duration estimates');
 			$this->session->set_flashdata('success', 'Duration Estimates has been successfully changed!');
-			redirect('schedule/duration-estimates/list/' . $activity['project_id']);
+			redirect('schedule/duration-estimates/list/' . $_SESSION['project_id']);
+		}
+	}
+
+	public function insert()
+	{
+		$duration_estimates['estimated_duration'] = $this->input->post('estimated_duration');
+		$duration_estimates['performed_duration'] = $this->input->post('performed_duration');
+		$duration_estimates['estimated_start_date'] = $this->input->post('estimated_start_date');
+		$duration_estimates['performed_start_date'] = $this->input->post('performed_start_date');
+		$duration_estimates['estimated_end_date'] = $this->input->post('estimated_end_date');
+		$duration_estimates['performed_end_date'] = $this->input->post('performed_end_date');
+		$duration_estimates['project_id'] = $this->input->post('project_id');
+		$duration_estimates['activity_id'] = $this->input->post('activity_id');
+		$duration_estimates['status'] = 1;
+		$duration_estimates['version'] = 1;
+		
+
+		$data['duration_estimates'] = $duration_estimates;
+		$query = $this->DurationEstimates_model->insert($data['duration_estimates']);
+
+		if ($query) {
+			// insertLogduration_estimates('update', 'duration estimates');
+			$this->session->set_flashdata('success', 'Duration Estimates has been successfully created!');
+			redirect('schedule/duration-estimates/list/' . $_SESSION['project_id']);
+		}
+	}
+
+	public function new($project_id)
+	{
+		$idusuario = $_SESSION['user_id'];
+		$this->db->where('user_id', $idusuario);
+		$this->db->where('project_id', $project_id);
+		$project['dados'] = $this->db->get('project_user')->result();
+
+		if (count($project['dados']) > 0) {
+			$dado['activity'] = $this->Activity_model->getAll($project_id);
+			$dado['project_id'] = $project_id;
+			$this->load->view('frame/header_view');
+			$this->load->view('frame/topbar');
+			$this->load->view('frame/sidebar_nav_view');
+			$this->load->view('project/schedule/duration_estimates/new', $dado);
+		} else {
+			redirect(base_url());
 		}
 	}
 }

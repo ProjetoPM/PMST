@@ -34,4 +34,15 @@ $lang['cr_committee_opinion_tp'] = 'Opinion of the change control board';
 $lang['cr_status_tp'] = '';
 $lang['cr_committee_date_tp'] = 'Date of opinion of the change control board';
 
+$lang['type_change_corrective'] = 'Corrective Action';
+$lang['type_change_preventive'] = 'Preventive Action';
+$lang['type_change_defect'] = 'Defect Repair';
+$lang['type_change_update'] = 'Update';
+
+$lang['type_situation_analysis'] = 'Under Analysis';
+$lang['type_situation_approved'] = 'Approved';
+$lang['type_situation_rejected'] = 'Rejected';
+$lang['type_situation_canceled'] = 'Canceled';
+$lang['type_situation_suspended'] = 'Suspended';
+
 ?>

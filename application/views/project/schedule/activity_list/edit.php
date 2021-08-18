@@ -31,7 +31,7 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-								<?= $this->lang->line('tap-title')  ?>
+								<?= $this->lang->line('al_title')  ?>
 
 							</h1>
 							<form action="<?= base_url() ?>schedule/activity-list/update/<?php echo $id; ?>" method="post">
@@ -110,7 +110,8 @@
 		</div>
 	</div>
 </body>
-<script>
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
+<script type="text/javascript">
 for (var i = 1; i <= 15; i++) {
 		if (document.getElementById("al_tp_"+i).title == "") {
 			document.getElementById("al_tp_"+i).hidden = true;

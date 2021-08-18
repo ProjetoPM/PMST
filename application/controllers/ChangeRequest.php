@@ -15,6 +15,7 @@ class ChangeRequest extends CI_Controller
 		$this->load->model('Change_request_model');
 		$this->load->model('log_model');
 		$this->load->helper('log_activity');
+		$this->load->model('Stakeholder_model');
 
 
 		$this->lang->load('btn', 'english');
@@ -37,6 +38,7 @@ class ChangeRequest extends CI_Controller
 
 	public function new($project_id)
 	{
+		$dado['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
 		$idusuario = $_SESSION['user_id'];
 		$this->db->where('user_id', $idusuario);
 		$this->db->where('project_id', $project_id);
@@ -55,6 +57,7 @@ class ChangeRequest extends CI_Controller
 
 	public function edit($project_id)
 	{
+		$query['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
 		$query['change_request'] = $this->Change_request_model->get($project_id);
 
 		$this->load->view('frame/header_view');
@@ -88,7 +91,7 @@ class ChangeRequest extends CI_Controller
 		}
 	}
 
-	public function update($project_id)
+	public function update($id)
 	{
 		$change_request['requester'] = $this->input->post('requester');
 		$change_request['number_id'] = $this->input->post('number_id');
@@ -104,8 +107,16 @@ class ChangeRequest extends CI_Controller
 		$change_request['status'] = $this->input->post('status');
 		$change_request['committee_date'] = $this->input->post('committee_date');
 		$change_request['project_id'] = $this->input->post('project_id');
+		
+		$status = $this->Change_request_model->get($id);
 
-		$query = $this->Change_request_model->update($change_request, $project_id);
+		if($change_request['status'] !=  $status['status']){
+			$status['id'] = "";
+			$status['log'] = 1;
+			$this->Change_request_model->insert($status);
+		}
+
+		$query = $this->Change_request_model->update($change_request, $id);
 
 		if ($query) {
 			insertLogActivity('update', 'change request');

@@ -38,10 +38,11 @@
                 <div class=" col-lg-4 form-group">
                   <label for="associated_id"><?= $this->lang->line('rd_associated_id') ?> </label>
                   <span class="rd_1">45</span><?= $this->lang->line('character3') ?>
-                  <a class="btn-sm btn-default"  id="rd_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rd_associated_id_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                  <input id="rd_txt_1" type="text" name="associated_id" class="form-control input-md" onkeyup = "limite_textarea3(this.value, 'rd_1')" maxlength="45" oninput="eylem(this, this.value)" required="false" value="<?= $requirement_registration[0]->associated_id ?>">
+                  <a class="btn-sm btn-default" id="rd_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rd_associated_id_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <input id="rd_txt_1" type="text" name="associated_id" class="form-control input-md" onkeyup = "limite_textarea3(this.value, 'rd_1')" oninput="eylem(this, this.value)" required="false" value="<?= $requirement_registration[0]->associated_id ?>">
                 </div>
 
+              
                 <div class=" col-lg-8 form-group">
                   <label for="business_strategy"><?= $this->lang->line('rd_business_strategy') ?> </label>
                   <span class="rd_2">200</span><?= $this->lang->line('character4') ?>
@@ -240,11 +241,11 @@
                 </div>
 
                 <div class=" col-lg-12 form-group">             
-                  <label for="situation"><?= $this->lang->line('rd_situation') ?>Situation</label>
+                  <label for="requirement_situation"><?= $this->lang->line('rd_requirement_situation') ?></label>
                   <span class="rd_15">2000</span><?= $this->lang->line('character') ?>
-                  <a class="btn-sm btn-default" id="rd_tp_15" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rd_situation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" id="rd_tp_15" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rd_requirement_situation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                      <textarea onkeyup="limite_textarea(this.value, 'rd_15')" id="rd_txt_15" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="situation"><?= $requirement_registration[0]->situation ?></textarea>
+                      <textarea onkeyup="limite_textarea(this.value, 'rd_15')" id="rd_txt_15" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="requirement_situation"><?= $requirement_registration[0]->requirement_situation ?></textarea>
                   </div>
                 </div>
 
@@ -263,13 +264,19 @@
     </div>
   </div>
 </body>
-<script>
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
+<script type="text/javascript">
 for (var i = 1; i <= 15; i++) {
 		if (document.getElementById("rd_tp_"+i).title == "") {
 			document.getElementById("rd_tp_"+i).hidden = true;
 		}
-		limite_textarea(document.getElementById("rd_txt_" + i).value, "rd_" + i);
+    
+		
+    // limite_textarea2(document.getElementById("rd_txt_" + i).value, "rd_" + i);
+    // limite_textarea3(document.getElementById("rd_txt_" + i).value, "rd_" + i);
+    // limite_textarea4(document.getElementById("rd_txt_" + i).value, "rd_" + i);
 	}
+  limite_textarea(document.getElementById("rd_txt_" + i).value, "rd_" + i);
 
 	function limite_textarea(valor, txt) {
 		var limite = 2000;

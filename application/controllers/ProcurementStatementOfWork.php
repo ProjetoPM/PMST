@@ -51,6 +51,7 @@ class ProcurementStatementOfWork extends CI_Controller {
 		$query['procurement_statement_of_work'] = $this->Procurement_statement_of_work_model->get($project_id);
 
 		$this->load->view('frame/header_view.php');
+		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view.php');
 		$this->load->view('project/procurement/procurement_statement_of_work/edit', $query);
 	}

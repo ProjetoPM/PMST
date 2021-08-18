@@ -1,9 +1,0 @@
-Versão 0.1
-	- Registro de usuário
-	- Senha temporária vai para e-mail informado
-	- Login do usuário
-	- Criar projeto
-	- Adicionar outro usuário ao projeto
-
-Versão 0.2
-	- Boa sorte

@@ -35,120 +35,105 @@
                 <input type="hidden" name="project_id" value="<?= $project_id ?>">
 
                 <div class=" col-lg-3 form-group">
-                                    <label for="requester"><?= $this->lang->line('cl_requester') ?> </label>
-                                    <span class="cl_1">45</span><?= $this->lang->line('character3') ?>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_requester_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                                    <input id="cl_txt_1" type="text" name="requester" class="form-control input-md" onkeyup = "limite_textarea3(this.value, 'cl_1')" maxlength="45" oninput="eylem(this, this.value)" required="false">
-                                </div>
-                               
-                                <div class=" col-lg-3 form-group">
-                                    <label for="id_number"><?= $this->lang->line('cl_id_number') ?> </label>
-                                    <span class="cl_2">45</span><?= $this->lang->line('character3') ?>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_id_number_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <label for="requester"><?= $this->lang->line('cl_requester') ?> </label>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_requester-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-                                    <input id="cl_txt_2" type="text" name="id_number" class="form-control input-md" onkeyup = "limite_textarea3(this.value, 'cl_2')" maxlength="45" oninput="eylem(this, this.value)" required="false">
+                  <input class="form-control" type="text" id="requester" name="requester" maxlength="45">
+                </div>
 
-                                </div>
+                <div class=" col-lg-3 form-group">
+                  <label for="id_number"><?= $this->lang->line('cl_id_number') ?> </label>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('priority-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-                                <div class="col-lg-5 form-group">
-                                    <label for="request_date"><?= $this->lang->line('cl_request_date') ?></label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_request_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input class="form-control" id="request_date" placeholder="YYYY/MM/DD" type="text" name="request_date"/>
-                                    </div>
-                                </div>
+                  <input class="form-control" type="text" id="id_number" name="id_number" maxlength="255">
+
+                </div>
+
+                <div class="col-lg-5 form-group">
+                  <label for="request_date"><?= $this->lang->line('cl_request_date') ?></label>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-request_date-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                    <input class="form-control" id="request_date" placeholder="YYYY/MM/DD" type="text" name="request_date" />
+                  </div>
+                </div>
 
 
-                                <div class=" col-lg-4 form-group">
-                                    <label for="change_type"><?= $this->lang->line('cl_change_type') ?> </label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_change_type_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                <div class=" col-lg-4 form-group">
+                  <label for="change_type"><?= $this->lang->line('cl_change_type') ?> </label>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_change_type-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-                                    <select class="form-control" id="change_type" name="change_type">
-                                        <?=
-                                            $opcoes = array("Corrective Action", "Preventive Action", "Defect Repair", "Update");
-                                        foreach ($opcoes as $teste) {
-                                            if ($teste == $change_log[0]->change_type)
-                                                echo "<option value=$teste selected='selected'>$teste</option>";
-                                            else
-                                                echo "<option value=$teste>$teste</option>";
-                                        }
-                                        ?>
-                                    </select>
+                  <select class="form-control" id="change_type" name="change_type">
+                    <option value="Corrective Action"><?= $this->lang->line('type_change-corrective') ?></option>
+                    <option value="Preventive Action"><?= $this->lang->line('type_change-preventive') ?></option>
+                    <option value="Defect Repair"><?= $this->lang->line('type_change-defect') ?></option>
+                    <option value="Update"><?= $this->lang->line('type_change-update') ?></option>
+                  </select>
 
-                                </div>
+                </div>
 
 
 
-                                <div class=" col-lg-4 form-group">
-                                    <label for="situation"><?= $this->lang->line('cl_situation') ?> </label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_situation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                <div class=" col-lg-4 form-group">
+                  <label for="situation"><?= $this->lang->line('cl_situation') ?> </label>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_situation-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-                                    <select class="form-control" id="situation" name="situation">
-                                        <?=
-                                            $opcoes = array("Under Analysis", "Approved", "Rejected", "Canceled", "Suspended");
-                                        foreach ($opcoes as $teste) {
-                                            if ($teste == $change_log[0]->situation)
-                                                echo "<option value=$teste selected='selected'>$teste</option>";
-                                            else
-                                                echo "<option value=$teste>$teste</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
+                  <select class="form-control" id="situation" name="situation">
+                    <option value="Under Analysis"><?= $this->lang->line('type_situation-analysis') ?></option>
+                    <option value="Approved"><?= $this->lang->line('type_situation-approved') ?></option>
+                    <option value="Rejected"><?= $this->lang->line('type_situation-rejected') ?></option>
+                    <option value="Canceled"><?= $this->lang->line('type_situation-canceled') ?></option>
+                    <option value="Suspended"><?= $this->lang->line('type_situation-suspended') ?></option>
+                  </select>
+                </div>
 
-                                <div class=" col-lg-10 form-group">
-                                    <label for="change_description"><?= $this->lang->line('cl_change_description') ?> </label>
-                                    <span class="cl_6">255</span><?= $this->lang->line('character2') ?>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_change_description_tp') ?>">
-                                        <i class="glyphicon glyphicon-comment"></i></a>
-                                       <div>
-                                        <textarea onkeyup="limite_textarea2(this.value, 'cl_6')" id="cl_txt_6" maxlength="255" oninput="eylem(this, this.value)" class="form-control elasticteste" name="change_description"></textarea>
-                                       </div>
-                                </div>
+                <div class=" col-lg-10 form-group">
+                  <label for="change_description"><?= $this->lang->line('cl_change_description') ?> </label>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_change_description-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-                                <div class=" col-lg-10 form-group">
-                                    <label for="project_management_feedback"><?= $this->lang->line('cl_project_management_feedback') ?> </label>
-                                    <span class="cl_7">255</span><?= $this->lang->line('character2') ?>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_project_management_feedback_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                                    <div>
-                                        <textarea onkeyup="limite_textarea2(this.value, 'cl_7')" id="cl_txt_7" maxlength="255" oninput="eylem(this, this.value)" class="form-control elasticteste" name="project_management_feedback"></textarea>
-                                       </div>
-                                </div>
+                  <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="change_description" name="change_description" maxlength="255"></textarea>
+
+                </div>
+
+                <div class=" col-lg-10 form-group">
+                  <label for="project_management_feedback"><?= $this->lang->line('cl_project_management_feedback') ?> </label>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_project_management_feedback-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+                  <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="project_management_feedback" name="project_management_feedback" maxlength="255"></textarea>
+
+                </div>
 
 
-                                <div class=" col-lg-10 form-group">
-                                    <label for="ccc_feedback"><?= $this->lang->line('cl_ccc_feedback') ?> </label>
-                                    <span class="cl_8">255</span><?= $this->lang->line('character2') ?>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_ccc_feedback_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                                    <div>
-                                        <textarea onkeyup="limite_textarea2(this.value, 'cl_8')" id="cl_txt_8" maxlength="255" oninput="eylem(this, this.value)" class="form-control elasticteste" name="ccc_feedback"></textarea>
-                                       </div>
-                                </div>
+                <div class=" col-lg-10 form-group">
+                  <label for="ccc_feedback"><?= $this->lang->line('cl_ccc_feedback') ?> </label>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_ccc_feedback-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+                  <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="ccc_feedback" name="ccc_feedback" maxlength="255"></textarea>
+                </div>
 
 
-                                <div class="col-lg-6 form-group">
-                                    <label for="ccc_feedback_date"><?= $this->lang->line('cl_ccc_feedback_date') ?></label>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep_ccc_feedback_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input class="form-control" id="ccc_feedback_date" placeholder="YYYY/MM/DD" type="text" name="ccc_feedback_date" />
-                                    </div>
-                                </div>
+                <div class="col-lg-6 form-group">
+                  <label for="ccc_feedback_date"><?= $this->lang->line('cl_ccc_feedback_date') ?> Date</label>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-ccc_feedback_date-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                    <input class="form-control" id="ccc_feedback_date" placeholder="YYYY/MM/DD" type="text" name="ccc_feedback_date" />
+                  </div>
+                </div>
 
 
-                                <div class=" col-lg-12 form-group">
-                                    <label for="comments"><?= $this->lang->line('cl_comments') ?> </label>
-                                    <span class="cl_10">45</span><?= $this->lang->line('character3') ?>
-                                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_comments_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                                    <div>
-                                        <textarea onkeyup="limite_textarea3(this.value, 'cl_10')" id="cl_txt_10" maxlength="45" oninput="eylem(this, this.value)" class="form-control elasticteste" name="comments"></textarea>
-                                       </div>
-                                </div>
+
+                <div class=" col-lg-12 form-group">
+                  <label for="comments"><?= $this->lang->line('cl_comments') ?> </label>
+                  <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cl_comments-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+                  <input class="form-control" type="text" id="comments" name="comments" maxlength="45">
+
+                </div>
 
                 <div class="col-lg-12">
                   <button id="new_cl_submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
@@ -174,7 +159,7 @@
   var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
 
   //Start Date Ends Here
-  var endDate = $("#request_date").datep_icker({
+  var endDate = $("#request_date").datepicker({
     autoclose: true,
     format: 'yyyy/mm/dd',
     //language: 'pt-BR', //Idioma do Calendario
@@ -185,7 +170,7 @@
     /*todayHighlight : true,*/
   });
   //End Date Ends Here
-  var endDate = $("#ccc_feedback_date").datep_icker({
+  var endDate = $("#ccc_feedback_date").datepicker({
     autoclose: true,
     format: 'yyyy/mm/dd',
     //language: 'pt-BR', //Idioma do Calendario
@@ -195,34 +180,6 @@
     startDate: today,
     /*todayHighlight : true,*/
   });
-
-  for (var i = 1; i <= 7; i++) {
-		if (document.getElementById("cl_tp_" + i).title == "") {
-			document.getElementById("cl_tp_" + i).hidden = true;
-		}
-		limite_textarea(document.getElementById("cl_txt_" + i).value, "cl_" + i);
-	}
-
-	function limite_textarea(valor, txt) {
-		var limite = 2000;
-		var caracteresDigitados = valor.length;
-		var caracteresRestantes = limite - caracteresDigitados;
-		$("." + txt).text(caracteresRestantes);
-	}
-
-	function limite_textarea2(valor, txt) {
-		var limite = 255;
-		var caracteresDigitados = valor.length;
-		var caracteresRestantes = limite - caracteresDigitados;
-		$("." + txt).text(caracteresRestantes);
-	}
-
-	function limite_textarea3(valor, txt) {
-		var limite = 45;
-		var caracteresDigitados = valor.length;
-		var caracteresRestantes = limite - caracteresDigitados;
-		$("." + txt).text(caracteresRestantes);
-	}
 </script>
 <!-- /.row -->
 

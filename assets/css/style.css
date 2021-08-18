@@ -228,11 +228,12 @@
 		
 	}
 
-    .midBox{
+    .midBox {
         padding: 0.5em;
         height: 5em;
         margin: 0.5%;
         width: 13%;
+        padding-left: 1em;
     }
 
     .menuBox{
@@ -240,6 +241,7 @@
         height: 5em;
         margin: 0.5%;
         width: 12%;
+        padding-left: 1.2em;
     }
 
     .sideBox{
@@ -285,20 +287,28 @@
     }
 
     .scheduleBox{
-        height:18.5em;
+        height:18em;
     }
 
 
      .humanBox{
-        height:18.5em;
+        height:18em;
     }
 
      .integrationBox{
-        height:23.8em;
+        height:30em;
     }
 
-    .integrationBox .verticalAlign, .scheduleBox .verticalAlign, .humanBox .verticalAlign{
+    .scheduleBox .verticalAlign, .humanBox .verticalAlign{
         height:18.5em;
+        width:10em;
+        text-align:center;
+        display: table-cell;
+        vertical-align:middle;
+    }
+
+    .integrationBox .verticalAlign{
+        height:30em;
         width:10em;
         text-align:center;
         display: table-cell;
@@ -390,7 +400,7 @@
 	}
 
 	.wrapper{
-		font-size: 0.8em;
+		font-size: 0.9em;
     }
 
     .midBox{
@@ -435,13 +445,26 @@
     }
 
 
-    .integrationBox .verticalAlign, .scheduleBox .verticalAlign, .humanBox .verticalAlign{
-        height:18.2em;
+     .scheduleBox .verticalAlign, .humanBox .verticalAlign{
+        height:17em;
         width: 14.6%;
         text-align:center;
         display: table-cell;
         vertical-align:middle;
     }
+
+    .integrationBox{
+        height: 30.5em;
+    }
+
+    .integrationBox .verticalAlign{
+        height:30.5em;
+        width: 14.6%;
+        text-align:center;
+        display: table-cell;
+        vertical-align:middle;
+    }
+
 
     .timeBox{
         height: 24.3em;
@@ -483,6 +506,11 @@
         height: 12em;
     }
 
+    .scheduleBox, .humanBox{
+        height:17em;
+    }
+
+
     .stakeholderBox .verticalAlign, .scopeBox .verticalAlign, .costBox .verticalAlign, .qualityBox .verticalAlign, .procurementBox .verticalAlign{
         height:12em;
         width: 14.6%;
@@ -504,10 +532,12 @@
 
 @media (min-width:1600px){
     .integrationBox{
-        height: 18.8em;
+        height: 32em;
         /* border: 5px solid red; */
     }
 }
+
+
 
 @media (min-width: 1700px){
     .timeBox{
@@ -521,7 +551,7 @@
 
 @media (min-width:1900px){
     .integrationBox{
-        height: 19.2em;
+        height: 32em;
     }
 
     .stakeholderBox, .scopeBox, .costBox, .qualityBox, .procurementBox{

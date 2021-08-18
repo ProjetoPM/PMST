@@ -33,6 +33,8 @@ class ActivityList extends CI_Controller
 		$project['dados'] = $this->db->get('project_user')->result();
 
 		if (count($project['dados']) > 0) {
+			$dado['milestone'] = $this->Activity_model->getAllMilestone($project_id);
+			$dado['phase'] = $this->Activity_model->getAllPhase($project_id);
 			$dado['project_id'] = $project_id;
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
@@ -53,10 +55,33 @@ class ActivityList extends CI_Controller
 		}
 	}
 
+	public function deleteMilestone($id)
+	{
+		$query = $this->Activity_model->deleteMilestone($id);
+		if ($query) {
+			insertLogActivity('delete', 'milestone');
+			redirect('schedule/activity-list/list/' . $_SESSION['project_id']);
+		}
+	}
+
+	public function deletePhase($id)
+	{
+		$query = $this->Activity_model->deletePhase($id);
+		if ($query) {
+			insertLogActivity('delete', 'project phase');
+			redirect('schedule/activity-list/list/' . $_SESSION['project_id']);
+		}
+	}
+
+
+
 	public function list($project_id)
 	{
 		$dado['project_id'] = $project_id;
 		$dado['activity'] = $this->Activity_model->getAll($project_id);
+		$dado['milestone'] = $this->Activity_model->getAllMilestone($project_id);
+		$dado['phase'] = $this->Activity_model->getAllPhase($project_id);
+
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
@@ -67,6 +92,8 @@ class ActivityList extends CI_Controller
 	public function edit($project_id)
 	{
 		$query['activity'] = $this->Activity_model->get($project_id);
+		$query['milestone_list'] = $this->Activity_model->getAllMilestone($_SESSION['project_id']);
+		$query['phase_list'] = $this->Activity_model->getAllPhase($_SESSION['project_id']);
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
@@ -116,4 +143,31 @@ class ActivityList extends CI_Controller
 		}
 	}
 
+	public function insertMilestone()
+	{
+		$activity['milestone'] = $this->input->post('milestone');
+		$activity['project_id'] = $_SESSION['project_id'];
+
+		$query = $this->Activity_model->insertMilestone($activity);
+
+		if ($query) {
+			insertLogActivity('insert', 'milestone');
+			$this->session->set_flashdata('success', 'Milestone has been successfully created!');
+			redirect('schedule/activity-list/list/' . $activity['project_id']);
+		}
+	}
+
+	public function insertPhase()
+	{
+		$activity['project_phase'] = $this->input->post('project_phase');
+		$activity['project_id'] = $_SESSION['project_id'];
+
+		$query = $this->Activity_model->insertPhase($activity);
+
+		if ($query) {
+			insertLogActivity('insert', 'project phase');
+			$this->session->set_flashdata('success', 'Project Phase has been successfully created!');
+			redirect('schedule/activity-list/list/' . $activity['project_id']);
+		}
+	}
 }

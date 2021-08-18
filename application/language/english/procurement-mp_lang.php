@@ -30,17 +30,17 @@ $lang['team_actions'] = 'Team Actions';
 
 
 //Tooltip
-$lang['products-tooltip'] = '';
-$lang['procurement-tp'] = 'How procurement will be coordinated with other project aspects, such as project schedule development and
+$lang['pcmp_products_tp'] = '';
+$lang['pcmp_procurement_tp'] = 'How procurement will be coordinated with other project aspects, such as project schedule development and
 control processes';
-$lang['metrics-tp'] = 'Procurement Metrics to be Used to Manage Contracts';
-$lang['roles-tp'] = 'Stakeholder roles and responsibilities related to procurement, including authority and constraints of the project eam when the performing organization has a procurement department';
-$lang['constraints-tp'] = 'Constraints and assumptions that could affect planned procurements';
-$lang['jurisdiction-tp'] = 'The legal jurisdiction and the currency in which payments will be made';
-$lang['estimates-tp'] = 'Determination of whether independent estimates will be used and whether they are needed as evaluation criteria';
-$lang['risk-tp'] = 'Risk management issues including identifying requirements for performance bonds or insurance contracts to mitigate some forms of project risk';
-$lang['sellers-tp'] = 'Prequalified sellers, if any, to be used.';
-$lang['strategy-tp'] = 'Delivery methods. Delivery methods are different for professional services versus construction projects.
+$lang['pcmp_metrics_tp'] = 'Procurement Metrics to be Used to Manage Contracts';
+$lang['pcmp_roles_tp'] = 'Stakeholder roles and responsibilities related to procurement, including authority and constraints of the project eam when the performing organization has a procurement department';
+$lang['pcmp_constraints_tp'] = 'Constraints and assumptions that could affect planned procurements';
+$lang['pcmp_jurisdiction_tp'] = 'The legal jurisdiction and the currency in which payments will be made';
+$lang['pcmp_estimates_tp'] = 'Determination of whether independent estimates will be used and whether they are needed as evaluation criteria';
+$lang['pcmp_risk_issues_tp'] = 'Risk management issues including identifying requirements for performance bonds or insurance contracts to mitigate some forms of project risk';
+$lang['pcmp_sellers_tp'] = 'Prequalified sellers, if any, to be used.';
+$lang['pcmp_strategy_tp'] = 'Delivery methods. Delivery methods are different for professional services versus construction projects.
 Contract payment types. Contract payment types are separate from the project delivery methods and are
 coordinated with the buying organization’s internal financial systems.
 Procurement phases. The procurement strategy can also include information on procurement phases';

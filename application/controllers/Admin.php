@@ -74,14 +74,21 @@ class Admin extends CI_Controller {
 		echo json_encode($update);
 	}
 
-	function reset_user_password($email,$id){
-		$this->ajax_checking();
-
-		$update = $this->admin_model->reset_user_password($email,$id);
-		if($update['status'] == 'success')
-			$this->session->set_flashdata('success', 'User '.$email.'`s password has been successfully reset!');
-
-		echo json_encode($update);
+	function reset_user_password(){
+		// $this->ajax_checking();
+		$email = $this->input->post('email');
+		$update = $this->admin_model->reset_user_password($email);
+		if($update['status'] == 'success'){
+			$this->session->set_flashdata('flashSuccess', 'User ' . $email . '`s password has been successfully reset!');
+		}else{
+			$this->session->set_flashdata('flashError', 'Erro:'. $update['message']);
+		}
+		// echo json_encode($update);
+		// if ($update) {
+		// 	$this->session->set_flashdata('flashSuccess', 'User ' . $email . '`s password has been successfully reset!');
+		// }else{
+			
+		redirect(base_url());
 	}
 
 	function activity_log(){

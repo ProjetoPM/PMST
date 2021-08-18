@@ -31,7 +31,7 @@
 								<input type="hidden" name="project_id" value="<?php echo $_SESSION['project_id']; ?>">
 								<input type="hidden" name="status" value="1">
 
-								<div class="col-lg-12 form-group">
+								<div class="col-lg-6 form-group">
 									<label for="project_description"><?= $this->lang->line('pch_description') ?></label>
 									<span class="pch_1">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="pch_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -39,6 +39,32 @@
 										<textarea onkeyup="limite_textarea(this.value, 'pch_1')" id="pch_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="project_description" required="true"></textarea>
 									</div>
 								</div>
+
+								<!-- Inicio teste datas -->
+								<div class="form-group">
+									<div class="col-lg-3">
+										<label><?= $this->lang->line('pch_start') ?></label>
+										<div class="input-group padCalendar">
+											<div class="input-group-addon">
+												<i class="fa fa-calendar"></i>
+											</div>
+											<input autocomplete="off" class=" form-control" id="start_date" placeholder="YYYY/MM/DD" type="date" name="start_date" required="true" />
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="col-lg-3">
+										<label><?= $this->lang->line('pch_end') ?></label>
+										<div class="input-group padCalendar">
+											<div class="input-group-addon">
+												<i class="fa fa-calendar"></i>
+											</div>
+											<input autocomplete="off" class=" form-control" id="end_date" placeholder="YYYY/MM/DD" type="date" name="end_date" required="true" />
+										</div>
+									</div>
+								</div>
+								<!-- Fim teste Datas -->
 
 								<div class=" col-lg-12 form-group">
 									<label for="project_purpose"><?= $this->lang->line('pch_purpose') ?></label>
@@ -142,31 +168,7 @@
 									</div>
 								</div>
 
-								<!-- Inicio teste datas -->
-								<div class="form-group">
-									<div class="col-lg-6">
-										<label><?= $this->lang->line('pch_start') ?></label>
-										<div class="input-group padCalendar">
-											<div class="input-group-addon">
-												<i class="fa fa-calendar"></i>
-											</div>
-											<input autocomplete="off" class=" form-control" id="start_date" placeholder="YYYY/MM/DD" type="date" name="start_date" required="true" />
-										</div>
-									</div>
-								</div>
-
-								<div class="form-group">
-									<div class="col-lg-6">
-										<label><?= $this->lang->line('pch_end') ?></label>
-										<div class="input-group padCalendar">
-											<div class="input-group-addon">
-												<i class="fa fa-calendar"></i>
-											</div>
-											<input autocomplete="off" class=" form-control" id="end_date" placeholder="YYYY/MM/DD" type="date" name="end_date" required="true" />
-										</div>
-									</div>
-								</div>
-								<!-- Fim teste Datas -->
+								
 
 								<!-- Início modal da lista de stakeholder -->
 

@@ -151,6 +151,7 @@
 
 									</form>
 
+
 									<form action="<?php echo base_url('project/'); ?><?php echo  $_SESSION['project_id']; ?>">
 										<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 									</form>
@@ -167,6 +168,8 @@
 	var total = 0;
 	var count = parseFloat(<?php echo $count; ?>);
 	window.onload = initPage();
+
+	
 
 	function initPage() {
 
