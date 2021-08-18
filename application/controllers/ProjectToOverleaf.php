@@ -22,6 +22,7 @@ class ProjectToOverleaf extends CI_Controller
 		$this->load->model('Project_model');
 		$this->load->model('log_model');
 		$this->load->helper('url');
+		// $this->load->model('Project_to_overleaf_model');
 		$this->load->helper('log_activity');
 
 		// Integration
@@ -39,6 +40,36 @@ class ProjectToOverleaf extends CI_Controller
 		$this->load->model('Work_performance_report_model');
 		$this->load->model('Issues_record_model');
 		$this->load->model('Lesson_learned_register_model');
+	
+		$this->load->model('Scope_mp_model');
+	}
+
+	public function SCOMP_Overleaf($project_id)// 1 1
+	{
+		$dataSCOMP = $this->Scope_mp_model->get($project_id);
+		if ($dataSCOMP  != null) {
+			$file["name_task"] = "ScopeManagementPlan.tex";
+			$file["task"] = "\n";
+			$file["task"]  .= "\section{Scope Management Plan}\n";
+			$file["task"]  .= "\subsection{Project Scope Specification Process}\n";
+			$file["task"]  .= $this->verificaDados($dataSCOMP[0]->scope_specification) . "\n";
+
+			$file["task"]  .= "\subsection{Delivery acceptance process}\n";
+			$file["task"]  .=  $this->verificaDados($dataSCOMP[0]->deliveries_acceptance) . "\n";
+			
+			$file["task"]  .= "\subsection{Processes for creating, Approving, and Maintaining WBS }\n";
+			$file["task"]  .=  $this->verificaDados($dataSCOMP[0]->eap_process) . "\n";
+
+			$file["task"]  .= "\subsection{Scope Change Management Plan}\n";
+			$file["task"]  .=  $this->verificaDados($dataSCOMP[0]->scope_change_mp) . "\n";
+
+			$file["task"]  .= "\subsection{Process that establishes how the scope baseline will be approved and maintained}\n";
+			$file["task"]  .=  $this->verificaDados($dataSCOMP[0]->baseline) . "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
 	}
 
 	public function BC_Overleaf($project_id)
@@ -121,10 +152,11 @@ class ProjectToOverleaf extends CI_Controller
 			// todos os documentos
 			$BC = $this->BC_Overleaf($project_id);
 			$DS = $this->DS_Overleaf($project_id);
+			$SCOMP = $this->SCOMP_Overleaf($project_id);
 
 			// template + array dos documentos
 			$files["template"] = $this->templateOverleaf($project_id);
-			$files["knowledge_areas"] = array("integration" => array($BC, $DS));
+			$files["knowledge_areas"] = array("integration" => array($BC, $DS), "scope" => array($SCOMP));
 		}
 
 		// $files["knowledge_areas"] = array("integration" =>array($BC,$outra,$outra), "scope" =>array($outra,$outra));
@@ -186,6 +218,11 @@ class ProjectToOverleaf extends CI_Controller
 
 		$file .= "\include{BusinessCase}\n"; //mesmo do name_task
 		$file .= "\include{DeliverableStatus}\n";
+
+
+		$file .= "\chapter{Project Scope Management}\n";
+
+		$file .= "\include{ScopeManagementPlan}\n";
 
 		// End Document
 		$file .= "\\bibliography{Bib}\n";

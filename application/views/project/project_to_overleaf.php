@@ -41,6 +41,10 @@
 								<input class="form-check-input" type="checkbox" id="integration" value="Integration">
 								<label class="form-check-label"><?= $this->lang->line('overleaf_integration') ?></label>
 							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="scope" value="Scope">
+								<label class="form-check-label"><?= $this->lang->line('overleaf_scope') ?></label>
+							</div>
 							<br></br>
 							<div class=" col-lg-12 form-group">
 								<label style="font-size: larger;">Latex </label>
@@ -94,11 +98,11 @@
 			remove_snip("integration");
 		} else {
 			var latex_provisorio = latex1;
-			var integration = <?= $json ?>;
+			var kw = <?= $json ?>;
 			// console.log(integration.integration.length);
-			for (let index = 0; index < integration.integration.length; index++) {
-				latex_provisorio = latex_provisorio + integration.integration[index]["task"];
-				create_snip("integration", integration.integration[index]["name_task"], integration.integration[index]["task"]);
+			for (let index = 0; index < kw.integration.length; index++) {
+				latex_provisorio = latex_provisorio + kw.integration[index]["task"];
+				create_snip("integration", kw.integration[index]["name_task"], kw.integration[index]["task"]);
 				console.log(latex_provisorio);
 			}
 
@@ -106,6 +110,27 @@
 		}
 
 	});
+
+
+	$("#scope").click(function() {
+		if ($("#scope").is(":checked") == false) {
+			document.getElementById('latex').value = latex1;
+			remove_snip("scope");
+		} else {
+			var latex_provisorio = latex1;
+			var kw = <?= $json ?>;
+			// console.log(integration.integration.length);
+			for (let index = 0; index < kw.scope.length; index++) {
+				latex_provisorio = latex_provisorio + kw.scope[index]["task"];
+				create_snip("scope", kw.scope[index]["name_task"], kw.scope[index]["task"]);
+				console.log(latex_provisorio);
+			}
+
+			document.getElementById('latex').value = latex_provisorio;
+		}
+
+	});
+	
 
 
 	function create_snip(area, name, info) {
