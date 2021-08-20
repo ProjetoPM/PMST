@@ -196,85 +196,85 @@ class ProjectToOverleaf extends CI_Controller
 		}
 	}
 
-	// public function PMP_Overleaf($project_id)
-	// {
-	// 	$dataPMP = $this->Project_Management_model->get($project_id);
-	// 	if ($dataPMP != null) {
-	// 		$file["name_task"] = "ProjectManagementPlan.tex";
-	// 		$file["task"] = "\n";
-	// 		$file["task"] .= "\section{Project Management Plan}\n";
+	public function PMP_Overleaf($project_id)
+	{
+		$dataPMP = $this->Project_Management_model->get($project_id);
+		if ($dataPMP != null) {
+			$file["name_task"] = "ProjectManagementPlan.tex";
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Project Management Plan}\n";
 
-	// 		// Subsidiary Management Plans
-	// 		$file["task"] .= "\subsection{Subsidiary Management Plans}\n";
+			// Subsidiary Management Plans
+			$file["task"] .= "\subsection{Subsidiary Management Plans}\n";
 
-	// 		$file["task"] .= "\subsubsection{Scope Management Plan}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->project_guidelines) . "\n";
+			$file["task"] .= "\subsubsection{Scope Management Plan}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["project_guidelines"]) . "\n";
 
-	// 		$file["task"] .= "\subsubsection{Requirements management plan}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->requirements_mp) . "\n";
+			$file["task"] .= "\subsubsection{Requirements management plan}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["requirements_mp"]) . "\n";
 
-	// 		$file["task"] .= "\subsubsection{Schedule management plan}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->schedule_mp) . "\n";
+			$file["task"] .= "\subsubsection{Schedule management plan}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["schedule_mp"]) . "\n";
 
-	// 		$file["task"] .= "\subsubsection{Cost management plan}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->cost_mp) . "\n";
+			$file["task"] .= "\subsubsection{Cost management plan}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["cost_mp"]) . "\n";
 
-	// 		$file["task"] .= "\subsubsection{Quality management plan}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->quality_mp) . "\n";
+			$file["task"] .= "\subsubsection{Quality management plan}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["quality_mp"]) . "\n";
 
-	// 		$file["task"] .= "\subsubsection{Resource management plan}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->resource_mp) . "\n";
+			$file["task"] .= "\subsubsection{Resource management plan}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["resource_mp"]) . "\n";
 
-	// 		$file["task"] .= "\subsubsection{Communications management plan}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->stakeholders_communication) . "\n";
+			$file["task"] .= "\subsubsection{Communications management plan}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["stakeholders_communication"]) . "\n";
 
-	// 		$file["task"] .= "\subsubsection{Risk management plan}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->risk_mp) . "\n";
+			$file["task"] .= "\subsubsection{Risk management plan}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["risk_mp"]) . "\n";
 
-	// 		$file["task"] .= "\subsubsection{Procurement management plan}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->procurement_mp) . "\n";
+			$file["task"] .= "\subsubsection{Procurement management plan}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["procurement_mp"]) . "\n";
 
-	// 		$file["task"] .= "\subsubsection{Stakeholder engagement plan}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->stakeholder_mp) . "\n";
+			$file["task"] .= "\subsubsection{Stakeholder engagement plan}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["stakeholder_mp"]) . "\n";
 
-	// 		// Baselines
-	// 		$file["task"] .= "\subsection{Baselines}\n";
+			// Baselines
+			$file["task"] .= "\subsection{Baselines}\n";
 
-	// 		$file["task"] .= "\subsubsection{Scope Baseline}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->scope_baseline) . "\n";
+			$file["task"] .= "\subsubsection{Scope Baseline}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["scope_baseline"]) . "\n";
 
-	// 		$file["task"] .= "\subsubsection{Schedule Baseline}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->baseline_maintenance) . "\n";
+			$file["task"] .= "\subsubsection{Schedule Baseline}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["baseline_maintenance"]) . "\n";
 
-	// 		$file["task"] .= "\subsubsection{Cost Baseline}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->cost_baseline) . "\n";
+			$file["task"] .= "\subsubsection{Cost Baseline}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["cost_baseline"]) . "\n";
 
-	// 		// Additional Components
-	// 		$file["task"] .= "\subsection{Additional Components}\n";
+			// Additional Components
+			$file["task"] .= "\subsection{Additional Components}\n";
 
-	// 		$file["task"] .= "\subsubsection{Change Management Plan}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->change_mp) . "\n";
+			$file["task"] .= "\subsubsection{Change Management Plan}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["change_mp"]) . "\n";
 
-	// 		$file["task"] .= "\subsubsection{Configuration Management Plan}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->configuration_mp) . "\n";
+			$file["task"] .= "\subsubsection{Configuration Management Plan}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["configuration_mp"]) . "\n";
 
-	// 		$file["task"] .= "\subsubsection{Performance Measurement Baseline}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->performance) . "\n";
+			$file["task"] .= "\subsubsection{Performance Measurement Baseline}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["performance"]) . "\n";
 
-	// 		$file["task"] .= "\subsubsection{Project Life Cycle}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->project_lifecycle) . "\n";
+			$file["task"] .= "\subsubsection{Project Life Cycle}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["project_lifecycle"]) . "\n";
 
-	// 		$file["task"] .= "\subsubsection{Development Approach}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->development) . "\n";
+			$file["task"] .= "\subsubsection{Development Approach}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["development"]) . "\n";
 
-	// 		$file["task"] .= "\subsubsection{Management Reviews}\n";
-	// 		$file["task"] .= $this->verificaDados($dataPMP[0]->key_review) . "\n";
+			$file["task"] .= "\subsubsection{Management Reviews}\n";
+			$file["task"] .= $this->verificaDados($dataPMP["key_review"]) . "\n";
 
-	// 		return $file;
-	// 	} else {
-	// 		return null;
-	// 	}
-	// }
+			return $file;
+		} else {
+			return null;
+		}
+	}
 
 	public function PPR_Overleaf($project_id)
 	{
@@ -643,6 +643,34 @@ class ProjectToOverleaf extends CI_Controller
 	}
 
 	// Scope
+	public function RMP_Overleaf($project_id) // 1 1
+	{
+		$dataRMP = $this->Scope_mp_model->get($project_id);
+		if ($dataRMP  != null) {
+			$file["name_task"] = "ScopeManagementPlan.tex";
+			$file["task"] = "\n";
+			$file["task"]  .= "\section{Scope Management Plan}\n";
+			$file["task"]  .= "\subsection{Project Scope Specification Process}\n";
+			$file["task"]  .= $this->verificaDados($dataRMP[0]->scope_specification) . "\n";
+
+			$file["task"]  .= "\subsection{Delivery acceptance process}\n";
+			$file["task"]  .=  $this->verificaDados($dataRMP[0]->deliveries_acceptance) . "\n";
+
+			$file["task"]  .= "\subsection{Processes for creating, Approving, and Maintaining WBS }\n";
+			$file["task"]  .=  $this->verificaDados($dataRMP[0]->eap_process) . "\n";
+
+			$file["task"]  .= "\subsection{Scope Change Management Plan}\n";
+			$file["task"]  .=  $this->verificaDados($dataRMP[0]->scope_change_mp) . "\n";
+
+			$file["task"]  .= "\subsection{Process that establishes how the scope baseline will be approved and maintained}\n";
+			$file["task"]  .=  $this->verificaDados($dataRMP[0]->baseline) . "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
 	public function SCOMP_Overleaf($project_id) // 1 1
 	{
 		$dataSCOMP = $this->Scope_mp_model->get($project_id);
@@ -695,7 +723,7 @@ class ProjectToOverleaf extends CI_Controller
 			$BC = $this->BC_Overleaf($project_id);
 			$BMP = $this->BMP_Overleaf($project_id);
 			$ACL = $this->ACL_Overleaf($project_id);
-			// $PMP = $this->PMP_Overleaf($project_id);
+			$PMP = $this->PMP_Overleaf($project_id);
 			$PPR = $this->PPR_Overleaf($project_id);
 			$DS = $this->DS_Overleaf($project_id);
 			$WP = $this->WP_Overleaf($project_id);
@@ -713,7 +741,7 @@ class ProjectToOverleaf extends CI_Controller
 
 			// template + array dos documentos
 			$files["template"] = $this->templateOverleaf($project_id);
-			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PPR, $DS, $WP, $IR, $LLR, $CR, $CL, $TEP, $FR), "scope" => array($SCOMP));
+			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PMP, $PPR, $DS, $WP, $IR, $LLR, $CR, $CL, $TEP, $FR), "scope" => array($SCOMP));
 		}
 
 		// $files["knowledge_areas"] = array("integration" =>array($BC,$outra,$outra), "scope" =>array($outra,$outra));
