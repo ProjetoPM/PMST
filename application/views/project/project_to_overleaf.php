@@ -90,70 +90,82 @@
 <script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
 
 <script>
-	var latex1 = document.getElementById('latex').value;
+	const latex1 = document.getElementById('latex').value;
+	var allkw_names = [];
+	var allkw = <?= $json ?>;
+	//  console.log(latex[0]);
+
+	function scanner() {
+		document.getElementById('latex').value = latex1;
+		var text = "";
+		for (let index = 0; index < allkw_names.length; index++) {
+			remove_snip(allkw_names[index]);
+			text = text + addKW(allkw_names[index]);
+		}
+	}
+
+	function addKW(kw) {
+		var latex_provisorio = document.getElementById('latex').value;
+
+		for (let index = 0; index < allkw.name[kw].length; index++) {
+			latex_provisorio = latex_provisorio + allkw.name[kw][index]["task"];
+			create_snip(kw, allkw.name[kw][index]["name_task"], allkw.name[kw][index]["task"]);
+		}
+		document.getElementById('latex').value = latex_provisorio;
+	}
 
 	$("#integration").click(function() {
 		if ($("#integration").is(":checked") == false) {
-			document.getElementById('latex').value = latex1;
+			allkw_names.splice(allkw_names.indexOf("integration"), 1);
 			remove_snip("integration");
+			scanner();
 		} else {
-			var latex_provisorio = latex1;
-			var kw = <?= $json ?>;
-			// console.log(integration.integration.length);
-			for (let index = 0; index < kw.integration.length; index++) {
-				latex_provisorio = latex_provisorio + kw.integration[index]["task"];
-				create_snip("integration", kw.integration[index]["name_task"], kw.integration[index]["task"]);
-				console.log(latex_provisorio);
-			}
-
-			document.getElementById('latex').value = latex_provisorio;
+			allkw_names.push("integration");
+			scanner();
 		}
-
 	});
-
 
 	$("#scope").click(function() {
 		if ($("#scope").is(":checked") == false) {
-			document.getElementById('latex').value = latex1;
+			allkw_names.splice(allkw_names.indexOf("scope"), 1);
 			remove_snip("scope");
+			scanner();
 		} else {
-			var latex_provisorio = latex1;
-			var kw = <?= $json ?>;
-			// console.log(integration.integration.length);
-			for (let index = 0; index < kw.scope.length; index++) {
-				latex_provisorio = latex_provisorio + kw.scope[index]["task"];
-				create_snip("scope", kw.scope[index]["name_task"], kw.scope[index]["task"]);
-				console.log(latex_provisorio);
-			}
-
-			document.getElementById('latex').value = latex_provisorio;
+			allkw_names.push("scope");
+			scanner();
 		}
-
 	});
-	
+
 
 
 	function create_snip(area, name, info) {
 		// Snips
-		var objTo = document.getElementById('snips')
+		var objTo = document.getElementById('snips');
 		var divtest = document.createElement("div");
-		divtest.setAttribute("id", "snips_" + area);
+		divtest.setAttribute("class", "snips_" + area);
 		divtest.innerHTML = ' <input type="hidden" name="snip[]" value="' + info + '">';
 		objTo.appendChild(divtest);
 
 
 		// Snips Names
-		var objTo2 = document.getElementById('snips_names')
+		var objTo2 = document.getElementById('snips_names');
 		var divtest2 = document.createElement("div");
-		divtest2.setAttribute("id", "snips_names_" + area);
+		divtest2.setAttribute("class", "snips_names_" + area);
 		divtest2.innerHTML = '<input type="hidden" name="snip_name[]" value="' + name + '">';
 		objTo2.appendChild(divtest2);
 
 	}
 
 	function remove_snip(area) {
-		$('#snips_' + area).remove();
-		$('#snips_names_' + area).remove();
+		removeElement('snips_' + area);
+		removeElement('snips_names_' + area);
+	}
+
+	function removeElement(id) {
+		var list = document.getElementsByClassName(id);
+		for (var i = list.length - 1; 0 <= i; i--)
+			if (list[i] && list[i].parentElement)
+				list[i].parentElement.removeChild(list[i]);
 	}
 </script>
 <?php $this->load->view('frame/footer_view') ?>
