@@ -34,7 +34,7 @@
 
               </h1>
              
-              	<?php extract($change_request); ?>
+              	<?php extract($final_report); ?>
              
 
                 <form action="<?= base_url() ?>integration/final-report/update/<?php echo $project_id; ?>" method="post">
@@ -55,7 +55,7 @@
                   <span class="fr_2">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" id="fr_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-scope_objectives_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                  <textarea onkeyup="limite_textarea(this.value, 'fr_2')" id="fr_txt_2" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="scope_objectives"></textarea>
+                  <textarea onkeyup="limite_textarea(this.value, 'fr_2')" id="fr_txt_2" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="scope_objectives"><?php echo $scope_objectives; ?></textarea>
                   </div>
                 </div>
 
@@ -64,7 +64,7 @@
                   <span class="fr_3">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" id="fr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-quality_objectives_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                  <textarea onkeyup="limite_textarea(this.value, 'fr_3')" id="fr_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="quality_objectives"></textarea>
+                  <textarea onkeyup="limite_textarea(this.value, 'fr_3')" id="fr_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="quality_objectives"><?php echo $quality_objectives; ?></textarea>
                   </div>
                 </div>
 
@@ -73,7 +73,7 @@
                   <span class="fr_4">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" id="fr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-cost_objectives_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                  <textarea onkeyup="limite_textarea(this.value, 'fr_4')" id="fr_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="cost_objectives"></textarea>
+                  <textarea onkeyup="limite_textarea(this.value, 'fr_4')" id="fr_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="cost_objectives"><?php echo $cost_objectives; ?></textarea>
                   </div>
                 </div>
 
@@ -82,7 +82,7 @@
                   <span class="fr_5">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" id="fr_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-schedule_objectives_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                  <textarea onkeyup="limite_textarea(this.value, 'fr_5')" id="fr_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="schedule_objectives"></textarea>
+                  <textarea onkeyup="limite_textarea(this.value, 'fr_5')" id="fr_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="schedule_objectives"><?php echo $schedule_objectives; ?></textarea>
                   </div>
                 </div>
 
@@ -91,7 +91,7 @@
                   <span class="fr_6">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" id="fr_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-summary_validation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                  <textarea onkeyup="limite_textarea(this.value, 'fr_6')" id="fr_txt_6" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="summary_validation"></textarea>
+                  <textarea onkeyup="limite_textarea(this.value, 'fr_6')" id="fr_txt_6" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="summary_validation"><?php echo $summary_validation; ?></textarea>
                   </div>
                 </div>
 
@@ -100,14 +100,14 @@
                   <span class="fr_7">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" id="fr_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-summary_results_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                  <textarea onkeyup="limite_textarea(this.value, 'fr_7')" id="fr_txt_7" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="summary_results"></textarea>
+                  <textarea onkeyup="limite_textarea(this.value, 'fr_7')" id="fr_txt_7" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="summary_results"><?php echo $summary_results; ?></textarea>
                   </div>
                 </div>
 
                 <div class=" col-lg-06 form-group">
                   <label for="summary_risks"><?= $this->lang->line('fr-summary_risks') ?> </label>
                   <span class="fr_8">2000</span><?= $this->lang->line('character') ?>
-                  <a class="btn-sm btn-default" id="fr_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-summary_risks_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a class="btn-sm btn-default" id="fr_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-summary_risks_tp') ?>"><i class="glyphicon glyphicon-comment"><?php echo $summary_risks; ?></i></a>
                   <div>
                   <textarea onkeyup="limite_textarea(this.value, 'fr_8')" id="fr_txt_8" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="summary_risks"></textarea>
                   </div>
