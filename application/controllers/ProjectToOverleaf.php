@@ -29,7 +29,7 @@ class ProjectToOverleaf extends CI_Controller
 		// Integration
 		$this->load->model('Admin_model');
 		$this->load->model('Project_Charter_model');
-		$this->load->model('Project_management_model');
+		$this->load->model('Project_Management_model');
 		$this->load->model('Project_performance_report_model');
 		$this->load->model('Change_request_model');
 		$this->load->model('Project_Closure_model');
@@ -172,18 +172,15 @@ class ProjectToOverleaf extends CI_Controller
 		$file["task"]  .= "\begin{itemize}\n";
 		if ($dataACL != null) {
 			foreach ($dataACL as $data) {
-
-
-				$file["task"] .= "\begin{itemize}\n";
-
 				$file["task"] .= "\item \\textbf{Type}: ";
-
 				$temp = $this->verificaDados($data->type);
 				if ($temp == "A") {
 					$file["task"] .= "Assumption";
 				} else if ($temp == "C") {
 					$file["task"] .= "Constraint";
 				}
+
+				$file["task"] .= "\begin{itemize}\n";
 
 				$file["task"] .= "\item \\textbf{Description Log}: ";
 				$file["task"] .= $this->verificaDados($data->description_log) . ";\n";
@@ -201,7 +198,7 @@ class ProjectToOverleaf extends CI_Controller
 
 	// public function PMP_Overleaf($project_id)
 	// {
-	// 	$dataPMP = $this->Project_management_model->get($project_id);
+	// 	$dataPMP = $this->Project_Management_model->get($project_id);
 	// 	if ($dataPMP != null) {
 	// 		$file["name_task"] = "ProjectManagementPlan.tex";
 	// 		$file["task"] = "\n";
@@ -278,6 +275,7 @@ class ProjectToOverleaf extends CI_Controller
 	// 		return null;
 	// 	}
 	// }
+
 	public function PPR_Overleaf($project_id)
 	{
 		$dataPPR = $this->Project_performance_report_model->getAll($project_id);
@@ -372,10 +370,10 @@ class ProjectToOverleaf extends CI_Controller
 		if ($dataWP != null) {
 			foreach ($dataWP as $data) {
 				// $name = getStakeholderName($this->verificaDados($data->project_id));
-				
+
 				// $file["task"] .= "\item \\textbf{Responsible}: " . $this->verificaDados($name) . "\n";
 				$file["task"] .= "\item \\textbf{Date}: " . $this->verificaDados(date("d/m/Y", strtotime($data->date))) . "\n";
-				$file["task"] .= "\item \\textbf{Main activities in execution (with %)}: " . $this->verificaDados($data->main_activities) . "\n";
+				$file["task"] .= "\item \\textbf{Main activities in execution (with \%)}: " . $this->verificaDados($data->main_activities) . "\n";
 
 				$file["task"] .= "\begin{itemize}\n";
 
@@ -408,14 +406,241 @@ class ProjectToOverleaf extends CI_Controller
 		}
 	}
 
-	public function verificaDados($dado)
+	public function IR_Overleaf($project_id)
 	{
-		if ($dado == null)
-			return "Not Defined";
-		else
-			return  $dado;
+		$dataIR = $this->Issues_record_model->getAll($project_id);
+		$file["name_task"] = "IssueRecord.tex";
+		$file["task"] = "\n";
+		$file["task"] .= "\section{Issue Record}\n";
+		$file["task"] .= "\begin{itemize}\n";
+		if ($dataIR != null) {
+			foreach ($dataIR as $data) {
+
+				$file["task"] .= "\item \\textbf{Issue Responsible}: " .  $this->verificaDados($data->responsable) . " | \\textbf{Identification Date}: " . date("d/m/Y", strtotime($data->identification_date)) . "\n";
+				$file["task"] .= "\item \\textbf{Description of the Issue}: " . $this->verificaDados($data->question_description) . " | \\textbf{Situation}: " . $this->verificaDados($data->situation) . "\n";
+				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Responsible for the Identifying}: ";
+				$file["task"] .=  $this->verificaDados($data->identification) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Issue Type}: ";
+				$file["task"] .= $this->verificaDados($data->type) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Required Action}: ";
+				$file["task"] .= $this->verificaDados($data->action) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Required Action}: ";
+				$file["task"] .= $this->verificaDados($data->action) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Planned Resolution Date}: ";
+				$file["task"] .= $this->verificaDados(date("d/m/Y", strtotime($data->resolution_date))) . ";\n";
+
+
+				$file["task"] .= "\item \\textbf{Reorganized Resolution Date}: ";
+				$file["task"] .= $this->verificaDados(date("d/m/Y", strtotime($data->replan_date))) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Comments}: ";
+				$file["task"] .= $this->verificaDados($data->observations) . ";\n";
+
+				$file["task"] .= "\\end{itemize}\n";
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
 	}
 
+	public function LLR_Overleaf($project_id)
+	{
+		$dataLLR = $this->Lesson_learned_register_model->getAll($project_id);
+		$file["name_task"] = "LessonLearnedRegister.tex";
+		$file["task"] = "\n";
+		$file["task"] .= "\section{Lesson Learned Register}\n";
+		$file["task"] .= "\begin{itemize}\n";
+		if ($dataLLR != null) {
+			foreach ($dataLLR as $data) {
+
+				$file["task"] .= "\item \\textbf{Issue Responsible}: " .  $this->verificaDados($data->stakeholder) . " | \\textbf{Identification Date}: " . date("d/m/Y", strtotime($data->date)) . "\n";
+				$file["task"] .= "\item \\textbf{Description of the Issue}: " . $this->verificaDados($data->description) . "\n";
+				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Category}: ";
+				$file["task"] .=  $this->verificaDados($data->category) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Who Could Be Interested}: ";
+				$file["task"] .= $this->verificaDados($data->interested) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Status}: ";
+				$file["task"] .= $this->verificaDados($data->status) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Impact}: ";
+				$file["task"] .= $this->verificaDados($data->impact) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Recommendations}: ";
+				$file["task"] .= $this->verificaDados($data->recommendations) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Associated Life Cycle Stage}: ";
+				$file["task"] .= $this->verificaDados($data->life_cycle) . ";\n";
+
+				$file["task"] .= "\\end{itemize}\n";
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	public function CR_Overleaf($project_id)
+	{
+		$dataCR = $this->Change_request_model->getAll($project_id);
+		$file["name_task"] = "ChangeRequest.tex";
+		$file["task"] = "\n";
+		$file["task"] .= "\section{Change Request}\n";
+		$file["task"] .= "\begin{itemize}\n";
+		if ($dataCR != null) {
+			foreach ($dataCR as $data) {
+
+				$file["task"] .= "\item \\textbf{Id}: " .  $this->verificaDados($data->number_id) . " | \\textbf{Requester}: " .  $this->verificaDados($data->requester) . " | \\textbf{Request Date}: " . date("d/m/Y", strtotime($data->request_date)) . "\n";
+				$file["task"] .= "\item \\textbf{Type of change}: " . $this->verificaDados($data->type) . " | \\textbf{Status/Situation}: " .  $this->verificaDados($data->status) . "\n";
+				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Date of Opinion of the CCB}: ";
+				$file["task"] .= $this->verificaDados(date("d/m/Y", strtotime($data->committee_date))) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Description of Change}: ";
+				$file["task"] .=  $this->verificaDados($data->description) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Impacted Knowledge Areas}: ";
+				$file["task"] .= $this->verificaDados($data->impacted_areas) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Impacted Deliveries/Documents}: ";
+				$file["task"] .= $this->verificaDados($data->impacted_docs) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Justification}: ";
+				$file["task"] .= $this->verificaDados($data->justification) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Additional Comments}: ";
+				$file["task"] .= $this->verificaDados($data->comments) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Opinion of the CCB}: ";
+				$file["task"] .= $this->verificaDados($data->committee_opinion) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Opinion of Project Manager}: ";
+				$file["task"] .= $this->verificaDados($data->manager_opinion) . ";\n";
+
+				$file["task"] .= "\\end{itemize}\n";
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	public function CL_Overleaf($project_id)
+	{
+		$dataCL = $this->Change_request_model->getAll($project_id);
+		$file["name_task"] = "ChangeLog.tex";
+		$file["task"] = "\n";
+		$file["task"] .= "\section{Change Log}\n";
+		$file["task"] .= "\begin{itemize}\n";
+		if ($dataCL != null) {
+			foreach ($dataCL as $data) {
+
+				$file["task"] .= "\item \\textbf{Id}: " .  $this->verificaDados($data->number_id) . " | \\textbf{Requester}: " .  $this->verificaDados($data->requester) . " | \\textbf{Request Date}: " . date("d/m/Y", strtotime($data->request_date)) . "\n";
+				$file["task"] .= "\item \\textbf{Type of change}: " . $this->verificaDados($data->type) . " | \\textbf{Status/Situation}: " .  $this->verificaDados($data->status) . "\n";
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	public function TEP_Overleaf($project_id)
+	{
+		$dataTEP = $this->Project_Closure_model->get($project_id);
+		if ($dataTEP != null) {
+			$file["name_task"] = "ProjectClosureReport.tex";
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Project Closure Report}\n";
+
+			$file["task"] .= "\subsection{Client}\n";
+			$file["task"] .= $this->verificaDados($dataTEP[0]->client) . "\n";
+
+			$file["task"] .= "\subsection{Date of project closure}\n";
+			$file["task"] .= $this->verificaDados(date("d/m/Y", strtotime($dataTEP[0]->project_closure_date))) . "\n";
+
+			$file["task"] .= "\subsection{Main changes approved}\n";
+			$file["task"] .= $this->verificaDados($dataTEP[0]->main_changes_approved) . "\n";
+
+			$file["task"] .= "\subsection{Main lessons learned}\n";
+			$file["task"] .= $this->verificaDados($dataTEP[0]->main_lessons_learned) . "\n";
+
+			$file["task"] .= "\subsection{Main deviations}\n";
+			$file["task"] .= $this->verificaDados($dataTEP[0]->main_deviations) . "\n";
+
+			$file["task"] .= "\subsection{Customer comments}\n";
+			$file["task"] .= $this->verificaDados($dataTEP[0]->client_comments) . "\n";
+
+			$file["task"] .= "\subsection{Sponsor's comments}\n";
+			$file["task"] .= $this->verificaDados($dataTEP[0]->sponsor_comments) . "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	public function FR_Overleaf($project_id)
+	{
+		$dataTEP = $this->Final_report_model->get($project_id);
+		if ($dataTEP != null) {
+			$file["name_task"] = "FinalReport.tex";
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Final Report}\n";
+
+			$file["task"] .= "\subsection{Summary Level Description of the Project or Phase}\n";
+			$file["task"] .= $this->verificaDados($dataTEP[0]->description) . "\n";
+
+			$file["task"] .= "\subsection{Scope Objectives, Scope Criteria, and Evidences}\n";
+			$file["task"] .= $this->verificaDados($dataTEP[0]->scope_objectives) . "\n";
+
+			$file["task"] .= "\subsection{Quality Objectives}\n";
+			$file["task"] .= $this->verificaDados($dataTEP[0]->quality_objectives) . "\n";
+
+			$file["task"] .= "\subsection{Cost Objectives}\n";
+			$file["task"] .= $this->verificaDados($dataTEP[0]->cost_objectives) . "\n";
+
+			$file["task"] .= "\subsection{Schedule Objectives}\n";
+			$file["task"] .= $this->verificaDados($dataTEP[0]->schedule_objectives) . "\n";
+
+			$file["task"] .= "\subsection{Summary of the Validation Information for the Results}\n";
+			$file["task"] .= $this->verificaDados($dataTEP[0]->summary_validation) . "\n";
+
+			$file["task"] .= "\subsection{Summary of Results Achieved the Business Needs}\n";
+			$file["task"] .= $this->verificaDados($dataTEP[0]->summary_business) . "\n";
+
+			$file["task"] .= "\subsection{Summary Risks or Issues}\n";
+			$file["task"] .= $this->verificaDados($dataTEP[0]->summary_risks) . "\n";
+
+
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
 
 	// Scope
 	public function SCOMP_Overleaf($project_id) // 1 1
@@ -446,6 +671,14 @@ class ProjectToOverleaf extends CI_Controller
 		}
 	}
 
+	public function verificaDados($dado)
+	{
+		if ($dado == null)
+			return "Not Defined";
+		else
+			return $dado;
+	}
+
 	public function exportLatex($project_id)
 	{
 
@@ -457,20 +690,30 @@ class ProjectToOverleaf extends CI_Controller
 		if (count($project['dados']) > 0) {
 
 			// todos os documentos
+			// Integration
 			$PCH = $this->PCH_Overleaf($project_id);
 			$BC = $this->BC_Overleaf($project_id);
 			$BMP = $this->BMP_Overleaf($project_id);
 			$ACL = $this->ACL_Overleaf($project_id);
 			// $PMP = $this->PMP_Overleaf($project_id);
 			$PPR = $this->PPR_Overleaf($project_id);
-			$WP = $this->WP_Overleaf($project_id);
-
 			$DS = $this->DS_Overleaf($project_id);
+			$WP = $this->WP_Overleaf($project_id);
+			$IR = $this->IR_Overleaf($project_id);
+			$LLR = $this->LLR_Overleaf($project_id);
+			$CR = $this->CR_Overleaf($project_id);
+			$CL = $this->CL_Overleaf($project_id);
+			$TEP = $this->TEP_Overleaf($project_id);
+			$FR = $this->FR_Overleaf($project_id);
+
+
+
+			// Scope
 			$SCOMP = $this->SCOMP_Overleaf($project_id);
 
 			// template + array dos documentos
 			$files["template"] = $this->templateOverleaf($project_id);
-			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PPR, $DS, $WP), "scope" => array($SCOMP));
+			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PPR, $DS, $WP, $IR, $LLR, $CR, $CL, $TEP, $FR), "scope" => array($SCOMP));
 		}
 
 		// $files["knowledge_areas"] = array("integration" =>array($BC,$outra,$outra), "scope" =>array($outra,$outra));
@@ -528,18 +771,23 @@ class ProjectToOverleaf extends CI_Controller
 		$file .= "\n";
 
 		// chapter, and includes +++
-		$file .= "\chapter{Project Integration Management}\n";
-
-
 		// Integration
+		$file .= "\chapter{Project Integration Management}\n";
 		$file .= "\include{ProjectCharter}\n";
 		$file .= "\include{BusinessCase}\n"; //mesmo do name_task
 		$file .= "\include{BenefitsManagementPlan}\n";
 		$file .= "\include{AssumptionLog}\n";
-		// $file .= "\include{ProjectManagementPlan}\n";
+		$file .= "\include{ProjectManagementPlan}\n";
 		$file .= "\include{ProjectPerformaceMonitoringReport}\n";
 		$file .= "\include{DeliverableStatus}\n";
 		$file .= "\include{WorkPerformanceReport}\n";
+		$file .= "\include{IssueRecord}\n";
+		$file .= "\include{LessonLearnedRegister}\n";
+		$file .= "\include{ChangeRequest}\n";
+		$file .= "\include{ChangeLog}\n";
+		$file .= "\include{ProjectClosureReport}\n";
+		$file .= "\include{FinalReport}\n";
+
 
 
 		$file .= "\chapter{Project Scope Management}\n";
