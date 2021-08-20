@@ -470,8 +470,7 @@ class ProjectToOverleaf extends CI_Controller
 
 			// template + array dos documentos
 			$files["template"] = $this->templateOverleaf($project_id);
-			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PPR, $DS, $WP), "scope" => array($SCOMP));
-			$files["knowledge_areas"] =array("name" => array("integration" => array($BC, $DS), "scope" => array($SCOMP)));
+			$files["knowledge_areas"] = array("name" => array("integration" => array($PCH, $BC, $BMP, $ACL, $PPR, $DS, $WP), "scope" => array($SCOMP)));
 		}
 
 		// $files["knowledge_areas"] = array("integration" =>array($BC,$outra,$outra), "scope" =>array($outra,$outra));
