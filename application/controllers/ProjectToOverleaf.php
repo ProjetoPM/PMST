@@ -44,6 +44,7 @@ class ProjectToOverleaf extends CI_Controller
 		$this->load->model('Assumption_log_model');
 
 		// Scope
+		$this->load->model('Requirements_mp_model');
 		$this->load->model('Scope_mp_model');
 	}
 
@@ -110,16 +111,16 @@ class ProjectToOverleaf extends CI_Controller
 			$file["name_task"] = "BusinessCase.tex";
 			$file["task"] = "\n";
 			$file["task"]  .= "\section{Business Case}\n";
-			$file["task"]  .= "\subsection{Business Deals}\n";
+			$file["task"]  .= "\subsubsection{Business Deals}\n";
 			$file["task"]  .= $dataBusinessCase[0]->business_deals . "\n";
 
-			$file["task"]  .= "\subsection{Situation Analysis}\n";
+			$file["task"]  .= "\subsubsection{Situation Analysis}\n";
 			$file["task"]  .= $dataBusinessCase[0]->situation_analysis . "\n";
 
-			$file["task"]  .= "\subsection{Recommendation}\n";
+			$file["task"]  .= "\subsubsection{Recommendation}\n";
 			$file["task"]  .= $dataBusinessCase[0]->recommendation . "\n";
 
-			$file["task"]  .= "\subsection{Evaluation}\n";
+			$file["task"]  .= "\subsubsection{Evaluation}\n";
 			$file["task"]  .= $dataBusinessCase[0]->evaluation . "\n";
 
 			return $file;
@@ -369,6 +370,9 @@ class ProjectToOverleaf extends CI_Controller
 
 		if ($dataWP != null) {
 			foreach ($dataWP as $data) {
+				if($data->log != 0){
+
+				
 				// $name = getStakeholderName($this->verificaDados($data->project_id));
 
 				// $file["task"] .= "\item \\textbf{Responsible}: " . $this->verificaDados($name) . "\n";
@@ -401,6 +405,7 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] .= "\n";
 
 			return $file;
+		}
 		} else {
 			return null;
 		}
@@ -554,14 +559,17 @@ class ProjectToOverleaf extends CI_Controller
 		$file["task"] .= "\begin{itemize}\n";
 		if ($dataCL != null) {
 			foreach ($dataCL as $data) {
+				// if ($data->log != 0) {
+					$file["task"] .= "\item \\textbf{Id}: " .  $this->verificaDados($data->number_id) . " | \\textbf{Requester}: " .  $this->verificaDados($data->requester) . " | \\textbf{Request Date}: " . date("d/m/Y", strtotime($data->request_date)) . "\n";
+					$file["task"] .= "\item \\textbf{Type of change}: " . $this->verificaDados($data->type) . " | \\textbf{Status/Situation}: " .  $this->verificaDados($data->status) . "\n";
+				}
+				$file["task"] .= "\\end{itemize}\n";
+				$file["task"] .= "\n";
 
-				$file["task"] .= "\item \\textbf{Id}: " .  $this->verificaDados($data->number_id) . " | \\textbf{Requester}: " .  $this->verificaDados($data->requester) . " | \\textbf{Request Date}: " . date("d/m/Y", strtotime($data->request_date)) . "\n";
-				$file["task"] .= "\item \\textbf{Type of change}: " . $this->verificaDados($data->type) . " | \\textbf{Status/Situation}: " .  $this->verificaDados($data->status) . "\n";
-			}
-			$file["task"] .= "\\end{itemize}\n";
-			$file["task"] .= "\n";
-
-			return $file;
+				return $file;
+			// }else {
+			// 	return null;
+			// }
 		} else {
 			return null;
 		}
@@ -645,25 +653,26 @@ class ProjectToOverleaf extends CI_Controller
 	// Scope
 	public function RMP_Overleaf($project_id) // 1 1
 	{
-		$dataRMP = $this->Scope_mp_model->get($project_id);
+		$dataRMP = $this->Requirements_mp_model->get($project_id);
 		if ($dataRMP  != null) {
-			$file["name_task"] = "ScopeManagementPlan.tex";
+			$file["name_task"] = "RequirementsManagementPlan.tex";
 			$file["task"] = "\n";
-			$file["task"]  .= "\section{Scope Management Plan}\n";
-			$file["task"]  .= "\subsection{Project Scope Specification Process}\n";
-			$file["task"]  .= $this->verificaDados($dataRMP[0]->scope_specification) . "\n";
+			$file["task"]  .= "\section{Requirements Management Plan}\n";
 
-			$file["task"]  .= "\subsection{Delivery acceptance process}\n";
-			$file["task"]  .=  $this->verificaDados($dataRMP[0]->deliveries_acceptance) . "\n";
+			$file["task"]  .= "\subsection{How requirements activities will be planned, tracked, and reported}\n";
+			$file["task"]  .= $this->verificaDados($dataRMP[0]->requirements_collection_proc) . "\n";
 
-			$file["task"]  .= "\subsection{Processes for creating, Approving, and Maintaining WBS }\n";
-			$file["task"]  .=  $this->verificaDados($dataRMP[0]->eap_process) . "\n";
+			$file["task"]  .= "\subsection{Configuration management activities}\n";
+			$file["task"]  .=  $this->verificaDados($dataRMP[0]->configuration) . "\n";
 
-			$file["task"]  .= "\subsection{Scope Change Management Plan}\n";
-			$file["task"]  .=  $this->verificaDados($dataRMP[0]->scope_change_mp) . "\n";
+			$file["task"]  .= "\subsection{Requirements prioritization process}\n";
+			$file["task"]  .=  $this->verificaDados($dataRMP[0]->requirements_prioritization) . "\n";
 
-			$file["task"]  .= "\subsection{Process that establishes how the scope baseline will be approved and maintained}\n";
-			$file["task"]  .=  $this->verificaDados($dataRMP[0]->baseline) . "\n";
+			$file["task"]  .= "\subsection{Metrics that will be used and the rationale for using them}\n";
+			$file["task"]  .=  $this->verificaDados($dataRMP[0]->product_metrics) . "\n";
+
+			$file["task"]  .= "\subsection{Traceability structure that reflects the requirement attributes captured on the traceability matrix}\n";
+			$file["task"]  .=  $this->verificaDados($dataRMP[0]->traceability) . "\n";
 
 			return $file;
 		} else {
@@ -733,6 +742,7 @@ class ProjectToOverleaf extends CI_Controller
 			$CL = $this->CL_Overleaf($project_id);
 			$TEP = $this->TEP_Overleaf($project_id);
 			$FR = $this->FR_Overleaf($project_id);
+			// $RMP = $this->RMP_Overleaf($project_id);
 
 
 
@@ -816,10 +826,9 @@ class ProjectToOverleaf extends CI_Controller
 		$file .= "\include{ProjectClosureReport}\n";
 		$file .= "\include{FinalReport}\n";
 
-
-
+		// Scope
 		$file .= "\chapter{Project Scope Management}\n";
-
+		$file .= "\include{RequirementsManagementPlan}\n";
 		$file .= "\include{ScopeManagementPlan}\n";
 
 		// End Document
