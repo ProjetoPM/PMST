@@ -170,26 +170,35 @@ class ProjectToOverleaf extends CI_Controller
 		$file["name_task"] = "AssumptionLog.tex";
 		$file["task"] = "\n";
 		$file["task"]  .= "\section{Assumption Log}\n";
-		$file["task"]  .= "\begin{itemize}\n";
+		$file["task"]  .= "\begin{longtable}{ p{.15\\textwidth} | p{.85\\textwidth}}\n";
+		$file["task"] .= "\bottomrule \n";
+		$file["task"] .= "\\rowcolor{gray}\n";
+		$file["task"] .= "\\textbf{Type} & \\textbf{Description} \\\ \n";
+		$file["task"] .= "\hline \n";
+		$count = 0;
 		if ($dataACL != null) {
 			foreach ($dataACL as $data) {
-				$file["task"] .= "\item \\textbf{Type}: ";
+				if ($count % 2 != 0) {
+					$file["task"] .= "\\rowcolor{white}\n";
+				} else {
+					$file["task"] .= "\\rowcolor{lightgray}\n";
+				}
+				$count++;
 				$temp = $this->verificaDados($data->type);
 				if ($temp == "A") {
-					$file["task"] .= "Assumption";
+					$temp = "Assumption";
 				} else if ($temp == "C") {
-					$file["task"] .= "Constraint";
+					$temp = "Constraint";
 				}
 
-				$file["task"] .= "\begin{itemize}\n";
+				$file["task"] .= $temp . " & " . $this->verificaDados($data->description_log) . " \\\ \n";
 
-				$file["task"] .= "\item \\textbf{Description Log}: ";
-				$file["task"] .= $this->verificaDados($data->description_log) . ";\n";
-
-				$file["task"] .= "\\end{itemize}\n";
+				$file["task"] .= "\hline \n";
 			}
-			$file["task"]  .= "\\end{itemize}\n";
-			$file["task"] .= "\n";
+			$file["task"]  .= "\\toprule \n";
+			$file["task"] .= "\caption{Assumption Log} \n";
+			$file["task"] .= "\label{tab:AssumptionLog} \n";
+			$file["task"] .= "\\end{longtable} \n";
 
 			return $file;
 		} else {
@@ -370,9 +379,9 @@ class ProjectToOverleaf extends CI_Controller
 
 		if ($dataWP != null) {
 			foreach ($dataWP as $data) {
-				if($data->log != 0){
 
-				
+
+
 				// $name = getStakeholderName($this->verificaDados($data->project_id));
 
 				// $file["task"] .= "\item \\textbf{Responsible}: " . $this->verificaDados($name) . "\n";
@@ -400,12 +409,12 @@ class ProjectToOverleaf extends CI_Controller
 				$file["task"] .= $this->verificaDados($data->attention_points) . ";\n";
 
 				$file["task"] .= "\\end{itemize}\n";
-			}
-			$file["task"] .= "\\end{itemize}\n";
-			$file["task"] .= "\n";
 
-			return $file;
-		}
+				$file["task"] .= "\\end{itemize}\n";
+				$file["task"] .= "\n";
+
+				return $file;
+			}
 		} else {
 			return null;
 		}
@@ -560,13 +569,13 @@ class ProjectToOverleaf extends CI_Controller
 		if ($dataCL != null) {
 			foreach ($dataCL as $data) {
 				// if ($data->log != 0) {
-					$file["task"] .= "\item \\textbf{Id}: " .  $this->verificaDados($data->number_id) . " | \\textbf{Requester}: " .  $this->verificaDados($data->requester) . " | \\textbf{Request Date}: " . date("d/m/Y", strtotime($data->request_date)) . "\n";
-					$file["task"] .= "\item \\textbf{Type of change}: " . $this->verificaDados($data->type) . " | \\textbf{Status/Situation}: " .  $this->verificaDados($data->status) . "\n";
-				}
-				$file["task"] .= "\\end{itemize}\n";
-				$file["task"] .= "\n";
+				$file["task"] .= "\item \\textbf{Id}: " .  $this->verificaDados($data->number_id) . " | \\textbf{Requester}: " .  $this->verificaDados($data->requester) . " | \\textbf{Request Date}: " . date("d/m/Y", strtotime($data->request_date)) . "\n";
+				$file["task"] .= "\item \\textbf{Type of change}: " . $this->verificaDados($data->type) . " | \\textbf{Status/Situation}: " .  $this->verificaDados($data->status) . "\n";
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
 
-				return $file;
+			return $file;
 			// }else {
 			// 	return null;
 			// }
@@ -770,10 +779,14 @@ class ProjectToOverleaf extends CI_Controller
 		//Configuring File Latex
 		$file .= "\documentclass[twoside,a4paper,11pt]{book}\n";
 		$file .= "\usepackage[utf8]{inputenc}\n";
+		$file .= "\usepackage{color, colortbl}\n";
+		$file .= "\usepackage{xcolor}\n";
+		$file .= "\usepackage{longtable}\n";
 		$file .= "\usepackage{titlesec}\n";
 		$file .= "\usepackage{graphicx}\n";
 		$file .= "\usepackage{booktabs}\n";
 		$file .= "\usepackage{float}\n";
+		$file .= "\usepackage{paralist}\n";
 		$file .= "\usepackage[alf]{abntex2cite}\n";
 		$file .= "\usepackage[brazilian,hyperpageref]{backref}\n";
 
@@ -789,6 +802,8 @@ class ProjectToOverleaf extends CI_Controller
 		$file .= "\\fi}%\n";
 		$file .= "\n";
 
+		$file .= "\begin{document}\n";
+
 		//Title
 		$data['title'] = $this->Project_model->getProjectName($project_id);
 		$file .= "\\title {" . $data['title'] . "}\n";
@@ -800,7 +815,7 @@ class ProjectToOverleaf extends CI_Controller
 		$file .= "end{minipage}\n";
 
 		// Document
-		$file .= "\begin{document}\n";
+
 		$file .= "maketitle\n";
 
 		$file .= "\\tableofcontents\n";
