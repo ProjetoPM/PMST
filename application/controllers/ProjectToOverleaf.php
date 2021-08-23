@@ -720,9 +720,11 @@ class ProjectToOverleaf extends CI_Controller
 	public function verificaDados($dado)
 	{
 		if ($dado == null)
-			return "Not Defined";
-		else
-			return $dado;
+			return "Not Definedd";
+		else {
+			$dado = str_replace("%", "\%", $dado);
+			return str_replace("&", "\&", $dado);
+		}
 	}
 
 	public function exportLatex($project_id)
