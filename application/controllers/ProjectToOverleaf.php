@@ -46,6 +46,13 @@ class ProjectToOverleaf extends CI_Controller
 		// Scope
 		$this->load->model('Requirements_mp_model');
 		$this->load->model('Scope_mp_model');
+		$this->load->model('Requirement_registration_model');
+		$this->load->model('Scope_specification_model');
+
+		// Schedule
+		$this->load->model('Schedule_model');
+		$this->load->model('Activity_model');
+		$this->load->model('DurationEstimates_model');
 	}
 
 	public function PCH_Overleaf($project_id)
@@ -668,19 +675,19 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] = "\n";
 			$file["task"]  .= "\section{Requirements Management Plan}\n";
 
-			$file["task"]  .= "\subsection{How requirements activities will be planned, tracked, and reported}\n";
+			$file["task"]  .= "\subsubsection{How requirements activities will be planned, tracked, and reported}\n";
 			$file["task"]  .= $this->verificaDados($dataRMP[0]->requirements_collection_proc) . "\n";
 
-			$file["task"]  .= "\subsection{Configuration management activities}\n";
+			$file["task"]  .= "\subsubsection{Configuration management activities}\n";
 			$file["task"]  .=  $this->verificaDados($dataRMP[0]->configuration) . "\n";
 
-			$file["task"]  .= "\subsection{Requirements prioritization process}\n";
+			$file["task"]  .= "\subsubsection{Requirements prioritization process}\n";
 			$file["task"]  .=  $this->verificaDados($dataRMP[0]->requirements_prioritization) . "\n";
 
-			$file["task"]  .= "\subsection{Metrics that will be used and the rationale for using them}\n";
+			$file["task"]  .= "\subsubsection{Metrics that will be used and the rationale for using them}\n";
 			$file["task"]  .=  $this->verificaDados($dataRMP[0]->product_metrics) . "\n";
 
-			$file["task"]  .= "\subsection{Traceability structure that reflects the requirement attributes captured on the traceability matrix}\n";
+			$file["task"]  .= "\subsubsection{Traceability structure that reflects the requirement attributes captured on the traceability matrix}\n";
 			$file["task"]  .=  $this->verificaDados($dataRMP[0]->traceability) . "\n";
 
 			return $file;
@@ -696,20 +703,257 @@ class ProjectToOverleaf extends CI_Controller
 			$file["name_task"] = "ScopeManagementPlan.tex";
 			$file["task"] = "\n";
 			$file["task"]  .= "\section{Scope Management Plan}\n";
-			$file["task"]  .= "\subsection{Project Scope Specification Process}\n";
+			$file["task"]  .= "\subsubsection{Project Scope Specification Process}\n";
 			$file["task"]  .= $this->verificaDados($dataSCOMP[0]->scope_specification) . "\n";
 
-			$file["task"]  .= "\subsection{Delivery acceptance process}\n";
+			$file["task"]  .= "\subsubsection{Delivery acceptance process}\n";
 			$file["task"]  .=  $this->verificaDados($dataSCOMP[0]->deliveries_acceptance) . "\n";
 
-			$file["task"]  .= "\subsection{Processes for creating, Approving, and Maintaining WBS }\n";
+			$file["task"]  .= "\subsubsection{Processes for creating, Approving, and Maintaining WBS }\n";
 			$file["task"]  .=  $this->verificaDados($dataSCOMP[0]->eap_process) . "\n";
 
-			$file["task"]  .= "\subsection{Scope Change Management Plan}\n";
+			$file["task"]  .= "\subsubsection{Scope Change Management Plan}\n";
 			$file["task"]  .=  $this->verificaDados($dataSCOMP[0]->scope_change_mp) . "\n";
 
-			$file["task"]  .= "\subsection{Process that establishes how the scope baseline will be approved and maintained}\n";
+			$file["task"]  .= "\subsubsection{Process that establishes how the scope baseline will be approved and maintained}\n";
 			$file["task"]  .=  $this->verificaDados($dataSCOMP[0]->baseline) . "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	public function RD_Overleaf($project_id)
+	{
+		$dataRD = $this->Requirement_registration_model->getAll($project_id);
+		$file["name_task"] = "RequirementDocumentation.tex";
+		$file["task"] = "\n";
+		$file["task"] .= "\section{Requirement Documentation}\n";
+		$file["task"] .= "\begin{itemize}\n";
+		if ($dataRD != null) {
+			foreach ($dataRD as $data) {
+
+				$file["task"] .= "\item \\textbf{Associated Id}: " .  $this->verificaDados($data->associated_id) . " | \\textbf{Requirement Description}: " .  $this->verificaDados($data->description) . " | \\textbf{Priority}: " . $this->verificaDados($data->priority) . "\n";
+				$file["task"] .= "\item \\textbf{Business needs, opportunities, goals and objectives}: " . $this->verificaDados($data->business_strategy) . "\n";
+
+				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Version}:\n";
+				$file["task"] .= $this->verificaDados($data->version) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Phase}:\n";
+				$file["task"] .= $this->verificaDados($data->phase) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Associated Delivery}:\n";
+				$file["task"] .= $this->verificaDados($data->associated_delivery) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Type}:\n";
+				$file["task"] .= $this->verificaDados($data->type) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Requester}:\n";
+				$file["task"] .= $this->verificaDados($data->requester) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Complexity}:\n";
+				$file["task"] .= $this->verificaDados($data->complexity) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Responsible}:\n";
+				$file["task"] .= $this->verificaDados($data->responsible) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Validity}:\n";
+				$file["task"] .= $this->verificaDados($data->validity) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Acceptance Criteria}:\n";
+				$file["task"] .= $this->verificaDados($data->acceptance_criteria) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Supporting Documentation}:\n";
+				$file["task"] .= $this->verificaDados($data->supporting_documentation) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Requirement Situation}:\n";
+				$file["task"] .= $this->verificaDados($data->requirement_situation) . ";\n";
+
+				$file["task"] .= "\\end{itemize}\n";
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	public function SSP_Overleaf($project_id) // 1 1
+	{
+		$dataSSP = $this->Scope_specification_model->get($project_id);
+		if ($dataSSP  != null) {
+			$file["name_task"] = "ScopeSpecification.tex";
+			$file["task"] = "\n";
+			$file["task"]  .= "\section{Project Scope Statement}\n";
+			$file["task"]  .= "\subsubsection{Product scope description}\n";
+			$file["task"]  .= $this->verificaDados($dataSSP[0]->scope_description) . "\n";
+
+			$file["task"]  .= "\subsubsection{Acceptance criteria}\n";
+			$file["task"]  .=  $this->verificaDados($dataSSP[0]->acceptance_criteria) . "\n";
+
+			$file["task"]  .= "\subsubsection{Deliverables}\n";
+			$file["task"]  .=  $this->verificaDados($dataSSP[0]->deliveries) . "\n";
+
+			$file["task"]  .= "\subsubsection{Project Exclusions}\n";
+			$file["task"]  .=  $this->verificaDados($dataSSP[0]->exclusions) . "\n";
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	// Schedule
+	public function SMP_Overleaf($project_id) // 1 1
+	{
+		$dataSMP = $this->Schedule_model->get($project_id);
+		if ($dataSMP  != null) {
+			$file["name_task"] = "ScheduleManagementPlan.tex";
+			$file["task"] = "\n";
+			$file["task"]  .= "\section{Schedule Management Plan}\n";
+
+			$file["task"]  .= "\subsubsection{Project schedule model development}\n";
+			$file["task"]  .= $this->verificaDados($dataSMP[0]->schedule_model) . "\n";
+
+			$file["task"]  .= "\subsubsection{Level of accuracy}\n";
+			$file["task"]  .=  $this->verificaDados($dataSMP[0]->accuracy_level) . "\n";
+
+			$file["task"]  .= "\subsubsection{Organizational procedures links}\n";
+			$file["task"]  .=  $this->verificaDados($dataSMP[0]->organizational_procedures) . "\n";
+
+			$file["task"]  .= "\subsubsection{Project schedule model maintenance}\n";
+			$file["task"]  .=  $this->verificaDados($dataSMP[0]->schedule_maintenance) . "\n";
+
+			$file["task"]  .= "\subsubsection{Performance measurement rules}\n";
+			$file["task"]  .=  $this->verificaDados($dataSMP[0]->performance_measurement) . "\n";
+
+			$file["task"]  .= "\subsubsection{Reporting formats}\n";
+			$file["task"]  .=  $this->verificaDados($dataSMP[0]->report_format) . "\n";
+
+			$file["task"]  .= "\subsubsection{Release and iteration length}\n";
+			$file["task"]  .=  $this->verificaDados($dataSMP[0]->release_iteration) . "\n";
+
+			$file["task"]  .= "\subsubsection{Release and iteration length}\n";
+			$file["task"]  .=  $this->verificaDados($dataSMP[0]->units_measure) . "\n";
+
+			$file["task"]  .= "\subsubsection{Control thresholds}\n";
+			$file["task"]  .=  $this->verificaDados($dataSMP[0]->control_thresholds) . "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	public function EVM_Overleaf($project_id)
+	{
+		$dataEVM = $this->Activity_model->getAll($project_id);
+		$file["name_task"] = "EarnedValueManagement.tex";
+		$file["task"] = "\n";
+		$file["task"] .= "\section{Earned Value Management}\n";
+		$file["task"] .= "\begin{itemize}\n";
+		if ($dataEVM != null) {
+			foreach ($dataEVM as $data) {
+
+				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " | \\textbf{EV-Earned Value}: " .  $this->verificaDados($data->agregate_value) . " | \\textbf{PV-Planned Value}: " . $this->verificaDados($data->planned_value) . "\n";
+				$file["task"] .= "\item \\textbf{SV-Schedule Variance}: " .  $this->verificaDados($data->variation_of_terms) . " | \\textbf{CV-Cost Variance}: " .  $this->verificaDados($data->variation_of_costs) . " | \\textbf{Variation at the end}: " . $this->verificaDados($data->variation_at_the_end) . "\n";
+				$file["task"] .= "\item \\textbf{ETC-Estimate To Complete}: " . $this->verificaDados($data->estimate_for_completion) . "\n";
+
+				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{AC-Actual Cost}:\n";
+				$file["task"] .= $this->verificaDados($data->real_agregate_cost) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Budget at Cumulative Cost}:\n";
+				$file["task"] .= $this->verificaDados($data->budget_at_cumulative_end) . ";\n";
+
+				$file["task"] .= "\item \\textbf{SPI-Schedule Performance Index}:\n";
+				$file["task"] .= $this->verificaDados($data->deadline_performance_index) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Costs Performance Index }:\n";
+				$file["task"] .= $this->verificaDados($data->costs_performance_index) . ";\n";
+
+				$file["task"] .= "\item \\textbf{EAC-Estimate At Completion}:\n";
+				$file["task"] .= $this->verificaDados($data->estimated_of_completation) . ";\n";
+
+				$file["task"] .= "\\end{itemize}\n";
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	public function SND_Overleaf($project_id)
+	{
+		$dataSND = $this->Activity_model->getAll($project_id);
+		$file["name_task"] = "ScheduleNetworkDiagram.tex";
+		$file["task"] = "\n";
+		$file["task"] .= "\section{Schedule Network Diagram}\n";
+		$file["task"] .= "\begin{itemize}\n";
+		if ($dataSND != null) {
+			foreach ($dataSND as $data) {
+
+				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " | \\textbf{Predecessor Activity}: " .  $this->verificaDados($data->predecessor_activity) . "\n";
+				$file["task"] .= "\item \\textbf{Dependence Type}: " . $this->verificaDados($data->dependence_type) . " | \\textbf{Antecipation}: " .  $this->verificaDados($data->anticipation) . " | \\textbf{Wait}: " .  $this->verificaDados($data->wait) . "\n";
+				
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	public function RR_Overleaf($project_id)
+	{
+		$dataSND = $this->Activity_model->getAll($project_id);
+		$file["name_task"] = "ResourceRequirements.tex";
+		$file["task"] = "\n";
+		$file["task"] .= "\section{Resource Requirements}\n";
+		$file["task"] .= "\begin{itemize}\n";
+		if ($dataSND != null) {
+			foreach ($dataSND as $data) {
+
+				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " | \\textbf{Resource Description}: " .  $this->verificaDados($data->resource_description) . "\n";
+				$file["task"] .= "\item \\textbf{Required Amount of Resource}: " . $this->verificaDados($data->required_amount_of_resource) . " | \\textbf{Resource Cost per Unit}: " .  $this->verificaDados($data->resource_cost_per_unit) . " | \\textbf{Resource Type}: " .  $this->verificaDados($data->resource_type) . "\n";
+				
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	public function ADE_Overleaf($project_id)
+	{
+		$dataADE = $this->Activity_model->getAll($project_id);
+		$file["name_task"] = "ActivityDurationEstimates.tex";
+		$file["task"] = "\n";
+		$file["task"] .= "\section{Activity Duration Estimates}\n";
+		$file["task"] .= "\begin{itemize}\n";
+		if ($dataADE != null) {
+			foreach ($dataADE as $data) {
+				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " \n";
+				$file["task"] .= "\item \\textbf{Estimated Duration in Hours}: " .  $this->verificaDados($data->estimated_duration) . " | \\textbf{Performed Duration in Hours}: " .  $this->verificaDados($data->performed_duration) . "\n";
+				$file["task"] .= "\item \\textbf{Estimated Start Date}: " . $this->verificaDados($data->estimated_start_date) . " | \\textbf{Performed Start Date}: " .  $this->verificaDados($data->performed_start_date) . "\n";
+				$file["task"] .= "\item \\textbf{Estimated End Date}: " . $this->verificaDados($data->estimated_end_date) . " | \\textbf{Performed End Date}: " .  $this->verificaDados($data->performed_end_date) . "\n";
+				
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
 
 			return $file;
 		} else {
@@ -751,16 +995,23 @@ class ProjectToOverleaf extends CI_Controller
 			$CL = $this->CL_Overleaf($project_id);
 			$TEP = $this->TEP_Overleaf($project_id);
 			$FR = $this->FR_Overleaf($project_id);
-			// $RMP = $this->RMP_Overleaf($project_id);
-
-
 
 			// Scope
+			$RMP = $this->RMP_Overleaf($project_id);
 			$SCOMP = $this->SCOMP_Overleaf($project_id);
+			$RD = $this->RD_Overleaf($project_id);
+			$SSP = $this->SSP_Overleaf($project_id);
+
+			// Schedule
+			$SMP = $this->SMP_Overleaf($project_id);
+			$EVM = $this->EVM_Overleaf($project_id);
+			$SND = $this->SND_Overleaf($project_id);
+			$RR = $this->RR_Overleaf($project_id);
+			$ADE = $this->ADE_Overleaf($project_id);
 
 			// template + array dos documentos
 			$files["template"] = $this->templateOverleaf($project_id);
-			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PMP, $PPR, $DS, $WP, $IR, $LLR, $CR, $CL, $TEP, $FR), "scope" => array($SCOMP));
+			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PMP, $PPR, $DS, $WP, $IR, $LLR, $CR, $CL, $TEP, $FR), "scope" => array($RMP, $SCOMP, $RD, $SSP), "schedule"=> array($SMP, $EVM, $SND, $RR, $ADE));
 		}
 
 		// $files["knowledge_areas"] = array("integration" =>array($BC,$outra,$outra), "scope" =>array($outra,$outra));
@@ -810,13 +1061,14 @@ class ProjectToOverleaf extends CI_Controller
 
 		// Authors
 		$file .= "\author{Lucas Abner}\n";
-		$file .= "hspace{.45\textwidth}\n";
+		$file .= "\hspace{.45\\textwidth}\n";
+		$file .= "\begin{minipage}{.5\\textwidth}\n";
 		$file .= "Generated By: Silver Bullet 2021\n";
-		$file .= "end{minipage}\n";
+		$file .= "\\end{minipage}\n";
 
 		// Document
 
-		$file .= "maketitle\n";
+		$file .= "\maketitle\n";
 
 		$file .= "\\tableofcontents\n";
 		$file .= "\listoffigures\n";
@@ -845,6 +1097,16 @@ class ProjectToOverleaf extends CI_Controller
 		$file .= "\chapter{Project Scope Management}\n";
 		$file .= "\include{RequirementsManagementPlan}\n";
 		$file .= "\include{ScopeManagementPlan}\n";
+		$file .= "\include{RequirementDocumentation}\n";
+		$file .= "\include{ScopeSpecification}\n";
+
+		// Schedule
+		$file .= "\chapter{Project Schedule Management}\n";
+		$file .= "\include{ScheduleManagementPlan}\n";
+		$file .= "\include{EarnedValueManagement}\n";
+		$file .= "\include{ScheduleNetworkDiagram}\n";
+		$file .= "\include{ResourceRequirements}\n";
+		$file .= "\include{ActivityDurationEstimates}\n";
 
 		// End Document
 		$file .= "\\bibliography{Bib}\n";
