@@ -45,6 +45,10 @@
 								<input class="form-check-input" type="checkbox" id="scope" value="Scope">
 								<label class="form-check-label"><?= $this->lang->line('overleaf_scope') ?></label>
 							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="schedule" value="Schedule">
+								<label class="form-check-label"><?= $this->lang->line('overleaf_schedule') ?></label>
+							</div>
 							<br></br>
 							<div class=" col-lg-12 form-group">
 								<label style="font-size: larger;">Latex </label>
@@ -119,7 +123,6 @@
 		} else {
 			var latex_provisorio = latex1;
 			var kw = <?= $json ?>;
-			// console.log(integration.integration.length);
 			for (let index = 0; index < kw.scope.length; index++) {
 				latex_provisorio = latex_provisorio + kw.scope[index]["task"];
 				create_snip("scope", kw.scope[index]["name_task"], kw.scope[index]["task"]);
@@ -131,7 +134,23 @@
 
 	});
 	
+	$("#schedule").click(function() {
+		if ($("#schedule").is(":checked") == false) {
+			document.getElementById('latex').value = latex1;
+			remove_snip("schedule");
+		} else {
+			var latex_provisorio = latex1;
+			var kw = <?= $json ?>;
+			for (let index = 0; index < kw.schedule.length; index++) {
+				latex_provisorio = latex_provisorio + kw.schedule[index]["task"];
+				create_snip("schedule", kw.schedule[index]["name_task"], kw.schedule[index]["task"]);
+				console.log(latex_provisorio);
+			}
 
+			document.getElementById('latex').value = latex_provisorio;
+		}
+
+	});
 
 	function create_snip(area, name, info) {
 		// Snips
