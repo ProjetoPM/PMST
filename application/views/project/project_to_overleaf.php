@@ -49,6 +49,14 @@
 								<input class="form-check-input" type="checkbox" id="schedule" value="Schedule">
 								<label class="form-check-label"><?= $this->lang->line('overleaf_schedule') ?></label>
 							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="cost" value="cost">
+								<label class="form-check-label"><?= $this->lang->line('overleaf_cost') ?></label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="quality" value="quality">
+								<label class="form-check-label"><?= $this->lang->line('overleaf_quality') ?></label>
+							</div>
 							<br></br>
 							<div class=" col-lg-12 form-group">
 								<label style="font-size: larger;">Latex </label>
@@ -151,6 +159,44 @@
 		}
 
 	});
+
+	$("#cost").click(function() {
+		if ($("#cost").is(":checked") == false) {
+			document.getElementById('latex').value = latex1;
+			remove_snip("cost");
+		} else {
+			var latex_provisorio = latex1;
+			var kw = <?= $json ?>;
+			for (let index = 0; index < kw.cost.length; index++) {
+				latex_provisorio = latex_provisorio + kw.cost[index]["task"];
+				create_snip("cost", kw.cost[index]["name_task"], kw.cost[index]["task"]);
+				console.log(latex_provisorio);
+			}
+
+			document.getElementById('latex').value = latex_provisorio;
+		}
+
+	});
+
+	$("#quality").click(function() {
+		if ($("#quality").is(":checked") == false) {
+			document.getElementById('latex').value = latex1;
+			remove_snip("quality");
+		} else {
+			var latex_provisorio = latex1;
+			var kw = <?= $json ?>;
+			for (let index = 0; index < kw.quality.length; index++) {
+				latex_provisorio = latex_provisorio + kw.quality[index]["task"];
+				create_snip("quality", kw.quality[index]["name_task"], kw.quality[index]["task"]);
+				console.log(latex_provisorio);
+			}
+
+			document.getElementById('latex').value = latex_provisorio;
+		}
+
+	});
+
+
 
 	function create_snip(area, name, info) {
 		// Snips

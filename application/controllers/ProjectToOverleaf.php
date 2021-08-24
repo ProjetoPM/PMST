@@ -53,6 +53,16 @@ class ProjectToOverleaf extends CI_Controller
 		$this->load->model('Schedule_model');
 		$this->load->model('Activity_model');
 		$this->load->model('DurationEstimates_model');
+
+		// Cost
+		$this->load->model("Cost_model");
+
+		// Quality
+		$this->load->model("Quality_model");
+		$this->load->model("Quality_reports_model");
+		$this->load->model("QualityChecklist_model");
+
+
 	}
 
 	public function PCH_Overleaf($project_id)
@@ -119,16 +129,16 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] = "\n";
 			$file["task"]  .= "\section{Business Case}\n";
 			$file["task"]  .= "\subsubsection{Business Deals}\n";
-			$file["task"]  .= $dataBusinessCase[0]->business_deals . "\n";
+			$file["task"]  .= $this->verificaDados($dataBusinessCase[0]->business_deals) . "\n";
 
 			$file["task"]  .= "\subsubsection{Situation Analysis}\n";
-			$file["task"]  .= $dataBusinessCase[0]->situation_analysis . "\n";
+			$file["task"]  .= $this->verificaDados($dataBusinessCase[0]->situation_analysis) . "\n";
 
 			$file["task"]  .= "\subsubsection{Recommendation}\n";
-			$file["task"]  .= $dataBusinessCase[0]->recommendation . "\n";
+			$file["task"]  .= $this->verificaDados($dataBusinessCase[0]->recommendation) . "\n";
 
 			$file["task"]  .= "\subsubsection{Evaluation}\n";
-			$file["task"]  .= $dataBusinessCase[0]->evaluation . "\n";
+			$file["task"]  .= $this->verificaDados($dataBusinessCase[0]->evaluation) . "\n";
 
 			return $file;
 		} else {
@@ -903,7 +913,6 @@ class ProjectToOverleaf extends CI_Controller
 
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " | \\textbf{Predecessor Activity}: " .  $this->verificaDados($data->predecessor_activity) . "\n";
 				$file["task"] .= "\item \\textbf{Dependence Type}: " . $this->verificaDados($data->dependence_type) . " | \\textbf{Antecipation}: " .  $this->verificaDados($data->anticipation) . " | \\textbf{Wait}: " .  $this->verificaDados($data->wait) . "\n";
-				
 			}
 			$file["task"] .= "\\end{itemize}\n";
 			$file["task"] .= "\n";
@@ -926,7 +935,6 @@ class ProjectToOverleaf extends CI_Controller
 
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " | \\textbf{Resource Description}: " .  $this->verificaDados($data->resource_description) . "\n";
 				$file["task"] .= "\item \\textbf{Required Amount of Resource}: " . $this->verificaDados($data->required_amount_of_resource) . " | \\textbf{Resource Cost per Unit}: " .  $this->verificaDados($data->resource_cost_per_unit) . " | \\textbf{Resource Type}: " .  $this->verificaDados($data->resource_type) . "\n";
-				
 			}
 			$file["task"] .= "\\end{itemize}\n";
 			$file["task"] .= "\n";
@@ -950,7 +958,6 @@ class ProjectToOverleaf extends CI_Controller
 				$file["task"] .= "\item \\textbf{Estimated Duration in Hours}: " .  $this->verificaDados($data->estimated_duration) . " | \\textbf{Performed Duration in Hours}: " .  $this->verificaDados($data->performed_duration) . "\n";
 				$file["task"] .= "\item \\textbf{Estimated Start Date}: " . $this->verificaDados($data->estimated_start_date) . " | \\textbf{Performed Start Date}: " .  $this->verificaDados($data->performed_start_date) . "\n";
 				$file["task"] .= "\item \\textbf{Estimated End Date}: " . $this->verificaDados($data->estimated_end_date) . " | \\textbf{Performed End Date}: " .  $this->verificaDados($data->performed_end_date) . "\n";
-				
 			}
 			$file["task"] .= "\\end{itemize}\n";
 			$file["task"] .= "\n";
@@ -961,10 +968,144 @@ class ProjectToOverleaf extends CI_Controller
 		}
 	}
 
+	public function PCA_Overleaf($project_id)
+	{
+		$dataPCA = $this->Activity_model->getAll($project_id);
+		$file["name_task"] = "ProjectCalendars.tex";
+		$file["task"] = "\n";
+		$file["task"] .= "\section{ProjectCalendars}\n";
+		$file["task"] .= "\begin{itemize}\n";
+		if ($dataPCA != null) {
+			foreach ($dataPCA as $data) {
+				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " \n";
+				$file["task"] .= "\item \\textbf{Resource Name}: " .  $this->verificaDados($data->resource_name) . " | \\textbf{Function}: " .  $this->verificaDados($data->function) . "\n";
+				$file["task"] .= "\item \\textbf{Availability Start}: " . $this->verificaDados($data->availability_start) . " | \\textbf{Availability Ends}: " .  $this->verificaDados($data->availability_ends) . "\n";
+				$file["task"] .= "\item \\textbf{Allocation Start}: " . $this->verificaDados($data->allocation_start) . " | \\textbf{Allocation Ends}: " .  $this->verificaDados($data->allocation_ends) . "\n";
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	// Cost
+	public function CMP_Overleaf($project_id)
+	{
+		$dataCostMP = $this->Cost_model->get($project_id);
+		if ($dataCostMP != null) {
+			$file["name_task"] = "CostManagementPlan.tex";
+			$file["task"] = "\n";
+			$file["task"]  .= "\section{Cost Management Plan}\n";
+
+			$file["task"]  .= "\subsubsection{Processes for Managing Project Costs}\n";
+			$file["task"]  .= $this->verificaDados($dataCostMP[0]->project_costs_m) . "\n";
+
+			$file["task"]  .= "\subsubsection{Level of Accuracy}\n";
+			$file["task"]  .= $this->verificaDados($dataCostMP[0]->accuracy_level) . "\n";
+
+			$file["task"]  .= "\subsubsection{Organizational Procedures Links}\n";
+			$file["task"]  .= $this->verificaDados($dataCostMP[0]->organizational_procedures) . "\n";
+
+			$file["task"]  .= "\subsubsection{Rules of Performance Measurement}\n";
+			$file["task"]  .= $this->verificaDados($dataCostMP[0]->measurement_rules) . "\n";
+
+			$file["task"]  .= "\subsubsection{Units of Measure to be Used}\n";
+			$file["task"]  .= $this->verificaDados($dataCostMP[0]->units_measure) . "\n";
+
+			$file["task"]  .= "\subsubsection{Level of Precision}\n";
+			$file["task"]  .= $this->verificaDados($dataCostMP[0]->precision_level) . "\n";
+
+			$file["task"]  .= "\subsubsection{Control Thresholds}\n";
+			$file["task"]  .= $this->verificaDados($dataCostMP[0]->control_thresholds) . "\n";
+
+			$file["task"]  .= "\subsubsection{Additional Details}\n";
+			$file["task"]  .= $this->verificaDados($dataCostMP[0]->details) . "\n";
+
+			$file["task"]  .= "\subsubsection{Reporting Formats}\n";
+			$file["task"]  .= $this->verificaDados($dataCostMP[0]->format_report) . "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+
+
+	public function CE_Overleaf($project_id)
+	{
+		$dataCE = $this->Activity_model->getAll($project_id);
+		$file["name_task"] = "CostEstimates.tex";
+		$file["task"] = "\n";
+		$file["task"] .= "\section{Cost Estimates}\n";
+		$file["task"] .= "\begin{itemize}\n";
+		if ($dataCE != null) {
+			foreach ($dataCE as $data) {
+
+				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . "\n";
+				$file["task"] .= "\item \\textbf{Estimated Cost}: " .  $this->verificaDados($data->estimated_cost) . " | \\textbf{Cumulative Estimated Cost}: " .  $this->verificaDados($data->cumulative_estimated_cost) . " | \\textbf{Replanted Cost}: " . $this->verificaDados($data->replanted_cost) . "\n";
+				$file["task"] .= "\item \\textbf{Contingency Reserve}: " .  $this->verificaDados($data->contingency_reserve) . " | \\textbf{Sum of Work Packages}: " .  $this->verificaDados($data->sum_of_work_packages) . " | \\textbf{Contingency Reserve of Packages}: " . $this->verificaDados($data->contingency_reserve_of_packages) . "\n";
+				$file["task"] .= "\item \\textbf{Baseline}: " .  $this->verificaDados($data->baseline) . " | \\textbf{Budget}: " .  $this->verificaDados($data->budget) . " | \\textbf{Cumulative Replanted Cost}: " . $this->verificaDados($data->cumulative_replanted_cost) . "\n";
+				$file["task"] .= "\item \\textbf{Real Cost}: " . $this->verificaDados($data->real_cost) . " | \\textbf{Cumulative Real Cost}: " . $this->verificaDados($data->cumulative_real_cost) . "\n";
+
+				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Management Reserve}:\n";
+				$file["task"] .= $this->verificaDados($data->reserve) . ";\n";
+
+				$file["task"] .= "\\end{itemize}\n";
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	// Quality
+	public function QMP_Overleaf($project_id)
+	{
+		$dataQualityMP = $this->Quality_model->get($project_id);
+		if ($dataQualityMP != null) {
+			$file["name_task"] = "QualityManagementPlan.tex";
+			$file["task"] = "\n";
+			$file["task"]  .= "\section{Quality Management Plan}\n";
+
+			$file["task"]  .= "\subsubsection{Quality Standards that will be used by the Project}\n";
+			$file["task"]  .= $this->verificaDados($dataQualityMP[0]->standards) . "\n";
+
+			$file["task"]  .= "\subsubsection{Quality Objectives of the Project}\n";
+			$file["task"]  .= $this->verificaDados($dataQualityMP[0]->objectives) . "\n";
+
+			$file["task"]  .= "\subsubsection{Quality Roles and Responsibilities}\n";
+			$file["task"]  .= $this->verificaDados($dataQualityMP[0]->roles_responsibilities) . "\n";
+
+			$file["task"]  .= "\subsubsection{Project Deliverables and Processes Subject to Quality Review}\n";
+			$file["task"]  .= $this->verificaDados($dataQualityMP[0]->deliverables) . "\n";
+
+			$file["task"]  .= "\subsubsection{Quality Control and Quality Management Activities Planned for the Project}\n";
+			$file["task"]  .= $this->verificaDados($dataQualityMP[0]->activities) . "\n";
+
+			$file["task"]  .= "\subsubsection{Quality Tools that will be used for the Project}\n";
+			$file["task"]  .= $this->verificaDados($dataQualityMP[0]->tools) . "\n";
+
+			$file["task"]  .= "\subsubsection{Major Procedures Relevant for the Project}\n";
+			$file["task"]  .= $this->verificaDados($dataQualityMP[0]->procedures) . "\n";
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
 	public function verificaDados($dado)
 	{
 		if ($dado == null)
-			return "Not Definedd";
+			return "Not Defined";
 		else {
 			$dado = str_replace("%", "\%", $dado);
 			return str_replace("&", "\&", $dado);
@@ -1010,10 +1151,20 @@ class ProjectToOverleaf extends CI_Controller
 			$SND = $this->SND_Overleaf($project_id);
 			$RR = $this->RR_Overleaf($project_id);
 			$ADE = $this->ADE_Overleaf($project_id);
+			$PCA = $this->PCA_Overleaf($project_id);
+
+			// Cost
+			$CMP = $this->CMP_Overleaf($project_id);
+			$CE = $this->CE_Overleaf($project_id);
+
+			// Quality
+			$QMP = $this->QMP_Overleaf($project_id);
+			
+
 
 			// template + array dos documentos
 			$files["template"] = $this->templateOverleaf($project_id);
-			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PMP, $PPR, $DS, $WP, $IR, $LLR, $CR, $CL, $TEP, $FR), "scope" => array($RMP, $SCOMP, $RD, $SSP), "schedule"=> array($SMP, $EVM, $SND, $RR, $ADE));
+			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PMP, $PPR, $DS, $WP, $IR, $LLR, $CR, $CL, $TEP, $FR), "scope" => array($RMP, $SCOMP, $RD, $SSP), "schedule" => array($SMP, $EVM, $SND, $RR, $ADE, $PCA), "cost" => array($CMP, $CE), "quality"=> array($QMP));
 		}
 
 		// $files["knowledge_areas"] = array("integration" =>array($BC,$outra,$outra), "scope" =>array($outra,$outra));
@@ -1093,14 +1244,14 @@ class ProjectToOverleaf extends CI_Controller
 		$file .= "\include{ChangeRequest}\n";
 		$file .= "\include{ChangeLog}\n";
 		$file .= "\include{ProjectClosureReport}\n";
-		$file .= "\include{FinalReport}\n";
+		$file .= "\include{FinalReport}\n\n";
 
 		// Scope
 		$file .= "\chapter{Project Scope Management}\n";
 		$file .= "\include{RequirementsManagementPlan}\n";
 		$file .= "\include{ScopeManagementPlan}\n";
 		$file .= "\include{RequirementDocumentation}\n";
-		$file .= "\include{ScopeSpecification}\n";
+		$file .= "\include{ScopeSpecification}\n\n";
 
 		// Schedule
 		$file .= "\chapter{Project Schedule Management}\n";
@@ -1109,6 +1260,17 @@ class ProjectToOverleaf extends CI_Controller
 		$file .= "\include{ScheduleNetworkDiagram}\n";
 		$file .= "\include{ResourceRequirements}\n";
 		$file .= "\include{ActivityDurationEstimates}\n";
+		$file .= "\include{ProjectCalendars}\n\n";
+
+		// Cost
+		$file .= "\chapter{Project Cost Management}\n";
+		$file .= "\include{CostManagementPlan}\n";
+		$file .= "\include{CostEstimates}\n\n";
+
+		// Quality
+		$file .= "\chapter{Project Quality Management}\n";
+		$file .= "\include{QualityManagementPlan}\n";
+
 
 		// End Document
 		$file .= "\\bibliography{Bib}\n";
