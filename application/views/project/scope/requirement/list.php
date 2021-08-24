@@ -49,10 +49,10 @@
 										<thead>
 											<tr>
 												<th class="text-center">#</th>
-												<th><?= $this->lang->line('associated_id') ?></th>
-												<th><?= $this->lang->line('description') ?></th>
-												<th><?= $this->lang->line('priority') ?></th>
-												<th><?= $this->lang->line('business_strategy') ?></th>
+												<th><?= $this->lang->line('rd_associated_id') ?></th>
+												<th><?= $this->lang->line('rd_description') ?></th>
+												<th><?= $this->lang->line('rd_priority') ?></th>
+												<th><?= $this->lang->line('rd_business_strategy') ?></th>
 
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
