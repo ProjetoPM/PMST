@@ -16,6 +16,7 @@ class ProjectToOverleaf extends CI_Controller
 		$this->lang->load('btn', 'english');
 		// $this->lang->load('btn','portuguese-brazilian');
 		$this->lang->load('overleaf', 'english');
+		$this->lang->load('quality_plan', 'english');
 		// $this->lang->load('quality_mp','portuguese-brazilian');
 
 		$this->load->model('view_model');
@@ -62,7 +63,12 @@ class ProjectToOverleaf extends CI_Controller
 		$this->load->model("Quality_reports_model");
 		$this->load->model("QualityChecklist_model");
 
+		// Resources
+		$this->load->model("Human_resource_model");
+		$this->load->model("Team_Performance_Evaluation_model");
 
+		// Risk
+		$this->load->model("Risk_mp_model");
 	}
 
 	public function PCH_Overleaf($project_id)
@@ -154,25 +160,25 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] = "\n";
 			$file["task"] .= "\section{Benefits Management Plan}\n";
 
-			$file["task"] .= "\subsection{Target Benefits}\n";
+			$file["task"] .= "\subsubsection{Target Benefits}\n";
 			$file["task"] .= $this->verificaDados($dataBMP[0]->target_benefits) . "\n";
 
-			$file["task"] .= "\subsection{Strategic Alignment}";
+			$file["task"] .= "\subsubsection{Strategic Alignment}";
 			$file["task"] .= $this->verificaDados($dataBMP[0]->strategic_alignment) . "\n";
 
-			$file["task"] .= "\subsection{Schedule for Benefits}\n";
+			$file["task"] .= "\subsubsection{Schedule for Benefits}\n";
 			$file["task"] .= $this->verificaDados($dataBMP[0]->schedule_benefit) . "\n";
 
-			$file["task"] .= "\subsection{Benefits Owner}\n";
+			$file["task"] .= "\subsubsection{Benefits Owner}\n";
 			$file["task"] .= $this->verificaDados($dataBMP[0]->benefits_owner) . "\n";
 
-			$file["task"] .= "\subsection{Indicators}\n";
+			$file["task"] .= "\subsubsection{Indicators}\n";
 			$file["task"] .= $this->verificaDados($dataBMP[0]->indicators) . "\n";
 
-			$file["task"] .= "\subsection{Premises}\n";
+			$file["task"] .= "\subsubsection{Premises}\n";
 			$file["task"] .= $this->verificaDados($dataBMP[0]->premises) . "\n";
 
-			$file["task"] .= "\subsection{Risks}\n";
+			$file["task"] .= "\subsubsection{Risks}\n";
 			$file["task"] .= $this->verificaDados($dataBMP[0]->risks) . "\n";
 
 			return $file;
@@ -1079,7 +1085,7 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"]  .= "\subsubsection{Quality Standards that will be used by the Project}\n";
 			$file["task"]  .= $this->verificaDados($dataQualityMP[0]->standards) . "\n";
 
-			$file["task"]  .= "\subsubsection{Quality Objectives of the Project}\n";
+			$file["task"]  .= "\subsubsection{" . $this->lang->line('qmp_objectives') . "}\n";
 			$file["task"]  .= $this->verificaDados($dataQualityMP[0]->objectives) . "\n";
 
 			$file["task"]  .= "\subsubsection{Quality Roles and Responsibilities}\n";
@@ -1102,12 +1108,300 @@ class ProjectToOverleaf extends CI_Controller
 		}
 	}
 
+	public function QR_Overleaf($project_id)
+	{
+		$dataQR = $this->Quality_reports_model->getAll($project_id);
+		$file["name_task"] = "QualityReports.tex";
+		$file["task"] = "\n";
+		$file["task"] .= "\section{QualityReports}\n";
+		$file["task"] .= "\begin{itemize}\n";
+		if ($dataQR != null) {
+			foreach ($dataQR as $data) {
+
+				$file["task"] .= "\item \\textbf{Responsible}: " .  $this->verificaDados($data->responsible) . " | \\textbf{Date}: " . $this->verificaDados(date('d/m/Y', strtotime($data->date))) . "\n";
+				$file["task"] .= "\item \\textbf{Type of Report}: " . $this->verificaDados($data->type) . " | \\textbf{Description of what was Identified}: " . $this->verificaDados($data->description) . "\n";
+
+				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Identifier}:\n";
+				$file["task"] .= $this->verificaDados($data->identifier) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Impacted Areas}:\n";
+				$file["task"] .= $this->verificaDados($data->areas) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Deliveries / Documents Impacted}:\n";
+				$file["task"] .= $this->verificaDados($data->deliveries) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Recommendations for Improvement}:\n";
+				$file["task"] .= $this->verificaDados($data->recommendations) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Corrective Actions Recommendations}:\n";
+				$file["task"] .= $this->verificaDados($data->corrective_actions) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Project Manager's Opinion}:\n";
+				$file["task"] .= $this->verificaDados($data->manager_opinion) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Conclusions}:\n";
+				$file["task"] .= $this->verificaDados($data->conclusions) . ";\n";
+
+				$file["task"] .= "\\end{itemize}\n";
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	//Resources 
+	public function REMP_Overleaf($project_id) // 1 1
+	{
+		$dataREMP = $this->Human_resource_model->get($project_id);
+		if ($dataREMP  != null) {
+			$file["name_task"] = "ResourcesManagementPlan.tex";
+			$file["task"] = "\n";
+			$file["task"]  .= "\section{Human Resources Management Plan}\n";
+
+			$file["task"]  .= "\subsubsection{Roles and Responsibilities}\n";
+			$file["task"]  .= $this->verificaDados($dataREMP[0]->roles_responsibilities) . "\n";
+
+			$file["task"]  .= "\subsubsection{Project Organization Charts}\n";
+			$file["task"]  .=  $this->verificaDados($dataREMP[0]->organizational_chart) . "\n";
+
+			$file["task"]  .= "\subsubsection{Team Development}\n";
+			$file["task"]  .=  $this->verificaDados($dataREMP[0]->staff_mp) . "\n";
+
+			$file["task"]  .= "\subsubsection{Identification of Resources}\n";
+			$file["task"]  .=  $this->verificaDados($dataREMP[0]->Identification_resources) . "\n";
+
+			$file["task"]  .= "\subsubsection{Acquiring Resources}\n";
+			$file["task"]  .=  $this->verificaDados($dataREMP[0]->acquiring_resources) . "\n";
+
+			$file["task"]  .= "\subsubsection{Project Team Resource Management}\n";
+			$file["task"]  .=  $this->verificaDados($dataREMP[0]->team_development) . "\n";
+
+			$file["task"]  .= "\subsubsection{Training}\n";
+			$file["task"]  .=  $this->verificaDados($dataREMP[0]->training) . "\n";
+
+			$file["task"]  .= "\subsubsection{Resource Control}\n";
+			$file["task"]  .=  $this->verificaDados($dataREMP[0]->control) . "\n";
+
+			$file["task"]  .= "\subsubsection{Recognition Plan}\n";
+			$file["task"]  .=  $this->verificaDados($dataREMP[0]->recognition_plan) . "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	public function EVAL_Overleaf($project_id)
+	{
+		$dataEVAL = $this->Team_Performance_Evaluation_model->getAll($project_id);
+		$file["name_task"] = "TeamPerformanceEvaluation.tex";
+		$file["task"] = "\n";
+		$file["task"] .= "\section{Team Performance Evaluation}\n";
+		$file["task"] .= "\begin{itemize}\n";
+		if ($dataEVAL != null) {
+			foreach ($dataEVAL as $data) {
+
+				$file["task"] .= "\item \\textbf{Team Member Name}: " .  $this->verificaDados($data->team_member_name) . " | \\textbf{Evaluation Date}: " . $this->verificaDados(date('d/m/Y', strtotime($data->report_date))) . "\n";
+				$file["task"] .= "\item \\textbf{Function in the Project}: " . $this->verificaDados($data->project_function) . "\n";
+
+				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Job Role}:\n";
+				$file["task"] .= $this->verificaDados($data->role) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Review Evaluation}:\n";
+				$file["task"] .= $this->verificaDados($data->team_member_comments) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Strong points }:\n";
+				$file["task"] .= $this->verificaDados($data->strong_points) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Opportunities for improvement}:\n";
+				$file["task"] .= $this->verificaDados($data->improvement) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Development plan}:\n";
+				$file["task"] .= $this->verificaDados($data->development_plan) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Already developed}:\n";
+				$file["task"] .= $this->verificaDados($data->already_developed) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Comments external to the project tea}:\n";
+				$file["task"] .= $this->verificaDados($data->external_comments) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Team mates comments}:\n";
+				$file["task"] .= $this->verificaDados($data->team_mates_comments) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Evaluator Comments}:\n";
+				$file["task"] .= $this->verificaDados($data->team_performance_evaluationcol) . ";\n";
+
+				$file["task"] .= "\\end{itemize}\n";
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+
+
+	// Risk
+	public function RIMP_Overleaf($project_id)
+	{
+		$dataRIMP = $this->Risk_mp_model->get($project_id);
+		if ($dataRIMP != null) {
+			$file["name_task"] = "RiskManagementPlan.tex";
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Risk Management Plan}\n";
+
+			$file["task"] .= "\subsubsection{Methodology}\n";
+			$file["task"] .= $this->verificaDados($dataRIMP[0]->methodology) . "\n";
+
+			$file["task"] .= "\subsubsection{Roles and Responsibilities}\n";
+			$file["task"] .= $this->verificaDados($dataRIMP[0]->roles_responsibilities) . "\n";
+
+			$file["task"] .= "\subsubsection{Probability and Impact Matrix}\n";
+			$file["task"] .= $this->verificaDados($dataRIMP[0]->probability_impact_matrix) . "\n";
+
+			$file["task"] .= "\subsubsection{Risks Categories}\n";
+			$file["task"] .= $this->verificaDados($dataRIMP[0]->risks_categories) . "\n";
+
+			$file["task"] .= "\subsubsection{Risk Strategy}\n";
+			$file["task"] .= $this->verificaDados($dataRIMP[0]->reviewed_tolerances) . "\n";
+
+			$file["task"] .= "\subsubsection{Tracking}\n";
+			$file["task"] .= $this->verificaDados($dataRIMP[0]->traceability) . "\n";
+
+			$file["task"] .= "\subsubsection{Funding}\n";
+			$file["task"] .= $this->verificaDados($dataRIMP[0]->funding) . "\n";
+
+			$file["task"] .= "\subsubsection{Timing}\n";
+			$file["task"] .= $this->verificaDados($dataRIMP[0]->timing) . "\n";
+
+			$file["task"] .= "\subsubsection{Stakeholder Risk Appetite}\n";
+			$file["task"] .= $this->verificaDados($dataRIMP[0]->stakeholder_risk) . "\n";
+
+			$file["task"] .= "\subsubsection{Definitions of Risk Probability and Impacts}\n";
+			$file["task"] .= $this->verificaDados($dataRIMP[0]->definitions_risk) . "\n";
+
+			$file["task"] .= "\subsubsection{Reporting Formats}\n";
+			$file["task"] .= $this->verificaDados($dataRIMP[0]->format_report) . "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	public function RIR_Overleaf($project_id)
+	{
+		$dataRIR = $this->Team_Performance_Evaluation_model->getAll($project_id);
+		$file["name_task"] = "Risk Register.tex";
+		$file["task"] = "\n";
+		$file["task"] .= "\section{Risk Register}\n";
+		$file["task"] .= "\begin{itemize}\n";
+		if ($dataRIR != null) {
+			foreach ($dataRIR as $data) {
+				$temp = $this->verificaDados($data->priority);
+				if($temp == '0'){
+					$temp == "Low";
+				}else if($temp == '1'){
+					$temp = "Medium";
+				}else if($temp == '2'){
+					$temp = "High";
+				}else{
+					$temp;
+				}
+
+				$file["task"] .= "\item \\textbf{Impacted Objective}: " .  $this->verificaDados($data->impacted_objective) . " | \\textbf{Priority}: " . $this->verificaDados($temp) . "\n";
+				$file["task"] .= "\item \\textbf{Event}: " . $this->verificaDados($data->event) . " | \\textbf{Identification Date}: " . $this->verificaDados(date('d/m/Y', strtotime($data->event))) . "\n";
+
+				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Current Risk Status}:\n";
+				$file["task"] .= $this->verificaDados($data->risk_status) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Identifier}:\n";
+				$file["task"] .= $this->verificaDados($data->identifier) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Risk Type}:\n";
+				$file["task"] .= $this->verificaDados($data->type) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Lessons Learned}:\n";
+				$file["task"] .= $this->verificaDados($data->lessons) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Risk Category}:\n";
+				$file["task"] .= $this->verificaDados($data->category) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Fallback Plans}:\n";
+				$file["task"] .= $this->verificaDados($data->fallback) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Contingency Plans Owner}:\n";
+				$file["task"] .= $this->verificaDados($data->contingency_owner) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Contingency Plans}:\n";
+				$file["task"] .= $this->verificaDados($data->contingency) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Secondary Risks}:\n";
+				$file["task"] .= $this->verificaDados($data->secondary) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Residual Risks}:\n";
+				$file["task"] .= $this->verificaDados($data->residual) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Timing Information}:\n";
+				$file["task"] .= $this->verificaDados($data->timing) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Potential risk owners}:\n";
+				$file["task"] .= $this->verificaDados($data->responses_owner) . ";\n";
+
+				$file["task"] .= "\item \\textbf{List of Potential Risk Responses}:\n";
+				$file["task"] .= $this->verificaDados($data->responses) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Risk Triggers}:\n";
+				$file["task"] .= $this->verificaDados($data->triggers) . ";\n";
+
+				$file["task"] .= "\item \\textbf{One or More Causes}:\n";
+				$file["task"] .= $this->verificaDados($data->causes) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Risk Strategy}:\n";
+				$file["task"] .= $this->verificaDados($data->strategy) . ";\n";
+
+				$file["task"] .= "\item \\textbf{One or More Effects on Objectives}:\n";
+				$file["task"] .= $this->verificaDados($data->effects) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Risk Score}:\n";
+				$file["task"] .= $this->verificaDados($data->score) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Impact}:\n";
+				$file["task"] .= $this->verificaDados($data->impact) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Probability}:\n";
+				$file["task"] .= $this->verificaDados($data->probability) . ";\n";
+
+				$file["task"] .= "\\end{itemize}\n";
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
 	public function verificaDados($dado)
 	{
 		if ($dado == null)
 			return "Not Defined";
 		else {
 			$dado = str_replace("%", "\%", $dado);
+			$dado = str_replace("\\", "", $dado);
 			return str_replace("&", "\&", $dado);
 		}
 	}
@@ -1159,12 +1453,21 @@ class ProjectToOverleaf extends CI_Controller
 
 			// Quality
 			$QMP = $this->QMP_Overleaf($project_id);
-			
+			$QR = $this->QR_Overleaf($project_id);
+
+			// Resources
+			$REMP = $this->REMP_Overleaf($project_id);
+			$EVAL = $this->EVAL_Overleaf($project_id);
+
+			// Risk
+			$RIMP = $this->RIMP_Overleaf($project_id);
+			$RIR = $this->RIR_Overleaf($project_id);
+
 
 
 			// template + array dos documentos
 			$files["template"] = $this->templateOverleaf($project_id);
-			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PMP, $PPR, $DS, $WP, $IR, $LLR, $CR, $CL, $TEP, $FR), "scope" => array($RMP, $SCOMP, $RD, $SSP), "schedule" => array($SMP, $EVM, $SND, $RR, $ADE, $PCA), "cost" => array($CMP, $CE), "quality"=> array($QMP));
+			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PMP, $PPR, $DS, $WP, $IR, $LLR, $CR, $CL, $TEP, $FR), "scope" => array($RMP, $SCOMP, $RD, $SSP), "schedule" => array($SMP, $EVM, $SND, $RR, $ADE, $PCA), "cost" => array($CMP, $CE), "quality" => array($QMP, $QR), "resources" => array($REMP, $EVAL), "risk" => array($RIMP, $RIR));
 		}
 
 		// $files["knowledge_areas"] = array("integration" =>array($BC,$outra,$outra), "scope" =>array($outra,$outra));
@@ -1270,6 +1573,14 @@ class ProjectToOverleaf extends CI_Controller
 		// Quality
 		$file .= "\chapter{Project Quality Management}\n";
 		$file .= "\include{QualityManagementPlan}\n";
+		$file .= "\include{QualityReports}\n";
+
+		// Resources
+		$file .= "\chapter{Project Human Resources Management}\n";
+		$file .= "\include{ResourcesManagementPlan}\n";
+		$file .= "\include{TeamPerformanceEvaluation}\n";
+		$file .= "\include{RiskManagementPlan}\n";
+		$file .= "\include{RiskRegister}\n";
 
 
 		// End Document

@@ -57,6 +57,14 @@
 								<input class="form-check-input" type="checkbox" id="quality" value="quality">
 								<label class="form-check-label"><?= $this->lang->line('overleaf_quality') ?></label>
 							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="resources" value="resources">
+								<label class="form-check-label"><?= $this->lang->line('overleaf_resources') ?></label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="risk" value="risk">
+								<label class="form-check-label"><?= $this->lang->line('overleaf_risk') ?></label>
+							</div>
 							<br></br>
 							<div class=" col-lg-12 form-group">
 								<label style="font-size: larger;">Latex </label>
@@ -188,6 +196,42 @@
 			for (let index = 0; index < kw.quality.length; index++) {
 				latex_provisorio = latex_provisorio + kw.quality[index]["task"];
 				create_snip("quality", kw.quality[index]["name_task"], kw.quality[index]["task"]);
+				console.log(latex_provisorio);
+			}
+
+			document.getElementById('latex').value = latex_provisorio;
+		}
+
+	});
+
+	$("#resources").click(function() {
+		if ($("#resources").is(":checked") == false) {
+			document.getElementById('latex').value = latex1;
+			remove_snip("resources");
+		} else {
+			var latex_provisorio = latex1;
+			var kw = <?= $json ?>;
+			for (let index = 0; index < kw.resources.length; index++) {
+				latex_provisorio = latex_provisorio + kw.resources[index]["task"];
+				create_snip("resources", kw.resources[index]["name_task"], kw.resources[index]["task"]);
+				console.log(latex_provisorio);
+			}
+
+			document.getElementById('latex').value = latex_provisorio;
+		}
+
+	});
+
+	$("#risk").click(function() {
+		if ($("#risk").is(":checked") == false) {
+			document.getElementById('latex').value = latex1;
+			remove_snip("risk");
+		} else {
+			var latex_provisorio = latex1;
+			var kw = <?= $json ?>;
+			for (let index = 0; index < kw.risk.length; index++) {
+				latex_provisorio = latex_provisorio + kw.risk[index]["task"];
+				create_snip("risk", kw.risk[index]["name_task"], kw.risk[index]["task"]);
 				console.log(latex_provisorio);
 			}
 
