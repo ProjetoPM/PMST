@@ -69,6 +69,16 @@ class ProjectToOverleaf extends CI_Controller
 
 		// Risk
 		$this->load->model("Risk_mp_model");
+		$this->load->model("Risk_model");
+
+		// Procurement
+		$this->load->model("Procurement_mp_model");
+		$this->load->model("Procurement_cpd_model");
+		$this->load->model("Procurement_statement_of_work_model");
+
+		// Stakeholder
+		$this->load->model("Stakeholder_model");
+		$this->load->model("Stakeholder_mp_model");
 	}
 
 	public function PCH_Overleaf($project_id)
@@ -1108,6 +1118,73 @@ class ProjectToOverleaf extends CI_Controller
 		}
 	}
 
+	public function QC_Overleaf($project_id)
+	{
+		$dataQC = $this->QualityChecklist_model->getAll($project_id);
+		$dataQCItems = $this->QualityChecklist_model->getAllItens($project_id);
+		$file["name_task"] = "QualityChecklist.tex";
+		$file["task"] = "\n";
+		$file["task"]  .= "\section{Quality Checklist}\n";
+		if ($dataQC != null) {
+			foreach ($dataQC as $data) {
+
+
+				$file .= "\subsection{Quality Checklist " . $this->verificaDados($data->date) . "}\n";
+
+				$file .= "\subsubsection{Verified Product, Process or Activity}\n";
+				$file .= $this->verificaDados($data->verified) . "\n";
+
+				$file .= "\subsubsection{Responsible for Verification}\n";
+				$file .= $this->verificaDados($data->responsible) . "\n";
+
+				$file .= "\subsubsection{Associated Documents}\n";
+				$file .= $this->verificaDados($data->documents) . "\n";
+
+				$file .= "\subsubsection{Guidelines/Comments}\n";
+				$file .= $this->verificaDados($data->guidelines) . "\n";
+
+
+				$file["task"]  .= "\begin{longtable}{ p{.20\textwidth} | p{.50\textwidth} | p{.20\textwidth}}\n";
+				$file["task"] .= "\bottomrule \n";
+				$file["task"] .= "\\rowcolor{gray}\n";
+				$file["task"] .= "\\textbf{Items to Check} & \\textbf{Comments} & \\textbf{Status} \\\ \n";
+				$file["task"] .= "\hline \n";
+				$count = 0;
+				foreach ($dataQCItems as $items) {
+					if ($count % 2 != 0) {
+						$file["task"] .= "\\rowcolor{white}\n";
+					} else {
+						$file["task"] .= "\\rowcolor{lightgray}\n";
+					}
+					$count++;
+					$tempStatus = $this->verificaDados($data->status);
+					if ($tempStatus == 0) {
+						$tempStatus = "No Ok";
+					} else if ($tempStatus == 1) {
+						$tempStatus = "Partially Ok";
+					}else if($tempStatus == 2){
+						$tempStatus = "Ok"; 
+					}else{
+						$tempStatus;
+					}
+
+					$file["task"] .= $this->verificaDados($items->item_check) . " & " . $this->verificaDados($items->comments) . " & " . $tempStatus . "\\\ \n";
+
+					$file["task"] .= "\hline \n";
+				}
+				$file["task"]  .= "\\toprule \n";
+				$file["task"] .= "\caption{Assumption Log} \n";
+				$file["task"] .= "\label{tab:AssumptionLog} \n";
+				$file["task"] .= "\\end{longtable} \n";
+
+				return $file;
+			}
+		} else {
+			return null;
+		}
+	}
+
+
 	public function QR_Overleaf($project_id)
 	{
 		$dataQR = $this->Quality_reports_model->getAll($project_id);
@@ -1302,21 +1379,21 @@ class ProjectToOverleaf extends CI_Controller
 
 	public function RIR_Overleaf($project_id)
 	{
-		$dataRIR = $this->Team_Performance_Evaluation_model->getAll($project_id);
-		$file["name_task"] = "Risk Register.tex";
+		$dataRIR = $this->Risk_model->getAll($project_id);
+		$file["name_task"] = "RiskRegister.tex";
 		$file["task"] = "\n";
 		$file["task"] .= "\section{Risk Register}\n";
 		$file["task"] .= "\begin{itemize}\n";
 		if ($dataRIR != null) {
 			foreach ($dataRIR as $data) {
 				$temp = $this->verificaDados($data->priority);
-				if($temp == '0'){
+				if ($temp == '0') {
 					$temp == "Low";
-				}else if($temp == '1'){
+				} else if ($temp == '1') {
 					$temp = "Medium";
-				}else if($temp == '2'){
+				} else if ($temp == '2') {
 					$temp = "High";
-				}else{
+				} else {
 					$temp;
 				}
 
@@ -1395,6 +1472,297 @@ class ProjectToOverleaf extends CI_Controller
 			return null;
 		}
 	}
+
+	// Procurement
+	public function PCMP_Overleaf($project_id)
+	{
+		$dataPCMP = $this->Procurement_mp_model->get($project_id);
+		if ($dataPCMP != null) {
+			$file["name_task"] = "ProcurementManagementPlan.tex";
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Procurement Management Plan}\n";
+
+			$file["task"] .= "\subsubsection{Products or Services Will be Obtained}\n";
+			$file["task"] .= $this->verificaDados($dataPCMP[0]->products_services_obtained) . "\n";
+
+			$file["task"] .= "\subsubsection{How Procurement will be Coordinated}\n";
+			$file["task"] .= $this->verificaDados($dataPCMP[0]->procurement_management) . "\n";
+
+			$file["task"] .= "\subsubsection{Timetable of Key Procurement Activities}\n";
+			$file["task"] .= $this->verificaDados($dataPCMP[0]->schedule_procurement_activities) . "\n";
+
+			$file["task"] .= "\subsubsection{Procurement metrics}\n";
+			$file["task"] .= $this->verificaDados($dataPCMP[0]->performance_metrics) . "\n";
+
+			$file["task"] .= "\subsubsection{Constraints and Assumptions}\n";
+			$file["task"] .= $this->verificaDados($dataPCMP[0]->constraint_assumption) . "\n";
+
+			$file["task"] .= "\subsubsection{Stakeholder Roles and Responsibilities}\n";
+			$file["task"] .= $this->verificaDados($dataPCMP[0]->roles) . "\n";
+
+			$file["task"] .= "\subsubsection{The Legal Jurisdiction}\n";
+			$file["task"] .= $this->verificaDados($dataPCMP[0]->legal_jurisdiction) . "\n";
+
+			$file["task"] .= "\subsubsection{Independent Estimates}\n";
+			$file["task"] .= $this->verificaDados($dataPCMP[0]->estimates) . "\n";
+
+			$file["task"] .= "\subsubsection{Risk Management Issues}\n";
+			$file["task"] .= $this->verificaDados($dataPCMP[0]->issues) . "\n";
+
+			$file["task"] .= "\subsubsection{Prequalified Sellers}\n";
+			$file["task"] .= $this->verificaDados($dataPCMP[0]->sellers) . "\n";
+
+			$file["task"] .= "\subsubsection{Procurement Strategy}\n";
+			$file["task"] .= $this->verificaDados($dataPCMP[0]->strategy) . "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	public function PSW_Overleaf($project_id)
+	{
+		$dataPSW = $this->Procurement_statement_of_work_model->getAll($project_id);
+		$file["name_task"] = "ProcurementStatementOfWork.tex";
+		$file["task"] = "\n";
+		$file["task"] .= "\section{Procurement Statement Of Work}\n";
+		$file["task"] .= "\begin{itemize}\n";
+		if ($dataPSW != null) {
+			foreach ($dataPSW as $data) {
+
+				$file["task"] .= "\item \\textbf{Description of item to be purchased}: " .  $this->verificaDados($data->description) . "\n";
+				$file["task"] .= "\item \\textbf{Additional information }: " . $this->verificaDados($data->informations) . "\n";
+				$file["task"] .= "\item \\textbf{Procurement Management}: " . $this->verificaDados($data->procurement_management) . "\n";
+				$file["task"] .= "\item \\textbf{Vendor Selection Criteria }: " . $this->verificaDados($data->selection_criterias) . "\n";
+
+				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Associated Contract Types}:\n";
+				$file["task"] .= $this->verificaDados($data->types) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Restrictions}:\n";
+				$file["task"] .= $this->verificaDados($data->restrictions) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Premises}:\n";
+				$file["task"] .= $this->verificaDados($data->premises) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Main deliveries schedule}:\n";
+				$file["task"] .= $this->verificaDados($data->schedule) . ";\n";
+
+				$file["task"] .= "\\end{itemize}\n";
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	public function CPD_Overleaf($project_id)
+	{
+		$dataCPD = $this->Procurement_cpd_model->getAll($project_id);
+		$file["name_task"] = "ClosedProcurementDocumentation.tex";
+		$file["task"] = "\n";
+		$file["task"] .= "\section{Closed Procurement Documentation}\n";
+		$file["task"] .= "\begin{itemize}\n";
+		if ($dataCPD != null) {
+			foreach ($dataCPD as $data) {
+
+				$file["task"] .= "\item \\textbf{Provider's Name}: " .  $this->verificaDados($data->provider) . "| \\textbf{Closing Date}:" . $this->verificaDados(date('d/m/Y', strtotime($data->closing_date))) . "\n";
+				$file["task"] .= "\item \\textbf{Supplier Representative }: " . $this->verificaDados($data->supplier_representative) . "\n";
+
+
+				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Main Deliveries of this Project }:\n";
+				$file["task"] .= $this->verificaDados($data->main_deliveries) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Validator Comments}:\n";
+				$file["task"] .= $this->verificaDados($data->comments) . ";\n";
+
+				$file["task"] .= "\\end{itemize}\n";
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	// Stakeholder
+	public function SHR_Overleaf($project_id)
+	{
+		$dataSHR = $this->Stakeholder_model->getAll($project_id);
+		$file["name_task"] = "StakeholderRegistration.tex";
+		$file["task"] = "\n";
+		$file["task"] .= "\section{StakeholderRegistration}\n";
+		$file["task"] .= "\begin{itemize}\n";
+		if ($dataSHR != null) {
+			foreach ($dataSHR as $data) {
+
+
+
+				$file["task"] .= "\item \\textbf{Name}: " .  $this->verificaDados($data->name) . "| \\textbf{Position}: " . $this->verificaDados($data->position) . "\n";
+				$file["task"] .= "\item \\textbf{Email}: " . $this->verificaDados($data->email) . "| \\textbf{Organization}:" . $this->verificaDados($data->organization) . "\n";
+
+
+				$file["task"] .= "\begin{itemize}\n";
+
+				$tempType = $this->verificaDados($data->type);
+
+				if ($tempType == 0) {
+					$tempType = "External";
+				} else if ($tempType == 1) {
+					$tempType = "Internal";
+				} else {
+					$tempType;
+				}
+
+				$file["task"] .= "\item \\textbf{Type}:\n";
+				$file["task"] .= $this->verificaDados($tempType) . ";\n";
+
+				$tempRole = $this->verificaDados($data->role);
+
+				if ($tempRole == 0) {
+					$tempRole = "Client";
+				} else if ($tempRole == 1) {
+					$tempRole = "Team";
+				} else if ($tempRole == 2) {
+					$tempRole = "Provider";
+				} else if ($tempRole == 3) {
+					$tempRole = "Project Manager";
+				} else if ($tempRole == 4) {
+					$tempRole = "Sponsor";
+				} else if ($tempRole == 5) {
+					$tempRole = "Others";
+				} else {
+					$tempRole;
+				}
+				$file["task"] .= "\item \\textbf{Main Role in the Project}:\n";
+				$file["task"] .= $this->verificaDados($tempRole) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Main Project Responsibility}:\n";
+				$file["task"] .= $this->verificaDados($data->responsibility) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Phone}:\n";
+				$file["task"] .= $this->verificaDados($data->phone_number) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Workplace}:\n";
+				$file["task"] .= $this->verificaDados($data->work_place) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Essential Requirements}:\n";
+				$file["task"] .= $this->verificaDados($data->essential_requirements) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Main Expectations}:\n";
+				$file["task"] .= $this->verificaDados($data->main_expectations) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Phase of Greater Interest}:\n";
+				$file["task"] .= $this->verificaDados($data->interest_phase) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Observations}:\n";
+				$file["task"] .= $this->verificaDados($data->observations) . ";\n";
+
+				$file["task"] .= "\\end{itemize}\n";
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
+
+	public function SHEP_Overleaf($project_id)
+	{
+		$dataSHEP = $this->Stakeholder_mp_model->getAll($project_id);
+		$file["name_task"] = "StakeholderEngagementPlan.tex";
+		$file["task"] = "\n";
+		$file["task"] .= "\section{Stakeholder Engagement Plan}\n";
+		$file["task"] .= "\begin{itemize}\n";
+		if ($dataSHEP != null) {
+			foreach ($dataSHEP as $data) {
+
+
+
+				$file["task"] .= "\item \\textbf{Stakeholder Name}: " .  $this->verificaDados($data->name) . "\n";
+				$file["task"] .= "\item \\textbf{Interest}: " . $this->verificaDados($data["interest"]) . "| \\textbf{Power}:" . $this->verificaDados($data->power) . "\n";
+				$file["task"] .= "\item \\textbf{Influence}: " . $this->verificaDados($data->influence) . "| \\textbf{Impact}:" . $this->verificaDados($data->impact) . "\n";
+
+				$file["task"] .= "\begin{itemize}\n";
+
+
+				$tempCurrent = $this->verificaDados($data->current_engagement);
+
+				if ($tempCurrent == "unaware") {
+					$tempCurrent = "Unaware";
+				} else if ($tempCurrent == 1) {
+					$tempCurrent = "Team";
+				} else if ($tempCurrent == "supportive") {
+					$tempCurrent = "Provider";
+				} else if ($tempCurrent == "leading") {
+					$tempCurrent = "Leading";
+				} else if ($tempCurrent == "neutral") {
+					$tempCurrent = "Leading";
+				} else if ($tempCurrent == "resistant") {
+					$tempCurrent = "Resistant";
+				} else {
+					$tempCurrent;
+				}
+				$file["task"] .= "\item \\textbf{Current Engagement}:\n";
+				$file["task"] .= $this->verificaDados($tempCurrent) . ";\n";
+
+				$tempExpected = $this->verificaDados($data->current_engagement);
+
+				if ($tempExpected == "unaware") {
+					$tempExpected = "Unaware";
+				} else if ($tempExpected == 1) {
+					$tempExpected = "Team";
+				} else if ($tempExpected == "supportive") {
+					$tempExpected = "Provider";
+				} else if ($tempCurrent == "leading") {
+					$tempExpected = "Leading";
+				} else if ($tempCurrent == "neutral") {
+					$tempExpected = "Leading";
+				} else if ($tempExpected == "resistant") {
+					$tempExpected = "Resistant";
+				} else {
+					$tempExpected;
+				}
+
+				$file["task"] .= "\item \\textbf{Desired Engagement}:\n";
+				$file["task"] .= $this->verificaDados($tempExpected) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Average Importance}:\n";
+				$file["task"] .= $this->verificaDados($data->average) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Engagement / Management Strategy}:\n";
+				$file["task"] .= $this->verificaDados($data->strategy) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Workplace}:\n";
+				$file["task"] .= $this->verificaDados($data->work_place) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Scope and Impact of Changes to Stakeholder}:\n";
+				$file["task"] .= $this->verificaDados($data->scope) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Observations with other Stakeholders}:\n";
+				$file["task"] .= $this->verificaDados($data->observation) . ";\n";
+
+				$file["task"] .= "\\end{itemize}\n";
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			return null;
+		}
+	}
 	public function verificaDados($dado)
 	{
 		if ($dado == null)
@@ -1453,6 +1821,7 @@ class ProjectToOverleaf extends CI_Controller
 
 			// Quality
 			$QMP = $this->QMP_Overleaf($project_id);
+			// $QC = $this->QC_Overleaf($project_id);
 			$QR = $this->QR_Overleaf($project_id);
 
 			// Resources
@@ -1463,11 +1832,20 @@ class ProjectToOverleaf extends CI_Controller
 			$RIMP = $this->RIMP_Overleaf($project_id);
 			$RIR = $this->RIR_Overleaf($project_id);
 
+			// Procurement
+			$PCMP = $this->PCMP_Overleaf($project_id);
+			$PSW = $this->PSW_Overleaf($project_id);
+			$CPD = $this->CPD_Overleaf($project_id);
+
+			// Stakeholder
+			$SHR = $this->SHR_Overleaf($project_id);
+			$SHEP = $this->SHEP_Overleaf($project_id);
+
 
 
 			// template + array dos documentos
 			$files["template"] = $this->templateOverleaf($project_id);
-			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PMP, $PPR, $DS, $WP, $IR, $LLR, $CR, $CL, $TEP, $FR), "scope" => array($RMP, $SCOMP, $RD, $SSP), "schedule" => array($SMP, $EVM, $SND, $RR, $ADE, $PCA), "cost" => array($CMP, $CE), "quality" => array($QMP, $QR), "resources" => array($REMP, $EVAL), "risk" => array($RIMP, $RIR));
+			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PMP, $PPR, $DS, $WP, $IR, $LLR, $CR, $CL, $TEP, $FR), "scope" => array($RMP, $SCOMP, $RD, $SSP), "schedule" => array($SMP, $EVM, $SND, $RR, $ADE, $PCA), "cost" => array($CMP, $CE), "quality" => array($QMP, $QR), "resources" => array($REMP, $EVAL), "risk" => array($RIMP, $RIR), "procurement" => array($PCMP, $PSW, $CPD), "stakeholder" => array($SHR, $SHEP));
 		}
 
 		// $files["knowledge_areas"] = array("integration" =>array($BC,$outra,$outra), "scope" =>array($outra,$outra));
@@ -1572,6 +1950,7 @@ class ProjectToOverleaf extends CI_Controller
 
 		// Quality
 		$file .= "\chapter{Project Quality Management}\n";
+		$file .= "\include{QualityChecklist}\n";
 		$file .= "\include{QualityManagementPlan}\n";
 		$file .= "\include{QualityReports}\n";
 
@@ -1579,9 +1958,23 @@ class ProjectToOverleaf extends CI_Controller
 		$file .= "\chapter{Project Human Resources Management}\n";
 		$file .= "\include{ResourcesManagementPlan}\n";
 		$file .= "\include{TeamPerformanceEvaluation}\n";
+
+
+		// Risk
+		$file .= "\chapter{Project Risk Management}\n";
 		$file .= "\include{RiskManagementPlan}\n";
 		$file .= "\include{RiskRegister}\n";
 
+		// Procurement
+		$file .= "\chapter{Project Procurement Management}\n";
+		$file .= "\include{ProcurementManagementPlan}\n";
+		$file .= "\include{ProcurementStatementOfWork}\n";
+		$file .= "\include{ClosedProcurementDocumentation}\n";
+
+		// Stakeholder
+		$file .= "\chapter{Project Stakeholder Management}\n";
+		$file .= "\include{StakeholderRegistration}\n";
+		$file .= "\include{StakeholderEngagementPlan}\n";
 
 		// End Document
 		$file .= "\\bibliography{Bib}\n";

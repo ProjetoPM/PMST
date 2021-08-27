@@ -65,6 +65,14 @@
 								<input class="form-check-input" type="checkbox" id="risk" value="risk">
 								<label class="form-check-label"><?= $this->lang->line('overleaf_risk') ?></label>
 							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="procurement" value="procurement">
+								<label class="form-check-label"><?= $this->lang->line('overleaf_procurement') ?></label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="stakeholder" value="stakeholder">
+								<label class="form-check-label"><?= $this->lang->line('overleaf_stakeholder') ?></label>
+							</div>
 							<br></br>
 							<div class=" col-lg-12 form-group">
 								<label style="font-size: larger;">Latex </label>
@@ -240,8 +248,40 @@
 
 	});
 
+	$("#procurement").click(function() {
+		if ($("#procurement").is(":checked") == false) {
+			document.getElementById('latex').value = latex1;
+			remove_snip("procurement");
+		} else {
+			var latex_provisorio = latex1;
+			var kw = <?= $json ?>;
+			for (let index = 0; index < kw.procurement.length; index++) {
+				latex_provisorio = latex_provisorio + kw.procurement[index]["task"];
+				create_snip("procurement", kw.procurement[index]["name_task"], kw.procurement[index]["task"]);
+				console.log(latex_provisorio);
+			}
 
+			document.getElementById('latex').value = latex_provisorio;
+		}
 
+	});
+	$("#stakeholder").click(function() {
+		if ($("#stakeholder").is(":checked") == false) {
+			document.getElementById('latex').value = latex1;
+			remove_snip("stakeholder");
+		} else {
+			var latex_provisorio = latex1;
+			var kw = <?= $json ?>;
+			for (let index = 0; index < kw.stakeholder.length; index++) {
+				latex_provisorio = latex_provisorio + kw.stakeholder[index]["task"];
+				create_snip("stakeholder", kw.stakeholder[index]["name_task"], kw.stakeholder[index]["task"]);
+				console.log(latex_provisorio);
+			}
+
+			document.getElementById('latex').value = latex_provisorio;
+		}
+
+	});
 	function create_snip(area, name, info) {
 		// Snips
 		var objTo = document.getElementById('snips')
