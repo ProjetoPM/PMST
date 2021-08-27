@@ -76,10 +76,11 @@ class ClosedProcurementDocumentation extends CI_Controller
 
     public function update($closed_procurement_documentation_id)
     {
-        $closed_procurement_documentation['provider'] = $this->input->post('provider\'s name');
-        $closed_procurement_documentation['supplier_representative'] = $this->input->post('supplier representative');
+        $closed_procurement_documentation['provider'] = $this->input->post('provider');
+        $closed_procurement_documentation['supplier_representative'] = $this->input->post('supplier_representative');
         $dclosed_procurement_documentation['main_deliveries'] = $this->input->post('main deliveries of this project');
         $closed_procurement_documentation['closing_date'] = $this->input->post('closing_date');
+        $closed_procurement_documentation['comments'] = $this->input->post('comments');
         $closed_procurement_documentation['project_id'] = $this->input->post('project_id');
         $data['closed_procurement_documentation'] = $closed_procurement_documentation;
         $query = $this->Procurement_cpd_model->update($data['closed_procurement_documentation'], $closed_procurement_documentation_id);
@@ -87,7 +88,7 @@ class ClosedProcurementDocumentation extends CI_Controller
         if ($query) {
             insertLogActivity('update', 'closed procurement documentation register');
             $this->session->set_flashdata('success', 'Closed Procurement Documentation has been successfully changed!');
-            redirect('procurement/closed-procurement-documentation/list/' . $closed_procurement_documentation['project_id']);
+            redirect('procurement/closed-procurement-documentation/list/' . $_SESSION['project_id']);
         }
     }
 
@@ -98,6 +99,7 @@ class ClosedProcurementDocumentation extends CI_Controller
         $closed_procurement_documentation['supplier_representative'] = $this->input->post('supplier_representative');
         $closed_procurement_documentation['main_deliveries'] = $this->input->post('main_deliveries');
         $closed_procurement_documentation['closing_date'] = $this->input->post('closing_date');
+        $closed_procurement_documentation['comments'] = $this->input->post('comments');
         $closed_procurement_documentation['project_id'] = $_SESSION["project_id"];
 
         $query = $this->Procurement_cpd_model->insert($closed_procurement_documentation);
@@ -105,7 +107,7 @@ class ClosedProcurementDocumentation extends CI_Controller
         if ($query) {
             insertLogActivity('insert', 'closed procurement documentation');
             $this->session->set_flashdata('success', 'Closed Procurement Documentation has been successfully created!');
-            redirect('procurement/closed-procurement-documentation/list/' . $closed_procurement_documentation['project_id']);
+            redirect('procurement/closed-procurement-documentation/list/' . $_SESSION['project_id']);
         }
     }
 }
