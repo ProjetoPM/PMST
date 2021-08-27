@@ -51,8 +51,6 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="col-lg-5 form-group">
                                     <label for="supplier_representative"><?= $this->lang->line('cpd_supplier_representative') ?> *</label>
 									<span class="cpd_2">2000</span><?= $this->lang->line('character') ?>
@@ -94,7 +92,7 @@
 										<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
 									</button>
 							</form>
-							<form action="<?php echo base_url('procurement/closed_procurement_documentation/list/');  ?><?php echo $_SESSION['project_id']; ?>">
+							<form action="<?php echo base_url('procurement/closed-procurement-documentation/list/');  ?><?php echo $_SESSION['project_id']; ?>">
 								<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 							</form>
 						</div>
