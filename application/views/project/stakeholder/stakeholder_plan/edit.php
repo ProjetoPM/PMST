@@ -51,7 +51,7 @@
                 <input type="hidden" name="status" value="1">
 
                 <div class="col-lg-4 form-group">
-                  <label for="name"><?= $this->lang->line('stakeholder-name') ?></label>
+                  <label for="name"><?= $this->lang->line('stake') ?></label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('stakeholder_mp-text2_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
                     <input id="name_text" name="name" type="text" class="form-control input-md" required="false" value="<?php echo $name; ?>" disabled>
