@@ -57,9 +57,12 @@
 										<tbody>
 											<?php
 											foreach ($delivery_acceptance_term as $delivery) {
+												foreach($stakeholder as $s)
+												if($s->stakeholder_id == $delivery->validator_name)
+												
 											?>
 												<tr dados='<?= json_encode($delivery); ?>'>
-													<td><?php echo getStakeholderName($delivery->validator_name) ?></td>
+													<td><?php echo getStakeholderName($s->stakeholder_id) ?></td>
 													<td><?php echo $delivery->validation_date; ?></td>
 													<td><?php echo $delivery->comments; ?></td>
 
