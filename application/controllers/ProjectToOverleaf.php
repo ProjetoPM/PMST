@@ -84,8 +84,8 @@ class ProjectToOverleaf extends CI_Controller
 	public function PCH_Overleaf($project_id)
 	{
 		$dataProjectCharter = $this->Project_Charter_model->get($project_id);
+		$file["name_task"] = "ProjectCharter.tex";
 		if ($dataProjectCharter != null) {
-			$file["name_task"] = "ProjectCharter.tex";
 			$file["task"] = "\n";
 			$file["task"] .= "\section{Project Charter}\n";
 
@@ -133,15 +133,19 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"] .= "% \section{Project Charter}\n";
+			$file["task"] .= "% No record found";
+
+			return $file;
 		}
 	}
 
 	public function BC_Overleaf($project_id)
 	{
 		$dataBusinessCase = $this->Business_case_model->get($project_id);
+		$file["name_task"] = "BusinessCase.tex";
 		if ($dataBusinessCase != null) {
-			$file["name_task"] = "BusinessCase.tex";
 			$file["task"] = "\n";
 			$file["task"]  .= "\section{Business Case}\n";
 			$file["task"]  .= "\subsubsection{Business Deals}\n";
@@ -158,15 +162,18 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"] .= "% \section{Business Case}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
 	public function BMP_Overleaf($project_id)
 	{
 		$dataBMP = $this->Benefits_plan_model->get($project_id);
+		$file["name_task"] = "BenefitsManagementPlan.tex";
 		if ($dataBMP != null) {
-			$file["name_task"] = "BenefitsManagementPlan.tex";
 			$file["task"] = "\n";
 			$file["task"] .= "\section{Benefits Management Plan}\n";
 
@@ -193,7 +200,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"] .= "% \section{Benefits Management Plan}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -201,15 +211,16 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataACL = $this->Assumption_log_model->getAll($project_id);
 		$file["name_task"] = "AssumptionLog.tex";
-		$file["task"] = "\n";
-		$file["task"]  .= "\section{Assumption Log}\n";
-		$file["task"]  .= "\begin{longtable}{ p{.15\\textwidth} | p{.85\\textwidth}}\n";
-		$file["task"] .= "\bottomrule \n";
-		$file["task"] .= "\\rowcolor{gray}\n";
-		$file["task"] .= "\\textbf{Type} & \\textbf{Description} \\\ \n";
-		$file["task"] .= "\hline \n";
-		$count = 0;
+
 		if ($dataACL != null) {
+			$file["task"] = "\n";
+			$file["task"]  .= "\section{Assumption Log}\n";
+			$file["task"]  .= "\begin{longtable}{ p{.15\\textwidth} | p{.85\\textwidth}}\n";
+			$file["task"] .= "\bottomrule \n";
+			$file["task"] .= "\\rowcolor{gray}\n";
+			$file["task"] .= "\\textbf{Type} & \\textbf{Description} \\\ \n";
+			$file["task"] .= "\hline \n";
+			$count = 0;
 			foreach ($dataACL as $data) {
 				if ($count % 2 != 0) {
 					$file["task"] .= "\\rowcolor{white}\n";
@@ -235,15 +246,18 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Assumption Log}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
 	public function PMP_Overleaf($project_id)
 	{
 		$dataPMP = $this->Project_Management_model->get($project_id);
+		$file["name_task"] = "ProjectManagementPlan.tex";
 		if ($dataPMP != null) {
-			$file["name_task"] = "ProjectManagementPlan.tex";
 			$file["task"] = "\n";
 			$file["task"] .= "\section{Project Management Plan}\n";
 
@@ -315,7 +329,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Project Management Plan}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -323,11 +340,10 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataPPR = $this->Project_performance_report_model->getAll($project_id);
 		$file["name_task"] = "ProjectPerformaceMonitoringReport.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{Project Performance and Monitoring Report}\n";
-		$file["task"] .= "\begin{itemize}\n";
-
 		if ($dataPPR != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Project Performance and Monitoring Report}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataPPR as $data) {
 				$file["task"] .= "\item \\textbf{Date of report}: " . $this->verificaDados(date("d/m/Y", strtotime($data->date))) . "\n";
 
@@ -371,7 +387,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Project Management Plan}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -418,11 +437,11 @@ class ProjectToOverleaf extends CI_Controller
 		$dataWP = $this->Work_performance_report_model->getAll($project_id);
 		$stakeholder = $this->Stakeholder_model->getAll($project_id);
 		$file["name_task"] = "WorkPerformanceReport.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{Work Performance Reports}\n";
-		$file["task"] .= "\begin{itemize}\n";
 
 		if ($dataWP != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Work Performance Reports}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataWP as $data) {
 				foreach ($stakeholder as $s) {
 					if ($s->stakeholder_id == $data->responsible) {
@@ -464,7 +483,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Work Performance Reports}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -472,11 +494,11 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataIR = $this->Issues_record_model->getAll($project_id);
 		$file["name_task"] = "IssueRecord.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{Issue Record}\n";
-		$file["task"] .= "\begin{itemize}\n";
 
 		if ($dataIR != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Issue Record}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataIR as $data) {
 				$file["task"] .= "\item \\textbf{Identification Date}: " . $this->verificaDados(date("d/m/Y", strtotime($data->identification_date))) . "\n";
 
@@ -516,7 +538,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Issue Record}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -524,10 +549,10 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataLLR = $this->Lesson_learned_register_model->getAll($project_id);
 		$file["name_task"] = "LessonLearnedRegister.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{Lesson Learned Register}\n";
-		$file["task"] .= "\begin{itemize}\n";
 		if ($dataLLR != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Lesson Learned Register}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataLLR as $data) {
 
 				$file["task"] .= "\item \\textbf{Identification Date}: " . date("d/m/Y", strtotime($data->date)) . "\n";
@@ -565,7 +590,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Lesson Learned Register}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -574,11 +602,11 @@ class ProjectToOverleaf extends CI_Controller
 		$dataIR = $this->Change_request_model->getAll($project_id);
 		$stakeholder = $this->Stakeholder_model->getAll($project_id);
 		$file["name_task"] = "ChangeRequest.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{Change Request}\n";
-		$file["task"] .= "\begin{itemize}\n";
 
 		if ($dataIR != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Change Request}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataIR as $data) {
 				foreach ($stakeholder as $s) {
 
@@ -586,7 +614,7 @@ class ProjectToOverleaf extends CI_Controller
 					$file["task"] .= "\item \\textbf{Request Date}: " . $this->verificaDados(date("d/m/Y", strtotime($data->request_date))) . "\n";
 
 					$file["task"] .= "\begin{itemize}\n";
-					
+
 					if ($s->stakeholder_id == $data->requester) {
 
 						$file["task"] .= "\item \\textbf{Requester}: ";
@@ -634,7 +662,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Change Request}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -642,10 +673,10 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataCL = $this->Change_request_model->getAll($project_id);
 		$file["name_task"] = "ChangeLog.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{Change Log}\n";
-		$file["task"] .= "\begin{itemize}\n";
 		if ($dataCL != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Change Log}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataCL as $data) {
 
 				if ($data->log != 0) {
@@ -659,15 +690,18 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Change Log}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
 	public function TEP_Overleaf($project_id)
 	{
 		$dataTEP = $this->Project_Closure_model->get($project_id);
+		$file["name_task"] = "ProjectClosureReport.tex";
 		if ($dataTEP != null) {
-			$file["name_task"] = "ProjectClosureReport.tex";
 			$file["task"] = "\n";
 			$file["task"] .= "\section{Project Closure Report}\n";
 
@@ -694,15 +728,18 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Project Closure Report}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
 	public function FR_Overleaf($project_id)
 	{
 		$dataTEP = $this->Final_report_model->get($project_id);
+		$file["name_task"] = "FinalReport.tex";
 		if ($dataTEP != null) {
-			$file["name_task"] = "FinalReport.tex";
 			$file["task"] = "\n";
 			$file["task"] .= "\section{Final Report}\n";
 
@@ -734,7 +771,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Final Report}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -742,8 +782,8 @@ class ProjectToOverleaf extends CI_Controller
 	public function RMP_Overleaf($project_id) // 1 1
 	{
 		$dataRMP = $this->Requirements_mp_model->get($project_id);
+		$file["name_task"] = "RequirementsManagementPlan.tex";
 		if ($dataRMP  != null) {
-			$file["name_task"] = "RequirementsManagementPlan.tex";
 			$file["task"] = "\n";
 			$file["task"]  .= "\section{Requirements Management Plan}\n";
 
@@ -764,15 +804,18 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Requirements Management Plan}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
 	public function SCOMP_Overleaf($project_id) // 1 1
 	{
 		$dataSCOMP = $this->Scope_mp_model->get($project_id);
+		$file["name_task"] = "ScopeManagementPlan.tex";
 		if ($dataSCOMP  != null) {
-			$file["name_task"] = "ScopeManagementPlan.tex";
 			$file["task"] = "\n";
 			$file["task"]  .= "\section{Scope Management Plan}\n";
 			$file["task"]  .= "\subsubsection{Project Scope Specification Process}\n";
@@ -792,7 +835,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Scope Management Plan}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -800,10 +846,10 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataRD = $this->Requirement_registration_model->getAll($project_id);
 		$file["name_task"] = "RequirementDocumentation.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{Requirement Documentation}\n";
-		$file["task"] .= "\begin{itemize}\n";
 		if ($dataRD != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Requirement Documentation}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataRD as $data) {
 
 				$file["task"] .= "\item \\textbf{Associated Id}: " .  $this->verificaDados($data->associated_id) . " | \\textbf{Requirement Description}: " .  $this->verificaDados($data->description) . " | \\textbf{Priority}: " . $this->verificaDados($data->priority) . "\n";
@@ -851,15 +897,18 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Requirement Documentation}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
 	public function SSP_Overleaf($project_id) // 1 1
 	{
 		$dataSSP = $this->Scope_specification_model->get($project_id);
+		$file["name_task"] = "ScopeSpecification.tex";
 		if ($dataSSP  != null) {
-			$file["name_task"] = "ScopeSpecification.tex";
 			$file["task"] = "\n";
 			$file["task"]  .= "\section{Project Scope Statement}\n";
 			$file["task"]  .= "\subsubsection{Product scope description}\n";
@@ -875,7 +924,10 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"]  .=  $this->verificaDados($dataSSP[0]->exclusions) . "\n";
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Project Scope Statement}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -883,8 +935,8 @@ class ProjectToOverleaf extends CI_Controller
 	public function SMP_Overleaf($project_id) // 1 1
 	{
 		$dataSMP = $this->Schedule_model->get($project_id);
+		$file["name_task"] = "ScheduleManagementPlan.tex";
 		if ($dataSMP  != null) {
-			$file["name_task"] = "ScheduleManagementPlan.tex";
 			$file["task"] = "\n";
 			$file["task"]  .= "\section{Schedule Management Plan}\n";
 
@@ -917,7 +969,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Schedule Management Plan}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -925,10 +980,10 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataEVM = $this->Activity_model->getAll($project_id);
 		$file["name_task"] = "EarnedValueManagement.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{Earned Value Management}\n";
-		$file["task"] .= "\begin{itemize}\n";
 		if ($dataEVM != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Earned Value Management}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataEVM as $data) {
 
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " | \\textbf{EV-Earned Value}: " .  $this->verificaDados($data->agregate_value) . " | \\textbf{PV-Planned Value}: " . $this->verificaDados($data->planned_value) . "\n";
@@ -959,7 +1014,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Earned Value Management}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -967,10 +1025,10 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataSND = $this->Activity_model->getAll($project_id);
 		$file["name_task"] = "ScheduleNetworkDiagram.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{Schedule Network Diagram}\n";
-		$file["task"] .= "\begin{itemize}\n";
 		if ($dataSND != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Schedule Network Diagram}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataSND as $data) {
 
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " | \\textbf{Predecessor Activity}: " .  $this->verificaDados($data->predecessor_activity) . "\n";
@@ -981,7 +1039,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Schedule Network Diagram}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -989,10 +1050,10 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataSND = $this->Activity_model->getAll($project_id);
 		$file["name_task"] = "ResourceRequirements.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{Resource Requirements}\n";
-		$file["task"] .= "\begin{itemize}\n";
 		if ($dataSND != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Resource Requirements}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataSND as $data) {
 
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " | \\textbf{Resource Description}: " .  $this->verificaDados($data->resource_description) . "\n";
@@ -1003,7 +1064,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Resource Requirements}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -1011,10 +1075,10 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataADE = $this->Activity_model->getAll($project_id);
 		$file["name_task"] = "ActivityDurationEstimates.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{Activity Duration Estimates}\n";
-		$file["task"] .= "\begin{itemize}\n";
 		if ($dataADE != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Activity Duration Estimates}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataADE as $data) {
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " \n";
 				$file["task"] .= "\item \\textbf{Estimated Duration in Hours}: " .  $this->verificaDados($data->estimated_duration) . " | \\textbf{Performed Duration in Hours}: " .  $this->verificaDados($data->performed_duration) . "\n";
@@ -1026,7 +1090,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Activity Duration Estimates}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -1034,10 +1101,10 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataPCA = $this->Activity_model->getAll($project_id);
 		$file["name_task"] = "ProjectCalendars.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{ProjectCalendars}\n";
-		$file["task"] .= "\begin{itemize}\n";
 		if ($dataPCA != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{ProjectCalendars}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataPCA as $data) {
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " \n";
 				$file["task"] .= "\item \\textbf{Resource Name}: " .  $this->verificaDados($data->resource_name) . " | \\textbf{Function}: " .  $this->verificaDados($data->function) . "\n";
@@ -1049,7 +1116,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{ProjectCalendars}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -1057,8 +1127,8 @@ class ProjectToOverleaf extends CI_Controller
 	public function CMP_Overleaf($project_id)
 	{
 		$dataCostMP = $this->Cost_model->get($project_id);
+		$file["name_task"] = "CostManagementPlan.tex";
 		if ($dataCostMP != null) {
-			$file["name_task"] = "CostManagementPlan.tex";
 			$file["task"] = "\n";
 			$file["task"]  .= "\section{Cost Management Plan}\n";
 
@@ -1091,7 +1161,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Cost Management Plan}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -1101,10 +1174,10 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataCE = $this->Activity_model->getAll($project_id);
 		$file["name_task"] = "CostEstimates.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{Cost Estimates}\n";
-		$file["task"] .= "\begin{itemize}\n";
 		if ($dataCE != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Cost Estimates}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataCE as $data) {
 
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . "\n";
@@ -1125,7 +1198,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Cost Estimates}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -1133,8 +1209,8 @@ class ProjectToOverleaf extends CI_Controller
 	public function QMP_Overleaf($project_id)
 	{
 		$dataQualityMP = $this->Quality_model->get($project_id);
+		$file["name_task"] = "QualityManagementPlan.tex";
 		if ($dataQualityMP != null) {
-			$file["name_task"] = "QualityManagementPlan.tex";
 			$file["task"] = "\n";
 			$file["task"]  .= "\section{Quality Management Plan}\n";
 
@@ -1160,7 +1236,10 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"]  .= $this->verificaDados($dataQualityMP[0]->procedures) . "\n";
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Quality Management Plan}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -1169,9 +1248,9 @@ class ProjectToOverleaf extends CI_Controller
 		$dataQC = $this->QualityChecklist_model->getAll($project_id);
 		$dataQCItems = $this->QualityChecklist_model->getAllItens($project_id);
 		$file["name_task"] = "QualityChecklist.tex";
-		$file["task"] = "\n";
-		$file["task"]  .= "\section{Quality Checklist}\n";
 		if ($dataQC != null) {
+			$file["task"] = "\n";
+			$file["task"]  .= "\section{Quality Checklist}\n";
 			foreach ($dataQC as $data) {
 
 
@@ -1228,6 +1307,10 @@ class ProjectToOverleaf extends CI_Controller
 		} else {
 			return null;
 		}
+		$file["task"] = "\n";
+		$file["task"]  .= "% \section{Quality Checklist}\n";
+		$file["task"] .= "% No record found";
+		return $file;
 	}
 
 
@@ -1235,10 +1318,10 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataQR = $this->Quality_reports_model->getAll($project_id);
 		$file["name_task"] = "QualityReports.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{QualityReports}\n";
-		$file["task"] .= "\begin{itemize}\n";
 		if ($dataQR != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{QualityReports}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataQR as $data) {
 
 				$file["task"] .= "\item \\textbf{Responsible}: " .  $this->verificaDados($data->responsible) . " | \\textbf{Date}: " . $this->verificaDados(date('d/m/Y', strtotime($data->date))) . "\n";
@@ -1274,7 +1357,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{QualityReports}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -1282,8 +1368,8 @@ class ProjectToOverleaf extends CI_Controller
 	public function REMP_Overleaf($project_id) // 1 1
 	{
 		$dataREMP = $this->Human_resource_model->get($project_id);
+		$file["name_task"] = "ResourcesManagementPlan.tex";
 		if ($dataREMP  != null) {
-			$file["name_task"] = "ResourcesManagementPlan.tex";
 			$file["task"] = "\n";
 			$file["task"]  .= "\section{Human Resources Management Plan}\n";
 
@@ -1316,7 +1402,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Human Resources Management Plan}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -1324,10 +1413,10 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataEVAL = $this->Team_Performance_Evaluation_model->getAll($project_id);
 		$file["name_task"] = "TeamPerformanceEvaluation.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{Team Performance Evaluation}\n";
-		$file["task"] .= "\begin{itemize}\n";
 		if ($dataEVAL != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Team Performance Evaluation}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataEVAL as $data) {
 
 				$file["task"] .= "\item \\textbf{Team Member Name}: " .  $this->verificaDados($data->team_member_name) . " | \\textbf{Evaluation Date}: " . $this->verificaDados(date('d/m/Y', strtotime($data->report_date))) . "\n";
@@ -1369,7 +1458,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Team Performance Evaluation}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -1379,8 +1471,8 @@ class ProjectToOverleaf extends CI_Controller
 	public function RIMP_Overleaf($project_id)
 	{
 		$dataRIMP = $this->Risk_mp_model->get($project_id);
+		$file["name_task"] = "RiskManagementPlan.tex";
 		if ($dataRIMP != null) {
-			$file["name_task"] = "RiskManagementPlan.tex";
 			$file["task"] = "\n";
 			$file["task"] .= "\section{Risk Management Plan}\n";
 
@@ -1419,7 +1511,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Risk Management Plan}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -1427,10 +1522,10 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataRIR = $this->Risk_model->getAll($project_id);
 		$file["name_task"] = "RiskRegister.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{Risk Register}\n";
-		$file["task"] .= "\begin{itemize}\n";
 		if ($dataRIR != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Risk Register}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataRIR as $data) {
 				$temp = $this->verificaDados($data->priority);
 				if ($temp == '0') {
@@ -1515,7 +1610,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Risk Register}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -1523,8 +1621,8 @@ class ProjectToOverleaf extends CI_Controller
 	public function PCMP_Overleaf($project_id)
 	{
 		$dataPCMP = $this->Procurement_mp_model->get($project_id);
+		$file["name_task"] = "ProcurementManagementPlan.tex";
 		if ($dataPCMP != null) {
-			$file["name_task"] = "ProcurementManagementPlan.tex";
 			$file["task"] = "\n";
 			$file["task"] .= "\section{Procurement Management Plan}\n";
 
@@ -1563,7 +1661,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Risk Register}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -1571,10 +1672,10 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataPSW = $this->Procurement_statement_of_work_model->getAll($project_id);
 		$file["name_task"] = "ProcurementStatementOfWork.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{Procurement Statement Of Work}\n";
-		$file["task"] .= "\begin{itemize}\n";
 		if ($dataPSW != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Procurement Statement Of Work}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataPSW as $data) {
 
 				$file["task"] .= "\item \\textbf{Description of item to be purchased}: " .  $this->verificaDados($data->description) . "\n";
@@ -1603,7 +1704,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Procurement Statement Of Work}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -1611,10 +1715,10 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataCPD = $this->Procurement_cpd_model->getAll($project_id);
 		$file["name_task"] = "ClosedProcurementDocumentation.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{Closed Procurement Documentation}\n";
-		$file["task"] .= "\begin{itemize}\n";
 		if ($dataCPD != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Closed Procurement Documentation}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataCPD as $data) {
 
 				$file["task"] .= "\item \\textbf{Provider's Name}: " .  $this->verificaDados($data->provider) . "| \\textbf{Closing Date}:" . $this->verificaDados(date('d/m/Y', strtotime($data->closing_date))) . "\n";
@@ -1636,7 +1740,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Closed Procurement Documentation}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -1645,10 +1752,10 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataSHR = $this->Stakeholder_model->getAll($project_id);
 		$file["name_task"] = "StakeholderRegistration.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{StakeholderRegistration}\n";
-		$file["task"] .= "\begin{itemize}\n";
 		if ($dataSHR != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{StakeholderRegistration}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataSHR as $data) {
 
 
@@ -1720,7 +1827,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{StakeholderRegistration}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
@@ -1728,10 +1838,10 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataSHEP = $this->Stakeholder_mp_model->getAll($project_id);
 		$file["name_task"] = "StakeholderEngagementPlan.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{Stakeholder Engagement Plan}\n";
-		$file["task"] .= "\begin{itemize}\n";
 		if ($dataSHEP != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Stakeholder Engagement Plan}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataSHEP as $data) {
 
 
@@ -1806,7 +1916,10 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Stakeholder Engagement Plan}\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 	public function verificaDados($dado)
