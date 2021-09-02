@@ -89,46 +89,46 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] = "\n";
 			$file["task"] .= "\section{Project Charter}\n";
 
-			$file["task"] .= "\subsection{High-Level Project Description}\n";
+			$file["task"] .= "\subsubsection{High-Level Project Description}\n";
 			$file["task"] .= $this->verificaDados($dataProjectCharter[0]->project_description) . "\n";
 
-			$file["task"] .= "\subsection{Start Date}";
+			$file["task"] .= "\subsubsection{Start Date}";
 			$file["task"] .= $this->verificaDados(date("d/m/Y", strtotime($dataProjectCharter[0]->start_date))) . "\n";
 
-			$file["task"] .= "\subsection{End Date}\n";
+			$file["task"] .= "\subsubsection{End Date}\n";
 			$file["task"] .= $this->verificaDados(date("d/m/Y", strtotime($dataProjectCharter[0]->end_date))) . "\n";
 
-			$file["task"] .= "\subsection{Project Purpose}\n";
+			$file["task"] .= "\subsubsection{Project Purpose}\n";
 			$file["task"] .= $this->verificaDados($dataProjectCharter[0]->project_purpose) . "\n";
 
-			$file["task"] .= "\subsection{Measurable Project Objectives}\n";
+			$file["task"] .= "\subsubsection{Measurable Project Objectives}\n";
 			$file["task"] .= $this->verificaDados($dataProjectCharter[0]->project_objective) . "\n";
 
-			$file["task"] .= "\subsection{Key Benefits}\n";
+			$file["task"] .= "\subsubsection{Key Benefits}\n";
 			$file["task"] .= $this->verificaDados($dataProjectCharter[0]->benefits) . "\n";
 
-			$file["task"] .= "\subsection{High-Level Requirements}\n";
+			$file["task"] .= "\subsubsection{High-Level Requirements}\n";
 			$file["task"] .= $this->verificaDados($dataProjectCharter[0]->high_level_requirements) . "\n";
 
-			$file["task"] .= "\subsection{Boundaries}\n";
+			$file["task"] .= "\subsubsection{Boundaries}\n";
 			$file["task"] .= $this->verificaDados($dataProjectCharter[0]->boundaries) . "\n";
 
-			$file["task"] .= "\subsection{Overall Project Risk}\n";
+			$file["task"] .= "\subsubsection{Overall Project Risk}\n";
 			$file["task"] .= $this->verificaDados($dataProjectCharter[0]->high_level_risks) . "\n";
 
-			$file["task"] .= "\subsection{Summary Milestone Schedule}\n";
+			$file["task"] .= "\subsubsection{Summary Milestone Schedule}\n";
 			$file["task"] .= $this->verificaDados($dataProjectCharter[0]->summary_schedule) . "\n";
 
-			$file["task"] .= "\subsection{Preapproved Financial Resources}\n";
+			$file["task"] .= "\subsubsection{Preapproved Financial Resources}\n";
 			$file["task"] .= $this->verificaDados($dataProjectCharter[0]->budge_summary) . "\n";
 
-			$file["task"] .= "\subsection{Project Approval Requirements}\n";
+			$file["task"] .= "\subsubsection{Project Approval Requirements}\n";
 			$file["task"] .= $this->verificaDados($dataProjectCharter[0]->project_approval_requirements) . "\n";
 
-			$file["task"] .= "\subsection{Success Criteria}\n";
+			$file["task"] .= "\subsubsection{Success Criteria}\n";
 			$file["task"] .= $this->verificaDados($dataProjectCharter[0]->success_criteria) . "\n";
 
-			$file["task"] .= "\subsection{Project Exit Criteria}\n";
+			$file["task"] .= "\subsubsection{Project Exit Criteria}\n";
 			$file["task"] .= $this->verificaDados($dataProjectCharter[0]->exit_criteria) . "\n";
 
 			return $file;
@@ -330,14 +330,21 @@ class ProjectToOverleaf extends CI_Controller
 		if ($dataPPR != null) {
 			foreach ($dataPPR as $data) {
 				$file["task"] .= "\item \\textbf{Date of report}: " . $this->verificaDados(date("d/m/Y", strtotime($data->date))) . "\n";
-				$file["task"] .= "\item \\textbf{Current Performance Analysis}: " . $this->verificaDados($data->current_performance_analysis) . "\n";
-				$file["task"] .= "\item \\textbf{Forecasts as planned}: " . $this->verificaDados($data->planned_forecasts) . "\n";
-				$file["task"] .= "\item \\textbf{Work Completed During the Period}: " .  $this->verificaDados($data->work_completed_during_the_period) . "\n";
+
 
 				$file["task"] .= "\begin{itemize}\n";
 
+				$file["task"] .= "\item \\textbf{Current Performance Analysis}: ";
+				$file["task"] .= $this->verificaDados($data->current_performance_analysis) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Forecasts as planned}: ";
+				$file["task"] .= $this->verificaDados($data->planned_forecasts) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Work Completed During the Period}: ";
+				$file["task"] .= $this->verificaDados($data->work_completed_during_the_period) . ";\n";
+
 				$file["task"] .= "\item \\textbf{Forecasts Considering Currently Performance}: ";
-				$file["task"] .= $this->verificaDados($data->forecasts_considering_current_performance) . "\n";
+				$file["task"] .= $this->verificaDados($data->forecasts_considering_current_performance) . ";\n";
 
 				$file["task"] .= "\item \\textbf{Current Risk Situation}: ";
 				$file["task"] .= $this->verificaDados($data->current_risk_situation) . ";\n";
@@ -372,10 +379,10 @@ class ProjectToOverleaf extends CI_Controller
 	{
 		$dataDS = $this->Delivery_acceptance_term_model->getAll($project_id);
 		$file["name_task"] = "DeliverableStatus.tex";
-		$file["task"] = "\n";
-		$file["task"] .= "\section{Deliverable Status}\n";
-		$file["task"] .= "\begin{itemize}\n";
 		if ($dataDS != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Deliverable Status}\n";
+			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataDS as $data) {
 
 				$file["task"] .= "\item \\textbf{Validator Name}: " .  $this->verificaDados($data->validator_name) . " | \\textbf{Validation Date}: " . date("d/m/Y", strtotime($data->validation_date)) .  "\n";
@@ -398,13 +405,18 @@ class ProjectToOverleaf extends CI_Controller
 
 			return $file;
 		} else {
-			return null;
+			$file["task"] = "\n";
+			$file["task"] .= "% \section{Deliverable Status}\n";
+			$file["task"] .= "\n";
+			$file["task"] .= "% No record found";
+			return $file;
 		}
 	}
 
 	public function WP_Overleaf($project_id)
 	{
 		$dataWP = $this->Work_performance_report_model->getAll($project_id);
+		$stakeholder = $this->Stakeholder_model->getAll($project_id);
 		$file["name_task"] = "WorkPerformanceReport.tex";
 		$file["task"] = "\n";
 		$file["task"] .= "\section{Work Performance Reports}\n";
@@ -412,42 +424,45 @@ class ProjectToOverleaf extends CI_Controller
 
 		if ($dataWP != null) {
 			foreach ($dataWP as $data) {
+				foreach ($stakeholder as $s) {
+					if ($s->stakeholder_id == $data->responsible) {
+					}
+					$file["task"] .= "\item \\textbf{Date}: " . $this->verificaDados(date("d/m/Y", strtotime($data->date))) . "\n";
 
+					$file["task"] .= "\begin{itemize}\n";
+					if ($s->stakeholder_id == $data->responsible) {
+						$file["task"] .= "\item \\textbf{Responsible}: ";
+						$file["task"] .= $this->verificaDados(getStakeholderName($data->responsible)) . ";\n";
+					}
 
+					$file["task"] .= "\item \\textbf{Main activities in execution}: ";
+					$file["task"] .= $this->verificaDados($data->main_activities) . ";\n";
 
-				// $name = getStakeholderName($this->verificaDados($data->project_id));
+					$file["task"] .= "\item \\textbf{Upcoming activities to perform}: ";
+					$file["task"] .= $this->verificaDados($data->next_activities) . ";\n";
 
-				// $file["task"] .= "\item \\textbf{Responsible}: " . $this->verificaDados($name) . "\n";
-				$file["task"] .= "\item \\textbf{Date}: " . $this->verificaDados(date("d/m/Y", strtotime($data->date))) . "\n";
-				$file["task"] .= "\item \\textbf{Main activities in execution (with \%)}: " . $this->verificaDados($data->main_activities) . "\n";
+					$file["task"] .= "\item \\textbf{General Comments}: ";
+					$file["task"] .= $this->verificaDados($data->comments) . ";\n";
 
-				$file["task"] .= "\begin{itemize}\n";
+					$file["task"] .= "\item \\textbf{Issues}: ";
+					$file["task"] .= $this->verificaDados($data->issues) . ";\n";
 
-				$file["task"] .= "\item \\textbf{Upcoming activities to perform}: ";
-				$file["task"] .= $this->verificaDados($data->next_activities) . ";\n";
+					$file["task"] .= "\item \\textbf{Changes}: ";
+					$file["task"] .= $this->verificaDados($data->changes) . ";\n";
 
-				$file["task"] .= "\item \\textbf{General Comments}: ";
-				$file["task"] .= $this->verificaDados($data->comments) . ";\n";
+					$file["task"] .= "\item \\textbf{Risks}: ";
+					$file["task"] .= $this->verificaDados($data->risks) . ";\n";
 
-				$file["task"] .= "\item \\textbf{Issues}: ";
-				$file["task"] .= $this->verificaDados($data->issues) . ";\n";
+					$file["task"] .= "\item \\textbf{Attention Points}: ";
+					$file["task"] .= $this->verificaDados($data->attention_points) . ";\n";
 
-				$file["task"] .= "\item \\textbf{Changes}: ";
-				$file["task"] .= $this->verificaDados($data->changes) . ";\n";
-
-				$file["task"] .= "\item \\textbf{Risks}: ";
-				$file["task"] .= $this->verificaDados($data->risks) . ";\n";
-
-				$file["task"] .= "\item \\textbf{Attention Points}: ";
-				$file["task"] .= $this->verificaDados($data->attention_points) . ";\n";
-
-				$file["task"] .= "\\end{itemize}\n";
-
-				$file["task"] .= "\\end{itemize}\n";
-				$file["task"] .= "\n";
-
-				return $file;
+					$file["task"] .= "\\end{itemize}\n";
+				}
 			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
 		} else {
 			return null;
 		}
@@ -460,31 +475,36 @@ class ProjectToOverleaf extends CI_Controller
 		$file["task"] = "\n";
 		$file["task"] .= "\section{Issue Record}\n";
 		$file["task"] .= "\begin{itemize}\n";
+
 		if ($dataIR != null) {
 			foreach ($dataIR as $data) {
+				$file["task"] .= "\item \\textbf{Identification Date}: " . $this->verificaDados(date("d/m/Y", strtotime($data->identification_date))) . "\n";
 
-				$file["task"] .= "\item \\textbf{Issue Responsible}: " .  $this->verificaDados($data->responsable) . " | \\textbf{Identification Date}: " . date("d/m/Y", strtotime($data->identification_date)) . "\n";
-				$file["task"] .= "\item \\textbf{Description of the Issue}: " . $this->verificaDados($data->question_description) . " | \\textbf{Situation}: " . $this->verificaDados($data->situation) . "\n";
 				$file["task"] .= "\begin{itemize}\n";
 
 				$file["task"] .= "\item \\textbf{Responsible for the Identifying}: ";
-				$file["task"] .=  $this->verificaDados($data->identification) . ";\n";
+				$file["task"] .= $this->verificaDados($data->identification) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Description of the Issue}: ";
+				$file["task"] .= $this->verificaDados($data->question_description) . ";\n";
 
 				$file["task"] .= "\item \\textbf{Issue Type}: ";
 				$file["task"] .= $this->verificaDados($data->type) . ";\n";
 
-				$file["task"] .= "\item \\textbf{Required Action}: ";
-				$file["task"] .= $this->verificaDados($data->action) . ";\n";
+				$file["task"] .= "\item \\textbf{Issue Responsible}: ";
+				$file["task"] .= $this->verificaDados($data->responsable) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Situation}: ";
+				$file["task"] .= $this->verificaDados($data->situation) . ";\n";
 
 				$file["task"] .= "\item \\textbf{Required Action}: ";
 				$file["task"] .= $this->verificaDados($data->action) . ";\n";
 
 				$file["task"] .= "\item \\textbf{Planned Resolution Date}: ";
-				$file["task"] .= $this->verificaDados(date("d/m/Y", strtotime($data->resolution_date))) . ";\n";
-
+				$file["task"] .= $this->verificaDados(date('d/m/Y', strtotime($data->resolution_date))) . ";\n";
 
 				$file["task"] .= "\item \\textbf{Reorganized Resolution Date}: ";
-				$file["task"] .= $this->verificaDados(date("d/m/Y", strtotime($data->replan_date))) . ";\n";
+				$file["task"] .= $this->verificaDados(date('d/m/Y', strtotime($data->replan_date))) . ";\n";
 
 				$file["task"] .= "\item \\textbf{Comments}: ";
 				$file["task"] .= $this->verificaDados($data->observations) . ";\n";
@@ -510,9 +530,15 @@ class ProjectToOverleaf extends CI_Controller
 		if ($dataLLR != null) {
 			foreach ($dataLLR as $data) {
 
-				$file["task"] .= "\item \\textbf{Issue Responsible}: " .  $this->verificaDados($data->stakeholder) . " | \\textbf{Identification Date}: " . date("d/m/Y", strtotime($data->date)) . "\n";
-				$file["task"] .= "\item \\textbf{Description of the Issue}: " . $this->verificaDados($data->description) . "\n";
+				$file["task"] .= "\item \\textbf{Identification Date}: " . date("d/m/Y", strtotime($data->date)) . "\n";
+
 				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Stakeholder Who Identified}: ";
+				$file["task"] .=  $this->verificaDados($data->stakeholder) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Situation Description}: ";
+				$file["task"] .=  $this->verificaDados($data->description) . ";\n";
 
 				$file["task"] .= "\item \\textbf{Category}: ";
 				$file["task"] .=  $this->verificaDados($data->category) . ";\n";
@@ -545,43 +571,63 @@ class ProjectToOverleaf extends CI_Controller
 
 	public function CR_Overleaf($project_id)
 	{
-		$dataCR = $this->Change_request_model->getAll($project_id);
+		$dataIR = $this->Change_request_model->getAll($project_id);
+		$stakeholder = $this->Stakeholder_model->getAll($project_id);
 		$file["name_task"] = "ChangeRequest.tex";
 		$file["task"] = "\n";
 		$file["task"] .= "\section{Change Request}\n";
 		$file["task"] .= "\begin{itemize}\n";
-		if ($dataCR != null) {
-			foreach ($dataCR as $data) {
 
-				$file["task"] .= "\item \\textbf{Id}: " .  $this->verificaDados($data->number_id) . " | \\textbf{Requester}: " .  $this->verificaDados($data->requester) . " | \\textbf{Request Date}: " . date("d/m/Y", strtotime($data->request_date)) . "\n";
-				$file["task"] .= "\item \\textbf{Type of change}: " . $this->verificaDados($data->type) . " | \\textbf{Status/Situation}: " .  $this->verificaDados($data->status) . "\n";
-				$file["task"] .= "\begin{itemize}\n";
+		if ($dataIR != null) {
+			foreach ($dataIR as $data) {
+				foreach ($stakeholder as $s) {
 
-				$file["task"] .= "\item \\textbf{Date of Opinion of the CCB}: ";
-				$file["task"] .= $this->verificaDados(date("d/m/Y", strtotime($data->committee_date))) . ";\n";
 
-				$file["task"] .= "\item \\textbf{Description of Change}: ";
-				$file["task"] .=  $this->verificaDados($data->description) . ";\n";
+					$file["task"] .= "\item \\textbf{Request Date}: " . $this->verificaDados(date("d/m/Y", strtotime($data->request_date))) . "\n";
 
-				$file["task"] .= "\item \\textbf{Impacted Knowledge Areas}: ";
-				$file["task"] .= $this->verificaDados($data->impacted_areas) . ";\n";
+					$file["task"] .= "\begin{itemize}\n";
+					
+					if ($s->stakeholder_id == $data->requester) {
 
-				$file["task"] .= "\item \\textbf{Impacted Deliveries/Documents}: ";
-				$file["task"] .= $this->verificaDados($data->impacted_docs) . ";\n";
+						$file["task"] .= "\item \\textbf{Requester}: ";
+						$file["task"] .= $this->verificaDados(getStakeholderName($data->requester)) . ";\n";
+					}
 
-				$file["task"] .= "\item \\textbf{Justification}: ";
-				$file["task"] .= $this->verificaDados($data->justification) . ";\n";
+					$file["task"] .= "\item \\textbf{Id}: ";
+					$file["task"] .= $this->verificaDados($data->number_id) . ";\n";
 
-				$file["task"] .= "\item \\textbf{Additional Comments}: ";
-				$file["task"] .= $this->verificaDados($data->comments) . ";\n";
+					$file["task"] .= "\item \\textbf{Type of change}: ";
+					$file["task"] .= $this->verificaDados($data->type) . ";\n";
 
-				$file["task"] .= "\item \\textbf{Opinion of the CCB}: ";
-				$file["task"] .= $this->verificaDados($data->committee_opinion) . ";\n";
+					$file["task"] .= "\item \\textbf{Status/Situation}: ";
+					$file["task"] .= $this->verificaDados($data->status) . ";\n";
 
-				$file["task"] .= "\item \\textbf{Opinion of Project Manager}: ";
-				$file["task"] .= $this->verificaDados($data->manager_opinion) . ";\n";
+					$file["task"] .= "\item \\textbf{Date of Opinion of the CCB}: ";
+					$file["task"] .= $this->verificaDados(date("d/m/Y", strtotime($data->committee_date))) . ";\n";
 
-				$file["task"] .= "\\end{itemize}\n";
+					$file["task"] .= "\item \\textbf{Description of Change}: ";
+					$file["task"] .= $this->verificaDados($data->description) . ";\n";
+
+					$file["task"] .= "\item \\textbf{Impacted Knowledge Areas}: ";
+					$file["task"] .= $this->verificaDados($data->impacted_areas) . ";\n";
+
+					$file["task"] .= "\item \\textbf{Impacted Deliveries/Documents}: ";
+					$file["task"] .= $this->verificaDados($data->impacted_docs) . ";\n";
+
+					$file["task"] .= "\item \\textbf{Justification}: ";
+					$file["task"] .= $this->verificaDados($data->justification) . ";\n";
+
+					$file["task"] .= "\item \\textbf{Additional Comments}: ";
+					$file["task"] .= $this->verificaDados($data->comments) . ";\n";
+
+					$file["task"] .= "\item \\textbf{Opinion of the CCB}: ";
+					$file["task"] .= $this->verificaDados($data->committee_opinion) . ";\n";
+
+					$file["task"] .= "\item \\textbf{Opinion of Project Manager}: ";
+					$file["task"] .= $this->verificaDados($data->manager_opinion) . ";\n";
+
+					$file["task"] .= "\\end{itemize}\n";
+				}
 			}
 			$file["task"] .= "\\end{itemize}\n";
 			$file["task"] .= "\n";
@@ -601,17 +647,17 @@ class ProjectToOverleaf extends CI_Controller
 		$file["task"] .= "\begin{itemize}\n";
 		if ($dataCL != null) {
 			foreach ($dataCL as $data) {
-				// if ($data->log != 0) {
-				$file["task"] .= "\item \\textbf{Id}: " .  $this->verificaDados($data->number_id) . " | \\textbf{Requester}: " .  $this->verificaDados($data->requester) . " | \\textbf{Request Date}: " . date("d/m/Y", strtotime($data->request_date)) . "\n";
-				$file["task"] .= "\item \\textbf{Type of change}: " . $this->verificaDados($data->type) . " | \\textbf{Status/Situation}: " .  $this->verificaDados($data->status) . "\n";
+
+				if ($data->log != 0) {
+					$file["task"] .= "\item \\textbf{Id}: " .  $this->verificaDados($data->number_id) . " | \\textbf{Requester}: " .  $this->verificaDados($data->requester) . " | \\textbf{Request Date}: " . date("d/m/Y", strtotime($data->request_date)) . "\n";
+					$file["task"] .= "\item \\textbf{Type of change}: " . $this->verificaDados($data->type) . " | \\textbf{Status/Situation}: " .  $this->verificaDados($data->status) . "\n";
+				}
 			}
+
 			$file["task"] .= "\\end{itemize}\n";
 			$file["task"] .= "\n";
 
 			return $file;
-			// }else {
-			// 	return null;
-			// }
 		} else {
 			return null;
 		}
@@ -625,25 +671,25 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] = "\n";
 			$file["task"] .= "\section{Project Closure Report}\n";
 
-			$file["task"] .= "\subsection{Client}\n";
+			$file["task"] .= "\subsubsection{Client}\n";
 			$file["task"] .= $this->verificaDados($dataTEP[0]->client) . "\n";
 
-			$file["task"] .= "\subsection{Date of project closure}\n";
+			$file["task"] .= "\subsubsection{Date of project closure}\n";
 			$file["task"] .= $this->verificaDados(date("d/m/Y", strtotime($dataTEP[0]->project_closure_date))) . "\n";
 
-			$file["task"] .= "\subsection{Main changes approved}\n";
+			$file["task"] .= "\subsubsection{Main changes approved}\n";
 			$file["task"] .= $this->verificaDados($dataTEP[0]->main_changes_approved) . "\n";
 
-			$file["task"] .= "\subsection{Main lessons learned}\n";
+			$file["task"] .= "\subsubsection{Main lessons learned}\n";
 			$file["task"] .= $this->verificaDados($dataTEP[0]->main_lessons_learned) . "\n";
 
-			$file["task"] .= "\subsection{Main deviations}\n";
+			$file["task"] .= "\subsubsection{Main deviations}\n";
 			$file["task"] .= $this->verificaDados($dataTEP[0]->main_deviations) . "\n";
 
-			$file["task"] .= "\subsection{Customer comments}\n";
+			$file["task"] .= "\subsubsection{Customer comments}\n";
 			$file["task"] .= $this->verificaDados($dataTEP[0]->client_comments) . "\n";
 
-			$file["task"] .= "\subsection{Sponsor's comments}\n";
+			$file["task"] .= "\subsubsection{Sponsor's comments}\n";
 			$file["task"] .= $this->verificaDados($dataTEP[0]->sponsor_comments) . "\n";
 
 			return $file;
@@ -660,28 +706,28 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] = "\n";
 			$file["task"] .= "\section{Final Report}\n";
 
-			$file["task"] .= "\subsection{Summary Level Description of the Project or Phase}\n";
+			$file["task"] .= "\subsubsection{Summary Level Description of the Project or Phase}\n";
 			$file["task"] .= $this->verificaDados($dataTEP[0]->description) . "\n";
 
-			$file["task"] .= "\subsection{Scope Objectives, Scope Criteria, and Evidences}\n";
+			$file["task"] .= "\subsubsection{Scope Objectives, Scope Criteria, and Evidences}\n";
 			$file["task"] .= $this->verificaDados($dataTEP[0]->scope_objectives) . "\n";
 
-			$file["task"] .= "\subsection{Quality Objectives}\n";
+			$file["task"] .= "\subsubsection{Quality Objectives}\n";
 			$file["task"] .= $this->verificaDados($dataTEP[0]->quality_objectives) . "\n";
 
-			$file["task"] .= "\subsection{Cost Objectives}\n";
+			$file["task"] .= "\subsubsection{Cost Objectives}\n";
 			$file["task"] .= $this->verificaDados($dataTEP[0]->cost_objectives) . "\n";
 
-			$file["task"] .= "\subsection{Schedule Objectives}\n";
+			$file["task"] .= "\subsubsection{Schedule Objectives}\n";
 			$file["task"] .= $this->verificaDados($dataTEP[0]->schedule_objectives) . "\n";
 
-			$file["task"] .= "\subsection{Summary of the Validation Information for the Results}\n";
+			$file["task"] .= "\subsubsection{Summary of the Validation Information for the Results}\n";
 			$file["task"] .= $this->verificaDados($dataTEP[0]->summary_validation) . "\n";
 
-			$file["task"] .= "\subsection{Summary of Results Achieved the Business Needs}\n";
+			$file["task"] .= "\subsubsection{Summary of Results Achieved the Business Needs}\n";
 			$file["task"] .= $this->verificaDados($dataTEP[0]->summary_business) . "\n";
 
-			$file["task"] .= "\subsection{Summary Risks or Issues}\n";
+			$file["task"] .= "\subsubsection{Summary Risks or Issues}\n";
 			$file["task"] .= $this->verificaDados($dataTEP[0]->summary_risks) . "\n";
 
 
@@ -1162,9 +1208,9 @@ class ProjectToOverleaf extends CI_Controller
 						$tempStatus = "No Ok";
 					} else if ($tempStatus == 1) {
 						$tempStatus = "Partially Ok";
-					}else if($tempStatus == 2){
-						$tempStatus = "Ok"; 
-					}else{
+					} else if ($tempStatus == 2) {
+						$tempStatus = "Ok";
+					} else {
 						$tempStatus;
 					}
 
@@ -1690,9 +1736,9 @@ class ProjectToOverleaf extends CI_Controller
 
 
 
-				$file["task"] .= "\item \\textbf{Stakeholder Name}: " .  $this->verificaDados($data->name) . "\n";
-				$file["task"] .= "\item \\textbf{Interest}: " . $this->verificaDados($data["interest"]) . "| \\textbf{Power}:" . $this->verificaDados($data->power) . "\n";
-				$file["task"] .= "\item \\textbf{Influence}: " . $this->verificaDados($data->influence) . "| \\textbf{Impact}:" . $this->verificaDados($data->impact) . "\n";
+				// $file["task"] .= "\item \\textbf{Stakeholder Name}: " .  $this->verificaDados($data->name) . "\n";
+				// $file["task"] .= "\item \\textbf{Interest}: " . $this->verificaDados($data["interest"]) . "| \\textbf{Power}:" . $this->verificaDados($data->power) . "\n";
+				// $file["task"] .= "\item \\textbf{Influence}: " . $this->verificaDados($data->influence) . "| \\textbf{Impact}:" . $this->verificaDados($data->impact) . "\n";
 
 				$file["task"] .= "\begin{itemize}\n";
 
@@ -1768,8 +1814,12 @@ class ProjectToOverleaf extends CI_Controller
 		if ($dado == null)
 			return "Not Defined";
 		else {
-			$dado = str_replace("%", "\%", $dado);
 			$dado = str_replace("\\", "", $dado);
+			$dado = str_replace("$", "\$", $dado);
+			$dado = str_replace("R$", "R\$", $dado);
+			$dado = str_replace("#", "", $dado);
+			$dado = str_replace("JPEG", "jpeg", $dado);
+			$dado = str_replace("%", "\\%", $dado);
 			return str_replace("&", "\&", $dado);
 		}
 	}
@@ -1905,8 +1955,8 @@ class ProjectToOverleaf extends CI_Controller
 		$file .= "\maketitle\n";
 
 		$file .= "\\tableofcontents\n";
-		$file .= "\listoffigures\n";
-		$file .= "\listoftables\n";
+		$file .= "%\listoffigures\n";
+		$file .= "%\listoftables\n";
 		$file .= "\n";
 
 		// chapter, and includes +++
