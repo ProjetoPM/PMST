@@ -52,8 +52,8 @@
 									<label for="type"><?= $this->lang->line('shr_type') ?></label>
 									<a class="btn-sm btn-default" id="shr_tp_2" data-toggle=" tooltip" data-placement="right" title="<?= $this->lang->line('shr_type_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<select name="type" class="form-control" value="<?php echo $type; ?>">
-										<option value="0" <?php if ($role == 0) echo 'selected'; ?>><?= $this->lang->line('shr_type_external') ?></option>
-										<option value="1" <?php if ($role == 1) echo 'selected'; ?>><?= $this->lang->line('shr_type_internal') ?></option>
+										<option value="0"><?= $this->lang->line('shr_type_external') ?></option>
+										<option value="1"><?= $this->lang->line('shr_type_internal') ?></option>
 									</select>
 								</div>
 
@@ -63,15 +63,14 @@
 									<label for="role"><?= $this->lang->line('shr_role') ?></label>
 									<a class="btn-sm btn-default" id="shr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_role_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<select name="role" class="form-control" value="<?php echo $role; ?>">
-										<option value="0" <?php if ($role == 0) echo 'selected'; ?>><?= $this->lang->line('shr_role_client') ?></option>
-										<option value="1" <?php if ($role == 1) echo 'selected'; ?>><?= $this->lang->line('shr_role_team') ?></option>
-										<option value="2" <?php if ($role == 2) echo 'selected'; ?>><?= $this->lang->line('shr_role_provider') ?></option>
-										<option value="3" <?php if ($role == 3) echo 'selected'; ?>><?= $this->lang->line('shr_role_project_manager') ?></option>
-										<option value="4" <?php if ($role == 4) echo 'selected'; ?>><?= $this->lang->line('shr_role_sponsor') ?></option>
-										<option value="5" <?php if ($role == 5) echo 'selected'; ?>><?= $this->lang->line('shr_role_others') ?></option>
+										<option value="0"><?= $this->lang->line('shr_role_client') ?></option>
+										<option value="1"><?= $this->lang->line('shr_role_team') ?></option>
+										<option value="2"><?= $this->lang->line('shr_role_provider') ?></option>
+										<option value="3"><?= $this->lang->line('shr_role_project_manager') ?></option>
+										<option value="4"><?= $this->lang->line('shr_role_sponsor') ?></option>
+										<option value="5"><?= $this->lang->line('shr_role_others') ?></option>
 									</select>
 								</div>
-
 								<div class="col-lg-4 form-group">
 									<label for="organization"><?= $this->lang->line('shr_organization') ?> </label>
 									<span class="shr_5">2000</span><?= $this->lang->line('character') ?>
