@@ -674,17 +674,23 @@ class ProjectToOverleaf extends CI_Controller
 		$dataCL = $this->Change_request_model->getAll($project_id);
 		$file["name_task"] = "ChangeLog.tex";
 		if ($dataCL != null) {
+
 			$file["task"] = "\n";
 			$file["task"] .= "\section{Change Log}\n";
 			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataCL as $data) {
-
 				if ($data->log != 0) {
-					$file["task"] .= "\item \\textbf{Id}: " .  $this->verificaDados($data->number_id) . " | \\textbf{Requester}: " .  $this->verificaDados($data->requester) . " | \\textbf{Request Date}: " . date("d/m/Y", strtotime($data->request_date)) . "\n";
-					$file["task"] .= "\item \\textbf{Type of change}: " . $this->verificaDados($data->type) . " | \\textbf{Status/Situation}: " .  $this->verificaDados($data->status) . "\n";
+					$file["task"] .= "\item \\textbf{Request Date}: " .  $this->verificaDados(date("d/m/Y", strtotime($data->request_date))) . "\n";
+
+					$file["task"] .= "\begin{itemize}\n";
+
+
+					$file["task"] .= "\item \\textbf{Id}: " .  $this->verificaDados($data->number_id) . " | \\textbf{Requester}: " .  $this->verificaDados($data->requester) . "\n";
+					$file["task"] .= "\item \\textbf{Type of change}: " . $this->verificaDados($data->type) . "\n";
+					$file["task"] .= "\item \\textbf{Status/Situation}: " .  $this->verificaDados($data->status) . "\n";
+					$file["task"] .= "\\end{itemize}\n";
 				}
 			}
-
 			$file["task"] .= "\\end{itemize}\n";
 			$file["task"] .= "\n";
 
@@ -852,10 +858,15 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataRD as $data) {
 
-				$file["task"] .= "\item \\textbf{Associated Id}: " .  $this->verificaDados($data->associated_id) . " | \\textbf{Requirement Description}: " .  $this->verificaDados($data->description) . " | \\textbf{Priority}: " . $this->verificaDados($data->priority) . "\n";
-				$file["task"] .= "\item \\textbf{Business needs, opportunities, goals and objectives}: " . $this->verificaDados($data->business_strategy) . "\n";
+				$file["task"] .= "\item \\textbf{Requirement Description}: " .  $this->verificaDados($data->description) . "\n";
 
 				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Associated Id}:\n";
+				$file["task"] .= $this->verificaDados($data->associated_id) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Business needs, opportunities, goals and objectives}:\n";
+				$file["task"] .= $this->verificaDados($data->business_strategy) . ";\n";
 
 				$file["task"] .= "\item \\textbf{Version}:\n";
 				$file["task"] .= $this->verificaDados($data->version) . ";\n";
@@ -880,6 +891,9 @@ class ProjectToOverleaf extends CI_Controller
 
 				$file["task"] .= "\item \\textbf{Validity}:\n";
 				$file["task"] .= $this->verificaDados($data->validity) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Priority}:\n";
+				$file["task"] .= $this->verificaDados($data->description) . ";\n";
 
 				$file["task"] .= "\item \\textbf{Acceptance Criteria}:\n";
 				$file["task"] .= $this->verificaDados($data->acceptance_criteria) . ";\n";
@@ -986,11 +1000,27 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataEVM as $data) {
 
-				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " | \\textbf{EV-Earned Value}: " .  $this->verificaDados($data->agregate_value) . " | \\textbf{PV-Planned Value}: " . $this->verificaDados($data->planned_value) . "\n";
-				$file["task"] .= "\item \\textbf{SV-Schedule Variance}: " .  $this->verificaDados($data->variation_of_terms) . " | \\textbf{CV-Cost Variance}: " .  $this->verificaDados($data->variation_of_costs) . " | \\textbf{Variation at the end}: " . $this->verificaDados($data->variation_at_the_end) . "\n";
-				$file["task"] .= "\item \\textbf{ETC-Estimate To Complete}: " . $this->verificaDados($data->estimate_for_completion) . "\n";
+				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . "\n";
 
 				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{EV-Earned Value}:\n";
+				$file["task"] .= $this->verificaDados($data->agregate_value) . ";\n";
+
+				$file["task"] .= "\item \\textbf{PV-Planned Value}:\n";
+				$file["task"] .= $this->verificaDados($data->planned_value) . ";\n";
+
+				$file["task"] .= "\item \\textbf{SV-Schedule Variance}:\n";
+				$file["task"] .= $this->verificaDados($data->variation_of_terms) . ";\n";
+
+				$file["task"] .= "\item \\textbf{CV-Cost Variance}:\n";
+				$file["task"] .= $this->verificaDados($data->variation_of_costs) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Variation at the end}:\n";
+				$file["task"] .= $this->verificaDados($data->variation_at_the_end) . ";\n";
+
+				$file["task"] .= "\item \\textbf{ETC-Estimate To Complete}:\n";
+				$file["task"] .= $this->verificaDados($data->estimate_for_completion) . ";\n";
 
 				$file["task"] .= "\item \\textbf{AC-Actual Cost}:\n";
 				$file["task"] .= $this->verificaDados($data->real_agregate_cost) . ";\n";
@@ -1032,7 +1062,22 @@ class ProjectToOverleaf extends CI_Controller
 			foreach ($dataSND as $data) {
 
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " | \\textbf{Predecessor Activity}: " .  $this->verificaDados($data->predecessor_activity) . "\n";
-				$file["task"] .= "\item \\textbf{Dependence Type}: " . $this->verificaDados($data->dependence_type) . " | \\textbf{Antecipation}: " .  $this->verificaDados($data->anticipation) . " | \\textbf{Wait}: " .  $this->verificaDados($data->wait) . "\n";
+
+				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Predecessor Activity}:\n";
+				$file["task"] .= $this->verificaDados($data->predecessor_activity) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Dependence Type}:\n";
+				$file["task"] .= $this->verificaDados($data->dependence_type) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Antecipation}:\n";
+				$file["task"] .= $this->verificaDados($data->anticipation) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Wait}:\n";
+				$file["task"] .= $this->verificaDados($data->wait) . ";\n";
+
+				$file["task"] .= "\\end{itemize}\n";
 			}
 			$file["task"] .= "\\end{itemize}\n";
 			$file["task"] .= "\n";
@@ -1055,9 +1100,23 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] .= "\section{Resource Requirements}\n";
 			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataSND as $data) {
-
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " | \\textbf{Resource Description}: " .  $this->verificaDados($data->resource_description) . "\n";
-				$file["task"] .= "\item \\textbf{Required Amount of Resource}: " . $this->verificaDados($data->required_amount_of_resource) . " | \\textbf{Resource Cost per Unit}: " .  $this->verificaDados($data->resource_cost_per_unit) . " | \\textbf{Resource Type}: " .  $this->verificaDados($data->resource_type) . "\n";
+				
+				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Resource Description}:\n";
+				$file["task"] .= $this->verificaDados($data->resource_description) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Required Amount of Resource}:\n";
+				$file["task"] .= $this->verificaDados($data->required_amount_of_resource) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Resource Cost per Unit}:\n";
+				$file["task"] .= $this->verificaDados($data->resource_cost_per_unit) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Resource Type}:\n";
+				$file["task"] .= $this->verificaDados($data->resource_type) . ";\n";
+				
+				$file["task"] .= "\\end{itemize}\n";
 			}
 			$file["task"] .= "\\end{itemize}\n";
 			$file["task"] .= "\n";
@@ -1081,9 +1140,14 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataADE as $data) {
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " \n";
+				
+				$file["task"] .= "\begin{itemize}\n";
+				
 				$file["task"] .= "\item \\textbf{Estimated Duration in Hours}: " .  $this->verificaDados($data->estimated_duration) . " | \\textbf{Performed Duration in Hours}: " .  $this->verificaDados($data->performed_duration) . "\n";
 				$file["task"] .= "\item \\textbf{Estimated Start Date}: " . $this->verificaDados($data->estimated_start_date) . " | \\textbf{Performed Start Date}: " .  $this->verificaDados($data->performed_start_date) . "\n";
 				$file["task"] .= "\item \\textbf{Estimated End Date}: " . $this->verificaDados($data->estimated_end_date) . " | \\textbf{Performed End Date}: " .  $this->verificaDados($data->performed_end_date) . "\n";
+				
+				$file["task"] .= "\\end{itemize}\n";
 			}
 			$file["task"] .= "\\end{itemize}\n";
 			$file["task"] .= "\n";
@@ -1107,9 +1171,16 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataPCA as $data) {
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " \n";
-				$file["task"] .= "\item \\textbf{Resource Name}: " .  $this->verificaDados($data->resource_name) . " | \\textbf{Function}: " .  $this->verificaDados($data->function) . "\n";
+				
+				$file["task"] .= "\begin{itemize}\n";
+				
+				$file["task"] .= "\item \\textbf{Resource Name}: " .  $this->verificaDados($data->resource_name) . "\n";
+				$file["task"] .= "\item \\textbf{Function}: " .  $this->verificaDados($data->function) . "\n";
 				$file["task"] .= "\item \\textbf{Availability Start}: " . $this->verificaDados($data->availability_start) . " | \\textbf{Availability Ends}: " .  $this->verificaDados($data->availability_ends) . "\n";
 				$file["task"] .= "\item \\textbf{Allocation Start}: " . $this->verificaDados($data->allocation_start) . " | \\textbf{Allocation Ends}: " .  $this->verificaDados($data->allocation_ends) . "\n";
+				
+				
+				$file["task"] .= "\\end{itemize}\n";
 			}
 			$file["task"] .= "\\end{itemize}\n";
 			$file["task"] .= "\n";
@@ -1181,15 +1252,15 @@ class ProjectToOverleaf extends CI_Controller
 			foreach ($dataCE as $data) {
 
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . "\n";
-				$file["task"] .= "\item \\textbf{Estimated Cost}: " .  $this->verificaDados($data->estimated_cost) . " | \\textbf{Cumulative Estimated Cost}: " .  $this->verificaDados($data->cumulative_estimated_cost) . " | \\textbf{Replanted Cost}: " . $this->verificaDados($data->replanted_cost) . "\n";
-				$file["task"] .= "\item \\textbf{Contingency Reserve}: " .  $this->verificaDados($data->contingency_reserve) . " | \\textbf{Sum of Work Packages}: " .  $this->verificaDados($data->sum_of_work_packages) . " | \\textbf{Contingency Reserve of Packages}: " . $this->verificaDados($data->contingency_reserve_of_packages) . "\n";
-				$file["task"] .= "\item \\textbf{Baseline}: " .  $this->verificaDados($data->baseline) . " | \\textbf{Budget}: " .  $this->verificaDados($data->budget) . " | \\textbf{Cumulative Replanted Cost}: " . $this->verificaDados($data->cumulative_replanted_cost) . "\n";
-				$file["task"] .= "\item \\textbf{Real Cost}: " . $this->verificaDados($data->real_cost) . " | \\textbf{Cumulative Real Cost}: " . $this->verificaDados($data->cumulative_real_cost) . "\n";
+				
 
 				$file["task"] .= "\begin{itemize}\n";
 
-				$file["task"] .= "\item \\textbf{Management Reserve}:\n";
-				$file["task"] .= $this->verificaDados($data->reserve) . ";\n";
+				$file["task"] .= "\item \\textbf{Estimated Cost}: " .  $this->verificaDados($data->estimated_cost) . " | \\textbf{Cumulative Estimated Cost}: " .  $this->verificaDados($data->cumulative_estimated_cost) . " | \\textbf{Replanted Cost}: " . $this->verificaDados($data->replanted_cost) . ";\n";
+				$file["task"] .= "\item \\textbf{Contingency Reserve}: " .  $this->verificaDados($data->contingency_reserve) . " | \\textbf{Sum of Work Packages}: " .  $this->verificaDados($data->sum_of_work_packages) . " | \\textbf{Contingency Reserve of Packages}: " . $this->verificaDados($data->contingency_reserve_of_packages) . ";\n";
+				$file["task"] .= "\item \\textbf{Baseline}: " .  $this->verificaDados($data->baseline) . " | \\textbf{Budget}: " .  $this->verificaDados($data->budget) . " | \\textbf{Cumulative Replanted Cost}: " . $this->verificaDados($data->cumulative_replanted_cost) . ";\n";
+				$file["task"] .= "\item \\textbf{Real Cost}: " . $this->verificaDados($data->real_cost) . " | \\textbf{Cumulative Real Cost}: " . $this->verificaDados($data->cumulative_real_cost) . "\n";
+				$file["task"] .= "\item \\textbf{Management Reserve}: " . $this->verificaDados($data->reserve) . ";\n";
 
 				$file["task"] .= "\\end{itemize}\n";
 			}
@@ -1266,7 +1337,7 @@ class ProjectToOverleaf extends CI_Controller
 				$file .= $this->verificaDados($data->documents) . "\n";
 
 				$file .= "\subsubsection{Guidelines/Comments}\n";
-				$file .= $this->verificaDados($data->guidelines) . "\n";
+				$file .= $this->verificaDados($data->guidelines) . "n";
 
 
 				$file["task"]  .= "\begin{longtable}{ p{.20\textwidth} | p{.50\textwidth} | p{.20\textwidth}}\n";
@@ -1324,10 +1395,18 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataQR as $data) {
 
-				$file["task"] .= "\item \\textbf{Responsible}: " .  $this->verificaDados($data->responsible) . " | \\textbf{Date}: " . $this->verificaDados(date('d/m/Y', strtotime($data->date))) . "\n";
-				$file["task"] .= "\item \\textbf{Type of Report}: " . $this->verificaDados($data->type) . " | \\textbf{Description of what was Identified}: " . $this->verificaDados($data->description) . "\n";
+				$file["task"] .= "\item  \\textbf{Date}: " . $this->verificaDados(date('d/m/Y', strtotime($data->date))) . "\n";
 
 				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Responsible}:\n";
+				$file["task"] .= $this->verificaDados($data->responsible) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Type of Report}:\n";
+				$file["task"] .= $this->verificaDados($data->type) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Description of what was Identified}:\n";
+				$file["task"] .= $this->verificaDados($data->description) . ";\n";
 
 				$file["task"] .= "\item \\textbf{Identifier}:\n";
 				$file["task"] .= $this->verificaDados($data->identifier) . ";\n";
@@ -1420,9 +1499,11 @@ class ProjectToOverleaf extends CI_Controller
 			foreach ($dataEVAL as $data) {
 
 				$file["task"] .= "\item \\textbf{Team Member Name}: " .  $this->verificaDados($data->team_member_name) . " | \\textbf{Evaluation Date}: " . $this->verificaDados(date('d/m/Y', strtotime($data->report_date))) . "\n";
-				$file["task"] .= "\item \\textbf{Function in the Project}: " . $this->verificaDados($data->project_function) . "\n";
 
 				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Function in the Project}:\n";
+				$file["task"] .= $this->verificaDados($data->project_function) . ";\n";
 
 				$file["task"] .= "\item \\textbf{Job Role}:\n";
 				$file["task"] .= $this->verificaDados($data->role) . ";\n";
@@ -1538,10 +1619,18 @@ class ProjectToOverleaf extends CI_Controller
 					$temp;
 				}
 
-				$file["task"] .= "\item \\textbf{Impacted Objective}: " .  $this->verificaDados($data->impacted_objective) . " | \\textbf{Priority}: " . $this->verificaDados($temp) . "\n";
-				$file["task"] .= "\item \\textbf{Event}: " . $this->verificaDados($data->event) . " | \\textbf{Identification Date}: " . $this->verificaDados(date('d/m/Y', strtotime($data->event))) . "\n";
+				$file["task"] .= "\item \\textbf{Identification Date}: " . $this->verificaDados(date('d/m/Y', strtotime($data->event))) . "\n";
 
 				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Impacted Objective}:\n";
+				$file["task"] .= $this->verificaDados($data->impacted_objective) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Priority}:\n";
+				$file["task"] .= $this->verificaDados($temp) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Event}:\n";
+				$file["task"] .= $this->verificaDados($data->event) . ";\n";
 
 				$file["task"] .= "\item \\textbf{Current Risk Status}:\n";
 				$file["task"] .= $this->verificaDados($data->risk_status) . ";\n";
@@ -1679,11 +1768,17 @@ class ProjectToOverleaf extends CI_Controller
 			foreach ($dataPSW as $data) {
 
 				$file["task"] .= "\item \\textbf{Description of item to be purchased}: " .  $this->verificaDados($data->description) . "\n";
-				$file["task"] .= "\item \\textbf{Additional information }: " . $this->verificaDados($data->informations) . "\n";
-				$file["task"] .= "\item \\textbf{Procurement Management}: " . $this->verificaDados($data->procurement_management) . "\n";
-				$file["task"] .= "\item \\textbf{Vendor Selection Criteria }: " . $this->verificaDados($data->selection_criterias) . "\n";
 
 				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Additional information}:\n";
+				$file["task"] .= $this->verificaDados($data->informations) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Procurement Management}:\n";
+				$file["task"] .= $this->verificaDados($data->procurement_management) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Vendor Selection Criteria}:\n";
+				$file["task"] .= $this->verificaDados($data->selection_criterias) . ";\n";
 
 				$file["task"] .= "\item \\textbf{Associated Contract Types}:\n";
 				$file["task"] .= $this->verificaDados($data->types) . ";\n";
@@ -1721,11 +1816,15 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataCPD as $data) {
 
-				$file["task"] .= "\item \\textbf{Provider's Name}: " .  $this->verificaDados($data->provider) . "| \\textbf{Closing Date}:" . $this->verificaDados(date('d/m/Y', strtotime($data->closing_date))) . "\n";
-				$file["task"] .= "\item \\textbf{Supplier Representative }: " . $this->verificaDados($data->supplier_representative) . "\n";
-
+				$file["task"] .= "\item \\textbf{Closing Date}:" . $this->verificaDados(date('d/m/Y', strtotime($data->closing_date))) . "\n";
 
 				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Provider's Name}:\n";
+				$file["task"] .= $this->verificaDados($data->provider) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Supplier Representative }:\n";
+				$file["task"] .= $this->verificaDados($data->supplier_representative) . ";\n";
 
 				$file["task"] .= "\item \\textbf{Main Deliveries of this Project }:\n";
 				$file["task"] .= $this->verificaDados($data->main_deliveries) . ";\n";
@@ -1765,6 +1864,15 @@ class ProjectToOverleaf extends CI_Controller
 
 
 				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Position}:\n";
+				$file["task"] .= $this->verificaDados($data->position) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Email}:\n";
+				$file["task"] .= $this->verificaDados($data->email) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Organization}:\n";
+				$file["task"] .= $this->verificaDados($data->organization) . ";\n";
 
 				$tempType = $this->verificaDados($data->type);
 
@@ -1847,10 +1955,20 @@ class ProjectToOverleaf extends CI_Controller
 
 
 				// $file["task"] .= "\item \\textbf{Stakeholder Name}: " .  $this->verificaDados($data->name) . "\n";
-				// $file["task"] .= "\item \\textbf{Interest}: " . $this->verificaDados($data["interest"]) . "| \\textbf{Power}:" . $this->verificaDados($data->power) . "\n";
-				// $file["task"] .= "\item \\textbf{Influence}: " . $this->verificaDados($data->influence) . "| \\textbf{Impact}:" . $this->verificaDados($data->impact) . "\n";
 
 				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Interest}:\n";
+				$file["task"] .= $this->verificaDados($data["interest"]) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Influence}:\n";
+				$file["task"] .= $this->verificaDados($data->influence) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Impact}:\n";
+				$file["task"] .= $this->verificaDados($data->impact) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Power}:\n";
+				$file["task"] .= $this->verificaDados($data->power) . ";\n";
 
 
 				$tempCurrent = $this->verificaDados($data->current_engagement);
