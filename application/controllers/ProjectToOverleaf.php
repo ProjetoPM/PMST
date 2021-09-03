@@ -67,6 +67,9 @@ class ProjectToOverleaf extends CI_Controller
 		$this->load->model("Human_resource_model");
 		$this->load->model("Team_Performance_Evaluation_model");
 
+		// Communication
+		$this->load->model("communications_mp_model");
+
 		// Risk
 		$this->load->model("Risk_mp_model");
 		$this->load->model("Risk_model");
@@ -1101,7 +1104,7 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataSND as $data) {
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " | \\textbf{Resource Description}: " .  $this->verificaDados($data->resource_description) . "\n";
-				
+
 				$file["task"] .= "\begin{itemize}\n";
 
 				$file["task"] .= "\item \\textbf{Resource Description}:\n";
@@ -1115,7 +1118,7 @@ class ProjectToOverleaf extends CI_Controller
 
 				$file["task"] .= "\item \\textbf{Resource Type}:\n";
 				$file["task"] .= $this->verificaDados($data->resource_type) . ";\n";
-				
+
 				$file["task"] .= "\\end{itemize}\n";
 			}
 			$file["task"] .= "\\end{itemize}\n";
@@ -1140,13 +1143,13 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataADE as $data) {
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " \n";
-				
+
 				$file["task"] .= "\begin{itemize}\n";
-				
+
 				$file["task"] .= "\item \\textbf{Estimated Duration in Hours}: " .  $this->verificaDados($data->estimated_duration) . " | \\textbf{Performed Duration in Hours}: " .  $this->verificaDados($data->performed_duration) . "\n";
 				$file["task"] .= "\item \\textbf{Estimated Start Date}: " . $this->verificaDados($data->estimated_start_date) . " | \\textbf{Performed Start Date}: " .  $this->verificaDados($data->performed_start_date) . "\n";
 				$file["task"] .= "\item \\textbf{Estimated End Date}: " . $this->verificaDados($data->estimated_end_date) . " | \\textbf{Performed End Date}: " .  $this->verificaDados($data->performed_end_date) . "\n";
-				
+
 				$file["task"] .= "\\end{itemize}\n";
 			}
 			$file["task"] .= "\\end{itemize}\n";
@@ -1171,15 +1174,15 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataPCA as $data) {
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " \n";
-				
+
 				$file["task"] .= "\begin{itemize}\n";
-				
+
 				$file["task"] .= "\item \\textbf{Resource Name}: " .  $this->verificaDados($data->resource_name) . "\n";
 				$file["task"] .= "\item \\textbf{Function}: " .  $this->verificaDados($data->function) . "\n";
 				$file["task"] .= "\item \\textbf{Availability Start}: " . $this->verificaDados($data->availability_start) . " | \\textbf{Availability Ends}: " .  $this->verificaDados($data->availability_ends) . "\n";
 				$file["task"] .= "\item \\textbf{Allocation Start}: " . $this->verificaDados($data->allocation_start) . " | \\textbf{Allocation Ends}: " .  $this->verificaDados($data->allocation_ends) . "\n";
-				
-				
+
+
 				$file["task"] .= "\\end{itemize}\n";
 			}
 			$file["task"] .= "\\end{itemize}\n";
@@ -1252,7 +1255,7 @@ class ProjectToOverleaf extends CI_Controller
 			foreach ($dataCE as $data) {
 
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . "\n";
-				
+
 
 				$file["task"] .= "\begin{itemize}\n";
 
@@ -1546,6 +1549,114 @@ class ProjectToOverleaf extends CI_Controller
 		}
 	}
 
+	// Communications
+	public function COMP_Overleaf($project_id)
+	{
+
+		$dataCOMP = $this->communications_mp_model->getAll($project_id);
+		$file["name_task"] = "CommunicationsManagementPlan.tex";
+		if ($dataCOMP != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Communications Management Plan}\n";
+			$file["task"] .= "\begin{itemize}\n";
+			foreach ($dataCOMP as $data) {
+
+				$file["task"] .= "\item \\textbf{Name}: " . $this->verificaDados($data->description) . "\n";
+
+				$file["task"] .= "\begin{itemize}\n";
+
+				$file["task"] .= "\item \\textbf{Type}:\n";
+				$file["task"] .= $this->verificaDados($data->type) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Content}:\n";
+				$file["task"] .= $this->verificaDados($data->content) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Distribution Reason}:\n";
+				$file["task"] .= $this->verificaDados($data->distribution_reason) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Language}:\n";
+				$file["task"] .= $this->verificaDados($data->language) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Channel}:\n";
+				$file["task"] .= $this->verificaDados($data->channel) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Document Format}:\n";
+				$file["task"] .= $this->verificaDados($data->document_format) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Method}:\n";
+				$file["task"] .= $this->verificaDados($data->method) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Frequency}:\n";
+				$file["task"] .= $this->verificaDados($data->frequency) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Allocated Resources}:\n";
+				$file["task"] .= $this->verificaDados($data->allocated_resources) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Format}:\n";
+				$file["task"] .= $this->verificaDados($data->format) . ";\n";
+
+				$file["task"] .= "\item \\textbf{Local}:\n";
+				$file["task"] .= $this->verificaDados($data->local) . ";\n";
+
+				$file["task"] .= "\\end{itemize}\n";
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Communications Management Plan}\n";
+			$file["task"] .= "% No record found";
+			return $file;
+		}
+
+		// Stakeholder Responsabilities
+		// $dataACL = $this->Assumption_log_model->getAll($project_id);
+		// $file2["name_task"] = "AssumptionLog.tex";
+
+		// if ($dataACL != null) {
+		// 	$file2["task"] = "\n";
+		// 	$file2["task"]  .= "\section{Stakeholders Responsabilities}\n";
+		// 	$file2["task"]  .= "\begin{longtable}{ p{.15\\textwidth} | p{.85\\textwidth}}\n";
+		// 	$file2["task"] .= "\bottomrule \n";
+		// 	$file2["task"] .= "\\rowcolor{gray}\n";
+		// 	$file2["task"] .= "\\textbf{Type} & \\textbf{Description} \\\ \n";
+		// 	$file2["task"] .= "\hline \n";
+		// 	$count = 0;
+
+
+		// 	foreach ($dataACL as $data2) {
+		// 		if ($count % 2 != 0) {
+		// 			$file2["task"] .= "\\rowcolor{white}\n";
+		// 		} else {
+		// 			$file2["task"] .= "\\rowcolor{lightgray}\n";
+		// 		}
+		// 		$count++;
+		// 		$temp = $this->verificaDados($data2->type);
+		// 		if ($temp == "A") {
+		// 			$temp = "Assumption";
+		// 		} else if ($temp == "C") {
+		// 			$temp = "Constraint";
+		// 		}
+
+		// 		$file2["task"] .= $temp . " & " . $this->verificaDados($data2->description_log) . " \\\ \n";
+
+		// 		$file["task"] .= "\hline \n";
+		// 	}
+		// 	$file2["task"]  .= "\\toprule \n";
+		// 	$file2["task"] .= "\caption{Stakeholders Responsabilities} \n";
+		// 	$file2["task"] .= "\label{tab:Stakeholders Responsabilities} \n";
+		// 	$file2["task"] .= "\\end{longtable} \n";
+
+		// 	return $file2;
+		// } else {
+		// 	$file2["task"] = "\n";
+		// 	$file2["task"]  .= "% \section{Stakeholders Responsabilities}\n";
+		// 	$file2["task"] .= "% No record found";
+		// 	return $file2;
+		// }
+	}
 
 
 	// Risk
@@ -2040,6 +2151,9 @@ class ProjectToOverleaf extends CI_Controller
 			return $file;
 		}
 	}
+
+
+
 	public function verificaDados($dado)
 	{
 		if ($dado == null)
@@ -2047,7 +2161,7 @@ class ProjectToOverleaf extends CI_Controller
 		else {
 			$dado = str_replace("\\", "", $dado);
 			$dado = str_replace("$", "\$", $dado);
-			$dado = str_replace("R$", "R\$", $dado);
+			$dado = str_replace("R$", "R\\$", $dado);
 			$dado = str_replace("#", "", $dado);
 			$dado = str_replace("JPEG", "jpeg", $dado);
 			$dado = str_replace("%", "\\%", $dado);
@@ -2109,6 +2223,9 @@ class ProjectToOverleaf extends CI_Controller
 			$REMP = $this->REMP_Overleaf($project_id);
 			$EVAL = $this->EVAL_Overleaf($project_id);
 
+			// Communication
+			$COMP = $this->COMP_Overleaf($project_id);
+
 			// Risk
 			$RIMP = $this->RIMP_Overleaf($project_id);
 			$RIR = $this->RIR_Overleaf($project_id);
@@ -2126,7 +2243,7 @@ class ProjectToOverleaf extends CI_Controller
 
 			// template + array dos documentos
 			$files["template"] = $this->templateOverleaf($project_id);
-			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PMP, $PPR, $DS, $WP, $IR, $LLR, $CR, $CL, $TEP, $FR), "scope" => array($RMP, $SCOMP, $RD, $SSP), "schedule" => array($SMP, $EVM, $SND, $RR, $ADE, $PCA), "cost" => array($CMP, $CE), "quality" => array($QMP, $QR), "resources" => array($REMP, $EVAL), "risk" => array($RIMP, $RIR), "procurement" => array($PCMP, $PSW, $CPD), "stakeholder" => array($SHR, $SHEP));
+			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PMP, $PPR, $DS, $WP, $IR, $LLR, $CR, $CL, $TEP, $FR), "scope" => array($RMP, $SCOMP, $RD, $SSP), "schedule" => array($SMP, $EVM, $SND, $RR, $ADE, $PCA), "cost" => array($CMP, $CE), "quality" => array($QMP, $QR), "resources" => array($REMP, $EVAL), "communications" => ($COMP), "risk" => array($RIMP, $RIR), "procurement" => array($PCMP, $PSW, $CPD), "stakeholder" => array($SHR, $SHEP));
 		}
 
 		// $files["knowledge_areas"] = array("integration" =>array($BC,$outra,$outra), "scope" =>array($outra,$outra));
@@ -2240,6 +2357,9 @@ class ProjectToOverleaf extends CI_Controller
 		$file .= "\include{ResourcesManagementPlan}\n";
 		$file .= "\include{TeamPerformanceEvaluation}\n";
 
+		// Communication
+		$file .= "\chapter{Project Communications Management}\n";
+		$file .= "\include{CommunicationsManagementPlan}\n";
 
 		// Risk
 		$file .= "\chapter{Project Risk Management}\n";

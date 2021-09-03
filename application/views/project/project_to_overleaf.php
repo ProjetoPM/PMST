@@ -62,6 +62,10 @@
 								<label class="form-check-label"><?= $this->lang->line('overleaf_resources') ?></label>
 							</div>
 							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="communications" value="communications">
+								<label class="form-check-label"><?= $this->lang->line('overleaf_communications') ?></label>
+							</div>
+							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="checkbox" id="risk" value="risk">
 								<label class="form-check-label"><?= $this->lang->line('overleaf_risk') ?></label>
 							</div>
@@ -211,7 +215,7 @@
 		}
 
 	});
-
+	
 	$("#resources").click(function() {
 		if ($("#resources").is(":checked") == false) {
 			document.getElementById('latex').value = latex1;
@@ -222,6 +226,24 @@
 			for (let index = 0; index < kw.resources.length; index++) {
 				latex_provisorio = latex_provisorio + kw.resources[index]["task"];
 				create_snip("resources", kw.resources[index]["name_task"], kw.resources[index]["task"]);
+				console.log(latex_provisorio);
+			}
+
+			document.getElementById('latex').value = latex_provisorio;
+		}
+
+	});
+
+	$("#communications").click(function() {
+		if ($("#communications").is(":checked") == false) {
+			document.getElementById('latex').value = latex1;
+			remove_snip("resources");
+		} else {
+			var latex_provisorio = latex1;
+			var kw = <?= $json ?>;
+			for (let index = 0; index < kw.communications.length; index++) {
+				latex_provisorio = latex_provisorio + kw.communications[index]["task"];
+				create_snip("communications", kw.communications[index]["name_task"], kw.communications[index]["task"]);
 				console.log(latex_provisorio);
 			}
 
