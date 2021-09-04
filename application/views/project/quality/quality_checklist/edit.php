@@ -152,7 +152,7 @@
 														<div class="col-lg-2 form-group">
 															<div class="input-group" style="width: 100%">
 																<select id="status[<?php echo $count ?>]" name="status[]" class="form-control" required>
-																	<option selected disabled value=""> Selecione </option>
+																	<option selected disabled value=""> select </option>
 																	<option value="0" <?php if ($quality->status == 0) echo 'selected'; ?>>No OK</option>
 																	<option value="1" <?php if ($quality->status == 1) echo 'selected'; ?>>Partially OK</option>
 																	<option value="2" <?php if ($quality->status == 2) echo 'selected'; ?>>Ok</option>
@@ -203,7 +203,7 @@
 		divtest.setAttribute("class", "form-group removeclass" + room);
 		divtest.setAttribute("id", 'removeclass[' + room + ']');
 		var rdiv = 'removeclass' + room;
-		divtest.innerHTML = '<div class="col-sm-3 form-group"> <div class="input-group" style="width: 100%"> <textarea class="form-control elasticteste2" style="text-align:left;" id="item_check['+ room +']" name="item_check[] "></textarea> </div> </div> <div class="col-sm-6 form-group"> <div> <div class="input-group" style="width: 100%"> <textarea style="text-align:left;" class="form-control elasticteste2" id="comments['+ room +']" name="comments[]"></textarea> </div> </div> </div> <div class="col-lg-2 form-group"> <div class="input-group" style="width: 100%"> <select id="status['+ room +']" name="status[]" class="form-control" required> <option selected disabled value=""> Selecione </option> <option value="0"; >No OK</option> <option value="1"; >Partially OK</option> <option value="2"; >Ok</option> </select> </div> </div> <div class="col-lg-1 form-group"> <div class="input-group" style="width: 100%"> <button class="btn btn-danger" type="button" id="button['+ room +']" onclick="remove_education_fields('+ room +');"> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> </button> </div> </div>';
+		divtest.innerHTML = '<div class="col-sm-3 form-group"> <div class="input-group" style="width: 100%"> <textarea class="form-control elasticteste2" style="text-align:left;" id="item_check['+ room +']" name="item_check[] "></textarea> </div> </div> <div class="col-sm-6 form-group"> <div> <div class="input-group" style="width: 100%"> <textarea style="text-align:left;" class="form-control elasticteste2" id="comments['+ room +']" name="comments[]"></textarea> </div> </div> </div> <div class="col-lg-2 form-group"> <div class="input-group" style="width: 100%"> <select id="status['+ room +']" name="status[]" class="form-control" required> <option selected disabled value=""> Select </option> <option value="0"; >No OK</option> <option value="1"; >Partially OK</option> <option value="2"; >Ok</option> </select> </div> </div> <div class="col-lg-1 form-group"> <div class="input-group" style="width: 100%"> <button class="btn btn-danger" type="button" id="button['+ room +']" onclick="remove_education_fields('+ room +');"> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> </button> </div> </div>';
 
 
 		objTo.appendChild(divtest);

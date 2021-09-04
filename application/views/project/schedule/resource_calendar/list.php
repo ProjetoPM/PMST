@@ -28,11 +28,17 @@
 
 						<div class="panel-body">
 							<h1 class="page-header">
-
 								<?= $this->lang->line('pca_title')  ?>
-
 							</h1>
 
+							<div class="row">
+								<div class="col-lg-12">
+
+									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>schedule/project-calendars/new'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
+								</div>
+							</div>
+
+							<br><br>
 
 							<div class="row">
 								<div class="col-lg-12">
@@ -53,32 +59,32 @@
 										</thead>
 										<tbody>
 											<?php
-											foreach ($activity as $a) {
-												if ($a->status = 1) {
+											foreach ($calendars as $a) {
 											?>
-													<tr dados='<?= json_encode($a); ?>'>
-														<td><?php echo $a->activity_name; ?></td>
-														<td><?php echo $a->resource_name; ?></td>
-														<td><?php echo $a->function; ?></td>
-														<td><?php echo $a->availability_start; ?></td>
-														<td><?php echo $a->availability_ends; ?></td>
-														<td><?php echo $a->allocation_start; ?></td>
-														<td><?php echo $a->allocation_ends; ?></td>
+												<tr dados='<?= json_encode($a); ?>'>
+													<td><?php echo getActivityName($a->activity_id) ?></td>
+													<td><?php echo getStakeholdername($a->stakeholder_id) ?></td>
+													<td><?php echo $a->function; ?></td>
+													<td><?php echo $a->availability_start; ?></td>
+													<td><?php echo $a->availability_ends; ?></td>
+													<td><?php echo $a->allocation_start; ?></td>
+													<td><?php echo $a->allocation_ends; ?></td>
 
-														<td style="max-width: 20px">
-															<div class="row center">
-																<div class="col-sm-3">
-																	<form action="<?php echo base_url() ?>schedule/project-calendars/edit/<?php echo $a->id; ?>" method="post">
-																		<input type="hidden" name="project_id" value="<?= $a->project_id; ?>">
-																		<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
-																	</form>
-																</div>
-
+													<td style="max-width: 23px">
+														<div class="row center">
+															<div class="col-sm-4">
+																<form action="<?php echo base_url() ?>schedule/project-calendars/edit/<?php echo $a->project_calendars_id; ?>" method="post">
+																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
+																</form>
 															</div>
-														</td>
-													</tr>
+															<div class="col-sm-4">
+																<button type="submit" class="btn btn-danger" onclick="deletar(<?= $_SESSION['project_id'] ?>, <?= $a->project_calendars_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+															</div>
+
+														</div>
+													</td>
+												</tr>
 											<?php
-												}
 											}
 											?>
 
@@ -179,7 +185,7 @@
 
 				console.log(`Passei o ${idProjeto} e ${id}`);
 
-				$.post("<?php echo base_url() ?>schedule/activity-list/delete/" + id, {
+				$.post("<?php echo base_url() ?>schedule/project-calendars/delete/" + id, {
 					project_id: idProjeto,
 				});
 

@@ -23,7 +23,7 @@
 					</div>
 				<?php endif; ?>
 
-				<?php extract($activity); ?>
+				<?php extract($calendar); ?>
 
 				<div class="row">
 					<div class="col-lg-12">
@@ -33,18 +33,17 @@
 								<?= $this->lang->line('pca_title')  ?>
 
 							</h1>
-							<form action="<?= base_url() ?>schedule/project-calendars/update/<?php echo $id; ?>" method="post">
+							<form action="<?= base_url() ?>schedule/project-calendars/update/<?php echo $project_calendars_id; ?>" method="post">
 
 								<input type="hidden" id="project_id" name="project_id" value="<?php echo $project_id; ?>">
 								<!-- Textarea -->
-								<ul class="abas">
 									<!-- Aqui, criação da primeira aba -->
 
 									<div class="col-lg-4 form-group">
 										<label>Activity</label>
-										<select name="activities" size="1" class="form-control" tabindex="1">
+										<select name="activity_id" size="1" class="form-control" tabindex="1">
 											<?php foreach ($activities as $t) { ?>
-												<option value="<?= $t->id; ?>">
+												<option  <?php if ($t->id == $activity_id) echo "selected"; ?> value="<?= $t->id; ?>">
 													<?= $t->activity_name; ?></option>
 											<?php  } ?>
 										</select>
@@ -52,9 +51,9 @@
 
 									<div class="col-lg-4 form-group">
 										<label>Stakeholder</label>
-										<select name="stakeholders" size="1" class="form-control" tabindex="1">
+										<select name="stakeholder_id" size="1" class="form-control" tabindex="1">
 											<?php foreach ($stakeholders as $s) { ?>
-												<option value="<?= $s->stakeholder_id; ?>">
+												<option <?php if ($s->stakeholder_id == $stakeholder_id) echo "selected"; ?> value="<?= $s->stakeholder_id; ?>">
 													<?= $s->name; ?></option>
 											<?php  } ?>
 										</select>
@@ -68,16 +67,6 @@
 											<input id="pca_txt_2" type="text" name="function" class="form-control input-md" onkeyup="limite_textarea(this.value, 'pca_2')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value="<?php echo $function; ?>">
 										</div>
 									</div>
-
-									<!-- <div class=" col-lg-8 form-group">
-										<label for="resource_name"><?= $this->lang->line('pca_resource_name') ?></label>
-										<span class="pca_1">2000</span><?= $this->lang->line('character') ?>
-										<a class="btn-sm btn-default" id="pca_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pca_resource_name_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-										<div>
-											<input id="pca_txt_1" type="text" name="resource_name" class="form-control input-md" onkeyup="limite_textarea(this.value, 'pca_1')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value="<?php echo $resource_name; ?>">
-										</div>
-									</div> -->
-
 
 
 									<div class=" col-lg-3 form-group">

@@ -71,10 +71,10 @@ class DeliverableStatus extends CI_Controller
     }
 
 
-    public function edit($project_id)
+    public function edit($id)
     {
         $query['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
-        $query['delivery_acceptance_term'] = $this->Delivery_acceptance_term_model->get($project_id);
+        $query['delivery_acceptance_term'] = $this->Delivery_acceptance_term_model->get($id);
         $this->load->view('frame/header_view');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');

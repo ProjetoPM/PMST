@@ -38,6 +38,7 @@ class EVM extends CI_Controller
 
 	public function edit($project_id)
 	{
+		$query['activities'] = $this->Activity_model->getAll($_SESSION['project_id']);
 		$query['activity'] = $this->Activity_model->get($project_id);
 
 		$this->load->view('frame/header_view.php');

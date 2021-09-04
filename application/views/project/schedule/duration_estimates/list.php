@@ -64,7 +64,7 @@
 							<div class="row">
 								<div class="col-lg-12">
 									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>schedule/duration-estimates/new/<?php echo $_SESSION['project_id'] ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
-									<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#upload"><i class="fa fa-plus-circle"></i> Upload</button>
+									<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#upload"><i class="fa fa-plus-circle"></i><?= $this->lang->line('btn-upload') ?></button>
 									<?php
 									if ($duration_estimates != null) {
 									?>

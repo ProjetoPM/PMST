@@ -33,6 +33,14 @@
 
 							</h1>
 
+							<div class="row">
+								<div class="col-lg-12">
+									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>schedule/project-schedule-network-diagram/new'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
+									<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#upload"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-upload') ?></button>
+								</div>
+							</div>
+
+							<br><br>
 
 							<div class="row">
 								<div class="col-lg-12">
@@ -43,30 +51,29 @@
 												<th><?= $this->lang->line('activity_name') ?></th>
 												<th><?= $this->lang->line('snd_predecessor_activity') ?></th>
 												<th><?= $this->lang->line('snd_dependence_type') ?></th>
-												<th><?= $this->lang->line('snd_anticipation') ?></th>
-												<th><?= $this->lang->line('snd_wait') ?></th>
-
+												<th><?= $this->lang->line('snd_anticipation') . "/" . $this->lang->line('snd_wait') ?></th>
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
 										</thead>
 										<tbody>
 											<?php
-											foreach ($activity as $a) {
+											foreach ($schedule_network as $snd) {
 											?>
-												<tr dados='<?= json_encode($a); ?>'>
-													<td><?php echo $a->activity_name; ?></td>
-													<td><?php echo $a->predecessor_activity; ?></td>
-													<td><?php echo $a->dependence_type; ?></td>
-													<td><?php echo $a->anticipation; ?></td>
-													<td><?php echo $a->wait; ?></td>
+												<tr dados='<?= json_encode($snd); ?>'>
+													<td><?php echo getActivityName($snd->activity_id) ?></td>
+													<td><?php echo getActivityName($snd->predecessor_activity_id) ?></td>
+													<td><?php echo $snd->dependence_type; ?></td>
+													<td><?php echo $snd->lead_lag; ?></td>
 
 													<td style="max-width: 20px">
 														<div class="row center">
 															<div class="col-sm-3">
-																<form action="<?php echo base_url() ?>schedule/project-schedule-network-diagram/edit/<?php echo $a->id; ?>" method="post">
-																	<input type="hidden" name="project_id" value="<?= $a->project_id; ?>">
+																<form action="<?php echo base_url() ?>schedule/project-schedule-network-diagram/edit/<?php echo $snd->schedule_network_id; ?>" method="post">
 																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 																</form>
+															</div>
+															<div class="col-sm-3">
+																<button type="submit" class="btn btn-danger" onclick="deletar(<?= $_SESSION['project_id'] ?>, <?= $snd->schedule_network_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
 															</div>
 
 														</div>
@@ -80,7 +87,7 @@
 									</table>
 
 
-									<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>">
+									<form action="<?php echo base_url('project/'); ?><?php echo $_SESSION['project_id'] ?>">
 										<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 									</form>
 								</div>
@@ -119,7 +126,7 @@
 <!-- CSS -->
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css" />
 
-<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 					-->
 <script type="text/javascript">
 	'use strict'
@@ -137,10 +144,7 @@
 					"data": "dependence_type"
 				},
 				{
-					"data": "anticipation"
-				},
-				{
-					"data": "wait"
+					"data": "Lead/Lag"
 				},
 				{
 					"data": "btn-actions",
@@ -148,7 +152,7 @@
 				}
 			],
 			"order": [
-				[1, 'attr']
+				[0, 'attr']
 			]
 		});
 	});

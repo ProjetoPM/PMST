@@ -23,7 +23,6 @@
 					</div>
 				<?php endif; ?>
 
-				<?php extract($activity); ?>
 
 				<style>
 					.form-check {
@@ -41,9 +40,7 @@
 								<?= $this->lang->line('snd_title')  ?>
 
 							</h1>
-							<form action="<?= base_url() ?>schedule/project-schedule-network-diagram/update/<?php echo $id; ?>" method="post">
-
-								<input type="hidden" id="project_id" name="project_id" value="<?php echo $project_id; ?>">
+							<form action="<?= base_url() ?>schedule/project-schedule-network-diagram/insert" method="post">
 
 								<div class="col-lg-6 form-group">
 									<label><?= $this->lang->line('activity_name') ?></label>
@@ -93,7 +90,7 @@
 
 								<div class="col-lg-2 form-group">
 									<div class="form-check">
-										<input class="form-check-input" value="Start-to-Start(SS)" type="radio" name="dependence_type" id="flexRadioDefault1">
+										<input class="form-check-input" value="Start-to-Start(SS)" type="radio" name="dependence_type" id="flexRadioDefault3">
 										<label class="form-check-label" for="flexRadioDefault1">
 											<?= $this->lang->line('snd_ss') ?>
 										</label>
@@ -102,7 +99,7 @@
 
 								<div class="col-lg-2 form-group">
 									<div class="form-check">
-										<input class="form-check-input" value="Start-to-Finish(SF)" type="radio" name="dependence_type" id="flexRadioDefault2">
+										<input class="form-check-input" value="Start-to-Finish(SF)" type="radio" name="dependence_type" id="flexRadioDefault4">
 										<label class="form-check-label" for="flexRadioDefault2">
 											<?= $this->lang->line('snd_sf') ?>
 										</label>
@@ -124,7 +121,7 @@
 									</button>
 							</form>
 
-							<form action="<?php echo base_url('schedule/project-schedule-network-diagram/list/'); ?><?php echo $project_id; ?>">
+							<form action="<?php echo base_url('schedule/project-schedule-network-diagram/list/'); ?><?php echo $_SESSION['project_id']; ?>">
 								<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 							</form>
 						</div>
@@ -147,7 +144,7 @@
 	});
 
 
-	// limite_textarea(document.getElementById("snd_txt_3").value, "snd_3");
+	limite_textarea(document.getElementById("snd_txt_3").value, "snd_3");
 
 
 	function limite_textarea(valor, txt) {

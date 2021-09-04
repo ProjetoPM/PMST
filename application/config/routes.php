@@ -250,17 +250,19 @@ $route['schedule/earned-value-management/insert/(:num)'] = "EVM/insert/$1";
 $route['schedule/earned-value-management/update/(:num)'] = "EVM/update/$1";
 $route['schedule/earned-value-management/delete/(:num)'] = "EVM/delete/$1";
 
-$route['schedule/project-schedule-network-diagram/new/(:num)'] = "ProjectScheduleNetworkDiagram/new/$1";
+$route['schedule/project-schedule-network-diagram/new'] = "ProjectScheduleNetworkDiagram/new";
 $route['schedule/project-schedule-network-diagram/edit/(:num)'] = "ProjectScheduleNetworkDiagram/edit/$1";
 $route['schedule/project-schedule-network-diagram/list/(:num)'] = "ProjectScheduleNetworkDiagram/list/$1";
-$route['schedule/project-schedule-network-diagram/insert/(:num)'] = "ProjectScheduleNetworkDiagram/insert/$1";
+$route['schedule/project-schedule-network-diagram/insert'] = "ProjectScheduleNetworkDiagram/insert";
 $route['schedule/project-schedule-network-diagram/update/(:num)'] = "ProjectScheduleNetworkDiagram/update/$1";
 $route['schedule/project-schedule-network-diagram/delete/(:num)'] = "ProjectScheduleNetworkDiagram/delete/$1";
 
-$route['schedule/resource-requirements/new/(:num)'] = "ResourceRequirements/new/$1";
+$route['schedule/resource-requirements/newr'] = "ResourceRequirements/newr";
+$route['schedule/resource-requirements/new'] = "ResourceRequirements/new";
+
 $route['schedule/resource-requirements/edit/(:num)'] = "ResourceRequirements/edit/$1";
 $route['schedule/resource-requirements/list/(:num)'] = "ResourceRequirements/list/$1";
-$route['schedule/resource-requirements/insert/(:num)'] = "ResourceRequirements/insert/$1";
+$route['schedule/resource-requirements/insert'] = "ResourceRequirements/insert";
 $route['schedule/resource-requirements/update/(:num)'] = "ResourceRequirements/update/$1";
 $route['schedule/resource-requirements/delete/(:num)'] = "ResourceRequirements/delete/$1";
 
@@ -272,10 +274,10 @@ $route['schedule/duration-estimates/insert'] = "DurationEstimates/insert";
 $route['schedule/duration-estimates/update/(:num)'] = "DurationEstimates/update/$1";
 $route['schedule/duration-estimates/delete/(:num)'] = "DurationEstimates/delete/$1";
 
-$route['schedule/project-calendars/new/(:num)'] = "ProjectCalendars/new/$1";
+$route['schedule/project-calendars/new'] = "ProjectCalendars/new";
 $route['schedule/project-calendars/edit/(:num)'] = "ProjectCalendars/edit/$1";
 $route['schedule/project-calendars/list/(:num)'] = "ProjectCalendars/list/$1";
-$route['schedule/project-calendars/insert/(:num)'] = "ProjectCalendars/insert/$1";
+$route['schedule/project-calendars/insert'] = "ProjectCalendars/insert";
 $route['schedule/project-calendars/update/(:num)'] = "ProjectCalendars/update/$1";
 $route['schedule/project-calendars/delete/(:num)'] = "ProjectCalendars/delete/$1";
 

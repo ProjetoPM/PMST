@@ -84,7 +84,7 @@ class DurationEstimates extends CI_Controller
 		$query = $this->DurationEstimates_model->update($data['duration_estimates'], $id);
 
 		if ($query) {
-			// insertLogduration_estimates('update', 'duration estimates');
+			insertLogActivity('update', 'duration estimates');
 			$this->session->set_flashdata('success', 'Duration Estimates has been successfully changed!');
 			redirect('schedule/duration-estimates/list/' . $_SESSION['project_id']);
 		}
@@ -108,7 +108,7 @@ class DurationEstimates extends CI_Controller
 		$query = $this->DurationEstimates_model->insert($data['duration_estimates']);
 
 		if ($query) {
-			// insertLogduration_estimates('update', 'duration estimates');
+			insertLogActivity('create', 'duration estimates');
 			$this->session->set_flashdata('success', 'Duration Estimates has been successfully created!');
 			redirect('schedule/duration-estimates/list/' . $_SESSION['project_id']);
 		}

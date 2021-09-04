@@ -57,14 +57,19 @@
 							<form action="https://www.overleaf.com/docs" method="post" target="_blank">
 
 								<!-- template -->
-								<input type="hidden" name="snip[]" value="<?php echo $template ?>"><br>
+								<!-- <input type="hidden" name="snip[]" value="<?php echo $template ?>"><br>
+								<input type="hidden" name="snip[]" value="312312"><br>
 
-								<div id="snips"></div>
+								<div id="snips"></div> -->
 
 								<!-- template -->
-								<input type="hidden" name="snip_name[]" value="main.tex"><br>
+								<!-- <input type="hidden" name="snip_name[]" value="oi//od.paste"><br>
+								<input type="hidden" name="snip_name[]" value="mainn.tex"><br>
 
-								<div id="snips_names"></div>
+								<div id="snips_names"></div> -->
+
+								<input type="file" name="snip_uri" value="https://www.google.com/search?q=imagens&sxsrf=AOaemvKIzKePJpGFylrBstO--lk1wJOHIg:1630184153209&tbm=isch&source=iu&ictx=1&fir=FAF8dGkeLQQtbM%252ClPtar6DAj3Pg5M%252C_&vet=1&usg=AI4_-kQdfCISMTJKJ-SKWbaElcYPabdVfQ&sa=X&ved=2ahUKEwjy8PqazdTyAhVkGbkGHYimAh8Q9QF6BAguEAE#imgrc=FAF8dGkeLQQtbM"><br>
+								
 
 
 								<div class="col-lg-12">
@@ -130,7 +135,7 @@
 		}
 
 	});
-	
+
 
 
 	function create_snip(area, name, info) {
