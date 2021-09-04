@@ -62,6 +62,7 @@ class DeliverableStatus extends CI_Controller
 
     public function list($project_id)
     {
+        $dado['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
         $dado['project_id'] = $project_id;
         $dado['delivery_acceptance_term'] = $this->Delivery_acceptance_term_model->getAll($project_id);
         $this->load->view('frame/header_view');

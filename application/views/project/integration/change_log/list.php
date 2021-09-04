@@ -57,7 +57,7 @@
 													<tr dados='<?= json_encode($change_request); ?>'>
 														<td class="moreInformationTable"></td>
 														<td><?php echo $change_request->number_id; ?></td>
-														<td><?php echo $change_request->requester; ?></td>
+														<td><?php echo getStakeholderName($change_request->requester); ?></td>
 														<td><?php echo $change_request->request_date; ?></td>
 														<td><?php echo $change_request->type; ?></td>
 														<td><?php echo $change_request->status; ?></td>

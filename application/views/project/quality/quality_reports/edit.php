@@ -39,7 +39,7 @@
 									<label for="responsible"><?= $this->lang->line('responsible') ?></label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('responsible-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="responsible" type="text" name="responsible" value="<?php $responsible?>" class="form-control input-md">
+										<input id="responsible" type="text" name="responsible" value="<?php echo $responsible; ?>" class="form-control input-md">
 									</div>
 								</div>
 
@@ -47,7 +47,7 @@
 									<label for=""><?= $this->lang->line('identifier') ?></label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('responsible-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input type="text" name="identifier" class="form-control input-md">
+										<input type="text" name="identifier" class="form-control input-md" value="<?php echo $identifier; ?>">
 									</div>
 								</div>
 
@@ -55,7 +55,7 @@
 									<label for=""><?= $this->lang->line('type') ?></label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('responsible-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input type="text" name="type" class="form-control input-md">
+										<input type="text" name="type" class="form-control input-md" value="<?php echo $type; ?>">
 									</div>
 								</div>
 
@@ -63,7 +63,7 @@
 									<label for="date"><?= $this->lang->line('date') ?></label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('date-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="date" type="date" name="date" class="form-control input-md">
+										<input id="date" type="date" name="date" class="form-control input-md" value="<?php echo $date; ?>">
 									</div>
 								</div>
 
@@ -71,7 +71,7 @@
 									<label for=""><?= $this->lang->line('description') ?></label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('main_activities-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste"  name="description"></textarea>
+										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste"  name="description"> <?php echo $description; ?></textarea>
 									</div>
 								</div>
 
@@ -79,7 +79,7 @@
 									<label for=""><?= $this->lang->line('areas') ?></label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('next_activities-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste"  name="areas"></textarea>
+										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste"  name="areas"><?php echo $areas; ?></textarea>
 									</div>
 								</div>
 
@@ -87,7 +87,7 @@
 									<label for=""><?= $this->lang->line('deliveries') ?></label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('comments-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="deliveries"></textarea>
+										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="deliveries"><?php echo $deliveries; ?></textarea>
 									</div>
 								</div>
 
@@ -95,7 +95,7 @@
 									<label for=""><?= $this->lang->line('recommendations') ?></label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('issues-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="recommendations"></textarea>
+										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="recommendations"><?php echo $recommendations; ?></textarea>
 									</div>
 								</div>
 
@@ -103,7 +103,7 @@
 									<label for=""><?= $this->lang->line('corrective_actions') ?></label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('changes-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="corrective_actions"></textarea>
+										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="corrective_actions"><?php echo $corrective_actions; ?></textarea>
 									</div>
 								</div>
 
@@ -111,7 +111,7 @@
 									<label for=""><?= $this->lang->line('manager_opinion') ?></label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('risks-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="manager_opinion"></textarea>
+										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="manager_opinion"><?php echo $manager_opinion; ?></textarea>
 									</div>
 								</div>
 
@@ -119,7 +119,7 @@
 									<label for=""><?= $this->lang->line('conclusions') ?></label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('attention_points-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="conclusions"></textarea>
+										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="conclusions"><?php echo $conclusions; ?></textarea>
 									</div>
 								</div>
 

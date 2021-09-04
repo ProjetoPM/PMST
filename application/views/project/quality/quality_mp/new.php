@@ -78,7 +78,7 @@
                     <span class="qmp_5">2000</span><?= $this->lang->line('character') ?>
                     <a class="btn-sm btn-default" id="qmp_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('qmp_deliverables_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
-                    <textarea onkeyup="limite_textarea(this.value, 'qmp_5')" id="qmp_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="deliverables" ></textarea>
+                    <textarea onkeyup="limite_textarea(this.value, 'qmp_5')" id="qmp_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="activities" ></textarea>
                     </div>
                   </div>
 
