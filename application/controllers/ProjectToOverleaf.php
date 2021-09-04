@@ -776,8 +776,6 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] .= "\subsubsection{Summary Risks or Issues}\n";
 			$file["task"] .= $this->verificaDados($dataTEP[0]->summary_risks) . "\n";
 
-
-
 			return $file;
 		} else {
 			$file["task"] = "\n";
@@ -1453,7 +1451,7 @@ class ProjectToOverleaf extends CI_Controller
 		$file["name_task"] = "ResourcesManagementPlan.tex";
 		if ($dataREMP  != null) {
 			$file["task"] = "\n";
-			$file["task"]  .= "\section{Human Resources Management Plan}\n";
+			$file["task"]  .= "\section{Resources Management Plan}\n";
 
 			$file["task"]  .= "\subsubsection{Roles and Responsibilities}\n";
 			$file["task"]  .= $this->verificaDados($dataREMP[0]->roles_responsibilities) . "\n";
@@ -1485,7 +1483,7 @@ class ProjectToOverleaf extends CI_Controller
 			return $file;
 		} else {
 			$file["task"] = "\n";
-			$file["task"]  .= "% \section{Human Resources Management Plan}\n";
+			$file["task"]  .= "% \section{Resources Management Plan}\n";
 			$file["task"] .= "% No record found";
 			return $file;
 		}
@@ -2353,7 +2351,7 @@ class ProjectToOverleaf extends CI_Controller
 		$file .= "\include{QualityReports}\n";
 
 		// Resources
-		$file .= "\chapter{Project Human Resources Management}\n";
+		$file .= "\chapter{Project Resource Management}\n";
 		$file .= "\include{ResourcesManagementPlan}\n";
 		$file .= "\include{TeamPerformanceEvaluation}\n";
 
