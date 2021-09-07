@@ -17,9 +17,11 @@ class AssumptionLog extends CI_Controller
         $this->load->helper('log_activity');
 
 
-        $this->lang->load('btn', 'english');
-        // $this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('assumption_log', 'english');
+        if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('assumption_log', 'english');
+        }else{
+            $this->lang->load('assumption_log', 'portuguese-brazilian');
+        }
 
         // $this->lang->load('manage-cost','portuguese-brazilian');
 
@@ -76,11 +78,13 @@ class AssumptionLog extends CI_Controller
 
     public function list($project_id)
     {
+       
         $dado['project_id'] = $_SESSION['project_id'];
         $dado['assumption_log'] = $this->Assumption_log_model->getAll($_SESSION['project_id']);
         $this->load->view('frame/header_view');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');
+       
         $this->load->view('project/integration/assumption_log/list', $dado);
     }
 

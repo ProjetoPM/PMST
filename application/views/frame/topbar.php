@@ -50,6 +50,50 @@
              white-space: nowrap;
              font-size: large;
              color: aliceblue;
+
+           }
+
+           .language {
+             background-color: transparent;
+             color: #f6f6f6;
+             border-color: transparent;
+             box-shadow: none;
+             border: transparent;
+             padding-top: 15px;
+             font-size: 15px;
+           }
+
+           .language.active.focus,
+           .language.active:focus,
+           .language.focus,
+           .language:active.focus,
+           .language:active:focus,
+           .language:focus {
+             color: #f6f6f6;
+             text-decoration: none;
+             border: transparent;
+             background-color: transparent;
+             padding-top: 15px;
+             font-size: 15px;
+             background: rgba(0, 0, 0, 0.1);
+
+           }
+
+           /* .language.dropdown-menu>li>a:hover {
+             color: #f6f6f6;
+           } */
+
+           .language.focus,
+           .language.focus,
+           .language:hover {
+             color: #f6f6f6;
+             text-decoration: none;
+             padding-top: 14px;
+             border: transparent;
+             padding-top: 15px;
+             font-size: 15px;
+             background: rgba(0, 0, 0, 0.1);
+
            }
          </style>
 
@@ -61,10 +105,17 @@
            </div>
 
          <?php } ?>
-         <div class="load"> <i class="fa fa-cog fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span>
+         <div class="load" ><i style="padding-top:2px;padding-right:100%" class="fa fa-cog fa-spin fa-2x fa-fw"></i><span  class="sr-only">Loading...</span>
          </div>
 
-
+         <li class="dropdown hidden-xs" style="max-height: 50px;background-color: transparent;vertical-align:bottom">
+           <form>
+             <div class="form-group" style="vertical-align:bottom">
+               <div id="advanced" style="vertical-align:bottom" data-input-name="country3" data-selected-country="<?php if(strcmp($_SESSION['language'],"US") == 0){ echo "US";}else{echo"BR";} ?>" data-button-size="btn-lg" data-button-type="language" data-scrollable="true" data-scrollable-height="250px" data-countries='{"US": "United States","BR": "Brazil"}'>
+               </div>
+             </div>
+           </form>
+         </li>
 
          <?php if ($_SESSION['project_id'] != null) { ?>
 
@@ -77,6 +128,7 @@
            </li>
 
          <?php } ?>
+
 
          <li class="dropdown user user-menu">
            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -199,7 +251,32 @@
            <!-- CSS -->
            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css" />
 
+           <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+           <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
+           <script src="<?= base_url() ?>assets/js/jquery.flagstrap.js"></script>
+
            <script>
+             $('#advanced').flagStrap({
+               buttonSize: "btn-lg",
+               buttonType: "language",
+               labelMargin: "20px",
+               scrollable: false,
+               scrollableHeight: "350px",
+               onSelect: function(value, element) {
+                 $.ajax({
+                   url: "<?php echo base_url() ?>change_language/" + value,
+                   type: "POST",
+                   // data: form_data,
+                   cache: false,
+                   success: function(returnhtml) {
+                     alertify.success('Language Changed!');
+                     location.reload(true);
+                   }
+                 });
+               }
+             });
+
+
              function validar() {
                var senha = formuser.password.value;
                var rep_senha = formuser.rep_senha.value;
