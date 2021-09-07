@@ -26,6 +26,12 @@ class Project extends CI_Controller
 		$this->load->helper('url');
 		$this->load->helper('log_activity');
 		$this->load->model('project_model');
+		
+		// if(strcmp($_SESSION['language'],"US") == 0){
+        //     $this->lang->load('btn', 'english');
+        // }else{
+        //     $this->lang->load('btn', 'portuguese-brazilian');
+        // }
 	}
 
 	private function ajax_checking()
@@ -44,10 +50,14 @@ class Project extends CI_Controller
 			'title' => 'New Project'
 		);
 
-		$this->lang->load('btn', 'english');
-		// $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('new-project', 'english');
-		// $this->lang->load('new-project','portuguese-brazilian');
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+			$this->lang->load('new-project', 'english');
+        }else{
+            $this->lang->load('btn', 'portuguese-brazilian');
+			$this->lang->load('new-project','portuguese-brazilian');
+        }
+
 
 		$this->load->helper('url');
 		$this->load->view('frame/header_view');
@@ -248,6 +258,12 @@ class Project extends CI_Controller
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->parser->parse('project/my_projects', $dataproject);
+
+		// if(strcmp($_SESSION['language'],"US") == 0){
+        //     $this->lang->load('btn', 'english');
+        // }else{
+        //     $this->lang->load('btn', 'portuguese-brazilian');
+        // }
 		// $this->load->view('construction_services/chat_template', $dataproject);
 
 	}
