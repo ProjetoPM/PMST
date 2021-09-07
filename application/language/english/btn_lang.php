@@ -19,6 +19,19 @@ $lang['character3'] = '/45';
 $lang['character4'] = '/200';
 $lang['btn-create-project'] = 'Create New Project';
 $lang['btn-add-researcher'] = 'Add Researcher';
+$lang['btn-add_member'] = 'Add Member';
 $lang['project_title'] = 'Project Title: ';
+
+
+
+// Project
+$lang['btn-title'] = 'Title';
+$lang['created_by'] = "Created by";
+
+$lang['actions'] = 'Actions';
+$lang['acess_level'] = 'Acess Level';
+
+// Overleaf
+$lang['export_overleaf'] = 'Export Overleaf';
 
 ?>
