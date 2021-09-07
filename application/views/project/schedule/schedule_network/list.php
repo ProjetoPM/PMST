@@ -21,6 +21,11 @@
 						<a href="#" class="close" data-dismiss="alert">&times;</a>
 						<strong><?php echo $this->session->flashdata('error'); ?></strong>
 					</div>
+				<?php elseif ($this->session->flashdata('delete')) : ?>
+					<div class="alert alert-danger">
+						<a href="#" class="close" data-dismiss="alert">&times;</a>
+						<strong><?php echo $this->session->flashdata('delete'); ?></strong>
+					</div>
 				<?php endif; ?>
 				<!-- /.row -->
 				<div class="row">
@@ -73,7 +78,7 @@
 																</form>
 															</div>
 															<div class="col-sm-3">
-																<button type="submit" class="btn btn-danger" onclick="deletar(<?= $_SESSION['project_id'] ?>, <?= $snd->schedule_network_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+																<button type="submit" class="btn btn-danger" onclick="deletar(<?= $snd->schedule_network_id ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
 															</div>
 
 														</div>
@@ -126,8 +131,6 @@
 <!-- CSS -->
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css" />
 
-<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-					-->
 <script type="text/javascript">
 	'use strict'
 	let table;
@@ -144,7 +147,7 @@
 					"data": "dependence_type"
 				},
 				{
-					"data": "Lead/Lag"
+					"data": "lead/lag"
 				},
 				{
 					"data": "btn-actions",
@@ -159,8 +162,8 @@
 </script>
 
 <script type="text/javascript">
-	function deletar(idProjeto, id) {
-		//e.preventDefault();
+	function deletar(id) {
+		// e.preventDefault();
 		alertify.confirm('Do you agree?').setting({
 			'labels': {
 				ok: 'Agree',
@@ -168,21 +171,24 @@
 			},
 			'reverseButtons': false,
 			'onok': function() {
+				// var form_data = $(this).serialize();
 
-				console.log(`Passei o ${idProjeto} e ${id}`);
+				$.ajax({
+					url: "<?php echo base_url() ?>schedule/project-schedule-network-diagram/delete/" + id,
+					type: "POST",
+					// data: form_data,
+					cache: false,
+					success: function(returnhtml) {
+						alertify.success('Item deleted successfully!');
+						location.reload(true);
+					}
 
-				$.post("<?php echo base_url() ?>schedule/activity-list/delete/" + id, {
-					project_id: idProjeto,
 				});
 
-				alertify.success('You agree.');
-				location.reload();
-				//location.reload();
 			},
 			'oncancel': function() {
-				alertify.error('You did not agree.');
+				alertify.error('Item has not been deleted!');
 			}
 		}).show();
-
 	}
 </script>

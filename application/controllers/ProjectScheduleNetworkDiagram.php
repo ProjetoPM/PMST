@@ -37,10 +37,10 @@ class ProjectScheduleNetworkDiagram extends CI_Controller
 		$this->load->view('project/schedule/schedule_network/list', $dado);
 	}
 
-	public function edit($project_id)
+	public function edit($id)
 	{
-		$query['activity'] = $this->Activity_model->getAll($project_id);
-		$query['schedule_network'] = $this->ScheduleNetwork_model->get($project_id);
+		$query['activity'] = $this->Activity_model->getAll($_SESSION['project_id']);
+		$query['schedule_network'] = $this->ScheduleNetwork_model->get($id);
 
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/topbar');
@@ -63,31 +63,56 @@ class ProjectScheduleNetworkDiagram extends CI_Controller
 	{
 		$snd['predecessor_activity_id'] = $this->input->post('predecessor_activity_id');
 		$snd['activity_id'] = $this->input->post('activity_id');
-		$snd['lead_lag'] = $this->input->post('dependence_type');
-		$snd['project_id'] = $this->input->post('project_id');
 
-		$query = $this->ScheduleNetwork_model->update($snd, $id);
+		if (strcmp($snd['activity_id'], $snd['predecessor_activity_id']) == 0) {
+			$this->session->set_flashdata('error', 'An activity cannot be a predecessor of itself!');
+			redirect('schedule/project-schedule-network-diagram/edit/' . $id);
+		} else {
+			$snd['lead_lag'] = $this->input->post('lead_lag');
+			$snd['dependence_type'] = $this->input->post('dependence_type');
 
-		if ($query) {
-			insertLogActivity('update', 'project schedule network diagram');
-			$this->session->set_flashdata('success', 'Project Schedule Network Diagram has been successfully changed!');
-			redirect('schedule/project-schedule-network-diagram/list/' . $_SESSION['project_id']);
+			$query = $this->ScheduleNetwork_model->update($snd, $id);
+
+			if ($query) {
+				insertLogActivity('update', 'project schedule network diagram');
+				$this->session->set_flashdata('success', 'Project Schedule Network Diagram has been successfully changed!');
+				redirect('schedule/project-schedule-network-diagram/list/' . $_SESSION['project_id']);
+			}
 		}
 	}
 
 	public function insert()
 	{
+
 		$snd['predecessor_activity_id'] = $this->input->post('predecessor_activity_id');
 		$snd['activity_id'] = $this->input->post('activity_id');
-		$snd['lead_lag'] = $this->input->post('dependence_type');
-		$snd['project_id'] = $_SESSION['project_id'];
 
-		$query = $this->ScheduleNetwork_model->insert($snd);
+		if (strcmp($snd['activity_id'], $snd['predecessor_activity_id']) == 0) {
+			$this->session->set_flashdata('error', 'An activity cannot be a predecessor of itself!');
+			redirect('schedule/project-schedule-network-diagram/new');
+		} else {
+			$snd['lead_lag'] = $this->input->post('lead_lag');
+			$snd['dependence_type'] = $this->input->post('dependence_type');
+			$snd['project_id'] = $_SESSION['project_id'];
 
-		if ($query) {
-			insertLogActivity('insert', 'project schedule network diagram');
-			$this->session->set_flashdata('success', 'Project Schedule Network Diagram has been successfully created!');
-			redirect('schedule/project-schedule-network-diagram/list/' . $_SESSION['project_id']);
+			$query = $this->ScheduleNetwork_model->insert($snd);
+
+			if ($query) {
+				insertLogActivity('insert', 'project schedule network diagram');
+				$this->session->set_flashdata('success', 'Project Schedule Network Diagram has been successfully created!');
+				redirect('schedule/project-schedule-network-diagram/list/' . $_SESSION['project_id']);
+			}
 		}
 	}
+
+	public function delete($id)
+    {
+        $query = $this->ScheduleNetwork_model->delete($id);
+        if ($query) {
+            insertLogActivity('delete', 'project schedule network diagram');
+			$this->session->set_flashdata('delete', 'Item deleted successfully!');
+            // redirect('schedule/project-schedule-network-diagram/list/' . $_SESSION['project_id']);
+        }
+    }
+
 }

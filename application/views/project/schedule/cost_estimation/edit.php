@@ -37,7 +37,6 @@
 
 								<input type="hidden" id="project_id" name="project_id" value="<?php echo $project_id; ?>">
 								<!-- Textarea -->
-								<ul class="abas">
 									<!-- Aqui, criação da primeira aba -->
 
 									<div class="col-lg-12 form-group">

@@ -25,12 +25,12 @@
         }
 
         public function delete($id){
-            $this->db->where('schedule_network.id', $id);
+            $this->db->where('schedule_network.schedule_network_id', $id);
             return $this->db->delete('schedule_network');
         }
 
         public function edit($id) {
-            $query = $this->db->get_where('schedule_network', array('schedule_network.id'=>$id));
+            $query = $this->db->get_where('schedule_network', array('schedule_network.schedule_network_id'=>$id));
             return $query->result();
         }
 	}

@@ -99,7 +99,7 @@
 
 								<div class="col-lg-2 form-group">
 									<div class="form-check">
-										<input class="form-check-input" value="Start-to-Finish(SF)" type="radio" name="dependence_type" id="flexRadioDefault4">
+										<input required class="form-check-input" value="Start-to-Finish(SF)" type="radio" name="dependence_type" id="flexRadioDefault4">
 										<label class="form-check-label" for="flexRadioDefault2">
 											<?= $this->lang->line('snd_sf') ?>
 										</label>
@@ -111,7 +111,7 @@
 									<a class="btn-sm btn-default" id="snd_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('snd_anticipation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<span class="snd_3">2000</span><?= $this->lang->line('character') ?>
 									<div>
-										<input disabled id="snd_txt_3" type="text" name="anticipation" class="form-control input-md" onkeyup="limite_textarea(this.value, 'snd_3')" maxlength="2000" required="false">
+										<input disabled id="snd_txt_3" type="number" name="lead_lag" class="form-control input-md" onkeyup="limite_textarea(this.value, 'snd_3')" maxlength="2000">
 									</div>
 								</div>
 

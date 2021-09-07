@@ -1962,20 +1962,12 @@ class ProjectToOverleaf extends CI_Controller
 		$file["name_task"] = "StakeholderRegistration.tex";
 		if ($dataSHR != null) {
 			$file["task"] = "\n";
-			$file["task"] .= "\section{StakeholderRegistration}\n";
+			$file["task"] .= "\section{Stakeholder Registration}\n";
 			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataSHR as $data) {
-
-
-
 				$file["task"] .= "\item \\textbf{Name}: " .  $this->verificaDados($data->name) . "| \\textbf{Position}: " . $this->verificaDados($data->position) . "\n";
-				$file["task"] .= "\item \\textbf{Email}: " . $this->verificaDados($data->email) . "| \\textbf{Organization}:" . $this->verificaDados($data->organization) . "\n";
-
 
 				$file["task"] .= "\begin{itemize}\n";
-
-				$file["task"] .= "\item \\textbf{Position}:\n";
-				$file["task"] .= $this->verificaDados($data->position) . ";\n";
 
 				$file["task"] .= "\item \\textbf{Email}:\n";
 				$file["task"] .= $this->verificaDados($data->email) . ";\n";
@@ -2154,7 +2146,8 @@ class ProjectToOverleaf extends CI_Controller
 
 	public function verificaDados($dado)
 	{
-		if ($dado == null)
+		$newString = trim($dado);
+		if ($dado == null || empty($newString))
 			return "Not Defined";
 		else {
 			$dado = str_replace("\\", "", $dado);

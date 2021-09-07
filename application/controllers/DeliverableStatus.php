@@ -51,12 +51,12 @@ class DeliverableStatus extends CI_Controller
 
     public function delete($id)
     {
-        $project_id['project_id'] = $this->input->post('project_id');
-        //var_dump($id);exit;die;
+        // $project_id['project_id'] = $this->input->post('project_id');
         $query = $this->Delivery_acceptance_term_model->delete($id);
         if ($query) {
             insertLogActivity('delete', 'deliverable status');
-            redirect('integration/deliverable-status/list/' . $_SESSION['project_id']);
+            // $this->session->set_flashdata('error', 'Deliverable Status has been deleted!');
+            // redirect('integration/deliverable-status/list/' . $_SESSION['project_id']);
         }
     }
 

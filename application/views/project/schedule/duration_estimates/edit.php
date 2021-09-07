@@ -140,6 +140,7 @@
 	</div>
 </body>
 <script>
+	
 for (var i = 1; i <= 9; i++) {
 		if (document.getElementById("ade_tp_"+i).title == "") {
 			document.getElementById("ade_tp_"+i).hidden = true;
