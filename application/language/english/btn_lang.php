@@ -22,6 +22,10 @@ $lang['btn-add-researcher'] = 'Add Researcher';
 $lang['btn-add_member'] = 'Add Member';
 $lang['project_title'] = 'Project Title: ';
 
+$lang['search'] = 'Search:';
+$lang['entries'] = "entries";
+$lang['show'] = 'Show';
+
 
 
 // Project
