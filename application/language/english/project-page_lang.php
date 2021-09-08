@@ -20,67 +20,88 @@ $lang['risk'] = 'Risk';
 $lang['procurement'] = 'Procurement';
 $lang['stakeholder'] = 'Stakeholder';
 
-//
+// Integration
 $lang['project-charter'] = 'Project Charter';
-$lang['work_performance_report'] = 'Work Performance Reports';
 $lang['business_case'] = 'Business Case';
 $lang['benefits_plan'] = 'Benefits Management Plan';
-$lang['stakeholder-register'] = 'Stakeholder Register';
+$lang['assumption_log'] = 'Assumption Log';
 $lang['project-management'] = 'Project Management Plan';
+$lang['project-status'] = 'Proj. Performance & Mon. Report';
+$lang['deliverables-status'] = 'Deliverable Status';
+$lang['work_performance_report'] = 'Work Performance Reports';
+$lang['issue-log'] = 'Issue Log';
+$lang['lesson-learned-register'] = 'Lesson Learned Register';
+$lang['change-request'] = 'Change Request';
+$lang['change-log'] = 'Change Log';
+$lang['project-closure'] = 'Project Closure Term';
+$lang['final-report'] = 'Final Report';
+
+// Scope
 $lang['requirement-management'] = 'Requirements Man. Plan';
 $lang['scope-management'] = 'Scope Management Plan';
-$lang['schedule-management'] = 'Schedule Management Plan';
-$lang['activity-attributes'] = 'Activity Attributes';
-$lang['activity-list'] = 'Activity List';
-$lang['milestone-list'] = 'Milestone List';
-$lang['agregate-value'] = 'Earned Value Management';
-$lang['cost-management'] = 'Cost Management Plan';
-$lang['activity-cost'] = 'Cost Estimates';
-$lang['quantitative_risk_analysis'] = 'Quantitative Risk Analysis';
-$lang['quality-management'] = 'Quality Management Plan';
-$lang['quality_reports'] = 'Quality Reports';
-$lang['process-quality'] = 'Process Quality Checklists';
-$lang['hr-management'] = 'Resource Management Plan';
-$lang['communication-management'] = 'Commun. Management Plan';
-$lang['risk-management'] = 'Risk Management Plan';
-$lang['change-request'] = 'Change Request';
-$lang['make-decisions'] = 'Make-or-Buy Decisions';
-$lang['stakeholder-management'] = 'Stakeholder Engagement Plan';
 $lang['requirement-documentation'] = 'Requirement Documentation';
-$lang['requirement-traceability'] = 'Requirement Traceability Matrix';
+$lang['project-scope'] = 'Project Scope Statement';
+$lang['scope-baseline'] = 'Work Breakdown Structure';
+
+// Schedule
+$lang['schedule-management'] = 'Schedule Management Plan';
+$lang['activity-list'] = 'Activity List';
+$lang['agregate-value'] = 'Earned Value Management';
 $lang['project-schedule-network'] = 'Schedule Network Diagram';
 $lang['activity-resource'] = 'Resource Requirements';
-$lang['resource-breakdown'] = 'Resource Breakdown Structure';
 $lang['activity-duration'] = 'Duration Estimates';
-$lang['cost-baseline'] = 'Cost Baseline';
-$lang['project-funding'] = 'Project Funding Requirement';
+$lang['project-calendar'] = 'Project Calendars';
+
+// Cost
+$lang['cost-management'] = 'Cost Management Plan';
+$lang['activity-cost'] = 'Cost Estimates';
+
+// Quality
+$lang['quality-management'] = 'Quality Management Plan';
 $lang['product-quality'] = 'Product Quality Checklists';
-$lang['quality-metrics'] = 'Quality Metrics';
+$lang['quality_reports'] = 'Quality Reports';
+
+// Resources
+$lang['hr-management'] = 'Resource Management Plan';
+$lang['resource-breakdown'] = 'Resource Breakdown Structure';
+$lang['team-performance'] = 'Team Performance Assessments';
+
+// Communication
+$lang['communication-management'] = 'Commun. Management Plan';
+
+// Risk
+$lang['risk-management'] = 'Risk Management Plan';
 $lang['risk-register'] = 'Risk Register';
+$lang['risk-checklist'] = 'General Project Risk Checklist';
+
+// Procurement
 $lang['procurement-management'] = 'Procurement Management Plan';
 $lang['procurement-statement'] = 'Procurement Statement of Work';
 $lang['closed-procurement-documentation'] = 'Closed Procurement Documentation';
-$lang['project-scope'] = 'Project Scope Statement';
-$lang['scope-baseline'] = 'Work Breakdown Structure';
-$lang['project-calendar'] = 'Project Calendars';
+
+// Stakeholder
+$lang['stakeholder-register'] = 'Stakeholder Register';
+$lang['stakeholder-management'] = 'Stakeholder Engagement Plan';
+
+
+$lang['activity-attributes'] = 'Activity Attributes';
+$lang['milestone-list'] = 'Milestone List';
+$lang['quantitative_risk_analysis'] = 'Quantitative Risk Analysis';
+$lang['process-quality'] = 'Process Quality Checklists';
+$lang['make-decisions'] = 'Make-or-Buy Decisions';
+$lang['requirement-traceability'] = 'Requirement Traceability Matrix';
+$lang['cost-baseline'] = 'Cost Baseline';
+$lang['project-funding'] = 'Project Funding Requirement';
+$lang['quality-metrics'] = 'Quality Metrics';
 $lang['project-schedule'] = 'Project Schedule';
 $lang['schedule-baseline'] = 'Schedule Baseline';
 $lang['process-improvement'] = 'Process Improvement';
-$lang['project-status'] = 'Proj. Performance & Mon. Report';
-$lang['deliverables-status'] = 'Deliverable Status';
 $lang['project-team'] = 'Project Team Directory';
-$lang['team-performance'] = 'Team Performance Assessments';
 $lang['enterprise-environment'] = 'Enterprise Environment Factors';
 $lang['issues-record'] ='Issues Record';
 $lang['procurement-agreement'] = 'Procurement Agreement';
-$lang['issue-log'] = 'Issue Log';
-$lang['lesson-learned-register'] = 'Lesson Learned Register';
-$lang['change-log'] = 'Change Log';
+
 $lang['earned-value'] = 'Earned Value Status Report';
-$lang['lessons-learned'] = 'Project Closure Term';
-$lang['assumption-log'] = 'Assumption Log';
-$lang['risk-checklist'] = 'General Project Risk Checklist';
-$lang['final-report'] = 'Final Report';
 
 
 // btn NOTIFICATION BOARD

@@ -20,56 +20,89 @@ $lang['risk'] = 'Riscos';
 $lang['procurement'] = 'Aquisições';
 $lang['stakeholder'] = 'Partes Interessadas';
 
-// 
+// Integration 
 $lang['project-charter'] = 'Termo de Abertura do Projeto';
-$lang['stakeholder-register'] = 'Registrar Partes Interessadas';
+$lang['business_case'] = 'Caso de Negócio';
+$lang['benefits_plan'] = 'Plano de Gerenciamento de Benefícios';
+$lang['assumption_log'] = 'Registro de Premissas';
 $lang['project-management'] = 'Gerenciar Projeto';
+$lang['project-status'] = 'Relatório do Projeto'; //Project Status Report
+$lang['deliverables-status'] = 'Entregas'; //Deliverables Status
+$lang['work_performance_report'] = 'Relatório de Desempenho do Trabalho';
+$lang['lesson-learned-register'] = 'Registro das Lições Aprendidas';
+$lang['change-request'] = 'Solicitação de Mudança';
+$lang['change-log'] = 'Registrar Mudanças';
+$lang['project-closure'] = 'Project Closure Term';
+$lang['final-report'] = 'Relatório Final';
+
+// Scope
 $lang['requirement-management'] = 'Gerenciar Requisitos';
 $lang['scope-management'] = 'Gerencar Escopo';
-$lang['schedule-management'] = 'Gerenciar Cronograma';
-$lang['activity-attributes'] = 'Atributos das Atividades';
-$lang['activity-list'] = 'Lista das Atividades';
-$lang['milestone-list'] = 'Lista dos Marcos';
-$lang['cost-management'] = 'Gerenciar Custos';
-$lang['activity-cost'] = 'Estimativas de Custos das Atividades';
-$lang['quality-management'] = 'Gerenciar Qualidade';
-$lang['process-quality'] = 'Verificação da Qualidade do Processo';
-$lang['hr-management'] = 'Gerenciar Recursos Humanos';
-$lang['communication-management'] = 'Gerenciar Comunicações';
-$lang['risk-management'] = 'Gerenciar Riscos';
-$lang['change-request'] = 'Solicitação de Mudança';
-$lang['make-decisions'] = 'Decisões de Fazer ou Comprar';
-$lang['stakeholder-management'] = 'Gerenciar Partes Interessadas';
 $lang['requirement-documentation'] = 'Documentação dos Requisitos';
-$lang['requirement-traceability'] = 'Matriz de Rastreabilidade de Requisitos';
-$lang['project-schedule-network'] = 'Rede do Cronograma do Projeto';
-$lang['activity-resource'] = 'Requisitos de Recursos das Atividades';
-$lang['resource-breakdown'] = 'Estrutura Analítica dos Recursos';
-$lang['activity-duration'] = 'Estimativas de Duração das Atividades';
-$lang['cost-baseline'] = 'Linhas de Base dos Custos';
-$lang['project-funding'] = 'Requisitos de Financiamento do Projeto';
-$lang['product-quality'] = 'Verificação da Qualidade do Produto';
-$lang['quality-metrics'] = 'Métricas de Qualidade';
-$lang['risk-register'] = 'Registrar Riscos';
-$lang['procurement-management'] = 'Gerenciar Aquisições';
-$lang['procurement-statement'] = 'Especificação do trabalho das Aquisições';
 $lang['project-scope'] = 'Especificação do Escopo do Projeto';
 $lang['scope-baseline'] = 'Linhas de Base do Escopo';
+
+// Schedule
+$lang['schedule-management'] = 'Gerenciar Cronograma';
+$lang['activity-list'] = 'Lista das Atividades';
+$lang['agregate-value'] = 'Valor Agregado';
+$lang['project-schedule-network'] = 'Rede do Cronograma do Projeto';
+$lang['activity-resource'] = 'Requisitos de Recursos das Atividades';
+$lang['activity-duration'] = 'Estimativas de Duração das Atividades';
 $lang['project-calendar'] = 'Calendários do Projeto';
+
+// Cost
+$lang['cost-management'] = 'Gerenciar Custos';
+$lang['activity-cost'] = 'Estimativas de Custos das Atividades';
+
+// Quality
+$lang['quality-management'] = 'Gerenciar Qualidade';
+$lang['product-quality'] = 'Verificação da Qualidade do Produto';
+$lang['quality_reports'] = 'Relatório de Qualidade';
+
+// Resources
+$lang['hr-management'] = 'Gerenciar Recursos Humanos';
+$lang['resource-breakdown'] = 'Estrutura Analítica dos Recursos';
+$lang['team-performance'] = 'Avaliações de Desempenho da Equipe';
+
+// Communication
+$lang['communication-management'] = 'Gerenciar Comunicações';
+
+// Risk
+$lang['risk-management'] = 'Gerenciar Riscos';
+$lang['risk-register'] = 'Registrar Riscos';
+$lang['risk-checklist'] = 'Checklist de Risco Geral do Projeto';
+
+// Procurement
+$lang['procurement-management'] = 'Gerenciar Aquisições';
+$lang['procurement-statement'] = 'Especificação do trabalho das Aquisições';
+$lang['closed-procurement-documentation'] = 'Documentação de Encerramento das Aquisições';
+
+// Stakeholder
+$lang['stakeholder-register'] = 'Registrar Partes Interessadas';
+$lang['stakeholder-management'] = 'Gerenciar Partes Interessadas';
+
+
+$lang['activity-attributes'] = 'Atributos das Atividades';
+$lang['milestone-list'] = 'Lista dos Marcos';
+$lang['process-quality'] = 'Verificação da Qualidade do Processo';
+$lang['make-decisions'] = 'Decisões de Fazer ou Comprar';
+$lang['requirement-traceability'] = 'Matriz de Rastreabilidade de Requisitos';
+$lang['cost-baseline'] = 'Linhas de Base dos Custos';
+$lang['project-funding'] = 'Requisitos de Financiamento do Projeto';
+$lang['quality-metrics'] = 'Métricas de Qualidade';
 $lang['project-schedule'] = 'Cronograma do Projeto';
 $lang['schedule-baseline'] = 'Linhas de Base do Cronograma';
 $lang['process-improvement'] = 'Melhorias no Processo';
-$lang['project-status'] = 'Relatório do Projeto'; //Project Status Report
-$lang['deliverables-status'] = 'Entregas'; //Deliverables Status
+
+
 $lang['project-team'] = 'Designações do Pessoal do Projeto'; //Project Team Directory
-$lang['team-performance'] = 'Avaliações de Desempenho da Equipe';
 $lang['enterprise-environment'] = ''; //Enterprise Environment Factors
 $lang['issues-record'] ='Registrar Problemas'; //Issues Record
 $lang['procurement-agreement'] = 'Contratos de Aquisições';
 $lang['issue-log'] = 'Registrar Questões'; //Issue Log
-$lang['change-log'] = 'Registrar Mudanças';
 $lang['earned-value'] = 'Valor Agregado';
-$lang['lessons-learned'] = 'Lições Aprendidas'; //Lessons Learned
+$lang['lessons-learned-register'] = 'Lições Aprendidas'; //Lessons Learned
 
 // btn NOTIFICATION BOARD
 $lang['notification-board'] = 'QUADRO DE NOTIFICAÇÃO';
