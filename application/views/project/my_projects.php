@@ -61,7 +61,7 @@
                                         ?>
                                         <tr>
                                             <th><?= $this->lang->line('btn-title') ?></th>
-                                            <th>Created By</th>
+                                            <th><?= $this->lang->line('created_by') ?></th>
                                             <th><em class="fa fa-cog"></em><?= $this->lang->line('actions') ?></th>
                                             <th><?= $this->lang->line('acess_level') ?></th>
                                         </tr>
