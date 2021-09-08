@@ -12,9 +12,15 @@ $lang['btn-edit'] = 'Editar';
 $lang['btn-open'] = 'Abrir';
 $lang['btn-delete'] = 'Deletar';
 $lang['btn-add_member'] = 'Adicionar Membro';
+$lang['btn-actions'] = 'Ações';
 
 $lang['btn-create-project'] = 'Criar Novo Projeto';
 $lang['btn-add-researcher'] = 'Add Researcher';
+
+$lang['search'] = 'Pesquisar';
+$lang['entries'] = "entradas";
+$lang['show'] = 'Exibir';
+
 
 // Project
 $lang['btn-title'] = 'Título';
