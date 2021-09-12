@@ -14,6 +14,14 @@ class LogActivity extends CI_Controller
 		$this->load->helper('url');
 		$this->load->model('Log_model');
 		$this->load->model('view_model');
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+            $this->lang->load('project-page', 'english');
+        }else{
+            $this->lang->load('btn', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
 	}
 
 	public function index()
