@@ -103,9 +103,14 @@ $lang['procurement-agreement'] = 'Procurement Agreement';
 
 $lang['earned-value'] = 'Earned Value Status Report';
 
+// Sidebar
+$lang['projects'] = ' Projects';
+$lang['dashboard'] = ' Dashboard';
+
+
 
 // btn NOTIFICATION BOARD
-$lang['notification-board'] = 'NOTIFICATION BOARD';
+$lang['notification-board'] = 'Notification Board';
 
 
 ?>
