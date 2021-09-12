@@ -14,7 +14,7 @@ $lang['scope'] = 'Escopo';
 $lang['time'] = 'Cronograma';
 $lang['cost'] = 'Custos';
 $lang['quality'] = 'Qualidade';
-$lang['hr'] = 'Recursos Humanos';
+$lang['hr'] = 'Recursos';
 $lang['communication'] = 'Comunicações';
 $lang['risk'] = 'Riscos';
 $lang['procurement'] = 'Aquisições';
@@ -29,10 +29,11 @@ $lang['project-management'] = 'Gerenciar Projeto';
 $lang['project-status'] = 'Relatório do Projeto'; //Project Status Report
 $lang['deliverables-status'] = 'Entregas'; //Deliverables Status
 $lang['work_performance_report'] = 'Relatório de Desempenho do Trabalho';
+$lang['issue-log'] = 'Registro de Questões'; //Issue Log
 $lang['lesson-learned-register'] = 'Registro das Lições Aprendidas';
 $lang['change-request'] = 'Solicitação de Mudança';
-$lang['change-log'] = 'Registrar Mudanças';
-$lang['project-closure'] = 'Project Closure Term';
+$lang['change-log'] = 'Registro de Mudanças';
+$lang['project-closure'] = 'Termo de Encerramento do Projeto';
 $lang['final-report'] = 'Relatório Final';
 
 // Scope
@@ -43,7 +44,7 @@ $lang['project-scope'] = 'Especificação do Escopo do Projeto';
 $lang['scope-baseline'] = 'Linhas de Base do Escopo';
 
 // Schedule
-$lang['schedule-management'] = 'Gerenciar Cronograma';
+$lang['schedule-management'] = 'Plano de Gerenciamento de Cronograma';
 $lang['activity-list'] = 'Lista das Atividades';
 $lang['agregate-value'] = 'Valor Agregado';
 $lang['project-schedule-network'] = 'Rede do Cronograma do Projeto';
@@ -100,10 +101,14 @@ $lang['project-team'] = 'Designações do Pessoal do Projeto'; //Project Team Di
 $lang['enterprise-environment'] = ''; //Enterprise Environment Factors
 $lang['issues-record'] ='Registrar Problemas'; //Issues Record
 $lang['procurement-agreement'] = 'Contratos de Aquisições';
-$lang['issue-log'] = 'Registrar Questões'; //Issue Log
 $lang['earned-value'] = 'Valor Agregado';
 $lang['lessons-learned-register'] = 'Lições Aprendidas'; //Lessons Learned
 
+
+// Sidebar
+$lang['projects'] = ' Projetos';
+$lang['dashboard'] = ' Painel';
+
 // btn NOTIFICATION BOARD
-$lang['notification-board'] = 'QUADRO DE NOTIFICAÇÃO';
+$lang['notification-board'] = 'Quadro de Notificação';
 ?>
