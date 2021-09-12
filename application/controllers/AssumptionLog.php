@@ -20,9 +20,11 @@ class AssumptionLog extends CI_Controller
         if(strcmp($_SESSION['language'],"US") == 0){
             $this->lang->load('assumption_log', 'english');
             $this->lang->load('btn', 'english');
+            $this->lang->load('project-page', 'english');
         }else{
             $this->lang->load('assumption_log', 'portuguese-brazilian');
             $this->lang->load('btn', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
         }
 
         // $this->lang->load('manage-cost','portuguese-brazilian');
