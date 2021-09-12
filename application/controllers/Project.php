@@ -374,8 +374,10 @@ class Project extends CI_Controller
 
 			if(strcmp($_SESSION['language'],"US") == 0){
 				$this->lang->load('project-page', 'english');
+				$this->lang->load('btn', 'english');
 			}else{
 				$this->lang->load('project-page', 'portuguese-brazilian');
+				$this->lang->load('btn', 'portuguese-brazilian');
 			}
 
 			
