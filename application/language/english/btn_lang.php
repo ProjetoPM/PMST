@@ -22,6 +22,16 @@ $lang['btn-add-researcher'] = 'Add Researcher';
 $lang['btn-add_member'] = 'Add Member';
 $lang['project_title'] = 'Project Title: ';
 
+$lang['change-password'] = 'Change Password';
+$lang['my_profile'] = 'My Profile';
+$lang['logout'] = 'Logout';
+
+$lang['user_data'] = 'Your Personal Information';
+$lang['user_name'] = 'Your name';
+$lang['user_email'] = 'Your Email';
+$lang['user_institution'] = 'Your Institution';
+$lang['member_since'] = 'Member Since';
+
 $lang['search'] = 'Search:';
 $lang['entries'] = "entries";
 $lang['show'] = 'Show';
@@ -32,9 +42,9 @@ $lang['show'] = 'Show';
 $lang['btn-title'] = 'Title';
 $lang['created_by'] = "Created by";
 
-$lang['actions'] = 'Actions';
+$lang['actions'] = ' Actions';
 $lang['acess_level'] = 'Acess Level';
-
+$lang['pages'] = 'Page 1 of 1';
 // Overleaf
 $lang['export_overleaf'] = 'Export Overleaf';
 
