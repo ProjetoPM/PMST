@@ -272,7 +272,7 @@
 
 
 									<div class="col-lg-12">
-										<button id="pch_submit" type="submit" <?php echo $buttonsub ?> value="Save" class="btn btn-lg btn-success pull-right">
+										<button id="pch_submit" type="submit" <?php echo $buttonsub ?> value="<?= $this->lang->line('btn-save'); ?>" class="btn btn-lg btn-success pull-right">
 											<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?> </button>
 								</form>
 								<form action="<?php echo base_url('project/'); ?><?php echo $_SESSION['project_id']; ?>">
@@ -281,7 +281,7 @@
 							<?php } ?>
 
 							<!-- Trigger the modal with a button 2-->
-							<button type="button" style="margin-top:10px;" class="open-AddBookDialog btn btn-default btn-lg center-block" data-toggle="modal" data-target="#signature"><i class="glyphicon glyphicon-edit"></i>Signature</button>
+							<button type="button" style="margin-top:10px;" class="open-AddBookDialog btn btn-default btn-lg center-block" data-toggle="modal" data-target="#signature"><i class="glyphicon glyphicon-edit"></i><?= $this->lang->line('signature'); ?> </button>
 							<!-- Modal2 -->
 							<div class="modal fade" id="signature" role="dialog">
 								<div class="modal-dialog">
@@ -289,13 +289,13 @@
 									<div class="modal-content pad-modal">
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal">&times;</button>
-											<h4 class="modal-title">Signature - Your Access Level:
+											<h4 class="modal-title"><?= $this->lang->line('signature'); ?> - <?= $this->lang->line('pch_acess_level'); ?>:
 												<?php if ($_SESSION['access_level'] == "2") : ?>
-													Project Manager
+													<?= $this->lang->line('project_manager'); ?>
 												<?php elseif ($_SESSION['access_level'] == "1") : ?>
-													Professor
+													<?= $this->lang->line('professor'); ?>
 												<?php else : ?>
-													Staff
+													<?= $this->lang->line('staff'); ?>
 												<?php endif; ?> </h4>
 										</div>
 										<div class="modal-body">
