@@ -138,11 +138,11 @@
                                             </td>
                                             <td>
                                                 <?php if ($level == 0) {
-                                                    echo "Staff";
+                                                    echo $this->lang->line('staff');
                                                 } elseif ($level == 1) {
-                                                    echo "Professor";
+                                                    echo $this->lang->line('professor');
                                                 } elseif ($level == 2) {
-                                                    echo "Project Manager";
+                                                    echo $this->lang->line('project_manager');
                                                 } ?>
                                             </td>
                                         </tr>

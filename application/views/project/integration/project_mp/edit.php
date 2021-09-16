@@ -36,7 +36,7 @@
 								<form method="POST" action="<?php echo base_url('integration/project-mp/update'); ?>">
 									<input type="hidden" name="status" value="1">
 
-									<h3>Subsidiary Management Plans</h3>
+									<h3><?= $this->lang->line('subsidiary_mp')?></h3>
 
 									<div class=" col-lg-12 form-group">
 										<label for="project_guidelines"><?= $this->lang->line('pmp_guidelines') ?></label>
@@ -128,7 +128,7 @@
 										</div>
 									</div>
 
-									<h3>Baselines</h3>
+									<h3><?= $this->lang->line('baseline')?></h3>
 
 									<div class=" col-lg-12 form-group">
 										<label for="scope_baseline"><?= $this->lang->line('pmp_scope_baseline') ?></label>
@@ -157,7 +157,7 @@
 										</div>
 									</div>
 
-									<h3>Additional Components</h3>
+									<h3><?= $this->lang->line('additional_components')?></h3>
 
 									<div class=" col-lg-12 form-group">
 										<label for="change_mp"><?= $this->lang->line('pmp_change_mp') ?></label>
