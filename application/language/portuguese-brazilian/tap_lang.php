@@ -14,7 +14,7 @@ $lang['pch_risks'] = 'Risco geral do projeto';
 $lang['pch_schedule'] = 'Resumo de cronograma de marcos';
 $lang['pch_budge'] = 'Recursos Financeiros pré aprovados';
 $lang['pch_approval'] = 'Requisitos para aprovação do projeto';
-$lang['pch_stakeholder'] = 'Stakeholder List';
+$lang['pch_stakeholder'] = 'Lista de partes interessadas';
 $lang['pch_start'] = 'Data de Início*';
 $lang['pch_end'] = 'Data de Fim*';
 $lang['pch_exit_criteria'] = 'Critérios para término do projeto';
@@ -46,6 +46,16 @@ $lang['signature'] = 'Assinatura';
 $lang['pch_acess_level'] = 'Seu Nível de Acesso';
 $lang['signature_required'] = 'Assinatura Requerida: Professor';
 $lang['signed_pch'] = '*Uma vez que este documento é assinado pelo Professor, sua edição não será mais possível';
+$lang['signature_agreement'] = 'Eu concordo em assinar este documento';
+$lang['cancel_agreement'] = 'Eu concordo em cancelar todas as inscrições';
+$lang['date_time'] = 'Data/Horário';
+
+
+$lang['view_stakeholder_list'] = 'Visualizar Lista das Partes Interessadas';
+$lang['stakeholder_name'] = 'Nome';
+
+$lang['member_login'] = 'Login de Membro';
+$lang['credentials'] = 'Confirmar Credenciais e Assinatura';
 
 $lang['professor'] = 'Professor';
 $lang['project_manager'] = 'Gerente de Projeto';

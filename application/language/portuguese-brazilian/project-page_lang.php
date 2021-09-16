@@ -22,7 +22,7 @@ $lang['stakeholder'] = 'Partes Interessadas';
 
 // Integration 
 $lang['project-charter'] = 'Termo de Abertura do Projeto';
-$lang['business_case'] = 'Caso de Negócio';
+$lang['business_case'] = 'Business Case';
 $lang['benefits_plan'] = 'Plano de Gerenciamento de Benefícios';
 $lang['assumption_log'] = 'Registro de Premissas';
 $lang['project-management'] = 'Gerenciar Projeto';

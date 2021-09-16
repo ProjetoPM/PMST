@@ -15,6 +15,10 @@ $lang['btn-add_member'] = 'Adicionar Membro';
 $lang['project_title'] = 'Título do Projeto: ';
 $lang['btn-actions'] = 'Ações';
 
+$lang['email_required'] = 'É necessário fornecer um email válido.';
+$lang['password_required'] = 'É necessário fornecer uma senha.';
+$lang['password'] = 'Senha';
+
 $lang['change-password'] = 'Alterar Senha';
 $lang['my_profile'] = 'Meu Perfil';
 $lang['logout'] = 'Sair';
@@ -42,6 +46,11 @@ $lang['actions'] = ' Ações';
 $lang['acess_level'] = 'Nível de Acesso';
 $lang['pages'] = 'Página 1 de 1';
 
+$lang['professor'] = 'Professor';
+$lang['project_manager'] = 'Gerente de Projeto';
+$lang['staff'] = 'Equipe';
+
+$lang['footer_unipampa'] = '2019 por';
 // Overleaf
 $lang['export_overleaf'] = 'Exportar para Overleaf';
 

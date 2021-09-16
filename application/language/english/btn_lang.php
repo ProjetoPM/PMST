@@ -22,6 +22,11 @@ $lang['btn-add-researcher'] = 'Add Researcher';
 $lang['btn-add_member'] = 'Add Member';
 $lang['project_title'] = 'Project Title: ';
 
+$lang['email_required'] = 'Valid email is required: ex@abc.xyz.';
+$lang['password_required'] = 'Password is required.';
+
+$lang['password'] = 'Password';
+
 $lang['change-password'] = 'Change Password';
 $lang['my_profile'] = 'My Profile';
 $lang['logout'] = 'Logout';
@@ -44,6 +49,11 @@ $lang['created_by'] = "Created by";
 
 $lang['actions'] = ' Actions';
 $lang['acess_level'] = 'Acess Level';
+$lang['professor'] = 'Professor';
+$lang['project_manager'] = 'Project Manager';
+$lang['staff'] = 'Staff';
+$lang['footer_unipampa'] = '2019 by';
+
 $lang['pages'] = 'Page 1 of 1';
 // Overleaf
 $lang['export_overleaf'] = 'Export Overleaf';
