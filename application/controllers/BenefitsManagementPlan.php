@@ -12,12 +12,16 @@ class BenefitsManagementPlan extends CI_Controller
 			redirect(base_url());
 		}
 
-		// $this->load->helper('url', 'english');
-
-		$this->lang->load('btn', 'english');
-		// $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('benefits_plan', 'english');
-		// $this->lang->load('quality_mp','portuguese-brazilian');
+		
+        if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('benefits_plan', 'english');
+            $this->lang->load('btn', 'english');
+            $this->lang->load('project-page', 'english');
+        }else{
+            $this->lang->load('benefits_plan', 'portuguese-brazilian');
+            $this->lang->load('btn', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
 
 		$this->load->model('view_model');
 		$this->load->model('log_model');
@@ -51,6 +55,11 @@ class BenefitsManagementPlan extends CI_Controller
 
 	public function edit($project_id)
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+        }else{
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();

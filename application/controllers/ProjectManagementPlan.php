@@ -12,11 +12,17 @@ class ProjectManagementPlan extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
-		//$this->load->helper('url');
-		$this->lang->load('btn', 'english');
-		//$this->lang->load('btn', 'portuguese-brazilian');
-		$this->lang->load('project_mp', 'english');
-		//$this->lang->load('tap', 'portuguese-brazilian');
+		if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('project_mp', 'english');
+            $this->lang->load('btn', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('project_mp', 'portuguese-brazilian');
+            $this->lang->load('btn', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+		
+		
 		$this->load->model('Project_Management_model');
 		$this->load->model('view_model');
 		$this->load->helper('log_activity');
