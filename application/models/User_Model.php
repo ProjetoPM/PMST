@@ -68,6 +68,25 @@ class User_Model extends CI_Model
 		return $res['name'];
 	}
 
+	public function GetPhoto($project_id)
+
+	{
+
+		$this->db->select('photo_path');
+
+		$this->db->from($this->User);
+
+		$this->db->where("user_id", $project_id);
+
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+
+		$res = $query->row_array();
+
+		return $res['photo_path'];
+	}
+
 	public function GetUsersByProject($project_id)
 	{
 		

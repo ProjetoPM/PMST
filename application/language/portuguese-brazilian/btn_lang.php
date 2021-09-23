@@ -28,6 +28,7 @@ $lang['user_name'] = 'Seu nome';
 $lang['user_email'] = 'Seu email';
 $lang['user_institution'] = 'Sua Instituição';
 $lang['member_since'] = 'Membro desde ';
+$lang['choose_photo'] = 'Trocar Foto de perfil';
 
 
 $lang['btn-create-project'] = 'Criar Novo Projeto';

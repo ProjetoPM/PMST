@@ -240,6 +240,7 @@
                         if ($obj->Benefits_plan_model->get($project[0]->project_id) == null) { ?>
                           <a href="<?= base_url("integration/benefits-mp/new/" . $project[0]->project_id) ?>">
                           <?php } else { ?>
+                            
                             <a href="<?= base_url("integration/benefits-mp/edit/" . $project[0]->project_id) ?>">
                             <?php   } ?>
                             <div class=" col-lg-1 midBox integrationColor">

@@ -10,6 +10,7 @@ class Register extends CI_Controller
         parent::__Construct();
        
         $this->load->model('Admin_model');
+        $this->load->model('User_Model');
     }
 
     public function addUser()
@@ -80,6 +81,17 @@ class Register extends CI_Controller
         $this->db->where('user_id', $postData['user_id']);
         $this->db->update('user', $postData);
         $this->session->set_flashdata('success', 'Password has been updated!');
+        
+        redirect('project/show_projects');
+    }
+
+    public function savePhoto()
+    {
+        $postData['user_id'] = $this->input->post('user_id');
+        $postData['photo_path'] = md5($this->input->post('photo_path'));
+        $this->db->where('user_id', $postData['user_id']);
+        $this->db->update('user', $postData);
+        $this->session->set_flashdata('success', 'Profile Photo has been updated!');
         
         redirect('project/show_projects');
     }

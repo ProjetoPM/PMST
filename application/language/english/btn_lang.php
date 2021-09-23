@@ -36,6 +36,7 @@ $lang['user_name'] = 'Your name';
 $lang['user_email'] = 'Your Email';
 $lang['user_institution'] = 'Your Institution';
 $lang['member_since'] = 'Member Since';
+$lang['choose_photo'] = 'Change Profile Photo';
 
 $lang['search'] = 'Search:';
 $lang['entries'] = "entries";

@@ -84,6 +84,7 @@ $route['projects'] = 'Project/show_projects';
 $route['new'] = 'Project/project_form';
 $route['recover_password'] = 'Admin/reset_user_password';
 $route['register/update_password'] = 'Register/savePassword';
+$route['register/update_photo'] = 'Register/savePhoto';
 $route['change_language/(:any)'] = "Authentication/language/$1";
 $route['project/(:num)'] = 'Project/initial/$1';
 $route['edit/(:num)'] = 'Project/update/$1';

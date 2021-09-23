@@ -105,13 +105,17 @@
            </div>
 
          <?php } ?>
-         <div class="load" ><i style="padding-top:2px;padding-right:100%" class="fa fa-cog fa-spin fa-2x fa-fw"></i><span  class="sr-only">Loading...</span>
+         <div class="load"><i style="padding-top:2px;padding-right:100%" class="fa fa-cog fa-spin fa-2x fa-fw"></i><span class="sr-only">Loading...</span>
          </div>
 
          <li class="dropdown hidden-xs" style="max-height: 50px;background-color: transparent;vertical-align:bottom">
            <form>
              <div class="form-group" style="vertical-align:bottom">
-               <div id="advanced" style="vertical-align:bottom" data-input-name="country3" data-selected-country="<?php if(strcmp($_SESSION['language'],"US") == 0){ echo "US";}else{echo"BR";} ?>" data-button-size="btn-lg" data-button-type="language" data-scrollable="true" data-scrollable-height="250px" data-countries='{"US": "United States","BR": "Brazil"}'>
+               <div id="advanced" style="vertical-align:bottom" data-input-name="country3" data-selected-country="<?php if (strcmp($_SESSION['language'], "US") == 0) {
+                                                                                                                    echo "US";
+                                                                                                                  } else {
+                                                                                                                    echo "BR";
+                                                                                                                  } ?>" data-button-size="btn-lg" data-button-type="language" data-scrollable="true" data-scrollable-height="250px" data-countries='{"US": "United States","BR": "Brazil"}'>
                </div>
              </div>
            </form>
@@ -138,8 +142,17 @@
            <ul class="dropdown-menu">
              <!-- User image -->
              <li class="user-header">
+               <?php
+                $obj = &get_instance();
+                $obj->load->model('User_Model');
 
-               <img src="<?= base_url() ?>assets/images/user-icon.jpg" class="img-circle profileImgUrl" alt="User Image">
+                if ($obj->User_Model->GetPhoto($_SESSION['project_id']) == null) { ?>
+                 <img src="<?= base_url() ?>assets/images/user-icon.jpg" class="img-circle profileImgUrl" alt="User Image">
+               <?php } else { ?>
+                 <?php $photo = 'upload/'; ?>
+                 <?php $photo += $this->User_Model->GetPhoto($project_id); ?>
+                 echo '<div class="col-md-1" align="center"><img src="$photo" width="100px" height="100px" style="margin-top:15px; padding:8px; border:1px solid #ccc;" /></div>';
+               <?php   } ?>
 
                <p>
                  <span class="NameEdt"><?= $this->session->userdata('name'); ?></span>
@@ -149,7 +162,7 @@
              <li class="user-footer">
                <div class="pull-left">
                  <!-- <a href="#" class="btn btn-info btn-flat">Profile</a> -->
-                 <a data-toggle="modal" data-target="#myAccount" href="#myAccount" class="btn btn-info btn-flat"><?= $this->lang->line('my_profile')?> </a>
+                 <a data-toggle="modal" data-target="#myAccount" href="#myAccount" class="btn btn-info btn-flat"><?= $this->lang->line('my_profile') ?> </a>
                </div>
                <div class="pull-right">
                  <a href="<?= base_url(); ?>authentication/logout" class="btn btn-danger btn-block"><?= $this->lang->line('logout'); ?></a>
@@ -167,7 +180,7 @@
                <form role="form" method="post" onsubmit="return checkEmptyInput();" action="<?= base_url() ?>register/saveUpdateUser/">
                  <div class="modal-header text-center">
                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                   <h2 class="modal-title w-100 font-weight-bold"><?= $this->lang->line('user_data')?></h2>
+                   <h2 class="modal-title w-100 font-weight-bold"><?= $this->lang->line('user_data') ?></h2>
                  </div>
                  <?php $this->db->where('user_id', $_SESSION['user_id']);
                   $datauser = $this->db->get('user')->result();
@@ -177,17 +190,17 @@
                        <input id="user_id" name="user_id" type="hidden" placeholder="user_id" class="form-control input-md" value="<?= $data->user_id; ?>" required="true" readonly>
                      </div>
                      <div class="md-form mb-5">
-                       <label data-error="wrong" data-success="right" for="form3"><?= $this->lang->line('user_name')?></label>
+                       <label data-error="wrong" data-success="right" for="form3"><?= $this->lang->line('user_name') ?></label>
                        <input class="form-control" id="name" placeholder="Full name" name="name" type="name" value="<?= $data->name; ?>" required="true">
                      </div>
                      <br>
                      <div class="md-form mb-4">
-                       <label data-error="wrong" data-success="right" for="form2"><?= $this->lang->line('user_email')?></label>
+                       <label data-error="wrong" data-success="right" for="form2"><?= $this->lang->line('user_email') ?></label>
                        <input class="form-control" id="email" placeholder="E-mail" name="email" type="email" value="<?= $data->email; ?>" required="true" readonly>
                      </div>
                      <br>
                      <div class="md-form mb-4">
-                       <label data-error="wrong" data-success="right" for="form2"><?= $this->lang->line('user_institution')?></label>
+                       <label data-error="wrong" data-success="right" for="form2"><?= $this->lang->line('user_institution') ?></label>
                        <input class="form-control" id="institution" placeholder="Institution" name="institution" type="institution" value="<?= $data->institution; ?>" required="true">
                      </div>
                      <br>
@@ -202,17 +215,22 @@
 
                    <div class="modal-footer">
                      <div class="pull-left">
-                       <a data-toggle="modal" data-target="#changePasswordModal" href="#changePasswordModal" class="btn btn-info btn-flat"><?= $this->lang->line('change-password')?></a>
+                       <a data-toggle="modal" data-target="#changePasswordModal" href="#changePasswordModal" class="btn btn-info btn-flat"><?= $this->lang->line('change-password') ?></a>
+                       &nbsp;
                      </div>
-                     <button type="button" class="btn btn-default" data-dismiss="modal"><?= $this->lang->line('btn-close')?></button>
-                     <input id="login-submit" id="login-submit" type="submit" class="btn btn-success" value="<?= $this->lang->line('btn-save');?>">
+
+                     <div class="pull-left">
+                       <a data-toggle="modal" data-target="#changePhotoModal" href="#changePhotoModal" class="btn btn-info btn-flat"><?= $this->lang->line('choose_photo') ?></a>
+                     </div>
+                     <button type="button" class="btn btn-default" data-dismiss="modal"><?= $this->lang->line('btn-close') ?></button>
+                     <input id="login-submit" id="login-submit" type="submit" class="btn btn-success" value="<?= $this->lang->line('btn-save'); ?>">
                    </div>
                </form>
              </div>
            </div>
          </div>
 
-         <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="ModalmyAccount" aria-hidden="true">
+         <!-- <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="ModalmyAccount" aria-hidden="true">
            <div class="modal-dialog">
              <div class="modal-content">
                <div class="modal-header text-center">
@@ -239,8 +257,42 @@
                    </div>
                </div>
                <div class="modal-footer">
-                 <button type="button" class="btn btn-danger" data-dismiss="modal"><?= $this->lang->line('btn-cancel')?></button>
-                 <button type="submit" onclick="return validar()" class="btn btn-success"><?= $this->lang->line('btn-save')?></button>
+                 <button type="button" class="btn btn-danger" data-dismiss="modal"><?= $this->lang->line('btn-cancel') ?></button>
+                 <button type="submit" onclick="return validar()" class="btn btn-success"><?= $this->lang->line('btn-save') ?></button>
+                 </form>
+               </div>
+             </div>
+           </div> -->
+
+         <div class="modal fade" id="changePhotoModal" tabindex="-1" role="dialog" aria-labelledby="ModalmyAccount" aria-hidden="true">
+           <div class="modal-dialog">
+             <div class="modal-content">
+               <div class="modal-header text-center">
+                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                 <h2 class="modal-title w-100 font-weight-bold" id="myModalLabel">Update Profile Photo (<?= $this->session->userdata('email') ?>)</h2>
+               </div>
+               <div class="modal-body">
+                 &nbsp;
+                 <form method="POST" name="formuserphoto" action="<?= base_url() ?>register/update_photo">
+                   <input name="user_id" type="hidden" placeholder="user_id" class="form-control input-md" value="<?= $_SESSION['user_id']; ?>" required="true" readonly>
+                   <div class="row">
+                     <div class="col-lg-6">
+                       <div class="form-group">
+                         <label>Profile Photo</label> &nbsp;&nbsp;
+                         <input class="form-control" id="newProfilePhoto" placeholder="Upload Profile Photo" name="photo_path" type="file" required autofocus>
+                       </div>
+                     </div>
+                     <div class="col-lg-6">
+                       <div class="form-group">
+                         <label>Confirm Photo Change yes/no</label> &nbsp;&nbsp;
+                         <input class="form-control" id="confirmNewPhoto" placeholder="Confirm New Photo" name="rep_photo" type="text" required autofocus>
+                       </div>
+                     </div>
+                   </div>
+               </div>
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-danger" data-dismiss="modal"><?= $this->lang->line('btn-cancel') ?></button>
+                 <button type="submit" onclick="return validarFoto()" class="btn btn-success"><?= $this->lang->line('btn-save') ?></button>
                  </form>
                </div>
              </div>
@@ -279,7 +331,7 @@
 
              function validar() {
                var senha = formuser.password.value;
-               var rep_senha = formuser.rep_senha.value;
+               var rep_photo = formuser.rep_senha.value;
 
                if (senha != rep_senha) {
                  alertify.alert('The passwords are different!').setting({
@@ -288,6 +340,20 @@
                  formuser.password.focus();
                  return false;
                }
+
+             }
+
+             function validarFoto() {
+               var rep_photo = formuserphoto.rep_photo.value;
+
+               if (rep_photo != "yes") {
+                 alertify.alert('You cannot change your photo').setting({
+                   title: 'Alert!',
+                 }).show();
+                 formuserphoto.rep_photo.focus();
+                 return false;
+               }
+
              }
            </script>
        </ul>
