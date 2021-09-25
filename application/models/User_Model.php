@@ -84,7 +84,7 @@ class User_Model extends CI_Model
 
 		$res = $query->row_array();
 
-		return $res['photo_path'];
+		// return $res['photo_path'];
 	}
 
 	public function GetUsersByProject($project_id)

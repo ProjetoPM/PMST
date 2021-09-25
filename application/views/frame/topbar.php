@@ -143,17 +143,12 @@
              <!-- User image -->
              <li class="user-header">
                <?php
-                $obj = &get_instance();
-                $obj->load->model('User_Model');
 
-                if ($obj->User_Model->GetPhoto($_SESSION['project_id']) == null) { ?>
+                if ($_SESSION['profile_photo_path'] == null) { ?>
                  <img src="<?= base_url() ?>assets/images/user-icon.jpg" class="img-circle profileImgUrl" alt="User Image">
                <?php } else { ?>
-                 <?php $photo = 'upload/'; ?>
-                 <?php $photo += $this->User_Model->GetPhoto($project_id); ?>
-                 echo '<div class="col-md-1" align="center"><img src="$photo" width="100px" height="100px" style="margin-top:15px; padding:8px; border:1px solid #ccc;" /></div>';
+                <a target="_blank" href="<?= $_SESSION['profile_photo_path']?>"> <img style="padding-top: 3px; border: 1px solid #ddd; border-radius: 2px; padding: 5px; width: 65px;" src=" <?= $_SESSION['profile_photo_path']?>" class="imagem" alt="" /> </a>
                <?php   } ?>
-
                <p>
                  <span class="NameEdt"><?= $this->session->userdata('name'); ?></span>
                  <small><?= $this->session->userdata('email'); ?></small>
@@ -220,7 +215,7 @@
                      </div>
 
                      <div class="pull-left">
-                       <a data-toggle="modal" data-target="#changePhotoModal" href="#changePhotoModal" class="btn btn-info btn-flat"><?= $this->lang->line('choose_photo') ?></a>
+                       <a data-toggle="modal" data-target="#uploadProfilePhoto" href="#uploadProfilePhoto" class="btn btn-info btn-flat"><?= $this->lang->line('choose_photo') ?></a>
                      </div>
                      <button type="button" class="btn btn-default" data-dismiss="modal"><?= $this->lang->line('btn-close') ?></button>
                      <input id="login-submit" id="login-submit" type="submit" class="btn btn-success" value="<?= $this->lang->line('btn-save'); ?>">
@@ -230,7 +225,8 @@
            </div>
          </div>
 
-         <!-- <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="ModalmyAccount" aria-hidden="true">
+
+         <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="ModalmyAccount" aria-hidden="true">
            <div class="modal-dialog">
              <div class="modal-content">
                <div class="modal-header text-center">
@@ -262,41 +258,12 @@
                  </form>
                </div>
              </div>
-           </div> -->
-
-         <div class="modal fade" id="changePhotoModal" tabindex="-1" role="dialog" aria-labelledby="ModalmyAccount" aria-hidden="true">
-           <div class="modal-dialog">
-             <div class="modal-content">
-               <div class="modal-header text-center">
-                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                 <h2 class="modal-title w-100 font-weight-bold" id="myModalLabel">Update Profile Photo (<?= $this->session->userdata('email') ?>)</h2>
-               </div>
-               <div class="modal-body">
-                 &nbsp;
-                 <form method="POST" name="formuserphoto" action="<?= base_url() ?>register/update_photo">
-                   <input name="user_id" type="hidden" placeholder="user_id" class="form-control input-md" value="<?= $_SESSION['user_id']; ?>" required="true" readonly>
-                   <div class="row">
-                     <div class="col-lg-6">
-                       <div class="form-group">
-                         <label>Profile Photo</label> &nbsp;&nbsp;
-                         <input class="form-control" id="newProfilePhoto" placeholder="Upload Profile Photo" name="photo_path" type="file" required autofocus>
-                       </div>
-                     </div>
-                     <div class="col-lg-6">
-                       <div class="form-group">
-                         <label>Confirm Photo Change yes/no</label> &nbsp;&nbsp;
-                         <input class="form-control" id="confirmNewPhoto" placeholder="Confirm New Photo" name="rep_photo" type="text" required autofocus>
-                       </div>
-                     </div>
-                   </div>
-               </div>
-               <div class="modal-footer">
-                 <button type="button" class="btn btn-danger" data-dismiss="modal"><?= $this->lang->line('btn-cancel') ?></button>
-                 <button type="submit" onclick="return validarFoto()" class="btn btn-success"><?= $this->lang->line('btn-save') ?></button>
-                 </form>
-               </div>
-             </div>
            </div>
+
+
+           <?php $this->load->view('upload/photo_user') ?>
+
+
 
            <!-- JavaScript -->
            <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
