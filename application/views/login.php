@@ -33,8 +33,8 @@
                      <i class="fa fa-envelope" aria-hidden="true"></i>
                      </span>
                   </div>
-                  <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                     <input class="input100" id="password" placeholder=""<?= $this->lang->line('email_required')?>"" name="password" type="password" value="">
+                  <div class="wrap-input100 validate-input" data-validate = "<?= $this->lang->line('password_required')?>">
+                     <input class="input100" id="password" placeholder="<?= $this->lang->line('password')?>" name="password" type="password" value="">
                      <span class="focus-input100"></span>
                      <span class="symbol-input100">
                      <i class="fa fa-lock" aria-hidden="true"></i>

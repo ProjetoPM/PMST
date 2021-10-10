@@ -145,9 +145,10 @@
                <?php
 
                 if ($_SESSION['profile_photo_path'] == null) { ?>
-                 <img src="<?= base_url() ?>assets/images/user-icon.jpg" class="img-circle profileImgUrl" alt="User Image">
+                <a href = "photo_user2.php" >
+                 <img src="<?= base_url() ?>assets/images/user-icon.jpg"  class="img-circle profileImgUrl" alt="User Image">
                <?php } else { ?>
-                <a target="_blank" href="<?= $_SESSION['profile_photo_path']?>"> <img style="padding-top: 3px; border: 1px solid #ddd; border-radius: 2px; padding: 5px; width: 65px;" src=" <?= $_SESSION['profile_photo_path']?>" class="imagem" alt="" /> </a>
+                 <a target="_blank" href="<?= $_SESSION['profile_photo_path'] ?>"> <img style="padding-top: 3px; border: 1px solid #ddd; border-radius: 2px; padding: 5px; width: 65px;" src=" <?= $_SESSION['profile_photo_path'] ?>" class="imagem" alt="" /> </a>
                <?php   } ?>
                <p>
                  <span class="NameEdt"><?= $this->session->userdata('name'); ?></span>
@@ -269,6 +270,10 @@
            <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
            <!-- CSS -->
            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css" />
+           <!-- <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/login/vendor/bootstrap/css/bootstrap.min.css"> -->
+
+           <link rel="stylesheet" href="https://unpkg.com/jcrop/dist/jcrop.css">
+           <script src="https://unpkg.com/jcrop"></script>
 
            <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
            <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
@@ -305,19 +310,6 @@
                    title: 'Alert!',
                  }).show();
                  formuser.password.focus();
-                 return false;
-               }
-
-             }
-
-             function validarFoto() {
-               var rep_photo = formuserphoto.rep_photo.value;
-
-               if (rep_photo != "yes") {
-                 alertify.alert('You cannot change your photo').setting({
-                   title: 'Alert!',
-                 }).show();
-                 formuserphoto.rep_photo.focus();
                  return false;
                }
 
