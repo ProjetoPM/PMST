@@ -220,6 +220,8 @@
 											<i class="glyphicon glyphicon-ok"></i>
 											<?= $this->lang->line('btn-save') ?>
 										</button>
+
+										
 								</form>
 
 								<form action="<?php echo base_url('project/'); ?><?php echo $_SESSION['project_id']; ?>">

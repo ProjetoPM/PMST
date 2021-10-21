@@ -49,17 +49,27 @@ $lang['pmp_risk_mp_tp'] = ' Estabelece como as atividades de
 gerenciamento de risco serão estruturadas e realizadas';
 $lang['pmp_procurement_mp_tp'] = ' Estabelece como a equipe do projeto irá
 adquirir bens e serviços de fora da organização executora';
+$lang['pmp_stakeholder_mp_tp'] = 'Estabelece como as partes
+interessadas serão engajadas nas decisões e execução do projeto, de acordo com suas necessidades,
+interesses e impacto.';
 
 $lang['pmp_scope_baseline_tp'] = 'A versão aprovada de uma declaração de escopo,
 estrutura analítica do projeto (EAP) e seu dicionário EAP associado, que é usada como base para comparação';
-$lang['pmp_baseline_tp'] = '. The approved version of the schedule model that is used as
-a basis for comparison to the actual results';
-$lang['pmp_cost_baseline_tp'] = 'The approved version of the time-phased project budget that is
-used as a basis for comparison to the actual results';
+$lang['pmp_baseline_tp'] = 'A versão aprovada de um modelo de cronograma
+que é utilizada como base para comparação com os resultados reais.';
+$lang['pmp_cost_baseline_tp'] = 'A versão aprovada do orçamento referencial do projeto,
+que é usada como base para comparação com os resultados reais.';
 
-$lang['pmp_change_mp_tp'] = 'Describes how the change requests throughout the project will be formally authorized and incorporated.';
-$lang['pmp_configuration_mp_tp'] = 'Describes how the information about the items of the project (and which items) will be recorded and updated so that the product, service, or result of the project remains consistent and/or operative.';
-$lang['pmp_performance_tp'] = 'An integrated scope-schedule-cost plan for the project work against which project execution is compared to measure and manage performance.';
-$lang['pmp_lifecycle_tp'] = 'Describes the series of phases that a project passes through from its initiation to its closure.';
-$lang['pmp_development_tp'] = 'Describes the product, service, or result development approach, such as predictive, iterative, agile, or a hybrid model.';
-$lang['pmp_key_review_tp'] = 'Identifies the points in the project when the project manager and relevant stakeholders will review the project progress to determine if performance is as expected, or if preventive or corrective actions are necessary.';
+$lang['pmp_change_mp_tp'] = 'Descreve como as solicitações de mudança ao longo do projeto serão
+formalmente autorizadas e incorporadas.';
+$lang['pmp_configuration_mp_tp'] = 'Descreve como as informações sobre os itens do projeto (e
+quais itens) serão registradas e atualizadas para que o produto, serviço ou resultado do projeto permaneça
+consistente e/ou operacional.';
+$lang['pmp_performance_tp'] = 'Um plano integrado de escopo-cronograma-custo para o trabalho
+do projeto contra o qual a execução do projeto é comparada para medir e gerenciar o desempenho.';
+$lang['pmp_lifecycle_tp'] = 'Descreve a série de fases pelas quais um projeto passa, do início ao término.';
+$lang['pmp_development_tp'] = 'Descreve a abordagem de desenvolvimento de produto, serviço ou resultado,
+tais como preditiva, iterativa, ágil, ou um modelo híbrido.';
+$lang['pmp_key_review_tp'] = ' Identifica os pontos no projeto em que o gerente de projeto e as partes
+interessadas relevantes avaliarão o progresso do projeto para determinar se o desempenho está conforme o
+esperado, ou se medidas preventivas ou corretivas são necessárias.';
