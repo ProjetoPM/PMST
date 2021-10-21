@@ -113,5 +113,15 @@ class ProjectCalendars extends CI_Controller
 		}
 	}
 
+	public function delete($id)
+    {
+        $query = $this->ProjectCalendars_model->delete($id);
+        if ($query) {
+            insertLogActivity('delete', 'Project Calendars');
+			$this->session->set_flashdata('delete', 'Item deleted successfully!');
+            // redirect('schedule/project-schedule-network-diagram/list/' . $_SESSION['project_id']);
+        }
+    }
+
 	
 }

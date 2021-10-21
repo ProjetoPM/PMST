@@ -25,12 +25,12 @@
         }
 
         public function delete($id){
-            $this->db->where('project_calendars.id', $id);
+            $this->db->where('project_calendars.project_calendars_id ', $id);
             return $this->db->delete('project_calendars');
         }
 
         public function edit($id) {
-            $query = $this->db->get_where('project_calendars', array('project_calendars.id'=>$id));
+            $query = $this->db->get_where('project_calendars', array('project_calendars.project_calendars_id '=>$id));
             return $query->result();
         }
 	}

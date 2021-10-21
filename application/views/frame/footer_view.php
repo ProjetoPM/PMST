@@ -73,9 +73,10 @@
 
 <!-- ToolTip -->
 <script type="text/javascript">
-  // $(function() {
-  //   $('[data-toggle="tooltip"]').tooltip();
-  // });
+  $(function() {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+  $("[data-tt=tooltip]").tooltip();
 </script>
 
 <!-- <?php if ($this->uri->segment(1) != 'chat') { ?>

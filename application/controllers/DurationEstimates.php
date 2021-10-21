@@ -132,4 +132,15 @@ class DurationEstimates extends CI_Controller
 			redirect(base_url());
 		}
 	}
+
+	public function delete($activity_id)
+    {
+        $query = $this->DurationEstimates_model->delete($activity_id);
+        if ($query) {
+            insertLogActivity('delete', 'Project Calendars');
+			$this->session->set_flashdata('delete', 'Item deleted successfully!');
+            // redirect('schedule/project-schedule-network-diagram/list/' . $_SESSION['project_id']);
+        }
+    }
+
 }
