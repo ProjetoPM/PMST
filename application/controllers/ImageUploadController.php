@@ -56,21 +56,21 @@ class ImageUploadController extends CI_Controller
         }
     }
 
-    function image_delete($id = null, $project_id)
-    {
-        $idusuario = $_SESSION['user_id'];
-        $this->db->where('user_id', $idusuario);
-        $this->db->where('project_id', $project_id);
-        $project['dados'] = $this->db->get('project_user')->result();
+    // function image_delete($id = null, $project_id)
+    // {
+    //     $idusuario = $_SESSION['user_id'];
+    //     $this->db->where('user_id', $idusuario);
+    //     $this->db->where('project_id', $project_id);
+    //     $project['dados'] = $this->db->get('project_user')->result();
 
-        if (count($project['dados']) > 0) {
-            $this->db->where('id', $id);
-            $this->db->delete('upload');
-            echo "<script>window.location.href='javascript:history.back(-2);'</script>";
-        } else {
-            redirect(base_url());
-        }
-    }
+    //     if (count($project['dados']) > 0) {
+    //         $this->db->where('id', $id);
+    //         $this->db->delete('upload');
+    //         echo "<script>window.location.href='javascript:history.back(-2);'</script>";
+    //     } else {
+    //         redirect(base_url());
+    //     }
+    // }
 
     function image_upload()
     {
@@ -103,6 +103,15 @@ class ImageUploadController extends CI_Controller
         echo "<script>window.location.href='javascript:history.back(-2);'</script>";
 
         // redirect('integration/benefits-mp/edit/' . $_SESSION['project_id']);
+    }
+
+    function upload_photo()
+    {
+        // $this->load->view('frame/header_view');
+        // $this->load->view('frame/topbar');
+        // $this->load->view('frame/sidebar_nav_view');
+        $this->load->view('upload/photo_user2');
+
     }
 
     function images()

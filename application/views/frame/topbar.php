@@ -145,9 +145,10 @@
                <?php
 
                 if ($_SESSION['profile_photo_path'] == null) { ?>
-                 <img src="<?= base_url() ?>assets/images/user-icon.jpg" class="img-circle profileImgUrl" alt="User Image">
+                 <a href="<?= base_url("update_photo") ?>"><img src="<?= base_url() ?>assets/images/user-icon.jpg" class="img-circle profileImgUrl" alt="User Image"></a>
                <?php } else { ?>
-                <a target="_blank" href="<?= $_SESSION['profile_photo_path']?>"> <img style="padding-top: 3px; border: 1px solid #ddd; border-radius: 2px; padding: 5px; width: 65px;" src=" <?= $_SESSION['profile_photo_path']?>" class="imagem" alt="" /> </a>
+                <!-- <a href="<?= base_url("update_photo") ?>"> </a> -->
+                <a href="<?= base_url("update_photo") ?>"><img style="padding-top: 3px; border: 1px solid #ddd; border-radius: 2px; padding: 5px; width: 65px;" src="<?= $_SESSION['profile_photo_path'] ?>" class="imagem" alt="" /></a>
                <?php   } ?>
                <p>
                  <span class="NameEdt"><?= $this->session->userdata('name'); ?></span>
@@ -217,6 +218,7 @@
                      <div class="pull-left">
                        <a data-toggle="modal" data-target="#uploadProfilePhoto" href="#uploadProfilePhoto" class="btn btn-info btn-flat"><?= $this->lang->line('choose_photo') ?></a>
                      </div>
+
                      <button type="button" class="btn btn-default" data-dismiss="modal"><?= $this->lang->line('btn-close') ?></button>
                      <input id="login-submit" id="login-submit" type="submit" class="btn btn-success" value="<?= $this->lang->line('btn-save'); ?>">
                    </div>
