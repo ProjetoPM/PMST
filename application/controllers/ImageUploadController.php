@@ -13,6 +13,7 @@ class ImageUploadController extends CI_Controller
         $this->load->database();
         $this->load->helper('url');
         $this->load->helper('form');
+        $this->load->model('User_Model');
     }
 
     public function index()
@@ -105,6 +106,8 @@ class ImageUploadController extends CI_Controller
         // redirect('integration/benefits-mp/edit/' . $_SESSION['project_id']);
     }
 
+    
+
     function upload_photo()
     {
         // $this->load->view('frame/header_view');
@@ -113,6 +116,22 @@ class ImageUploadController extends CI_Controller
         $this->load->view('upload/photo_user2');
 
     }
+function upload_photo2()
+{
+    if(isset($_POST['image']))
+    $data = $_POST['image'];
+    $image_array_1 = explode(";", $data);
+
+    $image_array_2 = explode(",", $image_array_1[1]);
+    $data = base64_decode($image_array_2[1]);
+
+	$image_name = 'upload/' . time() . '.png';
+
+	file_put_contents($image_name, $data);
+
+	echo $image_name;
+}
+
 
     function images()
     {

@@ -163,7 +163,7 @@
                 reader.onloadend = function() {
                     var base64data = reader.result;
                     $.ajax({
-                        url: 'photo_user2.php',
+                        url: 'teste.php',
                         method: 'POST',
                         data: {
                             image: base64data
