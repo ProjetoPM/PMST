@@ -31,6 +31,39 @@
 		return $data1["name"];
 	}
 
+    function getUsername($id)
+    {
+        $obj = &get_instance();
+        $obj->load->model('User_Model');
+
+        $data1 = $obj->User_Model->GetUserById($id);
+        return $data1["name"];
+    }
+    function getPosition($id)
+    {
+        $obj = &get_instance();
+        $obj->load->model('User_Model');
+
+        $data1 = $obj->User_Model->GetUserById($id);
+        return $data1["name"];
+    }
+    function organization($id)
+    {
+        $obj = &get_instance();
+        $obj->load->model('User_Model');
+
+        $data1 = $obj->User_Model->GetUserById($id);
+        return $data1["name"];
+    }
+    function getEmail($id)
+    {
+        $obj = &get_instance();
+        $obj->load->model('User_Model');
+
+        $data1 = $obj->User_Model->GetUserById($id);
+        return $data1["name"];
+    }
+
 	function array_sort($array, $on, $order=SORT_ASC)
 {
     $new_array = array();
