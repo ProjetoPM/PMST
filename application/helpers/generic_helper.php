@@ -1,70 +1,72 @@
-<?php 
+<?php
 
-	
-	function email_exists($email)
-	{
-		$obj = &get_instance();
-		$obj->load->model('Admin_model');
 
-		$data2 = $obj->Exame_model->getUserByEmail($email); 
-		if($data2 != null){
-			return true;
-		}
-		return false;
-	}
+function email_exists($email)
+{
+    $obj = &get_instance();
+    $obj->load->model('Admin_model');
 
-	function getActivityName($id)
-	{
-		$obj = &get_instance();
-		$obj->load->model('Activity_model');
-
-		$data1 = $obj->Activity_model->get($id); 
-		return $data1["activity_name"];
-	}
-
-	function getStakeholderName($id)
-	{
-		$obj = &get_instance();
-		$obj->load->model('Stakeholder_model');
-
-		$data1 = $obj->Stakeholder_model->get($id); 
-		return $data1["name"];
-	}
-
-    function getUsername($id)
-    {
-        $obj = &get_instance();
-        $obj->load->model('User_Model');
-
-        $data1 = $obj->User_Model->GetUserById($id);
-        return $data1["name"];
+    $data2 = $obj->Exame_model->getUserByEmail($email);
+    if ($data2 != null) {
+        return true;
     }
-    function getPosition($id)
-    {
-        $obj = &get_instance();
-        $obj->load->model('User_Model');
+    return false;
+}
 
-        $data1 = $obj->User_Model->GetUserById($id);
-        return $data1["name"];
-    }
-    function organization($id)
-    {
-        $obj = &get_instance();
-        $obj->load->model('User_Model');
+function getActivityName($id)
+{
+    $obj = &get_instance();
+    $obj->load->model('Activity_model');
 
-        $data1 = $obj->User_Model->GetUserById($id);
-        return $data1["name"];
-    }
-    function getEmail($id)
-    {
-        $obj = &get_instance();
-        $obj->load->model('User_Model');
+    $data1 = $obj->Activity_model->get($id);
+    return $data1["activity_name"];
+}
 
-        $data1 = $obj->User_Model->GetUserById($id);
-        return $data1["name"];
-    }
+function getStakeholderName($id)
+{
+    $obj = &get_instance();
+    $obj->load->model('Stakeholder_model');
 
-	function array_sort($array, $on, $order=SORT_ASC)
+    $data1 = $obj->Stakeholder_model->get($id);
+    return $data1["name"];
+}
+
+function getUsername($id)
+{
+    $obj = &get_instance();
+    $obj->load->model('User_Model');
+
+    $data1 = $obj->User_Model->GetUserById($id);
+    return $data1["name"];
+}
+
+function getInstitution($id)
+{
+    $obj = &get_instance();
+    $obj->load->model('User_Model');
+
+    $data1 = $obj->User_Model->GetUserById($id);
+    return $data1["institution"];
+}
+
+function getEmail($id)
+{
+    $obj = &get_instance();
+    $obj->load->model('User_Model');
+
+    $data1 = $obj->User_Model->GetUserById($id);
+    return $data1["email"];
+}
+function getRole($id)
+{
+    $obj = &get_instance();
+    $obj->load->model('User_Model');
+
+    $data1 = $obj->User_Model->GetUserById($id);
+    return $data1["role"];
+}
+
+function array_sort($array, $on, $order = SORT_ASC)
 {
     $new_array = array();
     $sortable_array = array();
@@ -85,10 +87,10 @@
         switch ($order) {
             case SORT_ASC:
                 asort($sortable_array);
-            break;
+                break;
             case SORT_DESC:
                 arsort($sortable_array);
-            break;
+                break;
         }
 
         foreach ($sortable_array as $k => $v) {
@@ -98,8 +100,3 @@
 
     return $new_array;
 }
-		
-			
-
-
-?>

@@ -122,7 +122,7 @@
 							<div class="row">
 								<div class="col-lg-12">
 
-									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>stakeholder/stakeholder-register/new/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
+									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>researcher/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
 								</div>
 							</div>
 
@@ -135,8 +135,8 @@
 											<tr>
 			
 												<th>Name</th>
-												<th>Organization</th>
-												<th>Position</th>
+												<th>Institution</th>
+												<th>Acess Level</th>
 												<th>E-mail</th>
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
@@ -147,9 +147,18 @@
 											?>
 												<tr'>
 													<td><span class="texttd"><?= getUsername($item->user_id); ?></span></td>
-													<td><span class="texttd"><?php echo $item->user_id ?></span></td>
-													<td><span class="texttd"><?php echo $item->user_id ?></span></td>
-													<td><span class="texttd"><?php echo $item->user_id ?></span></td>
+													<td><span class="texttd"><?php echo getInstitution($item->user_id) ?></span></td>
+													
+													
+												<?php if (getRole($item->user_id) == 0) {
+                                                    $acess_level = "Staff";
+                                                } elseif (getRole($item->user_id) == 1) {
+                                                    $acess_level = "Professor";
+                                                } elseif (getRole($item->user_id) == 2) {
+                                                    $acess_level = "Project Manager";
+                                                } ?>
+													<td><span class="texttd"><?php echo $acess_level ?></span></td>
+													<td><span class="texttd"><?php echo getEmail($item->user_id) ?></span></td>
 													<td style="display: fixed;min-width: 100px;">
 														<div class="row center">
 															<div class="col-sm-4">
@@ -172,7 +181,7 @@
 										</tbody>
 									</table>
 
-									<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>">
+									<form action="<?php echo base_url('projects/'); ?>">
 										<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 									</form>
 								</div>
