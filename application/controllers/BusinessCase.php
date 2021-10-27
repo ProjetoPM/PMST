@@ -16,11 +16,9 @@ class BusinessCase extends CI_Controller
 		
         if(strcmp($_SESSION['language'],"US") == 0){
             $this->lang->load('business_case', 'english');
-            $this->lang->load('btn', 'english');
             $this->lang->load('project-page', 'english');
         }else{
             $this->lang->load('business_case', 'portuguese-brazilian');
-            $this->lang->load('btn', 'portuguese-brazilian');
             $this->lang->load('project-page', 'portuguese-brazilian');
         }
 
@@ -36,13 +34,9 @@ class BusinessCase extends CI_Controller
 	{
 
 		if(strcmp($_SESSION['language'],"US") == 0){
-            $this->lang->load('business_case', 'english');
             $this->lang->load('btn', 'english');
-            $this->lang->load('project-page', 'english');
         }else{
-            $this->lang->load('business_case', 'portuguese-brazilian');
             $this->lang->load('btn', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
         }
 
 		$this->db->where('user_id',  $_SESSION['user_id']);
@@ -67,13 +61,10 @@ class BusinessCase extends CI_Controller
 	public function edit($project_id)
 	{
 		if(strcmp($_SESSION['language'],"US") == 0){
-            $this->lang->load('business_case', 'english');
             $this->lang->load('btn', 'english');
-            $this->lang->load('project-page', 'english');
         }else{
-            $this->lang->load('business_case', 'portuguese-brazilian');
             $this->lang->load('btn', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
+            
         }
 		
 		$this->db->where('user_id',  $_SESSION['user_id']);
