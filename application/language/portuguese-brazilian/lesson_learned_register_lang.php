@@ -1,7 +1,7 @@
 <?php
 
 // Title
-$lang['llr_title'] = 'Lesson Learned Register';
+$lang['llr_title'] = 'Registro das Lições Aprendidas';
 
 //Form
 $lang['llr_stakeholder'] = 'Parte Interessada que Identificou'; //Stakeholder Who Identified

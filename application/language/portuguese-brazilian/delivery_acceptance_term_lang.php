@@ -1,6 +1,6 @@
 <?php
 // Title
-$lang['ds_title'] = 'Deliverable Status';
+$lang['ds_title'] = 'Status de Entregas';
 
 //Form
 $lang['ds_validator_name'] = 'Validator Name';
