@@ -164,8 +164,9 @@
 															<div class="col-sm-4">
 																<form action="<?php echo base_url() ?>stakeholder/stakeholder-register/edit/<?php echo $item->user_id; ?>" method="post">
 																	<input type="hidden" name="project_id" value="<?= $item->project_id ?>">
-																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
-																</form>
+																			<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
+																						
+																	</form>
 															</div>
 
 															<div class="col-sm-4">
