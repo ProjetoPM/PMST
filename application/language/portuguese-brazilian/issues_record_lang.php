@@ -1,30 +1,30 @@
 <?php
 
 // Title
-$lang['issues_record-title'] = 'Registro de Questão';
+$lang['is_title'] = 'Registro das Questões';
 
 //Form 
-$lang['ir-identification'] = 'Responsável pela Identificação';
-$lang['ir-identification_date'] = 'Data de Identificação';
-$lang['ir-question_description'] = 'Descrição da Questão';
-$lang['ir-type'] = 'Tipo da Questão';
-$lang['ir-responsable'] = 'Responsável pela Questão';
-$lang['ir-situation'] = 'Situação';
-$lang['ir-action'] = 'Ação Requerida';
-$lang['ir-resolution_date'] = 'Data de Resolução Planejada';
-$lang['ir-replan_date'] = 'Data de Resolução Replanejada';
-$lang['ir-observations'] = 'Observações';
+$lang['ir_identification'] = 'Responsável pela Identificação';
+$lang['ir_identification_date'] = 'Data de Identificação';
+$lang['ir_question_description'] = 'Descrição da Questão';
+$lang['ir_type'] = 'Tipo da Questão';
+$lang['ir_responsable'] = 'Responsável pela Questão';
+$lang['ir_situation'] = 'Situação';
+$lang['ir_action'] = 'Ação Requerida';
+$lang['ir_resolution_date'] = 'Data de Resolução Planejada';
+$lang['ir_replan_date'] = 'Data de Resolução Replanejada';
+$lang['ir_observations'] = 'Observações';
 
 //Tooltip
-$lang['ir-identification-tooltip'] = 'Responsable for the Identifying Example';
-$lang['ir-identification_date-tooltip'] = 'Identification Date Example';
-$lang['ir-question_description-tooltip'] = 'Description of the Issue Example';
-$lang['ir-type-tooltip'] = 'Ação Corretiva, Ação Preventiva, Reparo de Defeito e Atualizações';
-$lang['ir-responsable-tooltip'] = 'Issue Responsable Example';
-$lang['ir-situation-tooltip'] = 'Situation Example';
-$lang['ir-action-tooltip'] = 'Required Action Example';
-$lang['ir-resolution_date-tooltip'] = 'Planned Resolution Date Example';
-$lang['ir-replan_date-tooltip'] = 'Reorganized Resolution Date Example';
-$lang['ir-observations-tooltip'] = 'Comments Example';
+$lang['ir_identification_tooltip'] = 'u Quem levantou a questão';
+$lang['ir_identification_date_tooltip'] = 'Quando a questão foi levantada';
+$lang['ir_question_description_tooltip'] = 'Exemplo de Descrição da Questão';
+$lang['ir_type_tooltip'] = 'Ação Corretiva, Ação Preventiva, Reparo de Defeito e Atualizações';
+$lang['ir_responsable_tooltip'] = 'Quem está designado para a questão';
+$lang['ir_situation_tooltip'] = 'Exemplo de Status';
+$lang['ir_action_tooltip'] = 'Required Action Example';
+$lang['ir_resolution_date_tooltip'] = 'Exemplo de Data de Resolução Planejada';
+$lang['ir_replan_date_tooltip'] = 'Exemplo de Data de Resolução Replanejada';
+$lang['ir_observations_tooltip'] = 'Comments Example';
 
 ?>
