@@ -14,13 +14,13 @@ $lang['tep-sponsor_comments'] = 'Comentários do patrocinador';
 
 
 //Tooltip
-$lang['tep-client-tooltip'] = 'Nome do cliente Exemplo';
-$lang['tep-project_closure_date-tooltip'] = 'Data do encerramento do projeto Exemplo';
-$lang['tep-main_changes_approved-tooltip'] = 'Principais alterações aprovadas Exemplo';
-$lang['tep-main_deviations-tooltip'] = 'Principais desvios Exemplo';
-$lang['tep-main_lessons_learned-tooltip'] = 'Principais lições aprendidas Exemplo';
-$lang['tep-client_comments-tooltip'] = 'Comentários dos clientes Exemplo';
-$lang['tep-sponsor_comments-tooltip'] = 'Comentários do patrocinador Exemplo';
+$lang['tep-client-tp'] = 'Nome do cliente Exemplo';
+$lang['tep-project_closure_date-tp'] = 'Data do encerramento do projeto Exemplo';
+$lang['tep-main_changes_approved-tp'] = 'Principais alterações aprovadas Exemplo';
+$lang['tep-main_deviations-tp'] = 'Principais desvios Exemplo';
+$lang['tep-main_lessons_learned-tp'] = 'Principais lições aprendidas Exemplo';
+$lang['tep-client_comments-tp'] = 'Comentários dos clientes Exemplo';
+$lang['tep-sponsor_comments-tp'] = 'Comentários do patrocinador Exemplo';
 
 
 ?>
