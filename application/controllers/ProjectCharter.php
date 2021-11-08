@@ -14,11 +14,17 @@ class ProjectCharter extends CI_Controller
 			redirect(base_url());
 		}
 
-		//$this->load->helper('url');
-		$this->lang->load('btn', 'english');
-		//$this->lang->load('btn', 'portuguese-brazilian');
-		$this->lang->load('tap', 'english');
-		//$this->lang->load('tap', 'portuguese-brazilian');
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$this->lang->load('project-page', 'english');
+			$this->lang->load('btn', 'english');
+			$this->lang->load('tap', 'english');
+		}else{
+			$this->lang->load('project-page', 'portuguese-brazilian');
+			$this->lang->load('btn', 'portuguese-brazilian');
+			$this->lang->load('tap', 'portuguese-brazilian');
+		}
+
+
 		$this->load->model('Project_Charter_model');
 		$this->load->model('log_model');
 		$this->load->model('Stakeholder_mp_model');
@@ -59,6 +65,17 @@ class ProjectCharter extends CI_Controller
 		// var_dump($_SESSION['project']);
 		// die;
 		// exit;
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$this->lang->load('project-page', 'english');
+			$this->lang->load('btn', 'english');
+			$this->lang->load('tap', 'english');
+		}else{
+			$this->lang->load('project-page', 'portuguese-brazilian');
+			$this->lang->load('btn', 'portuguese-brazilian');
+			$this->lang->load('tap', 'portuguese-brazilian');
+		}
+
 		$this->db->where('user_id', $_SESSION['user_id']);
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();

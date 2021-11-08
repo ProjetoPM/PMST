@@ -10,6 +10,16 @@ class ProjectPerformanceReport extends CI_Controller
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }
+
+
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('project_performance_report', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('project_performance_report', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
         $this->load->helper('url');
         $this->load->model('Project_performance_report_model');
         $this->load->model('view_model');
@@ -17,9 +27,9 @@ class ProjectPerformanceReport extends CI_Controller
         $this->load->helper('log_activity');
 
 
-        $this->lang->load('btn', 'english');
+        
         // $this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('project_performance_report', 'english');
+
 
         // $this->lang->load('manage-cost','portuguese-brazilian');
 
@@ -27,6 +37,12 @@ class ProjectPerformanceReport extends CI_Controller
 
     public function new($project_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('btn', 'english');
+        } else {
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+
         $idusuario = $_SESSION['user_id'];
         $this->db->where('user_id', $idusuario);
         $this->db->where('project_id', $project_id);

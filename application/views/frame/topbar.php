@@ -150,10 +150,10 @@
              <li class="user-footer">
                <div class="pull-left">
                  <!-- <a href="#" class="btn btn-info btn-flat">Profile</a> -->
-                 <a data-toggle="modal" data-target="#myAccount" href="#myAccount" class="btn btn-info btn-flat">My Profile</a>
+                 <a data-toggle="modal" data-target="#myAccount" href="#myAccount" class="btn btn-info btn-flat"><?= $this->lang->line('my_profile')?> </a>
                </div>
                <div class="pull-right">
-                 <a href="<?= base_url(); ?>authentication/logout" class="btn btn-danger btn-block">Logout</a>
+                 <a href="<?= base_url(); ?>authentication/logout" class="btn btn-danger btn-block"><?= $this->lang->line('logout'); ?></a>
                </div>
              </li>
            </ul>
@@ -168,7 +168,7 @@
                <form role="form" method="post" onsubmit="return checkEmptyInput();" action="<?= base_url() ?>register/saveUpdateUser/">
                  <div class="modal-header text-center">
                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                   <h2 class="modal-title w-100 font-weight-bold">Your Personal Information</h2>
+                   <h2 class="modal-title w-100 font-weight-bold"><?= $this->lang->line('user_data')?></h2>
                  </div>
                  <?php $this->db->where('user_id', $_SESSION['user_id']);
                   $datauser = $this->db->get('user')->result();
@@ -178,17 +178,17 @@
                        <input id="user_id" name="user_id" type="hidden" placeholder="user_id" class="form-control input-md" value="<?= $data->user_id; ?>" required="true" readonly>
                      </div>
                      <div class="md-form mb-5">
-                       <label data-error="wrong" data-success="right" for="form3">Your name</label>
+                       <label data-error="wrong" data-success="right" for="form3"><?= $this->lang->line('user_name')?></label>
                        <input class="form-control" id="name" placeholder="Full name" name="name" type="name" value="<?= $data->name; ?>" required="true">
                      </div>
                      <br>
                      <div class="md-form mb-4">
-                       <label data-error="wrong" data-success="right" for="form2">Your email</label>
+                       <label data-error="wrong" data-success="right" for="form2"><?= $this->lang->line('user_email')?></label>
                        <input class="form-control" id="email" placeholder="E-mail" name="email" type="email" value="<?= $data->email; ?>" required="true" readonly>
                      </div>
                      <br>
                      <div class="md-form mb-4">
-                       <label data-error="wrong" data-success="right" for="form2">Your Institution</label>
+                       <label data-error="wrong" data-success="right" for="form2"><?= $this->lang->line('user_institution')?></label>
                        <input class="form-control" id="institution" placeholder="Institution" name="institution" type="institution" value="<?= $data->institution; ?>" required="true">
                      </div>
                      <br>
@@ -203,10 +203,10 @@
 
                    <div class="modal-footer">
                      <div class="pull-left">
-                       <a data-toggle="modal" data-target="#changePasswordModal" href="#changePasswordModal" class="btn btn-info btn-flat">Change Password</a>
+                       <a data-toggle="modal" data-target="#changePasswordModal" href="#changePasswordModal" class="btn btn-info btn-flat"><?= $this->lang->line('change-password')?></a>
                      </div>
-                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                     <input id="login-submit" id="login-submit" type="submit" class="btn btn-success" value="Save">
+                     <button type="button" class="btn btn-default" data-dismiss="modal"><?= $this->lang->line('btn-close')?></button>
+                     <input id="login-submit" id="login-submit" type="submit" class="btn btn-success" value="<?= $this->lang->line('btn-save');?>">
                    </div>
                </form>
              </div>
@@ -240,8 +240,8 @@
                    </div>
                </div>
                <div class="modal-footer">
-                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                 <button type="submit" onclick="return validar()" class="btn btn-success">Save</button>
+                 <button type="button" class="btn btn-danger" data-dismiss="modal"><?= $this->lang->line('btn-cancel')?></button>
+                 <button type="submit" onclick="return validar()" class="btn btn-success"><?= $this->lang->line('btn-save')?></button>
                  </form>
                </div>
              </div>

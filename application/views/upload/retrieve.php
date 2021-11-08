@@ -20,13 +20,13 @@ $images = $this->db->get('upload')->result_array();
                 <!-- <p style="text-align: center;">No Upload Images!</p> -->
             <?php } else {
             ?>
-                <h3 class="page-header" style="text-align: center;">Upload List</h3>
+                <h3 class="page-header" style="text-align: center;"><?= $this->lang->line('upload_list')?></h3>
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th class="text-center">#</th>
-                            <th>Description</th>
-                            <th>Preview</th>
+                            <th><?= $this->lang->line('photo_description') ?></th>
+                            <th><?= $this->lang->line('photo_preview') ?></th>
                             <th><?= $this->lang->line('btn-actions') ?></th>
                         </tr>
                     </thead>
@@ -58,7 +58,7 @@ $images = $this->db->get('upload')->result_array();
                                 </tr>
                     <?php
                             } else {
-                                echo 'No images found.';
+                                echo $this->lang->line('no_image');
                             }
                         }
                     }

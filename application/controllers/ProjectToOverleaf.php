@@ -11,6 +11,17 @@ class ProjectToOverleaf extends CI_Controller
 			redirect(base_url());
 		}
 
+		if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('overleaf', 'english');
+            $this->lang->load('btn', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('overleaf', 'english');
+            $this->lang->load('btn', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
+
 		// $this->load->helper('url', 'english');
 
 		$this->lang->load('btn', 'english');

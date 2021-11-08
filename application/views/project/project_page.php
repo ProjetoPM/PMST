@@ -166,7 +166,7 @@
                                     <div class=" col-lg-1 midBox integrationColor">
                                       <div class="verticalAlign">
                                         <i class="glyphicon glyphicon-star"></i>
-                                        <?= $this->lang->line('lessons-learned') ?>
+                                        <?= $this->lang->line('project-closure') ?>
                                       </div>
                                     </div>
                                     </a>
@@ -272,7 +272,7 @@
                               <div class=" col-lg-1 midBox integrationColor">
                                 <div class="verticalAlign">
                                   <i class="glyphicon glyphicon-star"></i>
-                                  <?= $this->lang->line('assumption-log') ?>
+                                  <?= $this->lang->line('assumption_log') ?>
                                 </div>
                               </div>
                             </a>

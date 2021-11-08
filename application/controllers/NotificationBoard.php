@@ -12,10 +12,18 @@ class NotificationBoard extends CI_Controller
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }
-
+        if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+            $this->lang->load('project-page', 'english');
+            $this->lang->load('notification-board', 'english');
+        }else{
+            $this->lang->load('btn', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+            $this->lang->load('notification-board','portuguese-brazilian');
+        }
         $this->lang->load('btn', 'english');
         //$this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('notification-board', 'english');
+        
         //$this->lang->load('notification-board','portuguese-brazilian');
 
         if (!$this->session->userdata('logged_in')) {

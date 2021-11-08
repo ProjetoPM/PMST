@@ -47,7 +47,7 @@
                                 <div class="row">
                                     <div class="col col-xs-2">
 
-                                        <a type="button" href="<?= base_url("new/") ?>" class="btn btn-normal btn-info btn-create"><i class="glyphicon glyphicon-plus"></i> Create New Project</a>
+                                        <a type="button" href="<?= base_url("new/") ?>" class="btn btn-normal btn-info btn-create"><i class="glyphicon glyphicon-plus"></i> <?= $this->lang->line('btn-create-project') ?></a>
                                     </div>
                                 </div>
                             </div>
@@ -60,10 +60,10 @@
                                         //print_r($arrayMerge);
                                         ?>
                                         <tr>
-                                            <th> Title</th>
-                                            <th>Created By</th>
-                                            <th><em class="fa fa-cog"></em> Actions</th>
-                                            <th>Access Level</th>
+                                            <th><?= $this->lang->line('btn-title') ?></th>
+                                            <th><?= $this->lang->line('created_by') ?></th>
+                                            <th><em class="fa fa-cog"></em><?= $this->lang->line('actions') ?></th>
+                                            <th><?= $this->lang->line('acess_level') ?></th>
                                         </tr>
                                         <?php foreach ($convidado as $pro) { ?>
                                     </thead>
@@ -104,7 +104,7 @@
                                                 $this->db->where('user_id', $retorna['$user_id']);
                                                 $this->db->where('project_id', $return['project_id']);
                                                 $this->db->from('project_user');
-                                                
+
                                                 $query = $this->db->get();
                                                 $res = $query->row_array();
                                                 $level = $res['access_level'];
@@ -130,19 +130,19 @@
                                                 ?>
                                             </td>
                                             <td align="left">
-                                                <a href="<?= base_url("project/" . $pro->project_id) ?>" class="btn btn-default"><em class="fa fa-folder-open-o"></em><span class="hidden-xs"> Open</span></a>
-                                                <a href="<?= base_url("edit/" . $pro->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-pencil"></em><span class="hidden-xs"> Edit</span></a>
-                                                <a href="<?= base_url("researcher/" . $pro->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-users"></em><span class="hidden-xs"> Add Member</span></a>
-                                                <a href="<?= base_url("projecttooverleaf/exportlatex/" . $pro->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-book"></em><span class="hidden-xs"> Export Overleaf</span></a>
-                                                <a href="<?= base_url("delete/" . $pro->project_id) ?>" onclick="return confirm('Are you sure you want to delete <?= $pro->title; ?>?');" class="btn btn-danger <?php echo $view . $execute; ?>"><em class="fa fa-trash"></em><span class="hidden-xs"> Delete</span></a>
+                                                <a href="<?= base_url("project/" . $pro->project_id) ?>" class="btn btn-default"><em class="fa fa-folder-open-o"></em><span class="hidden-xs"><?= $this->lang->line('btn-open') ?> </span></a>
+                                                <a href="<?= base_url("edit/" . $pro->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-pencil"></em><span class="hidden-xs"><?= $this->lang->line('btn-edit') ?></span></a>
+                                                <a href="<?= base_url("researcher/" . $pro->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-users"></em><span class="hidden-xs"><?= $this->lang->line('btn-add_member') ?></span></a>
+                                                <a href="<?= base_url("projecttooverleaf/exportlatex/" . $pro->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-book"></em><span class="hidden-xs"><?= $this->lang->line('export_overleaf') ?></span></a>
+                                                <a href="<?= base_url("delete/" . $pro->project_id) ?>" onclick="return confirm('Are you sure you want to delete <?= $pro->title; ?>?');" class="btn btn-danger <?php echo $view . $execute; ?>"><em class="fa fa-trash"></em><span class="hidden-xs"><?= $this->lang->line('btn-overleaf') ?></span></a>
                                             </td>
                                             <td>
                                                 <?php if ($level == 0) {
-                                                    echo "Staff";
+                                                    echo $this->lang->line('staff');
                                                 } elseif ($level == 1) {
-                                                    echo "Professor";
+                                                    echo $this->lang->line('professor');
                                                 } elseif ($level == 2) {
-                                                    echo "Project Manager";
+                                                    echo $this->lang->line('project_manager');
                                                 } ?>
                                             </td>
                                         </tr>
@@ -153,7 +153,7 @@
                             </div>
                             <div class="panel-footer">
                                 <div class="row">
-                                    <div class="col col-xs-4">Page 1 of 1
+                                    <div class="col col-xs-4"><?= $this->lang->line('pages')?>
                                     </div>
                                     <div class="col col-xs-8">
                                     </div>

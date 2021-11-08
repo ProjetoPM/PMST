@@ -10,6 +10,15 @@ class ChangeRequest extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('change_request', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+			$this->lang->load('change_request', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+		
 		$this->load->helper('url');
 		$this->load->model('view_model');
 		$this->load->model('Change_request_model');
@@ -18,15 +27,21 @@ class ChangeRequest extends CI_Controller
 		$this->load->model('Stakeholder_model');
 
 
-		$this->lang->load('btn', 'english');
+		
 		// $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('change_request', 'english');
+		
 		// $this->lang->load('risk','portuguese-brazilian');
 
 	}
 
 	public function list($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('btn', 'english');
+        } else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+        }
+
 		$dado['project_id'] = $project_id;
 
 		$dado['change_request'] = $this->Change_request_model->getAll($project_id);
@@ -38,6 +53,12 @@ class ChangeRequest extends CI_Controller
 
 	public function new($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('btn', 'english');
+        } else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+        }
+
 		$dado['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
 		$idusuario = $_SESSION['user_id'];
 		$this->db->where('user_id', $idusuario);
@@ -57,6 +78,12 @@ class ChangeRequest extends CI_Controller
 
 	public function edit($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('btn', 'english');
+        } else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+        }
+		
 		$query['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
 		$query['change_request'] = $this->Change_request_model->get($project_id);
 
