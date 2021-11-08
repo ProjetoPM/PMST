@@ -20,7 +20,7 @@ $lang['pss-deli-tp'] = 'Qualquer produto, resultado ou capacidade de realizar um
 necessário para concluir um processo, fase ou projeto. As entregas também incluem os resultados auxiliares,
 tais como relatórios e documentação de gerenciamento do projeto. Essas entregas podem ser descritas em nível
 conciso ou em grande detalhe.';
-$lang['pss_exclu_tp'] = 'Identifica o que é excluído do projeto. Declarar explicitamente o que está fora do escopo do
+$lang['pss-exclu-tp'] = 'Identifica o que é excluído do projeto. Declarar explicitamente o que está fora do escopo do
 projeto ajuda no gerenciamento das expectativas das partes interessadas e pode reduzir a distorção de escopo.';
 $lang['pss-rest-tp'] = 'Report format Example';
 $lang['pss-assumpt-tp'] = 'Report format Example';
