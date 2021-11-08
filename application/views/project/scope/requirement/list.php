@@ -29,7 +29,7 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-								<?= $this->lang->line('rd_title')  ?>
+								<?= $this->lang->line('rd-title')  ?>
 
 							</h1>
 
@@ -49,10 +49,10 @@
 										<thead>
 											<tr>
 												<th class="text-center">#</th>
-												<th><?= $this->lang->line('associated_id') ?></th>
-												<th><?= $this->lang->line('description') ?></th>
-												<th><?= $this->lang->line('priority') ?></th>
-												<th><?= $this->lang->line('business_strategy') ?></th>
+												<th><?= $this->lang->line('rd-associated_id') ?></th>
+												<th><?= $this->lang->line('rd-description') ?></th>
+												<th><?= $this->lang->line('rd-priority') ?></th>
+												<th><?= $this->lang->line('rd-business_strategy') ?></th>
 
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
