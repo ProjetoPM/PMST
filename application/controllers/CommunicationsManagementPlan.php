@@ -12,7 +12,7 @@ class CommunicationsManagementPlan extends CI_Controller
 
        // $this->lang->load('btn', 'english');
         //$this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('communication-item_lang', 'english');
+        $this->lang->load('communication-item', 'english');
         $this->lang->load('communication-item','portuguese-brazilian');
 
         if (!$this->session->userdata('logged_in')) {

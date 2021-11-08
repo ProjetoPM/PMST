@@ -19,7 +19,7 @@ class ProjectScheduleNetworkDiagram extends CI_Controller
 
 		$this->lang->load('btn', 'english');
 		// $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('schedule_net_lang', 'english');
+		$this->lang->load('schedule_net', 'english');
 
 		// $this->lang->load('manage-cost','portuguese-brazilian');
 
