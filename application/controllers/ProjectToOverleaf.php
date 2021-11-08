@@ -121,7 +121,7 @@ class ProjectToOverleaf extends CI_Controller
 			$file["name_task"] = "BusinessCase.tex";
 			$file["task"] = "\n";
 			$file["task"]  .= "\section{Business Case}\n";
-			$file["task"]  .= "\subsection{Business Deals}\n";
+			$file["task"]  .= "\subsection{Business Needs}\n";
 			$file["task"]  .= $dataBusinessCase[0]->business_deals . "\n";
 
 			$file["task"]  .= "\subsection{Situation Analysis}\n";

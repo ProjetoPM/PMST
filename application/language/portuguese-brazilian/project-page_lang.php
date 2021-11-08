@@ -32,7 +32,7 @@ $lang['work_performance_report'] = 'Relatório de Desempenho do Trabalho';
 $lang['issue-log'] = 'Registro de Questões'; //Issue Log
 $lang['lesson-learned-register'] = 'Registro das Lições Aprendidas';
 $lang['change-request'] = 'Solicitação de Mudança';
-$lang['change-log'] = 'Registro de Riscos';
+$lang['change-log'] = 'Registro das Mudanças';
 $lang['project-closure'] = 'Termo de Encerramento do Projeto';
 $lang['final-report'] = 'Relatório Final';
 

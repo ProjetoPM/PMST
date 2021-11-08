@@ -3,7 +3,7 @@
 $lang['bc_title'] = 'Business Case';
 
 //Form
-$lang['bc_business_deals'] = 'Business Deals';
+$lang['bc_business_deals'] = 'Business Needs';
 $lang['bc_situation_analysis'] = 'Situation Analysis';
 $lang['bc_recommendation'] = 'Recommendation';
 $lang['bc_evaluation'] = 'Evaluation';
