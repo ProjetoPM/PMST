@@ -1,17 +1,17 @@
 <?php
 // Title
-$lang['wp-title'] = 'Work Performance Reports';
+$lang['wp-title'] = 'Relatório de Desempenho de Trabalho';
 
 //Form
-$lang['wpr_responsible'] = 'Responsible';
-$lang['wpr_date'] = 'Date';
-$lang['wpr_main_activities'] = 'Main activities in execution (with %)';
-$lang['wpr_next_activities'] = 'Upcoming activities to perform';
-$lang['wpr_comments'] = 'General Comments';
-$lang['wpr_issues'] = 'Issues';
-$lang['wpr_changes'] = 'Changes';
-$lang['wpr_risks'] = 'Risks';
-$lang['wpr_attention_points'] = 'Attention Points';
+$lang['wpr_responsible'] = 'Responsável';
+$lang['wpr_date'] = 'Data';
+$lang['wpr_main_activities'] = 'Principais Atividades em Execução (em %)';
+$lang['wpr_next_activities'] = 'Próximas Atividades a serem executadas';
+$lang['wpr_comments'] = 'Comentários Gerais';
+$lang['wpr_issues'] = 'Problemas';
+$lang['wpr_changes'] = 'Mudanças';
+$lang['wpr_risks'] = 'Riscos';
+$lang['wpr_attention_points'] = 'Pontos de Atenção';
 
 
 //Tooltip

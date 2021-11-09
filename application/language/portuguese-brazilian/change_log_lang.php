@@ -1,5 +1,5 @@
 // Title
-$lang['change_log-title'] = 'Registro dos Riscos';
+$lang['change_log-title'] = 'Registro das Mudanças';
 
 <?php
 //Form 

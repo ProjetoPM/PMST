@@ -68,7 +68,7 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 								<?= $this->lang->line('pch_title')  ?> <?php if ($items != null) { ?>
-									<span data_tp="Signed"> <i class="glyphicon glyphicon-lock"></i></span>
+									<span data_tp="<?= $this->lang->line('signed')?>"> <i class="glyphicon glyphicon-lock"></i></span>
 								<?php }  ?>
 							</h1>
 							<?php
