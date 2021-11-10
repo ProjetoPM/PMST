@@ -12,13 +12,22 @@ class ProcurementManagementPlan extends CI_Controller
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }
+
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('procurement-mp', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('procurement-mp', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
         $this->load->helper('log_activity');
         $this->load->model('Project_model');
         $this->load->model('Procurement_mp_model');
         $this->load->model('view_model');
         $this->load->model('log_model');
         $this->lang->load('btn', 'english');
-        $this->lang->load('procurement-mp', 'english');
+        
     }
 
     private function ajax_checking()
@@ -30,17 +39,24 @@ class ProcurementManagementPlan extends CI_Controller
 
     public function new($project_id)
     {
+
+        if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+        
         $this->db->where('user_id',  $_SESSION['user_id']);
         $this->db->where('project_id',  $_SESSION['project_id']);
         $project['dados'] = $this->db->get('project_user')->result();
         // Verificando se o usuario logado tem acesso a esse projeto
-
+        
         if (count($project['dados']) > 0) {
             $dado['procurement_mp'] = $this->Procurement_mp_model->get($project_id);
             if ($dado['procurement_mp'] != null) {
                 redirect("procurement/procurement-mp/edit/" . $_SESSION['project_id']);
             }
-
+            
             $this->load->view('frame/header_view'); 
 		    $this->load->view('frame/topbar');
             $this->load->view('frame/sidebar_nav_view');
@@ -49,13 +65,19 @@ class ProcurementManagementPlan extends CI_Controller
             redirect(base_url());
         }
     }
-
+    
     public function edit($project_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('btn', 'english');
+        } else {
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+        
         $this->db->where('user_id',  $_SESSION['user_id']);
         $this->db->where('project_id',  $_SESSION['project_id']);
         $project['dados'] = $this->db->get('project_user')->result();
-
+        
         if (count($project['dados']) > 0) {
             $dado['procurement_mp'] = $this->Procurement_mp_model->get($project_id);
             if ($dado['procurement_mp'] == null) {
