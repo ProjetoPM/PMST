@@ -1,7 +1,7 @@
 <?php
 
 // Title
-$lang['ce_title'] = 'Cost Estimates';
+$lang['ce_title'] = 'Estimativa de Custos';
 //Form
 $lang['ce_activity_name'] = 'Nome da Ativade';
 $lang['ce_estimated_cost'] = 'Custo Estimado';
