@@ -1,18 +1,25 @@
 <?php
 
-// Titulo
-$lang['quality_plan-title'] = 'Plano de Gestão de Qualidade';
+// Title
+$lang['qmp_title'] = 'Plano de Gerenciamento de Qualidade';
 
-//Formato
-$lang['quality_plan-methodology'] = 'Metodologia';
-$lang['quality_plan-related_processes'] = 'Processos relacionados ao gerenciamento da qualidade do projeto';
-$lang['quality_plan-expectations_tolerances'] = 'Expectativas e Tolerâncias';
-$lang['quality_plan-traceability'] = 'Auditoria e Rastreabilidade';
+//Form 
+$lang['qmp_standards'] = 'Padrõe de Qualidade que Serão Usados no Projeto';
+$lang['qmp_objectives'] = 'Objetivos da Qualidade do Projeto';
+$lang['qmp_roles'] = 'Papéis e Responsabilidade da Qualidade';
+$lang['qmp_deliverables'] = 'Entregas do Projeto e Processos Sujeitos a Revisão da Qualidade';
+$lang['qmp_activities'] = 'Atividades de Controle da Qualidade e Gerenciamento da Qualidade Planejada para o Projeto';
+$lang['qmp_tools'] = 'Ferramentas de Qualidade que serão usadas pelo Projeto';
+$lang['qmp_procedures'] = 'Procedimentos Importantes e Relevantes para o Projeto';
 
-// Tooltip
-$lang['quality_plan-metodologia-tooltip'] = 'Exemplo de Metodologia';
-$lang['quality_plan-related_processes-tooltip'] = 'Exemplo de processos relacionados ao de gerenciamento de qualidade do projeto';
-$lang['quality_plan-expectations_tolerances-tooltip'] = 'Exemplo Expectativas e Tolerâncias Revisadas dos Stakeholders';
-$lang['quality_plan-traceability-tooltip'] = 'Exemplo auditoria e rastreabilidade';
+//Tooltip
 
+$lang['qmp_standards_tp'] = "";
+$lang['qmp_objectives_tp'] = "";
+$lang['qmp_roles_tp'] = "";
+$lang['qmp_deliverables_tp'] = "";
+$lang['qmp_activities_tp'] = "";
+$lang['qmp_tools_tp'] = "";
+$lang['qmp_procedures_tp'] = "";
 ?>
+
