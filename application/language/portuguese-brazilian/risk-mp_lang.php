@@ -1,5 +1,5 @@
 <?php
-$lang['rimp_title'] = 'Risk Management Plan';
+$lang['rimp_title'] = 'Plano de Gerenciamento de Riscos';
 
 $lang['rimp_methodology'] = 'Metodologia';
 $lang['rimp_roles_responsibilities'] = 'Papéis e Responsabilidades';
