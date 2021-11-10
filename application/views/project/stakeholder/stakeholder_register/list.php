@@ -134,10 +134,10 @@
 										<thead>
 											<tr>
 												<th class="text-center">#</th>
-												<th>Name</th>
-												<th>Organization</th>
-												<th>Position</th>
-												<th>E-mail</th>
+												<th><?= $this->lang->line('shr_name') ?> *</th>
+												<th><?= $this->lang->line('shr_organization') ?> *</th>
+												<th><?= $this->lang->line('shr_position') ?> *</th>
+												<th><?= $this->lang->line('shr_email') ?> *</th>
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
 										</thead>

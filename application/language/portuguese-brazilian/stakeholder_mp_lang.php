@@ -14,14 +14,14 @@ $lang['shep_current-engagement_tooltip'] = 'Select current Engagement Example';
 $lang['shep_expected-engagement_tooltip'] = 'Select Expected Engagement Example';
 $lang['shep_current-average_tooltip'] = 'Select Current Average Example';
 
-$lang['shep_1'] = 'Select Stakeholder';
-$lang['shep_2'] = 'Interest Level';
-$lang['shep_3'] = 'Power Level';
-$lang['shep_4'] = 'Influece Level';
-$lang['shep_5'] = 'Impact Level';
-$lang['shep_6'] = 'Current Engagement';
-$lang['shep_7'] = 'Desired Engagement';
-$lang['shep_8'] = "Add New Stakeholder";
+$lang['shep_1'] = 'Selecionar Parte Interessada';
+$lang['shep_2'] = 'Nível de Interesse';
+$lang['shep_3'] = 'Nível de Poder';
+$lang['shep_4'] = 'Nível de Influência';
+$lang['shep_5'] = 'Nível de Impacto';
+$lang['shep_6'] = 'Engajamento Atual';
+$lang['shep_7'] = 'Engajamento Desejado';
+$lang['shep_8'] = "Adicionar nova Parte Interessada";
 
 
 
