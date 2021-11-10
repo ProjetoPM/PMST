@@ -1,5 +1,5 @@
 <footer class="main-footer">
-  <div class="col-lg-12 text-center" vertical-align="middle"><small>&copy; 2019 by <a target="_blank" href="http://unipampa.edu.br">UNIPAMPA</a></small></div>
+  <div class="col-lg-12 text-center" vertical-align="middle"><small>&copy; <?= $this->lang->line('footer_unipampa'); ?> <a target="_blank" href="http://unipampa.edu.br">UNIPAMPA</a></small></div>
   </div>
   <!-- <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0

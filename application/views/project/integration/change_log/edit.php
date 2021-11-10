@@ -28,7 +28,7 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-				Change Log
+				<?= $this->lang->line('change_log-title')?>
 
 							</h1>
 

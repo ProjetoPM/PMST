@@ -8,18 +8,33 @@ class ProcurementStatementOfWork extends CI_Controller {
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('procurement_statement_of_work','english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('procurement_statement_of_work', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
 		$this->load->helper('url');
 		$this->load->model('Procurement_statement_of_work_model');
 		$this->load->helper('log_activity');
 
-		$this->lang->load('btn','english');
         // $this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('procurement_statement_of_work','english');
+        
         // $this->lang->load('risk','portuguese-brazilian');
 
 	}
 
 	public function list($project_id){
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		
 		$dado['project_id'] = $project_id;
 
 		$dado['procurement_statement_of_work'] = $this->Procurement_statement_of_work_model->getAll($project_id);

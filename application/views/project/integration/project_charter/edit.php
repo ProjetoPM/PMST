@@ -68,13 +68,13 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 								<?= $this->lang->line('pch_title')  ?> <?php if ($items != null) { ?>
-									<span data_tp="Signed"> <i class="glyphicon glyphicon-lock"></i></span>
+									<span data_tp="<?= $this->lang->line('signed')?>"> <i class="glyphicon glyphicon-lock"></i></span>
 								<?php }  ?>
 							</h1>
 							<?php
 							foreach ($project_charter as $pj) {
 							?>
-			
+
 								<form method="POST" action="<?php echo base_url('integration/project-charter/update'); ?>">
 									<input type="hidden" name="status" value="1">
 
@@ -83,12 +83,12 @@
 										<span class="pch_1">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id="pch_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<textarea onkeyup="limite_textarea(this.value, 'pch_1')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pch_txt_1" name="project_description"><?php echo $pj->project_description; ?></textarea>	
+											<textarea onkeyup="limite_textarea(this.value, 'pch_1')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pch_txt_1" name="project_description"><?php echo $pj->project_description; ?></textarea>
 										</div>
 									</div>
 
-                                        <!-- Inicio teste datas -->
-                                        <div class="form-group">
+									<!-- Inicio teste datas -->
+									<div class="form-group">
 										<div class="col-lg-3">
 											<label><?= $this->lang->line('pch_start') ?></label>
 											<div class="input-group padCalendar">
@@ -112,7 +112,7 @@
 										</div>
 									</div>
 									<!-- Fim teste Datas -->
-									
+
 									<div class=" col-lg-12 form-group">
 										<label for="project_purpose"><?= $this->lang->line('pch_purpose') ?></label>
 										<a class="btn-sm btn-default" id="pch_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_purpose_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -213,7 +213,7 @@
 										</div>
 									</div>
 
-									
+
 
 
 									<!-- Início modal da lista de stakeholder -->
@@ -221,7 +221,7 @@
 
 
 									<!-- Trigger the modal with a button -->
-									<button type="button" class="open-AddBookDialog btn btn-warning btn-lg center-block" data-toggle="modal" data-target="#add">View Stakeholder List</button>
+									<button type="button" class="open-AddBookDialog btn btn-warning btn-lg center-block" data-toggle="modal" data-target="#add"><?= $this->lang->line('view_stakeholder_list'); ?></button>
 									<!-- Modal -->
 									<div class="modal fade" id="add" role="dialog">
 										<div class="modal-dialog">
@@ -237,7 +237,7 @@
 														<table class="col-lg-12">
 															<thead>
 																<tr>
-																	<th>Name</th>
+																	<th><?= $this->lang->line('stakeholder_name'); ?></th>
 																	<th>Email</th>
 																</tr>
 															</thead>
@@ -272,16 +272,16 @@
 
 
 									<div class="col-lg-12">
-										<button id="pch_submit" type="submit" <?php echo $buttonsub ?> value="Save" class="btn btn-lg btn-success pull-right">
+										<button id="pch_submit" type="submit" <?php echo $buttonsub ?> value="<?= $this->lang->line('btn-save'); ?>" class="btn btn-lg btn-success pull-right">
 											<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?> </button>
 								</form>
 								<form action="<?php echo base_url('project/'); ?><?php echo $_SESSION['project_id']; ?>">
-									<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
+									<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back'); ?></button>
 								</form>
 							<?php } ?>
 
 							<!-- Trigger the modal with a button 2-->
-							<button type="button" style="margin-top:10px;" class="open-AddBookDialog btn btn-default btn-lg center-block" data-toggle="modal" data-target="#signature"><i class="glyphicon glyphicon-edit"></i>Signature</button>
+							<button type="button" style="margin-top:10px;" class="open-AddBookDialog btn btn-default btn-lg center-block" data-toggle="modal" data-target="#signature"><i class="glyphicon glyphicon-edit"></i><?= $this->lang->line('signature'); ?> </button>
 							<!-- Modal2 -->
 							<div class="modal fade" id="signature" role="dialog">
 								<div class="modal-dialog">
@@ -289,18 +289,19 @@
 									<div class="modal-content pad-modal">
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal">&times;</button>
-											<h4 class="modal-title">Signature - Your Access Level:
+											<h4 class="modal-title"><?= $this->lang->line('signature'); ?> - <?= $this->lang->line('pch_acess_level'); ?>:
 												<?php if ($_SESSION['access_level'] == "2") : ?>
-													Project Manager
+													<?= $this->lang->line('project_manager'); ?>
 												<?php elseif ($_SESSION['access_level'] == "1") : ?>
-													Professor
+													<?= $this->lang->line('professor'); ?>
 												<?php else : ?>
-													Staff
+													<?= $this->lang->line('staff'); ?>
 												<?php endif; ?> </h4>
+
 										</div>
 										<div class="modal-body">
-											<p>Signature Required: Professor</p>
-											<p>*When this document is signed by the Professor, the edition will no longer be available</p>
+											<p><?= $this->lang->line('signature_required'); ?></p>
+											<p><?= $this->lang->line('signed_pch'); ?></p>
 											<?php if ($_SESSION['access_level'] == "1") {
 											?>
 												<div class="limiter">
@@ -313,28 +314,28 @@
 
 																	<div>
 																		<input type="radio" id="terms1" name="terms" value="1">
-																		<label for="terms1">I agree to sign this document</label><br>
+																		<label for="terms1"><?= $this->lang->line('signature_agreement'); ?></label><br>
 																	</div>
 																<?php }
 																if ($items != null) { ?>
 																	<div>
 																		<input type="radio" id="terms2" name="terms" value="2">
-																		<label for="terms2">I agree to cancel all subscriptions</label><br>
+																		<label for="terms2"><?= $this->lang->line('cancel_agreement'); ?></label><br>
 																	</div>
 																<?php } ?> </h4>
 
 																<span class="login100-form-title">
-																	Member Login
+																	<?= $this->lang->line('member_login')?>
 																</span>
-																<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+																<div class="wrap-input100 validate-input" data-validate="<?= $this->lang->line('email_required')?>">
 																	<input class="input100" id="email" placeholder="E-mail" name="email" type="email" autofocus>
 																	<span class="focus-input100"></span>
 																	<span class="symbol-input100">
 																		<i class="fa fa-envelope" aria-hidden="true"></i>
 																	</span>
 																</div>
-																<div class="wrap-input100 validate-input" data-validate="Password is required">
-																	<input class="input100" id="password" placeholder="Password" name="password" type="password" value="">
+																<div class="wrap-input100 validate-input" data-validate="<?= $this->lang->line('password_required')?>">
+																	<input class="input100" id="password" placeholder="<?= $this->lang->line('password')?>" name="password" type="password" value="">
 																	<span class="focus-input100"></span>
 																	<span class="symbol-input100">
 																		<i class="fa fa-lock" aria-hidden="true"></i>
@@ -342,7 +343,7 @@
 																</div>
 																<div class="container-login100-form-btn">
 																	<button class="login100-form-btn" id="login-submit" type="submit" value="Login" class="btn btn-lg btn-success btn-block">
-																		Confirm credentials and signature
+																		<?= $this->lang->line('credentials')?>
 																	</button>
 																</div>
 															</form>
@@ -356,9 +357,9 @@
 												<table class="col-lg-12" style="margin-top: 10px;">
 													<thead>
 														<tr>
-															<th>Name</th>
-															<th>Acces Level</th>
-															<th>Date/Time</th>
+															<th><?= $this->lang->line('stakeholder_name'); ?></th>
+															<th><?= $this->lang->line('pch_acess_level'); ?></th>
+															<th><?= $this->lang->line('date_time'); ?></th>
 														</tr>
 													</thead>
 													<tbody>
@@ -381,21 +382,28 @@
 																	?></td>
 																<td>
 																	<?php if ($item->access_level == "2") : ?>
-																		Project Manager
-																	<?php elseif ($_SESSION['acess_level'] = "1") : ?>
-																		Professor
+																		<?= $this->lang->line('project_manager'); ?>
+																		
+																	<?php elseif ($_SESSION['access_level'] = "1") : ?>
+																		<?= $this->lang->line('professor'); ?>
 																	<?php else : ?>
-																		Staff
+																		<?= $this->lang->line('staff'); ?>
 																	<?php endif; ?>
 
 
 																</td>
-																<td><?php echo $item->date; ?> / <?php echo $item->time; ?></td>
+
+																<?php if (strcmp($_SESSION['language'], "US") == 0) : ?>
+																	<td><?php echo $item->date; ?> / <?php echo $item->time; ?></td>
+																<?php else : ?>
+																	<td><?php echo date('d/m/Y', strtotime($item->date)) ?> / <?php echo $item->time; ?></td>
+																<?php endif; ?>
+
 															</tr>
 														<?php
-
 														}
 														?>
+
 													</tbody>
 												</table>
 											</div>

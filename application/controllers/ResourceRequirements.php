@@ -10,6 +10,15 @@ class ResourceRequirements extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
+		
+		if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('resource_requirements', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('resource_requirements', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
 		$this->load->helper('url');
 		$this->load->model('Activity_model');
 		$this->load->model('view_model');
@@ -17,9 +26,8 @@ class ResourceRequirements extends CI_Controller
 		$this->load->helper('log_activity');
 
 
-		$this->lang->load('btn', 'english');
 		// $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('resource_requirements', 'english');
+		
 
 		// $this->lang->load('manage-cost','portuguese-brazilian');
 
@@ -29,6 +37,12 @@ class ResourceRequirements extends CI_Controller
 	//RESOURCE REQUIREMENT
 	public function list($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		
 		$dado['project_id'] = $project_id;
 		$dado['activity'] = $this->Activity_model->getAll($project_id);
 		$this->load->view('frame/header_view');
@@ -36,11 +50,17 @@ class ResourceRequirements extends CI_Controller
 		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('project/schedule/resource_requirement/list', $dado);
 	}
-
+	
 	public function edit($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		
 		$query['activity'] = $this->Activity_model->get($project_id);
-
+		
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view.php');

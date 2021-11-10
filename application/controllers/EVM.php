@@ -10,6 +10,15 @@ class EVM extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('earned_value', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('earned_value', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
 		$this->load->helper('url');
 		$this->load->model('Activity_model');
 		$this->load->model('view_model');
@@ -17,9 +26,8 @@ class EVM extends CI_Controller
 		$this->load->helper('log_activity');
 
 
-		$this->lang->load('btn', 'english');
 		// $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('earned_value', 'english');
+		
 
 		// $this->lang->load('manage-cost','portuguese-brazilian');
 
@@ -28,6 +36,12 @@ class EVM extends CI_Controller
 	//AGREGATE VALUE
 	public function list($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
 		$dado['project_id'] = $project_id;
 		$dado['activity'] = $this->Activity_model->getAll($project_id);
 		$this->load->view('frame/header_view');
@@ -38,6 +52,12 @@ class EVM extends CI_Controller
 
 	public function edit($project_id)
 	{
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
 		$query['activity'] = $this->Activity_model->get($project_id);
 
 		$this->load->view('frame/header_view.php');

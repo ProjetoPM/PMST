@@ -13,9 +13,17 @@ class RiskManagementPlan extends CI_Controller
 			redirect(base_url());
 		}
 
+		if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('risk-mp', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+			$this->lang->load('risk-mp', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
 		$this->lang->load('btn', 'english');
 		//$this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('risk-mp', 'english');
+		
 		//$this->lang->load('risk-mp','portuguese-brazilian');
 
 		$this->load->model('Project_model');
@@ -28,6 +36,13 @@ class RiskManagementPlan extends CI_Controller
 
 	public function new($project_id)
 	{
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
@@ -50,6 +65,12 @@ class RiskManagementPlan extends CI_Controller
 
 	public function edit($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();

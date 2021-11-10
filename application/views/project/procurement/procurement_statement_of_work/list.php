@@ -34,7 +34,7 @@
 
 							<div class="row">
 								<div class="col-lg-12">
-									<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>procurement/procurement-statement-of-work/new/<?php echo $project_id ?>'"> <?= $this->lang->line('btn-new') ?> <?= $this->lang->line('procurement-registration') ?></button>
+									<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>procurement/procurement-statement-of-work/new/<?php echo $project_id ?>'"> <?= $this->lang->line('btn-new2') ?> <?= $this->lang->line('psw_title') ?></button>
 
 								</div>
 							</div>

@@ -12,14 +12,22 @@ class ResourceManagementPlan extends CI_Controller
 
         // $this->load->helper('url', 'english');
 
-        $this->lang->load('btn', 'english');
         // $this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('resource', 'english');
+        
         // $this->lang->load('resource','portuguese-brazilian');
 
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }
+
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('resource', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('resource', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
         $this->load->model('project_model');
         $this->load->helper('log_activity');
         $this->load->model('view_model');
@@ -36,6 +44,12 @@ class ResourceManagementPlan extends CI_Controller
 
     public function new($project_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
         $this->db->where('user_id',  $_SESSION['user_id']);
         $this->db->where('project_id',  $_SESSION['project_id']);
         $project['dados'] = $this->db->get('project_user')->result();
@@ -58,6 +72,11 @@ class ResourceManagementPlan extends CI_Controller
 
     public function edit($project_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
         $this->db->where('user_id',  $_SESSION['user_id']);
         $this->db->where('project_id',  $_SESSION['project_id']);
         $project['dados'] = $this->db->get('project_user')->result();

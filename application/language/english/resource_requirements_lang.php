@@ -11,10 +11,10 @@ $lang['rr_resource_type'] = 'Resource Type';
 
 
 //Tooltip
-$lang['rr_resource_description_tp'] = 'Resource Description';
-$lang['rr_required_amount_of_resource_tp'] = 'Required Amount of Resource';
-$lang['rr_resource_cost_per_unit_tp'] = 'Resource Cost per Unit';
-$lang['rr_resource_type_tp'] = 'Resource Type';
+$lang['rr_resource_description_tp'] = '';
+$lang['rr_required_amount_of_resource_tp'] = '';
+$lang['rr_resource_cost_per_unit_tp'] = '';
+$lang['rr_resource_type_tp'] = '';
 
 
 

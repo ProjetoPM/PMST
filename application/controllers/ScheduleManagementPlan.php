@@ -13,9 +13,16 @@ class ScheduleManagementPlan extends CI_Controller
 			redirect(base_url());
 		}
 
-		$this->lang->load('btn', 'english');
+		if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('schedule', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('schedule', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
 		// $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('schedule', 'english');
+		
 		// $this->lang->load('schedule','portuguese-brazilian');
 		$this->load->helper('url');
 		$this->load->model('view_model');
@@ -27,19 +34,25 @@ class ScheduleManagementPlan extends CI_Controller
 
 	public function new($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		
 		$this->db->where('user_id', $_SESSION['user_id']);
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
 		// Verificando se o usuario logado tem acesso a esse projeto
-
+		
 		if (count($project['dados']) > 0) {
 			$dado['schedule_mp'] = $this->Schedule_model->get($project_id);
 			// Confere sempre se não há dados desta area de conhecimento no projeto
-
+			
 			if ($dado['schedule_mp'] != null) {
 				redirect("schedule/schedule-mp/edit/" . $_SESSION['project_id']);
 			}
-
+			
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');
@@ -48,13 +61,19 @@ class ScheduleManagementPlan extends CI_Controller
 			redirect(base_url());
 		}
 	}
-
+	
 	public function edit($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
 		$this->db->where('user_id', $_SESSION['user_id']);
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
-
+		
 		if (count($project['dados']) > 0) {
 			$dado['schedule_mp'] = $this->Schedule_model->get($project_id);
 			if ($dado['schedule_mp'] == null) {

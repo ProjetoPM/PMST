@@ -53,19 +53,19 @@
 					<div class="col-lg-12">
 						<div class="panel-body">
 							<h1 class="page-header">
-
-								Quality Checklist
+							<?= $this->lang->line('qc_title')?>
+							
 							</h1>
 							<form method="POST" action="<?php echo base_url() ?>quality/quality-checklist/update/<?php echo $quality_checklist_id ?>">
 								<div class="col-lg-4 form-group">
-									<label for="verified">Verified Product, Process or Activity</label>
+									<label for="verified"><?= $this->lang->line('qc_product')?></label>
 									<div>
 										<input name="verified" type="text" class="form-control input-md" value="<?= $verified; ?>">
 									</div>
 								</div>
 
 								<div class="col-sm-4 form-group">
-									<label for="date">Verification date</label>
+									<label for="date"><?= $this->lang->line('qc_verification_date')?></label>
 									<div>
 										<input id="date" type="date" name="date" class="form-control input-md" value="<?php echo $date; ?>">
 									</div>
@@ -73,21 +73,21 @@
 
 
 								<div class="col-lg-4 form-group">
-									<label for="responsible">Responsible for Verification</label>
+									<label for="responsible"><?= $this->lang->line('qc_responsible')?></label>
 									<div>
 										<input name="responsible" type="text" class="form-control input-md" value="<?= $responsible; ?>">
 									</div>
 								</div>
 
 								<div class="col-lg-12 form-group">
-									<label for="documents">Associated Documents</label>
+									<label for="documents"><?= $this->lang->line('qc_associated_documents')?></label>
 									<div>
 										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="documents"><?php echo $documents; ?></textarea>
 									</div>
 								</div>
 
 								<div class="col-lg-12 form-group">
-									<label for="guidelines">Guidelines / Comments</label>
+									<label for="guidelines"><?= $this->lang->line('qc_guidelines')?></label>
 									<div>
 										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="guidelines"><?php echo $guidelines; ?></textarea>
 									</div>
@@ -98,26 +98,26 @@
 									<div class="col-lg-12">
 										<div class="panel panel-default">
 											<div class="panel-heading">
-												<span class="gprc_1" style="font-size: 20px;">Items </span>
+												<span class="gprc_1" style="font-size: 20px;"><?= $this->lang->line('qc_items')?></span>
 												<button class="btn btn-success" type="button" onclick="education_fields()"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
 											</div>
 
 											<div class="panel-body">
 												<div class="col-sm-3 form-group" style="min-height: 20px;">
 													<div>
-														<label for="">Items to Check</label>
+														<label for=""><?= $this->lang->line('qc_items_check')?></label>
 													</div>
 												</div>
 
 												<div class="col-sm-6 form-group">
 													<div>
-														<label for="">Comments</label>
+														<label for=""><?= $this->lang->line('qc_comments')?></label>
 													</div>
 												</div>
 
 												<div class="col-sm-3 form-group">
 													<div>
-														<label for="">Status</label>
+														<label for=""><?= $this->lang->line('qc_status')?></label>
 													</div>
 												</div>
 

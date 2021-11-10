@@ -26,9 +26,8 @@
 
         <div class="row">
           <div class="col-lg-12">
-            <div class="panel-body">
-              <h1 class="page-header">
-                <?= $this->lang->line('cl_title')  ?>
+            <div class="panel-body"><h1 class="page-header">
+              <?= $this->lang->line('change_log-title')?>
               </h1>
               <form method="POST" action="<?php echo base_url() ?>integration/change-log/insert">
 

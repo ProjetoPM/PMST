@@ -1,23 +1,23 @@
 <?php
 
 // Title
-$lang['rmp_title'] = 'Requirements Management Plan';
+$lang['rmp-title'] = 'Requirements Management Plan';
 
 //Form
-$lang['rmp_requirements_collection_proc'] = 'How requirements activities will be planned, tracked, and reported*';
-$lang['rmp_configuration'] = 'Configuration management activities';
-$lang['rmp_requirements_prioritization'] = 'Requirements prioritization process';
-$lang['rmp_product_metrics'] = 'Metrics that will be used and the rationale for using them';
-$lang['rmp_traceability'] = 'Traceability structure that reflects the requirement attributes captured on the traceability matrix';
+$lang['rmp-requirements_collection_proc'] = 'How requirements activities will be planned, tracked, and reported*';
+$lang['rmp-configuration'] = 'Configuration management activities';
+$lang['rmp-requirements_prioritization'] = 'Requirements prioritization process';
+$lang['rmp-product_metrics'] = 'Metrics that will be used and the rationale for using them';
+$lang['rmp-traceability'] = 'Traceability structure that reflects the requirement attributes captured on the traceability matrix';
 
 
 
 
 //Tooltip
-$lang['rmp_requirements_collection_proc_tp'] = 'The process can be created using the tool available at: https://www.heflo.com';
-$lang['rmp_requirements_prioritization_tp'] = '';
-$lang['rmp_configuration_tp'] = 'Such as: how changes will be initiated; how impacts will be analyzed; how
+$lang['rmp-requirements_collection_proc-tp'] = 'The process can be created using the tool available at: https://www.heflo.com';
+$lang['rmp-requirements_prioritization-tp'] = '';
+$lang['rmp-configuration-tp'] = 'Such as: how changes will be initiated; how impacts will be analyzed; how
 they will be traced, tracked, and reported; as well as the authorization levels required to approve these changes';
-$lang['rmp_product_metrics_tp'] = '';
-$lang['rmp_traceability_tp'] = '';
+$lang['rmp-product_metrics-tp'] = '';
+$lang['rmp-traceability-tp'] = '';
 ?>

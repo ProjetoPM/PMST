@@ -42,5 +42,25 @@ $lang['pch_success_criteria_tp'] = '';
 $lang['pch_boundaries_tp'] = 'Project Limits; Initial Assumptions; Initial Restrictions';
 $lang['pch_exit_criteria_tp'] = 'i.e., what are the conditions to be met in order to close or to cancel the project or phase';
 
+$lang['signed'] = 'Signed';
+$lang['signature'] = 'Signature';
+$lang['pch_acess_level'] = 'Your Access Level';
+$lang['signature_required'] = 'Signature Required: Professor';
+$lang['signed_pch'] = '*When this document is signed by the Professor, the edition will no longer be available';
+$lang['signature_agreement'] = 'I agree to sign this document';
+$lang['cancel_agreement'] = 'I agree to cancel all subscriptions';
+$lang['date_time'] = 'Date/Time';
+
+$lang['view_stakeholder_list'] = 'View Stakeholder List';
+$lang['stakeholder_name'] = 'Name';
+
+$lang['member_login'] = 'Member Login';
+$lang['credentials'] = 'Confirm credentials and signature';
+
+
+$lang['professor'] = 'Professor';
+$lang['project_manager'] = 'Project Manager';
+$lang['staff'] = 'Staff';
+
 
 ?>

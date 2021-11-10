@@ -12,11 +12,15 @@ class ProjectManagementPlan extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
-		//$this->load->helper('url');
-		$this->lang->load('btn', 'english');
-		//$this->lang->load('btn', 'portuguese-brazilian');
-		$this->lang->load('project_mp', 'english');
-		//$this->lang->load('tap', 'portuguese-brazilian');
+		if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('project_mp', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('project_mp', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+		
+		
 		$this->load->model('Project_Management_model');
 		$this->load->model('view_model');
 		$this->load->helper('log_activity');
@@ -24,18 +28,23 @@ class ProjectManagementPlan extends CI_Controller
 	}
 	public function new($projet_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+        } else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+        }
 		$idusuario = $_SESSION['user_id'];
 		$this->db->where('user_id', $idusuario);
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
 		// Verificando se o usuario logado tem acesso a esse projeto
-
+		
 		if (count($project['dados']) > 0) {
 			$dado['project_mp'] = $this->Project_Management_model->get($_SESSION['project_id']);
 			if ($dado['project_mp'] != null) {
 				redirect("integration/project-mp/edit/" . $_SESSION['project_id']);
 			}
-
+			
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');
@@ -44,14 +53,23 @@ class ProjectManagementPlan extends CI_Controller
 			redirect(base_url());
 		}
 	}
-
+	
 	public function edit($projet_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+			$this->lang->load('photo_upload', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+			$this->lang->load('photo_upload', 'portuguese-brazilian');
+
+		}
+
 		$idusuario = $_SESSION['user_id'];
 		$this->db->where('user_id', $idusuario);
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
-
+		
 		if (count($project['dados']) > 0) {
 			$dado['project_mp'] = $this->Project_Management_model->get($_SESSION['project_id']);
 			if ($dado['project_mp'] == null) {

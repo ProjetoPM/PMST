@@ -1,48 +1,101 @@
 <?php
 
 // Title
-$lang['stakeholder-title'] = 'Registro das partes interessadas';
+$lang['shr_title'] = 'Registro de Partes Interessadas';
 
-//Form 
-$lang['stakeholder-name'] = 'Nome';
-$lang['stakeholder-type'] = 'Tipo';
-$lang['stakeholder-organization'] = 'Organização';
-$lang['stakeholder-position'] = 'Posição na organização';
-$lang['stakeholder-role'] = 'Papel principal no projeto';
-$lang['stakeholder-responsibility'] = 'Responsabilidade principal no projeto';
-$lang['stakeholder-email'] = 'O email';
-$lang['stakeholder-phone_number'] = 'Telefone';
-$lang['stakeholder-work_place'] = 'Ambiente de trabalho';
-$lang['stakeholder-essential_requirements'] = 'Requisitos essenciais';
-$lang['stakeholder-main_expectations'] = 'Principais expectativas';
-$lang['stakeholder-interest_phase'] = 'Fase de maior interesse';
-$lang['stakeholder-observations'] = 'Observações';
+//Form
+$lang['shr_name'] = 'Nome';
+$lang['shr_type'] = 'Tipo';
+$lang['shr_organization'] = 'Organização';
+$lang['shr_position'] = 'Posição na Organização';
+$lang['shr_role'] = 'Main Role in the Project';
+$lang['shr_responsibility'] = 'Principal Responsabilidade no Projeto';
+$lang['shr_email'] = 'E-mail';
+$lang['shr_phone_number'] = 'Telefone';
+$lang['shr_work_place'] = 'Local de Trabalho';
+$lang['shr_essential_requirements'] = 'Requisitos Essenciais';
+$lang['shr_main_expectations'] = 'Principais Expectativas';
+$lang['shr_interest_phase'] = 'Fases de Maior Interesse';
+$lang['shr_observations'] = 'Observações';
 
 //options
-$lang['stakeholder-type-external'] = 'Externo';
-$lang['stakeholder-type-internal'] = 'Interno';
+$lang['shr_type_external'] = 'Externo';
+$lang['shr_type_internal'] = 'Interno';
 
-$lang['stakeholder-role-client'] = 'Cliente';
-$lang['stakeholder-role-team'] = 'Equipe';
-$lang['stakeholder-role-provider'] = 'Fornecedor';
-$lang['stakeholder-role-project_manager'] = 'Gerente de projeto';
-$lang['stakeholder-role-sponsor'] = 'Patrocinador';
-$lang['stakeholder-role-others'] = 'Outras';
+$lang['shr_role_client'] = 'Cliente';
+$lang['shr_role_team'] = 'Time';
+$lang['shr_role_provider'] = 'Fornecedor';
+$lang['shr_role_project_manager'] = 'Gerente do Projeto';
+$lang['shr_role_sponsor'] = 'Patrocinador';
+$lang['shr_role_others'] = 'Outros';
 
 
 //Tooltip
-$lang['stakeholder-name-tooltip'] = 'Nome Examplo';
-$lang['stakeholder-type-tooltip'] = 'Tipo Examplo';
-$lang['stakeholder-organization-tooltip'] = 'Organização Examplo';
-$lang['stakeholder-position-tooltip'] = 'Posição na organização Examplo';
-$lang['stakeholder-role-tooltip'] = 'Papel principal no projeto Examplo';
-$lang['stakeholder-responsibility-tooltip'] = 'Responsabilidade principal no projeto Examplo';
-$lang['stakeholder-email-tooltip'] = 'O email Examplo';
-$lang['stakeholder-phone_number-tooltip'] = 'Telefone Examplo';
-$lang['stakeholder-work_place-tooltip'] = 'Ambiente de trabalho Examplo';
-$lang['stakeholder-essential_requirements-tooltip'] = 'Requisitos essenciais Examplo';
-$lang['stakeholder-main_expectations-tooltip'] = 'Principais expectativas Examplo';
-$lang['stakeholder-interest_phase-tooltip'] = 'Fase de maior interesse Examplo';
-$lang['stakeholder-observations-tooltip'] = 'Observações Examplo';
+$lang['shr_name_tooltip'] = '';
+$lang['shr_type_tooltip'] = '';
+$lang['shr_role_tooltip'] = '';
+$lang['shr_organization_tooltip'] = '';
+$lang['shr_position_tooltip'] = '';
+$lang['shr_email_tooltip'] = '';
+$lang['shr_responsibility_tooltip'] = '';
+$lang['shr_phone_number_tooltip'] = '';
+$lang['shr_work_place_tooltip'] = '';
+$lang['shr_essential_requirements_tooltip'] = '';
+$lang['shr_main_expectations_tooltip'] = '';
+$lang['shr_interest_phase_tooltip'] = '';
+$lang['shr_observations_tooltip'] = '';
+$lang['select-shr-tooltip'] = '';
+$lang['select-interest-level-tooltip'] = '';
+$lang['select-power-level-tooltip'] = '';
+$lang['select-influence-level-tooltip'] = '';
+$lang['select-impact-level-tooltip'] = '';
+$lang['select-current-engagement-tooltip'] = '';
+$lang['select-expected-engagement-tooltip'] = '';
+$lang['select-current-average-tooltip'] = '';
+
+//Select
+$lang['select-1'] = 'Select Stakeholder';
+$lang['select-2'] = 'Interest Level';
+$lang['select-3'] = 'Power Level';
+$lang['select-4'] = 'Influece Level';
+$lang['select-5'] = 'Impact Level';
+$lang['select-6'] = 'Current Engagement';
+$lang['select-7'] = 'Desired Engagement';
+$lang['select-8'] = "Add New Stakeholder";
+$lang['average'] = 'Average Level';
+
+//options
+$lang['option-1'] = 'Unaware';
+$lang['option-2'] = 'Supportive';
+$lang['option-3'] = 'Leanding';
+$lang['option-4'] = 'Neutral';
+$lang['option-5'] = 'Resistant';
+//Form
+$lang['stakeholder_mp-text1-tooltip'] = 'Engagement / Management Strategy Example';
+$lang['stakeholder_mp-text2-tooltip'] = 'Scope and Impact of Changes to Stakeholder Example';
+$lang['stakeholder_mp-text3-tooltip'] = 'Observations with other Stakeholders Example';
+$lang['shr-name'] = 'Stakeholder Name:';
+
+
+//Table
+$lang['stake'] = 'Stakeholder Name';
+$lang['interest'] = "Interest";
+$lang['power'] = "Power";
+$lang['influence'] = "Influence";
+$lang['impact'] = "Impact";
+$lang['average'] = "Average Importance";
+$lang['current_engagement'] = "Current Engagement";
+$lang['expected_engagement'] = "Current Engagement";
+$lang['scope'] = "Scope and Impact of Changes to Stakeholder";
+$lang['strategy'] = "Engagement / Management Strategy";
+$lang['observation'] = "Observations with other Stakeholders";
+
+
+$lang['text-1'] = 'Engagement / Management Strategy';
+$lang['text-2'] = 'Scope and Impact of Changes to Stakeholder';
+$lang['text-3'] = 'Observations with other Stakeholders';
+$lang['text-4'] = 'Average Importance';
+$lang['text-5'] = 'Stakeholder';
+$lang['text-6'] = 'Interest';
 
 ?>

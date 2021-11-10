@@ -74,9 +74,14 @@
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('status-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<select class="form-control" id="status" name="status">
 										<option value="Under Analysis" <?php if ($status == "Under Analysis") echo 'selected'; ?>><?= $this->lang->line('type_situation-analysis') ?></option>
+										<!--<?= $this->lang->line('type_situation_analysis')?> -->
+
 										<option value="Approved" <?php if ($status == "Approved") echo 'selected'; ?>><?= $this->lang->line('type_situation-approved') ?></option>
+
 										<option value="Rejected" <?php if ($status == "Rejected") echo 'selected'; ?>><?= $this->lang->line('type_situation-rejected') ?></option>
+
 										<option value="Canceled" <?php if ($status == "Canceled") echo 'selected'; ?>><?= $this->lang->line('type_situation-canceled') ?></option>
+										
 										<option value="Suspended" <?php if ($status == "Suspended") echo 'selected'; ?>><?= $this->lang->line('type_situation-suspended') ?></option>
 									</select>
 								</div>

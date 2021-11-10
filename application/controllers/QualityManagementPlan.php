@@ -11,11 +11,18 @@ class QualityManagementPlan extends CI_Controller
 			redirect(base_url());
 		}
 
+		if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('quality_plan', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('quality_plan', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
 		// $this->load->helper('url', 'english');
 
-		$this->lang->load('btn', 'english');
 		// $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('quality_plan', 'english');
+		
 		// $this->lang->load('quality_mp','portuguese-brazilian');
 
 
@@ -29,6 +36,13 @@ class QualityManagementPlan extends CI_Controller
 
 	public function new($project_id)
 	{
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
@@ -39,7 +53,7 @@ class QualityManagementPlan extends CI_Controller
 			if ($dado['quality_mp'] != null) {
 				redirect("quality/quality-mp/edit/" . $_SESSION['project_id']);
 			}
-
+			
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');
@@ -48,13 +62,19 @@ class QualityManagementPlan extends CI_Controller
 			redirect(base_url());
 		}
 	}
-
+	
 	public function edit($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
-
+		
 		if (count($project['dados']) > 0) {
 			$dado['quality_mp'] = $this->Quality_model->get($project_id);
 			if ($dado['quality_mp'] == null) {

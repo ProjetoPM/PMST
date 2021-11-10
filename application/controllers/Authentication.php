@@ -14,9 +14,13 @@ class Authentication extends CI_Controller {
         $this->load->model('view_model');
         $this->load->model('project_model');
         $this->load->helper('log_activity');
+
+        
+        $this->lang->load('btn', 'english');
     }
 
     public function index() {
+        $_SESSION['language'] = 0;
 
         if($this->session->userdata('logged_in')) {
             redirect(base_url("projects"));
@@ -83,9 +87,21 @@ class Authentication extends CI_Controller {
         }
 
     }
+
+    public function language($language)
+	{
+		if(strcmp($language,"US") == 0){
+			$_SESSION['language'] = "US";
+		}else{
+			$_SESSION['language'] = "BR";
+		}
+		
+	}
+
     public function login()
     {
         $_SESSION['project_id'] = null;
+        $_SESSION['language'] = "US";
         $postData = $this->input->post();
         if (($postData) == null) {
             redirect(base_url());

@@ -14,6 +14,8 @@ $lang['commp_allocated_resources'] = 'Allocated Resources';
 $lang['commp_format'] = 'Format';
 $lang['commp_local'] = 'Local';
 $lang['commp_actions'] = 'Actions';
+$lang['commp_items'] = 'Communication Items';
+$lang['commp_stakeholders_responsabilities'] = 'Stakeholders Responsibilities';
 
 $lang['commp_A'] = 'Audit/Review';
 $lang['commp_D'] = 'To Distribute';

@@ -13,10 +13,10 @@ $lang['snd_wait'] = 'Wait';
 
 
 //Tooltip
-$lang['snd_predecessor_activity_tp'] = 'Predecessor Activity';
-$lang['snd_dependence_type_tp'] = 'Dependence Type';
-$lang['snd_anticipation_tp'] = 'Antecipation';
-$lang['snd_wait_tp'] = 'Wait';
+$lang['snd_predecessor_activity_tp'] = '';
+$lang['snd_dependence_type_tp'] = '';
+$lang['snd_anticipation_tp'] = '';
+$lang['snd_wait_tp'] = '';
 
 
 ?>

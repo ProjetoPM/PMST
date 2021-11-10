@@ -31,7 +31,7 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-								<?= $this->lang->line('acl_title') ?> - <?= $type == "A" ? "Assumption" : "Constraint"; ?>
+								<?= $this->lang->line('acl_title') ?> - <?= $type == "A" ? $this->lang->line('acl_assumption') : $this->lang->line('acl_constraint') ?>
 
 							</h1>
 

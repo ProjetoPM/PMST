@@ -12,12 +12,21 @@ class ScopeManagementPlan extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
-		//$this->load->helper('url');
-		$this->lang->load('btn', 'english');
-		//$this->lang->load('btn', 'portuguese-brazilian');
-		$this->lang->load('scope_mp', 'english');
-		//$this->lang->load('tap', 'portuguese-brazilian');
 
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('scope_mp', 'english');
+            $this->lang->load('project-page', 'english');
+        }else{
+            $this->lang->load('scope_mp', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+		
+		//$this->load->helper('url');
+		
+		//$this->lang->load('btn', 'portuguese-brazilian');
+		
+		//$this->lang->load('tap', 'portuguese-brazilian');
+		
 		$this->load->model('Project_model');
 		$this->load->model('view_model');
 		$this->load->helper('url');
@@ -25,23 +34,29 @@ class ScopeManagementPlan extends CI_Controller
 		$this->load->model('Scope_mp_model');
 		$this->load->helper('log_activity');
 	}
-
-
+	
+	
 	public function new($project_id)
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$this->lang->load('btn', 'english');
+		}else{
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		
 		$this->db->where('user_id', $_SESSION['user_id']);
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
 		// Verificando se o usuario logado tem acesso a esse projeto
-
+		
 		if (count($project['dados']) > 0) {
 			$dado['scope_mp'] = $this->Scope_mp_model->get($project_id);
 			// Confere sempre se não há dados desta area de conhecimento no projeto
-
+			
 			if ($dado['scope_mp'] != null) {
 				redirect("scope/scope-mp/edit/" . $_SESSION['project_id']);
 			}
-
+			
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');
@@ -50,13 +65,19 @@ class ScopeManagementPlan extends CI_Controller
 			redirect(base_url());
 		}
 	}
-
+	
 	public function edit($project_id)
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$this->lang->load('btn', 'english');
+		}else{
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		
 		$this->db->where('user_id', $_SESSION['user_id']);
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
-
+		
 		if (count($project['dados']) > 0) {
 			$dado['scope_mp'] = $this->Scope_mp_model->get($_SESSION['project_id']);
 			if ($dado['scope_mp'] == null) {

@@ -26,7 +26,7 @@
                   <span class="login100-form-title">
                   Member Login
                   </span>
-                  <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                  <div class="wrap-input100 validate-input" data-validate = "<?= $this->lang->line('email_required')?>">
                      <input class="input100" id="email" placeholder="E-mail" name="email" type="email" autofocus>
                      <span class="focus-input100"></span>
                      <span class="symbol-input100">
@@ -34,7 +34,7 @@
                      </span>
                   </div>
                   <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                     <input class="input100" id="password" placeholder="Password" name="password" type="password" value="">
+                     <input class="input100" id="password" placeholder=""<?= $this->lang->line('email_required')?>"" name="password" type="password" value="">
                      <span class="focus-input100"></span>
                      <span class="symbol-input100">
                      <i class="fa fa-lock" aria-hidden="true"></i>

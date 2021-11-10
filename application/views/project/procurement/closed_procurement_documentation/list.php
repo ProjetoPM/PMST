@@ -134,9 +134,9 @@
 										<thead>
 											<tr>
 												<th class="text-center">#</th>
-												<th>Provider's Name</th>
-												<th>Supplier Representative</th>
-												<th>Closing Date</th>
+												<th><?= $this->lang->line('cpd_provider') ?></th>
+												<th><?= $this->lang->line('cpd_supplier_representative') ?></th>
+												<th><?= $this->lang->line('cpd_closing_date') ?></th>
 												
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>

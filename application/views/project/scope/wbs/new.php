@@ -27,7 +27,7 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-								<?= $this->lang->line('wbs_title')  ?>
+								<?= $this->lang->line('wbs-title')  ?>
 
 							</h1>
 

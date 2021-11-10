@@ -107,7 +107,7 @@
 
 
                   <div class="col-lg-12">
-                    <button id="new_bp_submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+                    <button id="new_bp_submit" type="submit" value="<?= $this->lang->line('btn-save') ?>" class="btn btn-lg btn-success pull-right">
                       <i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
                     </button>
                 </form>
