@@ -29,7 +29,7 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-								<?= $this->lang->line('pca_title')  ?>
+								<?= $this->lang->line('pca-title')  ?>
 
 							</h1>
 
@@ -40,13 +40,13 @@
 									<table class="table table-bordered table-striped" id="tableNB">
 										<thead>
 											<tr>
-												<th><?= $this->lang->line('pca_activity_name') ?></th>
-												<th><?= $this->lang->line('pca_resource_name') ?></th>
-												<th><?= $this->lang->line('pca_function') ?></th>
-												<th><?= $this->lang->line('pca_availability_start') ?></th>
-												<th><?= $this->lang->line('pca_availability_ends') ?></th>
-												<th><?= $this->lang->line('pca_allocation_start') ?></th>
-												<th><?= $this->lang->line('pca_allocation_ends') ?></th>
+												<th><?= $this->lang->line('pca-activity_name') ?></th>
+												<th><?= $this->lang->line('pca-resource_name') ?></th>
+												<th><?= $this->lang->line('pca-function') ?></th>
+												<th><?= $this->lang->line('pca-availability_start') ?></th>
+												<th><?= $this->lang->line('pca-availability_ends') ?></th>
+												<th><?= $this->lang->line('pca-allocation_start') ?></th>
+												<th><?= $this->lang->line('pca-allocation_ends') ?></th>
 
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>

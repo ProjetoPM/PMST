@@ -45,4 +45,11 @@ $lang['stakeholder-main_expectations-tooltip'] = 'Principais expectativas Exampl
 $lang['stakeholder-interest_phase-tooltip'] = 'Fase de maior interesse Examplo';
 $lang['stakeholder-observations-tooltip'] = 'Observações Examplo';
 
+$lang['text-1'] = 'Engagement / Management Strategy';
+$lang['text-2'] = 'Scope and Impact of Changes to Stakeholder';
+$lang['text-3'] = 'Observations with other Stakeholders';
+$lang['text-4'] = 'Average Importance';
+$lang['text-5'] = 'Parte Interessada';
+$lang['text-6'] = 'Interest';
+
 ?>
