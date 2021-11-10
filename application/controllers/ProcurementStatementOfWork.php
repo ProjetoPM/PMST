@@ -21,7 +21,6 @@ class ProcurementStatementOfWork extends CI_Controller {
 		$this->load->model('Procurement_statement_of_work_model');
 		$this->load->helper('log_activity');
 
-		$this->lang->load('btn','english');
         // $this->lang->load('btn','portuguese-brazilian');
         
         // $this->lang->load('risk','portuguese-brazilian');
@@ -29,6 +28,13 @@ class ProcurementStatementOfWork extends CI_Controller {
 	}
 
 	public function list($project_id){
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		
 		$dado['project_id'] = $project_id;
 
 		$dado['procurement_statement_of_work'] = $this->Procurement_statement_of_work_model->getAll($project_id);
