@@ -48,10 +48,10 @@
 									<table class="table table-bordered table-striped" id="tableNB">
 										<thead>
 											<tr>
-												<th><?= $this->lang->line('responsible') ?></th>
-												<th><?= $this->lang->line('date') ?></th>
-												<th><?= $this->lang->line('type') ?></th>
-												<th><?= $this->lang->line('description') ?></th>
+												<th><?= $this->lang->line('qr-responsible') ?></th>
+												<th><?= $this->lang->line('qr-date') ?></th>
+												<th><?= $this->lang->line('qr-type') ?></th>
+												<th><?= $this->lang->line('qr-description') ?></th>
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
 										</thead>

@@ -10,6 +10,15 @@ class QualityReports extends CI_Controller
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }
+
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('quality_reports', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('quality_reports', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
         $this->load->helper('url');
         $this->load->model('Quality_reports_model');
         $this->load->model('view_model');
@@ -17,9 +26,8 @@ class QualityReports extends CI_Controller
         $this->load->helper('log_activity');
 
 
-        $this->lang->load('btn', 'english');
         // $this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('quality_reports', 'english');
+        
 
         // $this->lang->load('manage-cost','portuguese-brazilian');
 
@@ -27,6 +35,12 @@ class QualityReports extends CI_Controller
 
     public function new($project_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
         $idusuario = $_SESSION['user_id'];
         $this->db->where('user_id', $idusuario);
         $this->db->where('project_id', $project_id);
@@ -55,6 +69,12 @@ class QualityReports extends CI_Controller
 
     public function list($project_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
         $dado['project_id'] = $project_id;
         $dado['quality_reports'] = $this->Quality_reports_model->getAll($project_id);
         $this->load->view('frame/header_view');
@@ -66,6 +86,12 @@ class QualityReports extends CI_Controller
 
     public function edit($project_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+        
         $query['quality_reports'] = $this->Quality_reports_model->get($project_id);
         $this->load->view('frame/header_view');
         $this->load->view('frame/topbar');
