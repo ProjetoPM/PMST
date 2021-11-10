@@ -6,6 +6,7 @@ $lang['btn-register'] = 'Registrar';
 
 $lang['btn-save'] = 'Salvar';
 $lang['btn-new'] = 'Novo';
+$lang['btn-new2'] = 'Nova';
 $lang['btn-cancel'] = 'Cancelar';
 $lang['btn-back'] = 'Voltar';
 $lang['btn-close'] = 'Fechar';

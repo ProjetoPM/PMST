@@ -12,6 +12,7 @@ $lang['btn-edit'] = 'Edit';
 $lang['btn-open'] = 'Open';
 $lang['btn-delete'] = 'Delete';
 $lang['btn-new'] = 'New';
+$lang['btn-new2'] = 'New';
 $lang['btn-actions'] = 'Actions';
 $lang['character'] = '/2000';
 $lang['character2'] = '/255';
