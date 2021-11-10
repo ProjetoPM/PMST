@@ -79,10 +79,8 @@
 							</h1>
 
 							<div class="row">
-								<div class="col-lg-3">
+								<div class="col-lg-12">
 									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>integration/assumption-log/new-assumption/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i> New Assumption</button>
-								</div>
-								<div class="col-lg-3">
 									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>integration/assumption-log/new-constraint/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i> New Constraint</button>
 								</div>
 							</div>
@@ -106,7 +104,7 @@
 												<tr>
 													<td><?= $item->type == "A" ? "Assumption" : "Constraint"; ?></td>
 													<td> <span class="texttd"><?php echo $item->description_log; ?></span></td>
-													
+
 													<td style="display: fixed;min-width: 100px;">
 														<div class="row center">
 															<div class="col-sm-4">
