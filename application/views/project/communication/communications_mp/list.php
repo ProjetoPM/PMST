@@ -46,7 +46,7 @@
 							<!-- Nav tabs -->
 							<ul class="nav nav-tabs" id="myTab" role="tablist">
 								<li class="nav-item active">
-									<a class="nav-link show active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" aria-expanded="true">Communication Itens</a>
+									<a class="nav-link show active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" aria-expanded="true"><?= $this->lang->line('commp_communication_items')?></a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link " id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Stakeholders Responsibilities</a>
