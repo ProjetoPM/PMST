@@ -41,7 +41,9 @@ $lang['requirement-management'] = 'Gerenciar Requisitos';
 $lang['scope-management'] = 'Gerencar Escopo';
 $lang['requirement-documentation'] = 'Documentação dos Requisitos';
 $lang['project-scope'] = 'Especificação do Escopo do Projeto';
-$lang['scope-baseline'] = 'Linhas de Base do Escopo';
+// $lang['scope-baseline'] = 'Linhas de Base do Escopo';
+$lang['scope-baseline'] = 'Estrutura Analítica do Projeto';
+
 
 // Schedule
 $lang['schedule-management'] = 'Plano de Gerenciamento de Cronograma';

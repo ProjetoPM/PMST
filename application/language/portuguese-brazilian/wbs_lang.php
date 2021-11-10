@@ -1,6 +1,6 @@
 <?php
 
 // Title
-$lang['wbs_title'] = 'Estrutura Analítica do Projeto';
+$lang['wbs-title'] = 'Estrutura Analítica do Projeto';
 
 ?>

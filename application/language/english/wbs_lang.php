@@ -1,6 +1,6 @@
 <?php
 
 // Title
-$lang['wbs_title'] = 'Work breakdown Structure';
+$lang['wbs-title'] = 'Work breakdown Structure';
 
 ?>

@@ -10,18 +10,15 @@ class Wbs extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
+		// If para globalização do sistema
 		if (strcmp($_SESSION['language'], "US") == 0) {
             $this->lang->load('wbs', 'english');
             $this->lang->load('project-page', 'english');
         } else {
-            $this->lang->load('wbs', 'english');
+            $this->lang->load('wbs', 'portuguese-brazilian');
             $this->lang->load('project-page', 'portuguese-brazilian');
         }
-		// $this->load->helper('url', 'english');
-
-		
-		// $this->lang->load('btn','portuguese-brazilian');
-		
+		// $this->load->helper('url', 'english');		
 		// $this->lang->load('quality_mp','portuguese-brazilian');
 
 
@@ -66,7 +63,7 @@ class Wbs extends CI_Controller
 		} else {
 			$this->lang->load('btn', 'portuguese-brazilian');
 		}
-		
+
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
