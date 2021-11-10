@@ -146,6 +146,13 @@ class CommunicationsManagementPlan extends CI_Controller
 
     public function insertResponasibility()
     {
+
+        if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+        
         $communication = $this->input->post('ids');
         $communication_exploded = explode(',', $communication);
 
