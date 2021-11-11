@@ -68,6 +68,12 @@ class ProjectScheduleNetworkDiagram extends CI_Controller
 	
 	public function update($project_id)
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		$activity['predecessor_activity'] = $this->input->post('predecessor_activity');
 		$activity['dependence_type'] = $this->input->post('dependence_type');
 		$activity['anticipation'] = $this->input->post('anticipation');
@@ -80,7 +86,7 @@ class ProjectScheduleNetworkDiagram extends CI_Controller
 		
 		if ($query) {
 			insertLogActivity('update', 'project schedule network diagram');
-			$this->session->set_flashdata('success', 'Project Schedule Network Diagram has been successfully changed!');
+			$this->session->set_flashdata('success', $feedback_success);
 			redirect('schedule/project-schedule-network-diagram/list/' . $activity['project_id']);
 		}
 	}

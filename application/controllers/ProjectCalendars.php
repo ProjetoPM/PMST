@@ -76,6 +76,13 @@ class ProjectCalendars extends CI_Controller
 
 	public function update($project_id)
 	{
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		$activity['resource_name'] = $this->input->post('resource_name');
 		$activity['function'] = $this->input->post('function');
 		$activity['availability_start'] = $this->input->post('availability_start');
@@ -90,7 +97,7 @@ class ProjectCalendars extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('update', 'project calendars');
-			$this->session->set_flashdata('success', 'Project Calendars has been successfully changed!');
+			$this->session->set_flashdata('success', $feedback_success);
 			redirect('schedule/project-calendars/list/' . $activity['project_id']);
 		}
 	}

@@ -92,10 +92,16 @@ class ScheduleManagementPlan extends CI_Controller
 	//Criar o Schedule 1 Vez
 	public function insert()
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
 		insertLogActivity('insert', 'schedule management plan');
 		$postData = $this->input->post();
 		$insert = $this->Schedule_model->insert($postData);
-		$this->session->set_flashdata('success', 'Schedule Management Plan has been successfully created!');
+		$this->session->set_flashdata('success', $feedback_success);
 		redirect('schedule/schedule-mp/edit/' . $postData['project_id']);
 		echo json_encode($insert);
 
@@ -106,6 +112,12 @@ class ScheduleManagementPlan extends CI_Controller
 	// esse parametro vai ser inicializado la na view
 	public function update()
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		$schedule_mp['schedule_model'] = $this->input->post('schedule_model');
 		$schedule_mp['accuracy_level'] = $this->input->post('accuracy_level');
 		$schedule_mp['organizational_procedures'] = $this->input->post('organizational_procedures');
@@ -119,7 +131,7 @@ class ScheduleManagementPlan extends CI_Controller
 		$query =	$this->Schedule_model->update($schedule_mp, $_SESSION['project_id']);
 
 		insertLogActivity('update', 'schedule management plan');
-		$this->session->set_flashdata('success', 'Schedule Management Plan has been successfully changed!');
+		$this->session->set_flashdata('success', $feedback_success);
 		redirect('schedule/schedule-mp/edit/' . $_SESSION['project_id']);
 		//if ($query) {
 		//header('location:'.base_url().//$this->schedule_form());

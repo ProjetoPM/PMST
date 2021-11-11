@@ -78,6 +78,13 @@ class DurationEstimates extends CI_Controller
 
 	public function update($id)
 	{
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		$duration_estimates['estimated_duration'] = $this->input->post('estimated_duration');
 		$duration_estimates['performed_duration'] = $this->input->post('performed_duration');
 		$duration_estimates['estimated_start_date'] = $this->input->post('estimated_start_date');
@@ -104,13 +111,20 @@ class DurationEstimates extends CI_Controller
 
 		if ($query) {
 			// insertLogduration_estimates('update', 'duration estimates');
-			$this->session->set_flashdata('success', 'Duration Estimates has been successfully changed!');
+			$this->session->set_flashdata('success', $feedback_success);
 			redirect('schedule/duration-estimates/list/' . $_SESSION['project_id']);
 		}
 	}
 
 	public function insert()
 	{
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
 		$duration_estimates['estimated_duration'] = $this->input->post('estimated_duration');
 		$duration_estimates['performed_duration'] = $this->input->post('performed_duration');
 		$duration_estimates['estimated_start_date'] = $this->input->post('estimated_start_date');
@@ -128,7 +142,7 @@ class DurationEstimates extends CI_Controller
 
 		if ($query) {
 			// insertLogduration_estimates('update', 'duration estimates');
-			$this->session->set_flashdata('success', 'Duration Estimates has been successfully created!');
+			$this->session->set_flashdata('success', $feedback_success);
 			redirect('schedule/duration-estimates/list/' . $_SESSION['project_id']);
 		}
 	}
