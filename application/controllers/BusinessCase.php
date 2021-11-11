@@ -88,6 +88,12 @@ class BusinessCase extends CI_Controller
 
 	function insert()
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
 		$business_case['business_deals'] = $this->input->post('business_deals');
 		$business_case['situation_analysis'] = $this->input->post('situation_analysis');
 		$business_case['recommendation'] = $this->input->post('recommendation');
@@ -96,7 +102,7 @@ class BusinessCase extends CI_Controller
 
 		$insert  = $this->Business_case_model->insert($business_case);
 		if ($insert) {
-			$this->session->set_flashdata('success', 'Bussiness Case has been successfully created!');
+			$this->session->set_flashdata('success', $feedback_success);
 			insertLogActivity('insert', 'business case');
 		}
 		redirect("integration/business-case/edit/" . $_SESSION['project_id']);
@@ -106,6 +112,12 @@ class BusinessCase extends CI_Controller
 
 	public function update()
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		$business_case['business_deals'] = $this->input->post('business_deals');
 		$business_case['situation_analysis'] = $this->input->post('situation_analysis');
 		$business_case['recommendation'] = $this->input->post('recommendation');
@@ -114,7 +126,7 @@ class BusinessCase extends CI_Controller
 		//$insert = $this->project_model->insert_project_pgq($quality_mp);
 		$query = $this->Business_case_model->update($business_case, $_SESSION['project_id']);
 		if ($query) {
-			$this->session->set_flashdata('success', 'Bussiness Case has been successfully changed!');
+			$this->session->set_flashdata('success', $feedback_success);
 			insertLogActivity('update', 'business case');
 		}
 
