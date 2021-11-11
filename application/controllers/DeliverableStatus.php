@@ -63,11 +63,17 @@ class DeliverableStatus extends CI_Controller
     
     public function delete($id)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_deleted = 'Item Deleted';
+        }else{
+			$feedback_deleted = 'Item Deletado';
+		}
+
         $project_id['project_id'] = $this->input->post('project_id');
         //var_dump($id);exit;die;
         $query = $this->Delivery_acceptance_term_model->delete($id);
         if ($query) {
-            insertLogActivity('delete', 'deliverable status');
+            insertLogActivity('delete', $feedback_deleted);
             redirect('integration/deliverable-status/list/' . $_SESSION['project_id']);
         }
     }
@@ -104,6 +110,11 @@ class DeliverableStatus extends CI_Controller
 
     public function update($project_id)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
 
         $delivery_acceptance_term['validator_name'] = $this->input->post('validator_name');
         $delivery_acceptance_term['role'] = $this->input->post('role');
@@ -118,7 +129,7 @@ class DeliverableStatus extends CI_Controller
 
         if ($query) {
             insertLogActivity('update', 'deliverable status');
-            $this->session->set_flashdata('success', 'Deliverable Status has been successfully changed!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect('integration/deliverable-status/list/' . $delivery_acceptance_term['project_id']);
         }
     }
