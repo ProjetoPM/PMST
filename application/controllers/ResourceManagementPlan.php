@@ -98,6 +98,12 @@ class ResourceManagementPlan extends CI_Controller
 
     public function insert()
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
         $human_resource_mp['roles_responsibilities'] = $this->input->post('roles_responsibilities');
         $human_resource_mp['organizational_chart'] = $this->input->post('organizational_chart');
         $human_resource_mp['staff_mp'] = $this->input->post('staff_mp');
@@ -115,13 +121,19 @@ class ResourceManagementPlan extends CI_Controller
 
         if ($query) {
             insertLogActivity('insert', 'resource management plan');
-            $this->session->set_flashdata('success', 'Resource Management Plan has been successfully created!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect("resources/resource-mp/edit/" . $_SESSION['project_id']);
         }
     }
 
     public function update()
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
         $human_resources_mp['roles_responsibilities'] = $this->input->post('roles_responsibilities');
         $human_resources_mp['organizational_chart'] = $this->input->post('organizational_chart');
         $human_resources_mp['staff_mp'] = $this->input->post('staff_mp');       
@@ -136,7 +148,7 @@ class ResourceManagementPlan extends CI_Controller
 
         if ($query) {
             insertLogActivity('update', 'resource management plan');
-            $this->session->set_flashdata('success', 'Resource Management Plan has been successfully changed!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect("resources/resource-mp/edit/" . $_SESSION['project_id']);
         }
     }
