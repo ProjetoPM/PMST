@@ -72,6 +72,12 @@ class ProcurementStatementOfWork extends CI_Controller {
 	}
 
 	public function insert($project_id){
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
 		$procurement_statement_of_work['description'] = $this->input->post('description');
 		$procurement_statement_of_work['types'] = $this->input->post('types');
 		$procurement_statement_of_work['restrictions'] = $this->input->post('restrictions');
@@ -86,12 +92,17 @@ class ProcurementStatementOfWork extends CI_Controller {
 
 		if($query){
 			insertLogActivity('insert', 'procurement statement of the work');
-			$this->session->set_flashdata('success', 'Procurement Statement of the Work has been successfully created!');
+			$this->session->set_flashdata('success', $feedback_success);
 			redirect('procurement/procurement-statement-of-work/list/' . $procurement_statement_of_work['project_id']);
 		}
 	}
 
 	public function update($project_id) {
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
 
 		$procurement_statement_of_work['description'] = $this->input->post('description');
 		$procurement_statement_of_work['types'] = $this->input->post('types');
@@ -107,7 +118,7 @@ class ProcurementStatementOfWork extends CI_Controller {
 
 		if ($query) {
 			insertLogActivity('update', 'procurement statement of the work');
-			$this->session->set_flashdata('success', 'Procurement Statement of the Work has been successfully changed!');
+			$this->session->set_flashdata('success', $feedback_success);
 			redirect('procurement/procurement-statement-of-work/list/' . $procurement_statement_of_work['project_id']);
 		}
 	}
