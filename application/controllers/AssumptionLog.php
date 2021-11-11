@@ -95,7 +95,7 @@ class AssumptionLog extends CI_Controller
         //$project_id['project_id'] = $project_id;
         $query = $this->Assumption_log_model->delete($assumption_log_id);
         if ($query) {
-            insertLogActivity('delete', 'assumption log');
+            insertLogActivity('delete', $feedback_deleted);
             redirect('integration/assumption-log/list/' . $_SESSION['project_id']);
         }
     }
