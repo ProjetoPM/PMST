@@ -13,9 +13,14 @@ class RiskChecklist extends CI_Controller
 			redirect(base_url());
 		}
 
-		$this->lang->load('btn', 'english');
+		if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('risk-mp', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+			$this->lang->load('risk-mp', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
 		//$this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('risk-mp', 'english');
 		//$this->lang->load('risk-mp','portuguese-brazilian');
 
 		$this->load->model('Project_model');
@@ -70,7 +75,13 @@ class RiskChecklist extends CI_Controller
 
 	public function insert()
 	{
-		insertLogActivity('update', 'general project risk checklist');
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
+		insertLogActivity('update', $feedback_success);
 		// var_dump($this->input->post());exit;die;
 		$postData = $this->input->post();
 		$insert   = $this->RiskChecklist_model->updateRiskCheckList($postData, $_SESSION['project_id']);
@@ -81,6 +92,12 @@ class RiskChecklist extends CI_Controller
 
 	public function update()
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+		
 		$risk_mp['methodology'] = $this->input->post('methodology');
 		$risk_mp['roles_responsibilities'] = $this->input->post('roles_responsibilities');
 		$risk_mp['risks_categories'] = $this->input->post('risks_categories');

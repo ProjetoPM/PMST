@@ -65,6 +65,12 @@ class RiskRegister extends CI_Controller
 
 	public function insert($project_id)
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
 		$risk_register['impacted_objective'] = $this->input->post('impacted_objective');
 		$risk_register['priority'] = $this->input->post('priority');
 		$risk_register['risk_status'] = $this->input->post('risk_status');
@@ -96,13 +102,19 @@ class RiskRegister extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('insert', 'risk register');
-			$this->session->set_flashdata('success', 'Risk Register has been successfully created!');
+			$this->session->set_flashdata('success', $feedback_success);
 			redirect('risk/risk-register/list/' . $risk_register['project_id']);
 		}
 	}
 
 	public function update($risk_register_id)
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		$risk_register['impacted_objective'] = $this->input->post('impacted_objective');
 		$risk_register['priority'] = $this->input->post('priority');
 		$risk_register['risk_status'] = $this->input->post('risk_status');
@@ -135,7 +147,7 @@ class RiskRegister extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('update', 'risk register');
-			$this->session->set_flashdata('success', 'Risk Register has been successfully changed!');
+			$this->session->set_flashdata('success', $feedback_success);
 			redirect('risk/risk-register/list/' . $risk_register['project_id']);
 		}
 	}
