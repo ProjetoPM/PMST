@@ -84,6 +84,13 @@ class AssumptionLog extends CI_Controller
 
     public function delete($assumption_log_id)
     {
+
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_deleted = 'Item Deleted';
+        }else{
+			$feedback_success = 'Item Deletado';
+		}
+
         $project_id['project_id'] = $this->input->post('project_id');
         //$project_id['project_id'] = $project_id;
         $query = $this->Assumption_log_model->delete($assumption_log_id);
@@ -127,6 +134,12 @@ class AssumptionLog extends CI_Controller
 
     public function update($assumption_log_id)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
         $assumption_log['description_log'] = $this->input->post('description_log');
         // $assumption_log['type'] = $this->input->post('type');
         $assumption_log['project_id'] = $_SESSION['project_id'];
@@ -134,7 +147,7 @@ class AssumptionLog extends CI_Controller
 
         if ($query) {
             insertLogActivity('update', 'assumption log');
-            $this->session->set_flashdata('success', 'Assumption Log has been successfully changed!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect('integration/assumption-log/list/' . $_SESSION['project_id']);
         }
     }
@@ -142,6 +155,12 @@ class AssumptionLog extends CI_Controller
 
     public function insert($project_id)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
         $assumption_log['description_log'] = $this->input->post('description_log');
         $assumption_log['type'] = $this->input->post('type');
         $assumption_log['project_id'] = $_SESSION['project_id'];
@@ -149,7 +168,7 @@ class AssumptionLog extends CI_Controller
 
         if ($query) {
             insertLogActivity('insert', 'assumption log');
-            $this->session->set_flashdata('success', 'Assumption Log has been successfully created!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect('integration/assumption-log/list/' . $_SESSION['project_id']);
         }
     }
