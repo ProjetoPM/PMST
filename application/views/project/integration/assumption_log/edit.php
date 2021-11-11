@@ -65,19 +65,19 @@
 		</div>
 	</div>
 </body>
-
+<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
 <script>
-	if (document.getElementById("acl_tp_1").title == "") {
-		document.getElementById("acl_tp_1").hidden = true;
-		limite_textarea(document.getElementById("acl_txt_1").value, "acl_1");
-	}
+    if (document.getElementById("acl_tp_1").title == "") {
+        document.getElementById("acl_tp_1").hidden = true;
+        limite_textarea(document.getElementById("acl_txt_1").value, "acl_1");
+    }
 
-	function limite_textarea(valor, txt) {
-		var limite = 2000;
-		var caracteresDigitados = valor.length;
-		var caracteresRestantes = limite - caracteresDigitados;
-		$("." + txt).text(caracteresRestantes);
-	}
+    function limite_textarea(valor, txt) {
+        var limite = 2000;
+        var caracteresDigitados = valor.length;
+        var caracteresRestantes = limite - caracteresDigitados;
+        $("." + txt).text(caracteresRestantes);
+    }
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>

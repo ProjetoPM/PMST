@@ -64,7 +64,7 @@ class Admin_model extends CI_Model {
             );
             $this->db->insert('user', $data);
 
-            $message = "Here is your account details:<br><br>Email: ".$postData['email']."<br>Tempolary password: ".$password."<br>Please change your password after login.<br><br> you can login at ".base_url().".";
+            $message = "Here is your account details:<br><br>Email: ".$postData['email']."<br>Temporary password: ".$password."<br>Please change your password after login.<br><br> you can login at ".base_url().".";
             $subject = "New Account Creation";
             $this->send_email($message,$subject,$postData['email']);
 
@@ -287,11 +287,12 @@ class Admin_model extends CI_Model {
             $mail->IsSMTP();
             $mail->SMTPDebug = 0;  
             $mail->SMTPAuth = true; 
+            $mail->SMTPSecure = 'ssl';
             $mail->Host = "smtp.hostinger.com.br";
-            $mail->Port = "587";
-            $mail->Username =  "admin@lesse.com.br";
-            $mail->Password = "L3ss3Unipamp@email";
-            $mail->SetFrom("admin@lesse.com.br", "Admin Lesse");
+            $mail->Port = "465";
+            $mail->Username =  "silverbullet_admin@lesse.com.br";
+            $mail->Password = "L3ss3Unipampa";
+            $mail->SetFrom("silverbullet_admin@lesse.com.br", "Admin SilverBullet");
             $mail->Subject = $subject;
             $mail->MsgHTML($message);
             $mail->AddAddress($sendTo);
@@ -304,7 +305,7 @@ class Admin_model extends CI_Model {
             $body = $hello.$message.$thanks;
             $mail->Body = $header.$body.$footer;
             $mail->AddAddress($sendTo);
-
+            // $mail->SMTPSecure = 'tls';
             if(!$mail->Send()) {
                 $error = 'Mail error: '.$mail->ErrorInfo;
                 return array('status' => false, 'message' => $error);

@@ -74,7 +74,7 @@
 
 								<div class="col-lg-4 form-group">
 									<label for="organization"><?= $this->lang->line('shr_organization') ?> </label>
-									<span class="shr_5">2000</span><?= $this->lang->line('character') ?>
+									<span class="shr_4">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="shr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_organization_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 									<input id="shr_txt_4" type="text" name="organization" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'shr_4')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
