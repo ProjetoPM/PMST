@@ -106,12 +106,15 @@ class ProjectCharter extends CI_Controller
 	{
 		if(strcmp($_SESSION['language'],"US") == 0){
 			$feedback_success = 'Item Created';
+			$feedback_permission = 'You are not allowed to create or change documents!';
         }else{
 			$feedback_success = 'Item Criado ';
+			$feedback_permission = 'Você não tem permissão para criar ou mudar documentos';
+
 		}
 
 		if ($_SESSION['access_level'] == "1") {
-			$this->session->set_flashdata('error', 'You are not allowed to create or change documents!');
+			$this->session->set_flashdata('error', $feedback_permission);
 			redirect("integration/project-charter/new/" . $_SESSION['project_id']);
 		}
 		
