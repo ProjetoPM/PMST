@@ -131,6 +131,12 @@ class DeliverableStatus extends CI_Controller
 
     public function insert($project_id)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
         $delivery_acceptance_term['validator_name'] = $this->input->post('validator_name');
         $delivery_acceptance_term['role'] = $this->input->post('role');
         $delivery_acceptance_term['function'] = $this->input->post('function');
@@ -143,7 +149,7 @@ class DeliverableStatus extends CI_Controller
 
         if ($query) {
             insertLogActivity('insert', 'deliverable status');
-            $this->session->set_flashdata('success', 'Deliverable Status has been successfully created!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect('integration/deliverable-status/list/' . $delivery_acceptance_term['project_id']);
         }
     }
