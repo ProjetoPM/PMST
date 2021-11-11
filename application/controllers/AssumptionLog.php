@@ -88,7 +88,7 @@ class AssumptionLog extends CI_Controller
         if(strcmp($_SESSION['language'],"US") == 0){
 			$feedback_deleted = 'Item Deleted';
         }else{
-			$feedback_success = 'Item Deletado';
+			$feedback_deleted = 'Item Deletado';
 		}
 
         $project_id['project_id'] = $this->input->post('project_id');
