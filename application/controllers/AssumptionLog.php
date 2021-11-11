@@ -84,18 +84,11 @@ class AssumptionLog extends CI_Controller
 
     public function delete($assumption_log_id)
     {
-
-        if(strcmp($_SESSION['language'],"US") == 0){
-			$feedback_deleted = 'Item Deleted';
-        }else{
-			$feedback_deleted = 'Item Deletado';
-		}
-
         $project_id['project_id'] = $this->input->post('project_id');
         //$project_id['project_id'] = $project_id;
         $query = $this->Assumption_log_model->delete($assumption_log_id);
         if ($query) {
-            insertLogActivity('delete', $feedback_deleted);
+            insertLogActivity('delete', 'assumption log');
             redirect('integration/assumption-log/list/' . $_SESSION['project_id']);
         }
     }

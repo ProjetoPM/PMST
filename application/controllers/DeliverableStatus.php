@@ -63,17 +63,12 @@ class DeliverableStatus extends CI_Controller
     
     public function delete($id)
     {
-        if(strcmp($_SESSION['language'],"US") == 0){
-			$feedback_deleted = 'Item Deleted';
-        }else{
-			$feedback_deleted = 'Item Deletado';
-		}
 
         $project_id['project_id'] = $this->input->post('project_id');
         //var_dump($id);exit;die;
         $query = $this->Delivery_acceptance_term_model->delete($id);
         if ($query) {
-            insertLogActivity('delete', $feedback_deleted);
+            insertLogActivity('delete', 'deliverable status');
             redirect('integration/deliverable-status/list/' . $_SESSION['project_id']);
         }
     }

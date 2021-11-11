@@ -61,17 +61,10 @@ class ProjectPerformanceReport extends CI_Controller
 
     public function delete($id)
     {
-        if(strcmp($_SESSION['language'],"US") == 0){
-			$feedback_deleted = 'Item Deleted';
-        }else{
-			$feedback_deleted = 'Item Deletado';
-		}
-
-
         $project_id['project_id'] = $this->input->post('project_id');
         $query = $this->Project_performance_report_model->delete($id);
         if ($query) {
-            insertLogActivity('delete', $feedback_deleted);
+            insertLogActivity('delete', 'project performance and monitoring report');
             redirect('integration/project-performance-report/list/' . $_SESSION['project_id']);
         }
     }
