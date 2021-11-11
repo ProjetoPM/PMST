@@ -118,6 +118,13 @@ class CommunicationsManagementPlan extends CI_Controller
 
     public function insert()
     {
+
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
         $communication_item['type'] = $this->input->post('type');
         $communication_item['description'] = $this->input->post('description');
         $communication_item['content'] = $this->input->post('content');
@@ -138,7 +145,7 @@ class CommunicationsManagementPlan extends CI_Controller
 
         if ($query) {
             insertLogActivity('insert', 'communications management plan');
-            $this->session->set_flashdata('success', 'Communications Management Plan has been successfully created!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect('communication/communications-mp/list/' . $communication_item['project_id']);
         }
     }
@@ -171,6 +178,12 @@ class CommunicationsManagementPlan extends CI_Controller
 
     public function update($id)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
         $communication_item['type'] = $this->input->post('type');
         $communication_item['description'] = $this->input->post('description');
         $communication_item['content'] = $this->input->post('content');
@@ -191,7 +204,7 @@ class CommunicationsManagementPlan extends CI_Controller
 
         if ($query) {
             insertLogActivity('update', 'communications management plan');
-            $this->session->set_flashdata('success', 'Communications Management Plan has been successfully changed!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect('communication/communications-mp/list/' . $communication_item['project_id']);
         }
     }
