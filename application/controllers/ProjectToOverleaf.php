@@ -1958,6 +1958,35 @@ class ProjectToOverleaf extends CI_Controller
 	// Stakeholder
 	public function SHR_Overleaf($project_id)
 	{
+
+		// if(strcmp($_SESSION['language'],"US") == 0){
+		// 	$client = 'Client';
+		// 	$team = 'Team';
+		// 	$provider = 'Provider';
+		// 	$project_manager = 'Project Manager';
+		// 	$sponsor = 'Sponsor';
+		// 	$others = 'Others';
+
+		// 	$external = 'External';
+		// 	$internal = 'Internal';
+		// }else{
+		// 	$client = 'Cliente';
+		// 	$team = 'Time';
+		// 	$provider = 'Fornecedor';
+		// 	$project_manager = 'Gerente de Projeto';
+		// 	$sponsor = 'Patrocinador';
+		// 	$others = 'Outros';
+
+		// 	$external = 'Externo';
+		// 	$internal = 'Interno';
+		// }
+
+		// $tempRole = $this->verificaDados($data->role);
+		// }
+		// // $file["task"] .= "\item \\textbf{Main Role in the Project}:\n";
+		// $file["task"] .= $this->verificaDados($tempRole) . ";\n";
+
+
 		$dataSHR = $this->Stakeholder_model->getAll($project_id);
 		$file["name_task"] = "StakeholderRegistration.tex";
 		if ($dataSHR != null) {
@@ -1965,6 +1994,34 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] .= "\section{Stakeholder Registration}\n";
 			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataSHR as $data) {
+
+				$tempt = $this->verificaDados($data->type);
+				// if($tempr ) 
+				if ($tempt == '0') {
+					$tempt == "External";
+				} else if ($tempt == '1') {
+					$tempt = "Internal";
+				} else {
+					$tempt;
+				}
+
+				$tempr = $this->verificaDados($data->role);
+				if ($tempr == 0) {
+					$tempr = "Client";
+				} else if ($tempr == 1) {
+					$tempr = "Team";
+				} else if ($tempr == 2) {
+					$tempr = "Provider";
+				} else if ($tempr == 3) {
+					$tempr = "Project Manager";
+				} else if ($tempr == 4) {
+					$tempr = "Sponsor";
+				} else if ($tempr == 5) {
+					$tempr = "Others";
+				} else {
+					$tempr;
+				}
+
 				$file["task"] .= "\item \\textbf{Name}: " .  $this->verificaDados($data->name) . "| \\textbf{Position}: " . $this->verificaDados($data->position) . "\n";
 
 				$file["task"] .= "\begin{itemize}\n";
@@ -1975,38 +2032,11 @@ class ProjectToOverleaf extends CI_Controller
 				$file["task"] .= "\item \\textbf{Organization}:\n";
 				$file["task"] .= $this->verificaDados($data->organization) . ";\n";
 
-				$tempType = $this->verificaDados($data->type);
-
-				if ($tempType == 0) {
-					$tempType = "External";
-				} else if ($tempType == 1) {
-					$tempType = "Internal";
-				} else {
-					$tempType;
-				}
-
 				$file["task"] .= "\item \\textbf{Type}:\n";
-				$file["task"] .= $this->verificaDados($tempType) . ";\n";
+				$file["task"] .= $this->verificaDados($tempt) . ";\n";
 
-				$tempRole = $this->verificaDados($data->role);
-
-				if ($tempRole == 0) {
-					$tempRole = "Client";
-				} else if ($tempRole == 1) {
-					$tempRole = "Team";
-				} else if ($tempRole == 2) {
-					$tempRole = "Provider";
-				} else if ($tempRole == 3) {
-					$tempRole = "Project Manager";
-				} else if ($tempRole == 4) {
-					$tempRole = "Sponsor";
-				} else if ($tempRole == 5) {
-					$tempRole = "Others";
-				} else {
-					$tempRole;
-				}
 				$file["task"] .= "\item \\textbf{Main Role in the Project}:\n";
-				$file["task"] .= $this->verificaDados($tempRole) . ";\n";
+				$file["task"] .= $this->verificaDados($tempr) . ";\n";
 
 				$file["task"] .= "\item \\textbf{Main Project Responsibility}:\n";
 				$file["task"] .= $this->verificaDados($data->responsibility) . ";\n";

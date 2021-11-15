@@ -55,8 +55,8 @@
 									<label for="type"><?= $this->lang->line('shr_type') ?></label>
 									<a class="btn-sm btn-default" id="shr_tp_2" data-toggle=" tooltip" data-placement="right" title="<?= $this->lang->line('shr_type_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<select name="type" class="form-control" value="<?php echo $type; ?>">
-										<option value="0" <?php if ($role == 0) echo 'selected'; ?>><?= $this->lang->line('shr_type_external') ?></option>
-										<option value="1" <?php if ($role == 1) echo 'selected'; ?>><?= $this->lang->line('shr_type_internal') ?></option>
+										<option value="0" <?php if ($type == 0) echo 'selected'; ?>><?= $this->lang->line('shr_type_external') ?></option>
+										<option value="1" <?php if ($type == 1) echo 'selected'; ?>><?= $this->lang->line('shr_type_internal') ?></option>
 									</select>
 								</div>
 
