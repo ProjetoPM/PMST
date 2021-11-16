@@ -62,20 +62,7 @@ class ProjectCharter extends CI_Controller
 
 	public function edit($project_id)
 	{
-		// var_dump($_SESSION['project']);
-		// die;
-		// exit;
-
-		if(strcmp($_SESSION['language'],"US") == 0){
-			$this->lang->load('project-page', 'english');
-			$this->lang->load('btn', 'english');
-			$this->lang->load('tap', 'english');
-		}else{
-			$this->lang->load('project-page', 'portuguese-brazilian');
-			$this->lang->load('btn', 'portuguese-brazilian');
-			$this->lang->load('tap', 'portuguese-brazilian');
-		}
-
+	
 		$this->db->where('user_id', $_SESSION['user_id']);
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
@@ -91,6 +78,8 @@ class ProjectCharter extends CI_Controller
 			$dado['items'] = $this->view_model->getAllSignature($dado['items'][0]);
 
 			$dado['stakeholder'] = $this->Project_Charter_model->getAllStk();
+
+			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "project charter", $dado['project_charter'][0]->project_charter_id);
 			//$dado['stakeholder_mp'] = $this->Project_Charter_model->getAllStk_mp();
 
 			$this->load->view('frame/header_view');

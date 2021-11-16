@@ -70,14 +70,22 @@ class User_Model extends CI_Model
 
 	public function GetUsersByProject($project_id)
 	{
-		
-		$query = $this->db->get_where('project_user', array('project_user.project_id'=>$project_id));
+
+		$query = $this->db->get_where('project_user', array('project_user.project_id' => $project_id));
 		return $query->result();
-
-
 	}
 
+	public function GetUserNameById($user_id)
+	{
+		$this->db->select('name');
+		$this->db->where('user_id', $user_id);
+		$this->db->from('user');
+		$this->db->limit(1);
 
+		$query = $this->db->get();
+		$res = $query->row_array();
+		return $res['name'];
+	}
 
 
 

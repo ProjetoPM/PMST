@@ -21,6 +21,7 @@
   <!-- Custom CSS -->
   <!-- <link href="<?= base_url() ?>assets/css/sb-admin-2.css" rel="stylesheet"> -->
   <!-- Custom Fonts -->
+  
   <link href="<?= base_url() ?>assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom tab icons -->
   <link rel="shortcut icon" href="<?= base_url() ?>assets/images/silverbullet_logo.png" type="image/x-icon">
@@ -49,7 +50,9 @@
   <!-- <link rel='stylesheet' href="<?= base_url() ?>assets/css/dataTables.responsive.css"> -->
 
   <!-- CSS refatorados da dashboard principal -->
-  <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
+  <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet" >
+ 
+ 
 
 
   <!-- Theme style -->

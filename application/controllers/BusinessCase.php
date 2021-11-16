@@ -60,12 +60,6 @@ class BusinessCase extends CI_Controller
 
 	public function edit($project_id)
 	{
-		if(strcmp($_SESSION['language'],"US") == 0){
-            $this->lang->load('btn', 'english');
-        }else{
-            $this->lang->load('btn', 'portuguese-brazilian');
-            
-        }
 		
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
@@ -76,6 +70,7 @@ class BusinessCase extends CI_Controller
 			if ($dado['business_case'] == null) {
 				redirect(base_url("integration/business-case/new/" . $_SESSION['project_id']));
 			}
+			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "business case", $dado['business_case'][0]->business_case_id);
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');

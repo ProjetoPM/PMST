@@ -89,6 +89,10 @@ $route['project/(:num)'] = 'Project/initial/$1';
 $route['edit/(:num)'] = 'Project/update/$1';
 $route['researcher/(:num)'] = 'Project/add_researcher_page/$1';
 $route['delete/(:num)'] = 'Project/delete/$1';
+$route['field-evaluation/insert'] = 'FieldEvaluation/insert';
+$route['store-review-data'] = 'FieldEvaluation/storeReviewData';
+$route['evaluation-delete/(:num)'] = 'FieldEvaluation/delete/$1';
+$route['field-evaluation/check'] = 'FieldEvaluation/check';
 
 
 $route['chat'] = 'Chat/index';

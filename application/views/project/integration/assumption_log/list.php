@@ -105,7 +105,7 @@
 													<td><?= $item->type == "A" ? $this->lang->line('acl_assumption') : $this->lang->line('acl_constraint'); ?></td>
 													<td> <span class="texttd"><?php echo $item->description_log; ?></span></td>
 
-													<td style="display: fixed;min-width: 100px;">
+													<td <?= getStatusFieldsList("assumption log", $item->assumption_log_id) ?>>
 														<div class="row center">
 															<div class="col-sm-4">
 																<form action="<?php echo base_url() ?>integration/assumption-log/edit/<?php echo $item->assumption_log_id; ?>" method="post">

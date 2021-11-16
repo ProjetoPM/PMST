@@ -55,20 +55,22 @@ class BenefitsManagementPlan extends CI_Controller
 
 	public function edit($project_id)
 	{
-		if(strcmp($_SESSION['language'],"US") == 0){
-            $this->lang->load('btn', 'english');
-        }else{
-            $this->lang->load('btn', 'portuguese-brazilian');
-        }
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
+
+		// var_dump(fieldStatus('benefits management plan',"5","premises"));die;exit;
+		// var_dump(getStatusButtonCheck('benefits management plan',"5","premises"));die;exit;
+
 
 		if (count($project['dados']) > 0) {
 			$dado['benefits_mp'] = $this->Benefits_plan_model->get($_SESSION['project_id']);
 			if ($dado['benefits_mp'] == null) {
 				redirect("integration/benefits-mp/new/" . $_SESSION['project_id']);
 			}
+
+			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "benefits management plan", $dado['benefits_mp'][0]->benefits_plan_id);
+
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');

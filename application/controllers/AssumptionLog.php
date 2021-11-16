@@ -120,7 +120,10 @@ class AssumptionLog extends CI_Controller
         }
 
         $query['assumption_log'] = $this->Assumption_log_model->get($assumption_log_id);
+        $query["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "assumption log", $query['assumption_log']['assumption_log_id']);
+       
         $this->load->view('frame/header_view.php');
+        $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view.php');
         $this->load->view('project/integration/assumption_log/edit', $query);
     }

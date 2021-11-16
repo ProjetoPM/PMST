@@ -151,7 +151,7 @@
 													<td><span class="texttd"><?php echo $item->organization ?></span></td>
 													<td><span class="texttd"><?php echo $item->position ?></span></td>
 													<td><span class="texttd"><?php echo $item->email ?></span></td>
-													<td style="display: fixed;min-width: 100px;">
+													<td <?= getStatusFieldsList("stakeholder register", $item->stakeholder_id) ?>>
 														<div class="row center">
 															<div class="col-sm-4">
 																<form action="<?php echo base_url() ?>stakeholder/stakeholder-register/edit/<?php echo $item->stakeholder_id; ?>" method="post">

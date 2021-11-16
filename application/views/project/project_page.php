@@ -106,7 +106,7 @@
                             <a href="<?= base_url("integration/project-charter/edit/" . $project[0]->project_id) ?>">
                             <?php   } ?>
 
-                            <div class=" col-lg-1 midBox integrationColor">
+                            <div class=" col-lg-1 midBox integrationColor" <?php echo viewStatus('project charter') ?>>
                               <div class="verticalAlign">
                                 <i class="glyphicon glyphicon-star"></i>
                                 <?= $this->lang->line('project-charter') ?>
@@ -182,7 +182,7 @@
                           <?php } else { ?>
                             <a href="<?= base_url("integration/business-case/edit/" . $project[0]->project_id) ?>">
                             <?php   } ?>
-                            <div class=" col-lg-1 midBox integrationColor">
+                            <div class=" col-lg-1 midBox integrationColor" <?php echo viewStatus('business case') ?>>
                               <div class="verticalAlign">
                                 <i class="glyphicon glyphicon-star"></i>
                                 <?= $this->lang->line('business_case') ?>
@@ -242,7 +242,7 @@
                           <?php } else { ?>
                             <a href="<?= base_url("integration/benefits-mp/edit/" . $project[0]->project_id) ?>">
                             <?php   } ?>
-                            <div class=" col-lg-1 midBox integrationColor">
+                            <div class="col-lg-1 midBox integrationColor"  <?php echo viewStatus('benefits management plan') ?>>
                               <div class="verticalAlign">
                                 <i class="glyphicon glyphicon-star"></i>
                                 <?= $this->lang->line('benefits_plan') ?>
@@ -269,7 +269,7 @@
                             <div class=" col-lg-1 midBox integrationColor hideBox"></div>
 
                             <a href="<?= base_url("integration/assumption-log/list/" . $project[0]->project_id) ?>">
-                              <div class=" col-lg-1 midBox integrationColor">
+                              <div class=" col-lg-1 midBox integrationColor" <?php echo viewStatus('assumption log') ?>>
                                 <div class="verticalAlign">
                                   <i class="glyphicon glyphicon-star"></i>
                                   <?= $this->lang->line('assumption_log') ?>
@@ -1050,7 +1050,7 @@
 
                       <div class="col-lg-10 noSpaceSide floatRight">
                         <a href="<?= base_url("stakeholder/stakeholder-register/list/" . $project[0]->project_id) ?>">
-                          <div class=" col-lg-1 midBox stakeholderColor">
+                          <div class=" col-lg-1 midBox stakeholderColor" <?php echo viewStatus('stakeholder register') ?>>
                             <div class="verticalAlign">
                               <i class="fa fa-users"></i>
                               <?= $this->lang->line('stakeholder-register') ?>

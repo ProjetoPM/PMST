@@ -59,4 +59,6 @@ $lang['pages'] = 'Page 1 of 1';
 // Overleaf
 $lang['export_overleaf'] = 'Export Overleaf';
 
+$lang['btn-see'] = 'Mark all comments as viewed';
+
 ?>
