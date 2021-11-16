@@ -43,6 +43,15 @@ class Project extends CI_Controller
 
 	public function project_form()
 	{
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+			$this->lang->load('project-page', 'english');
+        }else{
+            $this->lang->load('btn', 'portuguese-brazilian');
+			$this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
 		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
 		$data = array(
@@ -70,6 +79,7 @@ class Project extends CI_Controller
 
 	function add_project()
 	{
+
 		//$this->ajax_checking();
 		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
