@@ -13,11 +13,9 @@ class NotificationBoard extends CI_Controller
             redirect(base_url());
         }
         if(strcmp($_SESSION['language'],"US") == 0){
-            $this->lang->load('btn', 'english');
             $this->lang->load('project-page', 'english');
             $this->lang->load('notification-board', 'english');
         }else{
-            $this->lang->load('btn', 'portuguese-brazilian');
             $this->lang->load('project-page', 'portuguese-brazilian');
             $this->lang->load('notification-board','portuguese-brazilian');
         }
@@ -45,6 +43,13 @@ class NotificationBoard extends CI_Controller
 
     public function list($project_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('btn', 'english');
+        } else {
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+        
+        
         $query['notification_board'] = $this->notification_board_model->getAll($project_id);
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
@@ -52,14 +57,15 @@ class NotificationBoard extends CI_Controller
         $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/notification/notification_mp/list', $query);
     }
-
+    
     public function new($project_id)
     {
+        
         $idusuario = $_SESSION['user_id'];
         $this->db->where('user_id', $idusuario);
         $this->db->where('project_id', $project_id);
         $project['dados'] = $this->db->get('project_user')->result();
-
+        
         if (count($project['dados']) > 0) {
             $query['project_id'] = $project_id;
             $this->load->view('frame/header_view');
@@ -70,9 +76,15 @@ class NotificationBoard extends CI_Controller
             redirect(base_url());
         }
     }
-
+    
     public function edit($notification_board)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('btn', 'english');
+        } else {
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+        
         $query['notification_board'] = $this->notification_board_model->get($notification_board);
         $query['project_id'] = $this->input->post('project_id');
         $this->load->view('frame/header_view');
