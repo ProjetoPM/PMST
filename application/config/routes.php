@@ -90,6 +90,8 @@ $route['project/(:num)'] = 'Project/initial/$1';
 $route['edit/(:num)'] = 'Project/update/$1';
 $route['researcher/(:num)'] = 'Project/add_researcher_page/$1';
 $route['delete/(:num)'] = 'Project/delete/$1';
+$route['researcher/edit-researcher/(:num)'] = 'Project/edit_researcher_page/$1';
+$route['researcher/update'] = 'Project/update_researcher';
 
 
 $route['chat'] = 'Chat/index';

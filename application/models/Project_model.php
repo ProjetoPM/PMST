@@ -31,6 +31,7 @@ class Project_model extends CI_Model
         return $u['title'];
     }
 
+
     function insert_project($postData)
     {
 
@@ -90,6 +91,13 @@ class Project_model extends CI_Model
 
     }
 
+    
+
+    function getAll($project_id){
+        $query = $this->db->get_where('lesson_learned_register', array('lesson_learned_register.project_id'=>$project_id));
+        return $query->result();
+    }
+
     function getRole($project_id, $user_id)
     {
         $this->db->select('access_level');
@@ -129,12 +137,12 @@ class Project_model extends CI_Model
         return $query->result();
     }
 
-    public function updateResearcher($project_id,$user_id,$researcher)
+    public function update_role($project_id,$user_id,$researcher)
     {
         $this->db->where('user_id', $user_id);
         $this->db->where('project_id', $project_id);
         $this->db->from('project_user');
-        return $this->db->update('project_user', $researcher);
+        return $this->db->update('user', $researcher);
     }
 
     function deleteProjectModel($id)

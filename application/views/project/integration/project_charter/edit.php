@@ -382,9 +382,11 @@
 																<td>
 																	<?php if ($item->access_level == "2") : ?>
 																		Project Manager
-																	<?php elseif ($_SESSION['acess_level'] = "1") : ?>
+																	<?php elseif ($_SESSION['acess_level'] == "1") : ?>
 																		Professor
-																	<?php else : ?>
+																	<?php elseif ($item->acess_level == "0") : ?>
+																		Staff
+																	<?php elseif ($item->acess_level == "3") : ?>
 																		Staff
 																	<?php endif; ?>
 

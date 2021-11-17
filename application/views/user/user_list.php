@@ -133,7 +133,7 @@
 									<table class="table table-bordered table-striped" id="table_stake">
 										<thead>
 											<tr>
-			
+
 												<th>Name</th>
 												<th>Institution</th>
 												<th>Acess Level</th>
@@ -148,25 +148,27 @@
 												<tr'>
 													<td><span class="texttd"><?= getUsername($item->user_id); ?></span></td>
 													<td><span class="texttd"><?php echo getInstitution($item->user_id) ?></span></td>
-													
-													
-												<?php if (getRole($item->user_id) == 0) {
-                                                    $acess_level = "Staff";
-                                                } elseif (getRole($item->user_id) == 1) {
-                                                    $acess_level = "Professor";
-                                                } elseif (getRole($item->user_id) == 2) {
-                                                    $acess_level = "Project Manager";
-                                                } ?>
+
+
+													<?php if (getRole($item->user_id) == 0) {
+														$acess_level = "Staff";
+													} elseif (getRole($item->user_id) == 1) {
+														$acess_level = "Professor";
+													} elseif (getRole($item->user_id) == 2) {
+														$acess_level = "Project Manager";
+													} elseif (getRole($item->user_id) == 3) {
+														$acess_level = 'Admin';
+													} ?>
 													<td><span class="texttd"><?php echo $acess_level ?></span></td>
 													<td><span class="texttd"><?php echo getEmail($item->user_id) ?></span></td>
 													<td style="display: fixed;min-width: 100px;">
 														<div class="row center">
 															<div class="col-sm-4">
-																<form action="<?php echo base_url() ?>stakeholder/stakeholder-register/edit/<?php echo $item->user_id; ?>" method="post">
+																<form action="<?php echo base_url() ?>researcher/edit-researcher/<?php echo $project_id ?>" method="post">
 																	<input type="hidden" name="project_id" value="<?= $item->project_id ?>">
-																			<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
-																						
-																	</form>
+																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
+
+																</form>
 															</div>
 
 															<div class="col-sm-4">
@@ -174,10 +176,10 @@
 															</div>
 														</div>
 													</td>
-												</tr>
-											<?php
+													</tr>
+												<?php
 											}
-											?>
+												?>
 
 										</tbody>
 									</table>
@@ -210,5 +212,3 @@
 
 <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 					-->
-
-

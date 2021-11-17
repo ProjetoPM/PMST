@@ -104,7 +104,7 @@
                                                 $this->db->where('user_id', $retorna['$user_id']);
                                                 $this->db->where('project_id', $return['project_id']);
                                                 $this->db->from('project_user');
-                                                
+
                                                 $query = $this->db->get();
                                                 $res = $query->row_array();
                                                 $level = $res['access_level'];
@@ -145,6 +145,8 @@
                                                     echo "Professor";
                                                 } elseif ($level == 2) {
                                                     echo "Project Manager";
+                                                } else {
+                                                    echo "Admin";
                                                 } ?>
                                             </td>
                                         </tr>
