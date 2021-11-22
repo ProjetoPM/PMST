@@ -22,7 +22,7 @@
 <script src="<?= base_url() ?>assets/js/fastclick.js"></script>
 <script src="<?= base_url() ?>assets/js/jquery.slimscroll.min.js"></script>
 
-<script src="<?= base_url() ?>assets/js/demo.js"></script>
+
 
 
 
@@ -76,6 +76,7 @@
   $(function() {
     $('[data-toggle="tooltip"]').tooltip();
   });
+  $("[data-tt=tooltip]").tooltip();
 </script>
 
 <!-- <?php if ($this->uri->segment(1) != 'chat') { ?>
@@ -84,14 +85,14 @@
 
 
 <script>
-  $(document).ready(function() {
-    $('.sidebar-menu').tree()
-  })
-  // <?php if ($this->uri->segment(1) != 'chat') { ?>
-  //   $(document).ajaxStart(function() {
-  //     Pace.restart();
-  //   });
-  // <?php } ?>
+  // $(document).ready(function() {
+  //   $('.sidebar-menu').tree()
+  // })
+  // // <?php if ($this->uri->segment(1) != 'chat') { ?>
+  // //   $(document).ajaxStart(function() {
+  // //     Pace.restart();
+  // //   });
+  // // <?php } ?>
 </script>
 <script>
   //código usando jQuery

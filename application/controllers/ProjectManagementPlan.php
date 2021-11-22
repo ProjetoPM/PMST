@@ -26,7 +26,7 @@ class ProjectManagementPlan extends CI_Controller
 		$this->load->helper('log_activity');
 		$this->load->model('log_model');
 	}
-	public function new($projet_id)
+	public function new($project_id)
 	{
 		if (strcmp($_SESSION['language'], "US") == 0) {
 			$this->lang->load('btn', 'english');
@@ -89,29 +89,32 @@ class ProjectManagementPlan extends CI_Controller
 
 	public function insert()
 	{
-		$project_mp['project_lifecycle'] = $this->input->post('project_lifecycle');
 		$project_mp['project_guidelines'] = $this->input->post('project_guidelines');
-		$project_mp['change_mp'] = $this->input->post('change_mp');
-		$project_mp['configuration_mp'] = $this->input->post('configuration_mp');
-		$project_mp['baseline_maintenance'] = $this->input->post('baseline_maintenance');
-		$project_mp['stakeholders_communication'] = $this->input->post('stakeholders_communication');
-		$project_mp['key_review'] = $this->input->post('key_review');
 		$project_mp['requirements_mp'] = $this->input->post('requirements_mp');
 		$project_mp['schedule_mp'] = $this->input->post('schedule_mp');
 		$project_mp['cost_mp'] = $this->input->post('cost_mp');
 		$project_mp['quality_mp'] = $this->input->post('quality_mp');
 		$project_mp['resource_mp'] = $this->input->post('resource_mp');
+		$project_mp['stakeholders_communication'] = $this->input->post('stakeholders_communication');
 		$project_mp['risk_mp'] = $this->input->post('risk_mp');
 		$project_mp['procurement_mp'] = $this->input->post('procurement_mp');
 		$project_mp['stakeholder_mp'] = $this->input->post('stakeholder_mp');
+
 		$project_mp['scope_baseline'] = $this->input->post('scope_baseline');
+		$project_mp['baseline_maintenance'] = $this->input->post('baseline_maintenance');
 		$project_mp['cost_baseline'] = $this->input->post('cost_baseline');
+
+		$project_mp['change_mp'] = $this->input->post('change_mp');
+		$project_mp['configuration_mp'] = $this->input->post('configuration_mp');
 		$project_mp['performance'] = $this->input->post('performance');
+		$project_mp['project_lifecycle'] = $this->input->post('project_lifecycle');
 		$project_mp['development'] = $this->input->post('development');
+		$project_mp['key_review'] = $this->input->post('key_review');
+
 		$project_mp['project_id'] = $_SESSION['project_id'];
-
+		
 		$query = $this->Project_Management_model->insert($project_mp);
-
+		
 		if ($query) {
 			insertLogActivity('insert', 'project management plan');
 			$this->session->set_flashdata('success', 'Project Management Plan has been successfully created!');
@@ -146,9 +149,10 @@ class ProjectManagementPlan extends CI_Controller
 		$project_mp['status'] = $this->input->post('status');
 
 		$query = $this->Project_Management_model->update($project_mp, $_SESSION['project_id']);
-
-		insertLogActivity('update', 'project management plan');
-		$this->session->set_flashdata('success', 'Project Management Plan has been successfully changed!');
+		if ($query) {
+			$this->session->set_flashdata('success', 'Project Management Plan has been successfully changed!');
+			insertLogActivity('update', 'project management plan');
+		}
 		redirect('integration/project-mp/edit/' . $_SESSION['project_id']);
 	}
 }

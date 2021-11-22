@@ -71,7 +71,6 @@
 										<option value="5" ><?= $this->lang->line('shr_role_others') ?></option>
 									</select>
 								</div>
-
 								<div class="col-lg-4 form-group">
 									<label for="organization"><?= $this->lang->line('shr_organization') ?> </label>
 									<span class="shr_4">2000</span><?= $this->lang->line('character') ?>

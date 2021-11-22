@@ -23,7 +23,7 @@
 					</div>
 				<?php endif; ?>
 
-				<?php extract($activity); ?>
+				<?php extract($calendar); ?>
 
 				<div class="row">
 					<div class="col-lg-12">
@@ -33,18 +33,17 @@
 								<?= $this->lang->line('pca-title')  ?>
 
 							</h1>
-							<form action="<?= base_url() ?>schedule/project-calendars/update/<?php echo $id; ?>" method="post">
+							<form action="<?= base_url() ?>schedule/project-calendars/update/<?php echo $project_calendars_id; ?>" method="post">
 
 								<input type="hidden" id="project_id" name="project_id" value="<?php echo $project_id; ?>">
 								<!-- Textarea -->
-								<ul class="abas">
 									<!-- Aqui, criação da primeira aba -->
 
 									<div class="col-lg-4 form-group">
 										<label><?= $this->lang->line('pca-activity_name') ?></label>
 										<select name="activities" size="1" class="form-control" tabindex="1">
 											<?php foreach ($activities as $t) { ?>
-												<option value="<?= $t->id; ?>">
+												<option  <?php if ($t->id == $activity_id) echo "selected"; ?> value="<?= $t->id; ?>">
 													<?= $t->activity_name; ?></option>
 											<?php  } ?>
 										</select>
@@ -54,7 +53,7 @@
 										<label><?= $this->lang->line('text-5') ?></label>
 										<select name="stakeholders" size="1" class="form-control" tabindex="1">
 											<?php foreach ($stakeholders as $s) { ?>
-												<option value="<?= $s->stakeholder_id; ?>">
+												<option <?php if ($s->stakeholder_id == $stakeholder_id) echo "selected"; ?> value="<?= $s->stakeholder_id; ?>">
 													<?= $s->name; ?></option>
 											<?php  } ?>
 										</select>
@@ -77,8 +76,6 @@
 											<input id="pca_txt_1" type="text" name="resource_name" class="form-control input-md" onkeyup="limite_textarea(this.value, 'pca_1')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value="<?php echo $resource_name; ?>">
 										</div>
 									</div> -->
-
-
 
 									<div class=" col-lg-3 form-group">
 										<label for="availability_start"><?= $this->lang->line('pca-availability_start') ?></label>

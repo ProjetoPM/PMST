@@ -53,11 +53,6 @@ class ResourceRequirements extends CI_Controller
 	
 	public function edit($project_id)
 	{
-		if (strcmp($_SESSION['language'], "US") == 0) {
-			$this->lang->load('btn', 'english');
-		} else {
-			$this->lang->load('btn', 'portuguese-brazilian');
-		}
 		
 		$query['activity'] = $this->Activity_model->get($project_id);
 		
@@ -67,6 +62,26 @@ class ResourceRequirements extends CI_Controller
 		$this->load->view('project/schedule/resource_requirement/edit', $query);
 	}
 
+	public function newR()
+	{
+		$query['activity'] = $this->Activity_model->get($_SESSION['project_id']);
+
+		$this->load->view('frame/header_view.php');
+		$this->load->view('frame/topbar');
+		$this->load->view('frame/sidebar_nav_view.php');
+		$this->load->view('project/schedule/resource_requirement/newR', $query);
+	}
+
+	public function new()
+	{
+		$query['activities'] = $this->Activity_model->getAll($_SESSION['project_id']);
+		$query['activity'] = $this->Activity_model->get($_SESSION['project_id']);
+
+		$this->load->view('frame/header_view.php');
+		$this->load->view('frame/topbar');
+		$this->load->view('frame/sidebar_nav_view.php');
+		$this->load->view('project/schedule/resource_requirement/new', $query);
+	}
 	public function update($project_id)
 	{
 		$activity['resource_description'] = $this->input->post('resource_description');

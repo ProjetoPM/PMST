@@ -285,6 +285,7 @@
 									<div class="col-lg-12">
 										<button id="pch_submit" type="submit" <?php echo $buttonsub ?> value="<?= $this->lang->line('btn-save'); ?>" class="btn btn-lg btn-success pull-right">
 											<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?> </button>
+										</button>
 								</form>
 								<form action="<?php echo base_url('project/'); ?><?php echo $_SESSION['project_id']; ?>">
 									<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back'); ?></button>

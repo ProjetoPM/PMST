@@ -64,7 +64,7 @@
 							<div class="row">
 								<div class="col-lg-12">
 									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>schedule/duration-estimates/new/<?php echo $_SESSION['project_id'] ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
-									<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#upload"><i class="fa fa-plus-circle"></i> Upload</button>
+									<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#upload"><i class="fa fa-plus-circle"></i><?= $this->lang->line('btn-upload') ?></button>
 									<?php
 									if ($duration_estimates != null) {
 									?>
@@ -127,7 +127,7 @@
 																	</div>
 																	
 																	<div class="col-sm-3" style="margin-left: 13px;">
-																	<button type="submit" class="btn btn-danger" onclick="deletar(<?= $a->project_id ?>, <?= $a->duration_estimates_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+																	<button type="submit" class="btn btn-danger" onclick="deletar(<?= $a->activity_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
 																		
 																	</div>
 																</div>
@@ -334,7 +334,7 @@
 </script>
 
 <script type="text/javascript">
-	function deletar(idProjeto, id) {
+	function deletar(id) {
 		//e.preventDefault();
 		alertify.confirm('If you delete this activity duration estimate, it will also delete all versions for it!').setting({
 			title: 'Alert!',
@@ -345,11 +345,7 @@
 			'reverseButtons': false,
 			'onok': function() {
 
-				console.log(`Passei o ${idProjeto} e ${id}`);
-
-				$.post("<?php echo base_url() ?>schedule/duration-estimates/delete/" + id, {
-					project_id: idProjeto,
-				});
+				$.post("<?php echo base_url() ?>schedule/duration-estimates/delete/" + id);
 
 				alertify.success('You agree.');
 				location.reload();

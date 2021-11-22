@@ -103,7 +103,7 @@ class DurationEstimates extends CI_Controller
 		$query = $this->DurationEstimates_model->update($data['duration_estimates'], $id);
 
 		if ($query) {
-			// insertLogduration_estimates('update', 'duration estimates');
+			insertLogActivity('update', 'duration estimates');
 			$this->session->set_flashdata('success', 'Duration Estimates has been successfully changed!');
 			redirect('schedule/duration-estimates/list/' . $_SESSION['project_id']);
 		}
@@ -127,7 +127,7 @@ class DurationEstimates extends CI_Controller
 		$query = $this->DurationEstimates_model->insert($data['duration_estimates']);
 
 		if ($query) {
-			// insertLogduration_estimates('update', 'duration estimates');
+			insertLogActivity('create', 'duration estimates');
 			$this->session->set_flashdata('success', 'Duration Estimates has been successfully created!');
 			redirect('schedule/duration-estimates/list/' . $_SESSION['project_id']);
 		}
@@ -157,4 +157,15 @@ class DurationEstimates extends CI_Controller
 			redirect(base_url());
 		}
 	}
+
+	public function delete($activity_id)
+    {
+        $query = $this->DurationEstimates_model->delete($activity_id);
+        if ($query) {
+            insertLogActivity('delete', 'Project Calendars');
+			$this->session->set_flashdata('delete', 'Item deleted successfully!');
+            // redirect('schedule/project-schedule-network-diagram/list/' . $_SESSION['project_id']);
+        }
+    }
+
 }

@@ -53,7 +53,7 @@ class QualityReports extends CI_Controller
             $this->load->view('frame/sidebar_nav_view');
             $this->load->view('project/quality/quality_reports/new', $dado);
         } else {
-            redirect(base_url());
+            redirect('quality/quality-reports/list' . $_SESSION[$project_id]);
         }
     }
 
@@ -120,7 +120,7 @@ class QualityReports extends CI_Controller
 
         if ($query) {
             insertLogActivity('update', 'quality reports');
-            redirect('quality/quality-reports/list/' . $quality_reports['project_id']);
+            redirect('quality/quality-reports/list/' . $_SESSION['project_id']);
         }
     }
 
@@ -144,7 +144,7 @@ class QualityReports extends CI_Controller
 
         if ($query) {
             insertLogActivity('insert', 'quality reports');
-            redirect('quality/quality-reports/list/' . $quality_reports['project_id']);
+            redirect('quality/quality-reports/list/' . $_SESSION['project_id']);
         }
     }
 }

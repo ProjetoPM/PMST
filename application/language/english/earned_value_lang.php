@@ -8,13 +8,12 @@ $lang['activity_name'] = 'Activity Name';
 $lang['agregate_value'] = 'EV-Earned Value';
 $lang['planned_value'] = 'PV-Planned Value';
 $lang['real_agregate_cost'] = 'AC-Actual Cost';
-$lang['budget_at_cumulative_end'] = 'Budget at Cumulative Cost';
+$lang['budget_at_cumulative_end'] = 'BAC-Budget at Cumulative Cost';
 $lang['variation_of_terms'] = 'SV-Schedule Variance';
 $lang['variation_of_costs'] = 'CV-Cost Variance';
 $lang['variation_at_the_end'] = 'Variation at the end';
 $lang['deadline_performance_index'] = 'SPI-Schedule Performance Index';
-$lang['estimated_of_completation'] = 'CPI-Cost Performance Index';
-$lang['costs_performance_index'] = 'Costs Performance Index';
+$lang['costs_performance_index'] = 'CPI-Cost Performance Index';
 $lang['estimated_of_completation'] = 'EAC-Estimate At Completion';
 $lang['estimate_for_completion'] = 'ETC-Estimate To Complete';
 
