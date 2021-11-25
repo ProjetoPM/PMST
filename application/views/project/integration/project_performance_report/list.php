@@ -62,7 +62,7 @@
 													<td><?php echo $report->planned_forecasts; ?></td>
 													<td><?php echo $report->work_completed_during_the_period; ?></td>
 
-													<td>
+													<td <?= getStatusFieldsList("project performance and monitoring report", $report->id) ?> >
 														<div class="row center">
 															<div class="col-sm-3">
 																<form action="<?php echo base_url() ?>integration/project-performance-report/edit/<?php echo $report->id; ?>" method="post">

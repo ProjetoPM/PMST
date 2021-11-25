@@ -89,6 +89,9 @@ class TeamPerformanceAssessments extends CI_Controller
 		}
 		
 		$query['team_performance_evaluation'] = $this->Team_Performance_Evaluation_model->get($team_performance_evaluation_id);
+
+		$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "team performance assessments", $query['team_performance_evaluation']['team_performance_evaluation_id']);
+
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');

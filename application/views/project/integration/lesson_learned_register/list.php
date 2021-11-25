@@ -149,7 +149,7 @@
 													<td><span class="texttd"><?php echo $item->stakeholder ?></span></td>
 													<td><span class="texttd"><?php echo $item->date ?></span></td>
 													<td><span class="texttd"><?php echo $item->description ?></span></td>
-													<td style="display: fixed;min-width: 100px;">
+													<td <?= getStatusFieldsList("lesson learned register", $item->lesson_learned_register_id) ?> style="display: fixed;min-width: 100px;">
 														<div class="row center">
 															<div class="col-sm-4">
 																<form action="<?php echo base_url() ?>integration/lesson-learned-register/edit/<?php echo $item->lesson_learned_register_id; ?>" method="post">

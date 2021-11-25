@@ -83,6 +83,9 @@ class ProjectPerformanceReport extends CI_Controller
     public function edit($project_id)
     {
         $query['project_performance_report'] = $this->Project_performance_report_model->get($project_id);
+
+        $dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "project performance and monitoring report", $query['project_performance_report']['id']);
+
         $this->load->view('frame/header_view.php');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view.php');

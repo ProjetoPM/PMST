@@ -91,6 +91,9 @@ class WorkPerformanceReports extends CI_Controller
         }
         $query['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
         $query['work_performance_report'] = $this->Work_performance_report_model->get($project_id);
+
+        $dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "work performance reports", $query['work_performance_report']['work_performance_report_id']);
+
         $this->load->view('frame/header_view');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');

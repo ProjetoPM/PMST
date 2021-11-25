@@ -96,6 +96,9 @@ class DeliverableStatus extends CI_Controller
         }
         $query['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
         $query['delivery_acceptance_term'] = $this->Delivery_acceptance_term_model->get($project_id);
+        
+        $dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "deliverable status", $query['delivery_acceptance_term']['id']);
+
         $this->load->view('frame/header_view');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');
