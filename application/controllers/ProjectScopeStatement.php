@@ -79,6 +79,8 @@ class ProjectScopeStatement extends CI_Controller
 				redirect("scope/project-scope-statement/new/" . $_SESSION['project_id']);
 			}
 
+			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "project scope statement", $dado['scope_specification'][0]->scope_specification_id);
+			
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');

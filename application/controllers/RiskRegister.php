@@ -17,15 +17,23 @@ class RiskRegister extends CI_Controller
 		$this->load->helper('log_activity');
 
 
-		$this->lang->load('btn', 'english');
-		// $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('risk', 'english');
-		// $this->lang->load('risk','portuguese-brazilian');
-
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('risk', 'english');
+			$this->lang->load('project-page', 'english');
+		} else {
+			$this->lang->load('risk', 'portuguese-brazilian');
+			$this->lang->load('project-page', 'portuguese-brazilian');
+		}
 	}
 
 	public function list($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
 		$dado['project_id'] = $project_id;
 
 		$dado['risk_register'] = $this->Risk_model->getAll($project_id);
@@ -37,6 +45,12 @@ class RiskRegister extends CI_Controller
 
 	public function new($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
 		$idusuario = $_SESSION['user_id'];
 		$this->db->where('user_id', $idusuario);
 		$this->db->where('project_id', $project_id);
@@ -55,8 +69,15 @@ class RiskRegister extends CI_Controller
 
 	public function edit($risk_register_id)
 	{
-
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
 		$query['risk_register'] = $this->Risk_model->get($risk_register_id);
+
+		$query["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "risk register", $query['risk_register']['risk_register_id']);
+		
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view.php');

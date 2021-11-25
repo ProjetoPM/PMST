@@ -83,6 +83,7 @@ class ProcurementManagementPlan extends CI_Controller
             if ($dado['procurement_mp'] == null) {
                 redirect("procurement/procurement-mp/new/" . $_SESSION['project_id']);
             }
+            $dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "requirements management plan", $dado['procurement_mp'][0]->procurement_mp_id);
 
             $this->load->view('frame/header_view'); 
 		    $this->load->view('frame/topbar');

@@ -66,7 +66,7 @@
 
 
 
-													<td style="max-width: 20px">
+													<td <?= getStatusFieldsList("stakeholder engagement plan", $item->stakeholder_id) ?> style="max-width: 20px">
 														<div class="row center">
 															<div class="col-sm-4">
 																<form action="<?php echo base_url() ?>stakeholder/stakeholder-engagement-plan/edit/<?php echo $item->stakeholder_id; ?>" method="post">

@@ -86,7 +86,8 @@ class ResourceManagementPlan extends CI_Controller
             if ($dado['human_resources_mp'] == null) {
                 redirect("resources/resource-mp/new/" . $_SESSION['project_id']);
             }
-
+            $dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "resource management plan", $dado['human_resources_mp'][0]->human_resources_mp_id);
+            
             $this->load->view('frame/header_view');
             $this->load->view('frame/topbar');
             $this->load->view('frame/sidebar_nav_view');

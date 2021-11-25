@@ -67,9 +67,8 @@
 													<td><?php echo $requirement_registration->description; ?></td>
 													<td><?php echo $requirement_registration->priority; ?></td>
 													<td><?php echo $requirement_registration->business_strategy; ?></td>
-
-
-													<td style="max-width: 20px">
+											
+													<td <?= getStatusFieldsList("requirement documentation", $requirement_registration->requirement_registration_id) ?> style="max-width: 20px">
 														<div class="row center">
 															<div class="col-sm-4">
 																<form action="<?php echo base_url() ?>scope/requirement-documentation/edit/<?php echo $requirement_registration->requirement_registration_id; ?>" method="post">

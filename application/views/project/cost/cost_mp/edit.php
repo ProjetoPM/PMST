@@ -27,6 +27,14 @@
 							<h1 class="page-header">
 								<?= $this->lang->line('cosmp_title')  ?>
 							</h1>
+
+							<!-- avaliação -->
+							<link href="<?= base_url() ?>assets/css/field_evaluation.css" rel="stylesheet" type="text/css">
+							<?php $view_name = "cost management plan";
+							getViewFields($view_name);
+							?>
+							<?php $this->load->view('construction_services/write_field_evaluation') ?>
+
 							<?php
 							foreach ($cost_mp as $cmp) {
 							?>
@@ -38,6 +46,7 @@
 										<label for="project_costs_m"><?= $this->lang->line('cosmp_project_costs_m') ?> *</label>
 										<span class="cosmp_1">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id ="cosmp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_project_costs_m_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a <?= fieldStatus($view_name, $cmp->cost_mp_id, "project_costs_m") ?> data-field="project_costs_m" data-field_name="<?= $this->lang->line('pss-desc') ?>" data-item_id="<?= $cmp->cost_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'cosmp_1')" id="cosmp_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="project_costs_m" required="true" ><?php echo $cmp->project_costs_m;?></textarea>
 										</div>
@@ -48,6 +57,7 @@
 										<label for="accuracy_level"><?= $this->lang->line('cosmp_accuracy') ?></label>
 										<span class="cosmp_2">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id ="cosmp_tp_2"data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_accuracy_level_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a <?= fieldStatus($view_name, $cmp->cost_mp_id, "accuracy_level") ?> data-field="accuracy_level" data-field_name="<?= $this->lang->line('pss-desc') ?>" data-item_id="<?= $cmp->cost_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'cosmp_2')" id="cosmp_txt_2" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="accuracy_level"><?php echo $cmp->accuracy_level;?></textarea>
 										</div>
@@ -57,6 +67,7 @@
 										<label for="organizational_procedures"><?= $this->lang->line('cosmp_organizational_procedures') ?></label>
 										<span class="cosmp_3">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id ="cosmp_tp_3"data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_organizational_procedures_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a <?= fieldStatus($view_name, $cmp->cost_mp_id, "organizational_procedures") ?> data-field="organizational_procedures" data-field_name="<?= $this->lang->line('cosmp_organizational_procedures') ?>" data-item_id="<?= $cmp->cost_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'cosmp_3')" id="cosmp_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="organizational_procedures"><?php echo $cmp->organizational_procedures;?></textarea>
 										</div>
@@ -67,6 +78,7 @@
 										<label for="measurement_rules"><?= $this->lang->line('cosmp_measurement_rules') ?></label>
 										<span class="cosmp_4">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id ="cosmp_tp_4"data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_measurement_rules_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a <?= fieldStatus($view_name, $cmp->cost_mp_id, "measurement_rules") ?> data-field="measurement_rules" data-field_name="<?= $this->lang->line('cosmp_measurement_rules') ?>" data-item_id="<?= $cmp->cost_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'cosmp_4')" id="cosmp_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="measurement_rules"><?php echo $cmp->measurement_rules;?></textarea>
 										</div>
@@ -76,6 +88,7 @@
 										<label for="units_measure"><?= $this->lang->line('cosmp_units') ?></label>
 										<span class="cosmp_5">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id ="cosmp_tp_5"data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_units_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a <?= fieldStatus($view_name, $cmp->cost_mp_id, "units_measure") ?> data-field="units_measure" data-field_name="<?= $this->lang->line('cosmp_units') ?>" data-item_id="<?= $cmp->cost_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'cosmp_5')" id="cosmp_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="units_measure"><?php echo $cmp->units_measure;?></textarea>
 										</div>
@@ -85,6 +98,7 @@
 										<label for="precision_level"><?= $this->lang->line('cosmp_precision') ?></label>
 										<span class="cosmp_6">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id ="cosmp_tp_6"data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_precision_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a <?= fieldStatus($view_name, $cmp->cost_mp_id, "precision_level") ?> data-field="precision_level" data-field_name="<?= $this->lang->line('cosmp_precision') ?>" data-item_id="<?= $cmp->cost_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'cosmp_6')" id="cosmp_txt_6" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="precision_level"><?php echo $cmp->precision_level;?></textarea>
 										</div>
@@ -94,6 +108,7 @@
 										<label for="control_thresholds"><?= $this->lang->line('cosmp_control') ?></label>
 										<span class="cosmp_7">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id ="cosmp_tp_7"data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_control_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a <?= fieldStatus($view_name, $cmp->cost_mp_id, "control_thresholds") ?> data-field="control_thresholds" data-field_name="<?= $this->lang->line('cosmp_control') ?>" data-item_id="<?= $cmp->cost_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'cosmp_7')" id="cosmp_txt_7" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="control_thresholds"><?php echo $cmp->control_thresholds;?></textarea>
 										</div>
@@ -103,6 +118,7 @@
 										<label for="details"><?= $this->lang->line('cosmp_details') ?></label>
 										<span class="cosmp_8">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id ="cosmp_tp_8"data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_details_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a <?= fieldStatus($view_name, $cmp->cost_mp_id, "details") ?> data-field="details" data-field_name="<?= $this->lang->line('cosmp_details') ?>" data-item_id="<?= $cmp->cost_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'cosmp_8')" id="cosmp_txt_8" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="details"><?php echo $cmp->details;?></textarea>
 										</div>
@@ -112,6 +128,7 @@
 										<label for="format_report"><?= $this->lang->line('cosmp_format_report') ?></label>
 										<span class="cosmp_9">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id ="cosmp_tp_9"data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_format_report_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a <?= fieldStatus($view_name, $cmp->cost_mp_id, "format_report") ?> data-field="format_report" data-field_name="<?= $this->lang->line('cosmp_format_report') ?>" data-item_id="<?= $cmp->cost_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'cosmp_9')" id="cosmp_txt_9" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="format_report"><?php echo $cmp->format_report;?></textarea>
 										</div>

@@ -4,28 +4,28 @@
 $lang['risk-title'] = 'Registro de Riscos';
 
 //Form 
-$lang['risk-impacted_objective'] = 'Objetivo impactado';
-$lang['risk-priority'] = 'Prioridade';
-$lang['risk-risk_status'] = 'Status do Risco';
-$lang['risk-event'] = 'Evento';
-$lang['risk-date'] = 'Data de identificação';
-$lang['risk-identifier'] = 'Identificador';
-$lang['risk-type'] = 'Tipo de Risco';
+$lang['rir_impacted_objective'] = 'Objetivo impactado';
+$lang['rir_priority'] = 'Prioridade';
+$lang['rir_risk_status'] = 'Status do Risco';
+$lang['rir_event'] = 'Evento';
+$lang['rir_date'] = 'Data de identificação';
+$lang['rir_identifier'] = 'Identificador';
+$lang['rir_type'] = 'Tipo de Risco';
 
 //options
-$lang['risk-priority-low'] = 'Baixa';
-$lang['risk-priority-medium'] = 'Média';
-$lang['risk-priority-high'] = 'Alta';
+$lang['rir_priority-low'] = 'Baixa';
+$lang['rir_priority-medium'] = 'Média';
+$lang['rir_priority-high'] = 'Alta';
 
 
 
 //Tooltip
-$lang['risk-impacted_objective-tooltip'] = 'Objetivo impactado Example';
-$lang['risk-priority-tooltip'] = 'Prioridade Example';
-$lang['risk-risk_status-tooltip'] = 'Status do Risco Example';
-$lang['risk-event-tooltip'] = 'Evento Example';
-$lang['risk-date-tooltip'] = 'Data de identificação Example';
-$lang['risk-identifier-tooltip'] = 'Identificador Example';
-$lang['risk-type-tooltip'] = 'Tipo de Risco Example';
+$lang['rir_impacted_objective-tooltip'] = 'Objetivo impactado Example';
+$lang['rir_priority-tooltip'] = 'Prioridade Example';
+$lang['rir_risk_status-tooltip'] = 'Status do Risco Example';
+$lang['rir_event-tooltip'] = 'Evento Example';
+$lang['rir_date-tooltip'] = 'Data de identificação Example';
+$lang['rir_identifier-tooltip'] = 'Identificador Example';
+$lang['rir_type-tooltip'] = 'Tipo de Risco Example';
 
 ?>

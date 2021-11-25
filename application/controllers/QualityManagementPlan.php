@@ -81,6 +81,8 @@ class QualityManagementPlan extends CI_Controller
 				redirect("quality/quality-mp/new/" . $_SESSION['project_id']);
 			}
 
+			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "quality management plan", $dado['quality_mp'][0]->quality_mp_id);
+
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');

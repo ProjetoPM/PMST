@@ -59,6 +59,8 @@ class CostEstimates extends CI_Controller
 		}
 		
 		$query['activity'] = $this->Activity_model->get($project_id);
+
+		$query["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "cost estimates", $query['activity']['id']);
 		
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/topbar');
