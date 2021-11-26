@@ -3,6 +3,7 @@ $lang['btn-logout'] = 'Logout';
 $lang['btn-account-update'] = 'Account Update';
 $lang['btn-login'] = 'Login';
 $lang['btn-register'] = 'Register';
+$lang['btn-upload'] = 'Upload';
 
 $lang['btn-save'] = 'Save';
 $lang['btn-cancel'] = 'Cancel';

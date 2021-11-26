@@ -68,7 +68,7 @@
 										<span class="rimp_4">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id ="rimp_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rimp_risks_categories_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-										<textarea onkeyup="limite_textarea(this.value, 'rimp_4')" id="rimp_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="risks_categories" ><?php echo $rmp->probability_impact_matrix;?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'rimp_4')" id="rimp_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="risks_categories" ><?php echo $rmp->risks_categories;?></textarea>
 										</div>
 									</div>
 

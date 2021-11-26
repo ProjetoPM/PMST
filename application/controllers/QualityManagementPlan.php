@@ -116,8 +116,10 @@ class QualityManagementPlan extends CI_Controller
 		//$insert = $this->project_model->insert_project_pgq($quality_mp);
 		$query = $this->Quality_model->update($quality_mp, $_SESSION['project_id']);
 
-		insertLogActivity('update', 'quality management plan');
-		$this->session->set_flashdata('success', 'Quality Management Plan has been successfully changed!');
+		if ($query) {
+			insertLogActivity('update', 'quality management plan');
+			$this->session->set_flashdata('success', 'Quality Management Plan has been successfully changed!');
+		}
 		redirect('quality/quality-mp/edit/' . $_SESSION['project_id']);
 	}
 }

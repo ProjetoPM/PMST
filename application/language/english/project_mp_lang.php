@@ -20,8 +20,8 @@ $lang['baseline'] = 'Baselines';
 $lang['pmp_scope_baseline'] = 'Scope Baseline';
 $lang['pmp_baseline'] = 'Schedule Baseline';
 $lang['pmp_cost_baseline'] = 'Cost Baseline';
-
 $lang['additional_components'] = 'Additional Components';
+
 $lang['pmp_change_mp'] = 'Change Management Plan';
 $lang['pmp_configuration_mp'] = 'Configuration Management Plan';
 $lang['pmp_performance'] = 'Performance Measurement Baseline';
@@ -32,6 +32,12 @@ $lang['pmp_key_review'] = 'Management Reviews';
 
 //Tooltip
 $lang['pmp_guidelines_tp'] = 'Establishes how the scope will be defined, developed, monitored, controlled, and validated.';
+$lang['pmp_change_mp_tp'] = 'Describes how the change requests throughout the project will be formally authorized and incorporated.';
+$lang['pmp_configuration_mp_tp'] = 'Describes how the information about the items of the project (and which items) will be recorded and updated so that the product, service, or result of the project remains consistent and/or operative.';
+$lang['pmp_baseline_tp'] = '';
+$lang['pmp_stakeholders_tp'] = '';
+
+$lang['pmp_key_review_tp'] = 'Identifies the points in the project when the project manager and relevant stakeholders will review the project progress to determine if performance is as expected, or if preventive or corrective actions are necessary.';
 $lang['pmp_requirements_mp_tp'] = 'Establishes how the requirements will be analyzed, documented, and managed.';
 $lang['pmp_schedule_mp_tp'] = 'Establishes the criteria and the activities for developing, monitoring, and controlling the schedule.';
 $lang['pmp_cost_mp_tp'] = 'Establishes how the costs will be planned, structured, and controlled.';

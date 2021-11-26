@@ -24,13 +24,14 @@
             return $this->db->update('duration_estimates', $duration_estimates);
         }
 
-        public function delete($id){
-            $this->db->where('duration_estimates.id', $id);
+        // neste caso precisa deletar todos q tem o mesmo activity_id
+        public function delete($activity_id){
+            $this->db->where('duration_estimates.activity_id', $activity_id);
             return $this->db->delete('duration_estimates');
         }
 
         public function edit($id) {
-            $query = $this->db->get_where('duration_estimates', array('duration_estimates.id'=>$id));
+            $query = $this->db->get_where('duration_estimates', array('duration_estimates.duration_estimates_id '=>$id));
             return $query->result();
         }
 	}

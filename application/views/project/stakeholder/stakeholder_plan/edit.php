@@ -23,18 +23,6 @@
           </div>
         <?php endif; ?>
 
-        <script type="text/javascript">
-          function avg() {
-            document.getElementById('average').value = 0
-            var interest = document.getElementById('interest').value;
-            var power = document.getElementById('power').value;
-            var influence = document.getElementById('influence').value;
-            var impact = document.getElementById('impact').value;
-            var aux = (((interest * 10) + (power * 10) + (influence * 10) + (impact * 10)) / 4) / 10;
-            document.getElementById('average').value = parseFloat(aux.toFixed(2));
-          }
-        </script>
-
         <div class="row">
           <div class="col-lg-12">
             <div class="panel-body">
@@ -51,7 +39,7 @@
                 <input type="hidden" name="status" value="1">
 
                 <div class="col-lg-4 form-group">
-                  <label for="name"><?= $this->lang->line('stakeholder-name') ?></label>
+                  <label for="name"><?= $this->lang->line('stake') ?></label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('stakeholder_mp-text2_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
                     <input id="name_text" name="name" type="text" class="form-control input-md" required="false" value="<?php echo $name; ?>" disabled>
@@ -60,6 +48,7 @@
 
                 <div class="col-lg-4 form-group">
                   <label for="current_engagement "><?= $this->lang->line('shep_6') ?></label>
+                  <a class="btn-sm btn-default" id="" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <select name="current_engagement" class="form-control" onchange="avg()">
                     <option value="unaware" <?php if ($current_engagement == "unaware") echo 'selected'; ?>><?= $this->lang->line('option-1') ?></option>
                     <option value="supportive" <?php if ($current_engagement == "supportive") echo 'selected'; ?>><?= $this->lang->line('option-2') ?></option>
@@ -71,6 +60,7 @@
 
                 <div class="col-lg-4 form-group">
                   <label for="expected_engagement "><?= $this->lang->line('shep_7') ?></label>
+                  <a class="btn-sm btn-default" id="" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <select name="expected_engagement" class="form-control" onchange="avg()">
                     <option value="unaware" <?php if ($expected_engagement == "unaware") echo 'selected'; ?>><?= $this->lang->line('option-1') ?></option>
                     <option value="supportive" <?php if ($expected_engagement == "supportive") echo 'selected'; ?>><?= $this->lang->line('option-2') ?></option>
@@ -79,10 +69,18 @@
                     <option value="resistant" <?php if ($expected_engagement == "resistant") echo 'selected'; ?>><?= $this->lang->line('option-5') ?></option>
                   </select>
                 </div>
-                <!-- Text input-->
-                <!-- Textarea -->
+
+                <div class="col-lg-4 form-group">
+                  <label for="average"><?= $this->lang->line('average') ?></label>
+                  <a class="btn-sm btn-default" id="" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <div>
+                    <input name="average" class="form-control input-md" id="average" value="<?php echo $average; ?>" readonly=“true”>
+                  </div>
+                </div>
+
                 <div class="col-lg-2 form-group">
                   <label for="interest"><?= $this->lang->line('shep_2') ?></label>
+                  <a class="btn-sm btn-default" id="" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <select name="interest" class="form-control" id="interest" onchange="avg()">
                     <option value=10 <?php if ($interest == 10) echo 'selected'; ?>>10%</option>
                     <option value=30 <?php if ($interest == 30) echo 'selected'; ?>>30%</option>
@@ -92,8 +90,9 @@
                   </select>
                 </div>
 
-                <div class="col-lg-2 form-group">
+                <div class="col-lg-2">
                   <label for="power"><?= $this->lang->line('shep_3') ?></label>
+                  <a class="btn-sm btn-default" id="" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <select name="power" class="form-control" id="power" onchange="avg()">
                     <option value=10 <?php if ($power == 10) echo 'selected'; ?>>10%</option>
                     <option value=30 <?php if ($power == 30) echo 'selected'; ?>>30%</option>
@@ -103,8 +102,9 @@
                   </select>
                 </div>
 
-                <div class="col-lg-2 form-group">
+                <div class="col-lg-2">
                   <label for="influence"><?= $this->lang->line('shep_4') ?></label>
+                  <a class="btn-sm btn-default" id="" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <select name="influence" class="form-control" id="influence" onchange="avg()">
                     <option value=10 <?php if ($influence == 10) echo 'selected'; ?>>10%</option>
                     <option value=30 <?php if ($influence == 30) echo 'selected'; ?>>30%</option>
@@ -114,8 +114,9 @@
                   </select>
                 </div>
 
-                <div class="col-lg-2 form-group">
+                <div class="col-lg-2">
                   <label for="impact"><?= $this->lang->line('shep_5') ?></label>
+                  <a class="btn-sm btn-default" id="" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <select name="impact" class="form-control" id="impact" onchange="avg()">
                     <option value=10 <?php if ($impact == 10) echo 'selected'; ?>>10%</option>
                     <option value=30 <?php if ($impact == 30) echo 'selected'; ?>>30%</option>
@@ -125,16 +126,12 @@
                   </select>
                 </div>
 
-                <div class="col-lg-4 form-group">
-                  <label for="average"><?= $this->lang->line('average') ?></label>
-                  <input name="average" class="form-control" id="average" value="<?php echo $average; ?>" readonly=“true”>
-                </div>
                 <div class="col-lg-12 form-group">
                   <label for="strategy"><?= $this->lang->line('text-1') ?></label>
                   <span class="shep_9">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('stakeholder_mp-text1_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                  <textarea onkeyup="limite_textarea(this.value, 'shep_9')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shep_txt_9" name="strategy" required ="false" ><?php echo $strategy; ?></textarea>
+                    <textarea onkeyup="limite_textarea(this.value, 'shep_9')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shep_txt_9" name="strategy" required="false"><?php echo $strategy; ?></textarea>
                   </div>
                 </div>
 
@@ -143,7 +140,7 @@
                   <span class="shep_10">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('stakeholder_mp-text2_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                  <textarea onkeyup="limite_textarea(this.value, 'shep_10')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shep_txt_10" name="scope" required ="false" ><?php echo $scope; ?></textarea>
+                    <textarea onkeyup="limite_textarea(this.value, 'shep_10')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shep_txt_10" name="scope" required="false"><?php echo $scope; ?></textarea>
                   </div>
                 </div>
 
@@ -152,7 +149,7 @@
                   <span class="shep_11">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('stakeholder_mp-text3_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                  <textarea onkeyup="limite_textarea(this.value, 'shep_11')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shep_txt_11" name="observation" required ="false" ><?php echo $observation; ?></textarea>
+                    <textarea onkeyup="limite_textarea(this.value, 'shep_11')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shep_txt_11" name="observation" required="false"><?php echo $observation; ?></textarea>
                   </div>
                 </div>
 
@@ -176,18 +173,32 @@
 
 
 <script type="text/javascript">
-	for (var i = 1; i <= 11; i++) {
-		if (document.getElementById("shep_tp_" + i).title == "") {
-			document.getElementById("shep_tp_" + i).hidden = true;
-		}
-		limite_textarea(document.getElementById("shep_txt_" + i).value, "shep_" + i);
-	}
 
-	function limite_textarea(valor, txt) {
-		var limite = 2000;
-		var caracteresDigitados = valor.length;
-		var caracteresRestantes = limite - caracteresDigitados;
-		$("." + txt).text(caracteresRestantes);
-	}
-  </script>
+  avg();
+
+  function avg() {
+    document.getElementById('average').value = 0
+    var interest = document.getElementById('interest').value;
+    var power = document.getElementById('power').value;
+    var influence = document.getElementById('influence').value;
+    var impact = document.getElementById('impact').value;
+    var aux = (((interest * 10) + (power * 10) + (influence * 10) + (impact * 10)) / 4) / 10;
+    document.getElementById('average').value = parseFloat(aux.toFixed(2));
+  }
+
+
+  for (var i = 1; i <= 11; i++) {
+    if (document.getElementById("shep_tp_" + i).title == "") {
+      document.getElementById("shep_tp_" + i).hidden = true;
+    }
+    limite_textarea(document.getElementById("shep_txt_" + i).value, "shep_" + i);
+  }
+
+  function limite_textarea(valor, txt) {
+    var limite = 2000;
+    var caracteresDigitados = valor.length;
+    var caracteresRestantes = limite - caracteresDigitados;
+    $("." + txt).text(caracteresRestantes);
+  }
+</script>
 <?php $this->load->view('frame/footer_view') ?>

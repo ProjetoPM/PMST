@@ -63,22 +63,18 @@ class DeliverableStatus extends CI_Controller
     
     public function delete($id)
     {
-        $project_id['project_id'] = $this->input->post('project_id');
-        //var_dump($id);exit;die;
+        // $project_id['project_id'] = $this->input->post('project_id');
         $query = $this->Delivery_acceptance_term_model->delete($id);
         if ($query) {
             insertLogActivity('delete', 'deliverable status');
-            redirect('integration/deliverable-status/list/' . $_SESSION['project_id']);
+            // $this->session->set_flashdata('error', 'Deliverable Status has been deleted!');
+            // redirect('integration/deliverable-status/list/' . $_SESSION['project_id']);
         }
     }
     
     public function list($project_id)
     {
-        if (strcmp($_SESSION['language'], "US") == 0) {
-            $this->lang->load('btn', 'english');
-        } else {
-            $this->lang->load('btn', 'portuguese-brazilian');
-        }
+        $dado['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
         $dado['project_id'] = $project_id;
         $dado['delivery_acceptance_term'] = $this->Delivery_acceptance_term_model->getAll($project_id);
         $this->load->view('frame/header_view');
@@ -86,8 +82,9 @@ class DeliverableStatus extends CI_Controller
         $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/integration/delivery_acceptance_term/list', $dado);
     }
-    
-    public function edit($project_id)
+
+
+    public function edit($id)
     {
         if (strcmp($_SESSION['language'], "US") == 0) {
             $this->lang->load('btn', 'english');
@@ -95,7 +92,7 @@ class DeliverableStatus extends CI_Controller
             $this->lang->load('btn', 'portuguese-brazilian');
         }
         $query['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
-        $query['delivery_acceptance_term'] = $this->Delivery_acceptance_term_model->get($project_id);
+        $query['delivery_acceptance_term'] = $this->Delivery_acceptance_term_model->get($id);
         $this->load->view('frame/header_view');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');

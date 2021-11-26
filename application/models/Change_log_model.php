@@ -5,8 +5,8 @@
 			$this->load->database();
 		}
 
-		public function get($id){
-			$query = $this->db->get_where('change_log',array('change_log_id'=>$id));
+		public function get($change_log_id){
+			$query = $this->db->get_where('change_log',array('change_log_id'=>$change_log_id));
 			return $query->result();
 		}
 
@@ -24,8 +24,8 @@
 			return $this->db->update('change_log', $change_log);
 		}
 
-		public function delete($id){
-			$this->db->where('change_log.change_log_id', $id);
+		public function delete($change_log_id){
+			$this->db->where('change_log.change_log_id', $change_log_id);
 			return $this->db->delete('change_log');
 		}
 	}

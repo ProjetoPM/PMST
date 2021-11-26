@@ -32,8 +32,6 @@
 								<?= $this->lang->line('ce_title')  ?>
 
 							</h1>
-
-
 							<div class="row">
 								<div class="col-lg-12">
 

@@ -81,7 +81,7 @@
 														?>
 													</td>
 													<td><?php echo $risk->event; ?></td>
-													<td><?php echo $risk->date; ?></td>
+													<td><?php echo $risk->event; ?></td>
 
 													<td>
 														<div class="row center">
