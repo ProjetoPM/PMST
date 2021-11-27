@@ -27,7 +27,7 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-							<?= $this->lang->line('change_log-title')?>
+								<?= $this->lang->line('cl_title') ?>
 
 							</h1>
 
@@ -73,7 +73,7 @@
 																</div>
 
 
-													
+
 
 																<div class="col-sm-3">
 																	<form target="_blank" action="<?php echo base_url() ?>ChangeRequest_PDF/pdfGenerator/<?php echo $change_request->id; ?>" method="post">

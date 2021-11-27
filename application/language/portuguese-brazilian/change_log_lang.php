@@ -1,9 +1,10 @@
 // Title
-$lang['change_log-title'] = 'Registro das Mudanças';
-
 <?php
+$lang['cl_title'] = 'Registro das Mudanças';
+
+
 //Form 
-$lang['change_log-id_number'] = 'Id Numero';
+$lang['cl_id_number'] = 'Id Numero';
 $lang['change_log-requester'] = 'Requester';
 $lang['change_log-request_date'] = 'Request Date';
 $lang['change_log-change_type'] = 'Change Type';
