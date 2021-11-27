@@ -27,7 +27,7 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-								<?= $this->lang->line('tep_-title')  ?>
+								<?= $this->lang->line('tep-title')  ?>
 
 							</h1>
 							<?php
