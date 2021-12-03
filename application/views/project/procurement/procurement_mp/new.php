@@ -101,7 +101,7 @@
                     <span class="pcmp_7">2000</span><?= $this->lang->line('character') ?>
                     <a class="btn-sm btn-default" id="pcmp_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pcmp_jurisdiction_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <div>
-                    <textarea onkeyup="limite_textarea(this.value, 'pcmp_7')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pcmp_txt_7" name="roles"></textarea>
+                    <textarea onkeyup="limite_textarea(this.value, 'pcmp_7')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pcmp_txt_7" name="legal_jurisdiction"></textarea>
                     </div>
                   </div>
 
