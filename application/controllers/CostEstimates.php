@@ -13,7 +13,6 @@ class CostEstimates extends CI_Controller
 
 		if (strcmp($_SESSION['language'], "US") == 0) {
 			$this->lang->load('cost_estimates', 'english');
-
             $this->lang->load('project-page', 'english');
         } else {
 			$this->lang->load('cost_estimates', 'portuguese-brazilian');

@@ -17,8 +17,8 @@ $lang['cosmp_details'] = 'Additional Details';
 
 //Tooltip
 $lang['cosmp_organizational_procedures_tp'] ='The work breakdown structure (WBS) (Section 5.4) provides the framework for the cost management plan, allowing for consistency with the estimates, budgets, and control of costs. The WBS component used for the project cost accounting is called the control account. Each control account is assigned a unique code or account number(s) that links directly to the performing organization’s accounting system.';
-$lang['cosmp_project_costs_m_tooltip'] = '';
-$lang['cosmp_accuracy_level_tooltip'] = 'The acceptable range (e.g., ±10%) used in determining realistic cost estimates is specified, and may include an amount for contingencies.';
+$lang['cosmp_project_costs_m_tp'] = '';
+$lang['cosmp_accuracy_level_tp'] = 'The acceptable range (e.g., ±10%) used in determining realistic cost estimates is specified, and may include an amount for contingencies.';
 $lang['cosmp_format_report-tooltip'] = 'The formats and frequency for the various cost reports are defined.';
 $lang['cosmp_units_tp']= 'Each unit used in measurements (such as staff hours, staff days, or weeks for time measures; meters, liters, tons, kilometers, or cubic yards for quantity measures; or lump sum in currency form) is defined for each of the resources.';
 $lang['cosmp_control_tp'] = 'Variance thresholds for monitoring cost performance may be specified to indicate an agreed-upon amount of variation to be allowed before some action needs to be taken. Thresholds are typically expressed as percentage deviations from the baseline plan.';

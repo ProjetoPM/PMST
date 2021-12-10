@@ -148,4 +148,19 @@
     </div>
   </div>
 </body>
+<script>
+  for (var i = 1; i <= 6; i++) {
+		if (document.getElementById("commp_tp_"+i).title == "") {
+			document.getElementById("commp_tp_"+i).hidden = true;
+		}
+		limite_textarea(document.getElementById("commp_txt_" + i).value, "commp" + i);
+	}
+
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+  </script>
 <?php $this->load->view('frame/footer_view') ?>
