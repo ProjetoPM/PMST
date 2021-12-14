@@ -112,7 +112,7 @@
 									<a class="btn-sm btn-default" id="shr_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_email_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<a <?= fieldStatus($view_name, $stakeholder_id, "email") ?> data-field="email" data-field_name="<?= $this->lang->line('shr_email') ?>" data-item_id="<?= $stakeholder_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<div>
-										<input id="shr_txt_6" type="text" name="email" class="form-control input-md" onkeyup="limite_textarea(this.value, 'shr_6')" maxlength="2000" oninput="eylem(this, this.value)" required="true" value="<?php echo $email; ?> ">
+										<input id="shr_txt_6" type="text" name="email" class="form-control input-md" onkeyup="limite_textarea(this.value, 'shr_6')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value="<?php echo $email; ?> ">
 									</div>
 								</div>
 

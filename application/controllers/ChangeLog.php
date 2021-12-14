@@ -15,9 +15,11 @@ class ChangeLog extends CI_Controller
         }
 
         if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('change_log', 'english');
             $this->lang->load('change_request', 'english');
             $this->lang->load('project-page', 'english');
         }else{
+            $this->lang->load('change_log', 'english');
             $this->lang->load('change_request','portuguese-brazilian');
             $this->lang->load('project-page', 'portuguese-brazilian');
         }

@@ -97,7 +97,7 @@
 									<a class="btn-sm btn-default" id="shr_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_email_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 									<div>
-									<input id="shr_txt_6" type="text" name="email" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'shr_6')" maxlength="2000" oninput="eylem(this, this.value)" required="true">
+									<input id="shr_txt_6" type="text" name="email" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'shr_6')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
 									</div>
 								</div>
 
