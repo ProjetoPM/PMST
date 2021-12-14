@@ -71,6 +71,8 @@ class StakeholderEngagementPlan extends CI_Controller
 		}
 
         $query['stakeholder'] = $this->Stakeholder_model->get($stakeholder_id);
+        $dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "stakeholder engagement plan", $query['stakeholder']['stakeholder_id']);
+
         $this->load->view('frame/header_view');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');

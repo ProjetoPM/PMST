@@ -65,7 +65,7 @@
 													<td><?php echo $qr->date; ?></td>
 													<td><?php echo $qr->type; ?></td>
 													<td><?php echo $qr->description; ?></td>
-													<td>
+													<td <?= getStatusFieldsList("quality reports", $qr->quality_reports_id) ?>>
 														<div class="row center">
 															<div class="col-sm-3">
 																<form action="<?php echo base_url() ?>quality/quality-reports/edit/<?php echo $qr->quality_reports_id; ?>" method="post">

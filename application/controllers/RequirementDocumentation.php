@@ -80,7 +80,7 @@ class RequirementDocumentation extends CI_Controller
         }
     }
     
-    public function edit($requirement_registration)
+    public function edit($requirement_registration_id)
     {
         if (strcmp($_SESSION['language'], "US") == 0) {
             $this->lang->load('btn', 'english');
@@ -88,8 +88,11 @@ class RequirementDocumentation extends CI_Controller
             $this->lang->load('btn', 'portuguese-brazilian');
         }
         
-        $query['requirement_registration'] = $this->requirement_registration_model->get($requirement_registration);
+        $query['requirement_registration'] = $this->requirement_registration_model->get($requirement_registration_id);
         $query['project_id'] = $this->input->post('project_id');
+        
+        $query["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "requirement documentation", $query['requirement_registration'][0]->requirement_registration_id);
+
         $this->load->view('frame/header_view');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');

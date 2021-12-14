@@ -106,6 +106,9 @@ class LessonLearnedRegister extends CI_Controller
         $query['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
         $query['knowledge_area'] = $this->Project_model->getAllKnowledgeArea();
         $query['lesson_learned_register'] = $this->Lesson_learned_register_model->get($lesson_learned_register_id);
+
+        $dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "lesson learned register", $query['lesson_learned_register']['lesson_learned_register_id']);
+
         $this->load->view('frame/header_view.php');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view.php');

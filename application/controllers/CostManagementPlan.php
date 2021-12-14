@@ -76,6 +76,7 @@ class CostManagementPlan extends CI_Controller
 			if ($dado['cost_mp'] == null) {
 				redirect("cost/cost-mp/new/" . $_SESSION['project_id']);
 			}
+			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "cost management plan", $dado['cost_mp'][0]->cost_mp_id);
 
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');

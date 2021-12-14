@@ -66,7 +66,12 @@ class QualityChecklist extends CI_Controller
 		$project['dados'] = $this->db->get('project_user')->result();
 		// Verificando se o usuario logado tem acesso a esse projeto
 		$dado['quality_check'] = $this->QualityChecklist_model->get($quality_checklist_id);
+
+		$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "quality checklist", $dado['quality_check']['quality_checklist_id']);
+
 		$dado['quality_itens'] = $this->QualityChecklist_model->getAllItens($quality_checklist_id);
+
+
 
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');

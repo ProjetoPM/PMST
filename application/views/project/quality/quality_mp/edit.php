@@ -29,6 +29,12 @@
               <h1 class="page-header">
                 <?= $this->lang->line('qmp_title')  ?>
               </h1>
+              <!-- avaliação -->
+							<link href="<?= base_url() ?>assets/css/field_evaluation.css" rel="stylesheet" type="text/css">
+							<?php $view_name = "quality management plan";
+							getViewFields($view_name);
+							?>
+							<?php $this->load->view('construction_services/write_field_evaluation') ?>
               <?php
               foreach ($quality_mp as $quality) {
               ?>
@@ -40,6 +46,7 @@
                     <label for="standards"><?= $this->lang->line('qmp_standards') ?> </label>
                     <span class="qmp_1">2000</span><?= $this->lang->line('character') ?>
                     <a class="btn-sm btn-default" id="qmp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('qmp_standards_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <a <?= fieldStatus($view_name, $quality->quality_mp_id, "standards") ?> data-field="standards" data-field_name="<?= $this->lang->line('qmp_standards') ?>" data-item_id="<?= $quality->quality_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                     <div>
                     <textarea onkeyup="limite_textarea(this.value, 'qmp_1')" id="qmp_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="standards" ><?php echo $quality->standards;?></textarea>
                     </div>
@@ -49,6 +56,7 @@
                     <label for="objectives"><?= $this->lang->line('qmp_objectives') ?> </label>
                     <span class="qmp_2">2000</span><?= $this->lang->line('character') ?>
                     <a class="btn-sm btn-default" id="qmp_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('qmp_objectives_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <a <?= fieldStatus($view_name, $quality->quality_mp_id, "objectives") ?> data-field="objectives" data-field_name="<?= $this->lang->line('qmp_objectives') ?>" data-item_id="<?= $quality->quality_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                     <div>
                     <textarea onkeyup="limite_textarea(this.value, 'qmp_2')" id="qmp_txt_2" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="objectives" ><?php echo $quality->objectives;?></textarea>
                     </div>
@@ -58,6 +66,7 @@
                     <label for="roles_responsibilities"><?= $this->lang->line('qmp_roles') ?> </label>
                     <span class="qmp_3">2000</span><?= $this->lang->line('character') ?>
                     <a class="btn-sm btn-default" id="qmp_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('qmp_roles_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <a <?= fieldStatus($view_name, $quality->quality_mp_id, "roles_responsibilities") ?> data-field="roles_responsibilities" data-field_name="<?= $this->lang->line('qmp_roles') ?>" data-item_id="<?= $quality->quality_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                     <div>
                     <textarea onkeyup="limite_textarea(this.value, 'qmp_3')" id="qmp_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="roles_responsibilities" ><?php echo $quality->roles_responsibilities;?></textarea>
                     </div>
@@ -67,6 +76,7 @@
                     <label for="deliverables"><?= $this->lang->line('qmp_deliverables') ?> </label>
                     <span class="qmp_4">2000</span><?= $this->lang->line('character') ?>
                     <a class="btn-sm btn-default" id="qmp_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('qmp_deliverables_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <a <?= fieldStatus($view_name, $quality->quality_mp_id, "deliverables") ?> data-field="deliverables" data-field_name="<?= $this->lang->line('qmp_deliverables') ?>" data-item_id="<?= $quality->quality_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                     <div>
                     <textarea onkeyup="limite_textarea(this.value, 'qmp_4')" id="qmp_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="deliverables" ><?php echo $quality->deliverables;?></textarea>
                     </div>
@@ -76,8 +86,9 @@
                     <label for="activities"><?= $this->lang->line('qmp_activities') ?> </label>
                     <span class="qmp_5">2000</span><?= $this->lang->line('character') ?>
                     <a class="btn-sm btn-default" id="qmp_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('qmp_activities_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <a <?= fieldStatus($view_name, $quality->quality_mp_id, "activities") ?> data-field="activities" data-field_name="<?= $this->lang->line('qmp_activities') ?>" data-item_id="<?= $quality->quality_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                     <div>
-                    <textarea onkeyup="limite_textarea(this.value, 'qmp_5')" id="qmp_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="activities" ><?php echo $quality->activities;?></textarea>
+                    <textarea onkeyup="limite_textarea(this.value, 'qmp_5')" id="qmp_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="activities" ><?php echo $quality->deliverables;?></textarea>
                     </div>
                   </div>
 
@@ -85,6 +96,7 @@
                     <label for="tools"><?= $this->lang->line('qmp_tools') ?> </label>
                     <span class="qmp_6">2000</span><?= $this->lang->line('character') ?>
                     <a class="btn-sm btn-default" id="qmp_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('qmp_tools_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <a <?= fieldStatus($view_name, $quality->quality_mp_id, "tools") ?> data-field="tools" data-field_name="<?= $this->lang->line('qmp_tools') ?>" data-item_id="<?= $quality->quality_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                     <div>
                     <textarea onkeyup="limite_textarea(this.value, 'qmp_6')" id="qmp_txt_6" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="tools" ><?php echo $quality->tools;?></textarea>
                     </div>
@@ -94,6 +106,7 @@
                     <label for="procedures"><?= $this->lang->line('qmp_procedures') ?> </label>
                     <span class="qmp_7">2000</span><?= $this->lang->line('character') ?>
                     <a class="btn-sm btn-default" id="qmp_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('qmp_procedures_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <a <?= fieldStatus($view_name, $quality->quality_mp_id, "procedures") ?> data-field="procedures" data-field_name="<?= $this->lang->line('qmp_procedures') ?>" data-item_id="<?= $quality->quality_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                     <div>
                     <textarea onkeyup="limite_textarea(this.value, 'qmp_7')" id="qmp_txt_7" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="procedures" ><?php echo $quality->procedures;?></textarea>
                     </div>

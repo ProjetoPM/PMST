@@ -56,9 +56,17 @@
 							<?= $this->lang->line('qc_title')?>
 							
 							</h1>
+							<!-- avaliação -->
+							<link href="<?= base_url() ?>assets/css/field_evaluation.css" rel="stylesheet" type="text/css">
+							<?php $view_name = "quality checklist";
+							getViewFields($view_name);
+							?>
+							<?php $this->load->view('construction_services/write_field_evaluation') ?>
+
 							<form method="POST" action="<?php echo base_url() ?>quality/quality-checklist/update/<?php echo $quality_checklist_id ?>">
 								<div class="col-lg-4 form-group">
 									<label for="verified"><?= $this->lang->line('qc_product')?></label>
+									<a <?= fieldStatus($view_name, $quality_checklist_id, "verified") ?> data-field="verified" data-field_name="<?= $this->lang->line('qc_product') ?>" data-item_id="<?= $quality_checklist_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<div>
 										<input name="verified" type="text" class="form-control input-md" value="<?= $verified; ?>">
 									</div>
@@ -66,6 +74,7 @@
 
 								<div class="col-sm-4 form-group">
 									<label for="date"><?= $this->lang->line('qc_verification_date')?></label>
+									<a <?= fieldStatus($view_name, $quality_checklist_id, "date") ?> data-field="date" data-field_name="<?= $this->lang->line('qc_verification_date') ?>" data-item_id="<?= $quality_checklist_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<div>
 										<input id="date" type="date" name="date" class="form-control input-md" value="<?php echo $date; ?>">
 									</div>
@@ -74,6 +83,7 @@
 
 								<div class="col-lg-4 form-group">
 									<label for="responsible"><?= $this->lang->line('qc_responsible')?></label>
+									<a <?= fieldStatus($view_name, $quality_checklist_id, "responsible") ?> data-field="responsible" data-field_name="<?= $this->lang->line('qc_responsible') ?>" data-item_id="<?= $quality_checklist_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<div>
 										<input name="responsible" type="text" class="form-control input-md" value="<?= $responsible; ?>">
 									</div>
@@ -81,6 +91,7 @@
 
 								<div class="col-lg-12 form-group">
 									<label for="documents"><?= $this->lang->line('qc_associated_documents')?></label>
+									<a <?= fieldStatus($view_name, $quality_checklist_id, "documents") ?> data-field="documents" data-field_name="<?= $this->lang->line('qc_associated_documents') ?>" data-item_id="<?= $quality_checklist_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<div>
 										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="documents"><?php echo $documents; ?></textarea>
 									</div>
@@ -88,6 +99,7 @@
 
 								<div class="col-lg-12 form-group">
 									<label for="guidelines"><?= $this->lang->line('qc_guidelines')?></label>
+									<a <?= fieldStatus($view_name, $quality_checklist_id, "guidelines") ?> data-field="guidelines" data-field_name="<?= $this->lang->line('qc_guidelines') ?>" data-item_id="<?= $quality_checklist_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<div>
 										<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" name="guidelines"><?php echo $guidelines; ?></textarea>
 									</div>
