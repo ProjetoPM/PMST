@@ -26,12 +26,12 @@ $lang['cosmp_units_tp'] = 'Cada unidade usada em medições (como horas, dias ou
 de tempo; metros, litros, toneladas, quilômetros ou jardas cúbicas para medidas de quantidade ou importância
 global em forma de moeda) é definida para cada um dos recursos';
 
-$lang['cosmp_project_costs_m_tooltip'] = '';
+$lang['cosmp_project_costs_m_tp'] = '';
 
-$lang['cosmp_accuracy_level_tooltip'] = ' A faixa aceitável (por exemplo, ±10%) usada para determinar as estimativas de custo
+$lang['cosmp_accuracy_level_tp'] = ' A faixa aceitável (por exemplo, ±10%) usada para determinar as estimativas de custo
 realísticas é especificada e pode incluir verbas de contingências';
 
-$lang['cosmp_format_report-tooltip'] = 'Os formatos e frequências para vários relatórios de custos são definidos';
+$lang['cosmp_format_report-tp'] = 'Os formatos e frequências para vários relatórios de custos são definidos';
 
 $lang['cosmp_control_tp'] = ' Limites de variação para monitoramento do desempenho de custo podem ser
 especificados para indicar uma quantidade de variação combinada a ser permitida antes que alguma ação

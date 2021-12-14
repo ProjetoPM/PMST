@@ -40,7 +40,7 @@
 								<div class=" col-lg-12 form-group">
 										<label for="project_guidelines"><?= $this->lang->line('pmp_guidelines') ?></label>
 										<span class="pmp_1">2000</span><?= $this->lang->line('character') ?>
-										<a class="btn-sm btn-default" id="pmp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('project_guidelines_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="pmp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_guidelines_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'pmp_1')" id="pmp_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="project_guidelines"></textarea>
 										</div>
@@ -281,5 +281,19 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+	for (var i = 1; i <= 19; i++) {
+		if (document.getElementById("pmp_tp_" + i).title == "") {
+			document.getElementById("pmp_tp_" + i).hidden = true;
+		}
+		limite_textarea(document.getElementById("pmp_txt_" + i).value, "pmp_" + i);
+	}
 
+	function limite_textarea(valor, txt) {
+		var limite = 2000;
+		var caracteresDigitados = valor.length;
+		var caracteresRestantes = limite - caracteresDigitados;
+		$("." + txt).text(caracteresRestantes);
+	}
+  </script>
 <?php $this->load->view('frame/footer_view') ?>

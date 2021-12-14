@@ -51,7 +51,7 @@
                   <div class=" col-lg-12 form-group">
                     <label for="business_deals"><?= $this->lang->line('bc_business_deals') ?> </label>
                     <span class="bc_1">2000</span><?= $this->lang->line('character') ?>
-                    <a class="btn-sm btn-default" id="bc_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('bp_business_deals_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <a class="btn-sm btn-default" id="bc_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('bc_business_deals_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <a <?= fieldStatus($view_name, $bc->business_case_id, "business_deals") ?> data-field="business_deals" data-field_name="<?= $this->lang->line('bc_business_deals') ?>" data-item_id="<?= $bc->business_case_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                     <div>
                       <textarea onkeyup="limite_textarea(this.value, 'bc_1')" id="bc_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="business_deals"><?php echo $bc->business_deals; ?></textarea>
@@ -108,7 +108,6 @@
     </div>
   </div>
 </body>
-<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
 <script type="text/javascript">
   for (var i = 1; i <= 4; i++) {
     if (document.getElementById("bc_tp_" + i).title == "") {

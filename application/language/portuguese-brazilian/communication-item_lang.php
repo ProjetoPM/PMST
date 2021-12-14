@@ -30,7 +30,7 @@ $lang['commp_choose'] = 'Escolher uma das Partes Interessadas';
 $lang['commp_communication_item_tp'] = '';
 $lang['commp_stakeholder_tp'] = '';
 $lang['commp_type_tp'] = '';
-$lang['commp_description_tp'] = 'D';
+$lang['commp_description_tp'] = '';
 $lang['commp_content_tp'] = '';
 $lang['commp_distribution_reason_tp'] = '';
 $lang['commp_language_tp'] = '';
@@ -39,6 +39,6 @@ $lang['commp_document_format_tp'] = '';
 $lang['commp_method_tp'] = '';
 $lang['commp_frequency_tp'] = '';
 $lang['commp_allocated_resources_tp'] = '';
-$lang['commp_format_tp'] = 'Format Example';
+$lang['commp_format_tp'] = '';
 $lang['commp_local_tp'] = '';
 ?>

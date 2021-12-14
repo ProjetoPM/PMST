@@ -45,7 +45,7 @@
 								<div class=" col-lg-6 form-group">
 									<label for="impacted_objective"><?= $this->lang->line('rir_impacted_objective') ?> *</label>
 									<span class="rir_1">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" id="rir_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('risk-impacted_objective_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="rir_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_impacted_objective_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 									<div>
 									<input id="rir_txt_1" type="text" name="impacted_objective" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rir_1')" maxlength="2000" oninput="eylem(this, this.value)" required="true" value ="<?php echo $impacted_objective; ?>" >
@@ -55,7 +55,7 @@
 								<!-- valor 0 para baixo | valor 1 para  medio | valor 2 para alta-->
 								<div class="col-lg-6 form-group">
 									<label for="priority"><?= $this->lang->line('rir_priority') ?></label>
-									<a class="btn-sm btn-default" id="rir_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('risk-priority_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="rir_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_priority_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<select name="priority" class="form-control" value="<?php echo $priority; ?>">
 										<option value="0"><?= $this->lang->line('rir_priority-low') ?></option>
 										<option value="1"><?= $this->lang->line('rir_priority-medium') ?></option>

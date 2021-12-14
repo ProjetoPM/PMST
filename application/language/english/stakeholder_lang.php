@@ -30,28 +30,28 @@ $lang['shr_role_sponsor'] = 'Sponsor';
 $lang['shr_role_others'] = 'Others';
 
 
-//Tooltip
-$lang['shr_name_tooltip'] = '';
-$lang['shr_type_tooltip'] = '';
-$lang['shr_role_tooltip'] = '';
-$lang['shr_organization_tooltip'] = '';
-$lang['shr_position_tooltip'] = '';
-$lang['shr_email_tooltip'] = '';
-$lang['shr_responsibility_tooltip'] = '';
-$lang['shr_phone_number_tooltip'] = '';
-$lang['shr_work_place_tooltip'] = '';
-$lang['shr_essential_requirements_tooltip'] = '';
-$lang['shr_main_expectations_tooltip'] = '';
-$lang['shr_interest_phase_tooltip'] = '';
-$lang['shr_observations_tooltip'] = '';
-$lang['select-shr-tooltip'] = '';
-$lang['select-interest-level-tooltip'] = '';
-$lang['select-power-level-tooltip'] = '';
-$lang['select-influence-level-tooltip'] = '';
-$lang['select-impact-level-tooltip'] = '';
-$lang['select-current-engagement-tooltip'] = '';
-$lang['select-expected-engagement-tooltip'] = '';
-$lang['select-current-average-tooltip'] = '';
+//tp
+$lang['shr_name_tp'] = '';
+$lang['shr_type_tp'] = '';
+$lang['shr_role_tp'] = '';
+$lang['shr_organization_tp'] = '';
+$lang['shr_position_tp'] = '';
+$lang['shr_email_tp'] = '';
+$lang['shr_responsibility_tp'] = '';
+$lang['shr_phone_number_tp'] = '';
+$lang['shr_work_place_tp'] = '';
+$lang['shr_essential_requirements_tp'] = '';
+$lang['shr_main_expectations_tp'] = '';
+$lang['shr_interest_phase_tp'] = '';
+$lang['shr_observations_tp'] = '';
+$lang['select-shr-tp'] = '';
+$lang['select-interest-level-tp'] = '';
+$lang['select-power-level-tp'] = '';
+$lang['select-influence-level-tp'] = '';
+$lang['select-impact-level-tp'] = '';
+$lang['select-current-engagement-tp'] = '';
+$lang['select-expected-engagement-tp'] = '';
+$lang['select-current-average-tp'] = '';
 
 //Select
 $lang['select-1'] = 'Select Stakeholder';
@@ -61,7 +61,7 @@ $lang['select-4'] = 'Influece Level';
 $lang['select-5'] = 'Impact Level';
 $lang['select-6'] = 'Current Engagement';
 $lang['select-7'] = 'Desired Engagement';
-$lang['select-8'] = "Add New Stakeholder";
+$lang['select-8'] = 'Add New Stakeholder';
 $lang['average'] = 'Average Level';
 
 //options
@@ -71,24 +71,24 @@ $lang['option-3'] = 'Leanding';
 $lang['option-4'] = 'Neutral';
 $lang['option-5'] = 'Resistant';
 //Form
-$lang['stakeholder_mp-text1-tooltip'] = 'Engagement / Management Strategy Example';
-$lang['stakeholder_mp-text2-tooltip'] = 'Scope and Impact of Changes to Stakeholder Example';
-$lang['stakeholder_mp-text3-tooltip'] = 'Observations with other Stakeholders Example';
+$lang['stakeholder_mp-text1-tp'] = 'Engagement / Management Strategy Example';
+$lang['stakeholder_mp-text2-tp'] = 'Scope and Impact of Changes to Stakeholder Example';
+$lang['stakeholder_mp-text3-tp'] = 'Observations with other Stakeholders Example';
 $lang['shr-name'] = 'Stakeholder Name:';
 
 
 //Table
 $lang['stake'] = 'Stakeholder Name';
-$lang['interest'] = "Interest";
-$lang['power'] = "Power";
-$lang['influence'] = "Influence";
-$lang['impact'] = "Impact";
-$lang['average'] = "Average Importance";
-$lang['current_engagement'] = "Current Engagement";
-$lang['expected_engagement'] = "Current Engagement";
-$lang['scope'] = "Scope and Impact of Changes to Stakeholder";
-$lang['strategy'] = "Engagement / Management Strategy";
-$lang['observation'] = "Observations with other Stakeholders";
+$lang['interest'] = 'Interest';
+$lang['power'] = 'Power';
+$lang['influence'] = 'Influence';
+$lang['impact'] = 'Impact';
+$lang['average'] = 'Average Importance';
+$lang['current_engagement'] = 'Current Engagement';
+$lang['expected_engagement'] = 'Current Engagement';
+$lang['scope'] = 'Scope and Impact of Changes to Stakeholder';
+$lang['strategy'] = 'Engagement / Management Strategy';
+$lang['observation'] = 'Observations with other Stakeholders';
 
 
 $lang['text-1'] = 'Engagement / Management Strategy';

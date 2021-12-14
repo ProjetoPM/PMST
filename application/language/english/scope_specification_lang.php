@@ -23,7 +23,7 @@ or in great detail.
 
 $lang['pss-accept-tp'] = 'A set of conditions that is required to be met before deliverables are accepted.';
 
-$lang['pss_exclu_tp'] = 'Identifies what is excluded from the project. Explicitly stating what is out of scope for the
+$lang['pss-exclu-tp'] = 'Identifies what is excluded from the project. Explicitly stating what is out of scope for the
 project helps manage stakeholders’ expectations and can reduce scope creep.
 ';
 

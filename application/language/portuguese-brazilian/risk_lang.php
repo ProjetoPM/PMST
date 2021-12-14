@@ -20,12 +20,12 @@ $lang['rir_priority-high'] = 'Alta';
 
 
 //Tooltip
-$lang['rir_impacted_objective-tooltip'] = 'Objetivo impactado Example';
-$lang['rir_priority-tooltip'] = 'Prioridade Example';
-$lang['rir_risk_status-tooltip'] = 'Status do Risco Example';
-$lang['rir_event-tooltip'] = 'Evento Example';
-$lang['rir_date-tooltip'] = 'Data de identificação Example';
-$lang['rir_identifier-tooltip'] = 'Identificador Example';
-$lang['rir_type-tooltip'] = 'Tipo de Risco Example';
+$lang['rir_impacted_objective-tooltip'] = '';
+$lang['rir_priority-tooltip'] = '';
+$lang['rir_risk_status-tooltip'] = '';
+$lang['rir_event-tooltip'] = '';
+$lang['rir_date-tooltip'] = '';
+$lang['rir_identifier-tooltip'] = '';
+$lang['rir_type-tooltip'] = '';
 
 ?>

@@ -37,7 +37,7 @@
 									<div class=" col-lg-12 form-group">
 										<label for="project_costs_m"><?= $this->lang->line('cosmp_project_costs_m') ?> *</label>
 										<span class="cosmp_1">2000</span><?= $this->lang->line('character') ?>
-										<a class="btn-sm btn-default" id ="cosmp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_project_costs_m_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id ="cosmp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_project_costs_m_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'cosmp_1')" id="cosmp_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="project_costs_m" required="true" ><?php echo $cmp->project_costs_m;?></textarea>
 										</div>
@@ -47,7 +47,7 @@
 									<div class="col-lg-12 form-group">
 										<label for="accuracy_level"><?= $this->lang->line('cosmp_accuracy') ?></label>
 										<span class="cosmp_2">2000</span><?= $this->lang->line('character') ?>
-										<a class="btn-sm btn-default" id ="cosmp_tp_2"data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_accuracy_level_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id ="cosmp_tp_2"data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cosmp_accuracy_level_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'cosmp_2')" id="cosmp_txt_2" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="accuracy_level"><?php echo $cmp->accuracy_level;?></textarea>
 										</div>
