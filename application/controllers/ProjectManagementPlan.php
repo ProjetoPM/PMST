@@ -89,6 +89,14 @@ class ProjectManagementPlan extends CI_Controller
 
 	public function insert()
 	{
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
+		$project_mp['project_lifecycle'] = $this->input->post('project_lifecycle');
 		$project_mp['project_guidelines'] = $this->input->post('project_guidelines');
 		$project_mp['requirements_mp'] = $this->input->post('requirements_mp');
 		$project_mp['schedule_mp'] = $this->input->post('schedule_mp');
@@ -117,7 +125,7 @@ class ProjectManagementPlan extends CI_Controller
 		
 		if ($query) {
 			insertLogActivity('insert', 'project management plan');
-			$this->session->set_flashdata('success', 'Project Management Plan has been successfully created!');
+			$this->session->set_flashdata('success', $feedback_success);
 			redirect('integration/project-mp/edit/' . $_SESSION['project_id']);
 		}
 		// echo json_encode($insert);
@@ -125,6 +133,13 @@ class ProjectManagementPlan extends CI_Controller
 
 	public function update()
 	{
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		$project_mp['project_lifecycle'] = $this->input->post('project_lifecycle');
 		$project_mp['project_guidelines'] = $this->input->post('project_guidelines');
 		$project_mp['change_mp'] = $this->input->post('change_mp');
@@ -149,10 +164,9 @@ class ProjectManagementPlan extends CI_Controller
 		$project_mp['status'] = $this->input->post('status');
 
 		$query = $this->Project_Management_model->update($project_mp, $_SESSION['project_id']);
-		if ($query) {
-			$this->session->set_flashdata('success', 'Project Management Plan has been successfully changed!');
-			insertLogActivity('update', 'project management plan');
-		}
+
+		insertLogActivity('update', 'project management plan');
+		$this->session->set_flashdata('success', $feedback_success);
 		redirect('integration/project-mp/edit/' . $_SESSION['project_id']);
 	}
 }

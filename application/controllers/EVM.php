@@ -63,6 +63,12 @@ class EVM extends CI_Controller
 
 	public function update($project_id)
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		$activity['agregate_value'] = $this->input->post('agregate_value');
 		$activity['planned_value'] = $this->input->post('planned_value');
 		$activity['real_agregate_cost'] = $this->input->post('real_agregate_cost');
@@ -83,7 +89,7 @@ class EVM extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('update', 'earned value management');
-			$this->session->set_flashdata('success', 'Earned Value Management has been successfully changed!');
+			$this->session->set_flashdata('success', $feedback_success);
 			redirect('schedule/earned-value-management/list/' . $activity['project_id']);
 		}
 	}

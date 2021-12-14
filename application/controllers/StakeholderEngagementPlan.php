@@ -98,6 +98,13 @@ class StakeholderEngagementPlan extends CI_Controller
 
     public function update($stakeholder_id)
     {
+
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
         $stakeholder['power'] = $this->input->post('power');
         $stakeholder['interest'] = $this->input->post('interest');
         $stakeholder['influence'] = $this->input->post('influence');
@@ -115,7 +122,7 @@ class StakeholderEngagementPlan extends CI_Controller
 
         if ($query) {
             insertLogActivity('update', 'stakeholder engagement plan');
-            $this->session->set_flashdata('success', 'Stakeholder Engagement Plan has been successfully changed!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect('stakeholder/stakeholder-engagement-plan/list/' . $stakeholder['project_id']);
         }
     }
@@ -123,10 +130,15 @@ class StakeholderEngagementPlan extends CI_Controller
 
     function insert()
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
         insertLogActivity('insert', 'stakeholder engagement plan');
         $postData = $this->input->post();
         $insert   = $this->Stakeholder_mp_model->insert($postData);
-        $this->session->set_flashdata('success', 'Stakeholder Engagement Plan has been successfully created!');
+        $this->session->set_flashdata('success', $feedback_success);
         redirect('stakeholder/stakeholder-engagement-plan/new/' . $postData['project_id']);
         echo json_encode($insert);
     }

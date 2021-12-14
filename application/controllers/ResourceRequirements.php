@@ -84,6 +84,12 @@ class ResourceRequirements extends CI_Controller
 	}
 	public function update($project_id)
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		$activity['resource_description'] = $this->input->post('resource_description');
 		$activity['required_amount_of_resource'] = $this->input->post('required_amount_of_resource');
 		$activity['resource_cost_per_unit'] = $this->input->post('resource_cost_per_unit');
@@ -96,7 +102,7 @@ class ResourceRequirements extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('update', 'resource requirements');
-			$this->session->set_flashdata('success', 'Resource Requirements has been successfully changed!');
+			$this->session->set_flashdata('success', $feedback_success);
 			redirect('schedule/resource-requirements/list/' . $activity['project_id']);
 		}
 	}

@@ -106,6 +106,13 @@ class StakeholderRegister extends CI_Controller
 
     public function update($stakeholder_id)
     {
+
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
         $stakeholder['name'] = $this->input->post('name');
         $stakeholder['type'] = $this->input->post('type');
         $stakeholder['organization'] = $this->input->post('organization');
@@ -126,7 +133,7 @@ class StakeholderRegister extends CI_Controller
 
         if ($query) {
             // insertLogActivity('update', 'stakeholder register');
-            $this->session->set_flashdata('update', 'Stakeholder Register has been successfully changed!');
+            $this->session->set_flashdata('update', $feedback_success);
             redirect('stakeholder/stakeholder-register/list/' . $_SESSION['project_id']);
         }
     }
@@ -134,6 +141,11 @@ class StakeholderRegister extends CI_Controller
 
     public function insert($project_id)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
         $stakeholder['name'] = $this->input->post('name');
         $stakeholder['type'] = $this->input->post('closing_');
         $stakeholder['organization'] = $this->input->post('organization');
@@ -153,7 +165,7 @@ class StakeholderRegister extends CI_Controller
 
         if ($query) {
             insertLogActivity('insert', 'stakeholder register');
-            $this->session->set_flashdata('success', 'Stakeholder Register has been successfully created!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect('stakeholder/stakeholder-register/list/' . $stakeholder['project_id']);
         }
     }

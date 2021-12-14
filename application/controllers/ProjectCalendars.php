@@ -98,8 +98,14 @@ class ProjectCalendars extends CI_Controller
 
 	public function insert()
 	{
-		$activity['activity_id'] = $this->input->post('activity_id');
-		$activity['stakeholder_id'] = $this->input->post('stakeholder_id');
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
+		$activity['resource_name'] = $this->input->post('resource_name');
 		$activity['function'] = $this->input->post('function');
 		$activity['availability_start'] = $this->input->post('availability_start');
 		$activity['availability_ends'] = $this->input->post('availability_ends');
@@ -112,13 +118,19 @@ class ProjectCalendars extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('create', 'project calendars');
-			$this->session->set_flashdata('success', 'Project Calendars has been successfully created!');
+			$this->session->set_flashdata('success', $feedback_success);
 			redirect('schedule/project-calendars/list/' . $_SESSION['project_id']);
 		}
 	}
 
 	public function update($id)
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		$activity['activity_id'] = $this->input->post('activity_id');
 		$activity['stakeholder_id'] = $this->input->post('stakeholder_id');
 		$activity['function'] = $this->input->post('function');
@@ -131,8 +143,8 @@ class ProjectCalendars extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('update', 'project calendars');
-			$this->session->set_flashdata('success', 'Project Calendars has been successfully changed!');
-			redirect('schedule/project-calendars/list/' . $_SESSION['project_id']);
+			$this->session->set_flashdata('success', $feedback_success);
+			redirect('schedule/project-calendars/list/' . $activity['project_id']);
 		}
 	}
 

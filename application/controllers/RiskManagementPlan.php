@@ -92,17 +92,29 @@ class RiskManagementPlan extends CI_Controller
 
 	public function insert()
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
 		insertLogActivity('insert', 'risk management plan');
 
 		$postData = $this->input->post();
 		$insert   = $this->Risk_mp_model->insert($postData);
-		$this->session->set_flashdata('success', 'Risk Management Plan has been successfully created!');
+		$this->session->set_flashdata('success', $feedback_success);
 		redirect('risk/risk-mp/edit/' . $postData['project_id']);
 		echo json_encode($insert);
 	}
 
 	public function update()
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		$risk_mp['methodology'] = $this->input->post('methodology');
 		$risk_mp['roles_responsibilities'] = $this->input->post('roles_responsibilities');
 		$risk_mp['risks_categories'] = $this->input->post('risks_categories');
@@ -121,7 +133,7 @@ class RiskManagementPlan extends CI_Controller
 		$query = $this->Risk_mp_model->update($risk_mp, $_SESSION['project_id']);
 
 		insertLogActivity('update', 'risk management plan');
-		$this->session->set_flashdata('success', 'Risk Management Plan has been successfully changed!');
+		$this->session->set_flashdata('success', $feedback_success);
 		redirect('risk/risk-mp/edit/' . $_SESSION['project_id']);
 	}
 }

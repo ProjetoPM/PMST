@@ -95,17 +95,30 @@ class ProcurementManagementPlan extends CI_Controller
 
     public function insert()
     {
+
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
         insertLogActivity('insert', 'procurement management plan');
 
         $postData = $this->input->post();
         $insert   = $this->Procurement_mp_model->insert($postData);
-        $this->session->set_flashdata('success', 'Procurement Management Plan has been successfully created!');
+        $this->session->set_flashdata('success', $feedback_success);
         redirect("procurement/procurement-mp/edit/" . $_SESSION['project_id']);
         echo json_encode($insert);
     }
 
     public function update()
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
         $procurement_mp['products_services_obtained'] = $this->input->post('products_services_obtained');
         $procurement_mp['performance_metrics'] = $this->input->post('performance_metrics');
         $procurement_mp['procurement_management'] = $this->input->post('procurement_management');
@@ -124,7 +137,7 @@ class ProcurementManagementPlan extends CI_Controller
         $query = $this->Procurement_mp_model->update($procurement_mp, $_SESSION['project_id']);
 
         insertLogActivity('update', 'procurement management plan');
-        $this->session->set_flashdata('success', 'Procurement Management Plan has been successfully changed!');
+        $this->session->set_flashdata('success', $feedback_success);
         redirect("procurement/procurement-mp/edit/" . $_SESSION['project_id']);
     }
 }

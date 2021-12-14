@@ -92,11 +92,18 @@ class QualityManagementPlan extends CI_Controller
 
 	function insert()
 	{
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
 		insertLogActivity('insert', 'quality management plan');
 
 		$postData = $this->input->post();
 		$insert   = $this->Quality_model->insert($postData);
-		$this->session->set_flashdata('success', 'Quality Management Plan has been successfully created!');
+		$this->session->set_flashdata('success', $feedback_success);
 		redirect('quality/quality-mp/edit/' . $postData['project_id']);
 		echo json_encode($insert);
 	}
@@ -104,6 +111,13 @@ class QualityManagementPlan extends CI_Controller
 
 	public function update()
 	{
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		$quality_mp['standards'] = $this->input->post('standards');
 		$quality_mp['objectives'] = $this->input->post('objectives');
 		$quality_mp['roles_responsibilities'] = $this->input->post('roles_responsibilities');
@@ -116,10 +130,8 @@ class QualityManagementPlan extends CI_Controller
 		//$insert = $this->project_model->insert_project_pgq($quality_mp);
 		$query = $this->Quality_model->update($quality_mp, $_SESSION['project_id']);
 
-		if ($query) {
-			insertLogActivity('update', 'quality management plan');
-			$this->session->set_flashdata('success', 'Quality Management Plan has been successfully changed!');
-		}
+		insertLogActivity('update', 'quality management plan');
+		$this->session->set_flashdata('success', $feedback_success);
 		redirect('quality/quality-mp/edit/' . $_SESSION['project_id']);
 	}
 }

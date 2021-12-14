@@ -93,6 +93,12 @@ class ProjectPerformanceReport extends CI_Controller
 
     public function update($project_id)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+        
         $project_performance_report['date'] = $this->input->post('date');
         $project_performance_report['current_performance_analysis'] = $this->input->post('current_performance_analysis');
         $project_performance_report['planned_forecasts'] = $this->input->post('planned_forecasts');
@@ -112,13 +118,19 @@ class ProjectPerformanceReport extends CI_Controller
 
         if ($query) {
             insertLogActivity('update', 'project performance and monitoring report');
-            $this->session->set_flashdata('success', 'Project Performance and Monitoring Report has been successfully changed!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect('integration/project-performance-report/list/' . $project_performance_report['project_id']);
         }
     }
 
     public function insert($project_id)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
         $project_performance_report['date'] = $this->input->post('date');
         $project_performance_report['current_performance_analysis'] = $this->input->post('current_performance_analysis');
         $project_performance_report['planned_forecasts'] = $this->input->post('planned_forecasts');
@@ -138,7 +150,7 @@ class ProjectPerformanceReport extends CI_Controller
 
         if ($query) {
             insertLogActivity('insert', 'project performance and monitoring report');
-            $this->session->set_flashdata('success', 'Project Performance and Monitoring Report has been successfully created!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect('integration/project-performance-report/list/' . $project_performance_report['project_id']);
         }
     }

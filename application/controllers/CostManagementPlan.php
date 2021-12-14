@@ -88,16 +88,29 @@ class CostManagementPlan extends CI_Controller
 
 	function insert()
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
 		insertLogActivity('insert', 'cost management plan');
 		$postData = $this->input->post();
 		$insert   = $this->Cost_model->insert($postData);
-		$this->session->set_flashdata('success', 'Cost Management Plan has been successfully created!');
+		$this->session->set_flashdata('success', $feedback_success);
 		redirect('cost/cost-mp/edit/' . $postData['project_id']);
 		echo json_encode($insert);
 	}
 
 	public function update()
 	{
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		insertLogActivity('update', 'cost management plan');
 
 		$cost_mp['project_costs_m'] = $this->input->post('project_costs_m');
@@ -115,7 +128,7 @@ class CostManagementPlan extends CI_Controller
 
 		//$insert = $this->project_model->insert_project_pgq($quality_mp);
 		$query = $this->Cost_model->update($cost_mp, $_SESSION['project_id']);
-		$this->session->set_flashdata('success', 'Cost Management Plan has been successfully changed!');
+		$this->session->set_flashdata('success', $feedback_success);
 		redirect('cost/cost-mp/edit/' . $_SESSION['project_id']);
 	}
 }

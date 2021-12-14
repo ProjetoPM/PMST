@@ -67,6 +67,13 @@ class CostEstimates extends CI_Controller
 	
 	public function update($project_id)
 	{
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		$activity['estimated_cost'] = $this->input->post('estimated_cost');
 		$activity['cumulative_estimated_cost'] = $this->input->post('cumulative_estimated_cost');
 		$activity['replanted_cost'] = $this->input->post('replanted_cost');
@@ -87,7 +94,7 @@ class CostEstimates extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('update', 'cost estimates');
-			$this->session->set_flashdata('success', 'Cost Estimates has been successfully changed!');
+			$this->session->set_flashdata('success', $feedback_success);
 			redirect('cost/cost-estimates/list/' . $activity['project_id']);
 		}
 	}

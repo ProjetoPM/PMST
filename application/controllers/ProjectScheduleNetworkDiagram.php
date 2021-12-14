@@ -55,36 +55,28 @@ class ProjectScheduleNetworkDiagram extends CI_Controller
 		$this->load->view('project/schedule/schedule_network/edit', $query);
 	}
 
-	public function new()
+	public function update()
 	{
-		$query['activity'] = $this->Activity_model->getAll($_SESSION['project_id']);
-		$query['schedule_network'] = $this->ScheduleNetwork_model->get($_SESSION['project_id']);
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
 
-		$this->load->view('frame/header_view.php');
-		$this->load->view('frame/topbar');
-		$this->load->view('frame/sidebar_nav_view.php');
-		$this->load->view('project/schedule/schedule_network/new', $query);
-	}
-
-	public function update($id)
-	{
-		$snd['predecessor_activity_id'] = $this->input->post('predecessor_activity_id');
-		$snd['activity_id'] = $this->input->post('activity_id');
-
-		if (strcmp($snd['activity_id'], $snd['predecessor_activity_id']) == 0) {
-			$this->session->set_flashdata('error', 'An activity cannot be a predecessor of itself!');
-			redirect('schedule/project-schedule-network-diagram/edit/' . $id);
-		} else {
-			$snd['lead_lag'] = $this->input->post('lead_lag');
-			$snd['dependence_type'] = $this->input->post('dependence_type');
-
-			$query = $this->ScheduleNetwork_model->update($snd, $id);
-
-			if ($query) {
-				insertLogActivity('update', 'project schedule network diagram');
-				$this->session->set_flashdata('success', 'Project Schedule Network Diagram has been successfully changed!');
-				redirect('schedule/project-schedule-network-diagram/list/' . $_SESSION['project_id']);
-			}
+		$activity['predecessor_activity'] = $this->input->post('predecessor_activity');
+		$activity['dependence_type'] = $this->input->post('dependence_type');
+		$activity['anticipation'] = $this->input->post('anticipation');
+		$activity['wait'] = $this->input->post('wait');
+		
+		$activity['project_id'] = $this->input->post('project_id');
+		
+		$data['activity'] = $activity;
+		$query = $this->Activity_model->update($data['activity'], $_SESSION['project_id']);
+		
+		if ($query) {
+			insertLogActivity('update', 'project schedule network diagram');
+			$this->session->set_flashdata('success', $feedback_success);
+			redirect('schedule/project-schedule-network-diagram/list/' . $_SESSION['project_id']);
 		}
 	}
 
