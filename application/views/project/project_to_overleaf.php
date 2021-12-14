@@ -135,6 +135,8 @@
 		}
 	}
 
+	console.log(allkw);
+
 	function addKW(kw) {
 		var latex_provisorio = document.getElementById('latex').value;
 
@@ -151,8 +153,15 @@
 			remove_snip("integration");
 			scanner();
 		} else {
-			allkw_names.push("integration");
-			scanner();
+			var latex_provisorio = latex1;
+			var kw = <?= $json ?>;
+			for (let index = 0; index < kw.schedule.length; index++) {
+				latex_provisorio = latex_provisorio + kw.schedule[index]["task"];
+				create_snip("integration", kw.schedule[index]["name_task"], kw.schedule[index]["task"]);
+				console.log(latex_provisorio);
+			}
+
+			document.getElementById('latex').value = latex_provisorio;
 		}
 	});
 

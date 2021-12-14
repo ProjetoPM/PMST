@@ -30,7 +30,11 @@
 								<?= $this->lang->line('resource_breakdown_structure-title')  ?>
 
 							</h1>
-
+							<div class="row">
+								<div class="col-lg-12">
+									<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#upload"><i class="fa fa-plus-circle"></i> Upload</button>
+								</div>
+							</div>
 
 							<!--1º preencher o nome da view-->
 							<?php $view = array(

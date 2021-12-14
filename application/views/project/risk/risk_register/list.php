@@ -64,24 +64,25 @@
 													<td class="moreInformationTable"></td>
 													<td><?php echo $risk->impacted_objective; ?></td>
 													<td>
+
 														<?php
 														if ($risk->priority == '0') {
 														?>
-															<?= $this->lang->line('risk-priority-low') ?>
+															<?= $this->lang->line('rir_priority-low') ?>
 														<?php
 														} else if ($risk->priority == '1') {
 														?>
-															<?= $this->lang->line('risk-priority-medium') ?>
+															<?= $this->lang->line('rir_priority-medium') ?>
 														<?php
 														} else if ($risk->priority == '2') {
 														?>
-															<?= $this->lang->line('risk-priority-high') ?>
+															<?= $this->lang->line('rir_priority-high') ?>
 														<?php
 														}
 														?>
 													</td>
 													<td><?php echo $risk->event; ?></td>
-													<td><?php echo $risk->event; ?></td>
+													<td><?php echo $risk->date; ?></td>
 
 													<td>
 														<div class="row center">
@@ -189,10 +190,10 @@
 	function format(dados) {
 		return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
 			'<tr>' +
-			'<td><b><?= $this->lang->line('risk-risk_status') ?>: </b>' + dados.risk_status + '</td>' +
+			'<td><b><?= $this->lang->line('rir_risk_status') ?>: </b>' + dados.risk_status + '</td>' +
 			'</tr>' +
 			'<tr>' +
-			'<td><b><?= $this->lang->line('risk-identifier') ?>: </b>' + dados.identifier + '</td>' +
+			'<td><b><?= $this->lang->line('rir_identifier') ?>: </b>' + dados.identifier + '</td>' +
 			'</tr>' +
 			'</table>';
 	}
