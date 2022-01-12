@@ -112,5 +112,7 @@ $lang['dashboard'] = ' Dashboard';
 // btn NOTIFICATION BOARD
 $lang['notification-board'] = 'Notification Board';
 
+$lang['wr_title'] = 'Weekly Report';
+
 
 ?>

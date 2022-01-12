@@ -107,6 +107,9 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 
+$route['weekly-report/new'] = "WeeklyReport/new";
+$route['weekly-report/insert'] = "WeeklyReport/insert";
+
 $route['integration/project-charter/new/(:num)'] = "ProjectCharter/new/$1";
 $route['integration/project-charter/edit/(:num)'] = "ProjectCharter/edit/$1";
 $route['integration/project-charter/insert'] = "ProjectCharter/insert";

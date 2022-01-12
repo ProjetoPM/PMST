@@ -113,4 +113,7 @@ $lang['dashboard'] = ' Painel';
 
 // btn NOTIFICATION BOARD
 $lang['notification-board'] = 'Quadro de Notificação';
+
+$lang['wr_title'] = 'Relatório Semanal';
+
 ?>
