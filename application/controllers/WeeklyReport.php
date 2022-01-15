@@ -33,7 +33,7 @@ class WeeklyReport extends CI_Controller
 		$this->load->model('QualityChecklist_model');
 	}
 
-	public function list($project_id)
+	public function list()
 	{
 
 		if (strcmp($_SESSION['language'], "US") == 0) {
@@ -42,16 +42,16 @@ class WeeklyReport extends CI_Controller
 			$this->lang->load('btn', 'portuguese-brazilian');
 		}
 
-		$dado['project_id'] = $project_id;
-		$dado['weekly_report'] = $this->QualityChecklist_model->getAll($project_id);
+		$dado['weekly_report'] = $this->WeeklyReport_model->getAll();
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/quality/quality_checklist/list', $dado);
+		$this->load->view('project/weekly_report/list', $dado);
+
 	}
 
-	public function edit($quality_checklist_id)
+	public function edit($weekly_report_id)
 	{
 
 		if (strcmp($_SESSION['language'], "US") == 0) {
@@ -64,13 +64,12 @@ class WeeklyReport extends CI_Controller
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
 		// Verificando se o usuario logado tem acesso a esse projeto
-		$dado['quality_check'] = $this->QualityChecklist_model->get($quality_checklist_id);
-		$dado['quality_itens'] = $this->QualityChecklist_model->getAllItens($quality_checklist_id);
-
+		$dado['weekly_report'] = $this->WeeklyReport_model->get($weekly_report_id);
+		$dado['processes'] = $this->WeeklyReport_model->getAllItens($weekly_report_id);
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/quality/quality_checklist/edit', $dado);
+		$this->load->view('project/weekly_report/new', $dado);
 	}
 
 	public function new()
@@ -81,12 +80,6 @@ class WeeklyReport extends CI_Controller
 		} else {
 			$this->lang->load('btn', 'portuguese-brazilian');
 		}
-
-		// $this->db->where('user_id',  $_SESSION['user_id']);
-		// $this->db->where('project_id',  $_SESSION['project_id']);
-		// $project['dados'] = $this->db->get('project_user')->result();
-		// $project['project_id'] = $_SESSION['project_id'];
-
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');

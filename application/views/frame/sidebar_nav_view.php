@@ -313,10 +313,9 @@ position:-webkit-sticky
                         
             <li class="<?php if ($uri1 == 'weekly-report') {
                            echo 'active';
-                        } ?>"><a href="<?= base_url("weekly-report/new") ?>"><i class="glyphicon glyphicon-blackboard"></i> <span><?= $this->lang->line('wr_title'); ?></span>
+                        } ?>"><a href="<?= base_url("weekly-report/list") ?>"><i class="glyphicon glyphicon-blackboard"></i> <span><?= $this->lang->line('wr_title'); ?></span>
                </a>
             </li>
-
             <!-- FIM WEEKLY REPORT -->
 
          <?php } ?>

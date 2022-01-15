@@ -8,6 +8,8 @@ $lang['wr_processes'] = 'Processos';
 $lang['wr_process_name'] = 'Nome do Processo';
 $lang['wr_attach_pdf'] = 'Anexar PDF';
 $lang['wr_process_description'] = 'Descrição do Processo';
+$lang['wr_new_report'] = 'Nova Submissão';
+
 
 
 
