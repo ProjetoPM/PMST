@@ -115,5 +115,7 @@ $lang['dashboard'] = ' Painel';
 $lang['notification-board'] = 'Quadro de Notificação';
 
 $lang['wr_title'] = 'Relatório Semanal';
+$lang['we_title'] = 'Avaliação Semanal';
+
 
 ?>

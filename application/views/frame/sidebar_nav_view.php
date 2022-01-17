@@ -318,6 +318,15 @@ position:-webkit-sticky
             </li>
             <!-- FIM WEEKLY REPORT -->
 
+            <!-- INÍCIO WEEKLY EVALUATION -->
+                        
+            <li class="<?php if ($uri1 == 'weekly-evaluation') {
+                           echo 'active';
+                        } ?>"><a href="<?= base_url("weekly-evaluation/list") ?>"><i class="glyphicon glyphicon-blackboard"></i> <span><?= $this->lang->line('we_title'); ?></span>
+               </a>
+            </li>
+            <!-- FIM WEEKLY REPORT -->
+
          <?php } ?>
 
       </ul>

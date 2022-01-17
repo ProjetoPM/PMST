@@ -48,6 +48,12 @@ class WeeklyReport_model extends CI_Model
 		return $query->result();
 	}
 
+	public function getAllPerMember($id)
+	{
+		$query = $this->db->get_where('weekly_report', array('user_id' => $id));
+		return $query->result();
+	}
+
 	public function getAllProcesses($id)
 	{
 		$query = $this->db->get_where('weekly_report_process', array('weekly_report_process.weekly_report_id' => $id));

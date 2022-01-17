@@ -30,7 +30,6 @@ class WeeklyReport extends CI_Controller
 		$this->load->model('view_model');
 		$this->load->helper('url');
 		$this->load->model('WeeklyReport_model');
-		$this->load->model('QualityChecklist_model');
 	}
 
 	public function list()
@@ -42,7 +41,7 @@ class WeeklyReport extends CI_Controller
 			$this->lang->load('btn', 'portuguese-brazilian');
 		}
 
-		$dado['weekly_report'] = $this->WeeklyReport_model->getAll();
+		$dado['weekly_report'] = $this->WeeklyReport_model->getAllPerMember($_SESSION['user_id']);
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
@@ -94,6 +93,7 @@ class WeeklyReport extends CI_Controller
 
 		$weekly_report['date'] = $this->input->post('date');
 		$weekly_report['tool_evaluation'] = $this->input->post('tool_evaluation');
+		$weekly_report['user_id'] = $_SESSION['user_id'];
 
 		$weekly_report_process['pdf_path'] = $this->input->post('pdf_path');
 		$weekly_report_process['description'] = $this->input->post('description');
@@ -104,7 +104,7 @@ class WeeklyReport extends CI_Controller
 		$query2 = $this->WeeklyReport_model->updateProcessReport($weekly_report_process, $insert_id);
 
 		$this->session->set_flashdata('success', 'Weekly Report has been successfully created!');
-		redirect('project/' . $_SESSION['project_id']);
+		redirect('weekly-report/list');
 		// echo json_encode($insert);
 	}
 
@@ -112,34 +112,31 @@ class WeeklyReport extends CI_Controller
 	{
 		insertLogActivity('update', 'weekly report');
 
-		$weekly_report['verified'] = $this->input->post('verified');
-		$quality_check['date'] = $this->input->post('date');
-		$quality_check['responsible'] = $this->input->post('responsible');
-		$quality_check['guidelines'] = $this->input->post('guidelines');
-		$quality_check['documents'] = $this->input->post('documents');
-		$quality_check['project_id'] = $_SESSION['project_id'];
+	
+		$weekly_report['date'] = $this->input->post('date');
+		$weekly_report['tool_evaluation'] = $this->input->post('tool_evaluation');
+		$weekly_report['user_id'] = $_SESSION['user_id'];
 
 
-		$weekly_report_process['item_check'] = $this->input->post('item_check');
-		$quality_item['comments'] = $this->input->post('comments');
-		$quality_item['status'] = $this->input->post('status');
+		$weekly_report_process['pdf_path'] = $this->input->post('pdf_path');
+		$weekly_report_process['description'] = $this->input->post('description');
+		$weekly_report_process['status'] = $this->input->post('status');
 		// var_dump($this->input->post());exit;
 
-		$insert_id   = $this->QualityChecklist_model->update($weekly_report, $weekly_report_id);
-		$query2 = $this->QualityChecklist_model->updateQualityCheckItem($weekly_report_process, $weekly_report_id);
+		$insert_id   = $this->WeeklyReport_model->update($weekly_report, $weekly_report_id);
+		$query2 = $this->WeeklyReport_model->updateQualityCheckItem($weekly_report_process, $weekly_report_id);
 
-		$this->session->set_flashdata('update', 'Quality Checklist has been successfully changed!');
-		redirect('project' . $_SESSION['project_id']);
+		$this->session->set_flashdata('update', 'Weekly Report has been successfully changed!');
+		redirect('weekly-report/list');
 	}
 
-	public function delete($quality_checklist_id)
+	public function delete($weekly_report_id)
 	{
-		$project_id['project_id'] = $this->input->post('project_id');
 		//$project_id['project_id'] = $project_id;
-		$query = $this->QualityChecklist_model->delete($quality_checklist_id);
+		$query = $this->WeeklyReport_model->delete($weekly_report_id);
 		if ($query) {
 			insertLogActivity('delete', 'quality checklist');
-			redirect('quality/quality-checklist/list/' . $_SESSION['project_id']);
+			redirect('weekly-report/list');
 		}
 	}
 }
