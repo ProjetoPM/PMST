@@ -66,12 +66,17 @@
 
 							<form method="POST" action="<?php echo base_url('weekly-report/insert/'); ?>">
 
-								<div class="col-lg-3 form-group">
-									<label><?= $this->lang->line('wr_date') ?></label>
-									<div>
-										<input autocomplete="off" class="form-control input-md" id="date" placeholder="YYYY/MM/DD" type="date" name="date" required="true" />
+							<div class="col-lg-6 form-group">
+										<label><?= $this->lang->line('we_name') ?></label>
+										
+										<select name="evaluation_id" size="1" class="form-control" tabindex="1" required>
+										<option selected="selected" disabled="disabled" value=""> Select </option>
+											<?php foreach ($evaluation as $i) { ?>
+												<option value="<?= $i->weekly_evaluation_id; ?>">
+													<?=  getWeeklyEvaluationName($i->weekly_evaluation_id); ?></option>
+											<?php  } ?>
+										</select>
 									</div>
-								</div>
 
 								<div class=" col-lg-12 form-group">
 									<label for="tool_evaluation"><?= $this->lang->line('wr_tool_evaluation') ?> *</label>
