@@ -8,8 +8,8 @@
 		function insert($data){
 			return $this->db->insert('weekly_evaluation', $data);
 		}
-		public function get($project_id){
-			$query = $this->db->get_where('weekly_evaluation',array('project_id'=>$project_id));
+		public function get($weekly_evaluation_id){
+			$query = $this->db->get_where('weekly_evaluation', array('weekly_evaluation_id'=>$weekly_evaluation_id));
 			return $query->result();
 		}
 
@@ -19,8 +19,8 @@
 		return $query->result();
 	}
 
-		public function update($weekly_evaluation, $project_id){
-			$this->db->where('weekly_evaluation.project_id', $project_id);
+		public function update($weekly_evaluation_id, $weekly_evaluation){
+			$this->db->where('weekly_evaluation.weekly_evaluation_id', $weekly_evaluation_id);
 			return $this->db->update('weekly_evaluation', $weekly_evaluation);
 		}
 	}

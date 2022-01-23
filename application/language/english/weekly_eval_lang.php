@@ -12,5 +12,15 @@ $lang['we_type'] = 'Type';
 $lang['we_status'] = 'Status';
 $lang['we_new_evaluation'] = 'New Evaluation';
 
+$lang['we_individual'] = 'Individual Report';
+$lang['we_group'] = 'Group Report';
+$lang['we_evaluate'] = 'Evaluate';
+$lang['we_score'] = 'Score';
+$lang['we_comments'] = 'Comments';
+
+$lang['we_closed'] = 'Closed';
+$lang['we_open'] = 'Open';
+
+
 
 ?>

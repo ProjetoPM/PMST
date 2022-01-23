@@ -78,11 +78,11 @@
 
 							</h1>
 
-							
+
 							<div class="row">
 								<div class="col-lg-12">
 
-									<button id="btn-evaluation" class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>weekly-evaluation/new'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('we_new_evaluation')?></button>
+									<button id="btn-evaluation" class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>weekly-evaluation/new'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('we_new_evaluation') ?></button>
 								</div>
 							</div>
 
@@ -124,7 +124,47 @@
 										</tbody>
 									</table>
 
-									<form action="<?php echo base_url('project/'); ?><?php echo $_SESSION['project_id']; ?>">
+									<h1 class="page-header">
+
+										<?= $this->lang->line('wr_submissions')  ?>
+
+									</h1>
+
+									<table class="table table-bordered table-striped" id="table_evaluation">
+										<thead>
+											<tr>
+												<th><?= $this->lang->line('wr_username') ?></th>
+												<th><?= $this->lang->line('we_name') ?></th>
+												<th><?= $this->lang->line('actions') ?></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+											foreach ($weekly_report as $item) {
+											?>
+												<tr>
+													<td><?= getUserName($item->user_id) ?></td>
+													<td><?= getWeeklyEvaluationName($item->weekly_evaluation_id) ?></td>
+
+													<td>
+														<div class="row center">
+															<div class="col-sm-4">
+																<form action="<?php echo base_url() ?>weekly-evaluation/new-report-score/<?php echo $item->weekly_report_id; ?>" method="post">
+																	<input type="hidden" name="project_id" value="<?= $item->weekly_report_id; ?>">
+																	<button type="submit" class="btn btn-lg btn-info"><?= $this->lang->line('we_evaluate'); ?></em><span class="hidden-xs"></span></button>
+																</form>
+															</div>
+														</div>
+													</td>
+												</tr>
+											<?php
+											}
+											?>
+
+										</tbody>
+									</table>
+
+									<form action="<?php echo base_url('projects'); ?>">
 										<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 									</form>
 								</div>
@@ -173,6 +213,8 @@
 		});
 	});
 
+	// if (<?= $_SESSION['access_level'] ?> == 2)
+	// 	document.getElementById('btn-evaluation').disabled = "true"
 </script>
 
 <!-- <script type="text/javascript">

@@ -106,13 +106,15 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-
-$route['weekly-report/new/'] = "WeeklyReport/new";
+$route['weekly-report/new'] = "WeeklyReport/new";
 $route['weekly-report/insert'] = "WeeklyReport/insert";
 $route['weekly-report/list'] = "WeeklyReport/list";
 
+$route['weekly-evaluation/new-report-score/(:num)'] = "WeeklyEvaluation/new_submission_score/$1";
 $route['weekly-evaluation/new'] = "WeeklyEvaluation/new";
 $route['weekly-evaluation/insert'] = "WeeklyEvaluation/insert";
+$route['weekly-evaluation/edit/(:num)'] = "WeeklyEvaluation/edit/$1";
+$route['weekly-evaluation/update/(:num)'] = "WeeklyEvaluation/update/$1";
 $route['weekly-evaluation/list'] = "WeeklyEvaluation/list";
 
 $route['integration/project-charter/new/(:num)'] = "ProjectCharter/new/$1";

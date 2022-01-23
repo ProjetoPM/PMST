@@ -104,7 +104,7 @@
 
 												<div  class="col-sm-3 form-group">
 													<div>
-														<label for="process_name">Process Name</label>
+														<label for="process_name"><?= $this->lang->line('wr_process_name') ?></label>
 													</div>
 												</div>
 

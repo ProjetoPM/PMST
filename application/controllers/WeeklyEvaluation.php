@@ -29,6 +29,8 @@ class WeeklyEvaluation extends CI_Controller
 		$this->load->model('view_model');
 		$this->load->helper('url');
 		$this->load->model('WeeklyEvaluation_model');
+		$this->load->model('WeeklyReport_model');
+
 	}
 
 	public function list()
@@ -41,12 +43,35 @@ class WeeklyEvaluation extends CI_Controller
 		}
 
 		$dado['weekly_evaluation'] = $this->WeeklyEvaluation_model->getAll($_SESSION['user_id']);
+		$dado['weekly_report'] = $this->WeeklyReport_model->getAll();
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('project/weekly_evaluation/list', $dado);
 
+	}
+
+
+
+	
+
+	public function new_submission_score($id)
+	{
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+			$dado['weekly_report'] = $this->WeeklyReport_model->get($id);
+			$dado['weekly_processes'] = $this->WeeklyReport_model->getAllProcesses($id);
+			// var_dump($dado);
+			// die();
+			$this->load->view('frame/header_view');
+			$this->load->view('frame/topbar');
+			$this->load->view('frame/sidebar_nav_view');
+			$this->load->view('project/weekly_evaluation/evaluate', $dado);
 	}
 
 	public function new()
@@ -58,18 +83,10 @@ class WeeklyEvaluation extends CI_Controller
 			$this->lang->load('btn', 'portuguese-brazilian');
 		}
 
-		$this->db->where('user_id',  $_SESSION['user_id']);
-		$this->db->where('project_id',  $_SESSION['project_id']);
-		$project['dados'] = $this->db->get('project_user')->result();
-		// Verificando se o usuario logado tem acesso a esse projeto
-
-		if (count($project['dados']) > 0) {
-			$dado['id'] = $_SESSION['project_id'];
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');
-			$this->load->view('project/weekly-evaluation/new', $dado);
-		}
+			$this->load->view('project/weekly_evaluation/new');
 	}
 
 	function insert()
@@ -80,47 +97,44 @@ class WeeklyEvaluation extends CI_Controller
 			$feedback_success = 'Item Criado ';
 		}
 
-		$weekly_evaluation['business_deals'] = $this->input->post('business_deals');
-		$weekly_evaluation['situation_analysis'] = $this->input->post('situation_analysis');
-		$weekly_evaluation['recommendation'] = $this->input->post('recommendation');
-		$weekly_evaluation['evaluation'] = $this->input->post('evaluation');
-		$weekly_evaluation['project_id'] = $_SESSION['project_id'];
+		$weekly_evaluation['name'] = $this->input->post('name');
+		$weekly_evaluation['start_date'] = $this->input->post('start_date');
+		$weekly_evaluation['end_date'] = $this->input->post('end_date');
+		$weekly_evaluation['deadline'] = $this->input->post('deadline');
+		$weekly_evaluation['status'] = $this->input->post('status');
+		$weekly_evaluation['individual_or_group'] = $this->input->post('type');
+		$weekly_evaluation['user_id'] = $_SESSION['user_id'];
 
 		$insert  = $this->WeeklyEvaluation_model->insert($weekly_evaluation);
 		if ($insert) {
 			$this->session->set_flashdata('success', $feedback_success);
 			insertLogActivity('insert', 'weekly evaluation');
 		}
-		redirect("weekly-evaluation/list" . $_SESSION['project_id']);
+		redirect("weekly-evaluation/list");
 		// echo json_encode($insert);
 	}
 
-	public function edit($project_id)
+	public function edit($weekly_evaluation)
 	{
 
-		$this->db->where('user_id',  $_SESSION['user_id']);
-		$this->db->where('project_id',  $_SESSION['project_id']);
-		$project['dados'] = $this->db->get('project_user')->result();
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
 
-		if (count($project['dados']) > 0) {
-			$dado['business_case'] = $this->Business_case_model->get($_SESSION['project_id']);
-			if ($dado['business_case'] == null) {
-				redirect(base_url("integration/business-case/new/" . $_SESSION['project_id']));
-			}
-			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "business case", $dado['business_case'][0]->business_case_id);
+			$dado['weekly_evaluation'] = $this->WeeklyEvaluation_model->get($weekly_evaluation);
+
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');
-			$this->load->view('project/integration/business_case/edit', $dado);
-		} else {
-			redirect(base_url());
-		}
+			$this->load->view('project/weekly_evaluation/edit', $dado);
 	}
 
 
 
 
-	public function update()
+	public function update($weekly_evaluation_id)
 	{
 		if (strcmp($_SESSION['language'], "US") == 0) {
 			$feedback_success = 'Item Updated';
@@ -128,21 +142,24 @@ class WeeklyEvaluation extends CI_Controller
 			$feedback_success = 'Item Atualizado ';
 		}
 
-		$business_case['business_deals'] = $this->input->post('business_deals');
-		$business_case['situation_analysis'] = $this->input->post('situation_analysis');
-		$business_case['recommendation'] = $this->input->post('recommendation');
-		$business_case['evaluation'] = $this->input->post('evaluation');
+		$weekly_evaluation['name'] = $this->input->post('name');
+		$weekly_evaluation['start_date'] = $this->input->post('start_date');
+		$weekly_evaluation['end_date'] = $this->input->post('end_date');
+		$weekly_evaluation['deadline'] = $this->input->post('deadline');
+		$weekly_evaluation['status'] = $this->input->post('status');
+		$weekly_evaluation['individual_or_group'] = $this->input->post('type');
+		$weekly_evaluation['user_id'] = $_SESSION['user_id'];
 
-		//$insert = $this->project_model->insert_project_pgq($quality_mp);
-		$query = $this->Business_case_model->update($business_case, $_SESSION['project_id']);
+
+		$query = $this->WeeklyEvaluation_model->update($weekly_evaluation_id, $weekly_evaluation);
 		if ($query) {
 			$this->session->set_flashdata('success', $feedback_success);
-			insertLogActivity('update', 'business case');
+			insertLogActivity('update', 'weekly_evaluation');
 		}
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
-		redirect("integration/business-case/edit/" . $_SESSION['project_id']);
+		redirect("weekly-evaluation/list");
 	}
 }

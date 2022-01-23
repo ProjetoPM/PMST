@@ -82,8 +82,10 @@
 							<div class="row">
 								<div class="col-lg-12">
 
-									<button id="btn-evaluation" class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>weekly-report/new'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('wr_new_report')?></button>
+									<button id="btn-report" class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>weekly-report/new'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('wr_new_report')?></button>
+									
 								</div>
+
 							</div>
 
 							<br><br>
@@ -93,7 +95,8 @@
 									<table class="table table-bordered table-striped" id="table_report">
 										<thead>
 											<tr>
-												<th><?= $this->lang->line('wr_date') ?></th>
+												<th><?= $this->lang->line('wr_username') ?></th>
+												<th><?= $this->lang->line('we_name') ?></th>
 												<th><?= $this->lang->line('actions') ?></th>
 											</tr>
 										</thead>
@@ -102,7 +105,8 @@
 											foreach ($weekly_report as $item) {
 											?>
 												<tr>
-													<td><?= $item->date ?></td>
+													<td><?= getUserName($item->user_id) ?></td>
+													<td><?= getWeeklyEvaluationName($item->weekly_evaluation_id) ?></td>
 
 													<td>
 														<div class="row center">
@@ -122,7 +126,7 @@
 										</tbody>
 									</table>
 
-									<form action="<?php echo base_url('project/'); ?><?php echo $_SESSION['project_id']; ?>">
+									<form action="<?php echo base_url('projects'); ?>">
 										<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 									</form>
 								</div>
@@ -172,7 +176,7 @@
 	});
 
 	if(<?= $_SESSION['access_level'] ?> == 1)
-	document.getElementById('btn-evaluation').disabled = "true"
+	document.getElementById('btn-report').disabled = "true"
 </script>
 
 <!-- <script type="text/javascript">

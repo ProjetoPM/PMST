@@ -115,6 +115,7 @@ $lang['notification-board'] = 'Notification Board';
 $lang['wr_title'] = 'Weekly Report';
 $lang['we_title'] = 'Weekly Evaluation';
 
+$lang['selected'] = 'Selected';
 
 
 ?>
