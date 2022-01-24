@@ -154,6 +154,13 @@
 																	<button type="submit" class="btn btn-lg btn-info"><?= $this->lang->line('we_evaluate'); ?></em><span class="hidden-xs"></span></button>
 																</form>
 															</div>
+
+															<div class="col-sm-4">
+																<form action="<?php echo base_url() ?>weekly-evaluation/edit-score/<?php echo $item->weekly_report_id; ?>" method="post">
+																	<input type="hidden" name="project_id" value="<?= $item->weekly_report_id; ?>">
+																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
+																</form>
+															</div>
 														</div>
 													</td>
 												</tr>

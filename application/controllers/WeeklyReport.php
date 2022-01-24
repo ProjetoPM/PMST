@@ -46,15 +46,14 @@ class WeeklyReport extends CI_Controller
 		}
 
 		$dado['weekly_report'] = $this->WeeklyReport_model->getAllPerMember($_SESSION['user_id']);
-		
+
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('project/weekly_report/list', $dado);
-
 	}
-	
+
 	public function new()
 	{
 
@@ -65,7 +64,7 @@ class WeeklyReport extends CI_Controller
 		}
 
 		$dado['evaluation'] = $this->WeeklyEvaluation_model->getAll();
-		
+
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
@@ -84,8 +83,8 @@ class WeeklyReport extends CI_Controller
 		$weekly_report_process['description'] = $this->input->post('description');
 		$weekly_report_process['process_name'] = $this->input->post('process_name');
 
-		
-		
+
+
 		$insert_id   = $this->WeeklyReport_model->insert($weekly_report);
 		$weekly_report_process['weekly_report_id'] = $insert_id;
 
@@ -105,16 +104,14 @@ class WeeklyReport extends CI_Controller
 			$this->lang->load('btn', 'portuguese-brazilian');
 		}
 
-		$this->db->where('user_id',  $_SESSION['user_id']);
-		$this->db->where('project_id',  $_SESSION['project_id']);
-		$project['dados'] = $this->db->get('project_user')->result();
-		// Verificando se o usuario logado tem acesso a esse projeto
+		$dado['evaluation'] = $this->WeeklyEvaluation_model->getAll();
 		$dado['weekly_report'] = $this->WeeklyReport_model->get($weekly_report_id);
-		$dado['processes'] = $this->WeeklyReport_model->getAllItens($weekly_report_id);
+		$dado['weekly_processes'] = $this->WeeklyReport_model->getAllProcesses($weekly_report_id);
+
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/weekly_report/new', $dado);
+		$this->load->view('project/weekly_report/edit', $dado);
 	}
 
 
@@ -122,16 +119,19 @@ class WeeklyReport extends CI_Controller
 	{
 		insertLogActivity('update', 'weekly report');
 
-	
+
 		$weekly_report['date'] = $this->input->post('date');
 		$weekly_report['tool_evaluation'] = $this->input->post('tool_evaluation');
+		$weekly_report['weekly_evaluation_id'] = $this->input->post('evaluation_id');
 		$weekly_report['user_id'] = $_SESSION['user_id'];
+
 
 
 		$weekly_report_process['pdf_path'] = $this->input->post('pdf_path');
 		$weekly_report_process['description'] = $this->input->post('description');
-		$weekly_report_process['status'] = $this->input->post('status');
-		
+		$weekly_report_process['process_name'] = $this->input->post('process_name');
+
+
 
 		$insert_id   = $this->WeeklyReport_model->update($weekly_report, $weekly_report_id);
 		$query2 = $this->WeeklyReport_model->updateQualityCheckItem($weekly_report_process, $weekly_report_id);

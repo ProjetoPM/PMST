@@ -56,7 +56,7 @@
 								<?= $this->lang->line('we_title') ?>
 
 							</h1>
-							<form method="POST" action="<?php echo base_url() ?>weekly-evaluation/insert-score/<?php echo $weekly_report['weekly_evaluation_id'] ?>">
+							<form method="POST" action="<?php echo base_url() ?>weekly-valuation/update_score/<?php echo $weekly_report['weekly_evaluation_id'] ?>">
 
 								<div class="col-lg-4 form-group">
 									<label for="name"><?= $this->lang->line('we_name') ?></label>
@@ -68,11 +68,14 @@
 								<div class="col-lg-4 form-group">
 									<label for="name"><?= $this->lang->line('we_score') ?></label>
 									<div>
-									<select id="" name="score" class="form-control" required> 
-										<option selected value=""> Select </option> 
-										<option value="0"; >NOK</option> 
-										<option value="1"; >POK</option> 
-										<option value="2"; >TOK</option> </select>
+										<select id="" name="score" class="form-control" required>
+											<?php if ($weekly_report['score'] != null) { ?>
+												"<option value="<?php echo $weekly_report['score'] ?>"><?= $this->lang->line('selected') ?></option>"
+											<?php } ?>
+											<option value="0" ;>NOK</option>
+											<option value="1" ;>POK</option>
+											<option value="2" ;>TOK</option>
+										</select>
 									</div>
 								</div>
 
@@ -83,12 +86,12 @@
 										<textarea disabled onkeyup="limite_textarea(this.value, 'wr_1')" id="wr_txt_1" maxlength="5000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="tool_evaluation"><?php echo $weekly_report['tool_evaluation'] ?></textarea>
 									</div>
 								</div>
-								
+
 								<div class=" col-lg-6 form-group">
 									<label for="comments"><?= $this->lang->line('we_comments') ?></label>
 									<span class="wr_1">5000</span><?= $this->lang->line('character5') ?>
 									<div>
-										<textarea onkeyup="limite_textarea(this.value, 'wr_1')" id="wr_txt_1" maxlength="5000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="comments" required="true"></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'wr_1')" id="wr_txt_1" maxlength="5000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="comments" required="true"><?php echo $weekly_report['comments'] ?></textarea>
 									</div>
 								</div>
 
@@ -154,7 +157,7 @@
 															</div>
 														</div>
 													</div>
-													
+
 												</div>
 											<?php
 												$count++;
@@ -172,7 +175,7 @@
 
 							</form>
 
-							<form action="<?php echo base_url('quality/quality-checklist/list/'); ?><?php echo  $_SESSION['project_id']; ?>">
+							<form action="<?php echo base_url('weekly-evaluation/list/'); ?><?php echo  $_SESSION['project_id']; ?>">
 								<button style="margin-top: 30px;" class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 							</form>
 						</div>
@@ -194,7 +197,7 @@
 		divtest.setAttribute("class", "form-group removeclass" + room);
 		divtest.setAttribute("id", 'removeclass[' + room + ']');
 		var rdiv = 'removeclass' + room;
-		divtest.innerHTML = '<div class="col-sm-3 form-group"> <div class="input-group" style="width: 100%"> <input class="form-control elasticteste2" type="file" style="text-align:left;" id="pdf_path['+ room +']" name="pdf_path[] "></input> </div> </div> <div class="col-sm-6 form-group"> <div> <div class="input-group" style="width: 100%"> <textarea style="text-align:left;" class="form-control elasticteste2" id="comments[' + room + ']" name="comments[]"></textarea> </div> </div> </div> <div class="col-sm-6 form-group"> <div> <div class="input-group" style="width: 100%"> <textarea style="text-align:left;" class="form-control elasticteste2" id="description['+ room +']" name="description[]"></textarea> </div> </div> </div>'
+		divtest.innerHTML = '<div class="col-sm-3 form-group"> <div class="input-group" style="width: 100%"> <input class="form-control elasticteste2" type="file" style="text-align:left;" id="pdf_path[' + room + ']" name="pdf_path[] "></input> </div> </div> <div class="col-sm-6 form-group"> <div> <div class="input-group" style="width: 100%"> <textarea style="text-align:left;" class="form-control elasticteste2" id="comments[' + room + ']" name="comments[]"></textarea> </div> </div> </div> <div class="col-sm-6 form-group"> <div> <div class="input-group" style="width: 100%"> <textarea style="text-align:left;" class="form-control elasticteste2" id="description[' + room + ']" name="description[]"></textarea> </div> </div> </div>'
 
 
 		objTo.appendChild(divtest);
