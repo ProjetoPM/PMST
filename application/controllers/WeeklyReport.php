@@ -139,9 +139,9 @@ class WeeklyReport extends CI_Controller
 		
 		
 		
-		// $weekly_report_process['pdf_path'] = $this->input->post('pdf_path');
-		// $weekly_report_process['description'] = $this->input->post('description');
-		// $weekly_report_process['process_name'] = $this->input->post('process_name');
+		$weekly_report_process['pdf_path'] = $this->input->post('pdf_path');
+		$weekly_report_process['description'] = $this->input->post('description');
+		$weekly_report_process['process_name'] = $this->input->post('process_name');
 		
 		
 		$data = $this->WeeklyEvaluation_model->getDeadline($weekly_report['weekly_evaluation_id']);
@@ -154,7 +154,7 @@ class WeeklyReport extends CI_Controller
 			redirect('weekly-report/list');
 		} else {
 			$insert_id   = $this->WeeklyReport_model->update($weekly_report, $weekly_report_id);
-			// $query2 = $this->WeeklyReport_model->updateQualityCheckItem($weekly_report_process, $weekly_report_id);
+			$query2 = $this->WeeklyReport_model->updateProcessReport($weekly_report_process, $insert_id);
 			insertLogActivity('update', 'weekly report');
 			$this->session->set_flashdata('update', 'Weekly Report has been successfully changed!');
 			redirect('weekly-report/list');
