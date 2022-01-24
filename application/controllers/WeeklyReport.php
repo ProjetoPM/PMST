@@ -13,6 +13,8 @@ class WeeklyReport extends CI_Controller
 			redirect(base_url());
 		}
 
+		date_default_timezone_set('America/Sao_Paulo');
+
 		if (strcmp($_SESSION['language'], "US") == 0) {
 			$this->lang->load('weekly_eval', 'english');
 
@@ -73,7 +75,8 @@ class WeeklyReport extends CI_Controller
 
 	public function insert()
 	{
-		insertLogActivity('insert', 'Weekly Report');
+
+		// insertLogActivity('insert', 'Weekly Report');
 
 		$weekly_report['tool_evaluation'] = $this->input->post('tool_evaluation');
 		$weekly_report['user_id'] = $_SESSION['user_id'];
@@ -85,13 +88,24 @@ class WeeklyReport extends CI_Controller
 
 
 
-		$insert_id   = $this->WeeklyReport_model->insert($weekly_report);
-		$weekly_report_process['weekly_report_id'] = $insert_id;
+		
+		$data = $this->WeeklyEvaluation_model->getDeadline($weekly_report['weekly_evaluation_id']);
+		$date = date('m/d/Y', time());
+		$currentDate = new DateTime($date);
+		$submitDay = new DateTime($data);
+		
+		if ($currentDate > $submitDay) {
+			$this->session->set_flashdata('error', 'You are not able to create this item, since the deadline has arrived');
+			redirect('weekly-report/list');
+		} else {
+			$insert_id   = $this->WeeklyReport_model->insert($weekly_report);
+			$weekly_report_process['weekly_report_id'] = $insert_id;
+			$query2 = $this->WeeklyReport_model->updateProcessReport($weekly_report_process, $insert_id);
+			$this->session->set_flashdata('success', 'Weekly Report has been successfully created!');
+			redirect('weekly-report/list');
 
-		$query2 = $this->WeeklyReport_model->updateProcessReport($weekly_report_process, $insert_id);
+		}
 
-		$this->session->set_flashdata('success', 'Weekly Report has been successfully created!');
-		redirect('weekly-report/list');
 		// echo json_encode($insert);
 	}
 
@@ -117,27 +131,34 @@ class WeeklyReport extends CI_Controller
 
 	public function update($weekly_report_id)
 	{
-		insertLogActivity('update', 'weekly report');
-
-
-		$weekly_report['date'] = $this->input->post('date');
+		
+		
 		$weekly_report['tool_evaluation'] = $this->input->post('tool_evaluation');
 		$weekly_report['weekly_evaluation_id'] = $this->input->post('evaluation_id');
 		$weekly_report['user_id'] = $_SESSION['user_id'];
+		
+		
+		
+		// $weekly_report_process['pdf_path'] = $this->input->post('pdf_path');
+		// $weekly_report_process['description'] = $this->input->post('description');
+		// $weekly_report_process['process_name'] = $this->input->post('process_name');
+		
+		
+		$data = $this->WeeklyEvaluation_model->getDeadline($weekly_report['weekly_evaluation_id']);
+		$date = date('m/d/Y', time());
+		$currentDate = new DateTime($date);
+		$submitDay = new DateTime($data);
 
-
-
-		$weekly_report_process['pdf_path'] = $this->input->post('pdf_path');
-		$weekly_report_process['description'] = $this->input->post('description');
-		$weekly_report_process['process_name'] = $this->input->post('process_name');
-
-
-
-		$insert_id   = $this->WeeklyReport_model->update($weekly_report, $weekly_report_id);
-		$query2 = $this->WeeklyReport_model->updateQualityCheckItem($weekly_report_process, $weekly_report_id);
-
-		$this->session->set_flashdata('update', 'Weekly Report has been successfully changed!');
-		redirect('weekly-report/list');
+		if ($currentDate > $submitDay) {
+			$this->session->set_flashdata('error', 'You are not able to update this item, since the deadline has arrived');
+			redirect('weekly-report/list');
+		} else {
+			$insert_id   = $this->WeeklyReport_model->update($weekly_report, $weekly_report_id);
+			// $query2 = $this->WeeklyReport_model->updateQualityCheckItem($weekly_report_process, $weekly_report_id);
+			insertLogActivity('update', 'weekly report');
+			$this->session->set_flashdata('update', 'Weekly Report has been successfully changed!');
+			redirect('weekly-report/list');
+		}
 	}
 
 	public function delete($weekly_report_id)

@@ -109,7 +109,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['weekly-report/new'] = "WeeklyReport/new";
 $route['weekly-report/insert'] = "WeeklyReport/insert";
 $route['weekly-report/edit/(:num)'] = "WeeklyReport/edit/$1";
-$route['weekly-report/update/(:num)'] = "WeeklyReport/insert/$1";
+$route['weekly-report/update/(:num)'] = "WeeklyReport/update/$1";
 $route['weekly-report/list'] = "WeeklyReport/list";
 
 $route['weekly-evaluation/new-report-score/(:num)'] = "WeeklyEvaluation/new_submission_score/$1";
