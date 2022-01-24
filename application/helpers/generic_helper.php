@@ -231,6 +231,17 @@ function getStakeholderName($id)
 	return $data1["name"];
 }
 
+function getWeeklyEvaluationName($id)
+{
+	$obj = &get_instance();
+	$obj->load->model('WeeklyEvaluation_model');
+
+	$data = $obj->WeeklyEvaluation_model->get($id);
+	return $data[0]->name;
+	
+}
+
+
 function array_sort($array, $on, $order = SORT_ASC)
 {
 	$new_array = array();

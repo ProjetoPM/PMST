@@ -108,6 +108,21 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
+$route['weekly-report/new'] = "WeeklyReport/new";
+$route['weekly-report/insert'] = "WeeklyReport/insert";
+$route['weekly-report/edit/(:num)'] = "WeeklyReport/edit/$1";
+$route['weekly-report/update/(:num)'] = "WeeklyReport/update/$1";
+$route['weekly-report/list'] = "WeeklyReport/list";
+
+$route['weekly-evaluation/new-report-score/(:num)'] = "WeeklyEvaluation/new_submission_score/$1";
+$route['weekly-evaluation/insert-score/(:num)'] = "WeeklyEvaluation/insert_score/$1";
+$route['weekly-evaluation/edit-score/(:num)'] = "WeeklyEvaluation/edit_score/$1";
+$route['weekly-evaluation/update-score/(:num)'] = "WeeklyEvaluation/update_score/$1";
+$route['weekly-evaluation/new'] = "WeeklyEvaluation/new";
+$route['weekly-evaluation/insert'] = "WeeklyEvaluation/insert";
+$route['weekly-evaluation/edit/(:num)'] = "WeeklyEvaluation/edit/$1";
+$route['weekly-evaluation/update/(:num)'] = "WeeklyEvaluation/update/$1";
+$route['weekly-evaluation/list'] = "WeeklyEvaluation/list";
 
 $route['integration/project-charter/new/(:num)'] = "ProjectCharter/new/$1";
 $route['integration/project-charter/edit/(:num)'] = "ProjectCharter/edit/$1";

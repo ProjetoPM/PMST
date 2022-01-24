@@ -48,11 +48,11 @@ position:-webkit-sticky
          </li> -->
 
          <!-- <li>
-               <a href="#"><i class="fa fa-user fa-fw"></i> Account<span class="fa arrow"></span></a>
-               <ul class="nav nav-second-level">
-                  <li> <a data-toggle="modal" data-target="#myAccount" href="#myAccount"><i class="fa fa-user fa-fw"></i> My Profile</a> </li>
-               </ul>
-            </li> -->
+            <a href="#"><i class="fa fa-user fa-fw"></i> Account<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+               <li> <a data-toggle="modal" data-target="#myAccount" href="#myAccount"><i class="fa fa-user fa-fw"></i> My Profile</a> </li>
+            </ul>
+         </li> -->
          <!-- fim do main panel -->
 
          <li class="<?php if ($uri1 == 'projects') {
@@ -61,14 +61,32 @@ position:-webkit-sticky
             </a>
          </li>
 
+         <!-- INÍCIO WEEKLY REPORT -->
+         <li class="<?php if ($uri1 == 'weekly-report') {
+                        echo 'active';
+                     } ?>"><a href="<?= base_url("weekly-report/list") ?>"><i class="glyphicon glyphicon-blackboard"></i> <span><?= $this->lang->line('wr_title'); ?></span>
+            </a>
+         </li>
+         <!-- FIM WEEKLY REPORT -->
+
+         <!-- INÍCIO WEEKLY EVALUATION -->
+
+         <li class="<?php if ($uri1 == 'weekly-evaluation') {
+                        echo 'active';
+                     } ?>"><a href="<?= base_url("weekly-evaluation/list") ?>"><i class="glyphicon glyphicon-blackboard"></i> <span><?= $this->lang->line('we_title'); ?></span>
+            </a>
+         </li>
+         <!-- FIM WEEKLY EVALUATION -->
+
 
          <?php if ($_SESSION['project_id'] != null) { ?>
 
+
             <li class="<?php if ($uri1 == 'chat') {
                            echo 'active';
-                        } ?>"> 
-                        <!-- <a href="<?= base_url('chat'); ?>"> -->
-                        <a href="#">
+                        } ?>">
+               <!-- <a href="<?= base_url('chat'); ?>"> -->
+               <a href="#">
                   <i class="fa fa-comment fa-fw"></i> <span>Chat</span>
                </a>
             </li>
@@ -307,6 +325,12 @@ position:-webkit-sticky
                </a>
             </li>
             <!-- FIM NOTIFICATION BOARD -->
+
+
+            <!-- INÍCIO WEEKLY REPORT -->
+
+
+
 
          <?php } ?>
 
