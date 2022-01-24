@@ -78,11 +78,11 @@
 																<!-- </form> -->
 															</div>
 
-															<div class="col-sm-3">
+															<!-- <div class="col-sm-3">
 																<form target="_blank" action="<?php echo base_url() ?>ProjectPerformanceReport_PDF/pdfGenerator/<?php echo $report->id; ?>" method="post">
 																	<input type="hidden" name="project_id" value="<?= $project_id ?>">
 																	<button type="submit" class="btn btn-success"><em class="glyphicon glyphicon-file"></em> to PDF<span class="hidden-xs"></span></button>
-																</form>
+																</form> -->
 															</div>
 														</div>
 													</td>

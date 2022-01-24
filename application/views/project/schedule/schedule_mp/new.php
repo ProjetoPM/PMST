@@ -71,7 +71,7 @@
 								</div>
 
 								<div class="col-lg-6 form-group">
-										<label for="performance_measurement"><?= $this->lang->line('schmp-measurement') ?></label>
+										<label for="performance_measurement"><?= $this->lang->line('schmp-rules') ?></label>
 										<a class="btn-sm btn-default" id="schmp_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('schmp-rules-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<span class="schmp_5">2000</span><?= $this->lang->line('character') ?>
 										<div>

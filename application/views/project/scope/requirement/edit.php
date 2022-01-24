@@ -26,7 +26,7 @@
         
         <!-- avaliação -->
 				<link href="<?= base_url() ?>assets/css/field_evaluation.css" rel="stylesheet" type="text/css">
-				<?php $view_name = "assumption log";
+				<?php $view_name = "requirement documentation";
 				getViewFields($view_name);
 				?>
 				<?php $this->load->view('construction_services/write_field_evaluation') ?>

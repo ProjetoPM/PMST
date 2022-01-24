@@ -29,6 +29,11 @@
 
 								<?= $this->lang->line('resource_breakdown_structure-title')  ?>
 
+								<?php $view_name = "rbs"; ?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
+							</h1>
 							</h1>
 							<div class="row">
 								<div class="col-lg-12">

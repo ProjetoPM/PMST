@@ -30,10 +30,15 @@
 
 								<?= $this->lang->line('rmp-title')  ?>
 
+								<?php $view_name = "requirements management plan"; ?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
+
 							</h1>
 							<!-- avaliação -->
 							<link href="<?= base_url() ?>assets/css/field_evaluation.css" rel="stylesheet" type="text/css">
-							<?php $view_name = "requirements management plan";
+							<?php 
 							getViewFields($view_name);
 							?>
 							<?php $this->load->view('construction_services/write_field_evaluation') ?>

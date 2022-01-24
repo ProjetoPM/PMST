@@ -14,6 +14,33 @@ function email_exists($email)
 }
 
 
+function getViewEvaluation($view_id)
+{
+	$obj = &get_instance();
+	$obj->load->model('View_model');
+
+	$obj2 = &get_instance();
+	$obj2->load->model('ViewEvaluation_model');
+
+	$view_id = $obj->View_model->GetIDByName($view_id);
+
+	$view_evaluation = $obj2->ViewEvaluation_model->GetByProjectView($view_id, $_SESSION['project_id']);
+
+	if ($view_evaluation == null) {
+		$view_evaluation['average'] = null;
+		$view_evaluation['evaluationTxt'] = "Not yet rated";
+		return $view_evaluation;
+	}
+	$view_evaluation['evaluationTxt'] = "";
+	foreach ($obj2->ViewEvaluation_model->getAllProfessorEvaluation($view_evaluation['view_evaluation_id']) as $pe) {
+		// var_dump(getUserName($pe->user_id));exit;
+		$view_evaluation['evaluationTxt'] = $view_evaluation['evaluationTxt'] . getUserName($pe->user_id) . ": " .$pe->points. ", ";
+	}
+	$view_evaluation['evaluationTxt'] = $view_evaluation['evaluationTxt'] . "Average: ". $view_evaluation['average'];
+	return $view_evaluation;
+}
+
+
 
 function getAllFieldEvaluation($project_id, $view, $item_id)
 {

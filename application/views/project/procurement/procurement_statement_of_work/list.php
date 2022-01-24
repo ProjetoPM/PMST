@@ -30,6 +30,11 @@
 
 								<?= $this->lang->line('psw_title')  ?>
 
+								<?php $view_name = "procurement statement of the work"; ?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
+
 							</h1>
 
 							<div class="row">

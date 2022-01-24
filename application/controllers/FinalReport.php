@@ -77,6 +77,7 @@ class FinalReport extends CI_Controller
 			if ($dado['final_report'] == null) {
 				redirect(base_url("integration/final-report/new/" . $_SESSION['project_id']));
 			}
+			// var_dump($dado['final_report']);exit;
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');
@@ -97,6 +98,7 @@ class FinalReport extends CI_Controller
 		$final_report['summary_validation'] = $this->input->post('summary_validation');
 		$final_report['summary_results'] = $this->input->post('summary_results');
 		$final_report['summary_risks'] = $this->input->post('summary_risks');
+		$final_report['project_id'] = $_SESSION['project_id'];
 
 		$insert = $this->Final_report_model->insert($final_report);
 		if ($insert) {

@@ -11,7 +11,7 @@
 		}
 		public function get($project_id){
 			$query = $this->db->get_where('final_report',array('project_id'=>$project_id));
-			return $query->result();
+			return $query->row_array();
 		}
 
 		public function update($final_report, $project_id){

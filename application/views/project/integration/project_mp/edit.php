@@ -28,13 +28,16 @@
 							<h1 class="page-header">
 
 								<?= $this->lang->line('pmp_title')  ?>
-
+								<?php $view_name = "project management plan"; ?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
 							</h1>
 							<?php extract($project_mp); ?>
 
 							<!-- avaliação -->
 							<link href="<?= base_url() ?>assets/css/field_evaluation.css" rel="stylesheet" type="text/css">
-							<?php $view_name = "project management plan";
+							<?php
 							getViewFields($view_name);
 							?>
 							<?php $this->load->view('construction_services/write_field_evaluation') ?>

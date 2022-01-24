@@ -29,7 +29,20 @@
 
 								<?= $this->lang->line('schmp-title')  ?>
 
+								<?php $view_name = "schedule management plan"?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
+
 							</h1>
+
+	<!-- avaliação -->
+	<link href="<?= base_url() ?>assets/css/field_evaluation.css" rel="stylesheet" type="text/css">
+							<?php ;
+							getViewFields($view_name);
+							?>
+							<?php $this->load->view('construction_services/write_field_evaluation') ?>
+
 							<form action="<?= base_url() ?>schedule/schedule-mp/update" method="post">
 								<input type="hidden" name="project_id" value="<?php echo $_SESSION['project_id']; ?>">
 
@@ -37,6 +50,8 @@
 									<label for="schedule_model"><?= $this->lang->line('schmp-model') ?></label>
 									<span class="schmp_1">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="schmp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('schmp-model-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									
+									<a <?= fieldStatus($view_name, $schedule_mp[0]->schedule_mp_id, "schedule_model") ?> data-field="schedule_model" data-field_name="<?= $this->lang->line('schmp-model') ?>" data-item_id="<?php echo $schedule_mp[0]->schedule_mp_id; ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<div>
 										<textarea onkeyup="limite_textarea(this.value, 'schmp_1')" id="schmp_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="schedule_model"><?php echo $schedule_mp[0]->schedule_model; ?></textarea>
 									</div>
@@ -46,6 +61,7 @@
 										<label for="accuracy_level"><?= $this->lang->line('schmp-accuracy_level') ?></label>
 										<a class="btn-sm btn-default" id="schmp_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('schmp-accuracy_level-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<span class="schmp_2">2000</span><?= $this->lang->line('character') ?>
+										<a <?= fieldStatus($view_name, $schedule_mp[0]->schedule_mp_id, "accuracy_level") ?> data-field="accuracy_level" data-field_name="<?= $this->lang->line('schmp-accuracy_level') ?>" data-item_id="<?php echo $schedule_mp[0]->schedule_mp_id; ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'schmp_2')" id="schmp_txt_2" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="accuracy_level"><?php echo $schedule_mp[0]->accuracy_level; ?></textarea>
 									</div>
@@ -55,6 +71,7 @@
 										<label for="organizational_procedures"><?= $this->lang->line('schmp-procedures') ?></label>
 										<a class="btn-sm btn-default" id="schmp_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('schmp-procedures-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<span class="schmp_3">2000</span><?= $this->lang->line('character') ?>
+										<a <?= fieldStatus($view_name, $schedule_mp[0]->schedule_mp_id, "organizational_procedures") ?> data-field="organizational_procedures" data-field_name="<?= $this->lang->line('schmp-procedures') ?>" data-item_id="<?php echo $schedule_mp[0]->schedule_mp_id; ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'schmp_3')" id="schmp_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="organizational_procedures"><?php echo $schedule_mp[0]->organizational_procedures; ?></textarea>
 									</div>
@@ -64,6 +81,7 @@
 										<label for="schedule_maintenance"><?= $this->lang->line('schmp-maintenance') ?></label>
 										<a class="btn-sm btn-default" id="schmp_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('schmp-maintenance-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<span class="schmp_4">2000</span><?= $this->lang->line('character') ?>
+										<a <?= fieldStatus($view_name, $schedule_mp[0]->schedule_mp_id, "schedule_maintenance") ?> data-field="schedule_maintenance" data-field_name="<?= $this->lang->line('schmp-maintenance') ?>" data-item_id="<?php echo $schedule_mp[0]->schedule_mp_id; ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'schmp_4')" id="schmp_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="schedule_maintenance"><?php echo $schedule_mp[0]->schedule_maintenance; ?></textarea>
 									</div>
@@ -73,6 +91,7 @@
 										<label for="performance_measurement"><?= $this->lang->line('schmp-rules') ?></label>
 										<a class="btn-sm btn-default" id="schmp_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('schmp-rules-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<span class="schmp_5">2000</span><?= $this->lang->line('character') ?>
+										<a <?= fieldStatus($view_name, $schedule_mp[0]->schedule_mp_id, "performance_measurement") ?> data-field="performance_measurement" data-field_name="<?= $this->lang->line('schmp-rules') ?>" data-item_id="<?php echo $schedule_mp[0]->schedule_mp_id; ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'schmp_5')" id="schmp_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="performance_measurement"><?php echo $schedule_mp[0]->performance_measurement; ?></textarea>
 									</div>
@@ -83,6 +102,7 @@
 										<label for="report_format"><?= $this->lang->line('schmp-format') ?></label>
 										<a class="btn-sm btn-default" id="schmp_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('schmp-report_format-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<span class="schmp_6">2000</span><?= $this->lang->line('character') ?>
+										<a <?= fieldStatus($view_name, $schedule_mp[0]->schedule_mp_id, "report_format") ?> data-field="report_format" data-field_name="<?= $this->lang->line('schmp-format') ?>" data-item_id="<?php echo $schedule_mp[0]->schedule_mp_id; ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'schmp_6')" id="schmp_txt_6" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="report_format"><?php echo $schedule_mp[0]->report_format; ?></textarea>
 									</div>
@@ -92,6 +112,7 @@
 										<label for="release_iteration"><?= $this->lang->line('schmp-length') ?></label>
 										<a class="btn-sm btn-default" id="schmp_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('schmp-length-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<span class="schmp_7">2000</span><?= $this->lang->line('character') ?>
+										<a <?= fieldStatus($view_name, $schedule_mp[0]->schedule_mp_id, "release_iteration") ?> data-field="release_iteration" data-field_name="<?= $this->lang->line('schmp-length') ?>" data-item_id="<?php echo $schedule_mp[0]->schedule_mp_id; ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'schmp_7')" id="schmp_txt_7" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="release_iteration"><?php echo $schedule_mp[0]->release_iteration; ?></textarea>
 									</div>
@@ -101,6 +122,7 @@
 										<label for="units_measure"><?= $this->lang->line('schmp-measure') ?></label>
 										<a class="btn-sm btn-default" id="schmp_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('schmp-measure-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<span class="schmp_8">2000</span><?= $this->lang->line('character') ?>
+										<a <?= fieldStatus($view_name, $schedule_mp[0]->schedule_mp_id, "units_measure") ?> data-field="units_measure" data-field_name="<?= $this->lang->line('schmp-measure') ?>" data-item_id="<?php echo $schedule_mp[0]->schedule_mp_id; ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'schmp_8')" id="schmp_txt_8" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="units_measure"><?php echo $schedule_mp[0]->units_measure; ?></textarea>
 									</div>
@@ -111,6 +133,7 @@
 										<label for="control_thresholds"><?= $this->lang->line('schmp-control') ?></label>
 										<a class="btn-sm btn-default" id="schmp_tp_9" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('schmp-control-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<span class="schmp_9">2000</span><?= $this->lang->line('character') ?>
+										<a <?= fieldStatus($view_name, $schedule_mp[0]->schedule_mp_id, "control_thresholds") ?> data-field="control_thresholds" data-field_name="<?= $this->lang->line('schmp-control') ?>" data-item_id="<?php echo $schedule_mp[0]->schedule_mp_id; ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'schmp_9')" id="schmp_txt_9" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="control_thresholds"><?php echo $schedule_mp[0]->control_thresholds; ?></textarea>
 									</div>

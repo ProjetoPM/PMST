@@ -69,8 +69,8 @@ class BusinessCase extends CI_Controller
 			$dado['business_case'] = $this->Business_case_model->get($_SESSION['project_id']);
 			if ($dado['business_case'] == null) {
 				redirect(base_url("integration/business-case/new/" . $_SESSION['project_id']));
-			}
-			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "business case", $dado['business_case'][0]->business_case_id);
+			}	$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "business case", $dado['business_case'][0]->business_case_id);
+		
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');

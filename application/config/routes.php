@@ -94,6 +94,8 @@ $route['store-review-data'] = 'FieldEvaluation/storeReviewData';
 $route['evaluation-delete/(:num)'] = 'FieldEvaluation/delete/$1';
 $route['field-evaluation/check'] = 'FieldEvaluation/check';
 
+$route['insert_view_evaluation'] = 'ViewEvaluation/insert';
+
 
 $route['chat'] = 'Chat/index';
 $route['view-all-notifications'] = 'LogActivity/index';
@@ -370,13 +372,6 @@ $route['procurement/procurement-statement-of-work/insert/(:num)'] = "Procurement
 $route['procurement/procurement-statement-of-work/update/(:num)'] = "ProcurementStatementOfWork/update/$1";
 $route['procurement/procurement-statement-of-work/delete/(:num)'] = "ProcurementStatementOfWork/delete/$1";
 
-
-$route['procurement/lesson-learned-register/new/(:num)'] = "LessonLearnedRegister/new/$1";
-$route['procurement/lesson-learned-register/edit/(:num)'] = "LessonLearnedRegister/edit/$1";
-$route['procurement/lesson-learned-register/list/(:num)'] = "LessonLearnedRegister/list/$1";
-$route['procurement/lesson-learned-register/insert/(:num)'] = "LessonLearnedRegister/insert/$1";
-$route['procurement/lesson-learned-register/update/(:num)'] = "LessonLearnedRegister/update/$1";
-$route['procurement/lesson-learned-register/delete/(:num)'] = "LessonLearnedRegister/delete/$1";
 
 
 $route['integration/assumption-log/new-assumption/(:num)'] = "AssumptionLog/new_assumption/$1";
