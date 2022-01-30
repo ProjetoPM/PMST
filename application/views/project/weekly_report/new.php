@@ -31,7 +31,7 @@
 					html input[disabled] {
 						text-align: center;
 					}
-					
+
 					.elasticteste {
 						min-height: 70px;
 						/* min-width: 120px; */
@@ -39,7 +39,7 @@
 						resize: none;
 						line-height: 20px;
 					}
-					
+
 
 					.elasticteste2 {
 						height: 35px;
@@ -47,7 +47,7 @@
 						/* outline: 0; */
 						resize: none;
 					}
-					
+
 
 					textarea.form-control {
 						height: 90px;
@@ -66,24 +66,26 @@
 
 							<form method="POST" action="<?php echo base_url('weekly-report/insert/'); ?>">
 
-							<div class="col-lg-6 form-group">
-										<label><?= $this->lang->line('we_name') ?></label>
-										
-										<select name="evaluation_id" size="1" class="form-control" tabindex="1" required>
+								<div class="col-lg-6 form-group">
+									<label><?= $this->lang->line('we_name') ?></label>
+
+									<select name="evaluation_id" size="1" class="form-control" tabindex="1" required>
 										<option selected="selected" disabled="disabled" value=""> Select </option>
-											<?php foreach ($evaluation as $i) { ?>
+										<?php foreach ($evaluation as $i) { ?>
+											<?php if (verifyEvaluation($i->weekly_evaluation_id) == null) { ?>
 												<option value="<?= $i->weekly_evaluation_id; ?>">
-													<?=  getWeeklyEvaluationName($i->weekly_evaluation_id); ?></option>
-											<?php  } ?>
-										</select>
-									</div>
+													<?= getWeeklyEvaluationName($i->weekly_evaluation_id); ?></option>
+										<?php  }
+										} ?>
+									</select>
+								</div>
 
 								<div class=" col-lg-12 form-group">
 									<label for="tool_evaluation"><?= $this->lang->line('wr_tool_evaluation') ?> *</label>
 									<span class="wr_1">5000</span><?= $this->lang->line('character5') ?>
 									<a class="btn-sm btn-default" id="wr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wr_tool_evaluation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea onkeyup="limite_textarea(this.value, 'wr_1')" id="wr_txt_1" maxlength="5000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="tool_evaluation" required="true"></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'wr_1')" id="wr_txt_1" maxlength="5000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="tool_evaluation"></textarea>
 									</div>
 								</div>
 
@@ -102,26 +104,26 @@
 													</div>
 												</div>
 
-												<div  class="col-sm-3 form-group">
+												<div class="col-sm-3 form-group">
 													<div>
 														<label for="process_name"><?= $this->lang->line('wr_process_name') ?></label>
 													</div>
 												</div>
 
-												<div class="col-sm-6 form-group comments">
+												<div class="col-sm-5 form-group comments">
 													<div>
 														<label for="description"><?= $this->lang->line('wr_process_description') ?></label>
 													</div>
 												</div>
 
 												<?php $room = 1; ?>
- 
+
 												<div id="education_fields">
 												</div>
 											</div>
 
 											<div class="col-lg-12">
-												<button id="stakeholder-submit"  style="margin-top: 30px;" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+												<button id="stakeholder-submit" style="margin-top: 30px;" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
 													<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
 												</button>
 							</form>
@@ -136,6 +138,11 @@
 		</div>
 	</div>
 </body>
+<?php $view = array(
+	"name" => "weekly_report",
+); ?>
+
+<?php $this->load->view('upload/index', $view) ?>
 
 <script>
 	for (var i = 1; i <= 13; i++) {
@@ -175,7 +182,7 @@
 		divtest.setAttribute("class", "form-group removeclass" + room);
 		divtest.setAttribute("id", 'removeclass[' + room + ']');
 		var rdiv = 'removeclass' + room;
-		divtest.innerHTML = '<div class="col-sm-3 form-group"> <div class="input-group" style="width: 100%"> <input  class="form-control elasticteste2" type="file" style="text-align:left;" id="pdf_path['+ room +']" name="pdf_path[] "></input> </div> </div> <div class="col-sm-3 form-group"> <div class="input-group" style="width: 100%"> <textarea required="true" class="form-control elasticteste2" style="text-align:left;" id="process_name['+ room +']" name="process_name[] "></textarea> </div> </div><div class="col-sm-6 form-group"> <div> <div class="input-group" style="width: 100%"> <textarea style="text-align:left;" required="true" class="form-control elasticteste2" id="description['+ room +']" name="description[]"></textarea> </div> </div> </div><div class="col-lg-1 form-group"> <div class="input-group" style="width: 100%"> <button class="btn btn-danger" type="button" id="button['+ room +']" onclick="remove_education_fields('+ room +');"> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> </button> </div> </div>';
+		divtest.innerHTML = '<div class="col-sm-3 form-group"> <div class="input-group" style="width: 100%"> <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#upload"><i class="fa fa-plus-circle"></i> Upload</button> </div> </div> <div class="col-sm-3 form-group"> <div class="input-group" style="width: 100%"> <textarea required="true" class="form-control elasticteste2" style="text-align:left;" id="process_name[' + room + ']" name="process_name[] "></textarea> </div> </div><div class="col-sm-5 form-group"> <div> <div class="input-group" style="width: 100%"> <textarea style="text-align:left;" required="true" class="form-control elasticteste2" id="description[' + room + ']" name="description[]"></textarea> </div> </div> </div><div class="col-lg-1 form-group"> <div class="input-group" style="width: 100%"> <button class="btn btn-danger" type="button" id="button[' + room + ']" onclick="remove_education_fields(' + room + ');"> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> </button> </div> </div>';
 
 
 		objTo.appendChild(divtest);

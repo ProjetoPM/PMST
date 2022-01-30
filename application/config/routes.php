@@ -112,8 +112,6 @@ $route['weekly-report/edit/(:num)'] = "WeeklyReport/edit/$1";
 $route['weekly-report/update/(:num)'] = "WeeklyReport/update/$1";
 $route['weekly-report/list'] = "WeeklyReport/list";
 
-$route['weekly-evaluation/new-report-score/(:num)'] = "WeeklyEvaluation/new_submission_score/$1";
-$route['weekly-evaluation/insert-score/(:num)'] = "WeeklyEvaluation/insert_score/$1";
 $route['weekly-evaluation/edit-score/(:num)'] = "WeeklyEvaluation/edit_score/$1";
 $route['weekly-evaluation/update-score/(:num)'] = "WeeklyEvaluation/update_score/$1";
 $route['weekly-evaluation/new'] = "WeeklyEvaluation/new";

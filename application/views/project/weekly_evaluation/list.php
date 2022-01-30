@@ -93,7 +93,10 @@
 									<table class="table table-bordered table-striped" id="table_evaluation">
 										<thead>
 											<tr>
+												<th><?= $this->lang->line('we_name') ?></th>
 												<th><?= $this->lang->line('we_start_date') ?></th>
+												<th><?= $this->lang->line('we_end_date') ?></th>
+												<th><?= $this->lang->line('we_deadline') ?></th>
 												<th><?= $this->lang->line('actions') ?></th>
 												<!-- <th><?= $this->lang->line('wr_date') ?></th>
 												<th><?= $this->lang->line('actions') ?></th> -->
@@ -104,7 +107,10 @@
 											foreach ($weekly_evaluation as $item) {
 											?>
 												<tr>
+													<td><?= $item->name ?></td>
 													<td><?= $item->start_date ?></td>
+													<td><?= $item->end_date ?></td>
+													<td><?= $item->deadline ?></td>
 
 													<td>
 														<div class="row center">
@@ -130,11 +136,12 @@
 
 									</h1>
 
-									<table class="table table-bordered table-striped" id="table_evaluation">
+									<table class="table table-bordered table-striped" id="table_submission">
 										<thead>
 											<tr>
 												<th><?= $this->lang->line('wr_username') ?></th>
 												<th><?= $this->lang->line('we_name') ?></th>
+												<th><?= $this->lang->line('we_score') ?></th>
 												<th><?= $this->lang->line('actions') ?></th>
 											</tr>
 										</thead>
@@ -145,20 +152,14 @@
 												<tr>
 													<td><?= getUserName($item->user_id) ?></td>
 													<td><?= getWeeklyEvaluationName($item->weekly_evaluation_id) ?></td>
+													<td><?= getScoreIdAsScore($item->score) ?></td>
 
 													<td>
 														<div class="row center">
 															<div class="col-sm-4">
-																<form action="<?php echo base_url() ?>weekly-evaluation/new-report-score/<?php echo $item->weekly_report_id; ?>" method="post">
-																	<input type="hidden" name="project_id" value="<?= $item->weekly_report_id; ?>">
-																	<button type="submit" class="btn btn-lg btn-info"><?= $this->lang->line('we_evaluate'); ?></em><span class="hidden-xs"></span></button>
-																</form>
-															</div>
-
-															<div class="col-sm-4">
 																<form action="<?php echo base_url() ?>weekly-evaluation/edit-score/<?php echo $item->weekly_report_id; ?>" method="post">
 																	<input type="hidden" name="project_id" value="<?= $item->weekly_report_id; ?>">
-																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
+																	<button type="submit" class="btn btn-lg btn-info"><i class = "fa fa-check-square"></i><span class="hidden-xs"></span></button>
 																</form>
 															</div>
 														</div>
@@ -203,11 +204,43 @@
 <script type="text/javascript">
 	'use strict'
 	let table;
+	let tableSub;
 
 	$(document).ready(function() {
 		table = $('#table_evaluation').DataTable({
 			"columns": [{
-					"data": "date"
+					"data": "name"
+				},
+				{
+					"data": "start_date"
+				},
+				{
+					"data": "end_date"
+				},
+				{
+					"data": "deadline"
+				},
+				{
+					"data": "btn-actions",
+					"orderable": false
+				}
+			],
+			"order": [
+				[1, 'attr']
+			]
+		});
+	});
+
+	$(document).ready(function() {
+		table = $('#table_submission').DataTable({
+			"columns": [{
+					"data": "user"
+				},
+				{
+					"data": "name",
+				},
+				{
+					"data": "score",
 				},
 				{
 					"data": "btn-actions",
@@ -223,31 +256,3 @@
 	// if (<?= $_SESSION['access_level'] ?> == 2)
 	// 	document.getElementById('btn-evaluation').disabled = "true"
 </script>
-
-<!-- <script type="text/javascript">
-	function deletar(idProjeto, assumption_log_id) {
-		//e.preventDefault();
-		alertify.confirm('Do you agree?').setting({
-			'labels': {
-				ok: 'Agree',
-				cancel: 'Cancel'
-			},
-			'reverseButtons': false,
-			'onok': function() {
-
-				console.log(`Passei o ${idProjeto} e ${assumption_log_id}`);
-
-				$.post("<?php echo base_url() ?>integration/assumption-log/delete/" + assumption_log_id, {
-					project_id: idProjeto,
-				});
-				// location.reload();
-				window.location.reload();
-				alertify.success('You agree.');
-			},
-			'oncancel': function() {
-				alertify.error('You did not agree.');
-			}
-		}).show();
-
-	}
-</script> -->

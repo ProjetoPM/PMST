@@ -41,10 +41,27 @@ class WeeklyReport_model extends CI_Model
 		return $query->row_array();
 	}
 
+	public function getByEvaluation($id)
+	{
+		$query = $this->db->get_where('weekly_report', array('weekly_evaluation_id' => $id));
+		return $query->row_array();
+	}
+
 	public function getAll()
 	{
 		$query = $this->db->get('weekly_report');
 		return $query->result();
+	}
+
+	public function getScore($score_id){
+		$this->db->select('score');
+		$this->db->where('score', $score_id);
+		$this->db->from('weekly_report');
+
+		$query = $this->db->get();
+		$res = $query->row_array();
+
+		return $res['score'];
 	}
 
 	public function getAllPerMember($id)

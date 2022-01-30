@@ -97,6 +97,7 @@
 											<tr>
 												<th><?= $this->lang->line('wr_username') ?></th>
 												<th><?= $this->lang->line('we_name') ?></th>
+												<th><?= $this->lang->line('we_score') ?></th>
 												<th><?= $this->lang->line('actions') ?></th>
 											</tr>
 										</thead>
@@ -107,6 +108,7 @@
 												<tr>
 													<td><?= getUserName($item->user_id) ?></td>
 													<td><?= getWeeklyEvaluationName($item->weekly_evaluation_id) ?></td>
+													<td><?= getScoreIdAsScore($item->score) ?></td>
 
 													<td>
 														<div class="row center">
@@ -162,7 +164,13 @@
 	$(document).ready(function() {
 		table = $('#table_report').DataTable({
 			"columns": [{
-					"data": "date"
+					"data": "user_id"
+				},
+				{
+					"data": "weekly_evaluation_id"
+				},
+				{
+					"data": "score"
 				},
 				{
 					"data": "btn-actions",
@@ -170,13 +178,11 @@
 				}
 			],
 			"order": [
-				[1, 'attr']
+				[0, 'attr']
 			]
 		});
 	});
 
-	if(<?= $_SESSION['access_level'] ?> == 1)
-	document.getElementById('btn-report').disabled = "true"
 </script>
 
 <!-- <script type="text/javascript">

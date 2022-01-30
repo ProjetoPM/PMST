@@ -56,25 +56,25 @@
 								<?= $this->lang->line('we_title') ?>
 
 							</h1>
-							<form method="POST" action="<?php echo base_url() ?>weekly-valuation/update_score/<?php echo $weekly_report['weekly_evaluation_id'] ?>">
+							<form method="POST" action="<?php echo base_url() ?>weekly-evaluation/update-score/<?php echo $weekly_report['weekly_report_id'] ?>">
 
-								<div class="col-lg-4 form-group">
+								<div class="col-lg-6 form-group">
 									<label for="name"><?= $this->lang->line('we_name') ?></label>
 									<div>
-										<input id="we_txt_1" type="text" name="name" class="form-control input-md" onkeyup="limite_textarea(this.value, 'we_1')" maxlength="2000" oninput="eylem(this, this.value)" required="true" value="<?= getWeeklyEvaluationName($weekly_report['weekly_evaluation_id']); ?> " disabled>
+										<input id="we_txt_1" type="text" name="name" class="form-control" onkeyup="limite_textarea(this.value, 'we_1')" maxlength="2000" oninput="eylem(this, this.value)" required="true" value="<?= getWeeklyEvaluationName($weekly_report['weekly_evaluation_id']); ?> " disabled>
 									</div>
 								</div>
 
-								<div class="col-lg-4 form-group">
+								<div class="col-lg-6 form-group">
 									<label for="name"><?= $this->lang->line('we_score') ?></label>
 									<div>
-										<select id="" name="score" class="form-control" required>
+										<select id="score" name="score" class="form-control" required>
 											<?php if ($weekly_report['score'] != null) { ?>
 												"<option value="<?php echo $weekly_report['score'] ?>"><?= $this->lang->line('selected') ?></option>"
 											<?php } ?>
-											<option value="0" ;>NOK</option>
-											<option value="1" ;>POK</option>
-											<option value="2" ;>TOK</option>
+											<option value="0">NOK</option>
+											<option value="1">POK</option>
+											<option value="2">TOK</option>
 										</select>
 									</div>
 								</div>
@@ -91,87 +91,57 @@
 									<label for="comments"><?= $this->lang->line('we_comments') ?></label>
 									<span class="wr_1">5000</span><?= $this->lang->line('character5') ?>
 									<div>
-										<textarea onkeyup="limite_textarea(this.value, 'wr_1')" id="wr_txt_1" maxlength="5000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="comments" required="true"><?php echo $weekly_report['comments'] ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'wr_1')" id="wr_txt_1" maxlength="5000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="comments" required="true"><?php echo $weekly_report['comments']; ?></textarea>
 									</div>
 								</div>
 
 
 
+
 								<div class="row">
 									<div class="col-lg-12">
-										<div class="panel panel-default">
-											<div class="panel-heading">
-												<span class="gprc_1" style="font-size: 20px;"><?= $this->lang->line('wr_processes') ?></span>
+										<h1 class="page-header">
 
-											</div>
+											<?= $this->lang->line('wr_submissions')  ?>
 
-											<div class="panel-body">
-												<span></span>
-												<div class="col-sm-3 form-group" style="min-height: 20px;">
-													<div>
-														<label for="pdf_path"><?= $this->lang->line('wr_attach_pdf') ?></label>
-													</div>
-												</div>
+										</h1>
 
-												<div class="col-sm-3 form-group">
-													<div>
-														<label for="process_name"><?= $this->lang->line('wr_process_name') ?></< /label>
-													</div>
-												</div>
+										<table class="table table-bordered table-striped" id="table_processes">
+											<thead>
+												<tr>
+													<th><?= $this->lang->line('wr_attach_pdf') ?></th>
+													<th><?= $this->lang->line('wr_process_name') ?></th>
+													<th><?= $this->lang->line('wr_process_description') ?></th>
+												</tr>
+											</thead>
+											<tbody>
+												<?php
+												foreach ($weekly_processes as $item) {
+												?>
+													<tr>
+														<td>
+															<a target="_blank" href="' . base_url() . $item['pdf_path'] . '">
+																<img style=" padding-top: 5px; border: 1px solid #ddd;border-radius: 4px; padding: 5px; width: 130px;" src="' . base_url() . $item['pdf_path'] . '" class="pdf" alt="" />
+															</a>
+														</td>
 
-												<div class="col-sm-6 form-group comments">
-													<div>
-														<label for="description"><?= $this->lang->line('wr_process_description') ?></label>
-													</div>
-												</div>
+														<td><?= $item->process_name ?></td>
+														<td><?= $item->description ?></td>
+													</tr>
+												<?php
+												}
+												?>
 
-												<?php $room = 1; ?>
-
-												<div id="education_fields">
-												</div>
-											</div>
-											<?php
-											// $json = json_encode($risk_check);
-
-											$count = 1;
-											foreach ($weekly_processes as $processes) {
-											?>
-												<div class="form-group removeclass<?php echo $count ?>" id="removeclass[<?php echo $count ?>]">
-
-													<div class="col-sm-3 form-group">
-														<div class="input-group" style="width: 100%"> <input class="form-control elasticteste2" type="file" style="text-align:left;" id="pdf_path['<?php echo $count ?>']" name="pdf_path[] "><?php echo $processes->pdf_path ?></input>
-														</div>
-													</div>
-													<div class="col-sm-6 form-group">
-														<div>
-															<div class="input-group" style="width: 100%">
-																<textarea style="text-align:left;" class="form-control elasticteste2" id="process_name[<?php echo $count ?>]" name="process_name[]"><?php echo $processes->process_name ?></textarea>
-															</div>
-														</div>
-													</div>
-
-													<div class="col-sm-6 form-group">
-														<div>
-															<div class="input-group" style="width: 100%">
-																<textarea style="text-align:left;" class="form-control elasticteste2" id="process_name[<?php echo $count ?>]" name="process_name[]"><?php echo $processes->process_name ?></textarea>
-															</div>
-														</div>
-													</div>
-
-												</div>
-											<?php
-												$count++;
-												$room++;
-											}
-											?>
-
-										</div>
+											</tbody>
+										</table>
 									</div>
 									<!-- buttons -->
 									<div class="col-lg-12">
 										<button type="submit" style="margin-top: 30px;" class="btn btn-lg btn-success pull-right">
 											<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
 										</button>
+									</div>
+								</div>
 
 							</form>
 
@@ -183,35 +153,34 @@
 				</div>
 			</section>
 		</div>
+	</div>
 </body>
 
-<script>
-	var room = 0;
-	var total = 0;
-
-	function education_fields() {
-		// <style>.input - group.form - control {margin - right: 70 px;}.elasticteste {min - width: 50 px;} </style>
-		room--;
-		var objTo = document.getElementById('education_fields')
-		var divtest = document.createElement("div");
-		divtest.setAttribute("class", "form-group removeclass" + room);
-		divtest.setAttribute("id", 'removeclass[' + room + ']');
-		var rdiv = 'removeclass' + room;
-		divtest.innerHTML = '<div class="col-sm-3 form-group"> <div class="input-group" style="width: 100%"> <input class="form-control elasticteste2" type="file" style="text-align:left;" id="pdf_path[' + room + ']" name="pdf_path[] "></input> </div> </div> <div class="col-sm-6 form-group"> <div> <div class="input-group" style="width: 100%"> <textarea style="text-align:left;" class="form-control elasticteste2" id="comments[' + room + ']" name="comments[]"></textarea> </div> </div> </div> <div class="col-sm-6 form-group"> <div> <div class="input-group" style="width: 100%"> <textarea style="text-align:left;" class="form-control elasticteste2" id="description[' + room + ']" name="description[]"></textarea> </div> </div> </div>'
-
-
-		objTo.appendChild(divtest);
-
-		// json[json.length].aspects = document.getElementById('aspects[' + room + ']').value;
-		// json[json.length].weight = document.getElementById('weight[' + room + ']').value;
-		// json[json.length].level = document.getElementById('level[' + room + ']').value;
-		// json[json.length].score = document.getElementById('score[' + room + ']').value;
-		// json[json.length].comments = document.getElementById('comments[' + room + ']').value;
-
-	}
-
-	function remove_education_fields(rid) {
-		$('.removeclass' + rid).remove();
-	}
-</script>
 <?php $this->load->view('frame/footer_view') ?>
+
+<script src="<?= base_url() ?>assets/js/jquery-2.1.3.min.js"></script>
+<script src="<?= base_url() ?>assets/js/jquery.dataTables.min.js"></script>
+<script src="<?= base_url() ?>assets/js/dataTables.bootstrap.js"></script>
+<script src="<?= base_url() ?>assets/js/dataTables.responsive.js"></script>
+
+<script type="text/javascript">
+	'use strict'
+	let table;
+	$(document).ready(function() {
+		table = $('#table_processes').DataTable({
+			"columns": [{
+					"data": "pdf_path"
+				},
+				{
+					"data": "process_name"
+				},
+				{
+					"data": "process_description"
+				},
+			],
+			"order": [
+				[0, 'attr']
+			]
+		});
+	});
+</script>

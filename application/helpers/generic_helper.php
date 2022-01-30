@@ -184,7 +184,22 @@ function getUserName($user_id)
 	return $data;
 }
 
+function getScoreIdAsScore($score_id)
+{
+	$obj = &get_instance();
+	$data = $obj->WeeklyReport_model->getScore($score_id);
 
+	if ($data == 0) {
+		$score = 'NOK';
+	} else if ($data == 1) {
+		$score = 'POK';
+	} else  if ($data == 2) {
+		$score = 'TOK';
+	} else {
+		$score = 'No Score Available Yet';
+	}
+	return $score;
+}
 
 function getActivityName($id)
 {
@@ -210,8 +225,19 @@ function getWeeklyEvaluationName($id)
 	$obj->load->model('WeeklyEvaluation_model');
 
 	$data = $obj->WeeklyEvaluation_model->get($id);
-	return $data[0]->name;
+
 	
+
+	
+	return $data[0]->name;
+}
+
+function verifyEvaluation($id){
+	$obj2 = &get_instance();
+	$obj2->load->model('WeeklyReport_model');
+	$data2 = $obj2->WeeklyReport_model->getByEvaluation($id);
+
+	return $data2;
 }
 
 

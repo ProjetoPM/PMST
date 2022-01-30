@@ -81,6 +81,7 @@ class WeeklyReport extends CI_Controller
 		$weekly_report['tool_evaluation'] = $this->input->post('tool_evaluation');
 		$weekly_report['user_id'] = $_SESSION['user_id'];
 		$weekly_report['weekly_evaluation_id'] = $this->input->post('evaluation_id');
+		$weekly_report['score'] = 3;
 
 		$weekly_report_process['pdf_path'] = $this->input->post('pdf_path');
 		$weekly_report_process['description'] = $this->input->post('description');
@@ -132,9 +133,8 @@ class WeeklyReport extends CI_Controller
 	public function update($weekly_report_id)
 	{
 		
-		
 		$weekly_report['tool_evaluation'] = $this->input->post('tool_evaluation');
-		$weekly_report['weekly_evaluation_id'] = $this->input->post('evaluation_id');
+		$weekly_report['weekly_evaluation_id'] = $this->input->post('evaluation_id');		
 		$weekly_report['user_id'] = $_SESSION['user_id'];
 		
 		
