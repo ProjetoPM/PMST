@@ -98,12 +98,6 @@
 											</div>
 
 											<div class="panel-body">
-												<div class="col-sm-3 form-group" style="min-height: 20px;">
-													<div>
-														<label for="pdf_path"><?= $this->lang->line('wr_attach_pdf') ?></label>
-													</div>
-												</div>
-
 												<div class="col-sm-3 form-group">
 													<div>
 														<label for="process_name"><?= $this->lang->line('wr_process_name') ?></label>
@@ -138,11 +132,14 @@
 		</div>
 	</div>
 </body>
-<?php $view = array(
-	"name" => "weekly_report",
-); ?>
 
-<?php $this->load->view('upload/index', $view) ?>
+
+<?php
+$view = array(
+	"name" => "weekly_report",
+);
+$this->load->view('upload/index', $view); 
+?>
 
 <script>
 	for (var i = 1; i <= 13; i++) {
@@ -182,7 +179,7 @@
 		divtest.setAttribute("class", "form-group removeclass" + room);
 		divtest.setAttribute("id", 'removeclass[' + room + ']');
 		var rdiv = 'removeclass' + room;
-		divtest.innerHTML = '<div class="col-sm-3 form-group"> <div class="input-group" style="width: 100%"> <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#upload"><i class="fa fa-plus-circle"></i> Upload</button> </div> </div> <div class="col-sm-3 form-group"> <div class="input-group" style="width: 100%"> <textarea required="true" class="form-control elasticteste2" style="text-align:left;" id="process_name[' + room + ']" name="process_name[] "></textarea> </div> </div><div class="col-sm-5 form-group"> <div> <div class="input-group" style="width: 100%"> <textarea style="text-align:left;" required="true" class="form-control elasticteste2" id="description[' + room + ']" name="description[]"></textarea> </div> </div> </div><div class="col-lg-1 form-group"> <div class="input-group" style="width: 100%"> <button class="btn btn-danger" type="button" id="button[' + room + ']" onclick="remove_education_fields(' + room + ');"> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> </button> </div> </div>';
+		divtest.innerHTML = ' <div class="col-sm-3 form-group"> <div class="input-group" style="width: 100%"> <textarea required="true" class="form-control elasticteste2" style="text-align:left;" id="process_name[' + room + ']" name="process_name[] "></textarea> </div> </div><div class="col-sm-5 form-group"> <div> <div class="input-group" style="width: 100%"> <textarea style="text-align:left;" required="true" class="form-control elasticteste2" id="description[' + room + ']" name="description[]"></textarea> </div> </div> </div><div class="col-lg-1 form-group"> <div class="input-group" style="width: 100%"> <button class="btn btn-danger" type="button" id="button[' + room + ']" onclick="remove_education_fields(' + room + ');"> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> </button> </div> </div>';
 
 
 		objTo.appendChild(divtest);

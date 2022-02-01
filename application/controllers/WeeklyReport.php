@@ -83,7 +83,6 @@ class WeeklyReport extends CI_Controller
 		$weekly_report['weekly_evaluation_id'] = $this->input->post('evaluation_id');
 		$weekly_report['score'] = 3;
 
-		$weekly_report_process['pdf_path'] = $this->input->post('pdf_path');
 		$weekly_report_process['description'] = $this->input->post('description');
 		$weekly_report_process['process_name'] = $this->input->post('process_name');
 
@@ -109,6 +108,39 @@ class WeeklyReport extends CI_Controller
 
 		// echo json_encode($insert);
 	}
+
+	function upload_pdf()
+    {
+        $url = "../upload";
+        $image=basename($_FILES['pic']['name']);
+        $image=str_replace(' ','|',$image);
+        $type = explode(".",$image);
+        $type = $type[count($type)-1];
+        if (in_array($type,array('pdf')))
+        {
+            $tmppath="upload/".uniqid(rand()).".".$type;
+            if(is_uploaded_file($_FILES["pic"]["tmp_name"]))
+            {
+                move_uploaded_file($_FILES['pic']['tmp_name'],$tmppath);
+                return $tmppath;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+	function file_upload()
+    {
+        $data['path'] = $this->upload_pdf();
+		$data['weekly_report_process_id'] = $this->input->post('weekly_report_process_id');
+        $data['alt'] = $this->input->post('alt');
+        $this->db->insert('report_uploads', $data);
+				$this->session->set_userdata('previous_url', current_url());
+
+				echo "<script>window.location.href='javascript:history.back(-2);'</script>";
+    }
 
 	public function edit($weekly_report_id)
 	{
@@ -139,7 +171,6 @@ class WeeklyReport extends CI_Controller
 		
 		
 		
-		$weekly_report_process['pdf_path'] = $this->input->post('pdf_path');
 		$weekly_report_process['description'] = $this->input->post('description');
 		$weekly_report_process['process_name'] = $this->input->post('process_name');
 		

@@ -19,11 +19,10 @@ class WeeklyReport_model extends CI_Model
 		$result = array();
 		$this->db->delete('weekly_report_process', array('weekly_report_id' => $weekly_report_id));
 		// var_dump($process);
-			for ($j = 0; $j < count($process) / 4; $j++) {
+			for ($j = 0; $j < count($process) / 3; $j++) {
 					$result[] = array(
 						'description' => $process['description'][$j],
 						'process_name' => $process['process_name'][$j],
-						'pdf_path' => $process['pdf_path'][$j],
 						'weekly_report_id' => $weekly_report_id,
 					);
 			}

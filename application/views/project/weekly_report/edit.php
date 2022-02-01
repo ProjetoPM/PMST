@@ -60,7 +60,7 @@
 							<h1 class="page-header">
 								<?= $this->lang->line('wr_title') ?>
 
-						
+
 							</h1>
 
 							<form method="POST" action="<?php echo base_url() ?>weekly-report/update/<?php echo $weekly_report['weekly_report_id'] ?>">
@@ -97,11 +97,6 @@
 
 											<div class="panel-body">
 												<span></span>
-												<div class="col-sm-3 form-group" style="min-height: 20px;">
-													<div>
-														<label for="pdf_path"><?= $this->lang->line('wr_attach_pdf') ?></label>
-													</div>
-												</div>
 
 												<div class="col-sm-3 form-group">
 													<div>
@@ -128,10 +123,6 @@
 											?>
 												<div class="form-group removeclass<?php echo $count ?>" id="removeclass[<?php echo $count ?>]">
 
-													<div class="col-sm-3 form-group">
-														<div class="input-group" style="width: 100%"> <input class="form-control elasticteste2" type="file" style="text-align:left;" id="pdf_path['<?php echo $count ?>']" name="pdf_path[] "><?php echo $processes->pdf_path ?></input>
-														</div>
-													</div>
 													<div class="col-sm-6 form-group">
 														<div>
 															<div class="input-group" style="width: 100%">
@@ -162,8 +153,21 @@
 										<button type="submit" style="margin-top: 30px;" class="btn btn-lg btn-success pull-right">
 											<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
 										</button>
-
 							</form>
+							<h1 class="page-header">
+								Uploads
+							</h1>
+							<form action="" method="POST">
+								<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#upload"><i class="fa fa-plus-circle"></i> Upload</button>
+							</form>
+
+
+							<?php
+
+							$this->load->view('upload/upload_pdf', $weekly_report['weekly_report_id']);
+							$this->load->view('upload/retrieve_pdf', $weekly_report['weekly_report_id']);
+
+							?>
 							<form action="<?php echo base_url('weekly-report/list/'); ?><?php echo  $_SESSION['project_id']; ?>">
 								<button style="margin-top: 30px;" class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 							</form>
@@ -186,7 +190,7 @@
 		divtest.setAttribute("class", "form-group removeclass" + room);
 		divtest.setAttribute("id", 'removeclass[' + room + ']');
 		var rdiv = 'removeclass' + room;
-		divtest.innerHTML = '<div class="col-sm-3 form-group"> <div class="input-group" style="width: 100%"> <input  class="form-control elasticteste2" type="file" style="text-align:left;" id="pdf_path['+ room +']" name="pdf_path[] "></input> </div> </div> <div class="col-sm-3 form-group"> <div class="input-group" style="width: 100%"> <textarea required="true" class="form-control elasticteste2" style="text-align:left;" id="process_name['+ room +']" name="process_name[] "></textarea> </div> </div><div class="col-sm-5 form-group"> <div> <div class="input-group" style="width: 100%"> <textarea style="text-align:left;" required="true" class="form-control elasticteste2" id="description['+ room +']" name="description[]"></textarea> </div> </div> </div><div class="col-lg-1 form-group"> <div class="input-group" style="width: 100%"> <button class="btn btn-danger" type="button" id="button['+ room +']" onclick="remove_education_fields('+ room +');"> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> </button> </div> </div>';
+		divtest.innerHTML = '<div class="col-sm-3 form-group"> <div class="input-group" style="width: 100%"> <textarea required="true" class="form-control elasticteste2" style="text-align:left;" id="process_name[' + room + ']" name="process_name[] "></textarea> </div> </div><div class="col-sm-5 form-group"> <div> <div class="input-group" style="width: 100%"> <textarea style="text-align:left;" required="true" class="form-control elasticteste2" id="description[' + room + ']" name="description[]"></textarea> </div> </div> </div><div class="col-lg-1 form-group"> <div class="input-group" style="width: 100%"> <button class="btn btn-danger" type="button" id="button[' + room + ']" onclick="remove_education_fields(' + room + ');"> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> </button> </div> </div>';
 
 
 		objTo.appendChild(divtest);
