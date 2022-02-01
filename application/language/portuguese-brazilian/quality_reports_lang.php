@@ -3,17 +3,17 @@
 $lang['qr-title'] = 'Relatórios de Qualidade';
 
 //Form
-$lang['qr-responsible'] = 'Responsável';
-$lang['qr-identifier'] = 'Identificador';
-$lang['qr-date'] = 'Data';
-$lang['qr-type'] = 'Tipo de Relatório';
-$lang['qr-description'] = 'Descrição do que foi Indentificado';
-$lang['qr-areas'] = 'Áreas Impactadas';
-$lang['qr-deliveries'] = 'Entregas e Documentos Impactados';
-$lang['qr-recommendations'] = 'Recomendações para Aprovação';
-$lang['qr-corrective_actions'] = 'Ações Corretivas Recomendadas';
-$lang['qr-manager_opinion'] = 'Opinião do Gerente de Projeto';
-$lang['qr-conclusions'] = 'Conclusões';
+$lang['responsible'] = 'Responsável';
+$lang['identifier'] = 'Identificador';
+$lang['date'] = 'Data';
+$lang['type'] = 'Tipo de Relatório';
+$lang['description'] = 'Descrição do que foi Indentificado';
+$lang['areas'] = 'Áreas Impactadas';
+$lang['deliveries'] = 'Entregas e Documentos Impactados';
+$lang['recommendations'] = 'Recomendações para Aprovação';
+$lang['corrective_actions'] = 'Ações Corretivas Recomendadas';
+$lang['manager_opinion'] = 'Opinião do Gerente de Projeto';
+$lang['conclusions'] = 'Conclusões';
 
 
 //Tooltip
