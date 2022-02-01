@@ -16,10 +16,16 @@ class ActivityList extends CI_Controller
 		$this->load->model('log_model');
 		$this->load->helper('log_activity');
 
-
-		$this->lang->load('btn', 'english');
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('activity', 'english');
+            $this->lang->load('btn', 'english');
+            $this->lang->load('project-page', 'english');
+        }else{
+            $this->lang->load('activity', 'portuguese-brazilian');
+            $this->lang->load('btn', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
 		// $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('activity', 'english');
 
 		// $this->lang->load('manage-cost','portuguese-brazilian');
 
@@ -27,6 +33,12 @@ class ActivityList extends CI_Controller
 
 	public function new($project_id)
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+        }else{
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+
 		$idusuario = $_SESSION['user_id'];
 		$this->db->where('user_id', $idusuario);
 		$this->db->where('project_id', $project_id);
@@ -78,6 +90,12 @@ class ActivityList extends CI_Controller
 
 	public function list($project_id)
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+        }else{
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+
 		$dado['project_id'] = $project_id;
 		$dado['activity'] = $this->Activity_model->getAll($project_id);
 		$dado['milestone'] = $this->Activity_model->getAllMilestone($project_id);
@@ -92,6 +110,12 @@ class ActivityList extends CI_Controller
 
 	public function edit($project_id)
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+        }else{
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+		
 		$query['activity'] = $this->Activity_model->get($project_id);
 		$query['milestone_list'] = $this->Activity_model->getAllMilestone($_SESSION['project_id']);
 		$query['phase_list'] = $this->Activity_model->getAllPhase($_SESSION['project_id']);
