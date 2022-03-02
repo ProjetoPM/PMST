@@ -105,12 +105,15 @@ $route['myaccount'] = 'register/show_Edit_User';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$oute['get/processes/(:num)'] = 'WeeklyReport/getProcesses/$1';
+
 
 $route['weekly-report/new'] = "WeeklyReport/new";
 $route['weekly-report/insert'] = "WeeklyReport/insert";
 $route['weekly-report/edit/(:num)'] = "WeeklyReport/edit/$1";
 $route['weekly-report/update/(:num)'] = "WeeklyReport/update/$1";
 $route['weekly-report/list'] = "WeeklyReport/list";
+$route['weekly-report/get-processes/(:alpha)'] = "WeeklyReport/getProcesses/$1";
 
 $route['weekly-evaluation/edit-score/(:num)'] = "WeeklyEvaluation/edit_score/$1";
 $route['weekly-evaluation/update-score/(:num)'] = "WeeklyEvaluation/update_score/$1";

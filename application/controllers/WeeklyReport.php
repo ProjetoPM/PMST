@@ -56,13 +56,20 @@ class WeeklyReport extends CI_Controller
 		$this->load->view('project/weekly_report/list', $dado);
 	}
 
+	public function getProcesses($group){
+
+		$dado['processes'] = $this->WeeklyReport_model->getProcessNamesByGroup($group);
+		return $dado;
+	}
 	public function new()
 	{
 
 		if (strcmp($_SESSION['language'], "US") == 0) {
 			$this->lang->load('btn', 'english');
+			$dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(2);
 		} else {
 			$this->lang->load('btn', 'portuguese-brazilian');
+			$dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
 		}
 
 		$dado['evaluation'] = $this->WeeklyEvaluation_model->getAll();

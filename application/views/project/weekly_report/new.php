@@ -79,6 +79,22 @@
 										} ?>
 									</select>
 								</div>
+								<div class="col-lg-6 form-group">
+									<label><?= $this->lang->line('we_name') ?></label>
+
+									<select onchange="getGroup(this.value)" name="process_group" size="1" id="process_group" class="form-control" tabindex="1" required>
+										<option selected="selected" disabled="disabled" value=""> Select </option>
+										<?php foreach ($pmbok_processes as $i) { ?>
+											<option value="<?= $i->process_group; ?>"><?= $i->process_group; ?>
+											</option><?php  } ?>
+									</select>
+								</div>
+
+								<div class="col-lg-6 form-group">
+									<label><?= $this->lang->line('we_process_name') ?></label>
+									<select name="process_name" class="form-control" id="process_name"></select>
+								</div>
+
 
 								<div class=" col-lg-12 form-group">
 									<label for="tool_evaluation"><?= $this->lang->line('wr_tool_evaluation') ?> *</label>
@@ -138,7 +154,7 @@
 $view = array(
 	"name" => "weekly_report",
 );
-$this->load->view('upload/index', $view); 
+$this->load->view('upload/index', $view);
 ?>
 
 <script>
@@ -195,5 +211,37 @@ $this->load->view('upload/index', $view);
 	function remove_education_fields(rid) {
 		$('.removeclass' + rid).remove();
 	}
+
+	function getGroup(process_group){
+		var arr = [],
+			xmlhttp = new XMLHttpRequest(),
+			select = document.getElementById('process_name');
+			xmlhttp.onreadystatechange = function(){
+				if(this.readyState == 4 && this.status == 200){
+					console.log(process_group);
+
+					// console.log(this.responseText);
+					arr = this.responseText;
+					// console.log(select.innerHTML);
+					if(arr.length > 0){
+						select.innerHTML = '';
+
+						for(let i = 0; i < arr.length; i++){
+							var opt = document.createElement('option');
+							var process = arr[i]['name'];
+
+							opt.value = arr[i]['pmbok_id'];
+							opt.innerHTML = process;
+							select.appendChild(opt);
+						}
+					}
+				}
+			}
+			xmlhttp.open("GET", "../WeeklyReport/getProcesses/" + process_group, true);
+			xmlhttp.send();
+	}
+
+
+
 </script>
 <?php $this->load->view('frame/footer_view') ?>
