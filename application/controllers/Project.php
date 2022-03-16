@@ -143,6 +143,13 @@ class Project extends CI_Controller
 	//passando id como parametro
 	public function add_researcher_page($project_id = null)
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+		$this->lang->load('btn', 'english');
+		$this->lang->load('project-page', 'english');
+	}else{
+		$this->lang->load('btn', 'portuguese-brazilian');
+		$this->lang->load('project-page', 'portuguese-brazilian');
+	}
 		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
 		$this->db->where('project_id', $project_id);
