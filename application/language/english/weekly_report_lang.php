@@ -7,7 +7,7 @@ $lang['wr_date'] = 'Report Date';
 $lang['wr_tool_evaluation'] = 'Tool Evaluation';
 $lang['wr_processes'] = 'Processes';
 $lang['wr_process_name'] = 'Process Name';
-$lang['wr_process_group'] = 'Process Phase';
+$lang['wr_process_group'] = 'Process Group';
 
 $lang['wr_attach_pdf'] = 'Attach PDF';
 $lang['wr_process_description'] = 'Process Description';

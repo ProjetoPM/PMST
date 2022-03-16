@@ -66,7 +66,7 @@
 
 							<form method="POST" action="<?php echo base_url('weekly-report/insert/'); ?>">
 
-								<div class="col-lg-6 form-group">
+								<div class="col-lg-7 form-group">
 									<label><?= $this->lang->line('we_name') ?></label>
 
 									<select name="evaluation_id" size="1" class="form-control" tabindex="1" required>
@@ -80,7 +80,7 @@
 									</select>
 								</div>
 								<div class="col-lg-6 form-group">
-									<label><?= $this->lang->line('we_name') ?></label>
+									<label><?= $this->lang->line('wr_process_group') ?></label>
 
 									<select onchange="getGroup(this.value)" name="process_group" size="1" id="process_group" class="form-control" tabindex="1" required>
 										<option selected="selected" disabled="disabled" value=""> Select </option>
@@ -91,7 +91,7 @@
 								</div>
 
 								<div class="col-lg-6 form-group">
-									<label><?= $this->lang->line('we_process_name') ?></label>
+									<label><?= $this->lang->line('wr_process_name') ?></label>
 									<select name="process_name" class="form-control" id="process_name"></select>
 								</div>
 
@@ -157,21 +157,6 @@ $view = array(
 $this->load->view('upload/index', $view);
 ?>
 
-<script>
-	for (var i = 1; i <= 13; i++) {
-		if (document.getElementById("wr_tp_" + i).title == "") {
-			document.getElementById("wr_tp_" + i).hidden = true;
-		}
-		limite_textarea(document.getElementById("wr_txt_" + i).value, "wr_" + i);
-	}
-
-	function limite_textarea(valor, txt) {
-		var limite = 5000;
-		var caracteresDigitados = valor.length;
-		var caracteresRestantes = limite - caracteresDigitados;
-		$("." + txt).text(caracteresRestantes);
-	}
-</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 <script type="text/javascript">
@@ -213,15 +198,16 @@ $this->load->view('upload/index', $view);
 	}
 
 	function getGroup(process_group){
-		var arr = [],
+		const names = new Array('Teste', 'Teste 2')
+		console.log(names.indexOf('Teste'))
 			xmlhttp = new XMLHttpRequest(),
 			select = document.getElementById('process_name');
 			xmlhttp.onreadystatechange = function(){
 				if(this.readyState == 4 && this.status == 200){
-					console.log(process_group);
+					// console.log(process_group);
 
-					// console.log(this.responseText);
-					arr = this.responseText;
+					arr = eval(this.responseText);
+
 					// console.log(select.innerHTML);
 					if(arr.length > 0){
 						select.innerHTML = '';

@@ -19,19 +19,19 @@ class WeeklyReport_model extends CI_Model
 		$result = array();
 		$this->db->delete('weekly_report_process', array('weekly_report_id' => $weekly_report_id));
 		// var_dump($process);
-			for ($j = 0; $j < count($process) / 3; $j++) {
-					$result[] = array(
-						'description' => $process['description'][$j],
-						'process_name' => $process['process_name'][$j],
-						'weekly_report_id' => $weekly_report_id,
-					);
-			}
+		for ($j = 0; $j < count($process) / 3; $j++) {
+			$result[] = array(
+				'description' => $process['description'][$j],
+				'process_name' => $process['process_name'][$j],
+				'weekly_report_id' => $weekly_report_id,
+			);
+		}
 
-			//MULTIPLE INSERT TO DETAIL TABLE
-			$this->db->insert_batch('weekly_report_process', $result);
-			$this->db->trans_complete();
-			// die();
-			return $result;
+		//MULTIPLE INSERT TO DETAIL TABLE
+		$this->db->insert_batch('weekly_report_process', $result);
+		$this->db->trans_complete();
+		// die();
+		return $result;
 	}
 
 	public function get($id)
@@ -52,7 +52,8 @@ class WeeklyReport_model extends CI_Model
 		return $query->result();
 	}
 
-	public function getScore($score_id){
+	public function getScore($score_id)
+	{
 		$this->db->select('score');
 		$this->db->where('score', $score_id);
 		$this->db->from('weekly_report');
@@ -77,19 +78,30 @@ class WeeklyReport_model extends CI_Model
 
 	public function getProcessGroupsByLanguage($id)
 	{
-		$query = $this->db->get_where('pmbok_process', array('pmbok_id'=> $id));
+		$query = $this->db->get_where('pmbok_process', array('pmbok_id' => $id));
 		return $query->result();
 	}
 
 	public function getProcessNamesByGroup($group)
 	{
-		$query = $this->db->get_where('pmbok_process', array('process_group'=> $group));
+		$query = $this->db->select('*')
+			->distinct('process_group')
+			->from('pmbok_process')
+			->get();
 		return $query->result();
+
+		
+
+		// $query = $this->db->get_where('pmbok_process', array('process_group'=> $group));
+		// $query = $this->db->distinct('process_group');
+		// return $query->result();
 	}
+
+	
 
 	public function getPmbokEditionByLanguage($id)
 	{
-		$query = $this->db->get_where('pmbok_process', array('pmbok_id'=> $id));
+		$query = $this->db->get_where('pmbok_process', array('pmbok_id' => $id));
 		return $query->result();
 	}
 
