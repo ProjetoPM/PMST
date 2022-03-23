@@ -61,6 +61,7 @@
                                    <option value="0">Staff</option>
                                    <option value="1">Professor</option>
                                    <option value="2">Project Manager</option>
+                                   <option value="3">Admin</option>
                                 </select>
                              </div>
                           </div>

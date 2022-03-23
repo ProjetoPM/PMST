@@ -115,14 +115,14 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-								<?= $this->lang->line('shr_title')  ?>
+								User List
 
 							</h1>
 
 							<div class="row">
 								<div class="col-lg-12">
 
-									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>stakeholder/stakeholder-register/new/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
+									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>researcher/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
 								</div>
 							</div>
 
@@ -133,47 +133,58 @@
 									<table class="table table-bordered table-striped" id="table_stake">
 										<thead>
 											<tr>
-												<th class="text-center">#</th>
-												<th><?= $this->lang->line('shr_name') ?> *</th>
-												<th><?= $this->lang->line('shr_organization') ?> *</th>
-												<th><?= $this->lang->line('shr_position') ?> *</th>
-												<th><?= $this->lang->line('shr_email') ?> *</th>
+
+												<th>Name</th>
+												<th>Institution</th>
+												<th>Acess Level</th>
+												<th>E-mail</th>
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
 										</thead>
 										<tbody>
 											<?php
-											foreach ($stakeholder as $item) {
+											foreach ($user as $item) {
 											?>
-												<tr dados='<?= json_encode($item); ?>'>
-													<td class="moreInformationTable"></td>
-													<td><span class="texttd"><?php echo $item->name ?></span></td>
-													<td><span class="texttd"><?php echo $item->organization ?></span></td>
-													<td><span class="texttd"><?php echo $item->position ?></span></td>
-													<td><span class="texttd"><?php echo $item->email ?></span></td>
-													<td <?= getStatusFieldsList("stakeholder register", $item->stakeholder_id) ?>>
+												<tr'>
+													<td><span class="texttd"><?= getUsername($item->user_id); ?></span></td>
+													<td><span class="texttd"><?php echo getInstitution($item->user_id) ?></span></td>
+
+
+													<?php if (getRole($item->user_id) == 0) {
+														$acess_level = "Staff";
+													} elseif (getRole($item->user_id) == 1) {
+														$acess_level = "Professor";
+													} elseif (getRole($item->user_id) == 2) {
+														$acess_level = "Project Manager";
+													} elseif (getRole($item->user_id) == 3) {
+														$acess_level = 'Admin';
+													} ?>
+													<td><span class="texttd"><?php echo $acess_level ?></span></td>
+													<td><span class="texttd"><?php echo getEmail($item->user_id) ?></span></td>
+													<td style="display: fixed;min-width: 100px;">
 														<div class="row center">
 															<div class="col-sm-4">
-																<form action="<?php echo base_url() ?>stakeholder/stakeholder-register/edit/<?php echo $item->project_id; ?>" method="post">
+																<form action="<?php echo base_url() ?>researcher/edit-researcher/<?php echo $project_id ?>" method="post">
 																	<input type="hidden" name="project_id" value="<?= $item->project_id ?>">
 																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
+
 																</form>
 															</div>
 
 															<div class="col-sm-4">
-																<button type="submit" class="btn btn-danger" onclick="deletar(<?= $item->project_id ?>, <?= $item->stakeholder_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+																<button type="submit" class="btn btn-danger" onclick="deletar(<?= $item->project_id ?>, <?= $item->user_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
 															</div>
 														</div>
 													</td>
-												</tr>
-											<?php
+													</tr>
+												<?php
 											}
-											?>
+												?>
 
 										</tbody>
 									</table>
 
-									<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>">
+									<form action="<?php echo base_url('projects/'); ?>">
 										<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 									</form>
 								</div>
@@ -201,112 +212,3 @@
 
 <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 					-->
-<script type="text/javascript">
-	'use strict'
-	let table;
-
-	$(document).ready(function() {
-		table = $('#table_stake').DataTable({
-			"columns": [{
-					"data": "#",
-					"orderable": false
-				},
-				{
-					"data": "name"
-				},
-				{
-					"data": "organization"
-				},
-				{
-					"data": "position"
-				},
-				{
-					"data": "email"
-				},
-				{
-					"data": "btn-actions",
-					"orderable": false
-				}
-			],
-			"order": [
-				[1, 'attr']
-			]
-		});
-	});
-
-	$("#table_stake tbody td.moreInformationTable").on("click", function() {
-		let element = jQuery($(this)[0].parentNode);
-		let tr = element.closest('tr');
-		let row = table.row(tr);
-		console.log(element)
-		let dados = JSON.parse(element.attr("dados"));
-
-		if (row.child.isShown()) {
-			row.child.hide();
-			tr.removeClass('shown');
-		} else {
-			row.child(format(dados)).show();
-			tr.addClass('shown');
-		}
-	});
-
-	function format(dados) {
-		var nome;
-		if (dados.role == 0) {
-			nome = 'Client';
-		} else if (dados.role == 1) {
-			nome = 'Team';
-		} else if (dados.role == 2) {
-			nome = 'Provider';
-		} else if (dados.role == 3) {
-			nome = 'Project Manager';
-		} else if (dados.role == 4) {
-			nome = 'Sponsor';
-		} else(dados.role == 5)
-		nome = 'Others';
-
-
-		return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
-			'<tr>' +
-			'<td> <span style="font-weight:bold;" ><?= $this->lang->line('shr_role') ?> : </span> </td>' +
-			'<td>' + nome + '</td>' +
-			'</tr>' +
-			'<tr>' +
-			'<td><span style="font-weight:bold;" ><?= $this->lang->line('shr_work_place') ?>: </span> </td>' +
-			'<td class="texttd2">' + dados.work_place + '</td>' +
-			'</tr>' +
-			'<tr>' +
-			'<td><span style="font-weight:bold;"><?= $this->lang->line('shr_main_expectations') ?>: </span> </td>' +
-			'<td class="texttd2">' + dados.main_expectations + '</td>' +
-			'</tr>' +
-			'</table>';
-	}
-</script>
-
-<script type="text/javascript">
-	function deletar(idProjeto, stakeholder_id) {
-		//e.preventDefault();
-		alertify.confirm('Do you agree?').setting({
-			'labels': {
-				ok: 'Agree',
-				cancel: 'Cancel'
-			},
-			'reverseButtons': false,
-			'onok': function() {
-
-				console.log(`Passei o ${idProjeto} e ${stakeholder_id}`);
-
-				$.post("<?php echo base_url() ?>stakeholder/stakeholder-register/delete/" + stakeholder_id, {
-					project_id: idProjeto,
-				});
-				// location.reload();
-				window.location.reload();
-				alertify.success('You agree.');
-			},
-			'oncancel': function() {
-				alertify.error('You did not agree.');
-			}
-		}).show();
-
-	}
-</script>
