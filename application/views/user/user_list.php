@@ -146,7 +146,8 @@
 											foreach ($user as $item) {
 											?>
 												<tr'>
-													<td><span class="texttd"><?= getUsername($item->user_id); ?></span></td>
+
+													<td><span class="texttd"><?= getUserName($item->user_id); ?></span></td>
 													<td><span class="texttd"><?php echo getInstitution($item->user_id) ?></span></td>
 
 
