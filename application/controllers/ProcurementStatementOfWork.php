@@ -8,18 +8,33 @@ class ProcurementStatementOfWork extends CI_Controller {
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('procurement_statement_of_work','english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('procurement_statement_of_work', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
 		$this->load->helper('url');
 		$this->load->model('Procurement_statement_of_work_model');
 		$this->load->helper('log_activity');
 
-		$this->lang->load('btn','english');
         // $this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('procurement_statement_of_work','english');
+        
         // $this->lang->load('risk','portuguese-brazilian');
 
 	}
 
 	public function list($project_id){
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		
 		$dado['project_id'] = $project_id;
 
 		$dado['procurement_statement_of_work'] = $this->Procurement_statement_of_work_model->getAll($project_id);
@@ -50,6 +65,8 @@ class ProcurementStatementOfWork extends CI_Controller {
 	public function edit($project_id) {
 		$query['procurement_statement_of_work'] = $this->Procurement_statement_of_work_model->get($project_id);
 
+		$query["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "procurement statement of the work", $query['procurement_statement_of_work']['id']);
+
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view.php');
@@ -57,6 +74,12 @@ class ProcurementStatementOfWork extends CI_Controller {
 	}
 
 	public function insert($project_id){
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
 		$procurement_statement_of_work['description'] = $this->input->post('description');
 		$procurement_statement_of_work['types'] = $this->input->post('types');
 		$procurement_statement_of_work['restrictions'] = $this->input->post('restrictions');
@@ -71,12 +94,17 @@ class ProcurementStatementOfWork extends CI_Controller {
 
 		if($query){
 			insertLogActivity('insert', 'procurement statement of the work');
-			$this->session->set_flashdata('success', 'Procurement Statement of the Work has been successfully created!');
+			$this->session->set_flashdata('success', $feedback_success);
 			redirect('procurement/procurement-statement-of-work/list/' . $procurement_statement_of_work['project_id']);
 		}
 	}
 
 	public function update($project_id) {
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
 
 		$procurement_statement_of_work['description'] = $this->input->post('description');
 		$procurement_statement_of_work['types'] = $this->input->post('types');
@@ -92,7 +120,7 @@ class ProcurementStatementOfWork extends CI_Controller {
 
 		if ($query) {
 			insertLogActivity('update', 'procurement statement of the work');
-			$this->session->set_flashdata('success', 'Procurement Statement of the Work has been successfully changed!');
+			$this->session->set_flashdata('success', $feedback_success);
 			redirect('procurement/procurement-statement-of-work/list/' . $procurement_statement_of_work['project_id']);
 		}
 	}

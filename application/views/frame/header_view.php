@@ -13,6 +13,7 @@
   <link href="<?= base_url() ?>assets/css/multiselect.css" rel="stylesheet">
   <link href="<?= base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?= base_url() ?>assets/css/stepbystep.css" rel="stylesheet">
+  <link href="<?= base_url() ?>assets/css/flags.css" rel="stylesheet">
 
   <!-- Custom CSS -->
   <!-- <link href="<?= base_url() ?>assets/css/sb-admin-2.css" rel="stylesheet"> -->
@@ -57,8 +58,9 @@
   </div> -->
   <!-- <input type="hidden" id="base-url" value="<?= base_url() ?>" /> -->
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
 
 </head>
 
 </html>
+

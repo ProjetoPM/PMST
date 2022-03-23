@@ -27,7 +27,7 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-								<?= $this->lang->line('tep_title')  ?>
+								<?= $this->lang->line('tep-title')  ?>
 
 							</h1>
 							<?php
@@ -37,9 +37,9 @@
 								<form method="POST" action="<?php echo base_url('integration/project-closure/update'); ?>">
 								<input type="hidden" name="status" value="1">
 									<div class="col-lg-9 form-group">
-										<label for="client"><?= $this->lang->line('tep_client') ?> *</label>
+										<label for="client"><?= $this->lang->line('tep-client') ?> *</label>
 										<span class="tep_1">255</span><?= $this->lang->line('character2') ?>
-										<a class="btn-sm btn-default" id="tep_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep_client_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="tep_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-client-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 										<input id="tep_txt_1" type="text" name="client" class="form-control input-md"  value="<?= $pc->client; ?>" onkeyup = "limite_textarea2(this.value, 'tep_1')" maxlength="255" oninput="eylem(this, this.value)" required="false">
 										</div>
@@ -47,8 +47,8 @@
 
 
 									<div class="col-lg-3 form-group">
-										<label><?= $this->lang->line('tep_project_closure_date') ?></label>
-										<a class="btn-sm btn-default" id="tep_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep_project_closure_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<label><?= $this->lang->line('tep-project_closure_date') ?></label>
+										<a class="btn-sm btn-default" id="tep_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-project_closure_date-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div class="input-group">
 											<div class="input-group-addon">
 												<i class="fa fa-calendar"></i>
@@ -60,7 +60,7 @@
 
 									<!--
 							<div class=" col-lg-6 form-group">
-								<label for="project_closure_date"><?= $this->lang->line('tep_project_closure_date') ?></label> 
+								<label for="project_closure_date"><?= $this->lang->line('tep-project_closure_date') ?></label> 
 								<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep_project_closure_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 								<div >                 
@@ -69,9 +69,9 @@
 							</div>
 						-->
 									<div class=" col-lg-12 form-group">
-										<label for="main_changes_approved"><?= $this->lang->line('tep_main_changes_approved') ?></label>
+										<label for="main_changes_approved"><?= $this->lang->line('tep-main_changes_approved') ?></label>
 										<span class="tep_3">2000</span><?= $this->lang->line('character') ?>
-										<a class="btn-sm btn-default" id="tep_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep_main_changes_approved_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="tep_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-main_changes_approved-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'tep_3')" id="tep_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="main_changes_approved"><?= $pc->main_changes_approved; ?></textarea>
 										</div>
@@ -79,9 +79,9 @@
 
 
 									<div class=" col-lg-12 form-group">
-										<label for="main_lessons_learned"><?= $this->lang->line('tep_main_lessons_learned') ?> </label>
+										<label for="main_lessons_learned"><?= $this->lang->line('tep-main_lessons_learned') ?> </label>
 										<span class="tep_4">2000</span><?= $this->lang->line('character') ?>
-										<a class="btn-sm btn-default" id="tep_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep_main_lessons_learned_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="tep_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-main_lessons_learned-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'tep_4')" id="tep_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="main_lessons_learned"><?= $pc->main_lessons_learned; ?></textarea>
 										</div>
@@ -89,9 +89,9 @@
 
 
 									<div class=" col-lg-6 form-group">
-										<label for="main_deviations"><?= $this->lang->line('tep_main_deviations') ?></label>
+										<label for="main_deviations"><?= $this->lang->line('tep-main_deviations') ?></label>
 										<span class="tep_5">2000</span><?= $this->lang->line('character') ?>
-										<a class="btn-sm btn-default" id="tep_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep_main_deviations_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="tep_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-main_deviations-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'tep_5')" id="tep_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="main_deviations"><?= $pc->main_deviations; ?></textarea>
 										</div>
@@ -99,9 +99,9 @@
 
 
 									<div class=" col-lg-6 form-group">
-										<label for="client_comments"><?= $this->lang->line('tep_client_comments') ?></label>
+										<label for="client_comments"><?= $this->lang->line('tep-client_comments') ?></label>
 										<span class="tep_6">2000</span><?= $this->lang->line('character') ?>
-										<a class="btn-sm btn-default" id="tep_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep_client_comments_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="tep_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-client_comments-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'tep_6')" id="tep_txt_6" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="client_comments"><?= $pc->client_comments; ?></textarea>
 										</div>
@@ -109,9 +109,9 @@
 
 
 									<div class=" col-lg-12 form-group">
-										<label for="sponsor_comments"><?= $this->lang->line('tep_sponsor_comments') ?> </label>
+										<label for="sponsor_comments"><?= $this->lang->line('tep-sponsor_comments') ?> </label>
 										<span class="tep_7">2000</span><?= $this->lang->line('character') ?>
-										<a class="btn-sm btn-default" id="tep_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep_sponsor_comments_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="tep_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-sponsor_comments-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
 										<div>
 										<textarea onkeyup="limite_textarea(this.value, 'tep_7')" id="tep_txt_7" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="sponsor_comments"><?= $pc->sponsor_comments; ?></textarea>

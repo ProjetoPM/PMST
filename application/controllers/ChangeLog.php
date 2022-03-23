@@ -13,6 +13,17 @@ class ChangeLog extends CI_Controller
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }
+
+        if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('change_log', 'english');
+            $this->lang->load('change_request', 'english');
+            $this->lang->load('project-page', 'english');
+        }else{
+            $this->lang->load('change_log', 'english');
+            $this->lang->load('change_request','portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
         //$this->load->helper('url');
         $this->load->model('view_model');
         $this->load->model('project_model');
@@ -21,10 +32,8 @@ class ChangeLog extends CI_Controller
         $this->load->helper('log_activity');
         $this->load->model('Change_request_model');
 
-        $this->lang->load('btn', 'english');
         // $this->lang->load('btn','portuguese-brazilian');
         // $this->lang->load('change_log', 'english');
-        $this->lang->load('change_request', 'english');
         // $this->lang->load('change_log_view','portuguese-brazilian');
     }
 
@@ -38,6 +47,11 @@ class ChangeLog extends CI_Controller
 
     public function list($project_id)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+        }else{
+            $this->lang->load('btn','portuguese-brazilian');
+        }
         $dado['project_id'] = $project_id;
 		$dado['change_request'] = $this->Change_request_model->getAll($project_id);
         $this->load->view('frame/header_view');
@@ -48,6 +62,11 @@ class ChangeLog extends CI_Controller
 
     public function new($project_id)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+        }else{
+            $this->lang->load('btn','portuguese-brazilian');
+        }
         $query['project_id'] = $project_id;
         $this->load->view('frame/header_view');
         $this->load->view('frame/topbar');
@@ -57,6 +76,12 @@ class ChangeLog extends CI_Controller
 
     public function edit($change_log)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+        }else{
+            $this->lang->load('btn','portuguese-brazilian');
+        }
+
         $query['change_request'] = $this->Change_request_model->get($change_log);
 
         $this->load->view('frame/header_view');

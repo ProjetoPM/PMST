@@ -27,11 +27,10 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-							Change log
+								<?= $this->lang->line('cl_title') ?>
 
 							</h1>
-
-							<br><br>
+							
 							<div class="row">
 								<div class="col-lg-12">
 
@@ -57,7 +56,7 @@
 													<tr dados='<?= json_encode($change_request); ?>'>
 														<td class="moreInformationTable"></td>
 														<td><?php echo $change_request->number_id; ?></td>
-														<td><?php echo $change_request->requester; ?></td>
+														<td><?php echo getStakeholderName($change_request->requester); ?></td>
 														<td><?php echo $change_request->request_date; ?></td>
 														<td><?php echo $change_request->type; ?></td>
 														<td><?php echo $change_request->status; ?></td>
@@ -72,15 +71,12 @@
 																	</form>
 																</div>
 
-
-													
-
-																<div class="col-sm-3">
+																<!-- <div class="col-sm-3">
 																	<form target="_blank" action="<?php echo base_url() ?>ChangeRequest_PDF/pdfGenerator/<?php echo $change_request->id; ?>" method="post">
 																		<input type="hidden" name="project_id" value="<?= $project_id ?>">
 																		<button type="submit" class="btn btn-success"><em class="glyphicon glyphicon-file"></em> to PDF<span class="hidden-xs"></span></button>
 																	</form>
-																</div>
+																</div> -->
 															</div>
 														</td>
 													</tr>

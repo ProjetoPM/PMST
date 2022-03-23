@@ -28,7 +28,7 @@ $lang['shep_8'] = "Add New Stakeholder";
 //options
 $lang['option-1'] = 'Unaware';
 $lang['option-2'] = 'Supportive';
-$lang['option-3'] = 'Leanding';
+$lang['option-3'] = 'Leading';
 $lang['option-4'] = 'Neutral';
 $lang['option-5'] = 'Resistant';
 //Form

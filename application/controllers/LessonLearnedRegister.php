@@ -10,6 +10,15 @@ class LessonLearnedRegister extends CI_Controller
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }
+
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('lesson_learned_register', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('lesson_learned_register', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
         $this->load->helper('url');
         $this->load->model('Lesson_learned_register_model');
         $this->load->model('view_model');
@@ -17,11 +26,12 @@ class LessonLearnedRegister extends CI_Controller
         $this->load->helper('log_activity');
         $this->load->model('Project_model');
         $this->load->model('Stakeholder_model');
+        
 
 
-        $this->lang->load('btn', 'english');
+        
         // $this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('lesson_learned_register', 'english');
+        
 
         // $this->lang->load('manage-cost','portuguese-brazilian');
 
@@ -29,6 +39,13 @@ class LessonLearnedRegister extends CI_Controller
 
     public function new($project_id)
     {
+
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('btn', 'english');
+        } else {
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+
         $dado['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
         $dado['knowledge_area'] = $this->Project_model->getAllKnowledgeArea();
         $idusuario = $_SESSION['user_id'];
@@ -62,6 +79,12 @@ class LessonLearnedRegister extends CI_Controller
 
     public function list($project_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('btn', 'english');
+        } else {
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+
         $dado['project_id'] = $project_id;
 
         $dado['lesson_learned_register'] = $this->Lesson_learned_register_model->getAll($project_id);
@@ -74,9 +97,18 @@ class LessonLearnedRegister extends CI_Controller
 
     public function edit($lesson_learned_register_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('btn', 'english');
+        } else {
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+        
         $query['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
         $query['knowledge_area'] = $this->Project_model->getAllKnowledgeArea();
         $query['lesson_learned_register'] = $this->Lesson_learned_register_model->get($lesson_learned_register_id);
+
+        $dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "lesson learned register", $query['lesson_learned_register']['lesson_learned_register_id']);
+
         $this->load->view('frame/header_view.php');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view.php');

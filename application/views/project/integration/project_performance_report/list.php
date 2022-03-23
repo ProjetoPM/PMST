@@ -34,7 +34,7 @@
 								<div class="col-lg-12">
 
 									<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>integration/project-performance-report/new/<?php echo $project_id ?>'"> <?= $this->lang->line('btn-new') ?> <?= $this->lang->line('project_performance_report-title') ?></button>
-
+									<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Imovel/new'"> name</button
 								</div>
 							</div>
 
@@ -62,7 +62,7 @@
 													<td><?php echo $report->planned_forecasts; ?></td>
 													<td><?php echo $report->work_completed_during_the_period; ?></td>
 
-													<td>
+													<td <?= getStatusFieldsList("project performance and monitoring report", $report->id) ?> >
 														<div class="row center">
 															<div class="col-sm-3">
 																<form action="<?php echo base_url() ?>integration/project-performance-report/edit/<?php echo $report->id; ?>" method="post">
@@ -78,11 +78,11 @@
 																<!-- </form> -->
 															</div>
 
-															<div class="col-sm-3">
+															<!-- <div class="col-sm-3">
 																<form target="_blank" action="<?php echo base_url() ?>ProjectPerformanceReport_PDF/pdfGenerator/<?php echo $report->id; ?>" method="post">
 																	<input type="hidden" name="project_id" value="<?= $project_id ?>">
 																	<button type="submit" class="btn btn-success"><em class="glyphicon glyphicon-file"></em> to PDF<span class="hidden-xs"></span></button>
-																</form>
+																</form> -->
 															</div>
 														</div>
 													</td>

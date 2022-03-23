@@ -27,9 +27,19 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-								<?= $this->lang->line('wbs_title')  ?>
+								<?= $this->lang->line('wbs-title')  ?>
+
+								<?php $view_name = "wbs";?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
 
 							</h1>
+							<div class="row">
+								<div class="col-lg-12">
+									<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#upload"><i class="fa fa-plus-circle"></i> Upload</button>
+								</div>
+							</div>
 
 
 							<!--1º preencher o nome da view-->

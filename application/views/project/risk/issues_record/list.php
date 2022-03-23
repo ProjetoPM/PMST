@@ -70,7 +70,7 @@
 													<td><?php echo $item->situation; ?></td>
 
 
-													<td>
+													<td <?= getStatusFieldsList("issue log", $item->issues_record_id) ?>>
 														<div class="row center">
 															<div class="col-sm-4">
 																<form action="<?php echo base_url() ?>integration/issue-log/edit/<?php echo $item->issues_record_id; ?>" method="post">

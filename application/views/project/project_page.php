@@ -106,7 +106,7 @@
                             <a href="<?= base_url("integration/project-charter/edit/" . $project[0]->project_id) ?>">
                             <?php   } ?>
 
-                            <div class=" col-lg-1 midBox integrationColor">
+                            <div class=" col-lg-1 midBox integrationColor" <?php echo viewStatus('project charter') ?>>
                               <div class="verticalAlign">
                                 <i class="glyphicon glyphicon-star"></i>
                                 <?= $this->lang->line('project-charter') ?>
@@ -124,7 +124,7 @@
                                 <a href="<?= base_url("integration/project-mp/edit/" . $project[0]->project_id) ?>">
                                 <?php   } ?>
 
-                                <div class=" col-lg-1 midBox integrationColor">
+                                <div class=" col-lg-1 midBox integrationColor" <?php echo viewStatus('project management plan') ?>>
                                   <div class="verticalAlign">
                                     <i class="glyphicon glyphicon-star"></i>
                                     <?= $this->lang->line('project-management') ?>
@@ -166,7 +166,7 @@
                                     <div class=" col-lg-1 midBox integrationColor">
                                       <div class="verticalAlign">
                                         <i class="glyphicon glyphicon-star"></i>
-                                        <?= $this->lang->line('lessons-learned') ?>
+                                        <?= $this->lang->line('project-closure') ?>
                                       </div>
                                     </div>
                                     </a>
@@ -182,7 +182,7 @@
                           <?php } else { ?>
                             <a href="<?= base_url("integration/business-case/edit/" . $project[0]->project_id) ?>">
                             <?php   } ?>
-                            <div class=" col-lg-1 midBox integrationColor">
+                            <div class=" col-lg-1 midBox integrationColor" <?php echo viewStatus('business case') ?>>
                               <div class="verticalAlign">
                                 <i class="glyphicon glyphicon-star"></i>
                                 <?= $this->lang->line('business_case') ?>
@@ -242,7 +242,7 @@
                           <?php } else { ?>
                             <a href="<?= base_url("integration/benefits-mp/edit/" . $project[0]->project_id) ?>">
                             <?php   } ?>
-                            <div class=" col-lg-1 midBox integrationColor">
+                            <div class="col-lg-1 midBox integrationColor" <?php echo viewStatus('benefits management plan') ?>>
                               <div class="verticalAlign">
                                 <i class="glyphicon glyphicon-star"></i>
                                 <?= $this->lang->line('benefits_plan') ?>
@@ -269,10 +269,10 @@
                             <div class=" col-lg-1 midBox integrationColor hideBox"></div>
 
                             <a href="<?= base_url("integration/assumption-log/list/" . $project[0]->project_id) ?>">
-                              <div class=" col-lg-1 midBox integrationColor">
+                              <div class=" col-lg-1 midBox integrationColor" <?php echo viewStatus('assumption log') ?>>
                                 <div class="verticalAlign">
                                   <i class="glyphicon glyphicon-star"></i>
-                                  <?= $this->lang->line('assumption-log') ?>
+                                  <?= $this->lang->line('assumption_log') ?>
                                 </div>
                               </div>
                             </a>
@@ -345,7 +345,7 @@
                           <?php } else { ?>
                             <a href="<?= base_url("scope/requirements-mp/edit/" . $project[0]->project_id) ?>">
                             <?php   } ?>
-                            <div class=" col-lg-1 midBox scopeColor">
+                            <div class=" col-lg-1 midBox scopeColor" <?php echo viewStatus('requirements management plan') ?>>
                               <div class="verticalAlign">
                                 <i class="glyphicon glyphicon-search"></i>
                                 <?= $this->lang->line('requirement-management') ?>
@@ -354,7 +354,7 @@
                             </a>
 
                             <a href="<?= base_url("scope/requirement-documentation/list/" . $project[0]->project_id) ?>">
-                              <div class=" col-lg-1 midBox scopeColor">
+                              <div class=" col-lg-1 midBox scopeColor" <?php echo viewStatus('requirement documentation') ?>>
                                 <div class="verticalAlign">
                                   <i class="glyphicon glyphicon-search"></i>
                                   <?= $this->lang->line('requirement-documentation') ?>
@@ -371,7 +371,7 @@
                               <?php } else { ?>
                                 <a href="<?= base_url("scope/project-scope-statement/edit/" . $project[0]->project_id) ?>">
                                 <?php   } ?>
-                                <div class=" col-lg-1 midBox scopeColor">
+                                <div class=" col-lg-1 midBox scopeColor" <?php echo viewStatus('project scope statement') ?>>
                                   <div class="verticalAlign">
                                     <i class="glyphicon glyphicon-search"></i>
                                     <?= $this->lang->line('project-scope') ?>
@@ -400,7 +400,7 @@
                           <?php } else { ?>
                             <a href="<?= base_url("scope/scope-mp/edit/" . $project[0]->project_id) ?>">
                             <?php   } ?>
-                            <div class=" col-lg-1 midBox scopeColor">
+                            <div class=" col-lg-1 midBox scopeColor" <?php echo viewStatus('scope management plan') ?>>
                               <div class="verticalAlign">
                                 <i class="glyphicon glyphicon-search"></i>
                                 <?= $this->lang->line('scope-management') ?>
@@ -454,7 +454,7 @@
                             <a href="<?= base_url("schedule/schedule-mp/edit/" . $project[0]->project_id) ?>">
                             <?php   } ?>
 
-                            <div class=" col-lg-1 midBox timeColor">
+                            <div class=" col-lg-1 midBox timeColor" <?php echo viewStatus('schedule management plan') ?>>
                               <div class="verticalAlign">
                                 <i class="glyphicon glyphicon-time"></i>
                                 <?= $this->lang->line('schedule-management') ?>
@@ -462,8 +462,19 @@
                             </div>
                             </a>
 
-                            <a href="<?= base_url("schedule/project-schedule-network-diagram/list/" . $project[0]->project_id) ?>">
-                              <div class=" col-lg-1 midBox timeColor">
+                            <!-- <style>
+                              #exemploa {
+                                /* border: 1px solid black; */
+                                background: url('https://upload.wikimedia.org/wikipedia/commons/4/4a/Estrelas.png') no-repeat;
+                                max-width: max-content;
+                                max-height: max-content;
+                                width:100%;height:auto !important;
+                              }
+                            </style> -->
+
+                            <a  href="<?= base_url("schedule/project-schedule-network-diagram/list/" . $project[0]->project_id) ?>">
+                              <div id="exemploa" class="col-lg-1 midBox timeColor">
+                                <i class="fas fa-band-aid"></i>
                                 <div class="verticalAlign">
                                   <i class="glyphicon glyphicon-time"></i>
                                   <?= $this->lang->line('project-schedule-network') ?>
@@ -592,7 +603,7 @@
                           <?php } else { ?>
                             <a href="<?= base_url("cost/cost-mp/edit/" . $project[0]->project_id) ?>">
                             <?php   } ?>
-                            <div class=" col-lg-1 midBox costColor">
+                            <div class=" col-lg-1 midBox costColor" <?php echo viewStatus('cost management plan') ?>>
                               <div class="verticalAlign">
                                 <i class="fa fa-money"></i>
                                 <?= $this->lang->line('cost-management') ?>
@@ -664,7 +675,7 @@
                             <a href="<?= base_url("quality/quality-mp/edit/" . $project[0]->project_id) ?>">
                             <?php   } ?>
 
-                            <div class=" col-lg-1 midBox qualityColor">
+                            <div class=" col-lg-1 midBox qualityColor" <?php echo viewStatus('quality management plan') ?>>
                               <div class="verticalAlign">
                                 <i class="fa fa-trophy"></i>
                                 <?= $this->lang->line('quality-management') ?>
@@ -762,7 +773,7 @@
                             <a href="<?= base_url("resources/resource-mp/edit/" . $project[0]->project_id) ?>">
                             <?php   } ?>
 
-                            <div class=" col-lg-1 midBox hrColor">
+                            <div class=" col-lg-1 midBox hrColor" <?php echo viewStatus('resource management plan') ?>>
                               <div class="verticalAlign">
                                 <i class="fa fa-male"></i>
                                 <?= $this->lang->line('hr-management') ?>
@@ -782,7 +793,7 @@
                             <div class=" col-lg-1 midBox hrColor hideBox"></div>
                             <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
-                            
+
 
                             <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
@@ -827,7 +838,7 @@
 
                         <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
-                      
+
 
                         <div class=" col-lg-1 midBox hrColor hideBox"></div>
 
@@ -903,7 +914,7 @@
                             <a href="<?= base_url("risk/risk-mp/edit/" . $project[0]->project_id) ?>">
                             <?php   } ?>
 
-                            <div class=" col-lg-1 midBox riskColor">
+                            <div class=" col-lg-1 midBox riskColor" <?php echo viewStatus('risk management plan') ?>>
                               <div class="verticalAlign">
                                 <i class="glyphicon glyphicon-exclamation-sign"></i>
                                 <?= $this->lang->line('risk-management') ?>
@@ -912,7 +923,7 @@
                             </a>
 
                             <a href="<?= base_url("risk/risk-register/list/" . $project[0]->project_id) ?>">
-                              <div class=" col-lg-1 midBox riskColor">
+                              <div class=" col-lg-1 midBox riskColor" <?php echo viewStatus('risk register') ?>>
                                 <div class="verticalAlign">
                                   <i class="glyphicon glyphicon-exclamation-sign"></i>
                                   <?= $this->lang->line('risk-register') ?>
@@ -976,7 +987,7 @@
                           <?php } else { ?>
                             <a href="<?= base_url("procurement/procurement-mp/edit/" . $project[0]->project_id) ?>">
                             <?php   } ?>
-                            <div class=" col-lg-1 midBox procurementColor">
+                            <div class=" col-lg-1 midBox procurementColor" <?php echo viewStatus('procurement management plan') ?>>
                               <div class="verticalAlign">
                                 <i class="glyphicon glyphicon-shopping-cart"></i>
                                 <?= $this->lang->line('procurement-management') ?>
@@ -990,7 +1001,7 @@
                             <div class=" col-lg-1 midBox procurementColor hideBox"></div>
 
 
-                           
+
 
                             <a href="<?= base_url("procurement/closed-procurement-documentation/list/" . $project[0]->project_id) ?>">
                               <div class=" col-lg-1 midBox procurementColor">
@@ -1012,7 +1023,7 @@
 
 
                         <a href="<?= base_url("procurement/procurement-statement-of-work/list/" . $project[0]->project_id) ?>">
-                          <div class=" col-lg-1 midBox procurementColor">
+                          <div class=" col-lg-1 midBox procurementColor" <?php echo viewStatus('procurement statement of the work') ?>>
                             <div class="verticalAlign">
                               <i class="glyphicon glyphicon-shopping-cart"></i>
                               <?= $this->lang->line('procurement-statement') ?>
@@ -1050,7 +1061,7 @@
 
                       <div class="col-lg-10 noSpaceSide floatRight">
                         <a href="<?= base_url("stakeholder/stakeholder-register/list/" . $project[0]->project_id) ?>">
-                          <div class=" col-lg-1 midBox stakeholderColor">
+                          <div class=" col-lg-1 midBox stakeholderColor" <?php echo viewStatus('stakeholder register') ?>>
                             <div class="verticalAlign">
                               <i class="fa fa-users"></i>
                               <?= $this->lang->line('stakeholder-register') ?>
@@ -1059,7 +1070,7 @@
                         </a>
 
                         <a href="<?= base_url("stakeholder/stakeholder-engagement-plan/list/" . $project[0]->project_id) ?>">
-                          <div class=" col-lg-1 midBox stakeholderColor">
+                          <div class=" col-lg-1 midBox stakeholderColor" <?php echo viewStatus('stakeholder engagement plan') ?>>
                             <div class="verticalAlign">
                               <i class="fa fa-users"></i>
                               <?= $this->lang->line('stakeholder-management') ?>

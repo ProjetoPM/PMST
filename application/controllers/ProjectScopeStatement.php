@@ -10,21 +10,35 @@ class ProjectScopeStatement extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('scope_specification', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('scope_specification', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
 		$this->load->helper('url');
 		$this->load->model('Scope_specification_model');
 		$this->load->model('view_model');
 		$this->load->model('log_model');
 		$this->load->helper('log_activity');
 
-		$this->lang->load('btn', 'english');
 		// $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('scope_specification', 'english');
+		
 		// $this->lang->load('manage-scope','portuguese-brazilian');
 
 	}
 
 	public function new($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
 		$this->db->where('user_id', $_SESSION['user_id']);
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
@@ -49,6 +63,12 @@ class ProjectScopeStatement extends CI_Controller
 
 	public function edit($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		
 		$this->db->where('user_id', $_SESSION['user_id']);
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
@@ -59,6 +79,8 @@ class ProjectScopeStatement extends CI_Controller
 				redirect("scope/project-scope-statement/new/" . $_SESSION['project_id']);
 			}
 
+			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "project scope statement", $dado['scope_specification'][0]->scope_specification_id);
+			
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');

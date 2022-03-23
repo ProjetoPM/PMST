@@ -12,14 +12,22 @@ class ResourceManagementPlan extends CI_Controller
 
         // $this->load->helper('url', 'english');
 
-        $this->lang->load('btn', 'english');
         // $this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('resource', 'english');
+        
         // $this->lang->load('resource','portuguese-brazilian');
 
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }
+
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('resource', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('resource', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
         $this->load->model('project_model');
         $this->load->helper('log_activity');
         $this->load->model('view_model');
@@ -36,6 +44,12 @@ class ResourceManagementPlan extends CI_Controller
 
     public function new($project_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
         $this->db->where('user_id',  $_SESSION['user_id']);
         $this->db->where('project_id',  $_SESSION['project_id']);
         $project['dados'] = $this->db->get('project_user')->result();
@@ -58,6 +72,11 @@ class ResourceManagementPlan extends CI_Controller
 
     public function edit($project_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
         $this->db->where('user_id',  $_SESSION['user_id']);
         $this->db->where('project_id',  $_SESSION['project_id']);
         $project['dados'] = $this->db->get('project_user')->result();
@@ -67,7 +86,8 @@ class ResourceManagementPlan extends CI_Controller
             if ($dado['human_resources_mp'] == null) {
                 redirect("resources/resource-mp/new/" . $_SESSION['project_id']);
             }
-
+            $dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "resource management plan", $dado['human_resources_mp'][0]->human_resources_mp_id);
+            
             $this->load->view('frame/header_view');
             $this->load->view('frame/topbar');
             $this->load->view('frame/sidebar_nav_view');
@@ -79,6 +99,12 @@ class ResourceManagementPlan extends CI_Controller
 
     public function insert()
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
         $human_resource_mp['roles_responsibilities'] = $this->input->post('roles_responsibilities');
         $human_resource_mp['organizational_chart'] = $this->input->post('organizational_chart');
         $human_resource_mp['staff_mp'] = $this->input->post('staff_mp');
@@ -96,13 +122,19 @@ class ResourceManagementPlan extends CI_Controller
 
         if ($query) {
             insertLogActivity('insert', 'resource management plan');
-            $this->session->set_flashdata('success', 'Resource Management Plan has been successfully created!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect("resources/resource-mp/edit/" . $_SESSION['project_id']);
         }
     }
 
     public function update()
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
         $human_resources_mp['roles_responsibilities'] = $this->input->post('roles_responsibilities');
         $human_resources_mp['organizational_chart'] = $this->input->post('organizational_chart');
         $human_resources_mp['staff_mp'] = $this->input->post('staff_mp');       
@@ -117,7 +149,7 @@ class ResourceManagementPlan extends CI_Controller
 
         if ($query) {
             insertLogActivity('update', 'resource management plan');
-            $this->session->set_flashdata('success', 'Resource Management Plan has been successfully changed!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect("resources/resource-mp/edit/" . $_SESSION['project_id']);
         }
     }

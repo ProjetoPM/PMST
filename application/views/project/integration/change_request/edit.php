@@ -32,6 +32,12 @@
 
 							</h1>
 
+							<!-- avaliação -->
+							<link href="<?= base_url() ?>assets/css/field_evaluation.css" rel="stylesheet" type="text/css">
+							<?php $view_name = "change request";
+							getViewFields($view_name);
+							?>
+							<?php $this->load->view('construction_services/write_field_evaluation') ?>
 							<?php extract($change_request); ?>
 
 							<form action="<?= base_url() ?>integration/change-request/update/<?php echo $id; ?>" method="post">
@@ -40,6 +46,7 @@
 								<div class="col-lg-6 form-group">
 									<label><?= $this->lang->line('cr_requester') ?></label>
 									<a class="btn-sm btn-default" id="" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a <?= fieldStatus($view_name, $id, "requester") ?> data-field="requester" data-field_name="<?= $this->lang->line('cr_requester') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<select name="requester" size="1" class="form-control" tabindex="1" required>
 										<?php foreach ($stakeholder as $item) { ?>
 											<option <?php if ($item->stakeholder_id == $requester) echo "selected"; ?> value="<?= $item->stakeholder_id; ?>">
@@ -51,11 +58,13 @@
 								<div class="col-lg-6 form-group">
 									<label for="number_id"><?= $this->lang->line('cr_number_id') ?> </label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('number_id-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a <?= fieldStatus($view_name, $team_performance_evaluation_id, "number_id") ?> data-field="number_id" data-field_name="<?= $this->lang->line('cr_number_id') ?>" data-item_id="<?= $team_performance_evaluation_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<input id="number_id" name="number_id" type="number" class="form-control input-md" required="false" value="<?php echo $number_id; ?>">
 								</div>
 								<div class="col-lg-3 form-group">
 									<label for="type"><?= $this->lang->line('cr_type') ?> </label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('type-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a <?= fieldStatus($view_name, $id, "team_member_name") ?> data-field="team_member_name" data-field_name="<?= $this->lang->line('cr_type') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<select class="form-control" id="type" name="type">
 										<?=
 										$opcoes = array("Corrective Action", "Preventive Action", "Defect Repair", "Update");
@@ -72,17 +81,25 @@
 								<div class="col-lg-3 form-group">
 									<label for="status"><?= $this->lang->line('cr_status') ?> </label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('status-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a <?= fieldStatus($view_name, $id, "status") ?> data-field="status" data-field_name="<?= $this->lang->line('cr_status') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<select class="form-control" id="status" name="status">
+
 										<option value="Under Analysis" <?php if ($status == "Under Analysis") echo 'selected'; ?>><?= $this->lang->line('type_situation-analysis') ?></option>
+										<!--<?= $this->lang->line('type_situation_analysis') ?> -->
+
 										<option value="Approved" <?php if ($status == "Approved") echo 'selected'; ?>><?= $this->lang->line('type_situation-approved') ?></option>
+
 										<option value="Rejected" <?php if ($status == "Rejected") echo 'selected'; ?>><?= $this->lang->line('type_situation-rejected') ?></option>
+
 										<option value="Canceled" <?php if ($status == "Canceled") echo 'selected'; ?>><?= $this->lang->line('type_situation-canceled') ?></option>
+
 										<option value="Suspended" <?php if ($status == "Suspended") echo 'selected'; ?>><?= $this->lang->line('type_situation-suspended') ?></option>
 									</select>
 								</div>
 
 								<div class="col-lg-3 form-group">
 									<label><?= $this->lang->line('cr_request_date') ?></label>
+									<a <?= fieldStatus($view_name, $id, "request_date") ?> data-field="request_date" data-field_name="<?= $this->lang->line('cr_request_date') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<div class="input-group">
 										<input class="form-control input-md" id="request_date" placeholder="YYYY/MM/DD" type="date" name="request_date" value="<?php echo $request_date; ?>" />
 									</div>
@@ -90,6 +107,7 @@
 
 								<div class="col-lg-3 form-group">
 									<label><?= $this->lang->line('cr_committee_date') ?></label>
+									<a <?= fieldStatus($view_name, $id, "committee_date") ?> data-field="committee_date" data-field_name="<?= $this->lang->line('cr_committee_date') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<div class="input-group">
 										<input class="form-control input-md" id="committee_date" placeholder="YYYY/MM/DD" type="date" name="committee_date" value="<?php echo $committee_date; ?>" />
 									</div>
@@ -99,6 +117,7 @@
 								<div class=" col-lg-12 form-group">
 									<label for="description"><?= $this->lang->line('cr_description') ?> </label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('description-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a <?= fieldStatus($view_name, $id, "description") ?> data-field="description" data-field_name="<?= $this->lang->line('cr_description') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="description" name="description" maxlength="1000"><?php echo $description; ?></textarea>
 								</div>
 
@@ -106,6 +125,7 @@
 								<div class=" col-lg-6 form-group">
 									<label for="impacted_areas"><?= $this->lang->line('cr_impacted_areas') ?> </label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('impacted_areas-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a <?= fieldStatus($view_name, $id, "impacted_areas") ?> data-field="impacted_areas" data-field_name="<?= $this->lang->line('cr_impacted_areas') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="impacted_areas" name="impacted_areas" maxlength="1000"><?php echo $impacted_areas; ?></textarea>
 								</div>
 

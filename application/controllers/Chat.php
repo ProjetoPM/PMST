@@ -9,6 +9,14 @@ class Chat extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$this->lang->load('chat', 'english');
+            $this->lang->load('project-page', 'english');
+        }else{
+			$this->lang->load('chat', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
 		
 		$this->load->model('view_model');
 		$this->load->model('log_model');
@@ -22,6 +30,11 @@ class Chat extends CI_Controller
 	}
 	public function index()
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
 
 		//$project_id['project_id'] = $project_id;
 		$project['name'] = $this->Project_model->getProjectName($_SESSION['project_id']);
@@ -69,6 +82,8 @@ class Chat extends CI_Controller
 
 	public function send_text_message()
 	{
+
+
 		$post = $this->input->post();
 		$messageTxt = 'NULL';
 		//print($post['messageTxt']);

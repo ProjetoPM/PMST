@@ -12,11 +12,18 @@ class StakeholderEngagementPlan extends CI_Controller
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }
+
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('stakeholder_mp', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('stakeholder_mp', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
         // $this->load->helper('url', 'english');
 
-        $this->lang->load('btn', 'english');
         // $this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('stakeholder_mp', 'english');
+        
         //   $this->lang->load('stakeholder_mp','portuguese-brazilian');
 
 
@@ -31,6 +38,12 @@ class StakeholderEngagementPlan extends CI_Controller
 
     function new($project_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
         $idusuario = $_SESSION['user_id'];
         $this->db->where('user_id', $idusuario);
         $this->db->where('project_id', $project_id);
@@ -51,7 +64,15 @@ class StakeholderEngagementPlan extends CI_Controller
 
     public function edit($stakeholder_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
         $query['stakeholder'] = $this->Stakeholder_model->get($stakeholder_id);
+        $dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "stakeholder engagement plan", $query['stakeholder']['stakeholder_id']);
+
         $this->load->view('frame/header_view');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');
@@ -61,6 +82,12 @@ class StakeholderEngagementPlan extends CI_Controller
 
     public function list($project_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+        
         $dado['project_id'] = $project_id;
 
         $dado['stakeholder'] = $this->Stakeholder_model->getAll($project_id);
@@ -73,6 +100,13 @@ class StakeholderEngagementPlan extends CI_Controller
 
     public function update($stakeholder_id)
     {
+
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
         $stakeholder['power'] = $this->input->post('power');
         $stakeholder['interest'] = $this->input->post('interest');
         $stakeholder['influence'] = $this->input->post('influence');
@@ -90,7 +124,7 @@ class StakeholderEngagementPlan extends CI_Controller
 
         if ($query) {
             insertLogActivity('update', 'stakeholder engagement plan');
-            $this->session->set_flashdata('success', 'Stakeholder Engagement Plan has been successfully changed!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect('stakeholder/stakeholder-engagement-plan/list/' . $stakeholder['project_id']);
         }
     }
@@ -98,10 +132,15 @@ class StakeholderEngagementPlan extends CI_Controller
 
     function insert()
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
         insertLogActivity('insert', 'stakeholder engagement plan');
         $postData = $this->input->post();
         $insert   = $this->Stakeholder_mp_model->insert($postData);
-        $this->session->set_flashdata('success', 'Stakeholder Engagement Plan has been successfully created!');
+        $this->session->set_flashdata('success', $feedback_success);
         redirect('stakeholder/stakeholder-engagement-plan/new/' . $postData['project_id']);
         echo json_encode($insert);
     }

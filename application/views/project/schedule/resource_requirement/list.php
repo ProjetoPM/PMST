@@ -31,7 +31,22 @@
 
 								<?= $this->lang->line('rr_title')  ?>
 
+								
+								<?php $view_name = "resource requirements"?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
+
 							</h1>
+
+							<div class="row">
+								<div class="col-lg-12">
+								<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>schedule/resource-requirements/new'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?> Resource Requirements</button>
+									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>schedule/resource-requirements/newr'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?> Resource</button>
+								</div>
+							</div>
+
+							<br><br>
 
 							<div class="row">
 								<div class="col-lg-12">
@@ -44,6 +59,7 @@
 												<th><?= $this->lang->line('rr_required_amount_of_resource') ?></th>
 												<th><?= $this->lang->line('rr_resource_cost_per_unit') ?></th>
 												<th><?= $this->lang->line('rr_resource_type') ?></th>
+												<th>Total Cost</th>
 
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
@@ -54,10 +70,11 @@
 											?>
 												<tr dados='<?= json_encode($a); ?>'>
 													<td><?php echo $a->activity_name; ?></td>
-													<td><?php echo $a->resource_description; ?></td>
-													<td><?php echo $a->required_amount_of_resource; ?></td>
-													<td><?php echo $a->resource_cost_per_unit; ?></td>
-													<td><?php echo $a->resource_type; ?></td>
+													<td>Computador</td>
+													<td>3</td>
+													<td>5</td>
+													<td>Eletronico</td>
+													<td>15 </td>
 
 													<td style="max-width: 20px">
 														<div class="row center">

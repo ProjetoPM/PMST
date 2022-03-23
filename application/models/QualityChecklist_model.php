@@ -15,30 +15,30 @@ class QualityChecklist_model extends CI_Model
 		return $db1+ $db2;
 	}
 
-// 	function updateQualityCheckItem($check_item, $quality_checklist_id)
-// 	{
-// 		$this->db->trans_start();
-// // var_dump($quality_checklist_id);exit;
-// 		$result = array();
-// 		$this->db->delete('quality_checklist_item', array('quality_checklist_id' => $quality_checklist_id));
-// 		if ($check_item['status'][0] != null) {
-// 			for ($j = 0; $j < count($check_item)/3; $j++) {
-// 				for ($i = 0; $i < count($check_item['comments']); $i++) {
-// 					$result[] = array(
-// 						'status' => $check_item['status'][$i],
-// 						'comments' => $check_item['comments'][$i],
-// 						'item_check' => $check_item['item_check'][$i],
-// 						'quality_checklist_id' => $quality_checklist_id,
-// 					);
-// 				}
-// 			}
+	function updateQualityCheckItem($check_item, $quality_checklist_id)
+	{
+		$this->db->trans_start();
+// var_dump($quality_checklist_id);exit;
+		$result = array();
+		$this->db->delete('quality_checklist_item', array('quality_checklist_id' => $quality_checklist_id));
+		if ($check_item['status'][0] != null) {
+			for ($j = 0; $j < count($check_item)/3; $j++) {
+				for ($i = 0; $i < count($check_item['comments']); $i++) {
+					$result[] = array(
+						'status' => $check_item['status'][$i],
+						'comments' => $check_item['comments'][$i],
+						'item_check' => $check_item['item_check'][$i],
+						'quality_checklist_id' => $quality_checklist_id,
+					);
+				}
+			}
 
-// 			//MULTIPLE INSERT TO DETAIL TABLE
-// 			$this->db->insert_batch('quality_checklist_item', $result);
-// 		}
-// 		$this->db->trans_complete();
-// 		return $result;
-// 	}
+			//MULTIPLE INSERT TO DETAIL TABLE
+			$this->db->insert_batch('quality_checklist_item', $result);
+		}
+		$this->db->trans_complete();
+		return $result;
+	}
 
 	public function get($id)
 	{

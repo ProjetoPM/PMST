@@ -17,12 +17,18 @@ class DeliverableStatus extends CI_Controller
         $this->load->helper('log_activity');
         $this->load->model('Stakeholder_model');
 
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('delivery_acceptance_term', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('delivery_acceptance_term', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
 
-        $this->lang->load('btn', 'english');
+
         // $this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('delivery_acceptance_term', 'english');
-        $this->load->model('Stakeholder_model');
-		
+        // $this->load->model('Stakeholder_model');
+
 
         // $this->lang->load('manage-cost','portuguese-brazilian');
 
@@ -30,13 +36,19 @@ class DeliverableStatus extends CI_Controller
 
     public function new($project_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('btn', 'english');
+        } else {
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+        
         $dado['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
         $idusuario = $_SESSION['user_id'];
         $this->db->where('user_id', $idusuario);
         $this->db->where('project_id', $project_id);
         $project['dados'] = $this->db->get('project_user')->result();
-
-
+        
+        
         if (count($project['dados']) > 0) {
             $dado['stakeholders'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
             $dado['project_id'] = $project_id;
@@ -48,20 +60,21 @@ class DeliverableStatus extends CI_Controller
             redirect(base_url());
         }
     }
-
+    
     public function delete($id)
     {
-        $project_id['project_id'] = $this->input->post('project_id');
-        //var_dump($id);exit;die;
+        // $project_id['project_id'] = $this->input->post('project_id');
         $query = $this->Delivery_acceptance_term_model->delete($id);
         if ($query) {
             insertLogActivity('delete', 'deliverable status');
-            redirect('integration/deliverable-status/list/' . $_SESSION['project_id']);
+            // $this->session->set_flashdata('error', 'Deliverable Status has been deleted!');
+            // redirect('integration/deliverable-status/list/' . $_SESSION['project_id']);
         }
     }
-
+    
     public function list($project_id)
     {
+        $dado['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
         $dado['project_id'] = $project_id;
         $dado['delivery_acceptance_term'] = $this->Delivery_acceptance_term_model->getAll($project_id);
         $this->load->view('frame/header_view');
@@ -71,20 +84,31 @@ class DeliverableStatus extends CI_Controller
     }
 
 
-    public function edit($project_id)
+    public function edit($id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('btn', 'english');
+        } else {
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
         $query['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
         $query['delivery_acceptance_term'] = $this->Delivery_acceptance_term_model->get($project_id);
+        
+        $dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "deliverable status", $query['delivery_acceptance_term']['id']);
+
         $this->load->view('frame/header_view');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/integration/delivery_acceptance_term/edit', $query);
     }
 
-
-
     public function update($project_id)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
 
         $delivery_acceptance_term['validator_name'] = $this->input->post('validator_name');
         $delivery_acceptance_term['role'] = $this->input->post('role');
@@ -99,13 +123,19 @@ class DeliverableStatus extends CI_Controller
 
         if ($query) {
             insertLogActivity('update', 'deliverable status');
-            $this->session->set_flashdata('success', 'Deliverable Status has been successfully changed!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect('integration/deliverable-status/list/' . $delivery_acceptance_term['project_id']);
         }
     }
 
     public function insert($project_id)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
         $delivery_acceptance_term['validator_name'] = $this->input->post('validator_name');
         $delivery_acceptance_term['role'] = $this->input->post('role');
         $delivery_acceptance_term['function'] = $this->input->post('function');
@@ -118,7 +148,7 @@ class DeliverableStatus extends CI_Controller
 
         if ($query) {
             insertLogActivity('insert', 'deliverable status');
-            $this->session->set_flashdata('success', 'Deliverable Status has been successfully created!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect('integration/deliverable-status/list/' . $delivery_acceptance_term['project_id']);
         }
     }

@@ -10,21 +10,35 @@ class CostManagementPlan extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('manage-cost', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('manage-cost', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
 		$this->load->helper('url');
 		$this->load->model('Cost_model');
 		$this->load->model('view_model');
 		$this->load->model('log_model');
 		$this->load->helper('log_activity');
 
-		$this->lang->load('btn', 'english');
 		// $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('manage-cost', 'english');
+		
 		// $this->lang->load('manage-cost','portuguese-brazilian');
 
 	}
 
 	public function new($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
@@ -47,6 +61,12 @@ class CostManagementPlan extends CI_Controller
 
 	public function edit($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
@@ -56,6 +76,7 @@ class CostManagementPlan extends CI_Controller
 			if ($dado['cost_mp'] == null) {
 				redirect("cost/cost-mp/new/" . $_SESSION['project_id']);
 			}
+			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "cost management plan", $dado['cost_mp'][0]->cost_mp_id);
 
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
@@ -68,16 +89,29 @@ class CostManagementPlan extends CI_Controller
 
 	function insert()
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
 		insertLogActivity('insert', 'cost management plan');
 		$postData = $this->input->post();
 		$insert   = $this->Cost_model->insert($postData);
-		$this->session->set_flashdata('success', 'Cost Management Plan has been successfully created!');
+		$this->session->set_flashdata('success', $feedback_success);
 		redirect('cost/cost-mp/edit/' . $postData['project_id']);
 		echo json_encode($insert);
 	}
 
 	public function update()
 	{
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		insertLogActivity('update', 'cost management plan');
 
 		$cost_mp['project_costs_m'] = $this->input->post('project_costs_m');
@@ -95,7 +129,7 @@ class CostManagementPlan extends CI_Controller
 
 		//$insert = $this->project_model->insert_project_pgq($quality_mp);
 		$query = $this->Cost_model->update($cost_mp, $_SESSION['project_id']);
-		$this->session->set_flashdata('success', 'Cost Management Plan has been successfully changed!');
+		$this->session->set_flashdata('success', $feedback_success);
 		redirect('cost/cost-mp/edit/' . $_SESSION['project_id']);
 	}
 }

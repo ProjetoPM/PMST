@@ -28,6 +28,11 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 								<?= $this->lang->line('al_title')  ?>
+
+								<?php $view_name = "activity list"?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
 							</h1>
 							<div class="row">
 								<div class="col-lg-12">

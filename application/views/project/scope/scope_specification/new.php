@@ -26,14 +26,14 @@
             <div class="panel-body">
               <h1 class="page-header">
 
-                <?= $this->lang->line('pss_title')  ?>
+                <?= $this->lang->line('pss-title')  ?>
 
               </h1>
 
               <form method="POST" action="<?php echo base_url('scope/project-scope-statement/insert'); ?>">
 
               <div class=" col-lg-12 form-group">
-									<label for="scope_description"><?= $this->lang->line('pss_desc') ?></label>
+									<label for="scope_description"><?= $this->lang->line('pss-desc') ?></label>
 									<span class="pss_1">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="pss_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pss_desc_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
@@ -43,7 +43,7 @@
 
 
                 <div class="col-lg-12 form-group">
-                  <label for="acceptance_criteria"><?= $this->lang->line('pss_accept') ?></label>
+                  <label for="acceptance_criteria"><?= $this->lang->line('pss-accept') ?></label>
                   <span class="pss_2">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" id="pss_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pss_accept_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
@@ -53,7 +53,7 @@
 
 
                 <div class="col-lg-12 form-group">
-                  <label for="deliveries"><?= $this->lang->line('pss_deli') ?></label>
+                  <label for="deliveries"><?= $this->lang->line('pss-deli') ?></label>
                   <span class="pss_3">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" id="pss_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pss_deli_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
@@ -63,7 +63,7 @@
 
 
                 <div class=" col-lg-12 form-group">
-                  <label for="exclusions"><?= $this->lang->line('pss_exclu') ?></label>
+                  <label for="exclusions"><?= $this->lang->line('pss-exclu') ?></label>
                   <span class="pss_4">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" id="pss_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pss_exclu_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>

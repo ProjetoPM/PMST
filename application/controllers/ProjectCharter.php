@@ -14,11 +14,17 @@ class ProjectCharter extends CI_Controller
 			redirect(base_url());
 		}
 
-		//$this->load->helper('url');
-		$this->lang->load('btn', 'english');
-		//$this->lang->load('btn', 'portuguese-brazilian');
-		$this->lang->load('tap', 'english');
-		//$this->lang->load('tap', 'portuguese-brazilian');
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$this->lang->load('project-page', 'english');
+			$this->lang->load('btn', 'english');
+			$this->lang->load('tap', 'english');
+		}else{
+			$this->lang->load('project-page', 'portuguese-brazilian');
+			$this->lang->load('btn', 'portuguese-brazilian');
+			$this->lang->load('tap', 'portuguese-brazilian');
+		}
+
+
 		$this->load->model('Project_Charter_model');
 		$this->load->model('log_model');
 		$this->load->model('Stakeholder_mp_model');
@@ -56,9 +62,7 @@ class ProjectCharter extends CI_Controller
 
 	public function edit($project_id)
 	{
-		// var_dump($_SESSION['project']);
-		// die;
-		// exit;
+	
 		$this->db->where('user_id', $_SESSION['user_id']);
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
@@ -74,6 +78,8 @@ class ProjectCharter extends CI_Controller
 			$dado['items'] = $this->view_model->getAllSignature($dado['items'][0]);
 
 			$dado['stakeholder'] = $this->Project_Charter_model->getAllStk();
+
+			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "project charter", $dado['project_charter'][0]->project_charter_id);
 			//$dado['stakeholder_mp'] = $this->Project_Charter_model->getAllStk_mp();
 
 			$this->load->view('frame/header_view');
@@ -87,15 +93,24 @@ class ProjectCharter extends CI_Controller
 
 	public function insert()
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+			$feedback_permission = 'You are not allowed to create or change documents!';
+        }else{
+			$feedback_success = 'Item Criado ';
+			$feedback_permission = 'Você não tem permissão para criar ou mudar documentos';
+
+		}
+
 		if ($_SESSION['access_level'] == "1") {
-			$this->session->set_flashdata('error', 'You are not allowed to create or change documents!');
+			$this->session->set_flashdata('error', $feedback_permission);
 			redirect("integration/project-charter/new/" . $_SESSION['project_id']);
 		}
 		
 		$postData = $this->input->post();
 		$insert   = $this->Project_Charter_model->insert($postData);
 		if ($insert) {
-			$this->session->set_flashdata('success', 'Project Charter has been successfully created!');
+			$this->session->set_flashdata('success', $feedback_success);
 		}
 		redirect("integration/project-charter/edit/" . $postData['project_id']);
 		echo json_encode($insert);
@@ -103,6 +118,12 @@ class ProjectCharter extends CI_Controller
 
 	public function update()
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		if ($_SESSION['acess_level'] == 1) {
 			$this->session->set_flashdata('error', 'You are not allowed to create or change documents!');
 			redirect("integration/project-charter/edit/" . $_SESSION['project_id']);
@@ -132,7 +153,7 @@ class ProjectCharter extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('update', 'project charter');
-			$this->session->set_flashdata('success', 'Project Charter has been successfully changed!');
+			$this->session->set_flashdata('success', $feedback_success);
 
 			redirect("integration/project-charter/edit/" . $_SESSION['project_id']);
 		}

@@ -26,6 +26,12 @@ class Project extends CI_Controller
 		$this->load->helper('url');
 		$this->load->helper('log_activity');
 		$this->load->model('project_model');
+		
+		// if(strcmp($_SESSION['language'],"US") == 0){
+        //     $this->lang->load('btn', 'english');
+        // }else{
+        //     $this->lang->load('btn', 'portuguese-brazilian');
+        // }
 	}
 
 	private function ajax_checking()
@@ -37,6 +43,15 @@ class Project extends CI_Controller
 
 	public function project_form()
 	{
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+			$this->lang->load('project-page', 'english');
+        }else{
+            $this->lang->load('btn', 'portuguese-brazilian');
+			$this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
 		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
 		$data = array(
@@ -44,10 +59,14 @@ class Project extends CI_Controller
 			'title' => 'New Project'
 		);
 
-		$this->lang->load('btn', 'english');
-		// $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('new-project', 'english');
-		// $this->lang->load('new-project','portuguese-brazilian');
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+			$this->lang->load('new-project', 'english');
+        }else{
+            $this->lang->load('btn', 'portuguese-brazilian');
+			$this->lang->load('new-project','portuguese-brazilian');
+        }
+
 
 		$this->load->helper('url');
 		$this->load->view('frame/header_view');
@@ -60,6 +79,7 @@ class Project extends CI_Controller
 
 	function add_project()
 	{
+
 		//$this->ajax_checking();
 		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
@@ -123,6 +143,13 @@ class Project extends CI_Controller
 	//passando id como parametro
 	public function add_researcher_page($project_id = null)
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+		$this->lang->load('btn', 'english');
+		$this->lang->load('project-page', 'english');
+	}else{
+		$this->lang->load('btn', 'portuguese-brazilian');
+		$this->lang->load('project-page', 'portuguese-brazilian');
+	}
 		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
 		$this->db->where('project_id', $project_id);
@@ -258,6 +285,16 @@ class Project extends CI_Controller
 		$_SESSION['project_name'] = null;
 		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
+
+		
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+			$this->lang->load('project-page', 'english');
+        }else{
+            $this->lang->load('btn', 'portuguese-brazilian');
+			$this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
 		$dataproject['project'] = $this->db->get_where('project', array(
 			'created_by' => $this->session->userdata('user_id')
 		))->result();
@@ -284,6 +321,12 @@ class Project extends CI_Controller
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->parser->parse('project/my_projects', $dataproject);
+
+		// if(strcmp($_SESSION['language'],"US") == 0){
+        //     $this->lang->load('btn', 'english');
+        // }else{
+        //     $this->lang->load('btn', 'portuguese-brazilian');
+        // }
 		// $this->load->view('construction_services/chat_template', $dataproject);
 
 	}
@@ -384,7 +427,15 @@ class Project extends CI_Controller
 			$this->db->join('user', 'user.user_id = project_user.user_id');
 			$dataproject['members'] = $this->db->get('project_user')->result();
 
-			$this->lang->load('project-page', 'english');
+			if(strcmp($_SESSION['language'],"US") == 0){
+				$this->lang->load('project-page', 'english');
+				$this->lang->load('btn', 'english');
+			}else{
+				$this->lang->load('project-page', 'portuguese-brazilian');
+				$this->lang->load('btn', 'portuguese-brazilian');
+			}
+
+			
 			// $this->lang->load('project-page','portuguese-brazilian');   
 
 			$this->load->view('frame/header_view');

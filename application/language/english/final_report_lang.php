@@ -14,13 +14,13 @@ $lang['fr-summary_results'] = 'Summary of Results Achieved the Business Needs';
 $lang['fr-summary_risks'] = 'Summary Risks or Issues';
 
 //Tooltip
-$lang['fr-description_tp'] = '';
-$lang['fr-scope_tp'] = '';
-$lang['fr-quality_objectives_tp'] = '';
-$lang['fr-cost_objectives_tp'] = '';
-$lang['fr-schedule_objectives_tp'] = '';
-$lang['fr-summary_validation_tp'] = '';
-$lang['fr-summary_results_tp'] = '';
-$lang['fr-summary_risks_tp'] = '';
+$lang['fr-description-tp'] = '';
+$lang['fr-scope-tp'] = '';
+$lang['fr-quality_objectives-tp'] = '';
+$lang['fr-cost_objectives-tp'] = '';
+$lang['fr-schedule_objectives-tp'] = '';
+$lang['fr-summary_validation-tp'] = '';
+$lang['fr-summary_results-tp'] = '';
+$lang['fr-summary_risks-tp'] = '';
 
 ?>

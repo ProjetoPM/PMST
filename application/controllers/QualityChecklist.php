@@ -13,9 +13,17 @@ class QualityChecklist extends CI_Controller
 			redirect(base_url());
 		}
 
-		$this->lang->load('btn', 'english');
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('quality_checklist', 'english');
+            $this->lang->load('risk-mp', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+			$this->lang->load('quality_checklist', 'portuguese-brazilian');
+            $this->lang->load('risk-mp', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
 		//$this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('risk-mp', 'english');
 		//$this->lang->load('risk-mp','portuguese-brazilian');
 
 		$this->load->model('Project_model');
@@ -28,6 +36,13 @@ class QualityChecklist extends CI_Controller
 
 	public function list($project_id)
 	{
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
 		$dado['project_id'] = $project_id;
 		$dado['quality_check'] = $this->QualityChecklist_model->getAll($project_id);
 
@@ -39,12 +54,24 @@ class QualityChecklist extends CI_Controller
 
 	public function edit($quality_checklist_id)
 	{
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
 		// Verificando se o usuario logado tem acesso a esse projeto
 		$dado['quality_check'] = $this->QualityChecklist_model->get($quality_checklist_id);
+
+		$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "quality checklist", $dado['quality_check']['quality_checklist_id']);
+
 		$dado['quality_itens'] = $this->QualityChecklist_model->getAllItens($quality_checklist_id);
+
+
 
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
@@ -54,6 +81,13 @@ class QualityChecklist extends CI_Controller
 
 	public function new($project_id)
 	{
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();

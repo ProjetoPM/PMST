@@ -11,13 +11,20 @@ class FinalReport extends CI_Controller
 			redirect(base_url());
 		}
 
+		if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('final_report', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('final_report', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+		
 		// $this->load->helper('url', 'english');
-
-		$this->lang->load('btn', 'english');
+		
+		
 		// $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('final_report', 'english');
 		// $this->lang->load('quality_mp','portuguese-brazilian');
-
+		
 		$this->load->model('view_model');
 		$this->load->model('Project_model');
 		$this->load->model('log_model');
@@ -25,14 +32,20 @@ class FinalReport extends CI_Controller
 		$this->load->model('Final_report_model');
 		$this->load->helper('log_activity');
 	}
-
+	
 	public function new($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
 		// Verificando se o usuario logado tem acesso a esse projeto
-
+		
 		if (count($project['dados']) > 0) {
 			$dado['final_report'] = $this->Final_report_model->get($_SESSION['project_id']);
 			if ($dado['final_report'] != null) {
@@ -46,9 +59,15 @@ class FinalReport extends CI_Controller
 			redirect(base_url());
 		}
 	}
-
+	
 	public function edit($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
@@ -58,6 +77,7 @@ class FinalReport extends CI_Controller
 			if ($dado['final_report'] == null) {
 				redirect(base_url("integration/final-report/new/" . $_SESSION['project_id']));
 			}
+			// var_dump($dado['final_report']);exit;
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');
@@ -78,6 +98,7 @@ class FinalReport extends CI_Controller
 		$final_report['summary_validation'] = $this->input->post('summary_validation');
 		$final_report['summary_results'] = $this->input->post('summary_results');
 		$final_report['summary_risks'] = $this->input->post('summary_risks');
+		$final_report['project_id'] = $_SESSION['project_id'];
 
 		$insert = $this->Final_report_model->insert($final_report);
 		if ($insert) {

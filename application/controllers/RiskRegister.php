@@ -10,6 +10,16 @@ class RiskRegister extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
+
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('risk', 'english');
+			$this->lang->load('project-page', 'english');
+		} else {
+			$this->lang->load('risk', 'portuguese-brazilian');
+			$this->lang->load('project-page', 'portuguese-brazilian');
+		}
+
 		$this->load->helper('url');
 		$this->load->model('Risk_model');
 		$this->load->model('view_model');
@@ -17,15 +27,23 @@ class RiskRegister extends CI_Controller
 		$this->load->helper('log_activity');
 
 
-		$this->lang->load('btn', 'english');
-		// $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('risk', 'english');
-		// $this->lang->load('risk','portuguese-brazilian');
-
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('risk', 'english');
+			$this->lang->load('project-page', 'english');
+		} else {
+			$this->lang->load('risk', 'portuguese-brazilian');
+			$this->lang->load('project-page', 'portuguese-brazilian');
+		}
 	}
 
 	public function list($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
 		$dado['project_id'] = $project_id;
 
 		$dado['risk_register'] = $this->Risk_model->getAll($project_id);
@@ -37,6 +55,12 @@ class RiskRegister extends CI_Controller
 
 	public function new($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
 		$idusuario = $_SESSION['user_id'];
 		$this->db->where('user_id', $idusuario);
 		$this->db->where('project_id', $project_id);
@@ -55,8 +79,15 @@ class RiskRegister extends CI_Controller
 
 	public function edit($risk_register_id)
 	{
-
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
 		$query['risk_register'] = $this->Risk_model->get($risk_register_id);
+
+		$query["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "risk register", $query['risk_register']['risk_register_id']);
+		
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view.php');
@@ -65,6 +96,12 @@ class RiskRegister extends CI_Controller
 
 	public function insert($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$feedback_success = 'Item Created';
+		} else {
+			$feedback_success = 'Item Criado ';
+		}
+
 		$risk_register['impacted_objective'] = $this->input->post('impacted_objective');
 		$risk_register['priority'] = $this->input->post('priority');
 		$risk_register['risk_status'] = $this->input->post('risk_status');
@@ -96,13 +133,19 @@ class RiskRegister extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('insert', 'risk register');
-			$this->session->set_flashdata('success', 'Risk Register has been successfully created!');
+			$this->session->set_flashdata('success', $feedback_success);
 			redirect('risk/risk-register/list/' . $risk_register['project_id']);
 		}
 	}
 
 	public function update($risk_register_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$feedback_success = 'Item Updated';
+		} else {
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		$risk_register['impacted_objective'] = $this->input->post('impacted_objective');
 		$risk_register['priority'] = $this->input->post('priority');
 		$risk_register['risk_status'] = $this->input->post('risk_status');
@@ -135,7 +178,7 @@ class RiskRegister extends CI_Controller
 
 		if ($query) {
 			insertLogActivity('update', 'risk register');
-			$this->session->set_flashdata('success', 'Risk Register has been successfully changed!');
+			$this->session->set_flashdata('success', $feedback_success);
 			redirect('risk/risk-register/list/' . $risk_register['project_id']);
 		}
 	}

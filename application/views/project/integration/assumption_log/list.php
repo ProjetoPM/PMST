@@ -79,11 +79,9 @@
 							</h1>
 
 							<div class="row">
-								<div class="col-lg-3">
-									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>integration/assumption-log/new-assumption/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i> New Assumption</button>
-								</div>
-								<div class="col-lg-3">
-									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>integration/assumption-log/new-constraint/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i> New Constraint</button>
+								<div class="col-lg-12">
+									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>integration/assumption-log/new-assumption/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i><?= $this->lang->line('acl_new_assumption')?></button>
+									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>integration/assumption-log/new-constraint/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i><?= $this->lang->line('acl_new_constraint')?></button>
 								</div>
 							</div>
 
@@ -94,9 +92,9 @@
 									<table class="table table-bordered table-striped" id="table_assumption">
 										<thead>
 											<tr>
-												<th>Type</th>
-												<th>Description</th>
-												<th><?= $this->lang->line('btn-actions') ?></th>
+												<th><?= $this->lang->line('acl_type') ?></th>
+												<th><?= $this->lang->line('acl_description') ?></th>
+												<th><?= $this->lang->line('actions') ?></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -104,10 +102,10 @@
 											foreach ($assumption_log as $item) {
 											?>
 												<tr>
-													<td><?= $item->type == "A" ? "Assumption" : "Constraint"; ?></td>
+													<td><?= $item->type == "A" ? $this->lang->line('acl_assumption') : $this->lang->line('acl_constraint'); ?></td>
 													<td> <span class="texttd"><?php echo $item->description_log; ?></span></td>
-													
-													<td style="display: fixed;min-width: 100px;">
+
+													<td <?= getStatusFieldsList("assumption log", $item->assumption_log_id) ?>>
 														<div class="row center">
 															<div class="col-sm-4">
 																<form action="<?php echo base_url() ?>integration/assumption-log/edit/<?php echo $item->assumption_log_id; ?>" method="post">

@@ -57,9 +57,12 @@
 										<tbody>
 											<?php
 											foreach ($delivery_acceptance_term as $delivery) {
+												foreach ($stakeholder as $s)
+													if ($s->stakeholder_id == $delivery->validator_name)
+
 											?>
 												<tr dados='<?= json_encode($delivery); ?>'>
-													<td><?php echo getStakeholderName($delivery->validator_name) ?></td>
+													<td><?php echo getStakeholderName($s->stakeholder_id) ?></td>
 													<td><?php echo $delivery->validation_date; ?></td>
 													<td><?php echo $delivery->comments; ?></td>
 
@@ -73,10 +76,7 @@
 															</div>
 
 															<div class="col-sm-3">
-																<!--<form action="<?php echo base_url() ?>Team_Performance_Evaluation/delete/<?php echo $delivery->id; ?>" method="post">
-												<input type="hidden" name="project_id" value="<?= $delivery->project_id ?>"> -->
 																<button type="submit" class="btn btn-danger" onclick="deletar(<?= $delivery->project_id ?>, <?= $delivery->id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
-																<!-- </form> -->
 															</div>
 
 															<div class="col-sm-3">
@@ -176,14 +176,10 @@
 			'reverseButtons': false,
 			'onok': function() {
 
-				console.log(`Passei o ${idProjeto} e ${id}`);
-
-				$.post("<?php echo base_url() ?>integration/deliverable-status/delete/" + id, {
-					project_id: idProjeto,
-				});
+				$.post("<?php echo base_url() ?>integration/deliverable-status/delete/" + id);
 
 				alertify.success('You agree.');
-				location.reload();
+				window.location = window.location.pathname;
 				//location.reload();
 			},
 			'oncancel': function() {

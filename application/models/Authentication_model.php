@@ -9,6 +9,27 @@ class Authentication_model extends CI_Model {
         parent::__construct();
     }
 
+    // function getUserId($user_id)
+    // {
+    //     $this->db->select('role');
+    //     $this->db->where('user_id', $user_id);
+    //     $this->db->from('user');
+    //     $this->db->limit(1);
+    //     $query = $this->db->get();
+    //     $res = $query->row_array();
+    //     return $res['role'];
+    // }
+
+    function getUserRole($user_id)
+    {
+        $this->db->select('role');
+        $this->db->where('user_id', $user_id);
+        $this->db->from('user');
+        $this->db->limit(1);
+        $query = $this->db->get();
+        $res = $query->row_array();
+        return $res['role'];
+    }
 
     function validate_login($postData){
         $this->db->select('*');

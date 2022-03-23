@@ -30,11 +30,16 @@
 
 								<?= $this->lang->line('psw_title')  ?>
 
+								<?php $view_name = "procurement statement of the work"; ?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
+
 							</h1>
 
 							<div class="row">
 								<div class="col-lg-12">
-									<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>procurement/procurement-statement-of-work/new/<?php echo $project_id ?>'"> <?= $this->lang->line('btn-new') ?> <?= $this->lang->line('procurement-registration') ?></button>
+									<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>procurement/procurement-statement-of-work/new/<?php echo $project_id ?>'"> <?= $this->lang->line('btn-new2') ?> <?= $this->lang->line('psw_title') ?></button>
 
 								</div>
 							</div>
@@ -68,7 +73,7 @@
 													<td><?php echo $procurement_statement_of_work->selection_criterias; ?></td>
 
 
-													<td>
+													<td <?= getStatusFieldsList("procurement statement of the work", $procurement_statement_of_work->id) ?>>
 														<div class="row center">
 															<div class="col-sm-4">
 																<form action="<?php echo base_url() ?>procurement/procurement-statement-of-work/edit/<?php echo $procurement_statement_of_work->id; ?>" method="post">

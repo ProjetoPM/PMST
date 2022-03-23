@@ -17,9 +17,13 @@ class AssumptionLog extends CI_Controller
         $this->load->helper('log_activity');
 
 
-        $this->lang->load('btn', 'english');
-        // $this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('assumption_log', 'english');
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('assumption_log', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('assumption_log', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
 
         // $this->lang->load('manage-cost','portuguese-brazilian');
 
@@ -27,6 +31,13 @@ class AssumptionLog extends CI_Controller
 
     public function new_assumption($project_id)
     {
+
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('btn', 'english');
+        } else {
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+
         $idusuario = $_SESSION['user_id'];
         $this->db->where('user_id', $idusuario);
         $this->db->where('project_id', $_SESSION['project_id']);
@@ -46,7 +57,13 @@ class AssumptionLog extends CI_Controller
 
     public function new_constraint($project_id)
     {
-        $idusuario = $_SESSION['user_id']; 
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('btn', 'english');
+        } else {
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+
+        $idusuario = $_SESSION['user_id'];
         $this->db->where('user_id', $idusuario);
         $this->db->where('project_id', $_SESSION['project_id']);
         $project['dados'] = $this->db->get('project_user')->result();
@@ -76,25 +93,47 @@ class AssumptionLog extends CI_Controller
 
     public function list($project_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('btn', 'english');
+        } else {
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+
         $dado['project_id'] = $_SESSION['project_id'];
         $dado['assumption_log'] = $this->Assumption_log_model->getAll($_SESSION['project_id']);
         $this->load->view('frame/header_view');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');
+
         $this->load->view('project/integration/assumption_log/list', $dado);
     }
 
 
     public function edit($assumption_log_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('btn', 'english');
+        } else {
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+
         $query['assumption_log'] = $this->Assumption_log_model->get($assumption_log_id);
+        $query["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "assumption log", $query['assumption_log']['assumption_log_id']);
+       
         $this->load->view('frame/header_view.php');
+        $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view.php');
         $this->load->view('project/integration/assumption_log/edit', $query);
     }
 
     public function update($assumption_log_id)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
         $assumption_log['description_log'] = $this->input->post('description_log');
         // $assumption_log['type'] = $this->input->post('type');
         $assumption_log['project_id'] = $_SESSION['project_id'];
@@ -102,7 +141,7 @@ class AssumptionLog extends CI_Controller
 
         if ($query) {
             insertLogActivity('update', 'assumption log');
-            $this->session->set_flashdata('success', 'Assumption Log has been successfully changed!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect('integration/assumption-log/list/' . $_SESSION['project_id']);
         }
     }
@@ -110,6 +149,12 @@ class AssumptionLog extends CI_Controller
 
     public function insert($project_id)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
         $assumption_log['description_log'] = $this->input->post('description_log');
         $assumption_log['type'] = $this->input->post('type');
         $assumption_log['project_id'] = $_SESSION['project_id'];
@@ -117,7 +162,7 @@ class AssumptionLog extends CI_Controller
 
         if ($query) {
             insertLogActivity('insert', 'assumption log');
-            $this->session->set_flashdata('success', 'Assumption Log has been successfully created!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect('integration/assumption-log/list/' . $_SESSION['project_id']);
         }
     }

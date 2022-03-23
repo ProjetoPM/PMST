@@ -12,14 +12,23 @@ class IssueLog extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
-		if ($_SESSION['access_level'] == "0" ) {
+		if ($_SESSION['access_level'] == "0") {
 			$this->session->set_flashdata('error3', 'You do not have permission to access this document!');
-			redirect('project/'. $_SESSION['project_id']);
-		 }
+			redirect('project/' . $_SESSION['project_id']);
+		}
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('issues_record', 'english');
+			$this->lang->load('project-page', 'english');
+		} else {
+			$this->lang->load('issues_record', 'portuguese-brazilian');
+			$this->lang->load('project-page', 'portuguese-brazilian');
+		}
+
+
 		//$this->load->helper('url');
 		$this->lang->load('btn', 'english');
 		//$this->lang->load('btn', 'portuguese-brazilian');
-		$this->lang->load('issues_record', 'english');
 		//$this->lang->load('issues_record', 'portuguese-brazilian');
 		$this->load->model('Issues_record_model');
 		$this->load->model('view_model');
@@ -31,6 +40,12 @@ class IssueLog extends CI_Controller
 
 	public function list($project_id)
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+        }else{
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+
 		$query['issues_record'] = $this->Issues_record_model->getAll($_SESSION['project_id']);
 		$query['project_id'] = $_SESSION['project_id'];
 		$this->load->view('frame/header_view');
@@ -41,6 +56,12 @@ class IssueLog extends CI_Controller
 
 	public function new($project_id)
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+        }else{
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+
 		$query['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
 		$idusuario = $_SESSION['user_id'];
 		$this->db->where('user_id', $idusuario);
@@ -83,10 +104,17 @@ class IssueLog extends CI_Controller
 
 	public function edit($issues_record_id)
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+        }else{
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+		
 		$query['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
 		//query = array de objetos
 		//issues_record = objeto do array query
 		$query['issues_record'] = $this->Issues_record_model->get($issues_record_id);
+		$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "issue log", $query['issues_record']['issues_record_id']);
 		//var_dump($query);
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');

@@ -74,13 +74,13 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-								Quality Checklist
+							<?= $this->lang->line('qc_title')?>
 
 							</h1>
 
 							<div class="row">
 								<div class="col-lg-3">
-									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>quality/quality-checklist/new/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i> New Quality Checklist Item</button>
+									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>quality/quality-checklist/new/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i><?= $this->lang->line('qc_new_item')?></button>
 								</div>
 							</div>
 
@@ -91,10 +91,10 @@
 									<table class="table table-bordered table-striped" id="table_quality_check">
 										<thead>
 											<tr>
-												<th>Verified Product, Process or Activity</th>
-												<th>Guidelines / Comments</th>
-												<th>Responsible for Verification</th>
-												<th style="text-align:center">Verification date</th>
+												<th><?= $this->lang->line('qc_product')?></th>
+												<th><?= $this->lang->line('qc_guidelines')?></th>
+												<th><?= $this->lang->line('qc_responsible')?></th>
+												<th style="text-align:center"><?= $this->lang->line('qc_verification_date')?></th>
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
 										</thead>
@@ -109,7 +109,7 @@
 													<td style="display: fixed;min-width: 15px;text-align:center"><?php echo $item->date; ?></td>
 													
 													
-													<td style="display: fixed;min-width: 100px;">
+													<td <?= getStatusFieldsList("quality checklist", $item->quality_checklist_id) ?> style="display: fixed;min-width: 100px;">
 														<div class="row center">
 															<div class="col-sm-4">
 																<form action="<?php echo base_url() ?>quality/quality-checklist/edit/<?php echo $item->quality_checklist_id; ?>" method="post">

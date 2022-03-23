@@ -100,6 +100,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
+$route['weekly-report/new/(:num)'] = "WeeklyReport/new/$1";
+$route['weekly-report/insert'] = "WeeklyReport/insert";
 
 $route['integration/project-charter/new/(:num)'] = "ProjectCharter/new/$1";
 $route['integration/project-charter/edit/(:num)'] = "ProjectCharter/edit/$1";

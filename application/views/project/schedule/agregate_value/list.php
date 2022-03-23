@@ -30,7 +30,20 @@
 
 								<?= $this->lang->line('av_title')  ?>
 
+								<?php $view_name = "earned value management"?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
+
 							</h1>
+							<div class="row">
+								<div class="col-lg-12">
+									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>schedule/earned-value-management/new'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
+									<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#upload"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-upload') ?></button>
+								</div>
+							</div>
+
+							<br><br>
 
 							<div class="row">
 								<div class="col-lg-12">

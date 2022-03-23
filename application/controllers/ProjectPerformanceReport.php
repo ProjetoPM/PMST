@@ -10,6 +10,16 @@ class ProjectPerformanceReport extends CI_Controller
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }
+
+
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('project_performance_report', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('project_performance_report', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
         $this->load->helper('url');
         $this->load->model('Project_performance_report_model');
         $this->load->model('view_model');
@@ -17,9 +27,9 @@ class ProjectPerformanceReport extends CI_Controller
         $this->load->helper('log_activity');
 
 
-        $this->lang->load('btn', 'english');
+        
         // $this->lang->load('btn','portuguese-brazilian');
-        $this->lang->load('project_performance_report', 'english');
+
 
         // $this->lang->load('manage-cost','portuguese-brazilian');
 
@@ -27,6 +37,12 @@ class ProjectPerformanceReport extends CI_Controller
 
     public function new($project_id)
     {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('btn', 'english');
+        } else {
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+
         $idusuario = $_SESSION['user_id'];
         $this->db->where('user_id', $idusuario);
         $this->db->where('project_id', $project_id);
@@ -67,6 +83,9 @@ class ProjectPerformanceReport extends CI_Controller
     public function edit($project_id)
     {
         $query['project_performance_report'] = $this->Project_performance_report_model->get($project_id);
+
+        $dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "project performance and monitoring report", $query['project_performance_report']['id']);
+
         $this->load->view('frame/header_view.php');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view.php');
@@ -77,6 +96,12 @@ class ProjectPerformanceReport extends CI_Controller
 
     public function update($project_id)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+        
         $project_performance_report['date'] = $this->input->post('date');
         $project_performance_report['current_performance_analysis'] = $this->input->post('current_performance_analysis');
         $project_performance_report['planned_forecasts'] = $this->input->post('planned_forecasts');
@@ -96,13 +121,19 @@ class ProjectPerformanceReport extends CI_Controller
 
         if ($query) {
             insertLogActivity('update', 'project performance and monitoring report');
-            $this->session->set_flashdata('success', 'Project Performance and Monitoring Report has been successfully changed!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect('integration/project-performance-report/list/' . $project_performance_report['project_id']);
         }
     }
 
     public function insert($project_id)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
         $project_performance_report['date'] = $this->input->post('date');
         $project_performance_report['current_performance_analysis'] = $this->input->post('current_performance_analysis');
         $project_performance_report['planned_forecasts'] = $this->input->post('planned_forecasts');
@@ -122,7 +153,7 @@ class ProjectPerformanceReport extends CI_Controller
 
         if ($query) {
             insertLogActivity('insert', 'project performance and monitoring report');
-            $this->session->set_flashdata('success', 'Project Performance and Monitoring Report has been successfully created!');
+            $this->session->set_flashdata('success', $feedback_success);
             redirect('integration/project-performance-report/list/' . $project_performance_report['project_id']);
         }
     }

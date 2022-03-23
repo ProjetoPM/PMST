@@ -13,10 +13,14 @@ class BusinessCase extends CI_Controller
 
 		// $this->load->helper('url', 'english');
 
-		$this->lang->load('btn', 'english');
-		// $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('business_case', 'english');
-		// $this->lang->load('quality_mp','portuguese-brazilian');
+		
+        if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('business_case', 'english');
+            $this->lang->load('project-page', 'english');
+        }else{
+            $this->lang->load('business_case', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
 
 		$this->load->model('view_model');
 		$this->load->model('Project_model');
@@ -28,6 +32,13 @@ class BusinessCase extends CI_Controller
 
 	public function new($project_id)
 	{
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+        }else{
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
@@ -49,6 +60,7 @@ class BusinessCase extends CI_Controller
 
 	public function edit($project_id)
 	{
+		
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
@@ -57,7 +69,8 @@ class BusinessCase extends CI_Controller
 			$dado['business_case'] = $this->Business_case_model->get($_SESSION['project_id']);
 			if ($dado['business_case'] == null) {
 				redirect(base_url("integration/business-case/new/" . $_SESSION['project_id']));
-			}
+			}	$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "business case", $dado['business_case'][0]->business_case_id);
+		
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');
@@ -70,6 +83,12 @@ class BusinessCase extends CI_Controller
 
 	function insert()
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
 		$business_case['business_deals'] = $this->input->post('business_deals');
 		$business_case['situation_analysis'] = $this->input->post('situation_analysis');
 		$business_case['recommendation'] = $this->input->post('recommendation');
@@ -78,7 +97,7 @@ class BusinessCase extends CI_Controller
 
 		$insert  = $this->Business_case_model->insert($business_case);
 		if ($insert) {
-			$this->session->set_flashdata('success', 'Bussiness Case has been successfully created!');
+			$this->session->set_flashdata('success', $feedback_success);
 			insertLogActivity('insert', 'business case');
 		}
 		redirect("integration/business-case/edit/" . $_SESSION['project_id']);
@@ -88,6 +107,12 @@ class BusinessCase extends CI_Controller
 
 	public function update()
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		$business_case['business_deals'] = $this->input->post('business_deals');
 		$business_case['situation_analysis'] = $this->input->post('situation_analysis');
 		$business_case['recommendation'] = $this->input->post('recommendation');
@@ -96,7 +121,7 @@ class BusinessCase extends CI_Controller
 		//$insert = $this->project_model->insert_project_pgq($quality_mp);
 		$query = $this->Business_case_model->update($business_case, $_SESSION['project_id']);
 		if ($query) {
-			$this->session->set_flashdata('success', 'Bussiness Case has been successfully changed!');
+			$this->session->set_flashdata('success', $feedback_success);
 			insertLogActivity('update', 'business case');
 		}
 

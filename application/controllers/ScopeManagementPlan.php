@@ -12,10 +12,19 @@ class ScopeManagementPlan extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('scope_mp', 'english');
+			$this->lang->load('project-page', 'english');
+		} else {
+			$this->lang->load('scope_mp', 'portuguese-brazilian');
+			$this->lang->load('project-page', 'portuguese-brazilian');
+		}
+
 		//$this->load->helper('url');
-		$this->lang->load('btn', 'english');
+
 		//$this->lang->load('btn', 'portuguese-brazilian');
-		$this->lang->load('scope_mp', 'english');
+
 		//$this->lang->load('tap', 'portuguese-brazilian');
 
 		$this->load->model('Project_model');
@@ -29,6 +38,12 @@ class ScopeManagementPlan extends CI_Controller
 
 	public function new($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
 		$this->db->where('user_id', $_SESSION['user_id']);
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
@@ -53,6 +68,12 @@ class ScopeManagementPlan extends CI_Controller
 
 	public function edit($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
 		$this->db->where('user_id', $_SESSION['user_id']);
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
@@ -62,7 +83,7 @@ class ScopeManagementPlan extends CI_Controller
 			if ($dado['scope_mp'] == null) {
 				redirect("scope/scope-mp/new/" . $_SESSION['project_id']);
 			}
-
+			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "scope management plan", $dado['scope_mp'][0]->scope_mp_id);
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');

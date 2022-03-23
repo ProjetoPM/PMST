@@ -1,0 +1,25 @@
+﻿
+   
+/* fields evaluation */
+.evaluation {
+    float: right !important;
+    padding: 0.5px 10px;
+  }
+
+  .alertStatus{
+    background-color: red;
+  }
+
+  .noStatus{
+    display: none;
+  }
+
+  .okStatus{
+    background-color: green;
+  }
+
+  .alertDocument{
+    border-color: orangered;
+    border-width: 3.5px;
+    border-style: solid;
+  }

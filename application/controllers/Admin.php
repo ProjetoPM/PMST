@@ -9,15 +9,15 @@ class Admin extends CI_Controller {
 
 	public function __Construct() {
 		parent::__Construct();
-		if(!$this->session->userdata('logged_in')) {
-			redirect(base_url());
-		}
+		// if(!$this->session->userdata('logged_in')) {
+		// 	redirect(base_url());
+		// }
 
-		if($this->session->userdata('role') != 'admin'){
-			redirect(base_url());
-		}
+		// if($this->session->userdata('role') != 'admin'){
+		// 	redirect(base_url());
+		// }
 
-		$this->load->model('admin_model');
+		$this->load->model('Admin_model');
 	}
 
     private function ajax_checking(){
@@ -32,7 +32,7 @@ class Admin extends CI_Controller {
 		$data = array(
 			'formTitle' => 'User Management',
 			'title' => 'User Management',
-			'users' => $this->admin_model->get_user_list(),
+			'users' => $this->Admin_model->get_user_list(),
 		);
 
 		$this->load->view('frame/header_view'); 
@@ -46,7 +46,7 @@ class Admin extends CI_Controller {
 		$this->ajax_checking();
 
 		$postData = $this->input->post();
-		$insert = $this->admin_model->insert_user($postData);
+		$insert = $this->Admin_model->insert_user($postData);
 		if($insert['status'] == 'success')
 			$this->session->set_flashdata('success', 'User '.$postData['email'].' has been successfully created!');
 
@@ -57,7 +57,7 @@ class Admin extends CI_Controller {
 		$this->ajax_checking();
 
 		$postData = $this->input->post();
-		$update = $this->admin_model->update_user_details($postData);
+		$update = $this->Admin_model->update_user_details($postData);
 		if($update['status'] == 'success')
 			$this->session->set_flashdata('success', 'User '.$postData['email'].'`s details have been successfully updated!');
 
@@ -67,7 +67,7 @@ class Admin extends CI_Controller {
 	function deactivate_user($email,$id){
 		$this->ajax_checking();
 
-		$update = $this->admin_model->deactivate_user($email,$id);
+		$update = $this->Admin_model->deactivate_user($email,$id);
 		if($update['status'] == 'success')
 			$this->session->set_flashdata('success', 'User '.$email.' has been successfully deleted!');
 
@@ -77,7 +77,7 @@ class Admin extends CI_Controller {
 	function reset_user_password(){
 		// $this->ajax_checking();
 		$email = $this->input->post('email');
-		$update = $this->admin_model->reset_user_password($email);
+		$update = $this->Admin_model->reset_user_password($email);
 		if($update['status'] == 'success'){
 			$this->session->set_flashdata('flashSuccess', 'User ' . $email . '`s password has been successfully reset!');
 		}else{
@@ -105,7 +105,7 @@ class Admin extends CI_Controller {
 
 	function get_activity_log(){
 		$this->ajax_checking();
-		echo  json_encode( $this->admin_model->get_activity_log() );
+		echo  json_encode( $this->Admin_model->get_activity_log() );
 	}
 
 

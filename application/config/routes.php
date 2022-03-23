@@ -85,13 +85,21 @@ $route['new'] = 'Project/project_form';
 $route['recover_password'] = 'Admin/reset_user_password';
 $route['register/update_password'] = 'Register/savePassword';
 $route['user/list/(:num)'] = 'Register/list/$1';
-
+$route['change_language/(:any)'] = "Authentication/language/$1";
 $route['project/(:num)'] = 'Project/initial/$1';
 $route['edit/(:num)'] = 'Project/update/$1';
 $route['researcher/(:num)'] = 'Project/add_researcher_page/$1';
 $route['delete/(:num)'] = 'Project/delete/$1';
+
 $route['researcher/edit-researcher/(:num)'] = 'Project/edit_researcher_page/$1';
 $route['researcher/update'] = 'Project/update_researcher';
+
+$route['field-evaluation/insert'] = 'FieldEvaluation/insert';
+$route['store-review-data'] = 'FieldEvaluation/storeReviewData';
+$route['evaluation-delete/(:num)'] = 'FieldEvaluation/delete/$1';
+$route['field-evaluation/check'] = 'FieldEvaluation/check';
+
+$route['insert_view_evaluation'] = 'ViewEvaluation/insert';
 
 
 $route['chat'] = 'Chat/index';
@@ -105,6 +113,21 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
+$route['weekly-report/new'] = "WeeklyReport/new";
+$route['weekly-report/insert'] = "WeeklyReport/insert";
+$route['weekly-report/edit/(:num)'] = "WeeklyReport/edit/$1";
+$route['weekly-report/update/(:num)'] = "WeeklyReport/update/$1";
+$route['weekly-report/list'] = "WeeklyReport/list";
+
+$route['weekly-evaluation/new-report-score/(:num)'] = "WeeklyEvaluation/new_submission_score/$1";
+$route['weekly-evaluation/insert-score/(:num)'] = "WeeklyEvaluation/insert_score/$1";
+$route['weekly-evaluation/edit-score/(:num)'] = "WeeklyEvaluation/edit_score/$1";
+$route['weekly-evaluation/update-score/(:num)'] = "WeeklyEvaluation/update_score/$1";
+$route['weekly-evaluation/new'] = "WeeklyEvaluation/new";
+$route['weekly-evaluation/insert'] = "WeeklyEvaluation/insert";
+$route['weekly-evaluation/edit/(:num)'] = "WeeklyEvaluation/edit/$1";
+$route['weekly-evaluation/update/(:num)'] = "WeeklyEvaluation/update/$1";
+$route['weekly-evaluation/list'] = "WeeklyEvaluation/list";
 
 $route['integration/project-charter/new/(:num)'] = "ProjectCharter/new/$1";
 $route['integration/project-charter/edit/(:num)'] = "ProjectCharter/edit/$1";
@@ -253,17 +276,19 @@ $route['schedule/earned-value-management/insert/(:num)'] = "EVM/insert/$1";
 $route['schedule/earned-value-management/update/(:num)'] = "EVM/update/$1";
 $route['schedule/earned-value-management/delete/(:num)'] = "EVM/delete/$1";
 
-$route['schedule/project-schedule-network-diagram/new/(:num)'] = "ProjectScheduleNetworkDiagram/new/$1";
+$route['schedule/project-schedule-network-diagram/new'] = "ProjectScheduleNetworkDiagram/new";
 $route['schedule/project-schedule-network-diagram/edit/(:num)'] = "ProjectScheduleNetworkDiagram/edit/$1";
 $route['schedule/project-schedule-network-diagram/list/(:num)'] = "ProjectScheduleNetworkDiagram/list/$1";
-$route['schedule/project-schedule-network-diagram/insert/(:num)'] = "ProjectScheduleNetworkDiagram/insert/$1";
+$route['schedule/project-schedule-network-diagram/insert'] = "ProjectScheduleNetworkDiagram/insert";
 $route['schedule/project-schedule-network-diagram/update/(:num)'] = "ProjectScheduleNetworkDiagram/update/$1";
 $route['schedule/project-schedule-network-diagram/delete/(:num)'] = "ProjectScheduleNetworkDiagram/delete/$1";
 
-$route['schedule/resource-requirements/new/(:num)'] = "ResourceRequirements/new/$1";
+$route['schedule/resource-requirements/newr'] = "ResourceRequirements/newr";
+$route['schedule/resource-requirements/new'] = "ResourceRequirements/new";
+
 $route['schedule/resource-requirements/edit/(:num)'] = "ResourceRequirements/edit/$1";
 $route['schedule/resource-requirements/list/(:num)'] = "ResourceRequirements/list/$1";
-$route['schedule/resource-requirements/insert/(:num)'] = "ResourceRequirements/insert/$1";
+$route['schedule/resource-requirements/insert'] = "ResourceRequirements/insert";
 $route['schedule/resource-requirements/update/(:num)'] = "ResourceRequirements/update/$1";
 $route['schedule/resource-requirements/delete/(:num)'] = "ResourceRequirements/delete/$1";
 
@@ -275,10 +300,10 @@ $route['schedule/duration-estimates/insert'] = "DurationEstimates/insert";
 $route['schedule/duration-estimates/update/(:num)'] = "DurationEstimates/update/$1";
 $route['schedule/duration-estimates/delete/(:num)'] = "DurationEstimates/delete/$1";
 
-$route['schedule/project-calendars/new/(:num)'] = "ProjectCalendars/new/$1";
+$route['schedule/project-calendars/new'] = "ProjectCalendars/new";
 $route['schedule/project-calendars/edit/(:num)'] = "ProjectCalendars/edit/$1";
 $route['schedule/project-calendars/list/(:num)'] = "ProjectCalendars/list/$1";
-$route['schedule/project-calendars/insert/(:num)'] = "ProjectCalendars/insert/$1";
+$route['schedule/project-calendars/insert'] = "ProjectCalendars/insert";
 $route['schedule/project-calendars/update/(:num)'] = "ProjectCalendars/update/$1";
 $route['schedule/project-calendars/delete/(:num)'] = "ProjectCalendars/delete/$1";
 
@@ -367,13 +392,6 @@ $route['procurement/procurement-statement-of-work/insert/(:num)'] = "Procurement
 $route['procurement/procurement-statement-of-work/update/(:num)'] = "ProcurementStatementOfWork/update/$1";
 $route['procurement/procurement-statement-of-work/delete/(:num)'] = "ProcurementStatementOfWork/delete/$1";
 
-
-$route['procurement/lesson-learned-register/new/(:num)'] = "LessonLearnedRegister/new/$1";
-$route['procurement/lesson-learned-register/edit/(:num)'] = "LessonLearnedRegister/edit/$1";
-$route['procurement/lesson-learned-register/list/(:num)'] = "LessonLearnedRegister/list/$1";
-$route['procurement/lesson-learned-register/insert/(:num)'] = "LessonLearnedRegister/insert/$1";
-$route['procurement/lesson-learned-register/update/(:num)'] = "LessonLearnedRegister/update/$1";
-$route['procurement/lesson-learned-register/delete/(:num)'] = "LessonLearnedRegister/delete/$1";
 
 
 $route['integration/assumption-log/new-assumption/(:num)'] = "AssumptionLog/new_assumption/$1";

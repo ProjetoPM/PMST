@@ -134,10 +134,10 @@
 										<thead>
 											<tr>
 												<th class="text-center">#</th>
-												<th>Name</th>
-												<th>Organization</th>
-												<th>Position</th>
-												<th>E-mail</th>
+												<th><?= $this->lang->line('shr_name') ?> *</th>
+												<th><?= $this->lang->line('shr_organization') ?> *</th>
+												<th><?= $this->lang->line('shr_position') ?> *</th>
+												<th><?= $this->lang->line('shr_email') ?> *</th>
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
 										</thead>
@@ -147,11 +147,11 @@
 											?>
 												<tr dados='<?= json_encode($item); ?>'>
 													<td class="moreInformationTable"></td>
-													<td><span class="texttd"><?php echo $item->user_id ?></span></td>
-													<td><span class="texttd"><?php echo $item->user_id ?></span></td>
-													<td><span class="texttd"><?php echo $item->user_id ?></span></td>
-													<td><span class="texttd"><?php echo $item->user_id ?></span></td>
-													<td style="display: fixed;min-width: 100px;">
+													<td><span class="texttd"><?php echo $item->name ?></span></td>
+													<td><span class="texttd"><?php echo $item->organization ?></span></td>
+													<td><span class="texttd"><?php echo $item->position ?></span></td>
+													<td><span class="texttd"><?php echo $item->email ?></span></td>
+													<td <?= getStatusFieldsList("stakeholder register", $item->stakeholder_id) ?>>
 														<div class="row center">
 															<div class="col-sm-4">
 																<form action="<?php echo base_url() ?>stakeholder/stakeholder-register/edit/<?php echo $item->project_id; ?>" method="post">

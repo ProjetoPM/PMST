@@ -14,6 +14,15 @@ class TeamPerformanceAssessments extends CI_Controller
 			$this->session->set_flashdata('error3', 'You do not have permission to access this document!');
 			redirect('project/'. $_SESSION['project_id']);
 		 }
+
+		 if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('team-performance-evaluation', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('team-performance-evaluation', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
 		$this->load->helper('url');
 		$this->load->model('Team_Performance_Evaluation_model');
 		$this->load->model('view_model');
@@ -22,16 +31,20 @@ class TeamPerformanceAssessments extends CI_Controller
 		$this->load->helper('log_activity');
 
 
-		$this->lang->load('btn', 'english');
 		// $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('team-performance-evaluation', 'english');
+		
 		// $this->lang->load('team-performance-evaluation','portuguese-brazilian');
 
 	}
 
 	public function list($project_id)
 	{
-	
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
 		$dado['project_id'] = $project_id;
 
 		$dado['team_performance_evaluation'] = $this->Team_Performance_Evaluation_model->getAll($project_id);
@@ -43,6 +56,13 @@ class TeamPerformanceAssessments extends CI_Controller
 
 	public function new($project_id)
 	{
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
 		$idusuario = $_SESSION['user_id'];
 		$this->db->where('user_id', $idusuario);
 		$this->db->where('project_id', $project_id);
@@ -61,7 +81,17 @@ class TeamPerformanceAssessments extends CI_Controller
 
 	public function edit($team_performance_evaluation_id)
 	{
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		
 		$query['team_performance_evaluation'] = $this->Team_Performance_Evaluation_model->get($team_performance_evaluation_id);
+
+		$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "team performance assessments", $query['team_performance_evaluation']['team_performance_evaluation_id']);
+
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');

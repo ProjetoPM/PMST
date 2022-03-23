@@ -48,10 +48,10 @@
 									<table class="table table-bordered table-striped" id="tableNB">
 										<thead>
 											<tr>
-												<th><?= $this->lang->line('responsible') ?></th>
-												<th><?= $this->lang->line('date') ?></th>
-												<th><?= $this->lang->line('type') ?></th>
-												<th><?= $this->lang->line('description') ?></th>
+												<th><?= $this->lang->line('qr-responsible') ?></th>
+												<th><?= $this->lang->line('qr-date') ?></th>
+												<th><?= $this->lang->line('qr-type') ?></th>
+												<th><?= $this->lang->line('qr-description') ?></th>
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
 										</thead>
@@ -65,7 +65,7 @@
 													<td><?php echo $qr->date; ?></td>
 													<td><?php echo $qr->type; ?></td>
 													<td><?php echo $qr->description; ?></td>
-													<td>
+													<td <?= getStatusFieldsList("quality reports", $qr->quality_reports_id) ?>>
 														<div class="row center">
 															<div class="col-sm-3">
 																<form action="<?php echo base_url() ?>quality/quality-reports/edit/<?php echo $qr->quality_reports_id; ?>" method="post">

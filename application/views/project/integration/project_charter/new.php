@@ -41,29 +41,19 @@
 								</div>
 
 								<!-- Inicio teste datas -->
-								<div class="form-group">
-									<div class="col-lg-3">
+									<div class="col-lg-3 form-group">
 										<label><?= $this->lang->line('pch_start') ?></label>
-										<div class="input-group padCalendar">
-											<div class="input-group-addon">
-												<i class="fa fa-calendar"></i>
-											</div>
-											<input autocomplete="off" class=" form-control" id="start_date" placeholder="YYYY/MM/DD" type="date" name="start_date" required="true" />
+										<div>
+											<input autocomplete="off" class="form-control input-md" id="start_date" placeholder="YYYY/MM/DD" type="date" name="start_date" required="true" />
 										</div>
 									</div>
-								</div>
 
-								<div class="form-group">
-									<div class="col-lg-3">
+									<div class="col-lg-3 form-group">
 										<label><?= $this->lang->line('pch_end') ?></label>
-										<div class="input-group padCalendar">
-											<div class="input-group-addon">
-												<i class="fa fa-calendar"></i>
-											</div>
-											<input autocomplete="off" class=" form-control" id="end_date" placeholder="YYYY/MM/DD" type="date" name="end_date" required="true" />
+										<div>
+											<input autocomplete="off" class="form-control input-md" id="end_date" placeholder="YYYY/MM/DD" type="date" name="end_date" required="true" />
 										</div>
 									</div>
-								</div>
 								<!-- Fim teste Datas -->
 
 								<div class=" col-lg-12 form-group">

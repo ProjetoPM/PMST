@@ -11,11 +11,18 @@ class QualityManagementPlan extends CI_Controller
 			redirect(base_url());
 		}
 
+		if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('quality_plan', 'english');
+            $this->lang->load('project-page', 'english');
+        } else {
+            $this->lang->load('quality_plan', 'portuguese-brazilian');
+            $this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
 		// $this->load->helper('url', 'english');
 
-		$this->lang->load('btn', 'english');
 		// $this->lang->load('btn','portuguese-brazilian');
-		$this->lang->load('quality_plan', 'english');
+		
 		// $this->lang->load('quality_mp','portuguese-brazilian');
 
 
@@ -29,6 +36,13 @@ class QualityManagementPlan extends CI_Controller
 
 	public function new($project_id)
 	{
+
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
@@ -39,7 +53,7 @@ class QualityManagementPlan extends CI_Controller
 			if ($dado['quality_mp'] != null) {
 				redirect("quality/quality-mp/edit/" . $_SESSION['project_id']);
 			}
-
+			
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');
@@ -48,18 +62,26 @@ class QualityManagementPlan extends CI_Controller
 			redirect(base_url());
 		}
 	}
-
+	
 	public function edit($project_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
-
+		
 		if (count($project['dados']) > 0) {
 			$dado['quality_mp'] = $this->Quality_model->get($project_id);
 			if ($dado['quality_mp'] == null) {
 				redirect("quality/quality-mp/new/" . $_SESSION['project_id']);
 			}
+
+			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "quality management plan", $dado['quality_mp'][0]->quality_mp_id);
 
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
@@ -72,11 +94,18 @@ class QualityManagementPlan extends CI_Controller
 
 	function insert()
 	{
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Created';
+        }else{
+			$feedback_success = 'Item Criado ';
+		}
+
 		insertLogActivity('insert', 'quality management plan');
 
 		$postData = $this->input->post();
 		$insert   = $this->Quality_model->insert($postData);
-		$this->session->set_flashdata('success', 'Quality Management Plan has been successfully created!');
+		$this->session->set_flashdata('success', $feedback_success);
 		redirect('quality/quality-mp/edit/' . $postData['project_id']);
 		echo json_encode($insert);
 	}
@@ -84,6 +113,13 @@ class QualityManagementPlan extends CI_Controller
 
 	public function update()
 	{
+
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$feedback_success = 'Item Updated';
+        }else{
+			$feedback_success = 'Item Atualizado ';
+		}
+
 		$quality_mp['standards'] = $this->input->post('standards');
 		$quality_mp['objectives'] = $this->input->post('objectives');
 		$quality_mp['roles_responsibilities'] = $this->input->post('roles_responsibilities');
@@ -97,7 +133,7 @@ class QualityManagementPlan extends CI_Controller
 		$query = $this->Quality_model->update($quality_mp, $_SESSION['project_id']);
 
 		insertLogActivity('update', 'quality management plan');
-		$this->session->set_flashdata('success', 'Quality Management Plan has been successfully changed!');
+		$this->session->set_flashdata('success', $feedback_success);
 		redirect('quality/quality-mp/edit/' . $_SESSION['project_id']);
 	}
 }

@@ -16,14 +16,14 @@ $lang['ade_performed_end_date'] = 'Performed End Date';
 
 
 //Tooltip
-$lang['ade_estimated_duration_tp'] = 'Estimated Duration';
-$lang['ade_replanted_duration_tp'] = 'Replanted Duration';
-$lang['ade_performed_duration_tp'] = 'Performed Duration';
-$lang['ade_estimated_start_date_tp'] = 'Estimated Start Date';
-$lang['ade_replanted_start_date_tp'] = 'Replanted Start Date';
-$lang['ade_performed_start_date_tp'] = 'Performed Start Date';
-$lang['ade_estimated_end_date_tp'] = 'Estimated End Date';
-$lang['ade_replanted_end_date_tp'] = 'Replanted End Date';
-$lang['ade_performed_end_date_tp'] = 'Performed End Date';
+$lang['ade_estimated_duration_tp'] = '';
+$lang['ade_replanted_duration_tp'] = '';
+$lang['ade_performed_duration_tp'] = '';
+$lang['ade_estimated_start_date_tp'] = '';
+$lang['ade_replanted_start_date_tp'] = '';
+$lang['ade_performed_start_date_tp'] = '';
+$lang['ade_estimated_end_date_tp'] = '';
+$lang['ade_replanted_end_date_tp'] = '';
+$lang['ade_performed_end_date_tp'] = '';
 
 ?>

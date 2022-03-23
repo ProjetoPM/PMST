@@ -101,9 +101,9 @@
 
 
                   <input type="hidden" id="project_id" value="<?= $_SESSION['project_id']; ?>">
-                  <input type="text" name="message" placeholder="Type Message ..." class="form-control message">
+                  <input type="text" name="message" placeholder="<?= $this->lang->line('type_message') ?>"class="form-control message">
                   <span class="input-group-btn">
-                    <button type="button" class="btn btn-success btn-flat btnSend" id="nav_down">Send</button>
+                    <button type="button" class="btn btn-success btn-flat btnSend" id="nav_down"><?= $this->lang->line('send') ?></button>
 
                   </span>
                 </div>

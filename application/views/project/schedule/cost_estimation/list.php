@@ -31,9 +31,12 @@
 
 								<?= $this->lang->line('ce_title')  ?>
 
+								<?php $view_name = "cost estimates"?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
+
 							</h1>
-
-
 							<div class="row">
 								<div class="col-lg-12">
 
@@ -74,7 +77,7 @@
 													<td><?php echo $a->real_cost; ?></td>
 													<td><?php echo $a->cumulative_real_cost; ?></td>
 
-													<td>
+													<td <?= getStatusFieldsList("cost estimates", $a->id) ?>>
 														<div class="row center">
 															<div class="col-sm-3">
 																<form action="<?php echo base_url() ?>cost/cost-estimates/edit/<?php echo $a->id; ?>" method="post">

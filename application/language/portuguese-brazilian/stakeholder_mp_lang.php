@@ -1,42 +1,63 @@
 <?php
 
 // Title
-$lang['stakeholder_mp-title'] = 'Gerenciar Partes Interessadas';
+$lang['shep_title'] = 'Plano de Engajamento das Partes Interessadas';
 
 
 // Select
-$lang['select-stakeholder-tooltip'] = 'Selecionar Partes Interessadas Exemplo';
-$lang['select-interest-level-tooltip'] = 'Selecionar Nível de Interesse Exemplo';
-$lang['select-power-level-tooltip'] = 'Selecionar Nível de Interesse Exemplo';
-$lang['select-influence-level-tooltip'] = 'Selecionar Nível de Influência Exemplo';
-$lang['select-impact-level-tooltip'] = 'Selecionar Nível de Impacto Exemplo';
-$lang['select-current-engagement-tooltip'] = 'Selecionar Engajamento Atual Exemplo';
-$lang['select-expected-engagement-tooltip'] = 'Selecionar Engajamento Esperado Exemplo';
+$lang['shep_stakeholder_tooltip'] = 'Select Stakeholder Example';
+$lang['shep_interest-level_tooltip'] = 'Select Interest Level Example';
+$lang['shep_power-level_tooltip'] = 'Select Power Level Example';
+$lang['shep_influence-level_tooltip'] = 'Select Influece Level Example';
+$lang['shep_impact-level_tooltip'] = 'Select Impact Level Example';
+$lang['shep_current-engagement_tooltip'] = 'Select current Engagement Example';
+$lang['shep_expected-engagement_tooltip'] = 'Select Expected Engagement Example';
+$lang['shep_current-average_tooltip'] = 'Select Current Average Example';
 
+$lang['shep_1'] = 'Selecionar Parte Interessada';
+$lang['shep_2'] = 'Nível de Interesse';
+$lang['shep_3'] = 'Nível de Poder';
+$lang['shep_4'] = 'Nível de Influência';
+$lang['shep_5'] = 'Nível de Impacto';
+$lang['shep_6'] = 'Engajamento Atual';
+$lang['shep_7'] = 'Engajamento Desejado';
+$lang['shep_8'] = "Adicionar nova Parte Interessada";
 
-$lang['select-1'] = 'Selecionar Partes Interessadas';
-$lang['select-2'] = 'Nível de Interesse';
-$lang['select-3'] = 'Nível de Poder';
-$lang['select-4'] = 'Nível de Influência';
-$lang['select-5'] = 'Nível de Impacto';
-$lang['select-6'] = 'Engajamento Atual';
-$lang['select-7'] = 'Engajamento Desejado';
 
 
 //options
-$lang['option-1'] = 'Alheio';
-$lang['option-2'] = 'Apoiador';
-$lang['option-3'] = 'Engajado';
-$lang['option-4'] = 'Neutro';
-$lang['option-5'] = 'Resistente';
-//Form 
+$lang['option-1'] = 'Unaware';
+$lang['option-2'] = 'Supportive';
+$lang['option-3'] = 'Leanding';
+$lang['option-4'] = 'Neutral';
+$lang['option-5'] = 'Resistant';
+//Form
+$lang['shep_mp-text1_tooltip'] = 'Engagement / Management Strategy Example';
+$lang['shep_mp-text2_tooltip'] = 'Scope and Impact of Changes to Stakeholder Example';
+$lang['shep_mp-text3_tooltip'] = 'Observations with other Stakeholders Example';
+$lang['shep_name'] = 'Stakeholder Name:';
 
-$lang['stakeholder_mp-text1-tooltip'] = 'Estratégia para Engajamento / Gerenciamento  Exemplo';
-$lang['stakeholder_mp-text2-tooltip'] = 'Scope and Impact of Changes to IP Example';
-$lang['stakeholder_mp-text3-tooltip'] = 'Observações com outras PI';
 
-$lang['text-1'] = 'Estratégia para Engajamento / Gerenciamento';
-$lang['text-2'] = 'Escopo e Impacto das Mudanças para a PI';
-$lang['text-3'] = 'Observações com outras PI';
-$lang['text-4'] = 'Importância Ponderada';
+//Table
+$lang['stake'] = 'Stakeholder Name';
+$lang['interest'] = "Interest";
+$lang['power'] = "Power";
+$lang['influence'] = "Influence";
+$lang['impact'] = "Impact";
+$lang['average'] = "Average Importance";
+$lang['current_engagement'] = "Current Engagement";
+$lang['expected_engagement'] = "Current Engagement";
+$lang['scope'] = "Scope and Impact of Changes to Stakeholder";
+$lang['strategy'] = "Engagement / Management Strategy";
+$lang['observation'] = "Observations with other Stakeholders";
+
+
+$lang['text-1'] = 'Engagement / Management Strategy';
+$lang['text-2'] = 'Scope and Impact of Changes to Stakeholder';
+$lang['text-3'] = 'Observations with other Stakeholders';
+$lang['text-4'] = 'Average Importance';
+$lang['text-5'] = 'Stakeholder';
+$lang['text-6'] = 'Interest';
+
+
 ?>
