@@ -84,11 +84,16 @@ $route['projects'] = 'Project/show_projects';
 $route['new'] = 'Project/project_form';
 $route['recover_password'] = 'Admin/reset_user_password';
 $route['register/update_password'] = 'Register/savePassword';
+$route['user/list/(:num)'] = 'Register/list/$1';
 $route['change_language/(:any)'] = "Authentication/language/$1";
 $route['project/(:num)'] = 'Project/initial/$1';
 $route['edit/(:num)'] = 'Project/update/$1';
 $route['researcher/(:num)'] = 'Project/add_researcher_page/$1';
 $route['delete/(:num)'] = 'Project/delete/$1';
+
+$route['researcher/edit-researcher/(:num)'] = 'Project/edit_researcher_page/$1';
+$route['researcher/update'] = 'Project/update_researcher';
+
 $route['field-evaluation/insert'] = 'FieldEvaluation/insert';
 $route['store-review-data'] = 'FieldEvaluation/storeReviewData';
 $route['evaluation-delete/(:num)'] = 'FieldEvaluation/delete/$1';

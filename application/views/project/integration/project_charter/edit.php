@@ -395,8 +395,7 @@
 																<td>
 																	<?php if ($item->access_level == "2") : ?>
 																		<?= $this->lang->line('project_manager'); ?>
-
-																	<?php elseif ($_SESSION['access_level'] == "1") : ?>
+																	<?php elseif ($_SESSION['acess_level'] == "1") : ?>
 																		<?= $this->lang->line('professor'); ?>
 																	<?php else : ?>
 																		<?= $this->lang->line('staff'); ?>

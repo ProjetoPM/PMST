@@ -25,15 +25,26 @@ class User_Model extends CI_Model
 	public function GetUserData()
 
 	{
-
 		$this->db->select('*');
-
 		$this->db->from($this->User);
-
 		$this->db->where("user_id", $this->session->userdata("user_id"));
 
+		$query = $this->db->get();
 
+		if ($query) {
 
+			return $query->row_array();
+		} else {
+
+			return false;
+		}
+	}
+	public function GetUserById($id)
+
+	{
+		$this->db->select('*');
+		$this->db->from($this->User);
+		$this->db->where("user_id", $id);
 
 		$query = $this->db->get();
 
@@ -70,8 +81,7 @@ class User_Model extends CI_Model
 
 	public function GetUsersByProject($project_id)
 	{
-
-		$query = $this->db->get_where('project_user', array('project_user.project_id' => $project_id));
+		$query = $this->db->get_where('project_user', array('project_user.project_id'=>$project_id));
 		return $query->result();
 	}
 
@@ -208,81 +218,38 @@ class User_Model extends CI_Model
 	}
 
 
-
-
-
-
-
 	public function StatusUpdateByID($user_id, $status)
-
 	{
-
-
-
 		$res = $this->db->update($this->User, ['status' => $status], ['id' => $user_id]);
-
 		if ($res == 1)
-
 			return true;
-
 		else
-
 			return false;
 	}
-
-
-
-
 
 	public function TrashByID($user_id)
-
 	{
-
-
-
 		$res = $this->db->delete($this->User, ['id' => $user_id]);
-
 		if ($res == 1)
-
 			return true;
-
 		else
-
 			return false;
 	}
 
-
-
-
-
 	public function AllRoleTypes($role)
-
 	{
-
 		$this->db->select('id,name');
-
 		$this->db->from($this->User);
-
 		$this->db->where("role", $role);
-
 		$query = $this->db->get();
-
 		$u = $query->num_rows();
-
 		return $u;
 	}
 
-
-
 	public function VendorsList()
-
 	{
-
-
 		$query = $this->db->get('view');
 		return $query->result_array();
-
-
 		// $this->db->select('id,name,picture_url');
 
 		// $this->db->from($this->User);
@@ -300,21 +267,13 @@ class User_Model extends CI_Model
 	}
 
 	public function ClientsListCs()
-
 	{
-
 		$this->db->select('id,name,picture_url');
-
 		$this->db->from($this->User);
-
 		$this->db->where("role", "Client_cs");
-
 		$this->db->where("status", "1");
-
 		$query = $this->db->get();
-
 		$r = $query->result_array();
-
 		return $r;
 	}
 }

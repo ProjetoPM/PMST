@@ -189,8 +189,6 @@ class Project extends CI_Controller
 			'access_level' => $access_level
 		);
 
-		
-	
 		if ($this->project_model->getResearcher($project_id, $user_id)) {
 			$this->session->set_flashdata('error2', 'User update!');
 			$this->project_model->updateResearcher($project_id, $user_id, $data);
@@ -211,6 +209,44 @@ class Project extends CI_Controller
 		}
 
 		redirect('projects/');
+	}
+
+	public function edit_researcher_page()
+	{
+		
+		// $_SESSION['access_level'] = null;
+		// $_SESSION['project_id'] = null;
+		$this->db->where('project_id', $_SESSION['project_id']);
+		$dataproject['project'] = $this->db->get('project')->result();
+		
+		$this->load->view('frame/header_view');
+		$this->load->view('frame/topbar');
+		$this->load->view('frame/sidebar_nav_view');
+		$this->load->view('project/edit_researcher', $dataproject);
+	}
+	
+	//metodo para adicionar pesquisador a pesquisa
+	public function update_researcher()
+	{
+		// if ($_SESSION['acess_level'] != 3) {
+		// 	$this->session->set_flashdata('error', 'You are not allowed to update user role');
+		// 	redirect("user/list/" . $_SESSION['project_id']);
+		// 	redirect("integration/project-charter/edit/" . $_SESSION['project_id']);
+		// }
+		
+		$researcher['role'] = $this->input->post('role');
+		
+		$data = $this->input->post();
+		$project_id   = $data['project_id'];
+		$access_level = $data['access_level'];
+		$user_id      = $this->retornaIdUserByEmail($data['email']);
+		
+		$query = $this->Project_model->update_role($_SESSION['project_id'], $_SESSION['user_id'], $researcher);
+		if ($this->project_model->getResearcher($project_id, $user_id)) {
+			$this->session->set_flashdata('success', 'Benefits Management Plan has been successfully changed!');
+			insertLogActivity('update', 'benefits management plan');
+		}
+		redirect('user/list' . $_SESSION['project_id']);
 	}
 
 
