@@ -15,6 +15,14 @@ class Register extends CI_Controller
     
     public function list($project_id)
     {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$this->lang->load('project-page', 'english');
+			$this->lang->load('btn', 'english');
+		}else{
+			$this->lang->load('project-page', 'portuguese-brazilian');
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
         $dado['project_id'] = $project_id;
 
         $dado['user'] = $this->User_Model->GetUsersByProject($project_id);

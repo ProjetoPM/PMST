@@ -107,6 +107,14 @@ class Project extends CI_Controller
 	//<!-- Begin Update method --> 
 	public function update($project_id)
 	{
+		if(strcmp($_SESSION['language'],"US") == 0){
+			$this->lang->load('project-page', 'english');
+			$this->lang->load('btn', 'english');
+		}else{
+			$this->lang->load('project-page', 'portuguese-brazilian');
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		
 		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
 		 $this->db->where('project_id', $project_id);
@@ -214,8 +222,6 @@ class Project extends CI_Controller
 	public function edit_researcher_page()
 	{
 		
-		// $_SESSION['access_level'] = null;
-		// $_SESSION['project_id'] = null;
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$dataproject['project'] = $this->db->get('project')->result();
 		
