@@ -21,59 +21,64 @@
    <div class="limiter">
       <div class="container-login100">
          <div class="wrap-login100">
-            <div class="login100-pic js-tilt" data-tilt>
-               <img src="<?= base_url() ?>assets/images/lesse_logo.png" alt="IMG">
+            <div class="login100-pic">
+               <img data-tilt src="<?= base_url() ?>assets/images/lesse_logo.png" alt="IMG">
             </div>
-            <form method="post" name="formuser" action="<?= base_url() ?>register">
+            <form class="login100-form needs-validation" method="post" name="formuser" action="<?= base_url() ?>register" novalidate>
                <span class="login100-form-title">
                   Create account
                </span>
-               <div class="wrap-input100 validate-input">
-                  <input class="input100" id="name" placeholder="Name" name="name" autofocus required>
+               <div class="wrap-input100">
+                  <i class="fa fa-user symbol-input100" aria-hidden="true"></i>
+                  <input class="input100 form-control" id="name" placeholder="Name" name="name" required>
                   <span class="focus-input100"></span>
-                  <span class="symbol-input100">
-                     <i class="fa fa-user" aria-hidden="true"></i>
-                  </span>
+                  <div class="invalid-feedback">
+                     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>   
+                     <span id="required-field-password">Required field.</span>
+                  </div>
                </div>
-               <div class="wrap-input100 validate-input">
-                  <input class="input100" id="email" placeholder="E-mail" name="email" type="email" required>
+               <div class="wrap-input100">
+                  <i class="fa fa-envelope symbol-input100" aria-hidden="true"></i>
+                  <input class="input100 form-control" id="email" placeholder="E-mail" name="email" type="email" required>
                   <span class="focus-input100"></span>
-                  <span class="symbol-input100">
-                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                  </span>
+                  <div class="invalid-feedback">
+                     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>   
+                     <span id="required-field-password">Required field.</span>
+                  </div>
                </div>
-
-               <div class="wrap-input100 validate-input">
-                  <input class="input100" id="institution" placeholder="Institution" name="institution" type="name" value="">
+               <div class="wrap-input100">
+                  <i class="fa fa-university symbol-input100" aria-hidden="true"></i>
+                  <input class="input100 form-control" id="institution" placeholder="Institution" name="institution" type="name">
                   <span class="focus-input100"></span>
-                  <span class="symbol-input100">
-                     <i class="fa fa-university" aria-hidden="true"></i>
-                  </span>
+                  <div class="invalid-feedback">
+                     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>   
+                     <span id="required-field-password">Required field.</span>
+                  </div>
                </div>
-
-               <div class="wrap-input100 validate-input">
-                  <input class="input100" placeholder="Password" name="password" type="password" required>
+               <div class="wrap-input100">
+                  <i class="fa fa-unlock-alt symbol-input100" aria-hidden="true"></i>
+                  <input class="input100 form-control" placeholder="Password" name="password" type="password" required>
                   <span class="focus-input100"></span>
-                  <span class="symbol-input100">
-                     <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-                  </span>
+                  <div class="invalid-feedback">
+                     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>   
+                     <span id="required-field-password">Required field.</span>
+                  </div>
                </div>
-
-               <div class="wrap-input100 validate-input">
-                  <input class="input100" placeholder="Confirm Password" name="rep_senha" type="password" required>
+               <div class="wrap-input100">
+                  <i class="fa fa-unlock symbol-input100" aria-hidden="true"></i>
+                  <input class="input100 form-control" placeholder="Confirm Password" name="repeat_password" type="password" required>
                   <span class="focus-input100"></span>
-                  <span class="symbol-input100">
-                     <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-                     <i class="fa fa-check" style="margin-left: 2px;" aria-hidden="true"></i>
-                  </span>
+                  <div class="invalid-feedback">
+                     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>   
+                     <span id="required-field-password">Required field.</span>
+                  </div>
                </div>
-
+               <!-- Rever abaixo... -->
                <div class="container-login100-form-btn">
-                  <button class="login100-form-btn" onclick="return validar()" id="login-submit" type="submit" value="Create your account" class="btn btn-lg btn-success btn-block">
+                  <button class="login100-form-btn" onclick="return validar()" id="register-account" type="submit" value="Create your account" class="btn btn-lg btn-success btn-block">
                      Register
                   </button>
                </div>
-
                <div class="text-center p-t-12">
                   <span class="txt1">
                      Forgot
@@ -127,33 +132,12 @@
    <script src="<?= base_url() ?>assets/login/vendor/bootstrap/js/bootstrap.min.js"></script>
    <script src="<?= base_url() ?>assets/login/vendor/select2/select2.min.js"></script>
    <script src="<?= base_url() ?>assets/login/vendor/tilt/tilt.jquery.min.js"></script>
-   <script>
-      $('.js-tilt').tilt({
-         scale: 1.1
-      })
-   </script>
+   <script src="<?= base_url('assets/js/validate.js') ?>"></script>
    <script src="js/main.js"></script>
 
    <!-- JavaScript -->
    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
    <!-- CSS -->
    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css" />
-
-   <script>
-      function validar() {
-         var senha = formuser.password.value;
-         var rep_senha = formuser.rep_senha.value;
-
-         if (senha != rep_senha) {
-            alertify.alert('The passwords are different!').setting({
-               title: 'Alert!',
-            }).show();
-            formuser.password.focus();
-            return false;
-         }
-      }
-   </script>
-
 </body>
-
 </html>
