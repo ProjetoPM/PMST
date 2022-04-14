@@ -226,13 +226,31 @@ function getWeeklyEvaluationName($id)
 
 	$data = $obj->WeeklyEvaluation_model->get($id);
 
-	
 
-	
+
+
 	return $data[0]->name;
 }
 
-function verifyEvaluation($id){
+function getAllProcesses($id)
+{
+	$obj = &get_instance();
+	$obj->load->model('WeeklyReport_model');
+
+	$data = $obj->WeeklyReport_model->getAllProcesses($id);
+	return $data;
+}
+
+function getProcessName($pmbok_id, $pmbok_process_id)
+{
+	$obj = &get_instance();
+	$obj->load->model('Pmbok_process_model');
+	$data = $obj->Pmbok_process_model->get($pmbok_id, $pmbok_process_id);
+	return $data[0]->name;
+}
+
+function verifyEvaluation($id)
+{
 	$obj2 = &get_instance();
 	$obj2->load->model('WeeklyReport_model');
 	$data2 = $obj2->WeeklyReport_model->getByEvaluation($id);

@@ -114,6 +114,10 @@ $route['weekly-report/edit/(:num)'] = "WeeklyReport/edit/$1";
 $route['weekly-report/update/(:num)'] = "WeeklyReport/update/$1";
 $route['weekly-report/list'] = "WeeklyReport/list";
 $route['weekly-report/get-processes/(:alpha)'] = "WeeklyReport/getProcesses/$1";
+$route['weekly-report/upload'] = "WeeklyReport/upload_img";
+$route['weekly-report/upload-image'] = "WeeklyReport/upload_image/";
+$route['weekly-report/images/(:num)'] = "WeeklyReport/images/$1";
+$route['weekly-report/form'] = "WeeklyReport/extending_form/";
 
 $route['weekly-evaluation/edit-score/(:num)'] = "WeeklyEvaluation/edit_score/$1";
 $route['weekly-evaluation/update-score/(:num)'] = "WeeklyEvaluation/update_score/$1";

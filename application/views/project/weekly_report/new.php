@@ -79,23 +79,7 @@
 										} ?>
 									</select>
 								</div>
-								<div class="col-lg-6 form-group">
-									<label><?= $this->lang->line('wr_process_group') ?></label>
-
-									<select onchange="getGroup(this.value)" name="process_group" size="1" id="process_group" class="form-control" tabindex="1" required>
-										<option selected="selected" disabled="disabled" value=""> Select </option>
-										<?php foreach ($pmbok_processes as $i) { ?>
-											<option value="<?= $i->process_group; ?>"><?= $i->process_group; ?>
-											</option><?php  } ?>
-									</select>
-								</div>
-
-								<div class="col-lg-6 form-group">
-									<label><?= $this->lang->line('wr_process_name') ?></label>
-									<select name="process_name" class="form-control" id="process_name"></select>
-								</div>
-
-
+								
 								<div class=" col-lg-12 form-group">
 									<label for="tool_evaluation"><?= $this->lang->line('wr_tool_evaluation') ?> *</label>
 									<span class="wr_1">5000</span><?= $this->lang->line('character5') ?>

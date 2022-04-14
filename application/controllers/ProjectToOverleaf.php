@@ -782,7 +782,7 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] .= $this->verificaDados($dataTEP[0]->summary_validation) . "\n";
 
 			$file["task"] .= "\subsubsection{Summary of Results Achieved the Business Needs}\n";
-			$file["task"] .= $this->verificaDados($dataTEP[0]->summary_business) . "\n";
+			$file["task"] .= $this->verificaDados($dataTEP[0]->summary_results) . "\n";
 
 			$file["task"] .= "\subsubsection{Summary Risks or Issues}\n";
 			$file["task"] .= $this->verificaDados($dataTEP[0]->summary_risks) . "\n";

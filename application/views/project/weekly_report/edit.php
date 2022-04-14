@@ -157,18 +157,8 @@
 							<h1 class="page-header">
 								Uploads
 							</h1>
-							<form action="" method="POST">
-								<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#upload"><i class="fa fa-plus-circle"></i> Upload</button>
-							</form>
-
-
-							<?php
-
-							$this->load->view('upload/upload_pdf', $weekly_report['weekly_report_id']);
-							$this->load->view('upload/retrieve_pdf', $weekly_report['weekly_report_id']);
-
-							?>
-							<form action="<?php echo base_url('weekly-report/list/'); ?><?php echo  $_SESSION['project_id']; ?>">
+						
+							<form action="<?php echo base_url('weekly-report/list/'); ?>">
 								<button style="margin-top: 30px;" class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 							</form>
 						</div>
