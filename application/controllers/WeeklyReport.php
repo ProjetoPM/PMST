@@ -6,9 +6,9 @@ if (!defined('BASEPATH')) {
 class WeeklyReport extends CI_Controller
 {
 
-	public function __Construct()
+	public function __construct()
 	{
-		parent::__Construct();
+		parent::__construct();
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
@@ -17,11 +17,10 @@ class WeeklyReport extends CI_Controller
 
 		if (strcmp($_SESSION['language'], "US") == 0) {
 			$this->lang->load('weekly_eval', 'english');
-
 			$this->lang->load('weekly_report', 'english');
 			$this->lang->load('project-page', 'english');
 		} else {
-			$this->lang->load('weekly_eval', 'english');
+			$this->lang->load('weekly_eval', 'portuguese-brazilian');
 			$this->lang->load('weekly_report', 'portuguese-brazilian');
 			$this->lang->load('project-page', 'portuguese-brazilian');
 		}
