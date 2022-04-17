@@ -1,4 +1,3 @@
-<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,6 +46,7 @@
 
   <!-- CSS refatorados da dashboard principal -->
   <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="<?= base_url('assets/login/css/util.css') ?>">
 
 
   <!-- Theme style -->
@@ -57,10 +57,4 @@
     <img id="loading" width="250px" src="<?= base_url() ?>assets/images/loading.gif" alt="Loading...">
   </div> -->
   <!-- <input type="hidden" id="base-url" value="<?= base_url() ?>" /> -->
-
- 
-
 </head>
-
-</html>
-

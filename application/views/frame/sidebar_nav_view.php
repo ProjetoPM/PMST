@@ -85,15 +85,21 @@ position:-webkit-sticky
             <li class="<?php if ($uri1 == 'chat') {
                            echo 'active';
                         } ?>">
-               <!-- <a href="<?= base_url('chat'); ?>"> -->
+               <!-- <a href="<? // base_url('chat'); ?>"> -->
                <a href="#">
                   <i class="fa fa-comment fa-fw"></i> <span>Chat</span>
                </a>
             </li>
 
-            <li class="<?php if ($uri1 == 'project') {
-                           echo 'active';
-                        } ?>"><a href="<?= base_url("project/" . $_SESSION['project_id']) ?>"><i class="fa fa-home fa-2"></i> <span><?= $this->lang->line('dashboard'); ?></span>
+            <!-- 
+               Talvez padronizar desta forma?
+               Além disso, separar a parte 'integration' em um novo arquivo?
+               Desta forma, não será necessário os comentários...
+               $this->load->view('.../integration.php')
+            -->
+            <li class="<?= ($uri1 === 'project') ? 'active' : 'not-active' ?>">
+               <a href="<?= base_url("project/{$_SESSION['project_id']}") ?>">
+                  <i class="fa fa-home fa-2"></i><span><?= $this->lang->line('dashboard') ?></span>
                </a>
             </li>
 

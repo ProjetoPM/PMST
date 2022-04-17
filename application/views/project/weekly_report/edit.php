@@ -1,31 +1,23 @@
 <body id="body" class="hold-transition skin-gray sidebar-mini">
-	<script>
-		(function() {
-			if (Boolean(sessionStorage.getItem('sidebar-toggle-collapsed'))) {
-				var body = document.getElementsByTagName('body')[0];
-				body.className = body.className + ' sidebar-collapse';
-			}
-		})();
-	</script>
 	<div class="wrapper">
 		<div class="content-wrapper">
 			<section class="content">
 				<?php if ($this->session->flashdata('success')) : ?>
 					<div class="alert alert-success">
 						<a href="#" class="close" data-dismiss="alert">&times;</a>
-						<strong><?php echo $this->session->flashdata('success'); ?></strong>
+						<strong><?= $this->session->flashdata('success') ?></strong>
 					</div>
 				<?php elseif ($this->session->flashdata('update')) : ?>
 					<div class="alert alert-warning">
 						<a href="#" class="close" data-dismiss="alert">&times;</a>
-						<strong><?php echo $this->session->flashdata('update'); ?></strong>
+						<strong><?= $this->session->flashdata('update') ?></strong>
 					</div>
 				<?php elseif ($this->session->flashdata('error')) : ?>
 					<div class="alert alert-warning">
 						<a href="#" class="close" data-dismiss="alert">&times;</a>
-						<strong><?php echo $this->session->flashdata('error'); ?></strong>
+						<strong><?= $this->session->flashdata('error') ?></strong>
 					</div>
-				<?php endif; ?>
+				<?php endif ?>
 				<style>
 					input button[disabled],
 					html input[disabled] {
@@ -57,33 +49,33 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="panel-body">
-							<h1 class="page-header">
-								<?= $this->lang->line('we_title') ?>
-
-								}
-							</h1>
-
-							<form method="POST" action="<?php echo base_url() ?>weekly-report/update/<?php echo $weekly_report['weekly_report_id'] ?>">
-
+							<h1 class="page-header"><?= $this->lang->line('we_title') ?></h1>
+							<form method="POST" action='<?= base_url("weekly-report/update/{$weekly_report['weekly_report_id']}") ?>'>
 								<div class=" col-lg-5 form-group">
 									<label for="type"><?= $this->lang->line('we_name') ?></label>
 									<select name="evaluation_id" class="form-control">
-										<?php if ($weekly_report['weekly_evaluation_id'] != null) { ?>
-											"<option value="<?php echo $weekly_report['weekly_evaluation_id'] ?>"><?= $this->lang->line('selected') ?></option>"
-										<?php } ?>
-
-										<?php foreach ($evaluation as $i) { ?>
-											<option value="<?= $i->weekly_evaluation_id; ?>">
-												<?= getWeeklyEvaluationName($i->weekly_evaluation_id); ?></option>
-										<?php  } ?>
+										<?php if (isset($weekly_report['weekly_evaluation_id'])): ?>
+											<option value="<?= $weekly_report['weekly_evaluation_id'] ?>">
+												<?= $this->lang->line('selected') ?>
+											</option>
+										<?php endif ?>
+										<?php foreach ($evaluation as $i): ?>
+											<option value="<?= $i->weekly_evaluation_id ?>">
+												<?= getWeeklyEvaluationName($i->weekly_evaluation_id) ?>
+											</option>
+										<?php endforeach ?>
 									</select>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="tool_evaluation"><?= $this->lang->line('wr_tool_evaluation') ?></label>
-									<a class="btn-sm btn-default" id="wr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wr_tool_evaluation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span class="btn-sm btn-default" id="wr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wr_tool_evaluation_tp') ?>">
+										<i class="glyphicon glyphicon-comment"></i>
+									</span>
 									<div>
-										<textarea onkeyup="limite_textarea(this.value, 'wr_1')" id="wr_txt_1" maxlength="5000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="tool_evaluation"><?php echo $weekly_report['tool_evaluation'] ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'wr_1')" id="wr_txt_1" maxlength="5000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="tool_evaluation">
+											<?= $weekly_report['tool_evaluation'] ?>
+										</textarea>
 									</div>
 								</div>
 
@@ -92,11 +84,8 @@
 										<div class="panel panel-default">
 											<div class="panel-heading">
 												<span class="gprc_1" style="font-size: 20px;"><?= $this->lang->line('wr_processes') ?></span>
-
 											</div>
-
 											<div class="panel-body">
-												<span></span>
 												<div class="col-sm-3 form-group" style="min-height: 20px;">
 													<div>
 														<label for="pdf_path"><?= $this->lang->line('wr_attach_pdf') ?></label>
@@ -120,30 +109,32 @@
 												<div id="education_fields">
 												</div>
 											</div>
-											<?php
-											// $json = json_encode($risk_check);
-
+											<?php 
 											$count = 1;
-											foreach ($weekly_processes as $processes) {
-											?>
-												<div class="form-group removeclass<?php echo $count ?>" id="removeclass[<?php echo $count ?>]">
+											foreach ($weekly_processes as $processes): ?>
+												<div class="form-group removeclass<?= $count ?>" id="removeclass[<?= $count ?>]">
 
 													<div class="col-sm-3 form-group">
-														<div class="input-group" style="width: 100%"> <input class="form-control elasticteste2" type="file" style="text-align:left;" id="pdf_path['<?php echo $count ?>']" name="pdf_path[] "><?php echo $processes->pdf_path ?></input>
+														<div class="input-group" style="width: 100%">
+															<input class="form-control elasticteste2" type="file" style="text-align:left;" id="pdf_path['<?= $count ?>']" name="pdf_path[] ">
+																<?= $processes->pdf_path ?>
+															</input>
 														</div>
 													</div>
 													<div class="col-sm-6 form-group">
 														<div>
 															<div class="input-group" style="width: 100%">
-																<textarea style="text-align:left;" class="form-control elasticteste2" id="process_name[<?php echo $count ?>]" name="process_name[]"><?php echo $processes->process_name ?></textarea>
+																<textarea style="text-align:left;" class="form-control elasticteste2" id="process_name[<?= $count ?>]" name="process_name[]">
+																<?= $processes->process_name ?></textarea>
 															</div>
 														</div>
 													</div>
-
 													<div class="col-sm-6 form-group">
 														<div>
 															<div class="input-group" style="width: 100%">
-																<textarea style="text-align:left;" class="form-control elasticteste2" id="process_name[<?php echo $count ?>]" name="process_name[]"><?php echo $processes->process_name ?></textarea>
+																<textarea style="text-align:left;" class="form-control elasticteste2" id="process_name[<?= $count ?>]" name="process_name[]">
+																	<?= $processes->process_name ?>
+																</textarea>
 															</div>
 														</div>
 													</div>
@@ -152,26 +143,31 @@
 											<?php
 												$count++;
 												$room++;
-											}
+												endforeach;
 											?>
-
 										</div>
 									</div>
 									<!-- buttons -->
 									<div class="col-lg-12">
-										<button type="submit" style="margin-top: 30px;" class="btn btn-lg btn-success pull-right">
-											<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
+										<form action='<?= base_url("weekly-report/list/{$this->input->post('project_id')}") ?>'>
+											<button class="btn btn-lg btn-info pull-left m-t-30">
+												<i class="glyphicon glyphicon-chevron-left"></i>
+												<?= $this->lang->line('btn-back') ?>
+											</button>
+										</form>
+										<button type="submit" class="btn btn-lg btn-success pull-right m-t-30">
+											<i class="glyphicon glyphicon-ok"></i>
+											<?= $this->lang->line('btn-save') ?>
 										</button>
-
-							</form>
-							<form action="<?php echo base_url('weekly-report/list/'); ?><?php echo  $_SESSION['project_id']; ?>">
-								<button style="margin-top: 30px;" class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
+									</div>
+								</div>
 							</form>
 						</div>
 					</div>
 				</div>
 			</section>
 		</div>
+	</div>
 </body>
 
 <script>
@@ -203,4 +199,3 @@
 		$('.removeclass' + rid).remove();
 	}
 </script>
-<?php $this->load->view('frame/footer_view') ?>

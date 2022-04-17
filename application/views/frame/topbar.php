@@ -12,8 +12,8 @@
 
      <span class="logo-mini"><b>SB</b></span>
      <!-- logo for regular state and mobile devices -->
-     <figure class="logo-lg"><img src="<?= base_url() ?>assets/images/silverbullet_logo.png" align="center" style="display: block; max-width: 65%; height: auto; margin-left: auto; max-height: max-content;
-  margin-right: auto;" margin-left: auto; margin-right: auto;></figure>
+     <figure class="logo-lg"><img src="<?= base_url() ?>assets/images/silverbullet_logo.png" style="max-width: 65%; height: auto; margin-left: auto; max-height: max-content;
+  margin-right: auto;"></figure>
      <!-- <span class="logo-lg"><b>Silver Bullet</b></span> -->
    </a>
    <!-- Header Navbar: style can be found in header.less -->
@@ -30,6 +30,17 @@
          <img id="loading" width="250px" src="<?= base_url() ?>assets/images/loading.gif" alt="Loading...">  -->
 
          <style>
+            /* Solução temporária... */
+            @media(max-width: 768px) {
+                .main-header > .logo > .logo-lg {
+                    display: none;
+                }
+
+                .main-header > a.logo {
+                    display: none;
+                }
+            }
+
            .load {
              width: 100px;
              height: 100px;
