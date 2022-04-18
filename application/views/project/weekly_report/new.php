@@ -38,17 +38,14 @@
 									</select>
 								</div>
 								<div class="col-lg-12 form-group">
-									<label for="tool_evaluation"><?= $this->lang->line('wr_tool_evaluation') ?> *</label>
-									<span class="wr_1">5000</span><?= $this->lang->line('character5') ?>
+									<label for="tool_evaluation"><?= $this->lang->line('wr_tool_evaluation') ?>*</label>
+									<span id="count-a">5000/5000</span>
 									<a class="btn-sm btn-default" id="wr_tp_1" data-toggle="tooltip" data-placement="right" 
 											title="<?= $this->lang->line('wr_tool_evaluation_tp') ?>">
 										<i class="glyphicon glyphicon-comment"></i>
 									</a>
 									<div>
-										<textarea oninput="eylem(this, this.value)" 
-												onkeyup="limite_textarea(this.value, 'wr_1')" 
-												class="form-control" name="tool_evaluation" 
-												id="wr_txt_1" maxlength="5000" required></textarea>
+										<textarea oninput="limitText(this, 5000, 'a')" class="form-control" id="tool_evaluation_ta" required></textarea>
 									</div>
 								</div>
 								<div class="col-lg-12">
