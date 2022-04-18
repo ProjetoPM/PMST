@@ -112,15 +112,20 @@ $route['myaccount'] = 'register/show_Edit_User';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$oute['get/processes/(:num)'] = 'WeeklyReport/getProcesses/$1';
+
 
 $route['weekly-report/new'] = "WeeklyReport/new";
 $route['weekly-report/insert'] = "WeeklyReport/insert";
 $route['weekly-report/edit/(:num)'] = "WeeklyReport/edit/$1";
 $route['weekly-report/update/(:num)'] = "WeeklyReport/update/$1";
 $route['weekly-report/list'] = "WeeklyReport/list";
+$route['weekly-report/get-processes/(:alpha)'] = "WeeklyReport/getProcesses/$1";
+$route['weekly-report/upload'] = "WeeklyReport/upload_img";
+$route['weekly-report/upload-image'] = "WeeklyReport/upload_image/";
+$route['weekly-report/images/(:num)'] = "WeeklyReport/images/$1";
+$route['weekly-report/form'] = "WeeklyReport/extending_form/";
 
-$route['weekly-evaluation/new-report-score/(:num)'] = "WeeklyEvaluation/new_submission_score/$1";
-$route['weekly-evaluation/insert-score/(:num)'] = "WeeklyEvaluation/insert_score/$1";
 $route['weekly-evaluation/edit-score/(:num)'] = "WeeklyEvaluation/edit_score/$1";
 $route['weekly-evaluation/update-score/(:num)'] = "WeeklyEvaluation/update_score/$1";
 $route['weekly-evaluation/new'] = "WeeklyEvaluation/new";
