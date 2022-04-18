@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('Direct access allowed');
  
-class LanguageSwitcher extends CI_Controller
+class LanguageSwitcher_controller extends CI_Controller
  
 {
  
@@ -20,6 +20,14 @@ class LanguageSwitcher extends CI_Controller
  
        redirect($_SERVER['HTTP_REFERER']);
  
+   }
+
+   public function verifyLanguage(){
+    if(strcmp($_SESSION['language'],"US") == 0){
+        return 1;
+    }else{
+        return 0;
+    }
    }
  
 }
