@@ -1,4 +1,3 @@
-<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,15 +12,11 @@
   <link href="<?= base_url() ?>assets/css/multiselect.css" rel="stylesheet">
   <link href="<?= base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?= base_url() ?>assets/css/stepbystep.css" rel="stylesheet">
-
-  <!-- Language -->
-  <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet"> -->
   <link href="<?= base_url() ?>assets/css/flags.css" rel="stylesheet">
 
   <!-- Custom CSS -->
   <!-- <link href="<?= base_url() ?>assets/css/sb-admin-2.css" rel="stylesheet"> -->
   <!-- Custom Fonts -->
-  
   <link href="<?= base_url() ?>assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom tab icons -->
   <link rel="shortcut icon" href="<?= base_url() ?>assets/images/silverbullet_logo.png" type="image/x-icon">
@@ -50,9 +45,8 @@
   <!-- <link rel='stylesheet' href="<?= base_url() ?>assets/css/dataTables.responsive.css"> -->
 
   <!-- CSS refatorados da dashboard principal -->
-  <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet" >
- 
- 
+  <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="<?= base_url('assets/login/css/util.css') ?>">
 
 
   <!-- Theme style -->
@@ -63,9 +57,4 @@
     <img id="loading" width="250px" src="<?= base_url() ?>assets/images/loading.gif" alt="Loading...">
   </div> -->
   <!-- <input type="hidden" id="base-url" value="<?= base_url() ?>" /> -->
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
-
-</html>

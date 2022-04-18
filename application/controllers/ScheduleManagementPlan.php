@@ -79,6 +79,7 @@ class ScheduleManagementPlan extends CI_Controller
 			if ($dado['schedule_mp'] == null) {
 				redirect("schedule/schedule-mp/new/" . $_SESSION['project_id']);
 			}
+			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "schedule management plan", $dado['schedule_mp'][0]->schedule_mp_id);
 
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');

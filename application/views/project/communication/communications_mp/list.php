@@ -35,6 +35,10 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 								<?= $this->lang->line('commp_title') ?>
+
+								<?php $view_name = "communications management plan"; ?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name)) ?>
 							</h1>
 							<div class="row">
 								<div class="col-lg-12">
@@ -46,10 +50,10 @@
 							<!-- Nav tabs -->
 							<ul class="nav nav-tabs" id="myTab" role="tablist">
 								<li class="nav-item active">
-									<a class="nav-link show active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" aria-expanded="true"><?= $this->lang->line('commp_items')?></a>
+									<a class="nav-link show active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" aria-expanded="true">Communication Itens</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link " id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><?= $this->lang->line('commp_stakeholders_responsabilities')?></a>
+									<a class="nav-link " id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Stakeholders Responsibilities</a>
 								</li>
 							</ul>
 							<div class="tab-content">

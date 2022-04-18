@@ -31,6 +31,12 @@
 
 								<?= $this->lang->line('rr_title')  ?>
 
+								
+								<?php $view_name = "resource requirements"?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
+
 							</h1>
 
 							<div class="row">

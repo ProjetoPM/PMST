@@ -30,6 +30,11 @@
 
 								<?= $this->lang->line('av_title')  ?>
 
+								<?php $view_name = "earned value management"?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
+
 							</h1>
 							<div class="row">
 								<div class="col-lg-12">

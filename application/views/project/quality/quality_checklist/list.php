@@ -109,7 +109,7 @@
 													<td style="display: fixed;min-width: 15px;text-align:center"><?php echo $item->date; ?></td>
 													
 													
-													<td style="display: fixed;min-width: 100px;">
+													<td <?= getStatusFieldsList("quality checklist", $item->quality_checklist_id) ?> style="display: fixed;min-width: 100px;">
 														<div class="row center">
 															<div class="col-sm-4">
 																<form action="<?php echo base_url() ?>quality/quality-checklist/edit/<?php echo $item->quality_checklist_id; ?>" method="post">

@@ -3,16 +3,117 @@
 
 function email_exists($email)
 {
-	$obj = &get_instance();
-	$obj->load->model('Admin_model');
 
-	$data2 = $obj->Exame_model->getUserByEmail($email);
-	if ($data2 != null) {
-		return true;
-	}
-	return false;
+    $obj = &get_instance();
+    $obj->load->model('Admin_model');
+
+    $data2 = $obj->Exame_model->getUserByEmail($email);
+    if ($data2 != null) {
+        return true;
+    }
+    return false;
 }
 
+function getViewEvaluation($view_id)
+{
+	$obj = &get_instance();
+	$obj->load->model('View_model');
+
+	$obj2 = &get_instance();
+	$obj2->load->model('ViewEvaluation_model');
+
+	$view_id = $obj->View_model->GetIDByName($view_id);
+
+	$view_evaluation = $obj2->ViewEvaluation_model->GetByProjectView($view_id, $_SESSION['project_id']);
+
+	if ($view_evaluation == null) {
+		$view_evaluation['average'] = null;
+		$view_evaluation['evaluationTxt'] = "Not yet rated";
+		return $view_evaluation;
+	}
+	$view_evaluation['evaluationTxt'] = "";
+	foreach ($obj2->ViewEvaluation_model->getAllProfessorEvaluation($view_evaluation['view_evaluation_id']) as $pe) {
+		// var_dump(getUserName($pe->user_id));exit;
+		$view_evaluation['evaluationTxt'] = $view_evaluation['evaluationTxt'] . getUserName($pe->user_id) . ": " .$pe->points. ", ";
+	}
+	$view_evaluation['evaluationTxt'] = $view_evaluation['evaluationTxt'] . "Average: ". $view_evaluation['average'];
+	return $view_evaluation;
+}
+
+function getStakeholderName($id)
+{
+    $obj = &get_instance();
+    $obj->load->model('Stakeholder_model');
+
+    $data1 = $obj->Stakeholder_model->get($id);
+    return $data1["name"];
+}
+
+
+
+function getInstitution($id)
+{
+    $obj = &get_instance();
+    $obj->load->model('User_Model');
+
+    $data1 = $obj->User_Model->GetUserById($id);
+    return $data1["institution"];
+}
+
+function getEmail($id)
+{
+    $obj = &get_instance();
+    $obj->load->model('User_Model');
+
+    $data1 = $obj->User_Model->GetUserById($id);
+    return $data1["email"];
+}
+
+
+function array_sort($array, $on, $order = SORT_ASC)
+{
+    $new_array = array();
+    $sortable_array = array();
+
+    if (count($array) > 0) {
+        foreach ($array as $k => $v) {
+            if (is_array($v)) {
+                foreach ($v as $k2 => $v2) {
+                    if ($k2 == $on) {
+                        $sortable_array[$k] = $v2;
+                    }
+                }
+            } else {
+                $sortable_array[$k] = $v;
+            }
+        }
+
+        switch ($order) {
+            case SORT_ASC:
+                asort($sortable_array);
+                break;
+            case SORT_DESC:
+                arsort($sortable_array);
+                break;
+        }
+
+        foreach ($sortable_array as $k => $v) {
+            $new_array[$k] = $array[$k];
+        }
+    }
+
+    return $new_array;
+}
+
+
+function getRole($id)
+{
+    $obj = &get_instance();
+    $obj->load->model('User_Model');
+
+    $data1 = $obj->User_Model->GetUserById($id);
+    return $data1["role"];
+}
 
 
 function getAllFieldEvaluation($project_id, $view, $item_id)
@@ -210,14 +311,6 @@ function getActivityName($id)
 	return $data1["activity_name"];
 }
 
-function getStakeholderName($id)
-{
-	$obj = &get_instance();
-	$obj->load->model('Stakeholder_model');
-
-	$data1 = $obj->Stakeholder_model->get($id);
-	return $data1["name"];
-}
 
 function getWeeklyEvaluationName($id)
 {
@@ -259,37 +352,5 @@ function verifyEvaluation($id)
 }
 
 
-function array_sort($array, $on, $order = SORT_ASC)
-{
-	$new_array = array();
-	$sortable_array = array();
 
-	if (count($array) > 0) {
-		foreach ($array as $k => $v) {
-			if (is_array($v)) {
-				foreach ($v as $k2 => $v2) {
-					if ($k2 == $on) {
-						$sortable_array[$k] = $v2;
-					}
-				}
-			} else {
-				$sortable_array[$k] = $v;
-			}
-		}
 
-		switch ($order) {
-			case SORT_ASC:
-				asort($sortable_array);
-				break;
-			case SORT_DESC:
-				arsort($sortable_array);
-				break;
-		}
-
-		foreach ($sortable_array as $k => $v) {
-			$new_array[$k] = $array[$k];
-		}
-	}
-
-	return $new_array;
-}

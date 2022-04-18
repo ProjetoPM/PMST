@@ -93,6 +93,9 @@ class QualityReports extends CI_Controller
 		}
         
         $query['quality_reports'] = $this->Quality_reports_model->get($project_id);
+
+        $dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "quality reports", $query['quality_reports']['quality_reports_id']);
+
         $this->load->view('frame/header_view');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');

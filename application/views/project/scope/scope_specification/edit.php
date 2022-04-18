@@ -28,7 +28,20 @@
 
                 <?= $this->lang->line('pss-title')  ?>
 
+                <?php $view_name = "project scope statement";?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
               </h1>
+
+              <!-- avaliação -->
+							<link href="<?= base_url() ?>assets/css/field_evaluation.css" rel="stylesheet" type="text/css">
+							<?php 
+							getViewFields($view_name);
+							?>
+							<?php $this->load->view('construction_services/write_field_evaluation') ?>
+
+
               <?php
               foreach ($scope_specification as $scope) {
               ?>
@@ -38,6 +51,7 @@
 									<label for="scope_description"><?= $this->lang->line('pss-desc') ?></label>
 									<span class="pss_1">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="pss_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pss-desc-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a <?= fieldStatus($view_name, $scope->scope_specification_id, "scope_description") ?> data-field="scope_description" data-field_name="<?= $this->lang->line('pss-desc') ?>" data-item_id="<?= $scope->scope_specification_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<div>
 										<textarea onkeyup="limite_textarea(this.value, 'pss_1')" id="pss_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="scope_description"><?= $scope->scope_description; ?></textarea>
 									</div>
@@ -47,6 +61,7 @@
                   <label for="acceptance_criteria"><?= $this->lang->line('pss-accept') ?></label>
                   <span class="pss_2">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" id="pss_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pss-accept-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a <?= fieldStatus($view_name, $scope->scope_specification_id, "acceptance_criteria") ?> data-field="acceptance_criteria" data-field_name="<?= $this->lang->line('pss-accept') ?>" data-item_id="<?= $scope->scope_specification_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                   <div>
                   <textarea onkeyup="limite_textarea(this.value, 'pss_2')" id="pss_txt_2" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="acceptance_criteria"><?= $scope->acceptance_criteria; ?></textarea>
                   </div>
@@ -56,6 +71,7 @@
                   <label for="deliveries"><?= $this->lang->line('pss-deli') ?></label>
                   <span class="pss_3">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" id="pss_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pss-deli-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a <?= fieldStatus($view_name, $scope->scope_specification_id, "deliveries") ?> data-field="deliveries" data-field_name="<?= $this->lang->line('pss-deli') ?>" data-item_id="<?= $scope->scope_specification_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                   <div>
                   <textarea onkeyup="limite_textarea(this.value, 'pss_3')" id="pss_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="deliveries"><?= $scope->deliveries; ?></textarea>
                   </div>
@@ -65,6 +81,7 @@
                   <label for="exclusions"><?= $this->lang->line('pss-exclu') ?></label>
                   <span class="pss_4">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" id="pss_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pss-exclu-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <a <?= fieldStatus($view_name, $scope->scope_specification_id, "exclusions") ?> data-field="exclusions" data-field_name="<?= $this->lang->line('pss-exclu') ?>" data-item_id="<?= $scope->scope_specification_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                   <div>
                   <textarea onkeyup="limite_textarea(this.value, 'pss_4')" id="pss_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="exclusions"><?= $scope->exclusions; ?></textarea>
                   </div>

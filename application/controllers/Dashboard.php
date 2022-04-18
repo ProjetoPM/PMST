@@ -7,8 +7,9 @@ if (!defined('BASEPATH')) {
 class Dashboard extends CI_Controller {
 
     public function Construct() {
-        parent::Construct();
-        if(!$this->session->userdata('logged_in')) {
+        parent::__construct();
+
+        if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }
     }

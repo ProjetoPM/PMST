@@ -30,6 +30,11 @@
 							<h1 class="page-header">
 
 								<?= $this->lang->line('rd-title')  ?>
+								
+								<?php $view_name = "requirement documentation"; ?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
 
 							</h1>
 
@@ -61,15 +66,14 @@
 											<?php
 											foreach ($requirement_registration as $requirement_registration) {
 											?>
-												<tr dados='<?= json_encode($requirement_registration); ?>'>
+												<tr dados='<?= json_encode($requirement_registration); ?>' >
 													<td class="moreInformationTable"></td>
 													<td><?php echo $requirement_registration->associated_id; ?></td>
 													<td><?php echo $requirement_registration->description; ?></td>
 													<td><?php echo $requirement_registration->priority; ?></td>
 													<td><?php echo $requirement_registration->business_strategy; ?></td>
-
-
-													<td style="max-width: 20px">
+											
+													<td <?= getStatusFieldsList("requirement documentation", $requirement_registration->requirement_registration_id) ?> style="max-width: 20px">
 														<div class="row center">
 															<div class="col-sm-4">
 																<form action="<?php echo base_url() ?>scope/requirement-documentation/edit/<?php echo $requirement_registration->requirement_registration_id; ?>" method="post">

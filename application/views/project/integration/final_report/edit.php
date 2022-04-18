@@ -37,7 +37,7 @@
               	<?php extract($final_report); ?>
              
 
-                <form action="<?= base_url() ?>integration/final-report/update/<?php echo $project_id; ?>" method="post">
+                <form action="<?= base_url() ?>integration/final-report/update" method="post">
                   <input type="hidden" name="status" value="1">
 
 
@@ -109,7 +109,7 @@
                   <span class="fr_8">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" id="fr_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('fr-summary_risks-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                  <textarea onkeyup="limite_textarea(this.value, 'fr_8')" id="fr_txt_8" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="summary_risks"></textarea>
+                  <textarea onkeyup="limite_textarea(this.value, 'fr_8')" id="fr_txt_8" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="summary_risks"><?php echo $summary_risks; ?></textarea>
                   </div>
                 </div>
 

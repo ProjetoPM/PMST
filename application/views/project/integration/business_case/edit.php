@@ -28,14 +28,22 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="panel-body">
-              <h1 class="page-header">
+              <div class="page-header">
+                <h1>
+                  <?= $this->lang->line('bc_title') ?>
 
-                <?= $this->lang->line('bc_title')  ?>
+                  <?php $view_name = "business case" ?>
+                  <?php $this->load->view('construction_services/rating', array(
+                    "view_name" => $view_name,
+                  )) ?>
+                </h1>
+              </div>
 
-              </h1>
+              <!-- <input type="text" class="rating rating-loading" value="3.75" data-size="xl" data-theme="krajee-fa" title=""> -->
+
               <!-- avaliação -->
               <link href="<?= base_url() ?>assets/css/field_evaluation.css" rel="stylesheet" type="text/css">
-              <?php $view_name = "business case";
+              <?php
               getViewFields($view_name);
               ?>
               <?php $this->load->view('construction_services/write_field_evaluation') ?>
@@ -123,4 +131,6 @@
     $("." + txt).text(caracteresRestantes);
   }
 </script>
+
+
 <?php $this->load->view('frame/footer_view') ?>

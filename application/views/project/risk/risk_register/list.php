@@ -30,6 +30,11 @@
 
 								<?= $this->lang->line('rir_title')  ?>
 
+								<?php $view_name = "risk register"; ?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
+
 							</h1>
 
 							<div class="row">
@@ -84,7 +89,7 @@
 													<td><?php echo $risk->event; ?></td>
 													<td><?php echo $risk->date; ?></td>
 
-													<td>
+													<td <?= getStatusFieldsList("risk register", $risk->risk_register_id) ?>>
 														<div class="row center">
 															<div class="col-sm-4">
 																<form action="<?php echo base_url() ?>risk/risk-register/edit/<?php echo $risk->risk_register_id; ?>" method="post">

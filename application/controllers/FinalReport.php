@@ -74,6 +74,8 @@ class FinalReport extends CI_Controller
 
 		if (count($project['dados']) > 0) {
 			$dado['final_report'] = $this->Final_report_model->get($_SESSION['project_id']);
+						$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "final report", $dado['final_report']['final_report_id']);
+
 			if ($dado['final_report'] == null) {
 				redirect(base_url("integration/final-report/new/" . $_SESSION['project_id']));
 			}
@@ -97,6 +99,7 @@ class FinalReport extends CI_Controller
 		$final_report['summary_validation'] = $this->input->post('summary_validation');
 		$final_report['summary_results'] = $this->input->post('summary_results');
 		$final_report['summary_risks'] = $this->input->post('summary_risks');
+		$final_report['project_id'] = $_SESSION['project_id'];
 
 		$insert = $this->Final_report_model->insert($final_report);
 		if ($insert) {

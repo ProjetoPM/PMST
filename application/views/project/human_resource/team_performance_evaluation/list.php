@@ -27,6 +27,11 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 								<?= $this->lang->line('eval_title')  ?>
+
+								<?php $view_name = "team performance assessments"; ?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
 							</h1>
 
 							<div class="row">
@@ -60,7 +65,7 @@
 													<td><?php echo $team->project_function; ?></td>
 													<td><?php echo $team->report_date; ?></td>
 
-													<td>
+													<td <?= getStatusFieldsList("team performance assessments", $team->team_performance_evaluation_id) ?>>
 														<div class="row center">
 															<div class="col-sm-3">
 																<form action="<?php echo base_url() ?>resources/team-performance-assessments/edit/<?php echo $team->team_performance_evaluation_id; ?>" method="post">

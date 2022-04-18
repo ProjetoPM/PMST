@@ -32,6 +32,12 @@
 								<?= $this->lang->line('ds_title')  ?>
 
 							</h1>
+							<!-- avaliação -->
+							<link href="<?= base_url() ?>assets/css/field_evaluation.css" rel="stylesheet" type="text/css">
+							<?php $view_name = "deliverable status";
+							getViewFields($view_name);
+							?>
+							<?php $this->load->view('construction_services/write_field_evaluation') ?>
 							<?php extract($delivery_acceptance_term); ?>
 
 							<form method="POST" action="<?php echo base_url('integration/deliverable-status/update/'); ?><?php echo $id; ?>">
@@ -40,6 +46,7 @@
 								<div class="col-lg-6 form-group">
 									<label><?= $this->lang->line('ds_validator_name') ?></label>
 									<a class="btn-sm btn-default" id="ds_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('validator_name_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a <?= fieldStatus($view_name, $id, "validator_name") ?> data-field="validator_name" data-field_name="<?= $this->lang->line('ds_validator_name') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<select name="validator_name" size="1" class="form-control" tabindex="1" required>
 										<?php foreach ($stakeholder as $item) { ?>
 											<option <?php if ($item->stakeholder_id == $validator_name) echo "selected"; ?> value="<?= $item->stakeholder_id; ?>">
@@ -52,6 +59,7 @@
 									<label for="role"><?= $this->lang->line('ds_role') ?></label>
 									<span class="ds_2">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id ="ds_tp_2"  data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('role_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a <?= fieldStatus($view_name, $id, "role") ?> data-field="role" data-field_name="<?= $this->lang->line('ds_role') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<div>
 									<input id="ds_txt_2" type="text" name="role" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'ds_2')" maxlength="2000" oninput="eylem(this, this.value)" required="false"  value="<?php echo $role; ?>" >
 									
@@ -62,6 +70,7 @@
 									<label for="function"><?= $this->lang->line('ds_function') ?></label>
 									<span class="ds_3">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id ="ds_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('function_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a <?= fieldStatus($view_name, $id, "function") ?> data-field="function" data-field_name="<?= $this->lang->line('ds_function') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<div>
 									<input id="ds_txt_3" type="text" name="function" class="form-control input-md"onkeyup = "limite_textarea(this.value, 'ds_3')" maxlength="2000" oninput="eylem(this, this.value)" required="false"  value="<?php echo $function; ?>" >
 									</div>
@@ -80,6 +89,7 @@
 									<label for="comments"><?= $this->lang->line('ds_comments') ?></label>
 									<span class="ds_5">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="ds_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ds_comments_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a <?= fieldStatus($view_name, $id, "comments") ?> data-field="comments" data-field_name="<?= $this->lang->line('ds_comments') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<div>
 									     <textarea onkeyup="limite_textarea(this.value, 'ds_5')" id="ds_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="comments"><?php echo $comments; ?></textarea>
 									</div>

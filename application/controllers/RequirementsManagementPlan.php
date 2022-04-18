@@ -86,6 +86,8 @@ class RequirementsManagementPlan extends CI_Controller
 			if ($dado['requirements_mp'] == null) {
 				redirect("scope/requirements-mp/new/" . $_SESSION['project_id']);
 			}
+			
+			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "requirements management plan", $dado['requirements_mp'][0]->requirements_mp_id);
 
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');

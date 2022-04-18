@@ -65,6 +65,8 @@ class ProcurementStatementOfWork extends CI_Controller {
 	public function edit($project_id) {
 		$query['procurement_statement_of_work'] = $this->Procurement_statement_of_work_model->get($project_id);
 
+		$query["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "procurement statement of the work", $query['procurement_statement_of_work']['id']);
+
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view.php');

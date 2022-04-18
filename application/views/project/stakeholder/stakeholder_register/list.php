@@ -154,7 +154,7 @@
 													<td <?= getStatusFieldsList("stakeholder register", $item->stakeholder_id) ?>>
 														<div class="row center">
 															<div class="col-sm-4">
-																<form action="<?php echo base_url() ?>stakeholder/stakeholder-register/edit/<?php echo $item->stakeholder_id; ?>" method="post">
+																<form action="<?php echo base_url() ?>stakeholder/stakeholder-register/edit/<?php echo $item->project_id; ?>" method="post">
 																	<input type="hidden" name="project_id" value="<?= $item->project_id ?>">
 																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 																</form>

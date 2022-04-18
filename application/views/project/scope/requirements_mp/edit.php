@@ -30,8 +30,19 @@
 
 								<?= $this->lang->line('rmp-title')  ?>
 
-							</h1>
+								<?php $view_name = "requirements management plan"; ?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
 
+							</h1>
+							<!-- avaliação -->
+							<link href="<?= base_url() ?>assets/css/field_evaluation.css" rel="stylesheet" type="text/css">
+							<?php 
+							getViewFields($view_name);
+							?>
+							<?php $this->load->view('construction_services/write_field_evaluation') ?>
+							
 							<?php
 							foreach ($requirements_mp as $rmp) {
 							?>
@@ -42,45 +53,50 @@
 									<div class=" col-lg-12 form-group">
 										<label for="requirements_collection_proc"><?= $this->lang->line('rmp-requirements_collection_proc') ?></label>
 										<span class="rmp_1">2000</span><?= $this->lang->line('character') ?>
-										<a class="btn-sm btn-default" id ="rmp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rmp-requirements_collection_proc-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="rmp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rmp-requirements_collection_proc-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a <?= fieldStatus($view_name, $rmp->requirements_mp_id, "requirements_collection_proc") ?> data-field="requirements_collection_proc" data-field_name="<?= $this->lang->line('rmp-requirements_collection_proc') ?>" data-item_id="<?= $rmp->requirements_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
-										<textarea onkeyup="limite_textarea(this.value, 'rmp_1')" id="rmp_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="requirements_collection_proc"><?= $rmp->requirements_collection_proc; ?></textarea>
+											<textarea onkeyup="limite_textarea(this.value, 'rmp_1')" id="rmp_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="requirements_collection_proc"><?= $rmp->requirements_collection_proc; ?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="configuration"><?= $this->lang->line('rmp-configuration') ?></label>
 										<span class="rmp_2">2000</span><?= $this->lang->line('character') ?>
-										<a class="btn-sm btn-default" id ="rmp_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rmp-configuration-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="rmp_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rmp-configuration-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a <?= fieldStatus($view_name, $rmp->requirements_mp_id, "configuration") ?> data-field="configuration" data-field_name="<?= $this->lang->line('rmp-configuration') ?>" data-item_id="<?= $rmp->requirements_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
-										<textarea onkeyup="limite_textarea(this.value, 'rmp_2')" id="rmp_txt_2" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="configuration"><?= $rmp->configuration; ?></textarea>
+											<textarea onkeyup="limite_textarea(this.value, 'rmp_2')" id="rmp_txt_2" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="configuration"><?= $rmp->configuration; ?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="requirements_prioritization"><?= $this->lang->line('rmp-requirements_prioritization') ?></label>
 										<span class="rmp_3">2000</span><?= $this->lang->line('character') ?>
-										<a class="btn-sm btn-default" id ="rmp_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rmp-requirements_prioritization-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="rmp_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rmp-requirements_prioritization-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a <?= fieldStatus($view_name, $rmp->requirements_mp_id, "requirements_prioritization") ?> data-field="requirements_prioritization" data-field_name="<?= $this->lang->line('rmp-requirements_prioritization') ?>" data-item_id="<?= $rmp->requirements_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
-										<textarea onkeyup="limite_textarea(this.value, 'rmp_3')" id="rmp_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="requirements_prioritization"><?= $rmp->requirements_prioritization; ?></textarea>
+											<textarea onkeyup="limite_textarea(this.value, 'rmp_3')" id="rmp_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="requirements_prioritization"><?= $rmp->requirements_prioritization; ?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="product_metrics"><?= $this->lang->line('rmp-product_metrics') ?></label>
 										<span class="rmp_4">2000</span><?= $this->lang->line('character') ?>
-										<a class="btn-sm btn-default" id ="rmp_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rmp-product_metrics-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="rmp_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rmp-product_metrics-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a <?= fieldStatus($view_name, $rmp->requirements_mp_id, "product_metrics") ?> data-field="product_metrics" data-field_name="<?= $this->lang->line('rmp-product_metrics') ?>" data-item_id="<?= $rmp->requirements_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
-										<textarea onkeyup="limite_textarea(this.value, 'rmp_4')" id="rmp_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="product_metrics"><?= $rmp->product_metrics; ?></textarea>
+											<textarea onkeyup="limite_textarea(this.value, 'rmp_4')" id="rmp_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="product_metrics"><?= $rmp->product_metrics; ?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="traceability"><?= $this->lang->line('rmp-traceability') ?></label>
 										<span class="rmp_5">2000</span><?= $this->lang->line('character') ?>
-										<a class="btn-sm btn-default" id ="rmp_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rmp-traceability-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a class="btn-sm btn-default" id="rmp_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rmp-traceability-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a <?= fieldStatus($view_name, $rmp->requirements_mp_id, "traceability") ?> data-field="traceability" data-field_name="<?= $this->lang->line('rmp-traceability') ?>" data-item_id="<?= $rmp->requirements_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
-										<textarea onkeyup="limite_textarea(this.value, 'rmp_5')" id="rmp_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="traceability"><?= $rmp->traceability; ?></textarea>
+											<textarea onkeyup="limite_textarea(this.value, 'rmp_5')" id="rmp_txt_5" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="traceability"><?= $rmp->traceability; ?></textarea>
 										</div>
 									</div>
 
@@ -120,7 +136,7 @@
 </body>
 <script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
 <script type="text/javascript">
-for (var i = 1; i <= 6; i++) {
+	for (var i = 1; i <= 6; i++) {
 		if (document.getElementById("rmp_tp_" + i).title == "") {
 			document.getElementById("rmp_tp_" + i).hidden = true;
 		}

@@ -31,6 +31,11 @@
 
 								<?= $this->lang->line('pca-title')  ?>
 
+								<?php $view_name = "project calendars"?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
+
 							</h1>
 
 							<div class="row">

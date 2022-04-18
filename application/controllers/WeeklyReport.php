@@ -6,26 +6,24 @@ if (!defined('BASEPATH')) {
 class WeeklyReport extends CI_Controller
 {
 
-	public function __Construct()
+	public function __construct()
 	{
-		parent::__Construct();
-		if (!$this->session->userdata('logged_in')) {
-			redirect(base_url());
-		}
-
+		parent::__construct();
+	
 		date_default_timezone_set('America/Sao_Paulo');
+
+		if (!$this->session->userdata('logged_in')) redirect(base_url());
 
 		if (strcmp($_SESSION['language'], "US") == 0) {
 			$this->lang->load('weekly_eval', 'english');
-
 			$this->lang->load('weekly_report', 'english');
 			$this->lang->load('project-page', 'english');
 		} else {
-			$this->lang->load('weekly_eval', 'english');
+			$this->lang->load('weekly_eval', 'portuguese-brazilian');
 			$this->lang->load('weekly_report', 'portuguese-brazilian');
 			$this->lang->load('project-page', 'portuguese-brazilian');
 		}
-		
+
 		$this->load->model('log_model');
 		$this->load->model('view_model');
 		$this->load->model('Project_model');
@@ -50,11 +48,11 @@ class WeeklyReport extends CI_Controller
 
 		$dado['weekly_report'] = $this->WeeklyReport_model->getAllPerMember($_SESSION['user_id']);
 
-
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('project/weekly_report/list', $dado);
+		$this->load->view('frame/footer_view');
 	}
 
 	public function getProcesses($group)
@@ -81,6 +79,7 @@ class WeeklyReport extends CI_Controller
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('project/weekly_report/new', $dado);
+		$this->load->view('frame/footer_view');
 	}
 
 	public function insert()
@@ -134,6 +133,7 @@ class WeeklyReport extends CI_Controller
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('project/weekly_report/edit', $dado);
+		$this->load->view('frame/footer_view');
 	}
 
 

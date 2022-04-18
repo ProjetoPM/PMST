@@ -10,6 +10,26 @@ class Register extends CI_Controller
         parent::__Construct();
        
         $this->load->model('Admin_model');
+        $this->load->model('User_Model');
+    }
+    
+    public function list($project_id)
+    {
+        if(strcmp($_SESSION['language'],"US") == 0){
+			$this->lang->load('project-page', 'english');
+			$this->lang->load('btn', 'english');
+		}else{
+			$this->lang->load('project-page', 'portuguese-brazilian');
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+
+        $dado['project_id'] = $project_id;
+
+        $dado['user'] = $this->User_Model->GetUsersByProject($project_id);
+        $this->load->view('frame/header_view');
+        $this->load->view('frame/topbar');
+        $this->load->view('frame/sidebar_nav_view');
+        $this->load->view('user/user_list', $dado);
     }
 
     public function addUser()

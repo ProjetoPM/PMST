@@ -34,7 +34,12 @@
 								<?= $this->lang->line('psw_title')  ?>
 
 							</h1>
-
+							<!-- avaliação -->
+							<link href="<?= base_url() ?>assets/css/field_evaluation.css" rel="stylesheet" type="text/css">
+							<?php $view_name = "procurement statement of the work";
+							getViewFields($view_name);
+							?>
+							<?php $this->load->view('construction_services/write_field_evaluation') ?>
 							<form action="<?= base_url() ?>procurement/procurement-statement-of-work/update/<?php echo $id; ?>" method="post">
 
 								<input type="hidden" id="project_id" name="project_id" value="<?php echo $project_id; ?>">
@@ -44,8 +49,9 @@
 									<label for="description"><?= $this->lang->line('psw_description') ?> </label>
 									<span class="psw_1">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="psw_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('psw_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a <?= fieldStatus($view_name, $id, "description") ?> data-field="description" data-field_name="<?= $this->lang->line('pcmp_products') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 
-									<textarea onkeyup="limite_textarea(this.value, 'psw_1')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="psw_txt_1" name="description" required ="false" ><?php echo $description; ?></textarea>	
+									<textarea onkeyup="limite_textarea(this.value, 'psw_1')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="psw_txt_1" name="description" required="false"><?php echo $description; ?></textarea>
 
 								</div>
 
@@ -53,8 +59,9 @@
 									<label for="types"><?= $this->lang->line('psw_types') ?> </label>
 									<span class="psw_2">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="psw_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('psw_types_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a <?= fieldStatus($view_name, $id, "types") ?> data-field="types" data-field_name="<?= $this->lang->line('psw_types') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 
-									<textarea onkeyup="limite_textarea(this.value, 'psw_2')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="psw_txt_2" name="types" required ="false" ><?php echo $types; ?></textarea>
+									<textarea onkeyup="limite_textarea(this.value, 'psw_2')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="psw_txt_2" name="types" required="false"><?php echo $types; ?></textarea>
 
 								</div>
 
@@ -62,8 +69,9 @@
 									<label for="selection_criterias"><?= $this->lang->line('psw_selection_criterias') ?> </label>
 									<span class="psw_3">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="psw_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('psw_selection_criterias_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a <?= fieldStatus($view_name, $id, "selection_criterias") ?> data-field="selection_criterias" data-field_name="<?= $this->lang->line('psw_selection_criterias') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 
-									<textarea onkeyup="limite_textarea(this.value, 'psw_3')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="psw_txt_3" name="selection_criterias" required ="false" ><?php echo $selection_criterias; ?></textarea>
+									<textarea onkeyup="limite_textarea(this.value, 'psw_3')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="psw_txt_3" name="selection_criterias" required="false"><?php echo $selection_criterias; ?></textarea>
 
 								</div>
 
@@ -71,40 +79,41 @@
 									<label for="restrictions"><?= $this->lang->line('psw_restrictions') ?> </label>
 									<span class="psw_4">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="psw_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('psw_restrictions_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-									<textarea onkeyup="limite_textarea(this.value, 'psw_4')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="psw_txt_4" name="restrictions" required ="false" ><?php echo $restrictions; ?></textarea>
+									<a <?= fieldStatus($view_name, $id, "restrictions") ?> data-field="restrictions" data-field_name="<?= $this->lang->line('psw_restrictions') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+									<textarea onkeyup="limite_textarea(this.value, 'psw_4')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="psw_txt_4" name="restrictions" required="false"><?php echo $restrictions; ?></textarea>
 								</div>
 
 								<div class=" col-lg-12 form-group">
 									<label for="premises"><?= $this->lang->line('psw_premises') ?> </label>
 									<span class="psw_5">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="psw_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('psw_premises_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-									<textarea onkeyup="limite_textarea(this.value, 'psw_5')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="psw_txt_5" name="premises" required ="false" ><?php echo $premises; ?></textarea>
+									<a <?= fieldStatus($view_name, $id, "premises") ?> data-field="premises" data-field_name="<?= $this->lang->line('psw_premises') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+									<textarea onkeyup="limite_textarea(this.value, 'psw_5')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="psw_txt_5" name="premises" required="false"><?php echo $premises; ?></textarea>
 								</div>
 
 								<div class=" col-lg-12 form-group">
 									<label for="schedule"><?= $this->lang->line('psw_schedule') ?> </label>
 									<span class="psw_6">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="psw_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('psw_schedule_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-									<textarea onkeyup="limite_textarea(this.value, 'psw_6')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="psw_txt_6" name="schedule" required ="false" ><?php echo $schedule; ?></textarea>
+									<a <?= fieldStatus($view_name, $id, "schedule") ?> data-field="schedule" data-field_name="<?= $this->lang->line('psw_schedule') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+									<textarea onkeyup="limite_textarea(this.value, 'psw_6')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="psw_txt_6" name="schedule" required="false"><?php echo $schedule; ?></textarea>
 								</div>
 
 								<div class=" col-lg-12 form-group">
 									<label for="informations"><?= $this->lang->line('psw_informations') ?> </label>
 									<span class="psw_7">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="psw_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('psw_informations_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a <?= fieldStatus($view_name, $id, "informations") ?> data-field="informations" data-field_name="<?= $this->lang->line('psw_informations') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 
-									<textarea onkeyup="limite_textarea(this.value, 'psw_7')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="psw_txt_7" name="informations" required ="false" ><?php echo $informations; ?></textarea>
+									<textarea onkeyup="limite_textarea(this.value, 'psw_7')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="psw_txt_7" name="informations" required="false"><?php echo $informations; ?></textarea>
 								</div>
 
 								<div class=" col-lg-12 form-group">
 									<label for="procurement_management"><?= $this->lang->line('psw_procurement_management') ?> </label>
 									<span class="psw_8">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="psw_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('psw_procurement_management_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-									<textarea onkeyup="limite_textarea(this.value, 'psw_8')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="psw_txt_8" name="procurement_management" required ="false" ><?php echo $procurement_management; ?></textarea>
+									<a <?= fieldStatus($view_name, $id, "procurement_management") ?> data-field="procurement_management" data-field_name="<?= $this->lang->line('psw_procurement_management') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+									<textarea onkeyup="limite_textarea(this.value, 'psw_8')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="psw_txt_8" name="procurement_management" required="false"><?php echo $procurement_management; ?></textarea>
 								</div>
 
 								<div class="col-lg-12">
@@ -126,7 +135,7 @@
 
 <script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
 <script type="text/javascript">
-for (var i = 1; i <= 8; i++) {
+	for (var i = 1; i <= 8; i++) {
 		if (document.getElementById("psw_tp_" + i).title == "") {
 			document.getElementById("psw_tp_" + i).hidden = true;
 		}

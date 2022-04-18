@@ -80,7 +80,7 @@ class RiskManagementPlan extends CI_Controller
 			if ($dado['risk_mp'] == null) {
 				redirect("risk/risk-mp/new/" . $_SESSION['project_id']);
 			}
-
+			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "risk management plan", $dado['risk_mp'][0]->risk_mp_id);
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');

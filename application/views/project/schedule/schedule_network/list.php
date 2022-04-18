@@ -36,6 +36,11 @@
 
 								<?= $this->lang->line('snd_title')  ?>
 
+								<?php $view_name = "project schedule network diagram"?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
+
 							</h1>
 
 							<div class="row">

@@ -5,7 +5,7 @@
 				var body = document.getElementsByTagName('body')[0];
 				body.className = body.className + ' sidebar-collapse';
 			}
-		})();
+		})(); 
 	</script>
 	<div class="wrapper">
 		<div class="content-wrapper">

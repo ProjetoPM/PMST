@@ -31,6 +31,11 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 								<?= $this->lang->line('shep_title')  ?>
+
+								<?php $view_name = "stakeholder engagement plan"; ?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
 							</h1>
 
 							<br><br>
@@ -66,7 +71,7 @@
 
 
 
-													<td style="max-width: 20px">
+													<td <?= getStatusFieldsList("stakeholder engagement plan", $item->stakeholder_id) ?> style="max-width: 20px">
 														<div class="row center">
 															<div class="col-sm-4">
 																<form action="<?php echo base_url() ?>stakeholder/stakeholder-engagement-plan/edit/<?php echo $item->stakeholder_id; ?>" method="post">
