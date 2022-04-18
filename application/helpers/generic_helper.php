@@ -351,7 +351,7 @@ function verifyEvaluation($id)
 	return $data2;
 }
 
-function loadViews($view, $data = '') {g
+function loadViews($view, $data = '') {
 	$object = &get_instance();
 	$object->load->view("frame/header_view");
 	$object->load->view("frame/topbar");
