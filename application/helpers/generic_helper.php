@@ -351,6 +351,11 @@ function verifyEvaluation($id)
 	return $data2;
 }
 
-
-
-
+function loadViews($view, $data = '') {g
+	$object = &get_instance();
+	$object->load->view("frame/header_view");
+	$object->load->view("frame/topbar");
+	$object->load->view("frame/sidebar_nav_view");
+	$object->load->view($view, $data);
+	$object->load->view("frame/footer_view");
+}
