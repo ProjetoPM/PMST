@@ -18,3 +18,7 @@ function limitText(element, limit, id) {
         $(`#count-${id}`).text(remaining + `/${limit}`);
     }
 }
+
+function goTo(uri) {
+    window.location.href=`${uri}`;
+}

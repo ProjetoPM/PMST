@@ -116,7 +116,7 @@
 	if(<?= $_SESSION['access_level'] ?> == 1)
 	document.getElementById('btn-report').disabled = "true"
 </script>
-<script src="<?= base_url('assets/js/utils/limit-text.js') ?>"></script>
+<script src="<?= base_url('assets/js/utils/util.js') ?>"></script>
 
 <!-- <script type="text/javascript">
 	function deletar(idProjeto, assumption_log_id) {

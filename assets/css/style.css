@@ -1,4 +1,51 @@
-﻿/*CSS Dashboard Principal*/
+﻿/* Todos os modais serão centralizados. */
+.modal {
+	text-align: center;
+	padding: 0 !important;
+}
+
+button.close:hover {
+    color: darkred;
+}
+
+.modal:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -4px;
+}
+
+.modal-content {
+    border-radius: 8px !important;
+}
+
+.modal-dialog {
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+}
+
+/* testing */
+.around {
+    margin: 0;
+    padding: 15px 0;
+    border: 1.6px #3c8e29;
+    border-style: none dotted dotted dotted;
+    border-radius: 0 0 7px 7px;
+}
+
+.process-title {
+    color: white;
+    background-color: #3c8e29;
+    border-radius: 4px 4px 0 0;
+}
+
+.form-control {
+    border-radius: 4px !important;
+}
+
+/*CSS Dashboard Principal*/
 #welcome {
     min-height: 350px;
     background: #fff;

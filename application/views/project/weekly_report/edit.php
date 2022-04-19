@@ -116,7 +116,7 @@
 
 													<div class="col-sm-3 form-group">
 														<div class="input-group" style="width: 100%">
-															<input class="form-control elasticteste2" type="file" style="text-align:left;" id="pdf_path['<?= $count ?>']" name="pdf_path[] ">
+															<input class="form-control elasticteste2" type="file" style="text-align:left;" id="pdf_path['<?= $count ?>']" name="process_group[] ">
 																<?= $processes->pdf_path ?>
 															</input>
 														</div>

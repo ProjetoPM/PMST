@@ -26,11 +26,6 @@ class Weekly_process_model extends CI_Model
 		return $res['score'];
 	}
 
-	public function getAllPerMember($id)
-	{
-		$query = $this->db->get_where('weekly_report', array('user_id' => $id));
-		return $query->result();
-	}
 
 	public function getAllProcesses($id)
 	{

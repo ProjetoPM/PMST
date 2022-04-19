@@ -14,14 +14,18 @@ class WeeklyReport extends CI_Controller
 
 		if (!$this->session->userdata('logged_in')) redirect(base_url());
 
-		if (strcmp($_SESSION['language'], "US") == 0) {
+		if ($_SESSION['language'] === "US") {
+			echo "entrei aqui";
 			$this->lang->load('weekly_eval', 'english');
 			$this->lang->load('weekly_report', 'english');
 			$this->lang->load('project-page', 'english');
+			$this->lang->load('btn', 'english');
 		} else {
+			echo "br";
 			$this->lang->load('weekly_eval', 'portuguese-brazilian');
 			$this->lang->load('weekly_report', 'portuguese-brazilian');
 			$this->lang->load('project-page', 'portuguese-brazilian');
+			$this->lang->load('btn', 'portuguese-brazilian');
 		}
 
 		$this->load->model('log_model');
@@ -37,53 +41,28 @@ class WeeklyReport extends CI_Controller
 		
 	}
 
-	public function list()
-	{
-
-		if (strcmp($_SESSION['language'], "US") == 0) {
-			$this->lang->load('btn', 'english');
-		} else {
-			$this->lang->load('btn', 'portuguese-brazilian');
-		}
-
+	public function list() {
 		$dado['weekly_report'] = $this->WeeklyReport_model->getAllPerMember($_SESSION['user_id']);
-
-		$this->load->view('frame/header_view');
-		$this->load->view('frame/topbar');
-		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/weekly_report/list', $dado);
-		$this->load->view('frame/footer_view');
+		loadViews('project/weekly_report/list', $dado);
 	}
 
-	public function getProcesses($group)
-	{
-
+	public function getProcesses($group) {
 		$dado['processes'] = $this->WeeklyReport_model->getProcessNamesByGroup($group);
 		return $dado;
 	}
 
-	public function new()
-	{
-
-		if (strcmp($_SESSION['language'], "US") == 0) {
-			$this->lang->load('btn', 'english');
+	public function new() {
+		if (strcmp($_SESSION['language'], "US") === 0) {
 			$dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(2);
 		} else {
-			$this->lang->load('btn', 'portuguese-brazilian');
 			$dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
 		}
-
+		
 		$dado['evaluation'] = $this->WeeklyEvaluation_model->getAll();
-
-		$this->load->view('frame/header_view');
-		$this->load->view('frame/topbar');
-		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/weekly_report/new', $dado);
-		$this->load->view('frame/footer_view');
+		loadViews('project/weekly_report/new', $dado);
 	}
 
-	public function insert()
-	{
+	public function insert() {
 
 		// insertLogActivity('insert', 'Weekly Report');
 
@@ -129,11 +108,7 @@ class WeeklyReport extends CI_Controller
 		$dado['weekly_report'] = $this->WeeklyReport_model->get($weekly_report_id);
 		$dado['weekly_processes'] = $this->WeeklyReport_model->getAllProcesses($weekly_report_id);
 
-		$this->load->view('frame/header_view');
-		$this->load->view('frame/topbar');
-		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/weekly_report/edit', $dado);
-		$this->load->view('frame/footer_view');
+		loadViews('project/weekly_report/edit', $dado);
 	}
 
 

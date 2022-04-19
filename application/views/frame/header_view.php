@@ -43,9 +43,9 @@
   <!-- <link rel="stylesheet" href="<?= base_url() ?>assets/css/normalize.min.css">
   <link rel='stylesheet' href="<?= base_url() ?>assets/css/dataTables.bootstrap.css"> -->
   <!-- <link rel='stylesheet' href="<?= base_url() ?>assets/css/dataTables.responsive.css"> -->
-
+  
   <!-- CSS refatorados da dashboard principal -->
-  <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
+  <link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
   <link rel="stylesheet" href="<?= base_url('assets/login/css/util.css') ?>">
 
 
