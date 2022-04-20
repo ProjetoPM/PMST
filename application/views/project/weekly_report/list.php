@@ -81,10 +81,9 @@
 																			<label for="">Process</label>
 																			<select name="process_id" size="1" class="form-control" tabindex="1" required>
 																				<option selected="selected" disabled="disabled" value=""> Select </option>
-																				<option selected="selected" disabled="disabled" value=""> Selec2t </option>
 																				<?php foreach ($processes as $process): ?>
-																					<option value="<?= $process->pmbok_process_id ?>">
-																						<?= getProcessName($process->pmbok_id, $process->pmbok_process_id) ?>
+																					<option value="<?= $process->pmbok_group_id ?>">
+																						<?= getProcessGroupName($process->pmbok_id, $process->pmbok_group_id) ?>
 																					</option>
 																				<?php endforeach ?>
 																			</select>

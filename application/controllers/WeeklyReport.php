@@ -15,7 +15,6 @@ class WeeklyReport extends CI_Controller
 		if (!$this->session->userdata('logged_in')) redirect(base_url());
 
 		if ($_SESSION['language'] === "US") {
-			echo "entrei aqui";
 			$this->lang->load('weekly_eval', 'english');
 			$this->lang->load('weekly_report', 'english');
 			$this->lang->load('project-page', 'english');
@@ -43,6 +42,12 @@ class WeeklyReport extends CI_Controller
 
 	public function list() {
 		$dado['weekly_report'] = $this->WeeklyReport_model->getAllPerMember($_SESSION['user_id']);
+		if(verifyLanguage()){
+			$dado['processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(2);
+		}else{
+			$dado['processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
+		}
+		
 		loadViews('project/weekly_report/list', $dado);
 	}
 
@@ -161,9 +166,6 @@ class WeeklyReport extends CI_Controller
 		}
 
 		$dado['uploads'] = $this->Report_upload_model->getAllPerProcesses($weekly_report_id);
-		var_dump($dado);
-		echo '</br>';
-		var_dump($dado['uploads'][0]['2']);
 
 		exit();
 		$this->load->view('frame/header_view');
@@ -172,26 +174,6 @@ class WeeklyReport extends CI_Controller
 		$this->load->view('project/weekly_report/images', $dado);
 	}
 
-	// public function extending_form()
-	// {
-
-	// 	if (strcmp($_SESSION['language'], "US") == 0) {
-	// 		$this->lang->load('btn', 'english');
-	// 	} else {
-	// 		$this->lang->load('btn', 'portuguese-brazilian');
-	// 	}
-
-	// 	$language = $this->LanguageSwitcher->verifyLanguage();
-
-	// 	$data['processes'] = $this->Pmbok_process_model->getProcessGroupsByLanguage($language);
-	// 	var_dump($data['processes']);
-	// 	exit();
-
-	// 	$this->load->view('frame/header_view');
-	// 	$this->load->view('frame/topbar');
-	// 	$this->load->view('frame/sidebar_nav_view');
-	// 	$this->load->view('project/weekly_report/form');
-	// }
 
 	public function insert_process()
 	{
