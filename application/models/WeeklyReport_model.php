@@ -81,22 +81,12 @@ class WeeklyReport_model extends CI_Model
 		return $query->result();
 	}
 
-	public function getProcessNamesByGroup($group)
-	{
-		$query = $this->db->select('*')
-			->distinct('process_group')
-			->from('pmbok_process')
-			->get();
+	public function getProcessNamesByGroup($group) {
+		$query = $this->db->select('pmbok_process_id, pmbok_group_id, name')
+			->get_where('pmbok_process', array('pmbok_id' => $group));
+
 		return $query->result();
-
-
-
-		// $query = $this->db->get_where('pmbok_process', array('process_group'=> $group));
-		// $query = $this->db->distinct('process_group');
-		// return $query->result();
 	}
-
-
 
 	public function getPmbokEditionByLanguage($id)
 	{

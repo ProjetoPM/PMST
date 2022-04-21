@@ -15,13 +15,11 @@ class WeeklyReport extends CI_Controller
 		if (!$this->session->userdata('logged_in')) redirect(base_url());
 
 		if ($_SESSION['language'] === "US") {
-			echo "entrei aqui";
 			$this->lang->load('weekly_eval', 'english');
 			$this->lang->load('weekly_report', 'english');
 			$this->lang->load('project-page', 'english');
 			$this->lang->load('btn', 'english');
 		} else {
-			echo "br";
 			$this->lang->load('weekly_eval', 'portuguese-brazilian');
 			$this->lang->load('weekly_report', 'portuguese-brazilian');
 			$this->lang->load('project-page', 'portuguese-brazilian');
@@ -172,27 +170,6 @@ class WeeklyReport extends CI_Controller
 		$this->load->view('project/weekly_report/images', $dado);
 	}
 
-	// public function extending_form()
-	// {
-
-	// 	if (strcmp($_SESSION['language'], "US") == 0) {
-	// 		$this->lang->load('btn', 'english');
-	// 	} else {
-	// 		$this->lang->load('btn', 'portuguese-brazilian');
-	// 	}
-
-	// 	$language = $this->LanguageSwitcher->verifyLanguage();
-
-	// 	$data['processes'] = $this->Pmbok_process_model->getProcessGroupsByLanguage($language);
-	// 	var_dump($data['processes']);
-	// 	exit();
-
-	// 	$this->load->view('frame/header_view');
-	// 	$this->load->view('frame/topbar');
-	// 	$this->load->view('frame/sidebar_nav_view');
-	// 	$this->load->view('project/weekly_report/form');
-	// }
-
 	public function insert_process()
 	{
 
@@ -258,5 +235,19 @@ class WeeklyReport extends CI_Controller
 
 		$this->Report_upload_model->insert($data);
 		redirect('weekly-report/list');
+	}
+
+	public function getProcessNameViaAjax() {
+		/**
+		 * Remembering that in the database, pmbok '2' is in English 
+		 * and '1' is in portuguese.
+		 */
+		$language = strcmp($_SESSION['language'], 'US') === 0 ? 2 : 1;
+
+		if ($this->input->is_ajax_request()) {
+			echo json_encode($this->WeeklyReport_model->getProcessNamesByGroup($language));
+		} else {
+			exit("No direct script access allowed.");
+		}
 	}
 }
