@@ -41,6 +41,12 @@ class WeeklyReport extends CI_Controller
 
 	public function list() {
 		$dado['weekly_report'] = $this->WeeklyReport_model->getAllPerMember($_SESSION['user_id']);
+		if(verifyLanguage()){
+			$dado['processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(2);
+		}else{
+			$dado['processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
+		}
+		
 		loadViews('project/weekly_report/list', $dado);
 	}
 
@@ -159,9 +165,6 @@ class WeeklyReport extends CI_Controller
 		}
 
 		$dado['uploads'] = $this->Report_upload_model->getAllPerProcesses($weekly_report_id);
-		var_dump($dado);
-		echo '</br>';
-		var_dump($dado['uploads'][0]['2']);
 
 		exit();
 		$this->load->view('frame/header_view');
