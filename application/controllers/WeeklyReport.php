@@ -241,16 +241,15 @@ class WeeklyReport extends CI_Controller
 	}
 
 	public function getProcessNameViaAjax() {
+		if (!$this->input->is_ajax_request()) {
+			exit("No direct script access allowed.");
+		}
+
 		/**
 		 * Remembering that in the database, pmbok '2' is in English 
 		 * and '1' is in portuguese.
 		 */
 		$language = strcmp($_SESSION['language'], 'US') === 0 ? 2 : 1;
-
-		if ($this->input->is_ajax_request()) {
-			echo json_encode($this->WeeklyReport_model->getProcessNamesByGroup($language));
-		} else {
-			exit("No direct script access allowed.");
-		}
+		echo json_encode($this->WeeklyReport_model->getProcessNamesByGroup($language));
 	}
 }
