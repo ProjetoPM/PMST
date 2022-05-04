@@ -361,6 +361,25 @@ function loadViews($view, $data = '')
 	$object->load->view("frame/footer_view");
 }
 
+function loadLangs($views)
+{
+	$object = &get_instance();
+
+	if (verifyLanguage()) {
+		$object->lang->load('project-page', 'english');
+		$object->lang->load('btn', 'english');
+		foreach ($views as $view) {
+			$object->lang->load($view, 'english');
+		}
+	}else{
+		$object->lang->load('project-page', 'portuguese-brazilian');
+		$object->lang->load('btn', 'portuguese-brazilian');
+		foreach ($views as $view) {
+			$object->lang->load($view, 'portuguese-brazilian');
+		}
+
+	}
+}
 function verifyLanguage()
 {
 	if (strcmp($_SESSION['language'], "US") == 0) {
