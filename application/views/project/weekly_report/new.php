@@ -43,7 +43,7 @@
 										<i class="glyphicon glyphicon-comment"></i>
 									</a>
 									<div>
-										<textarea oninput="limitText(this, 5000, 'a')" class="form-control" id="tool_evaluation_ta" required></textarea>
+										<textarea name="tool_evaluation" oninput="limitText(this, 5000, 'a')" class="form-control" id="tool_evaluation_ta" required></textarea>
 									</div>
 								</div>
 								<div class="col-lg-12">
@@ -89,7 +89,7 @@
 			const div = document.createElement('div');
 			div.setAttribute('id', 'remove-' + room);
 			div.setAttribute('class', 'form-group' + room)
-			div.innerHTML = `<div class="col-md-12"><div class="process-title p-l-17 p-b-5 p-t-5">Process #${room}</div><div class="around col-md-12 m-b-25"><div class="form-group col-md-6"><label for="process_group_${room}">Process Group</label><select class="form-control"id="process_group_${room}"><option selected disabled>Select</option><?php foreach($pmbok_processes as $process):?><option value="<?= $process->pmbok_group_id ?>"><?=$process->group_name?></option><?php endforeach?></select></div><div class="form-group col-md-6"><label for="process_name_${room}">Process Name</label><select class="form-control"id="process_name_${room}"value="${room}"><option selected disabled>Select process group first</option></select></div><div class="form-group col-md-11"><label for="process_description">Process Description*&nbsp</label><span id="count-${room}">2000/2000</span><textarea oninput="limitText(this, 2000, '${room}')"class="form-control"id="process_description-${room}"rows="1"></textarea></div><div class="form-group col-md-1"><button onclick="remove(${room})"type="button"class="form-control btn btn-lg btn-danger m-t-23 m-l-0"><i class="fa fa-trash"style="display: flex; align-items: center; justify-content: center;"aria-hidden="true"></i></button></div></div></div></div>`;
+			div.innerHTML = `<div class="col-md-12"><div class="process-title p-l-17 p-b-5 p-t-5">Process #${room}</div><div class="around col-md-12 m-b-25"><div class="form-group col-md-6"><label for="process_group_${room}">Process Group</label><select class="form-control"id="process_group_${room}"><option selected disabled>Select</option><?php foreach($pmbok_processes as $process):?><option value="<?= $process->pmbok_group_id ?>"><?=$process->group_name?></option><?php endforeach?></select></div><div class="form-group col-md-6"><label for="process_name_${room}">Process Name</label><select name="process_name-${room}"class="form-control"id="process_name_${room}"value="-${room}"><option selected disabled>Select process group first</option></select></div><div class="form-group col-md-11"><label for="process_description">Process Description*&nbsp</label><span id="count-${room}">2000/2000</span><textarea oninput="limitText(this, 2000, '${room}')"class="form-control"name="description-${room}"id="process_description-${room}"rows="1"></textarea></div><div class="form-group col-md-1"><button onclick="remove(${room})"type="button"class="form-control btn btn-lg btn-danger m-t-23 m-l-0"><i class="fa fa-trash"style="display: flex; align-items: center; justify-content: center;"aria-hidden="true"></i></button></div></div></div></div>`;
 			parent.appendChild(div);
 
 			/**

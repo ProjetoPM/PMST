@@ -13,26 +13,27 @@ class WeeklyReport_model extends CI_Model
 		return $this->db->insert_id();
 	}
 
-	function updateProcessReport($process, $weekly_report_id)
-	{
-		$this->db->trans_start();
-		$result = array();
-		$this->db->delete('weekly_report_process', array('weekly_report_id' => $weekly_report_id));
-		// var_dump($process);
-		for ($j = 0; $j < count($process) / 3; $j++) {
-			$result[] = array(
-				'description' => $process['description'][$j],
-				'process_name' => $process['process_name'][$j],
-				'weekly_report_id' => $weekly_report_id,
-			);
-		}
+	
+	// function updateProcessReport($process, $weekly_report_id)
+	// {
+	// // 	$this->db->trans_start();
+	// // 	$result = array();
+	// // 	$this->db->delete('weekly_report_process', array('weekly_report_id' => $weekly_report_id));
+	// // 	// var_dump($process);
+	// // 	for ($j = 0; $j < count($process) / 3; $j++) {
+	// // 		$result[] = array(
+	// // 			'description' => $process['description'][$j],
+	// // 			'process_name' => $process['process_name'][$j],
+	// // 			'weekly_report_id' => $weekly_report_id,
+	// // 		);
+	// // 	}
 
-		//MULTIPLE INSERT TO DETAIL TABLE
-		$this->db->insert_batch('weekly_report_process', $result);
-		$this->db->trans_complete();
-		// die();
-		return $result;
-	}
+	// // 	//MULTIPLE INSERT TO DETAIL TABLE
+	// // 	$this->db->insert_batch('weekly_report_process', $result);
+	// // 	$this->db->trans_complete();
+	// // 	// die();
+	// // 	return $result;
+	// // }
 
 	public function get($id)
 	{

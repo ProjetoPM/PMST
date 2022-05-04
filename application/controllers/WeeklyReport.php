@@ -9,93 +9,103 @@ class WeeklyReport extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-	
+
 		date_default_timezone_set('America/Sao_Paulo');
 
 		if (!$this->session->userdata('logged_in')) redirect(base_url());
 
-		if ($_SESSION['language'] === "US") {
-			$this->lang->load('weekly_eval', 'english');
-			$this->lang->load('weekly_report', 'english');
-			$this->lang->load('project-page', 'english');
-			$this->lang->load('btn', 'english');
-		} else {
-			$this->lang->load('weekly_eval', 'portuguese-brazilian');
-			$this->lang->load('weekly_report', 'portuguese-brazilian');
-			$this->lang->load('project-page', 'portuguese-brazilian');
-			$this->lang->load('btn', 'portuguese-brazilian');
-		}
+		$views = array();
+		array_push($views, 'weekly_eval', 'weekly_report');
+
+		loadLangs($views);
 
 		$this->load->model('log_model');
 		$this->load->model('view_model');
 		$this->load->model('Project_model');
 		$this->load->model('WeeklyReport_model');
+		$this->load->model('Weekly_process_model');
 		$this->load->model('Report_upload_model');
 		$this->load->model('Pmbok_process_model');
 		$this->load->model('WeeklyEvaluation_model');
 		// $this->load->CI_Controller('LanguageSwitcher_controller');
 		$this->load->helper('url');
 		$this->load->helper('log_activity');
-		
 	}
 
-	public function list() {
+	public function list()
+	{
 		$dado['weekly_report'] = $this->WeeklyReport_model->getAllPerMember($_SESSION['user_id']);
-		if(verifyLanguage()){
+		if (verifyLanguage()) {
 			$dado['processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(2);
-		}else{
+		} else {
 			$dado['processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
 		}
-		
+
 		loadViews('project/weekly_report/list', $dado);
 	}
 
-	public function getProcesses($group) {
+	public function getProcesses($group)
+	{
 		$dado['processes'] = $this->WeeklyReport_model->getProcessNamesByGroup($group);
 		return $dado;
 	}
 
-	public function new() {
-		if (strcmp($_SESSION['language'], "US") === 0) {
+	public function new()
+	{
+		if (verifyLanguage()) {
 			$dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(2);
 		} else {
 			$dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
 		}
-		
+
 		$dado['evaluation'] = $this->WeeklyEvaluation_model->getAll();
 		loadViews('project/weekly_report/new', $dado);
 	}
 
-	public function insert() {
-
-		// insertLogActivity('insert', 'Weekly Report');
-
+	public function insert()
+	{
+		if (verifyLanguage()) {
+			$id = 2;
+		} else {
+			$id = 1;
+		}
+		$weekly_report['weekly_evaluation_id'] = $this->input->post('evaluation_id');
 		$weekly_report['tool_evaluation'] = $this->input->post('tool_evaluation');
 		$weekly_report['user_id'] = $_SESSION['user_id'];
-		$weekly_report['weekly_evaluation_id'] = $this->input->post('evaluation_id');
 		$weekly_report['score'] = 3;
 
-		$weekly_report_process['description'] = $this->input->post('description');
-		$weekly_report_process['process_name'] = $this->input->post('process_name');
-
-		$data = $this->WeeklyEvaluation_model->getDeadline($weekly_report['weekly_evaluation_id']);
+		// Compara a data atual com a data de submissão
+		$data = $this->WeeklyEvaluation_model->getDeadline($this->input->post('evaluation_id'));
+		$submitDay = new DateTime($data);
 		$date = date('m/d/Y', time());
 		$currentDate = new DateTime($date);
-		$submitDay = new DateTime($data);
 
-		// Compara a data atual com a data de submissão
 		if ($currentDate > $submitDay) {
 			$this->session->set_flashdata('error', 'You are not able to create this item, since the deadline has arrived');
 			redirect('weekly-report/list');
-		} else {
-			$insert_id   = $this->WeeklyReport_model->insert($weekly_report);
+		}
+		$insert_id   = $this->WeeklyReport_model->insert($weekly_report);
+
+		if (!$insert_id) {
+			$this->session->set_flashdata('error', 'There was an error inserting the weekly report');
+			redirect('weekly-report/list');
+		}
+		$i = 1;
+		while ($this->input->post("process_name-$i")) {
 			$weekly_report_process['weekly_report_id'] = $insert_id;
-			$query2 = $this->WeeklyReport_model->updateProcessReport($weekly_report_process, $insert_id);
+			$weekly_report_process['pmbok_id'] = $id;
+			$weekly_report_process['pmbok_process_id'] = $this->input->post("process_name-$i");
+			$weekly_report_process['description'] = $this->input->post("description-$i");
+			$query = $this->Weekly_process_model->insert($weekly_report_process);
+			$i++;
+		}
+		if ($query) {
+			$weekly_report_process['weekly_report_id'] = $insert_id;
 			$this->session->set_flashdata('success', 'Weekly Report has been successfully created!');
 			redirect('weekly-report/list');
 		}
 
-		// echo json_encode($insert);
+
 	}
 
 
@@ -125,8 +135,8 @@ class WeeklyReport extends CI_Controller
 
 
 
+		$weekly_report_process['process_name'] = $this->input->post('process');
 		$weekly_report_process['description'] = $this->input->post('description');
-		$weekly_report_process['process_name'] = $this->input->post('process_name');
 
 
 		$data = $this->WeeklyEvaluation_model->getDeadline($weekly_report['weekly_evaluation_id']);
@@ -240,7 +250,8 @@ class WeeklyReport extends CI_Controller
 		redirect('weekly-report/list');
 	}
 
-	public function getProcessNameViaAjax() {
+	public function getProcessNameViaAjax()
+	{
 		if (!$this->input->is_ajax_request()) {
 			exit("No direct script access allowed.");
 		}

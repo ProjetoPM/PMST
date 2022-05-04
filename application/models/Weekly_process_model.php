@@ -7,6 +7,9 @@ class Weekly_process_model extends CI_Model
 		$this->load->database();
 	}
 
+	function insert($data){
+		return $this->db->insert('weekly_report_process', $data);
+	}
 
 	public function getAll()
 	{
