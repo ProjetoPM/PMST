@@ -14,10 +14,10 @@ class WeeklyReport extends CI_Controller
 
 		if (!$this->session->userdata('logged_in')) redirect(base_url());
 
-		$views = array();
-		array_push($views, 'weekly_eval', 'weekly_report');
+		$langs = array();
+		array_push($langs, 'weekly_eval', 'weekly_report');
 
-		loadLangs($views);
+		loadLangs($langs);
 
 		$this->load->model('log_model');
 		$this->load->model('view_model');
