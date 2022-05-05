@@ -78,7 +78,7 @@
 																<div class="row">
 																	<div class="col-lg-12">
 																		<div class="form-group">
-																			<label for="">Process</label>
+																			<label for="process_id">Process</label>
 																			<select name="process_id" size="1" class="form-control" tabindex="1" required>
 																				<option selected="selected" disabled="disabled" value=""> Select </option>
 																				<?php foreach ($processes as $process): ?>

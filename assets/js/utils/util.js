@@ -19,6 +19,21 @@ function limitText(element, limit, id) {
     }
 }
 
+/**
+ * Growing textarea.
+ */
+ $("textarea").each(function () {
+    this.setAttribute("style", "height:" + (this.scrollHeight) + "px;");
+  }).on("input", function () {
+    if (this.scrollHeight < 380) {
+        this.style.height = "auto";
+        this.style.height = (this.scrollHeight) + "px";
+    } else {
+        this.style.height = "380px";
+    }
+    console.log(this.scrollHeight + "px");
+});
+
 function goTo(uri) {
-    window.location.href=`${uri}`;
+    window.location.href = `${uri}`;
 }

@@ -27,4 +27,3 @@ $lang['wr_tool_evaluation_tp'] = 'Evaluation of the Silver Bullet Website';
 
 
 
-?>
