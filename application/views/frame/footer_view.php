@@ -146,5 +146,10 @@
 	}
 </script> -->
 <!-- fim do weekly_report -->
+
+<!-- Summernote to make an text editor available in 'textarea' -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+<script src="https://kit.fontawesome.com/a3de6dbf75.js" crossorigin="anonymous"></script>
 </body>
 </html>

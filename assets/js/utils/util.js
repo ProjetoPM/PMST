@@ -23,13 +23,14 @@ function limitText(element, limit, id) {
  * Growing textarea.
  */
  $("textarea").each(function () {
-    this.setAttribute("style", "height:" + (this.scrollHeight) + "px;");
+    this.setAttribute("style", "height:" + (this.scrollHeight) + "px;overflow-y:hidden;");
   }).on("input", function () {
     if (this.scrollHeight < 380) {
         this.style.height = "auto";
         this.style.height = (this.scrollHeight) + "px";
     } else {
         this.style.height = "380px";
+        this.style.overflow = "auto";
     }
     console.log(this.scrollHeight + "px");
 });
@@ -37,3 +38,12 @@ function limitText(element, limit, id) {
 function goTo(uri) {
     window.location.href = `${uri}`;
 }
+
+/**
+ * Enable tooltips everywhere.
+ * 
+ * data-toggle="tooltip" and title="Tooltip on top"
+ */
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})

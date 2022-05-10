@@ -43,7 +43,7 @@
   <!-- <link rel="stylesheet" href="<?= base_url() ?>assets/css/normalize.min.css">
   <link rel='stylesheet' href="<?= base_url() ?>assets/css/dataTables.bootstrap.css"> -->
   <!-- <link rel='stylesheet' href="<?= base_url() ?>assets/css/dataTables.responsive.css"> -->
-  
+
   <!-- CSS refatorados da dashboard principal -->
   <link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
   <link rel="stylesheet" href="<?= base_url('assets/login/css/util.css') ?>">
@@ -58,3 +58,4 @@
   </div> -->
   <!-- <input type="hidden" id="base-url" value="<?= base_url() ?>" /> -->
 </head>
+<body class="hold-transition skin-gray sidebar-mini">
