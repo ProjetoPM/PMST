@@ -106,7 +106,7 @@
 				$(select).empty().append($(`#process_name_${element}`));
 					
 				$.ajax({
-					url: "<?= base_url('weekly-report/process-name-ajax') ?>",
+					url: "../weekly-report/process-name-ajax",
 					type: 'GET',
 					dataType: 'html',
 					async: true,

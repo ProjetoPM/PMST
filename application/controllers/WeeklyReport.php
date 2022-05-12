@@ -90,24 +90,21 @@ class WeeklyReport extends CI_Controller
 			$this->session->set_flashdata('error', 'There was an error inserting the weekly report');
 			redirect('weekly-report/list');
 		}
-		$i = 1;
-		while ($this->input->post("process_name-$i")) {
+
+		for ($i = 1; $this->input->post("process_name-${i}"); $i++) {
 			$weekly_report_process['weekly_report_id'] = $insert_id;
 			$weekly_report_process['pmbok_id'] = $id;
 			$weekly_report_process['pmbok_process_id'] = $this->input->post("process_name-$i");
 			$weekly_report_process['description'] = $this->input->post("description-$i");
 			$query = $this->Weekly_process_model->insert($weekly_report_process);
-			$i++;
 		}
+
 		if ($query) {
 			$weekly_report_process['weekly_report_id'] = $insert_id;
 			$this->session->set_flashdata('success', 'Weekly Report has been successfully created!');
 			redirect('weekly-report/list');
 		}
-
-
 	}
-
 
 	public function edit($weekly_report_id)
 	{
