@@ -39,9 +39,9 @@
 								<div class="col-lg-12 form-group">
 									<label for="tool_evaluation"><?= $this->lang->line('wr_tool_evaluation') ?>*</label>
 									<span id="count-a">5000/5000</span>
-									<a class="btn-sm btn-default" id="wr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wr_tool_evaluation_tp') ?>">
+									<span class="btn-sm btn-default" id="wr_tp_1" data-toggle="tooltip" data-placement="top" title="<?= $this->lang->line('wr_tool_evaluation_tp') ?>">
 										<i class="glyphicon glyphicon-comment"></i>
-									</a>
+									</span>
 									<div>
 										<textarea name="tool_evaluation" oninput="limitText(this, 5000, 'a')" class="form-control" id="tool_evaluation_ta" required></textarea>
 									</div>
@@ -129,6 +129,4 @@
 		function remove(id) {
 			$(`#remove-${id}`).remove();
 		}
-
-		
 	</script>

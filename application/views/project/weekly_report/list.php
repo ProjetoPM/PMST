@@ -35,10 +35,10 @@
 									<table class="table table-bordered table-striped" id="table_report">
 										<thead>
 											<tr>
-												<th><?= $this->lang->line('wr_username') ?></th>
-												<th><?= $this->lang->line('we_name') ?></th>
-												<th><?= $this->lang->line('we_score') ?></th>
-												<th><?= $this->lang->line('actions') ?></th>
+												<th class="col-lg-2"><?= $this->lang->line('wr_username') ?></th>
+												<th class="col-lg-4"><?= $this->lang->line('we_name') ?></th>
+												<th class="col-lg-2"><?= $this->lang->line('we_score') ?></th>
+												<th class="col-lg-3"><?= $this->lang->line('actions') ?></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -116,7 +116,7 @@
 											<?php endforeach ?>
 										</tbody>
 									</table>
-									<button onclick="window.location.href='<?= base_url('projects') ?>'" class="btn btn-lg btn-info">
+									<button onclick=goTo(`<?= base_url('projects') ?>`) class="btn btn-lg btn-info m-t-20">
 										<i class="glyphicon glyphicon-chevron-left"></i>
 										<?= $this->lang->line('btn-back') ?>
 									</button>
@@ -128,5 +128,17 @@
 			</section>
 		</div>
 	</div>
+	<script>
+		$(document).ready(function () {
+			$('#table_report').DataTable({
+				"bInfo" : false,
+				"responsive": true,
+				"scrollY": 350,
+				"scrollCollapse": true,
+				"paging": false,
+			});
+			$('#table_report').addClass('pull-left');
+		});
+	</script>
 </body>
 

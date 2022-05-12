@@ -1120,8 +1120,6 @@
                     </div>
                   </div> <!-- End Body Phases -->
 
-
-
                   <div class="col-md-12 noSpaceSide ">
                     <div class="col-lg-12 wrapper noSpaceSide" style="background-color:#f5f5f5">
                       <a class="btn btn-warning btn-lg btn-block" href="<?= base_url() ?>notification-board/list/<?php echo $project[0]->project_id; ?>">
