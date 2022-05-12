@@ -32,7 +32,7 @@
 							<br><br>
 							<div class="row">
 								<div class="col-lg-12">
-									<table class="table table-bordered table-striped" id="table_report">
+									<table class="table table-bordered table-striped" id="table_report_1">
 										<thead>
 											<tr>
 												<th class="col-lg-2"><?= $this->lang->line('wr_username') ?></th>
@@ -130,14 +130,13 @@
 	</div>
 	<script>
 		$(document).ready(function () {
-			$('#table_report').DataTable({
+			$('#table_report_1').DataTable({
 				"bInfo" : false,
 				"responsive": true,
 				"scrollY": 350,
 				"scrollCollapse": true,
-				"paging": false,
+				"paging": false
 			});
-			$('#table_report').addClass('pull-left');
 		});
 	</script>
 </body>
