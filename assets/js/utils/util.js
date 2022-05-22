@@ -32,7 +32,6 @@ function limitText(element, limit, id) {
         this.style.height = "380px";
         this.style.overflow = "auto";
     }
-    console.log(this.scrollHeight + "px");
 });
 
 function goTo(uri) {

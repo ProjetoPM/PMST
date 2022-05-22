@@ -17,7 +17,11 @@ $lang['wr_score'] = 'Nota';
 
 $lang['wr_username'] = 'Usuário';
 
-
+// Alerts in JS
+$lang['wr_alert_confirm_title'] = 'Deletar processo';
+$lang['wr_alert_confirm_text'] = 'Você deseja realmente deletar este processo?';
+$lang['wr_alert_confirm_cancel'] = 'Cancelado!';
+$lang['wr_alert_confirm_ok'] = 'Deletado!';
 
 // Tooltips
 $lang['wr_tool_evaluation_tp'] = 'Avaliação do Site Silver Bullet';
