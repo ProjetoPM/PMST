@@ -45,7 +45,7 @@
 
 								<div class="col-lg-6 form-group">
 									<label><?= $this->lang->line('cr_requester') ?></label>
-									<a class="btn-sm btn-default" id="" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cr_requester_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<a <?= fieldStatus($view_name, $id, "requester") ?> data-field="requester" data-field_name="<?= $this->lang->line('cr_requester') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<select name="requester" size="1" class="form-control" tabindex="1" required>
 										<?php foreach ($stakeholder as $item) { ?>
@@ -55,15 +55,18 @@
 									</select>
 								</div>
 
-								<div class="col-lg-6 form-group">
-									<label for="number_id"><?= $this->lang->line('cr_number_id') ?> </label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('number_id-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-									<a <?= fieldStatus($view_name, $team_performance_evaluation_id, "number_id") ?> data-field="number_id" data-field_name="<?= $this->lang->line('cr_number_id') ?>" data-item_id="<?= $team_performance_evaluation_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+								<div class="col-lg-2 form-group">
+									<label for="number_id">Number </label>
+									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cr_number_id_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a <?= fieldStatus($view_name, $id, "number_id") ?> data-field="number_id" data-field_name="<?= $this->lang->line('cr_number_id') ?>" data-item_id="<?= $team_performance_evaluation_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+									<div>
 									<input id="number_id" name="number_id" type="number" class="form-control input-md" required="false" value="<?php echo $number_id; ?>">
+									</div>
 								</div>
+								
 								<div class="col-lg-3 form-group">
 									<label for="type"><?= $this->lang->line('cr_type') ?> </label>
-									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('type-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cr_type_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<a <?= fieldStatus($view_name, $id, "team_member_name") ?> data-field="team_member_name" data-field_name="<?= $this->lang->line('cr_type') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<select class="form-control" id="type" name="type">
 										<?=
@@ -85,7 +88,6 @@
 									<select class="form-control" id="status" name="status">
 
 										<option value="Under Analysis" <?php if ($status == "Under Analysis") echo 'selected'; ?>><?= $this->lang->line('type_situation-analysis') ?></option>
-										<!--<?= $this->lang->line('type_situation_analysis') ?> -->
 
 										<option value="Approved" <?php if ($status == "Approved") echo 'selected'; ?>><?= $this->lang->line('type_situation-approved') ?></option>
 
@@ -160,11 +162,6 @@
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('manager_opinion-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="manager_opinion" name="manager_opinion" maxlength="1000"><?php echo $manager_opinion; ?></textarea>
 								</div>
-
-
-
-
-
 
 								<div class="col-lg-12">
 									<button id="change_request-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">

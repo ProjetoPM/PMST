@@ -1,12 +1,5 @@
 <body class="hold-transition skin-gray sidebar-mini">
-	<script>
-		(function() {
-			if (Boolean(sessionStorage.getItem('sidebar-toggle-collapsed'))) {
-				var body = document.getElementsByTagName('body')[0];
-				body.className = body.className + ' sidebar-collapse';
-			}
-		})();
-	</script>
+
 	<div class="wrapper">
 		<div class="content-wrapper">
 			<section class="content">
@@ -150,11 +143,12 @@
 		</div>
 	</div>
 </body>
-<script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script>
+<!-- <script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script> -->
 <script type="text/javascript">
 	for (var i = 1; i <= 9; i++) {
 		if (document.getElementById("wpr_tp_" + i).title == "") {
 			document.getElementById("wpr_tp_" + i).hidden = true;
+			console.log(document.getElementById("wpr_tp_" + i).title)
 		}
 		limite_textarea(document.getElementById("wpr_txt_" + i).value, "wpr_" + i);
 	}

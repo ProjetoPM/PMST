@@ -51,7 +51,7 @@
 								<div class=" col-lg-12 form-group">
 									<label for="project_guidelines"><?= $this->lang->line('pmp_guidelines') ?></label>
 									<span class="pmp_1">2000</span><?= $this->lang->line('character') ?>
-									<a class="btn-sm btn-default" id="pmp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('project_guidelines_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<a class="btn-sm btn-default" id="pmp_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pmp_guidelines_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<a <?= fieldStatus($view_name, $project_mp_id, "project_guidelines") ?> data-field="project_guidelines" data-field_name="<?= $this->lang->line('pmp_guidelines') ?>" data-item_id="<?= $project_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<div>
 										<textarea onkeyup="limite_textarea(this.value, 'pmp_1')" id="pmp_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="project_guidelines"><?php echo $project_guidelines; ?></textarea>

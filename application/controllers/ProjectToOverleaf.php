@@ -757,35 +757,36 @@ class ProjectToOverleaf extends CI_Controller
 
 	public function FR_Overleaf($project_id)
 	{
-		$dataTEP = $this->Final_report_model->get($project_id);
+		$data['final_report'] = $this->Final_report_model->get($project_id);
 		$file["name_task"] = "FinalReport.tex";
-		if ($dataTEP != null) {
+		if ($data['final_report'] != null) {
 			$file["task"] = "\n";
 			$file["task"] .= "\section{Final Report}\n";
 
 			$file["task"] .= "\subsubsection{Summary Level Description of the Project or Phase}\n";
-			$file["task"] .= $this->verificaDados($dataTEP[0]->description) . "\n";
+
+			$file["task"] .= $this->verificaDados($data['final_report']['description']) . "\n";
 
 			$file["task"] .= "\subsubsection{Scope Objectives, Scope Criteria, and Evidences}\n";
-			$file["task"] .= $this->verificaDados($dataTEP[0]->scope_objectives) . "\n";
+			$file["task"] .= $this->verificaDados($data['final_report']['scope_objectives']) . "\n";
 
 			$file["task"] .= "\subsubsection{Quality Objectives}\n";
-			$file["task"] .= $this->verificaDados($dataTEP[0]->quality_objectives) . "\n";
+			$file["task"] .= $this->verificaDados($data['final_report']['quality_objectives']) . "\n";
 
 			$file["task"] .= "\subsubsection{Cost Objectives}\n";
-			$file["task"] .= $this->verificaDados($dataTEP[0]->cost_objectives) . "\n";
+			$file["task"] .= $this->verificaDados($data['final_report']['cost_objectives']) . "\n";
 
 			$file["task"] .= "\subsubsection{Schedule Objectives}\n";
-			$file["task"] .= $this->verificaDados($dataTEP[0]->schedule_objectives) . "\n";
+			$file["task"] .= $this->verificaDados($data['final_report']['schedule_objectives']) . "\n";
 
 			$file["task"] .= "\subsubsection{Summary of the Validation Information for the Results}\n";
-			$file["task"] .= $this->verificaDados($dataTEP[0]->summary_validation) . "\n";
+			$file["task"] .= $this->verificaDados($data['final_report']['summary_validation']) . "\n";
 
 			$file["task"] .= "\subsubsection{Summary of Results Achieved the Business Needs}\n";
-			$file["task"] .= $this->verificaDados($dataTEP[0]->summary_results) . "\n";
+			$file["task"] .= $this->verificaDados($data['final_report']['summary_results']) . "\n";
 
 			$file["task"] .= "\subsubsection{Summary Risks or Issues}\n";
-			$file["task"] .= $this->verificaDados($dataTEP[0]->summary_risks) . "\n";
+			$file["task"] .= $this->verificaDados($data['final_report']['summary_risks']) . "\n";
 
 			return $file;
 		} else {
