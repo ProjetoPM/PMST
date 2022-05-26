@@ -85,8 +85,7 @@ position:-webkit-sticky
             <li class="<?php if ($uri1 == 'chat') {
                            echo 'active';
                         } ?>">
-               <!-- <a href="<? // base_url('chat'); ?>"> -->
-               <a href="#">
+                <a href="<?= base_url('chat'); ?>">
                   <i class="fa fa-comment fa-fw"></i> <span>Chat</span>
                </a>
             </li>
