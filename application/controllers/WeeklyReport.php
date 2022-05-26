@@ -44,12 +44,6 @@ class WeeklyReport extends CI_Controller
 		loadViews('project/weekly_report/list', $dado);
 	}
 
-	public function getProcesses($group)
-	{
-		$dado['processes'] = $this->WeeklyReport_model->getProcessNamesByGroup($group);
-		return $dado;
-	}
-
 	public function new()
 	{
 		if (verifyLanguage()) {
