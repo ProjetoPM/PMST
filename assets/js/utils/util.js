@@ -28,6 +28,7 @@ function limitText(element, limit, id) {
     if (this.scrollHeight < 380) {
         this.style.height = "auto";
         this.style.height = (this.scrollHeight) + "px";
+        this.style.overflow = "hidden";
     } else {
         this.style.height = "380px";
         this.style.overflow = "auto";
