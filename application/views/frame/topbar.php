@@ -108,16 +108,14 @@
            }
          </style>
 
-         <?php if ($_SESSION['project_id'] != null) { ?>
+         <?php if ($_SESSION['project_id'] != null): ?>
            <div class="title">
              <p>
                <strong><?= $this->lang->line('project_title') ?> <?php echo $_SESSION['project_name'] ?></strong>
              </p>
            </div>
-
-         <?php } ?>
-         <div class="load" ><i style="padding-top:2px;padding-right:100%" class="fa fa-cog fa-spin fa-2x fa-fw"></i><span  class="sr-only">Loading...</span>
-         </div>
+           <div class="load" ><i style="padding-top:2px;padding-right:100%" class="fa fa-cog fa-spin fa-2x fa-fw"></i><span  class="sr-only">Loading...</span></div>
+         <?php endif ?>
 
          <li class="dropdown hidden-xs" style="max-height: 50px;background-color: transparent;vertical-align:bottom">
            <form>
