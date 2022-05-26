@@ -474,7 +474,6 @@
 
                             <a  href="<?= base_url("schedule/project-schedule-network-diagram/list/" . $project[0]->project_id) ?>">
                               <div id="exemploa" class="col-lg-1 midBox timeColor">
-                                <i class="fas fa-band-aid"></i>
                                 <div class="verticalAlign">
                                   <i class="glyphicon glyphicon-time"></i>
                                   <?= $this->lang->line('project-schedule-network') ?>
@@ -1120,6 +1119,8 @@
                     </div>
                   </div> <!-- End Body Phases -->
 
+
+
                   <div class="col-md-12 noSpaceSide ">
                     <div class="col-lg-12 wrapper noSpaceSide" style="background-color:#f5f5f5">
                       <a class="btn btn-warning btn-lg btn-block" href="<?= base_url() ?>notification-board/list/<?php echo $project[0]->project_id; ?>">
@@ -1138,3 +1139,5 @@
       </section>
     </div>
   </div>
+</body>
+<?php $this->load->view('frame/footer_view') ?>
