@@ -87,7 +87,7 @@ class ChangeRequest extends CI_Controller
 		$query['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
 		$query['change_request'] = $this->Change_request_model->get($project_id);
 
-		$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "change request", $query['change_request']['change_request_id']);
+		$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "change request", $query['change_request']['id']);
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');

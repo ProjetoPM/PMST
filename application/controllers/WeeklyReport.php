@@ -102,33 +102,28 @@ class WeeklyReport extends CI_Controller
 
 	public function edit($weekly_report_id)
 	{
+		if (strcmp($_SESSION['language'], "US") == 0) $this->lang->load('btn', 'english');
+		else $this->lang->load('btn', 'portuguese-brazilian');
 
-		if (strcmp($_SESSION['language'], "US") == 0) {
-			$this->lang->load('btn', 'english');
-		} else {
-			$this->lang->load('btn', 'portuguese-brazilian');
-		}
-
+		if (verifyLanguage()) $dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(2);
+		else $dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
+		
 		$dado['evaluation'] = $this->WeeklyEvaluation_model->getAll();
 		$dado['weekly_report'] = $this->WeeklyReport_model->get($weekly_report_id);
 		$dado['weekly_processes'] = $this->WeeklyReport_model->getAllProcesses($weekly_report_id);
 
 		loadViews('project/weekly_report/edit', $dado);
+		print_r($dado['weekly_processes']);
 	}
-
 
 	public function update($weekly_report_id)
 	{
-
 		$weekly_report['tool_evaluation'] = $this->input->post('tool_evaluation');
 		$weekly_report['weekly_evaluation_id'] = $this->input->post('evaluation_id');
 		$weekly_report['user_id'] = $_SESSION['user_id'];
 
-
-
 		$weekly_report_process['process_name'] = $this->input->post('process');
 		$weekly_report_process['description'] = $this->input->post('description');
-
 
 		$data = $this->WeeklyEvaluation_model->getDeadline($weekly_report['weekly_evaluation_id']);
 		$date = date('m/d/Y', time());

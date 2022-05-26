@@ -380,6 +380,7 @@ function loadLangs($views)
 
 	}
 }
+
 function verifyLanguage()
 {
 	if (strcmp($_SESSION['language'], "US") == 0) {
