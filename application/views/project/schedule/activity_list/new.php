@@ -14,75 +14,77 @@
 					</div>
 				<?php endif ?>
 				<div class="row">
-					<div class="panel-body">
-						<h1 class="page-header">
-							<?= $this->lang->line('al_title')  ?>
-						</h1>
-						<form method="POST" action="<?= base_url('schedule/activity-list/insert/'); ?><?= $project_id; ?>">
-							<input type="hidden" name="project_id" value="<?= $project_id ?>">
+					<div class="col-lg-12">
+						<div class="panel-body">
+							<h1 class="page-header">
+								<?= $this->lang->line('al_title')  ?>
+							</h1>
+							<form method="POST" action='<?= base_url("schedule/activity-list/insert/$project_id") ?>'>
+								<input type="hidden" name="project_id" value="<?= $project_id ?>">
 
-							<div class="col-md-12">
-								<div class="form-group col-md-4">
-									<label for="associated_id"><?= $this->lang->line('al_label') ?></label>
-									<a class="btn-sm btn-default" id="al_tp_01" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('al_associated_id_tp') ?>">
-										<i class="glyphicon glyphicon-comment"></i>
-									</a>
-									<span id="count-a"></span>
-									<textarea class="form-control" oninput="limitText(this, 50, 'a')" name="associated_id" id="al_txt_1" rows="1"></textarea>
-								</div>
+								<div class="col-md-12">
+									<div class="form-group col-md-4">
+										<label for="associated_id"><?= $this->lang->line('al_label') ?></label>
+										<a class="btn-sm btn-default" id="al_tp_01" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('al_associated_id_tp') ?>">
+											<i class="glyphicon glyphicon-comment"></i>
+										</a>
+										<span id="count-a"></span>
+										<textarea class="form-control" oninput="limitText(this, 50, 'a')" name="associated_id" id="al_txt_1" rows="1" required></textarea>
+									</div>
 
-								<div class="form-group col-md-4">
-									<label for="milestone"><?= $this->lang->line('al_milestone') ?></label>
-									<a class="btn-sm btn-default" id="al_tp_02" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('al_milestone_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-									<select class="form-control" name="milestone" id="al_txt_2">
-										<option value="0" selected disabled>Selected</option>
-										<?php foreach ($milestone as $m) : ?>
-											<option value="<?= $m->milestone_id ?>"><?= $m->milestone ?></option>
-										<?php endforeach ?>
-									</select>
-								</div>
+									<div class="form-group col-md-4">
+										<label for="milestone"><?= $this->lang->line('al_milestone') ?></label>
+										<a class="btn-sm btn-default" id="al_tp_02" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('al_milestone_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<select class="form-control" name="milestone" id="al_txt_2" required>
+											<option value="" selected disabled>Selected</option>
+											<?php foreach ($milestone as $m) : ?>
+												<option value="<?= $m->milestone ?>"><?= $m->milestone ?></option>
+											<?php endforeach ?>
+										</select>
+									</div>
 
-								<div class="form-group col-md-4">
-									<label for="activity_name"><?= $this->lang->line('al_activity_name') ?></label>
-									<a class="btn-sm btn-default" id="al_tp_03" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('al_activity_name_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-									<span id="count-b"></span>
-									<textarea class="form-control" oninput="limitText(this, 50, 'b')" name="activity_name" id="al_txt_3" rows="1"></textarea>
-								</div>
+									<div class="form-group col-md-4">
+										<label for="activity_name"><?= $this->lang->line('al_activity_name') ?></label>
+										<a class="btn-sm btn-default" id="al_tp_03" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('al_activity_name_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span id="count-b"></span>
+										<textarea class="form-control" oninput="limitText(this, 50, 'b')" name="activity_name" id="al_txt_3" rows="1" required></textarea>
+									</div>
 
-								<div class="form-group col-md-6">
-									<label for="project_phase"><?= $this->lang->line('al_project_phase') ?></label>
-									<a class="btn-sm btn-default" id="al_tp_04" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('al_project_phase_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-									<select class="form-control" name="project_phase" id="al_txt_4">
-										<option value="0" selected disabled>Selected</option>
-										<?php foreach ($phase as $p) : ?>
-											<option value="<?= $p->project_phase_id ?>"><?= $p->project_phase ?></option>
-										<?php endforeach ?>
-									</select>
-								</div>
+									<div class="form-group col-md-6">
+										<label for="project_phase"><?= $this->lang->line('al_project_phase') ?></label>
+										<a class="btn-sm btn-default" id="al_tp_04" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('al_project_phase_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<select class="form-control" name="project_phase" id="al_txt_4" required>
+											<option value="" selected disabled>Selected</option>
+											<?php foreach ($phase as $p) : ?>
+												<option value="<?= $p->project_phase ?>"><?= $p->project_phase ?></option>
+											<?php endforeach ?>
+										</select>
+									</div>
 
-								<div class="form-group col-md-6">
-									<label for="wbs_id"><?= $this->lang->line('wbs_id') ?></label>
-									<a class="btn-sm btn-default" id="al_tp_05" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wbs_id_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-									<span id="count-c"></span>
-									<textarea class="form-control" oninput="limitText(this, 50, 'c')" name="wbs_id" id="al_txt_5" rows="1"></textarea>
-								</div>
+									<div class="form-group col-md-6">
+										<label for="wbs_id"><?= $this->lang->line('wbs_id') ?></label>
+										<a class="btn-sm btn-default" id="al_tp_05" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wbs_id_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span id="count-c"></span>
+										<textarea class="form-control" oninput="limitText(this, 50, 'c')" name="wbs_id" id="al_txt_5" rows="1" required></textarea>
+									</div>
 
-								<div class="form-group col-md-12">
-									<label for="description"><?= $this->lang->line('al_description') ?></label>
-									<a class="btn-sm btn-default" id="al_tp_06" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('al_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-									<span id="count-d"></span>
-									<textarea class="form-control" oninput="limitText(this, 2000, 'd')" name="description" id="al_txt_6"></textarea>
-								</div>
+									<div class="form-group col-md-12">
+										<label for="description"><?= $this->lang->line('al_description') ?></label>
+										<a class="btn-sm btn-default" id="al_tp_06" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('al_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<span id="count-d"></span>
+										<textarea class="form-control" oninput="limitText(this, 2000, 'd')" name="description" id="al_txt_6" required></textarea>
+									</div>
 
-								<div class="col-md-12 m-t-15">
-									<button onclick='goTo(`<?= base_url("schedule/activity-list/list/$project_id") ?>`)' type="button" class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
-								
-									<button id="activity-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
-										<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
-									</button>
+									<div class="col-md-12 m-t-15">
+										<button onclick='goTo(`<?= base_url("schedule/activity-list/list/$project_id") ?>`)' type="button" class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
+
+										<button id="activity-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+											<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
+										</button>
+									</div>
 								</div>
-							</div>
-						</form>
+							</form>
+						</div>
 					</div>
 				</div>
 			</section>

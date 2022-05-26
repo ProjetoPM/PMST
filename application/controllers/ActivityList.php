@@ -3,7 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class ActivityList extends CI_Controller
 {
-
 	function __construct()
 	{
 		parent::__construct();
@@ -16,15 +15,15 @@ class ActivityList extends CI_Controller
 		$this->load->model('log_model');
 		$this->load->helper('log_activity');
 
-		if(strcmp($_SESSION['language'],"US") == 0){
-            $this->lang->load('activity', 'english');
-            $this->lang->load('btn', 'english');
-            $this->lang->load('project-page', 'english');
-        }else{
-            $this->lang->load('activity', 'portuguese-brazilian');
-            $this->lang->load('btn', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('activity', 'english');
+			$this->lang->load('btn', 'english');
+			$this->lang->load('project-page', 'english');
+		} else {
+			$this->lang->load('activity', 'portuguese-brazilian');
+			$this->lang->load('btn', 'portuguese-brazilian');
+			$this->lang->load('project-page', 'portuguese-brazilian');
+		}
 		// $this->lang->load('btn','portuguese-brazilian');
 
 		// $this->lang->load('manage-cost','portuguese-brazilian');
@@ -33,11 +32,8 @@ class ActivityList extends CI_Controller
 
 	public function new($project_id)
 	{
-		if(strcmp($_SESSION['language'],"US") == 0){
-            $this->lang->load('btn', 'english');
-        }else{
-            $this->lang->load('btn', 'portuguese-brazilian');
-        }
+		if (strcmp($_SESSION['language'], "US") === 0) $this->lang->load('btn', 'english');
+		else $this->lang->load('btn', 'portuguese-brazilian');
 
 		$idusuario = $_SESSION['user_id'];
 		$this->db->where('user_id', $idusuario);
@@ -69,7 +65,7 @@ class ActivityList extends CI_Controller
 
 	public function deleteMilestone($id)
 	{
-		
+
 		$query = $this->Activity_model->deleteMilestone($id);
 		if ($query) {
 			insertLogActivity('delete', 'milestone');
@@ -86,16 +82,13 @@ class ActivityList extends CI_Controller
 		}
 	}
 
-
-
 	public function list($project_id)
 	{
-		if(strcmp($_SESSION['language'],"US") == 0){
-            $this->lang->load('btn', 'english');
-        }else{
-            $this->lang->load('btn', 'portuguese-brazilian');
-        }
-
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
 		$dado['project_id'] = $project_id;
 		$dado['activity'] = $this->Activity_model->getAll($project_id);
 		$dado['milestone'] = $this->Activity_model->getAllMilestone($project_id);
@@ -107,31 +100,25 @@ class ActivityList extends CI_Controller
 		$this->load->view('project/schedule/activity_list/list', $dado);
 	}
 
-
 	public function edit($project_id)
 	{
-		if(strcmp($_SESSION['language'],"US") == 0){
-            $this->lang->load('btn', 'english');
-        }else{
-            $this->lang->load('btn', 'portuguese-brazilian');
-        }
+		if (strcmp($_SESSION['language'], "US") === 0) $this->lang->load('btn', 'english');
+		else $this->lang->load('btn', 'portuguese-brazilian');
 		
 		$query['activity'] = $this->Activity_model->get($project_id);
-		$query['milestone_list'] = $this->Activity_model->getAllMilestone($_SESSION['project_id']);
-		$query['phase_list'] = $this->Activity_model->getAllPhase($_SESSION['project_id']);
+		$query['milestone_list'] = $this->Activity_model->getAllMilestone($this->input->post('project_id'));
+		$query['phase_list'] = $this->Activity_model->getAllPhase($this->input->post('project_id'));
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('project/schedule/activity_list/edit', $query);
 	}
 
-
-
 	public function update($project_id)
 	{
-		if(strcmp($_SESSION['language'],"US") == 0){
+		if (strcmp($_SESSION['language'], "US") == 0) {
 			$feedback_success = 'Item Updated';
-        }else{
+		} else {
 			$feedback_success = 'Item Atualizado ';
 		}
 		$activity['associated_id'] = $this->input->post('associated_id');
@@ -155,12 +142,8 @@ class ActivityList extends CI_Controller
 
 	public function insert($project_id)
 	{
-
-		if(strcmp($_SESSION['language'],"US") == 0){
-			$feedback_success = 'Item Created';
-        }else{
-			$feedback_success = 'Item Criado ';
-		}
+		if (strcmp($_SESSION['language'], "US") === 0) $feedback_success = 'Item created ';
+		else $feedback_success = 'Item criado ';
 
 		$activity['associated_id'] = $this->input->post('associated_id');
 		$activity['project_phase'] = $this->input->post('project_phase');
@@ -168,7 +151,6 @@ class ActivityList extends CI_Controller
 		$activity['activity_name'] = $this->input->post('activity_name');
 		$activity['wbs_id'] = $this->input->post('wbs_id');
 		$activity['description'] = $this->input->post('description');
-
 		$activity['project_id'] = $this->input->post('project_id');
 
 		$query = $this->Activity_model->insert($activity);
@@ -182,9 +164,9 @@ class ActivityList extends CI_Controller
 
 	public function insertMilestone()
 	{
-		if(strcmp($_SESSION['language'],"US") == 0){
+		if (strcmp($_SESSION['language'], "US") == 0) {
 			$feedback_success = 'Milestone Created';
-        }else{
+		} else {
 			$feedback_success = 'Marco-alvo Criado ';
 		}
 
@@ -202,10 +184,9 @@ class ActivityList extends CI_Controller
 
 	public function insertPhase()
 	{
-
-		if(strcmp($_SESSION['language'],"US") == 0){
+		if (strcmp($_SESSION['language'], "US") == 0) {
 			$feedback_success = 'Project Phase Created';
-        }else{
+		} else {
 			$feedback_success = 'Fase do Projeto Criada';
 		}
 

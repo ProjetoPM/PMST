@@ -107,7 +107,7 @@ class WeeklyReport extends CI_Controller
 
 		if (verifyLanguage()) $dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(2);
 		else $dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
-		
+
 		$dado['evaluation'] = $this->WeeklyEvaluation_model->getAll();
 		$dado['weekly_report'] = $this->WeeklyReport_model->get($weekly_report_id);
 		$dado['weekly_processes'] = $this->WeeklyReport_model->getAllProcesses($weekly_report_id);
