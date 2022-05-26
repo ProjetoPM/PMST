@@ -12,7 +12,7 @@
   <br />
   <?php
   if(isset($customer_data))
-  {
+  {}
   ?>
   <div class="table-responsive">
    <table class="table table-striped table-bordered">

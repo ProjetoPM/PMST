@@ -4,14 +4,14 @@
 function email_exists($email)
 {
 
-    $obj = &get_instance();
-    $obj->load->model('Admin_model');
+	$obj = &get_instance();
+	$obj->load->model('Admin_model');
 
-    $data2 = $obj->Exame_model->getUserByEmail($email);
-    if ($data2 != null) {
-        return true;
-    }
-    return false;
+	$data2 = $obj->Exame_model->getUserByEmail($email);
+	if ($data2 != null) {
+		return true;
+	}
+	return false;
 }
 
 function getViewEvaluation($view_id)
@@ -34,85 +34,85 @@ function getViewEvaluation($view_id)
 	$view_evaluation['evaluationTxt'] = "";
 	foreach ($obj2->ViewEvaluation_model->getAllProfessorEvaluation($view_evaluation['view_evaluation_id']) as $pe) {
 		// var_dump(getUserName($pe->user_id));exit;
-		$view_evaluation['evaluationTxt'] = $view_evaluation['evaluationTxt'] . getUserName($pe->user_id) . ": " .$pe->points. ", ";
+		$view_evaluation['evaluationTxt'] = $view_evaluation['evaluationTxt'] . getUserName($pe->user_id) . ": " . $pe->points . ", ";
 	}
-	$view_evaluation['evaluationTxt'] = $view_evaluation['evaluationTxt'] . "Average: ". $view_evaluation['average'];
+	$view_evaluation['evaluationTxt'] = $view_evaluation['evaluationTxt'] . "Average: " . $view_evaluation['average'];
 	return $view_evaluation;
 }
 
 function getStakeholderName($id)
 {
-    $obj = &get_instance();
-    $obj->load->model('Stakeholder_model');
+	$obj = &get_instance();
+	$obj->load->model('Stakeholder_model');
 
-    $data1 = $obj->Stakeholder_model->get($id);
-    return $data1["name"];
+	$data1 = $obj->Stakeholder_model->get($id);
+	return $data1["name"];
 }
 
 
 
 function getInstitution($id)
 {
-    $obj = &get_instance();
-    $obj->load->model('User_Model');
+	$obj = &get_instance();
+	$obj->load->model('User_Model');
 
-    $data1 = $obj->User_Model->GetUserById($id);
-    return $data1["institution"];
+	$data1 = $obj->User_Model->GetUserById($id);
+	return $data1["institution"];
 }
 
 function getEmail($id)
 {
-    $obj = &get_instance();
-    $obj->load->model('User_Model');
+	$obj = &get_instance();
+	$obj->load->model('User_Model');
 
-    $data1 = $obj->User_Model->GetUserById($id);
-    return $data1["email"];
+	$data1 = $obj->User_Model->GetUserById($id);
+	return $data1["email"];
 }
 
 
 function array_sort($array, $on, $order = SORT_ASC)
 {
-    $new_array = array();
-    $sortable_array = array();
+	$new_array = array();
+	$sortable_array = array();
 
-    if (count($array) > 0) {
-        foreach ($array as $k => $v) {
-            if (is_array($v)) {
-                foreach ($v as $k2 => $v2) {
-                    if ($k2 == $on) {
-                        $sortable_array[$k] = $v2;
-                    }
-                }
-            } else {
-                $sortable_array[$k] = $v;
-            }
-        }
+	if (count($array) > 0) {
+		foreach ($array as $k => $v) {
+			if (is_array($v)) {
+				foreach ($v as $k2 => $v2) {
+					if ($k2 == $on) {
+						$sortable_array[$k] = $v2;
+					}
+				}
+			} else {
+				$sortable_array[$k] = $v;
+			}
+		}
 
-        switch ($order) {
-            case SORT_ASC:
-                asort($sortable_array);
-                break;
-            case SORT_DESC:
-                arsort($sortable_array);
-                break;
-        }
+		switch ($order) {
+			case SORT_ASC:
+				asort($sortable_array);
+				break;
+			case SORT_DESC:
+				arsort($sortable_array);
+				break;
+		}
 
-        foreach ($sortable_array as $k => $v) {
-            $new_array[$k] = $array[$k];
-        }
-    }
+		foreach ($sortable_array as $k => $v) {
+			$new_array[$k] = $array[$k];
+		}
+	}
 
-    return $new_array;
+	return $new_array;
 }
 
 
 function getRole($id)
 {
-    $obj = &get_instance();
-    $obj->load->model('User_Model');
+	$obj = &get_instance();
+	$obj->load->model('User_Model');
 
-    $data1 = $obj->User_Model->GetUserById($id);
-    return $data1["role"];
+	$data1 = $obj->User_Model->GetUserById($id);
+	return $data1["role"];
 }
 
 
@@ -334,12 +334,12 @@ function getAllProcesses($id)
 	return $data;
 }
 
-function getProcessName($pmbok_id, $pmbok_process_id)
+function getProcessGroupName($pmbok_id, $pmbok_group_id)
 {
 	$obj = &get_instance();
 	$obj->load->model('Pmbok_process_model');
-	$data = $obj->Pmbok_process_model->get($pmbok_id, $pmbok_process_id);
-	return $data[0]->name;
+	$data = $obj->Pmbok_process_model->get($pmbok_id, $pmbok_group_id);
+	return $data[0]->group_name;
 }
 
 function verifyEvaluation($id)
@@ -351,6 +351,41 @@ function verifyEvaluation($id)
 	return $data2;
 }
 
+function loadViews($view, $data = '')
+{
+	$object = &get_instance();
+	$object->load->view("frame/header_view");
+	$object->load->view("frame/topbar");
+	$object->load->view("frame/sidebar_nav_view");
+	$object->load->view($view, $data);
+	$object->load->view("frame/footer_view");
+}
 
+function loadLangs($views)
+{
+	$object = &get_instance();
 
+	if (verifyLanguage()) {
+		$object->lang->load('project-page', 'english');
+		$object->lang->load('btn', 'english');
+		foreach ($views as $view) {
+			$object->lang->load($view, 'english');
+		}
+	}else{
+		$object->lang->load('project-page', 'portuguese-brazilian');
+		$object->lang->load('btn', 'portuguese-brazilian');
+		foreach ($views as $view) {
+			$object->lang->load($view, 'portuguese-brazilian');
+		}
 
+	}
+}
+
+function verifyLanguage()
+{
+	if (strcmp($_SESSION['language'], "US") == 0) {
+		return true;
+	} else {
+		return false;
+	}
+}

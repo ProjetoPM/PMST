@@ -172,7 +172,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <fieldset>
             <img src="<?php echo base_url().$row['image_url'];?>" class="imagem" alt="" />
         </fieldset>
-    <?
+    <?php
     endforeach;
     ?>
     <p class="creator">Script by <a href="https://colorlib.com" target="_blank" title="Colorlib">Swagata Datta</a></p>

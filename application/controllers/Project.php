@@ -16,9 +16,9 @@ class Project extends CI_Controller
 		//		$this->load->view('project', $data);
 	}
 
-	public function __Construct()
+	public function __construct()
 	{
-		parent::__Construct();
+		parent::__construct();
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
@@ -68,12 +68,13 @@ class Project extends CI_Controller
         }
 
 
-		$this->load->helper('url');
-		$this->load->view('frame/header_view');
-		$this->load->view('frame/topbar');
-		$this->load->view('frame/topbar');
-		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/new_project', $data);
+		// $this->load->helper('url');
+		// $this->load->view('frame/header_view');
+		// $this->load->view('frame/topbar');
+		// $this->load->view('frame/topbar');
+		// $this->load->view('frame/sidebar_nav_view');
+		// $this->load->view('project/new_project', $data);
+		loadViews('project/new_project', $data);
 	}
 
 

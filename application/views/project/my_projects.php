@@ -130,12 +130,39 @@
                                                 ?>
                                             </td>
                                             <td align="left">
-                                                <a href="<?= base_url("project/" . $pro->project_id) ?>" class="btn btn-default"><em class="fa fa-folder-open-o"></em><span class="hidden-xs"><?= $this->lang->line('btn-open') ?> </span></a>
-                                                <a href="<?= base_url("edit/" . $pro->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-pencil"></em><span class="hidden-xs"><?= $this->lang->line('btn-edit') ?></span></a>
-                                                <a href="<?= base_url("researcher/" . $pro->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-users"></em><span class="hidden-xs"><?= $this->lang->line('btn-add_member') ?></span></a>
-                                                <a href="<?= base_url("user/list/" . $pro->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-users"></em><span class="hidden-xs">Members</span></a>
-                                                <a href="<?= base_url("projecttooverleaf/exportlatex/" . $pro->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-book"></em><span class="hidden-xs"><?= $this->lang->line('export_overleaf') ?></span></a>
-                                                <a href="<?= base_url("delete/" . $pro->project_id) ?>" onclick="return confirm('Are you sure you want to delete <?= $pro->title; ?>?');" class="btn btn-danger <?php echo $view . $execute; ?>"><em class="fa fa-trash"></em><span class="hidden-xs"><?= $this->lang->line('btn-overleaf') ?></span></a>
+                                                <a href="<?= base_url("project/$pro->project_id") ?>" 
+                                                    data-toggle="tooltip" 
+                                                    title="<?= $this->lang->line('btn-open') ?>" 
+                                                    class="btn btn-default">
+                                                    <i class="fa fa-folder-open-o"></i>
+                                                    <span class="hidden-xs"></span>
+                                                </a>
+
+                                                <a href="<?= base_url("edit/$pro->project_id") ?>" 
+                                                    data-toogle="tooltip" 
+                                                    title="<?= $this->lang->line('btn-edit') ?>" 
+                                                    class="btn btn-default <?= $view . $execute; ?>">
+                                                    <i class="fa fa-pencil"></i><span class="hidden-xs"></span>
+                                                </a>
+
+                                                <a href="<?= base_url("researcher/$pro->project_id") ?>" 
+                                                    data-toogle="tooltip" 
+                                                    title="<?= $this->lang->line('btn-add_member') ?>" 
+                                                    class="btn btn-default <?= $view . $execute; ?>">
+                                                    <i class="fa-solid fa-user-plus"></i><span class="hidden-xs"></span>
+                                                </a>
+
+                                                <!-- needs a lang text here -->
+                                                <a href="<?= base_url("user/list/$pro->project_id") ?>" 
+                                                    data-toogle="tooltip" 
+                                                    title="<?= $this->lang->line('') ?>"
+                                                    class="btn btn-default <?= $view . $execute; ?>">
+                                                    <i class="fa fa-users"></i><span class="hidden-xs"></span>
+                                                </a>
+
+                                                <a href="<?= base_url("projecttooverleaf/exportlatex/$pro->project_id") ?>" data-toogle="tooltip" title="<?= $this->lang->line('export_overleaf') ?>" class="btn btn-default <?php echo $view . $execute; ?>"><i class="fa fa-book"></i><span class="hidden-xs"></span></a>
+
+                                                <a href="<?= base_url("delete/" . $pro->project_id) ?>" onclick="return confirm('Are you sure you want to delete <?= $pro->title; ?>?');" class="btn btn-danger <?php echo $view . $execute; ?>"><i class="fa fa-trash"></i><span class="hidden-xs"><?= $this->lang->line('btn-overleaf') ?></span></a>
                                             </td>
                                             <td>
                                                 <?php if ($level == 0) {

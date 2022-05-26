@@ -7,6 +7,9 @@ class Weekly_process_model extends CI_Model
 		$this->load->database();
 	}
 
+	function insert($data){
+		return $this->db->insert('weekly_report_process', $data);
+	}
 
 	public function getAll()
 	{
@@ -26,11 +29,6 @@ class Weekly_process_model extends CI_Model
 		return $res['score'];
 	}
 
-	public function getAllPerMember($id)
-	{
-		$query = $this->db->get_where('weekly_report', array('user_id' => $id));
-		return $query->result();
-	}
 
 	public function getAllProcesses($id)
 	{

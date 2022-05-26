@@ -21,14 +21,14 @@ class LanguageLoader
     //nó da URL
     switch ($ci->uri->segment(1)) {
       case 'en':
-      $idioma = 'english';
-      break;
+        $idioma = 'english';
+        break;
       case 'pt_br':
-      $idioma = 'portuguese-brazilian';
-      break;
+        $idioma = 'portuguese-brazilian';
+        break;
       default:
-      $idioma = 'english';
-      break;
+        $idioma = 'english';
+        break;
     }
     //carrega todos os arquivos de idioma, dessa forma você poderá utilizar as
     //mensagens das bibliotecas nativas normalmente
@@ -45,7 +45,6 @@ class LanguageLoader
       'profiler',
       'unit_test',
       'upload',
-      'btn',
     ),$idioma);
     
     //define o idioma a ser utilizado, diretamente nas configurações globais da aplicação.

@@ -8,12 +8,12 @@ class Pmbok_process_model extends CI_Model
 	}
 
 	
-	public function get($pmbok_id, $pmbok_process_id)
+	public function get($pmbok_id, $pmbok_group_id)
 	{
 		$this->db->select('*');
-		$this->db->where('pmbok_process_id', $pmbok_process_id);
 		$this->db->where('pmbok_id', $pmbok_id);
-		$this->db->from('pmbok_process');
+		$this->db->where('pmbok_group_id', $pmbok_group_id);
+		$this->db->from('pmbok_group');
 		
 		$query = $this->db->get();
 

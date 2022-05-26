@@ -1,164 +1,100 @@
-<body id="body" class="hold-transition skin-gray sidebar-mini">
+
 	<div class="wrapper">
 		<div class="content-wrapper">
 			<section class="content">
 				<?php if ($this->session->flashdata('success')) : ?>
 					<div class="alert alert-success">
-						<a href="#" class="close" data-dismiss="alert">&times;</a>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
 						<strong><?= $this->session->flashdata('success') ?></strong>
-					</div>
-				<?php elseif ($this->session->flashdata('update')) : ?>
-					<div class="alert alert-warning">
-						<a href="#" class="close" data-dismiss="alert">&times;</a>
-						<strong><?= $this->session->flashdata('update') ?></strong>
 					</div>
 				<?php elseif ($this->session->flashdata('error')) : ?>
 					<div class="alert alert-warning">
-						<a href="#" class="close" data-dismiss="alert">&times;</a>
-						<strong><?= $this->session->flashdata('error') ?></strong>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<strong><?php echo $this->session->flashdata('error'); ?></strong>
 					</div>
 				<?php endif ?>
-				<style>
-					input button[disabled],
-					html input[disabled] {
-						text-align: center;
-					}
-
-					.elasticteste {
-						min-height: 70px;
-						/* min-width: 120px; */
-						/* outline: 0; */
-						resize: none;
-						line-height: 20px;
-					}
-
-					.elasticteste2 {
-						height: 35px;
-						/* min-width: 120px; */
-						/* outline: 0; */
-						resize: none;
-
-					}
-
-					textarea.form-control {
-						height: 35px;
-					}
-				</style>
-				<?php extract($weekly_processes) ?>
 
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="panel-body">
-							<h1 class="page-header"><?= $this->lang->line('we_title') ?></h1>
-							<form method="POST" action='<?= base_url("weekly-report/update/{$weekly_report['weekly_report_id']}") ?>'>
-								<div class=" col-lg-5 form-group">
-									<label for="type"><?= $this->lang->line('we_name') ?></label>
-									<select name="evaluation_id" class="form-control">
-										<?php if (isset($weekly_report['weekly_evaluation_id'])): ?>
-											<option value="<?= $weekly_report['weekly_evaluation_id'] ?>">
-												<?= $this->lang->line('selected') ?>
-											</option>
-										<?php endif ?>
-										<?php foreach ($evaluation as $i): ?>
+							<h1 class="page-header">
+								<?= $this->lang->line('wr_title') ?>
+							</h1>
+							<form method="POST" action="<?= base_url('weekly-report/insert/') ?>">
+								<div class="col-lg-3 form-group">
+									<label><?= $this->lang->line('we_name') ?></label>
+									<select name="evaluation_id" size="1" class="form-control" tabindex="1" required>
+										<option selected="selected" disabled>Select</option>
+										<?php foreach ($evaluation as $i) : ?>
 											<option value="<?= $i->weekly_evaluation_id ?>">
 												<?= getWeeklyEvaluationName($i->weekly_evaluation_id) ?>
 											</option>
 										<?php endforeach ?>
 									</select>
 								</div>
-
-								<div class=" col-lg-6 form-group">
-									<label for="tool_evaluation"><?= $this->lang->line('wr_tool_evaluation') ?></label>
-									<span class="btn-sm btn-default" id="wr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wr_tool_evaluation_tp') ?>">
+								<div class="col-lg-12 form-group">
+									<label for="tool_evaluation"><?= $this->lang->line('wr_tool_evaluation') ?>*</label>
+									<span id="count-a">5000/5000</span>
+									<span class="btn-sm btn-default" id="wr_tp_1" data-toggle="tooltip" data-placement="top" title="<?= $this->lang->line('wr_tool_evaluation_tp') ?>">
 										<i class="glyphicon glyphicon-comment"></i>
 									</span>
 									<div>
-										<textarea onkeyup="limite_textarea(this.value, 'wr_1')" id="wr_txt_1" maxlength="5000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="tool_evaluation">
-											<?= $weekly_report['tool_evaluation'] ?>
-										</textarea>
+										<textarea name="tool_evaluation" oninput="limitText(this, 5000, 'a')" class="form-control" id="tool_evaluation_ta" required></textarea>
 									</div>
 								</div>
-
-								<div class="row">
-									<div class="col-lg-12">
-										<div class="panel panel-default">
-											<div class="panel-heading">
-												<span class="gprc_1" style="font-size: 20px;"><?= $this->lang->line('wr_processes') ?></span>
-											</div>
-											<div class="panel-body">
-												<div class="col-sm-3 form-group" style="min-height: 20px;">
-													<div>
-														<label for="pdf_path"><?= $this->lang->line('wr_attach_pdf') ?></label>
-													</div>
-												</div>
-
-												<div class="col-sm-3 form-group">
-													<div>
-														<label for="process_name"><?= $this->lang->line('wr_process_name') ?></< /label>
-													</div>
-												</div>
-
-												<div class="col-sm-6 form-group comments">
-													<div>
-														<label for="description"><?= $this->lang->line('wr_process_description') ?></label>
-													</div>
-												</div>
-
-												<?php $room = 1; ?>
-
-												<div id="education_fields">
-												</div>
-											</div>
-											<?php 
-											$count = 1;
-											foreach ($weekly_processes as $processes): ?>
-												<div class="form-group removeclass<?= $count ?>" id="removeclass[<?= $count ?>]">
-
-													<div class="col-sm-3 form-group">
-														<div class="input-group" style="width: 100%">
-															<input class="form-control elasticteste2" type="file" style="text-align:left;" id="pdf_path['<?= $count ?>']" name="pdf_path[] ">
-																<?= $processes->pdf_path ?>
-															</input>
-														</div>
-													</div>
-													<div class="col-sm-6 form-group">
-														<div>
-															<div class="input-group" style="width: 100%">
-																<textarea style="text-align:left;" class="form-control elasticteste2" id="process_name[<?= $count ?>]" name="process_name[]">
-																<?= $processes->process_name ?></textarea>
-															</div>
-														</div>
-													</div>
-													<div class="col-sm-6 form-group">
-														<div>
-															<div class="input-group" style="width: 100%">
-																<textarea style="text-align:left;" class="form-control elasticteste2" id="process_name[<?= $count ?>]" name="process_name[]">
-																	<?= $processes->process_name ?>
-																</textarea>
-															</div>
-														</div>
-													</div>
-
-												</div>
-											<?php
-												$count++;
-												$room++;
-												endforeach;
-											?>
+								<div class="col-lg-12">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<span class="fs-20">
+												<?= $this->lang->line('wr_processes') ?>
+											</span>
+											<button class="btn btn-success" type="button" id="edit_add_process">
+												<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+											</button>
 										</div>
-									</div>
-									<!-- buttons -->
-									<div class="col-lg-12">
-										<form action='<?= base_url("weekly-report/list/{$this->input->post('project_id')}") ?>'>
-											<button class="btn btn-lg btn-info pull-left m-t-30">
+										<div class="panel-body m-t-20" style="padding: 0">
+											<div id="edit_education_fields">
+                                                <?php foreach ($weekly_processes as $item): ?>
+                                                    <div id="remove-<?= $item->weekly_report_process_id ?>">
+                                                        <div class="col-md-12">
+                                                            <div class="process-title p-l-17 p-b-5 p-t-5">Process #<?= $item->weekly_report_process_id ?></div>
+                                                                <div class="around col-md-12 m-b-25">
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="<?= $item->weekly_report_process_id ?>">Process Group</label>
+                                                                        <select class="form-control"id="<?= $item->weekly_report_process_id ?>">
+                                                                            <?php foreach($pmbok_processes as $process): ?>
+                                                                                <option value="<?= $process->pmbok_group_id ?>"><?=$process->group_name?></option>
+                                                                            <?php endforeach?>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="process_name_<?= $item->weekly_report_process_id ?>">Process Name</label>
+                                                                        <select name="process_name-<?= $item->weekly_report_process_id ?>"class="form-control"id="process_name_<?= $item->weekly_report_process_id ?>"value="<?= $item->weekly_report_process_id ?>">
+                                                                            <option selected disabled>Select process group first</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="form-group col-md-11"><label for="process_description">Process Description*&nbsp</label><span id="count-<?= $item->weekly_report_process_id ?>">2000/2000</span><textarea oninput="limitText(this, 2000, '<?= $item->weekly_report_process_id ?>')"class="form-control"name="description-<?= $item->weekly_report_process_id ?>"id="process_description-<?= $item->weekly_report_process_id ?>"><?= $item->description ?></textarea></div>
+                                                                    <div class="form-group col-md-1"><button onclick="remove(<?= $item->weekly_report_process_id ?>)"type="button"class="form-control btn btn-lg btn-danger m-t-23 m-l-0"><i class="fa fa-trash"style="display: flex; align-items: center; justify-content: center;"aria-hidden="true"></i></button></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <?php endforeach ?>
+											</div>
+										</div>
+										<div class="col-lg-12">
+											<button id="stakeholder-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right m-t-30">
+												<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
+											</button>
+											<button onclick="goTo('<?= base_url('weekly-report/list') ?>')" class="btn btn-lg btn-info pull-left m-t-30">
 												<i class="glyphicon glyphicon-chevron-left"></i>
 												<?= $this->lang->line('btn-back') ?>
 											</button>
-										</form>
-										<button type="submit" class="btn btn-lg btn-success pull-right m-t-30">
-											<i class="glyphicon glyphicon-ok"></i>
-											<?= $this->lang->line('btn-save') ?>
-										</button>
+										</div>
 									</div>
 								</div>
 							</form>
@@ -168,34 +104,73 @@
 			</section>
 		</div>
 	</div>
-</body>
+	<script>
+		let room = 0, number = 0;
 
-<script>
-	var room = 0;
-	var total = 0;
+		$(document).on("click", "#edit_add_process", function() {
+			room++;
 
-	function education_fields() {
-		// <style>.input - group.form - control {margin - right: 70 px;}.elasticteste {min - width: 50 px;} </style>
-		room--;
-		var objTo = document.getElementById('education_fields')
-		var divtest = document.createElement("div");
-		divtest.setAttribute("class", "form-group removeclass" + room);
-		divtest.setAttribute("id", 'removeclass[' + room + ']');
-		var rdiv = 'removeclass' + room;
-		divtest.innerHTML = '<div class="col-sm-3 form-group"> <div class="input-group" style="width: 100%"> <input class="form-control elasticteste2" type="file" style="text-align:left;" id="pdf_path[' + room + ']" name="pdf_path[] "></input> </div> </div> <div class="col-sm-6 form-group"> <div> <div class="input-group" style="width: 100%"> <textarea style="text-align:left;" class="form-control elasticteste2" id="comments[' + room + ']" name="comments[]"></textarea> </div> </div> </div> <div class="col-sm-6 form-group"> <div> <div class="input-group" style="width: 100%"> <textarea style="text-align:left;" class="form-control elasticteste2" id="description[' + room + ']" name="description[]"></textarea> </div> </div> </div>'
+			const parent = document.getElementById('edit_education_fields')
+			const div = document.createElement('div');
+			div.setAttribute('id', 'remove-' + room);
+			div.setAttribute('class', 'form-group');
+			div.innerHTML = `<div class="col-md-12"><div class="process-title p-l-17 p-b-5 p-t-5">Process #${++number}</div><div class="around col-md-12 m-b-25"><div class="form-group col-md-6"><label for="${room}">Process Group</label><select class="form-control"id="${room}"><option selected disabled>Select</option><?php foreach($pmbok_processes as $process):?><option value="<?= $process->pmbok_group_id ?>"><?=$process->group_name?></option><?php endforeach?></select></div><div class="form-group col-md-6"><label for="process_name_${room}">Process Name</label><select name="process_name-${room}"class="form-control"id="process_name_${room}"value="-${room}"><option selected disabled>Select process group first</option></select></div><div class="form-group col-md-11"><label for="process_description">Process Description*&nbsp</label><span id="count-${room}">2000/2000</span><textarea oninput="limitText(this, 2000, '${room}')"class="form-control"name="description-${room}"id="process_description-${room}"></textarea></div><div class="form-group col-md-1"><button onclick="remove(${room})"type="button"class="form-control btn btn-lg btn-danger m-t-23 m-l-0"><i class="fa fa-trash"style="display: flex; align-items: center; justify-content: center;"aria-hidden="true"></i></div></div></div></div>`;
+			parent.appendChild(div);
+		});
 
+		document.addEventListener('click', e => {
+			document.elementFromPoint(e.clientX, e.clientY);
+			let element = parseInt(document.activeElement.id);
 
-		objTo.appendChild(divtest);
+			if (element !== NaN) {
+				/**
+				 * Weekly Report
+				 * 
+				 * Getting the process name based on process group
+				 * selected, using ajax calls. This will catch all
+				 * selected processes returned by database.
+				 */
+				$(document).on('change', `#${element}`, function() {
+					var select = $(`select#process_name_${element}`);
+					var valueProcessGroup = $(`select#${element} option:selected`).val();
 
-		// json[json.length].aspects = document.getElementById('aspects[' + room + ']').value;
-		// json[json.length].weight = document.getElementById('weight[' + room + ']').value;
-		// json[json.length].level = document.getElementById('level[' + room + ']').value;
-		// json[json.length].score = document.getElementById('score[' + room + ']').value;
-		// json[json.length].comments = document.getElementById('comments[' + room + ']').value;
-
-	}
-
-	function remove_education_fields(rid) {
-		$('.removeclass' + rid).remove();
-	}
-</script>
+					$(select).empty().append($(`#process_name_${element}`));
+						
+					$.ajax({
+						url: "../../weekly-report/process-name-ajax",
+						type: 'GET',
+						dataType: 'html',
+						async: true,
+						success: function(data) { 
+							var result = JSON.parse(data); 
+							
+							for (var i = 0; i < result.length; i++) {
+								if (valueProcessGroup === result[i].pmbok_group_id) {
+									$(select).append($('<option>', {
+										value: result[i].pmbok_process_id,
+										text: result[i].name
+									}));
+								}
+							}
+						}
+					});
+					$("#process_name_${element}").each(function() {
+						$(this).siblings('[value="'+ this.value +'"]').remove();
+					});
+				});
+			}
+		}, { passive: true })
+		
+		function remove(id) {
+			alertify.set('notifier','delay', 1.5);
+			alertify.confirm('<?= $this->lang->line('wr_alert_confirm_title') ?>', 
+				'<?= $this->lang->line('wr_alert_confirm_text') ?>'
+				, function() {
+					$(`#remove-${id}`).remove(); 
+					alertify.success('<?= $this->lang->line('wr_alert_confirm_ok') ?>') 
+				}, function() { 
+					alertify.error('<?= $this->lang->line('wr_alert_confirm_cancel') ?>')
+				}
+			);
+		}
+	</script>

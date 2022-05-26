@@ -44,8 +44,6 @@ $lang['search'] = 'Search:';
 $lang['entries'] = "entries";
 $lang['show'] = 'Show';
 
-
-
 // Project
 $lang['btn-title'] = 'Title';
 $lang['created_by'] = "Created by";
