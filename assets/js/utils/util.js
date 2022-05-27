@@ -24,7 +24,7 @@ function limitText(element, limit, id) {
  */
  $("textarea").each(function () {
     this.setAttribute("style", "height:" + (this.scrollHeight) + "px;overflow-y:hidden;");
-  }).on("input", function () {
+  }).on("change", function () {
     if (this.scrollHeight < 380) {
         this.style.height = "auto";
         this.style.height = (this.scrollHeight) + "px";

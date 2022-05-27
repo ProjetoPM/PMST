@@ -71,10 +71,14 @@ class WeeklyReport_model extends CI_Model
 		return $query->result();
 	}
 
-	public function getAllProcesses($id)
+	public function getAllProcesses($id, $language)
 	{
-		$query = $this->db->get_where('weekly_report_process', array('weekly_report_id' => $id));
-		return $query->result();
+		$this->db->select('weekly_report_process.*, pmbok_process.pmbok_group_id');
+		$this->db->from('weekly_report_process');
+		$this->db->join('pmbok_process', 'weekly_report_process.pmbok_process_id = pmbok_process.pmbok_process_id AND weekly_report_process.pmbok_id = pmbok_process.pmbok_id');
+		$this->db->where('weekly_report_process.weekly_report_id', $id);
+		$this->db->where('pmbok_process.pmbok_id', $language);
+		return $this->db->get()->result();
 	}
 
 	public function getProcessGroupsByLanguage($id) {
