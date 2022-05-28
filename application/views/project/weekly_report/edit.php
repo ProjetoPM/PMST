@@ -56,33 +56,60 @@
 										</button>
 									</div>
 									<div class="panel-body m-t-20" style="padding: 0">
-										<div id="edit_education_fields">
-											<?php foreach ($weekly_processes as $item) : ?>
-												<div id="remove-<?= $item->weekly_report_process_id ?>">
-													<div class="col-md-12">
-														<div class="process-title p-l-17 p-b-5 p-t-5">Process #<?= $item->weekly_report_process_id ?></div>
-														<div class="around col-md-12 m-b-25">
-															<div class="form-group col-md-6">
-																<label for="<?= $item->weekly_report_process_id ?>">Process Group</label>
-																<select class="form-control" id="<?= $item->weekly_report_process_id ?>">
-																	<?php foreach ($pmbok_processes as $process) : ?>
-																		<option value="<?= $process->pmbok_group_id ?>"><?= $process->group_name ?></option>
-																	<?php endforeach ?>
-																</select>
-															</div>
-															<div class="form-group col-md-6">
-																<label for="process_name_<?= $item->weekly_report_process_id ?>">Process Name</label>
-																<select name="process_name-<?= $item->weekly_report_process_id ?>" class="form-control" id="process_name_<?= $item->weekly_report_process_id ?>" value="<?= $item->weekly_report_process_id ?>">
-																	<option selected disabled>Select process group first</option>
-																</select>
-															</div>
-															<div class="form-group col-md-11"><label for="process_description">Process Description*&nbsp</label><span id="count-<?= $item->weekly_report_process_id ?>">2000/2000</span><textarea oninput="limitText(this, 2000, '<?= $item->weekly_report_process_id ?>')" class="form-control" name="description-<?= $item->weekly_report_process_id ?>" id="process_description-<?= $item->weekly_report_process_id ?>"><?= $item->description ?></textarea></div>
-															<div class="form-group col-md-1"><button onclick="remove(<?= $item->weekly_report_process_id ?>)" type="button" class="form-control btn btn-lg btn-danger m-t-23 m-l-0"><i class="fa fa-trash" style="display: flex; align-items: center; justify-content: center;" aria-hidden="true"></i></button></div>
+										<div id="edit_education_fields"><!-- Novos processos irão aparecer no topo! --></div>
+										<?php foreach ($weekly_processes as $item) : ?>
+											<div id="remove-<?= $item->weekly_report_process_id ?>">
+												<div class="col-md-12">
+													<div class="process-title p-l-17 p-b-5 p-t-5">Process #<?= $item->weekly_report_process_id ?></div>
+													<div class="around col-md-12 m-b-25">
+														<div class="form-group col-md-6">
+															<label for="<?= $item->weekly_report_process_id ?>">Process Group</label>
+															<select class="form-control" id="<?= $item->weekly_report_process_id ?>">
+																<?php
+																// Getting the actual pmbok_group_id and the 'name'
+																// of the process
+																$pmbok_group_id = $item->pmbok_group_id;
+																$name = $item->name;
+
+																$CI = &get_instance();
+																$CI->load->model('WeeklyReport_model');
+																$list_processes_name = $CI->WeeklyReport_model->getProcessesName($pmbok_group_id);
+																?>
+																<?php foreach ($pmbok_processes as $process) : ?>
+																	<?php if ($pmbok_group_id === $process->pmbok_group_id) : ?>
+																		<option selected value="<?= $process->pmbok_group_id ?>">
+																			<?= $process->group_name ?>
+																		</option>
+																	<?php else : ?>
+																		<option value="<?= $process->pmbok_group_id ?>">
+																			<?= $process->group_name ?>
+																		</option>
+																	<?php endif ?>
+																<?php endforeach ?>
+															</select>
 														</div>
+														<div class="form-group col-md-6">
+															<label for="process_name_<?= $item->weekly_report_process_id ?>">Process Name</label>
+															<select name="process_name-<?= $item->weekly_report_process_id ?>" class="form-control" id="process_name_<?= $item->weekly_report_process_id ?>" value="<?= $item->weekly_report_process_id ?>">
+																<?php foreach ($list_processes_name as $list) : ?>
+																	<?php if (strcmp($name, $list->name) === 0) : ?>
+																		<option selected value="<?= $list->pmbok_group_id ?>">
+																			<?= $list->name ?>
+																		</option>
+																	<?php else : ?>
+																		<option value="<?= $list->pmbok_group_id ?>">
+																			<?= $list->name ?>
+																		</option>
+																	<?php endif ?>
+																<?php endforeach ?>
+															</select>
+														</div>
+														<div class="form-group col-md-11"><label for="process_description">Process Description*&nbsp</label><span id="count-<?= $item->weekly_report_process_id ?>">2000/2000</span><textarea oninput="limitText(this, 2000, '<?= $item->weekly_report_process_id ?>')" class="form-control" name="description-<?= $item->weekly_report_process_id ?>" id="process_description-<?= $item->weekly_report_process_id ?>"><?= $item->description ?></textarea></div>
+														<div class="form-group col-md-1"><button onclick="remove(<?= $item->weekly_report_process_id ?>)" type="button" class="form-control btn btn-lg btn-danger m-t-23 m-l-0"><i class="fa fa-trash" style="display: flex; align-items: center; justify-content: center;" aria-hidden="true"></i></button></div>
 													</div>
 												</div>
-										</div>
-									<?php endforeach ?>
+											</div>
+										<?php endforeach ?>
 									</div>
 								</div>
 								<div class="col-lg-12">
@@ -95,13 +122,12 @@
 									</button>
 								</div>
 							</div>
+						</form>
 					</div>
-					</form>
 				</div>
 			</div>
+		</section>
 	</div>
-	</section>
-</div>
 </div>
 <script>
 	let room = 0,
@@ -118,15 +144,13 @@
 		parent.appendChild(div);
 	});
 
-	let teste;
-
 	document.addEventListener('click', e => {
-		document.elementFromPoint(e.clientX, e.clientY);
 		let element = parseInt(document.activeElement.id);
 
-		console.log(element);
-
-		if (element !== NaN) {
+		/**
+		 * Only if the active element is a number.
+		 */
+		if (!isNaN(element)) {
 			/**
 			 * Weekly Report
 			 * 
@@ -134,30 +158,24 @@
 			 * selected, using ajax calls. This will catch all
 			 * selected processes returned by database.
 			 */
-			$(document).one('change', `#${element}`, function() {
-				let result;
-				let select = $(`select#process_name_${element}`);
-				let valueProcessGroup = $(`select#${element} option:selected`).val();
+			let select = $(`select#process_name_${element}`);
+			let valueProcessGroup = $(`select#${element} option:selected`).val();
 
-				$.ajax({
-					url: "../../weekly-report/process-name-ajax",
-					type: 'GET',
-					dataType: 'html',
-					async: true,
-					success: function(data) {
-						result = JSON.parse(data);
-						$(select).empty();
+			const PATH = "../../weekly-report/process-name-ajax";
 
-						for (let i = 0; i < result.length; i++) {
-							if (valueProcessGroup === result[i].pmbok_group_id) {
-								$(select).append($('<option>', {
-									value: result[i].pmbok_process_id,
-									text: result[i].name
-								}));
-							}
-						}
+			$.get(PATH, function(data, status) {
+				$(select).empty();
+				const dataToManipulate = JSON.parse(data);
+
+				for (let i = 0; i < dataToManipulate.length; i++) {
+					if (valueProcessGroup === dataToManipulate[i].pmbok_group_id) {
+						$(select).append($('<option>', {
+							value: dataToManipulate[i].pmbok_process_id,
+							text: dataToManipulate[i].name
+						}));
 					}
-				});
+				}
+				$(select).value = 1;
 			});
 		}
 	}, {

@@ -2,14 +2,14 @@
 	<div class="wrapper">
 		<div class="content-wrapper">
 			<section class="content">
-				<?php if ($this->session->flashdata('success')): ?>
+				<?php if ($this->session->flashdata('success')) : ?>
 					<div class="alert alert-success">
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 						<strong><?php echo $this->session->flashdata('success'); ?></strong>
 					</div>
-				<?php elseif ($this->session->flashdata('error')): ?>
+				<?php elseif ($this->session->flashdata('error')) : ?>
 					<div class="alert alert-warning">
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
@@ -25,7 +25,7 @@
 							<div class="row">
 								<div class="col-lg-12">
 									<button id="btn-report" class="btn btn-success btn-lg" onclick="goTo(`<?= base_url('weekly-report/new') ?>`)">
-										<i class="fa fa-plus-circle"></i> <?= $this->lang->line('wr_new_report')?>
+										<i class="fa fa-plus-circle"></i> <?= $this->lang->line('wr_new_report') ?>
 									</button>
 								</div>
 							</div>
@@ -42,7 +42,7 @@
 											</tr>
 										</thead>
 										<tbody>
-											<?php foreach ($weekly_report as $data): ?>
+											<?php foreach ($weekly_report as $data) : ?>
 												<tr>
 													<td><?= getUserName($data->user_id) ?></td>
 													<td><?= getWeeklyEvaluationName($data->weekly_evaluation_id) ?></td>
@@ -77,16 +77,4 @@
 			</section>
 		</div>
 	</div>
-	<script>
-		$(document).ready(function () {
-			$('#table_report_list').DataTable({
-				"bInfo" : false,
-				"responsive": true,
-				"scrollY": 350,
-				"scrollCollapse": true,
-				"paging": false
-			});
-		});
-	</script>
 </body>
-

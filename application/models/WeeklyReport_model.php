@@ -73,12 +73,12 @@ class WeeklyReport_model extends CI_Model
 
 	public function getAllProcesses($id, $language)
 	{
-		$this->db->select('weekly_report_process.*, pmbok_process.pmbok_group_id');
-		$this->db->from('weekly_report_process');
-		$this->db->join('pmbok_process', 'weekly_report_process.pmbok_process_id = pmbok_process.pmbok_process_id AND weekly_report_process.pmbok_id = pmbok_process.pmbok_id');
-		$this->db->where('weekly_report_process.weekly_report_id', $id);
-		$this->db->where('pmbok_process.pmbok_id', $language);
-		return $this->db->get()->result();
+		return $this->db->select('weekly_report_process.*, pmbok_process.pmbok_group_id, pmbok_process.name')
+				->from('weekly_report_process')
+				->join('pmbok_process', 'weekly_report_process.pmbok_process_id = pmbok_process.pmbok_process_id AND weekly_report_process.pmbok_id = pmbok_process.pmbok_id')
+				->where('weekly_report_process.weekly_report_id', $id)
+				->where('pmbok_process.pmbok_id', $language)
+				->get()->result();
 	}
 
 	public function getProcessGroupsByLanguage($id) {
@@ -86,11 +86,27 @@ class WeeklyReport_model extends CI_Model
 		return $query->result();
 	}
 
-	public function getProcessNamesByGroup($group) {
+	public function getProcessNamesByGroup($language) { 
 		$query = $this->db->select('pmbok_process_id, pmbok_group_id, name')
-			->get_where('pmbok_process', array('pmbok_id' => $group));
+			->get_where('pmbok_process', array('pmbok_id' => $language));
 
 		return $query->result();
+	}
+
+	/**
+	 * Return all processes of table 'pmbok_process' with 'pmbok_group_id' 
+	 * specified, considering the language.
+	 * 
+	 * Used on edit of WeeklyReport.
+	 * 
+	 * @author Matheus Boeira Dias
+	 */
+	public function getProcessesName($group) {
+		return $this->db->select("pmbok_group_id, name")
+						->from("pmbok_process")
+						->where("pmbok_group_id", $group)
+						->where("pmbok_id", getIndexOfLanguage())
+						->get()->result();
 	}
 
 	public function getPmbokEditionByLanguage($id)

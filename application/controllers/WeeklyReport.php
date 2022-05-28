@@ -108,16 +108,12 @@ class WeeklyReport extends CI_Controller
 		if (verifyLanguage()) $dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(2);
 		else $dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
 
-		$language = strcmp($_SESSION['language'], 'US') === 0 ? 2 : 1;
-
-		echo $language;
-
 		$dado['evaluation'] = $this->WeeklyEvaluation_model->getAll();
 		$dado['weekly_report'] = $this->WeeklyReport_model->get($weekly_report_id);
-		$dado['weekly_processes'] = $this->WeeklyReport_model->getAllProcesses($weekly_report_id, $language);
+		$dado['weekly_processes'] = $this->WeeklyReport_model->getAllProcesses($weekly_report_id, getIndexOfLanguage());
+		$dado['pmbok_groups'] = $this->WeeklyReport_model->getProcessNamesByGroup(getIndexOfLanguage());
 
 		loadViews('project/weekly_report/edit', $dado);
-		print_r($dado['weekly_processes']);
 	}
 
 	public function update($weekly_report_id)

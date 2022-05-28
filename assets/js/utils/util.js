@@ -35,15 +35,27 @@ function limitText(element, limit, id) {
     }
 });
 
+/**
+ * Going to another URL.
+ */
 function goTo(uri) {
     window.location.href = `${uri}`;
 }
 
 /**
- * Enable tooltips everywhere.
- * 
- * data-toggle="tooltip" and title="Tooltip on top"
+ * This will style all tables with id "#table_report_list"
+ * on it. This will be the pattern in the next version.
  */
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-})
+$(document).ready(function() {
+    $('#table_report_list').DataTable({
+        "bInfo": true,
+        "responsive": true,
+        "paging": true,
+        "pageLength": 5,
+        "lengthMenu": [5, 10, 25, 50, 100],
+        "language": {
+            "info": "Mostrando _PAGE_ de _PAGES_ dados.",
+            "search": "Pesquise:"
+        }
+    });
+});
