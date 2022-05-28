@@ -1,4 +1,44 @@
-﻿/* Scroll bar of a textarea customized */
+﻿:root {
+    --sidebar-size: 230px;
+    --navbar-size: 50px;
+    --footer-size: 50px;
+}
+
+/* Temporary fix of grid style... */
+body {
+    display: grid;
+    grid-template-columns: val(--sidebar-size) 1fr;
+    grid-template-rows: val(--navbar-size) 1fr val(--footer-size);
+    grid-template-areas: 
+        "nav nav nav"
+        "main main main"
+        "footer footer footer";
+}
+
+aside {
+    grid-area: aside;
+    padding-top: val(--navbar-size) !important;
+    padding-bottom: 7px;
+    margin: 0 !important;
+}
+
+.wrapper {
+    grid-area: main;
+}
+
+nav {
+    grid-area: nav;
+}
+
+footer {
+    display: flex;
+    grid-area: footer;
+    align-items: center;
+    justify-content: center;
+}
+/* End temporary */
+
+/* Scroll bar of a textarea customized */
 textarea::-webkit-scrollbar {
     width: 7px !important;
     background-color: #F5F5F5 !important; 

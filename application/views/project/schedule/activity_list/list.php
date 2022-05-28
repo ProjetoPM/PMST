@@ -1,12 +1,4 @@
 <body class="hold-transition skin-gray sidebar-mini">
-	<script>
-		(function() {
-			if (Boolean(sessionStorage.getItem('sidebar-toggle-collapsed'))) {
-				var body = document.getElementsByTagName('body')[0];
-				body.className = body.className + ' sidebar-collapse';
-			}
-		})();
-	</script>
 	<div class="wrapper">
 		<div class="content-wrapper">
 			<section class="content">
@@ -36,10 +28,10 @@
 							</h1>
 							<div class="row">
 								<div class="col-lg-12">
-									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>schedule/activity-list/new/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
-									<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#milestone"><i class="fa fa-plus-circle"></i> Milestone Manager</button>
-									<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#phase"><i class="fa fa-plus-circle"></i> Project Phase Manager</button>
-									<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#upload"><i class="fa fa-plus-circle"></i> Upload</button>
+									<button class="btn btn-success btn-lg" onclick='goTo(`<?= base_url("schedule/activity-list/new/$project_id") ?>`)'><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
+									<button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#milestone"><i class="fa fa-plus-circle"></i> Milestone</button>
+									<button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#phase"><i class="fa fa-plus-circle"></i> Project Phase</button>
+									<button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#upload"><i class="fa fa-plus-circle"></i> Upload</button>
 								</div>
 							</div>
 							<br><br>
@@ -78,15 +70,15 @@
 											foreach ($activity as $a) {
 											?>
 												<tr dados='<?= json_encode($a); ?>'>
-													<td><?php echo $a->associated_id; ?></td>
-													<td><?php echo $a->project_phase; ?></td>
-													<td><?php echo $a->milestone; ?></td>
-													<td><?php echo $a->activity_name; ?></td>
+													<td><?= $a->associated_id; ?></td>
+													<td><?= $a->project_phase; ?></td>
+													<td><?= $a->milestone; ?></td>
+													<td><?= $a->activity_name; ?></td>
 
 													<td style="max-width: 10px">
 														<div class="row" style="margin: auto">
 															<div class="col-sm-3" style="padding-left: 5px">
-																<form action="<?php echo base_url() ?>schedule/activity-list/edit/<?php echo $a->id; ?>" method="post">
+																<form action="<?= base_url("schedule/activity-list/edit/$a->id") ?>" method="post">
 																	<input type="hidden" name="project_id" value="<?= $a->project_id; ?>">
 																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 																</form>
@@ -205,7 +197,7 @@
 						<form action="<?php echo base_url() ?>schedule/activity-list/milestone/insert" method="post">
 							<div>
 								<label>New Milestone</label>
-								<input name="milestone" type="text" class="form-control input-md">
+								<input name="milestone" type="text" class="form-control input-md" required>
 							</div>
 					</div>
 				</div>

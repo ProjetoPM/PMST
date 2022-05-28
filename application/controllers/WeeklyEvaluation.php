@@ -138,15 +138,11 @@ class WeeklyEvaluation extends CI_Controller
 
 	function edit_score($id)
 	{
-		if (strcmp($_SESSION['language'], "US") == 0) {
-			$this->lang->load('btn', 'english');
-		} else {
-			$this->lang->load('btn', 'portuguese-brazilian');
-		}
+		$language = strcmp($_SESSION['language'], "US") == 0 ? "english" : "portuguese-brazilian";
+		$this->lang->load('btn', $language);
 
 		$dado['weekly_report'] = $this->WeeklyReport_model->get($id);
-		$dado['weekly_processes'] = $this->WeeklyReport_model->getAllProcesses($id);
-
+		$dado['weekly_processes'] = $this->WeeklyReport_model->getAllProcesses($id, getIndexOfLanguage());
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
