@@ -7,9 +7,28 @@
  * @param {int} limit the number to limit
  * @param {string} id the id to set to get the remaining
  */
-function limitText(element, limit, id) {
+ function limitText(element, limit, id) {
     var text = $(element).val();
     var remaining = limit - text.length;
+
+    if (remaining === limit) {
+        limitStyled.style.display = "none";
+        return;
+    }
+
+    var limitStyled = stylingLimitText(id);
+    var fifty = limit * 0.5;
+    var twentyFive = limit * 0.25;
+
+    limitStyled.style.display = "inline";
+    
+    if (twentyFive >= remaining) {
+        limitStyled.style.backgroundColor = "#971414";
+        limitStyled.style.color = "white";
+    } else if (fifty >= remaining) {
+        limitStyled.style.backgroundColor = "#f0c000";
+        limitStyled.style.color = "black";
+    }
 
     if (remaining <= 0) {
         $(element).val(text.substr(0, limit));
@@ -19,12 +38,24 @@ function limitText(element, limit, id) {
     }
 }
 
+function stylingLimitText(id) {
+    var element = document.getElementById(`count-${id}`);
+
+    element.style.padding = "3px";
+    element.style.margin = "1px";
+    element.style.borderRadius = "3px";
+    element.style.backgroundColor = "#469714";
+    element.style.color = "white";
+
+    return element;
+}
+
 /**
  * Growing textarea.
  */
  $("textarea").each(function () {
     this.setAttribute("style", "height:" + (this.scrollHeight) + "px;overflow-y:hidden;");
-  }).on("change", function () {
+  }).on("input", function () {
     if (this.scrollHeight < 380) {
         this.style.height = "auto";
         this.style.height = (this.scrollHeight) + "px";
