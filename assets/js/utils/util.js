@@ -10,13 +10,13 @@
  function limitText(element, limit, id) {
     var text = $(element).val();
     var remaining = limit - text.length;
+    var limitStyled = stylingLimitText(id);
 
     if (remaining === limit) {
         limitStyled.style.display = "none";
         return;
     }
 
-    var limitStyled = stylingLimitText(id);
     var fifty = limit * 0.5;
     var twentyFive = limit * 0.25;
 
