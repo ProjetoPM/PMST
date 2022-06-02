@@ -9,7 +9,7 @@ $lang['wr_processes'] = 'Processes';
 $lang['wr_process_name'] = 'Process Name';
 $lang['wr_process_group'] = 'Process Group';
 
-$lang['wr_attach_pdf'] = 'Attach PDF';
+$lang['wr_attach_pdf'] = ' Attach PDF';
 $lang['wr_process_description'] = 'Process Description';
 $lang['wr_new_report'] = 'New Submission';
 $lang['wr_submissions'] = 'Submissions';

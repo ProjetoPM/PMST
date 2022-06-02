@@ -23,6 +23,11 @@
 						<h1 class="page-header">
 							<?= $this->lang->line('wr_title') ?>
 						</h1>
+						<div class="form-group">
+							<div class="col-md-12 m-b-20">
+									<button class="btn btn-info btn-lg" data-toggle="modal" data-target="#attach"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><?= $this->lang->line('wr_attach_pdf') ?></button>
+							</div>
+						</div>
 						<form method="POST" action="<?= base_url('weekly-report/insert/') ?>">
 							<div class="col-lg-3 form-group">
 								<label><?= $this->lang->line('we_name') ?></label>
