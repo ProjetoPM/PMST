@@ -23,10 +23,11 @@
 						<h1 class="page-header">
 							<?= $this->lang->line('wr_title') ?>
 						</h1>
-						<div class="form-group">
-							<div class="col-md-12 m-b-20">
-									<button class="btn btn-info btn-lg" data-toggle="modal" data-target="#attach"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><?= $this->lang->line('wr_attach_pdf') ?></button>
-							</div>
+						<div class="col-lg-12 form-group">
+							<a class="btn btn-info" data-toggle="modal" data-target="#attach">
+								<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+								<?= $this->lang->line('wr_attach_pdf') ?>
+							</a>
 						</div>
 						<form method="POST" action="<?= base_url('weekly-report/insert/') ?>">
 							<div class="col-lg-3 form-group">
@@ -134,6 +135,67 @@
 		</section>
 	</div>
 </div>
+<!-- Modal Attach PDF -->
+<div class="modal fade" id="attach" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h3 class="modal-title">Attachment Upload</h3>
+			</div>
+			<div class="modal-body col-lg-12">
+				<?php echo form_open_multipart('WeeklyReport/upload_image/'); ?>
+				<div class="col-md-6 form-group">
+					<label><?= $this->lang->line('wr_processes') ?></label>
+					<select id="0" name="process_id" size="1" class="form-control" tabindex="1" required>
+						<option selected disabled>Select</option>
+						<?php foreach ($pmbok_processes as $process) : ?>
+							<option value="<?= $process->pmbok_group_id ?>">
+								<?= $process->group_name ?>
+							</option>
+						<?php endforeach ?>
+					</select>
+				</div>
+				<div class="col-md-6 form-group">
+					<label><?= $this->lang->line('wr_processes') ?></label>
+					<select id="process_name_0" name="process_id" size="1" class="form-control" tabindex="1" required>
+						<option selected disabled>Select</option>
+						<?php foreach ($processes as $i) : ?>
+							<option value="4000">
+								<?= getProcessGroupName($i->pmbok_id, $i->pmbok_group_id) ?>
+							</option>
+						<?php endforeach ?>
+					</select>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="first">Name</label>
+						<input type="text" class="form-control" placeholder="" name="alt" required>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="first">Select File</label>
+						<input type="file" placeholder="" name="pic" required>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="row">
+					<div class="col-md-12">
+						<button data-submit="...Enviando" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+							<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
+						</button>
+						</form>
+						<button type="button" class="btn btn-lg btn-default pull-left" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal Attach PDF End -->
 <script>
 	let room = 0,
 		number = 0;
