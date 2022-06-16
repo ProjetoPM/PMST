@@ -82,33 +82,6 @@
 	<script>
 		var room = 0, number = 0;
 
-		/**
-		 * Testing purposes I'll be deleted after.
-		 */
-		Array.prototype.forEach.call(document.querySelectorAll('.file-upload__button'), function (button) {
-			const hiddenInput = button.parentElement.querySelector('.file-upload__input');
-			const fileUploadClass = button.parentElement;
-			const formGroupFileUploadClass = fileUploadClass.parentElement;
-			const lastElementToSwitch = formGroupFileUploadClass.parentElement;
-			const label = lastElementToSwitch.querySelector('.file-upload__label');
-			const defaultLabelText = 'No file(s) selected';
-
-			label.textContent = defaultLabelText;
-			label.title = defaultLabelText;
-
-			button.addEventListener('click', function () {
-				hiddenInput.click();
-			});
-
-			hiddenInput.addEventListener('change', function () {
-				const filenameList = Array.prototype.map.call(hiddenInput.files, function (file) {
-					return file.name;
-				});
-
-				label.textContent = filenameList.join(', ') || defaultLabelText;
-			});
-		});
-
 		$(document).on("click", "#add_process", function() {
 			room++;
 
@@ -179,6 +152,7 @@
 					});
 
 					label.textContent = filenameList.join(', ') || defaultLabelText;
+					label.title = label.textContent;
 				});
 			});
 		});
