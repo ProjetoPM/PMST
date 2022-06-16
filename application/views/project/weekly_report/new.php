@@ -65,10 +65,10 @@
 											<button id="stakeholder-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right m-t-30">
 												<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
 											</button>
-											<button onclick="goTo('<?= base_url('weekly-report/list') ?>')" class="btn btn-lg btn-info pull-left m-t-30">
+											<a onclick="goTo('<?= base_url('weekly-report/list') ?>')" class="btn btn-lg btn-info pull-left m-t-30">
 												<i class="glyphicon glyphicon-chevron-left"></i>
 												<?= $this->lang->line('btn-back') ?>
-											</button>
+											</a>
 										</div>
 									</div>
 								</div>
@@ -82,6 +82,33 @@
 	<script>
 		var room = 0, number = 0;
 
+		/**
+		 * Testing purposes I'll be deleted after.
+		 */
+		Array.prototype.forEach.call(document.querySelectorAll('.file-upload__button'), function (button) {
+			const hiddenInput = button.parentElement.querySelector('.file-upload__input');
+			const fileUploadClass = button.parentElement;
+			const formGroupFileUploadClass = fileUploadClass.parentElement;
+			const lastElementToSwitch = formGroupFileUploadClass.parentElement;
+			const label = lastElementToSwitch.querySelector('.file-upload__label');
+			const defaultLabelText = 'No file(s) selected';
+
+			label.textContent = defaultLabelText;
+			label.title = defaultLabelText;
+
+			button.addEventListener('click', function () {
+				hiddenInput.click();
+			});
+
+			hiddenInput.addEventListener('change', function () {
+				const filenameList = Array.prototype.map.call(hiddenInput.files, function (file) {
+					return file.name;
+				});
+
+				label.textContent = filenameList.join(', ') || defaultLabelText;
+			});
+		});
+
 		$(document).on("click", "#add_process", function() {
 			room++;
 
@@ -89,8 +116,10 @@
 			const div = document.createElement('div');
 			div.setAttribute('id', 'remove-' + room);
 			div.setAttribute('class', 'form-group');
-			div.innerHTML = `<div class="col-md-12"><div class="process-title p-l-17 p-b-5 p-t-5">Process #${++number}</div><div class="around col-md-12 m-b-25"><div class="form-group col-md-6"><label for="${room}">Process Group</label><select class="form-control"id="${room}"><option selected disabled>Select</option><?php foreach($pmbok_processes as $process): ?><option value="<?= $process->pmbok_group_id ?>"><?=$process->group_name?></option><?php endforeach?></select></div><div class="form-group col-md-6"><label for="process_name_${room}">Process Name</label><select name="process_name-${room}"class="form-control"id="process_name_${room}"value="${room}"><option selected disabled>Select process group first</option></select></div><div class="form-group col-md-11"><label for="process_description">Process Description*&nbsp</label><span id="count-${room}"></span><textarea oninput="limitText(this, 2000, '${room}')"class="form-control"name="description-${room}"id="process_description-${room}"></textarea></div><div class="form-group col-md-1"><span><button onclick="remove(${room})"type="button"class="form-control btn btn-lg btn-danger m-t-23 m-l-0"><i class="fa fa-trash"style="display: flex; align-items: center; justify-content: center;"aria-hidden="true"></i></button><i class="btn btn-default" style="display: flex; align-items: center; justify-content: center;"aria-hidden="true" data-toggle="modal" data-target="#upload-${room}"><i class="fa fa-upload"></i><span class="hidden-xs"></span></i></button></div></div></div></div><div class="modal fade" id="upload-${room}" role="dialog"> <div class="modal-dialog"> <div class="modal-content"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal">&times;</button> <h3 class="modal-title">Attachment Upload</h3> </div> <div class="modal-body"> <?= form_open_multipart('weekly-report/upload-image/') ?> <div class="row"> <div class="col-lg-12"> <div class="form-group"> <label for="first">Select File</label> <input type="file" class="form-control" name="image" id="file_upload" required> </div> <div class="form-group"> <label for="description">Description</label> <input type="text" class="form-control" name="description" required> </div> </div> </div> </div> <div class="modal-footer"> <div class="row"> <div class="col-lg-12"> <button data-submit="...Enviando" type="submit" value="Save" class="btn btn-lg btn-success pull-right"> <i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?> </button> </form> <button type="button" class="btn btn-lg btn-default pull-left" data-dismiss="modal">Close</button> </div> </div> </div> </div> </div> </div>`;
+			div.innerHTML = `<div class="col-md-12"><div class="process-title p-l-17 p-b-5 p-t-5">Process #${++number}</div><div class="around col-md-12 m-b-25"><div class="form-group col-md-6"><label for="${room}">Process Group</label><select class="form-control" id="${room}"><option selected disabled>Select</option> <?php foreach($pmbok_processes as $process): ?> <option value="<?= $process->pmbok_group_id ?>"> <?=$process->group_name?> </option> <?php endforeach?></select></div><div class="form-group col-md-6"><label for="process_name_${room}">Process Name</label><select name="process_name-${room}" class="form-control" id="process_name_${room}" value="${room}"><option selected disabled>Select process group first</option></select></div><div class="form-group col-md-10"><label for="process_description">Process Description*&nbsp</label><span id="count-${room}"></span><textarea oninput="limitText(this, 2000, '${room}')" class="form-control" name="description-${room}" id="process_description-${room}"></textarea></div><div class="form-group col-md-2"><label for="">Actions</label><br><button onclick="remove(${room})" type="button" class="btn btn-danger m-r-7"><i class="fa fa-trash"></i></button><span class="file-upload"><input class="file-upload__input-${room}" type="file" name="files[${room}]" id="${room}" multiple><button class="btn btn-default file-upload__button-${room}" type="button"><i class="fa fa-upload"></i></button></span></div><div class="f-u__label col-md-12 form-group"><label>Uploaded Files</label><div class="file-upload__label-${room}"> <!-- adding filenames by javascript --></div></div></div></div></div>`;
 			parent.appendChild(div);
+
+			var hiddenInputFile = $(`.file-upload__input-${room}`).hide();
 
 			/**
 			 * Weekly Report
@@ -122,6 +151,34 @@
 							}
 						}
 					}
+				});
+			});
+
+			/**
+			 * Triggering the input button.
+			 */
+			Array.prototype.forEach.call(document.querySelectorAll(`.file-upload__button-${room}`), function (button) {
+				const hiddenInput = button.parentElement.querySelector(`.file-upload__input-${room}`);
+				const fileUploadClass = button.parentElement;
+				const formGroupFileUploadClass = fileUploadClass.parentElement;
+				const lastElementToSwitch = formGroupFileUploadClass.parentElement;
+				const label = lastElementToSwitch.querySelector(`.file-upload__label-${room}`);
+				const defaultLabelText = 'No file(s) selected';
+
+				// Set default text for label
+				label.textContent = defaultLabelText;
+				label.title = defaultLabelText;
+
+				button.addEventListener('click', function () {
+					hiddenInput.click();
+				});
+
+				hiddenInput.addEventListener('change', function () {
+					const filenameList = Array.prototype.map.call(hiddenInput.files, function (file) {
+						return file.name;
+					});
+
+					label.textContent = filenameList.join(', ') || defaultLabelText;
 				});
 			});
 		});
