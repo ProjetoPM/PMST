@@ -80,16 +80,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Authentication';
 $route['authentication/register'] = 'Authentication/register';
 $route['register'] = 'Register/addUser';
-$route['projects'] = 'Project/show_projects';
-$route['new'] = 'Project/project_form';
 $route['recover_password'] = 'Admin/reset_user_password';
 $route['register/update_password'] = 'Register/savePassword';
 $route['user/list/(:num)'] = 'Register/list/$1';
 $route['change_language/(:any)'] = "Authentication/language/$1";
-$route['project/(:num)'] = 'Project/initial/$1';
-$route['edit/(:num)'] = 'Project/update/$1';
-$route['researcher/(:num)'] = 'Project/add_researcher_page/$1';
-$route['delete/(:num)'] = 'Project/delete/$1';
 
 $route['researcher/edit-researcher/(:num)'] = 'Project/edit_researcher_page/$1';
 $route['researcher/update'] = 'Project/update_researcher';
@@ -114,6 +108,20 @@ $route['translate_uri_dashes'] = FALSE;
 
 $oute['get/processes/(:num)'] = 'WeeklyReport/getProcesses/$1';
 
+// Workspace
+$route['workspace/list'] = 'Workspace/list';
+$route['workspace/members/(:num)'] = 'Workspace/members/$1';
+$route['workspace/insert'] = 'Workspace/insert';
+// End Workspace
+
+// Projects
+$route['researcher/(:num)'] = 'Project/add_researcher_page/$1';
+$route['new'] = 'Project/project_form';
+$route['projects/(:num)'] = 'Project/show_projects/$1';
+$route['edit/(:num)'] = 'Project/update/$1';
+$route['project/(:num)'] = 'Project/initial/$1';
+$route['delete/(:num)'] = 'Project/delete/$1';
+// End Projects
 
 $route['weekly-report/new'] = "WeeklyReport/new";
 $route['weekly-report/insert'] = "WeeklyReport/insert";

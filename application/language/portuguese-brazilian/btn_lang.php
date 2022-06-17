@@ -32,7 +32,7 @@ $lang['user_institution'] = 'Sua Instituição';
 $lang['member_since'] = 'Membro desde ';
 
 
-$lang['btn-create-project'] = 'Criar Novo Projeto';
+$lang['btn-create-project'] = ' Criar Novo Projeto';
 $lang['btn-add-researcher'] = 'Add Researcher';
 
 $lang['search'] = 'Pesquisar';

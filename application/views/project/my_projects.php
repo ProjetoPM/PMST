@@ -40,160 +40,93 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <!-- Inicio dos meus projetos -->
-                        <div class="panel panel-default panel-table">
-                            <div class="panel-heading">
+                        <div class="panel-body">
+                            <h1 class="page-header">
 
-                                <div class="row">
-                                    <div class="col col-xs-2">
+                                <?= $this->lang->line('projects') ?>
 
-                                        <a type="button" href="<?= base_url("new/") ?>" class="btn btn-normal btn-info btn-create"><i class="glyphicon glyphicon-plus"></i> <?= $this->lang->line('btn-create-project') ?></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-body" style="background-color: #fff">
-                                <table align="left" style="word-break: break-word;" class="table table-striped table-bordered table-list">
-                                    <thead>
-                                        <?php
-                                        //$arrayMerge = array_merge($convidado, $project);
-                                        //$arrayFinal = array_unique($project, $convidado);
-                                        //print_r($arrayMerge);
-                                        ?>
-                                        <tr>
-                                            <th><?= $this->lang->line('btn-title') ?></th>
-                                            <th><?= $this->lang->line('created_by') ?></th>
-                                            <th><em class="fa fa-cog"></em><?= $this->lang->line('actions') ?></th>
-                                            <th><?= $this->lang->line('acess_level') ?></th>
-                                        </tr>
-                                        <?php foreach ($convidado as $pro) { ?>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <?= $pro->title; ?>
-                                            </td>
-                                            <td>
-                                                <?php
-                                                $this->db->select('name');
-                                                $this->db->where('user_id', $pro->created_by);
-                                                $resultado = $this->db->get('user')->result();
+                            </h1>
 
+                            <div class="row">
+                                <div class="col-lg-12">
 
-                                                // Busca do user_id por email
-                                                $this->db->where('email', $this->session->userdata('email'));
-                                                $userdata = $this->db->get('user');
-                                                foreach ($resultado2 = $userdata->result() as $row) {
-                                                    $id = $row->user_id;
-                                                    $name = $row->name;
-                                                }
-                                                $retorna = array(
-                                                    '$user_id' => $id
-                                                );
+                                    <button class="btn btn-info btn-lg glyphicon-plus" data-toggle="modal" data-target="#newWorkspace"> <?= $this->lang->line('btn-create-project') ?></button>
 
-                                                //Busca do id_project pelo nome do projeto
-                                                $this->db->where('title', $pro->title);
-                                                $prodata = $this->db->get('project');
-                                                foreach ($resultado1 = $prodata->result() as $row) {
-                                                    $id = $row->project_id;
-                                                }
-                                                $return = array(
-                                                    'project_id' => $id
-                                                );
+                                    <table class="table table-bordered table-striped" id="tableProjects">
+                                        <thead>
+                                            <tr>
+                                                <th><?= $this->lang->line('btn-title') ?></th>
+                                                <th><?= $this->lang->line('created_by') ?></th>
+                                                <th><em class="fa fa-cog"></em><?= $this->lang->line('actions') ?></th>
+                                                <th><?= $this->lang->line('acess_level') ?></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $view = "";
+                                            $execute = "";
+                                            ?>
+                                            <?php
+                                            foreach ($projects as $project) { ?>
+                                                <tr>
+                                                    <td><?= $project->title ?></td>
+                                                    <td><?= $project->name ?></td>
+                                                    <td align="left">
+                                                        <a href="<?= base_url("project/" . $project->project_id) ?>" class="btn btn-default"><em class="fa fa-folder-open-o"></em><span class="hidden-xs"><?= $this->lang->line('btn-open') ?> </span></a>
+                                                        <a href="<?= base_url("edit/" . $project->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-pencil"></em><span class="hidden-xs"><?= $this->lang->line('btn-edit') ?></span></a>
+                                                        <a href="<?= base_url("researcher/" . $project->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-users"></em><span class="hidden-xs"><?= $this->lang->line('btn-add_member') ?></span></a>
+                                                        <a href="<?= base_url("user/list/" . $project->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><span class="hidden-xs">Members</span></a>
+                                                        <a href="<?= base_url("projecttooverleaf/exportlatex/" . $project->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-book"></em><span class="hidden-xs"><?= $this->lang->line('export_overleaf') ?></span></a>
+                                                        <a href="<?= base_url("delete/" . $project->project_id) ?>" onclick="return confirm('Are you sure you want to delete <?= $project->title; ?>?');" class="btn btn-danger <?php echo $view . $execute; ?>"><em class="fa fa-trash"></em><span class="hidden-xs"><?= $this->lang->line('btn-overleaf') ?></span></a>
+                                                    </td>
 
-                                                // Busca do access_level por project e pelo user
-                                                $this->db->where('user_id', $retorna['$user_id']);
-                                                $this->db->where('project_id', $return['project_id']);
-                                                $this->db->from('project_user');
-
-                                                $query = $this->db->get();
-                                                $res = $query->row_array();
-                                                $level = $res['access_level'];
+                                                    <td><?= getAcesslevelNameByAcessLevelId($project->access_level); ?></td>
 
 
-                                                foreach ($resultado as $key => $row) {
-                                                    echo $row->name;
-                                                }
+                                                </tr>
+                                            <?php } ?>
 
-                                                // Logica para liberar os campos
-                                                $disabled = "disabled";
-                                                $view = "";
-                                                $execute = "";
-                                                $adm = "";
-                                                if ($level == 0) {
-                                                    $view = $disabled;
-                                                    //echo $view;
-                                                } elseif ($level == 1) {
-                                                    $execute = $disabled;
-                                                } elseif ($level == 2) {
-                                                    $adm = "";
-                                                }
-                                                ?>
-                                            </td>
-                                            <td align="left">
-                                                <a href="<?= base_url("project/$pro->project_id") ?>" 
-                                                    data-toggle="tooltip" 
-                                                    title="<?= $this->lang->line('btn-open') ?>" 
-                                                    class="btn btn-default">
-                                                    <i class="fa fa-folder-open-o"></i>
-                                                    <span class="hidden-xs"></span>
-                                                </a>
 
-                                                <a href="<?= base_url("edit/$pro->project_id") ?>" 
-                                                    data-toogle="tooltip" 
-                                                    title="<?= $this->lang->line('btn-edit') ?>" 
-                                                    class="btn btn-default <?= $view . $execute; ?>">
-                                                    <i class="fa fa-pencil"></i><span class="hidden-xs"></span>
-                                                </a>
-
-                                                <a href="<?= base_url("researcher/$pro->project_id") ?>" 
-                                                    data-toogle="tooltip" 
-                                                    title="<?= $this->lang->line('btn-add_member') ?>" 
-                                                    class="btn btn-default <?= $view . $execute; ?>">
-                                                    <i class="fa-solid fa-user-plus"></i><span class="hidden-xs"></span>
-                                                </a>
-
-                                                <!-- needs a lang text here -->
-                                                <a href="<?= base_url("user/list/$pro->project_id") ?>" 
-                                                    data-toogle="tooltip" 
-                                                    title="<?= $this->lang->line('') ?>"
-                                                    class="btn btn-default <?= $view . $execute; ?>">
-                                                    <i class="fa fa-users"></i><span class="hidden-xs"></span>
-                                                </a>
-
-                                                <a href="<?= base_url("projecttooverleaf/exportlatex/$pro->project_id") ?>" data-toogle="tooltip" title="<?= $this->lang->line('export_overleaf') ?>" class="btn btn-default <?php echo $view . $execute; ?>"><i class="fa fa-book"></i><span class="hidden-xs"></span></a>
-
-                                                <a href="<?= base_url("delete/" . $pro->project_id) ?>" onclick="return confirm('Are you sure you want to delete <?= $pro->title; ?>?');" class="btn btn-danger <?php echo $view . $execute; ?>"><i class="fa fa-trash"></i><span class="hidden-xs"><?= $this->lang->line('btn-overleaf') ?></span></a>
-                                            </td>
-                                            <td>
-                                                <?php if ($level == 0) {
-                                                    echo $this->lang->line('staff');
-                                                } elseif ($level == 1) {
-                                                    echo $this->lang->line('professor');
-                                                } elseif ($level == 2) {
-                                                    echo $this->lang->line('project_manager');
-                                                } ?>
-                                            </td>
-                                        </tr>
-                                    <?php } //print_r($teste)  
-                                    ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="panel-footer">
-                                <div class="row">
-                                    <div class="col col-xs-4"><?= $this->lang->line('pages')?>
-                                    </div>
-                                    <div class="col col-xs-8">
-                                    </div>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- /.row -->
             </section>
         </div>
     </div>
 </body>
 <?php
 $this->load->view('frame/footer_view') ?>
+
+<script type="text/javascript">
+    'use strict'
+    let table;
+
+    $(document).ready(function() {
+        table = $('#tableProjects').DataTable({
+            "columns": [{
+                    "data": "#",
+                    "orderable": false
+                },
+                {
+                    "data": "title"
+                },
+                {
+                    "data": "created_by"
+                },
+                {
+                    "data": "btn-actions",
+                    "orderable": false
+                },
+                {
+                    "data": "access_level"
+                }
+            ],
+            "order": [
+                [1, 'attr']
+            ]
+        });
+    });

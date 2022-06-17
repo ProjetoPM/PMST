@@ -21,28 +21,9 @@
   <!-- Custom tab icons -->
   <link rel="shortcut icon" href="<?= base_url() ?>assets/images/silverbullet_logo.png" type="image/x-icon">
 
-  <!-- Cod Elastic TextArea -->
-  <!-- <script src="<?= base_url() ?>assets/js/elasticTextarea.js" type="text/javascript"></script> -->
+  <!-- CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Inclusão do jQuery-->
-  <!-- <script src="<?= base_url() ?>assets/js/jquery-1.11.1.js" type="text/javascript"></script> -->
-  <!-- Inclusão do Plugin jQuery Validation-->
-  <!-- <script src="<?= base_url() ?>assets/js/jquery.validate.js" type="text/javascript"></script> -->
-
-  <!-- debaixo desabilitado pq ta bugando o comunciation item/.; -->
-  <!-- <script src="<?= base_url() ?>assets/js/jquery-1.11.3.min.js" type="text/javascript"></script> -->
-  <!-- Inicio Import's para o datepicker -->
-  <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
-  <!-- <link href="<?= base_url() ?>assets/css/bootstrap-iso.css" rel="stylesheet">
-  <link href="<?= base_url() ?>assets/css/bootstrap-datepicker3.css" rel="stylesheet">
-  <script src="<?= base_url() ?>assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
-  <script src="<?= base_url() ?>assets/js/bootstrap-datepicker.pt-BR.min.js" type="text/javascript"></script> -->
-  <!-- Fim Import's para o datepicker -->
-
-  <!-- dataTable -->
-  <!-- <link rel="stylesheet" href="<?= base_url() ?>assets/css/normalize.min.css">
-  <link rel='stylesheet' href="<?= base_url() ?>assets/css/dataTables.bootstrap.css"> -->
-  <!-- <link rel='stylesheet' href="<?= base_url() ?>assets/css/dataTables.responsive.css"> -->
 
   <!-- CSS refatorados da dashboard principal -->
   <link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
@@ -58,4 +39,5 @@
   </div> -->
   <!-- <input type="hidden" id="base-url" value="<?= base_url() ?>" /> -->
 </head>
+
 <body class="hold-transition skin-gray sidebar-mini">

@@ -131,6 +131,20 @@ function getAllFieldEvaluation($project_id, $view, $item_id)
 	return $data;
 }
 
+function verifyWorkspaceAcesslevel($worspace_id, $user_id){
+	$obj = &get_instance();
+	$obj->load->model('Workspace_model');
+
+	$data = $obj->Workspace_model->getRole($worspace_id, $user_id);
+	if ($data == 2) {
+		return "Project Manager";
+	} else if ($data == 1) {
+		return "Professor";
+	} else {
+		return "Staff";
+	}
+}
+
 function getAcesslevelName($project_id, $user_id)
 {
 	$obj = &get_instance();
@@ -140,6 +154,18 @@ function getAcesslevelName($project_id, $user_id)
 	if ($data == 2) {
 		return "Project Manager";
 	} else if ($data == 1) {
+		return "Professor";
+	} else {
+		return "Staff";
+	}
+}
+
+function getAcesslevelNameByAcessLevelId($access_level)
+{
+	
+	if ($access_level == 2) {
+		return "Project Manager";
+	} else if ($access_level == 1) {
 		return "Professor";
 	} else {
 		return "Staff";
@@ -318,9 +344,6 @@ function getWeeklyEvaluationName($id)
 	$obj->load->model('WeeklyEvaluation_model');
 
 	$data = $obj->WeeklyEvaluation_model->get($id);
-
-
-
 
 	return $data[0]->name;
 }

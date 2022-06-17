@@ -32,10 +32,12 @@ class Project_model extends CI_Model
     }
 
 
+
     function insert_project($postData)
     {
 
         $data = array(
+            'workspace_id' => $postData['workspace_id'],
             'title' => $postData['title'],
             'description' => $postData['description'],
             'objectives' => $postData['objectives'],
@@ -91,10 +93,11 @@ class Project_model extends CI_Model
 
     }
 
-    
 
-    function getAll($project_id){
-        $query = $this->db->get_where('lesson_learned_register', array('lesson_learned_register.project_id'=>$project_id));
+
+    function getAll($project_id)
+    {
+        $query = $this->db->get_where('lesson_learned_register', array('lesson_learned_register.project_id' => $project_id));
         return $query->result();
     }
 
@@ -110,7 +113,8 @@ class Project_model extends CI_Model
         return $res['access_level'];
     }
 
-     function getIdUser($email){
+    function getIdUser($email)
+    {
         // {
         //     $this->db->select('user_id');
         //     $this->db->where('email', $email);
@@ -129,7 +133,7 @@ class Project_model extends CI_Model
             '$user_id' => $project_id
         );
         return $retorna['$user_id'];
-     }
+    }
 
     function getResearcher($project_id, $user_id)
     {
@@ -137,7 +141,7 @@ class Project_model extends CI_Model
         return $query->result();
     }
 
-    public function update_role($project_id,$user_id,$researcher)
+    public function update_role($project_id, $user_id, $researcher)
     {
         $this->db->where('user_id', $user_id);
         $this->db->where('project_id', $project_id);
@@ -156,9 +160,29 @@ class Project_model extends CI_Model
             //echo "Problema ao deletar projeto";
         }
     }
-    public function getAllKnowledgeArea(){
+    public function getAllKnowledgeArea()
+    {
         $data = $this->db->get('knowledge_area');
-		return $data->result();
+        return $data->result();
+    }
+
+
+
+    public function getProjectsRelatedToUser($user_id, $workspace_id)
+    {
+
+        // Um join entre project_user e project para pegar projetos em que um usuário está vinculado
+        // E a filtragem pelo workspace do projeto
+        // $query = $this->db->select('*')
+        $query = $this->db->select('user.name, project.title, project.project_id, project_user.access_level ')
+            ->from('project_user')
+            ->join('project', 'project_user.project_id = project.project_id')
+            ->join('user', 'project.created_by = user.user_id')
+            ->where('project_user.user_id', $user_id)
+            ->where('project.workspace_id', $workspace_id)
+            ->get()->result();
+
+        return $query;
     }
 }  
    

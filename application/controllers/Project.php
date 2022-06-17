@@ -25,7 +25,7 @@ class Project extends CI_Controller
 
 		$this->load->helper('url');
 		$this->load->helper('log_activity');
-		$this->load->model('project_model');
+		$this->load->model('Project_model');
 		
 		// if(strcmp($_SESSION['language'],"US") == 0){
         //     $this->lang->load('btn', 'english');
@@ -287,11 +287,14 @@ class Project extends CI_Controller
 	//busca todos projetos do usuario pelo seu id
 	//salva na variavel dataproject
 	//passa todos esses dados para a view my_projects
-	public function show_projects()
+	
+
+	public function show_projects($workspace_id = null)
 	{
 		$_SESSION['project_name'] = null;
 		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
+		$_SESSION['workspace_id'] = $workspace_id;
 
 		
 		if(strcmp($_SESSION['language'],"US") == 0){
@@ -302,39 +305,14 @@ class Project extends CI_Controller
 			$this->lang->load('project-page', 'portuguese-brazilian');
         }
 
-		$dataproject['project'] = $this->db->get_where('project', array(
-			'created_by' => $this->session->userdata('user_id')
-		))->result();
-
-		//busca projetos que foi convidado
-		$iduser = $this->session->userdata('user_id');
-		$this->db->where('user_id', $iduser);
-		$this->db->join('project', 'project_user.project_id = project.project_id');
-
-		//array CONVIDADO é um JOIN da PROJECT_USER + PROJECT
-		$dataproject['convidado'] = $this->db->get('project_user')->result();
-
-		/*
-        foreach ($dataproject['convidado'] as $key => $value) {
-        $ids = array($value); 
-        }
-        
-        $dataproject['teste'] = $ids;
-        //print_r($ids);
-        */
+		$data['projects'] = $this->Project_model->getProjectsRelatedToUser($_SESSION['user_id'], $workspace_id);
 
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->parser->parse('project/my_projects', $dataproject);
+		$this->parser->parse('project/my_projects', $data);
 
-		// if(strcmp($_SESSION['language'],"US") == 0){
-        //     $this->lang->load('btn', 'english');
-        // }else{
-        //     $this->lang->load('btn', 'portuguese-brazilian');
-        // }
-		// $this->load->view('construction_services/chat_template', $dataproject);
 
 	}
 
@@ -413,7 +391,8 @@ class Project extends CI_Controller
 	//pagina inicial do projeto
 	public function initial($project_id = null)
 	{
-		$_SESSION['access_level'] = $this->project_model->getRole($project_id,$_SESSION['user_id']);
+		
+		$_SESSION['access_level'] = $this->Project_model->getRole($project_id,$_SESSION['user_id']);
 		$_SESSION['project_id'] = $project_id;
 		if ($project_id == null) {
 			redirect(base_url());
