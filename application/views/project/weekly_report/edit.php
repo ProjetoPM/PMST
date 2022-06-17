@@ -23,6 +23,12 @@
 						<h1 class="page-header">
 							<?= $this->lang->line('wr_title') ?>
 						</h1>
+						<div class="col-lg-12 form-group">
+							<a class="btn btn-info" data-toggle="modal" data-target="#attach">
+								<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+								<?= $this->lang->line('wr_attach_pdf') ?>
+							</a>
+						</div>
 						<form method="POST" action="<?= base_url('weekly-report/insert/') ?>">
 							<div class="col-lg-3 form-group">
 								<label><?= $this->lang->line('we_name') ?></label>
@@ -37,7 +43,7 @@
 							</div>
 							<div class="col-lg-12 form-group">
 								<label for="tool_evaluation"><?= $this->lang->line('wr_tool_evaluation') ?>*</label>
-								<span id="count-a">5000/5000</span>
+								<span id="count-a"></span>
 								<span class="btn-sm btn-default" id="wr_tp_1" data-toggle="tooltip" data-placement="top" title="<?= $this->lang->line('wr_tool_evaluation_tp') ?>">
 									<i class="glyphicon glyphicon-comment"></i>
 								</span>
@@ -104,7 +110,7 @@
 																<?php endforeach ?>
 															</select>
 														</div>
-														<div class="form-group col-md-11"><label for="process_description">Process Description*&nbsp</label><span id="count-<?= $item->weekly_report_process_id ?>">2000/2000</span><textarea oninput="limitText(this, 2000, '<?= $item->weekly_report_process_id ?>')" class="form-control" name="description-<?= $item->weekly_report_process_id ?>" id="process_description-<?= $item->weekly_report_process_id ?>"><?= $item->description ?></textarea></div>
+														<div class="form-group col-md-11"><label for="process_description">Process Description*&nbsp</label><span id="count-<?= $item->weekly_report_process_id ?>"></span><textarea oninput="limitText(this, 2000, '<?= $item->weekly_report_process_id ?>')" class="form-control" name="description-<?= $item->weekly_report_process_id ?>" id="process_description-<?= $item->weekly_report_process_id ?>"><?= $item->description ?></textarea></div>
 														<div class="form-group col-md-1"><button onclick="remove(<?= $item->weekly_report_process_id ?>)" type="button" class="form-control btn btn-lg btn-danger m-t-23 m-l-0"><i class="fa fa-trash" style="display: flex; align-items: center; justify-content: center;" aria-hidden="true"></i></button></div>
 													</div>
 												</div>
@@ -129,6 +135,67 @@
 		</section>
 	</div>
 </div>
+<!-- Modal Attach PDF -->
+<div class="modal fade" id="attach" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h3 class="modal-title">Attachment Upload</h3>
+			</div>
+			<div class="modal-body col-lg-12">
+				<?php echo form_open_multipart('WeeklyReport/upload_image/'); ?>
+				<div class="col-md-6 form-group">
+					<label><?= $this->lang->line('wr_processes') ?></label>
+					<select id="0" name="process_id" size="1" class="form-control" tabindex="1" required>
+						<option selected disabled>Select</option>
+						<?php foreach ($pmbok_processes as $process) : ?>
+							<option value="<?= $process->pmbok_group_id ?>">
+								<?= $process->group_name ?>
+							</option>
+						<?php endforeach ?>
+					</select>
+				</div>
+				<div class="col-md-6 form-group">
+					<label><?= $this->lang->line('wr_processes') ?></label>
+					<select id="process_name_0" name="process_id" size="1" class="form-control" tabindex="1" required>
+						<option selected disabled>Select</option>
+						<?php foreach ($processes as $i) : ?>
+							<option value="4000">
+								<?= getProcessGroupName($i->pmbok_id, $i->pmbok_group_id) ?>
+							</option>
+						<?php endforeach ?>
+					</select>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="first">Name</label>
+						<input type="text" class="form-control" placeholder="" name="alt" required>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="first">Select File</label>
+						<input type="file" placeholder="" name="pic" required>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="row">
+					<div class="col-md-12">
+						<button data-submit="...Enviando" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+							<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
+						</button>
+						</form>
+						<button type="button" class="btn btn-lg btn-default pull-left" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal Attach PDF End -->
 <script>
 	let room = 0,
 		number = 0;
@@ -140,47 +207,83 @@
 		const div = document.createElement('div');
 		div.setAttribute('id', 'remove-' + room);
 		div.setAttribute('class', 'form-group');
-		div.innerHTML = `<div class="col-md-12"><div class="process-title p-l-17 p-b-5 p-t-5">Process #${++number}</div><div class="around col-md-12 m-b-25"><div class="form-group col-md-6"><label for="${room}">Process Group</label><select class="form-control"id="${room}"><option selected disabled>Select</option><?php foreach ($pmbok_processes as $process) : ?><option value="<?= $process->pmbok_group_id ?>"><?= $process->group_name ?></option><?php endforeach ?></select></div><div class="form-group col-md-6"><label for="process_name_${room}">Process Name</label><select name="process_name-${room}"class="form-control"id="process_name_${room}"value="-${room}"><option selected disabled>Select process group first</option></select></div><div class="form-group col-md-11"><label for="process_description">Process Description*&nbsp</label><span id="count-${room}">2000/2000</span><textarea oninput="limitText(this, 2000, '${room}')"class="form-control"name="description-${room}"id="process_description-${room}"></textarea></div><div class="form-group col-md-1"><button onclick="remove(${room})"type="button"class="form-control btn btn-lg btn-danger m-t-23 m-l-0"><i class="fa fa-trash"style="display: flex; align-items: center; justify-content: center;"aria-hidden="true"></i></div></div></div></div>`;
+		div.innerHTML = `<div class="col-md-12"><div class="process-title p-l-17 p-b-5 p-t-5">Process #${++number}</div><div class="around col-md-12 m-b-25"><div class="form-group col-md-6"><label for="${room}">Process Group</label><select class="form-control" id="${room}"><option selected="selected" disabled="disabled">Select</option> <?php foreach($pmbok_processes as $process): ?> <option value=" <?= $process->pmbok_group_id ?>"> <?=$process->group_name?> </option> <?php endforeach?> </select></div><div class="form-group col-md-6"><label for="process_name_${room}">Process Name</label><select name="process_name-${room}" class="form-control" id="process_name_${room}" value="${room}"><option selected="selected" disabled="disabled">Select process group first</option></select></div><div class="form-group col-md-10"><label for="process_description">Process Description*&nbsp;</label><span id="count-${room}"></span><textarea oninput='limitText(this,2e3,"${room}")' class="form-control" name="description-${room}" id="process_description-${room}"></textarea></div><div class="form-group col-md-2"><label for="">Actions</label><br><span class="file-upload"><input class="file-upload__input-${room}" type="file" name="files[${room}]" id="${room}" multiple="multiple"><button class="btn btn-default file-upload__button-${room} m-b-5 m-r-7" data-toggle="toggle" title="Upload files" type="button"><i class="fa fa-upload"></i></button><button onclick="remove(${room})" data-toggle="toggle" title="Upload files" type="button" class="btn btn-danger m-b-5 m-r-7"><i class="fa fa-trash"></i></button></span></div><div class="f-u__label col-md-12 form-group"><label>Uploaded Files</label><div class="file-upload__label-${room}"></div></div></div></div>`;
 		parent.appendChild(div);
-	});
 
-	document.addEventListener('click', e => {
-		let element = parseInt(document.activeElement.id);
+		var hiddenInputFile = $(`.file-upload__input-${room}`).hide();
+
+		document.addEventListener('click', e => {
+			let element = parseInt(document.activeElement.id);
+
+			/**
+			 * Only if the active element is a number.
+			 */
+			if (!isNaN(element)) {
+				/**
+				 * Weekly Report
+				 * 
+				 * Getting the process name based on process group
+				 * selected, using ajax calls. This will catch all
+				 * selected processes returned by database.
+				 */
+				let select = $(`select#process_name_${element}`);
+				let valueProcessGroup = $(`select#${element} option:selected`).val();
+
+				const PATH = "../../weekly-report/process-name-ajax";
+
+				/**
+				 * Only 'triggers' if the process group has been selected.
+				 */
+				if (valueProcessGroup !== 'Select') {
+					$.get(PATH, function(data, status) {
+						$(select).empty();
+						const dataToManipulate = JSON.parse(data);
+
+						for (let i = 0; i < dataToManipulate.length; i++) {
+							if (valueProcessGroup === dataToManipulate[i].pmbok_group_id) {
+								$(select).append($('<option>', {
+									value: dataToManipulate[i].pmbok_process_id,
+									text: dataToManipulate[i].name
+								}));
+							}
+						}
+						$(select).value = 1;
+					});
+				}
+			}
+		}, {
+			passive: true
+		})
 
 		/**
-		 * Only if the active element is a number.
+		 * Triggering the input button.
 		 */
-		if (!isNaN(element)) {
-			/**
-			 * Weekly Report
-			 * 
-			 * Getting the process name based on process group
-			 * selected, using ajax calls. This will catch all
-			 * selected processes returned by database.
-			 */
-			let select = $(`select#process_name_${element}`);
-			let valueProcessGroup = $(`select#${element} option:selected`).val();
+		Array.prototype.forEach.call(document.querySelectorAll(`.file-upload__button-${room}`), function (button) {
+			const hiddenInput = button.parentElement.querySelector(`.file-upload__input-${room}`);
+			const fileUploadClass = button.parentElement;
+			const formGroupFileUploadClass = fileUploadClass.parentElement;
+			const lastElementToSwitch = formGroupFileUploadClass.parentElement;
+			const label = lastElementToSwitch.querySelector(`.file-upload__label-${room}`);
+			const defaultLabelText = 'No file(s) selected';
 
-			const PATH = "../../weekly-report/process-name-ajax";
+			// Set default text for label
+			label.textContent = defaultLabelText;
+			label.title = defaultLabelText;
 
-			$.get(PATH, function(data, status) {
-				$(select).empty();
-				const dataToManipulate = JSON.parse(data);
-
-				for (let i = 0; i < dataToManipulate.length; i++) {
-					if (valueProcessGroup === dataToManipulate[i].pmbok_group_id) {
-						$(select).append($('<option>', {
-							value: dataToManipulate[i].pmbok_process_id,
-							text: dataToManipulate[i].name
-						}));
-					}
-				}
-				$(select).value = 1;
+			button.addEventListener('click', function () {
+				hiddenInput.click();
 			});
-		}
-	}, {
-		passive: true
-	})
+
+			hiddenInput.addEventListener('change', function () {
+				const filenameList = Array.prototype.map.call(hiddenInput.files, function (file) {
+					return file.name;
+				});
+
+				label.textContent = filenameList.join(', ') || defaultLabelText;
+				label.title = label.textContent;
+			});
+		});
+	});
 
 	function remove(id) {
 		alertify.set('notifier', 'delay', 1.5);

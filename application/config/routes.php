@@ -133,7 +133,7 @@ $route['weekly-report/upload'] = "WeeklyReport/upload_img";
 $route['weekly-report/upload-image'] = "WeeklyReport/upload_image/";
 $route['weekly-report/images/(:num)'] = "WeeklyReport/images/$1";
 $route['weekly-report/form'] = "WeeklyReport/extending_form/";
-$route['weekly-report/process-name-ajax'] = "WeeklyReport/getProcessNameViaAjax/"; // ROUTE HAS BEEN MADE!!!!!!!!!!!!!!!!!!!!
+$route['weekly-report/process-name-ajax'] = "WeeklyReport/getProcessNameViaAjax/"; 
 
 $route['weekly-evaluation/edit-score/(:num)'] = "WeeklyEvaluation/edit_score/$1";
 $route['weekly-evaluation/update-score/(:num)'] = "WeeklyEvaluation/update_score/$1";
