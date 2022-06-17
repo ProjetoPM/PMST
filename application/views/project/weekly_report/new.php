@@ -89,43 +89,55 @@
 			const div = document.createElement('div');
 			div.setAttribute('id', 'remove-' + room);
 			div.setAttribute('class', 'form-group');
-			div.innerHTML = `<div class="col-md-12"><div class="process-title p-l-17 p-b-5 p-t-5">Process #${++number}</div><div class="around col-md-12 m-b-25"><div class="form-group col-md-6"><label for="${room}">Process Group</label><select class="form-control" id="${room}"><option selected disabled>Select</option> <?php foreach($pmbok_processes as $process): ?> <option value="<?= $process->pmbok_group_id ?>"> <?=$process->group_name?> </option> <?php endforeach?></select></div><div class="form-group col-md-6"><label for="process_name_${room}">Process Name</label><select name="process_name-${room}" class="form-control" id="process_name_${room}" value="${room}"><option selected disabled>Select process group first</option></select></div><div class="form-group col-md-10"><label for="process_description">Process Description*&nbsp</label><span id="count-${room}"></span><textarea oninput="limitText(this, 2000, '${room}')" class="form-control" name="description-${room}" id="process_description-${room}"></textarea></div><div class="form-group col-md-2"><label for="">Actions</label><br><button onclick="remove(${room})" type="button" class="btn btn-danger m-r-7"><i class="fa fa-trash"></i></button><span class="file-upload"><input class="file-upload__input-${room}" type="file" name="files[${room}]" id="${room}" multiple><button class="btn btn-default file-upload__button-${room}" type="button"><i class="fa fa-upload"></i></button></span></div><div class="f-u__label col-md-12 form-group"><label>Uploaded Files</label><div class="file-upload__label-${room}"> <!-- adding filenames by javascript --></div></div></div></div></div>`;
+			div.innerHTML = `<div class="col-md-12"><div class="process-title p-l-17 p-b-5 p-t-5">Process #${++number}</div><div class="around col-md-12 m-b-25"><div class="form-group col-md-6"><label for="${room}">Process Group</label><select class="form-control" id="${room}"><option selected="selected" disabled="disabled">Select</option> <?php foreach($pmbok_processes as $process): ?> <option value=" <?= $process->pmbok_group_id ?>"> <?=$process->group_name?> </option> <?php endforeach?> </select></div><div class="form-group col-md-6"><label for="process_name_${room}">Process Name</label><select name="process_name-${room}" class="form-control" id="process_name_${room}" value="${room}"><option selected="selected" disabled="disabled">Select process group first</option></select></div><div class="form-group col-md-10"><label for="process_description">Process Description*&nbsp;</label><span id="count-${room}"></span><textarea oninput='limitText(this,2e3,"${room}")' class="form-control" name="description-${room}" id="process_description-${room}"></textarea></div><div class="form-group col-md-2"><label for="">Actions</label><br><span class="file-upload"><input class="file-upload__input-${room}" type="file" name="files[${room}]" id="${room}" multiple="multiple"><button class="btn btn-default file-upload__button-${room} m-b-5 m-r-7" data-toggle="toggle" title="Upload files" type="button"><i class="fa fa-upload"></i></button><button onclick="remove(${room})" data-toggle="toggle" title="Upload files" type="button" class="btn btn-danger m-b-5 m-r-7"><i class="fa fa-trash"></i></button></span></div><div class="f-u__label col-md-12 form-group"><label>Uploaded Files</label><div class="file-upload__label-${room}"></div></div></div></div>`;
 			parent.appendChild(div);
 
 			var hiddenInputFile = $(`.file-upload__input-${room}`).hide();
 
-			/**
-			 * Weekly Report
-			 * 
-			 * Getting the process name based on process group
-			 * selected, using ajax calls.
-			 */
-			$(document).on('change', `#${room}`, function() {
-				const element = document.activeElement.id;
-				var select = $(`select#process_name_${element}`);
-				var valueProcessGroup = $(`select#${element} option:selected`).val();
+			document.addEventListener('click', e => {
+				let element = parseInt(document.activeElement.id);
 
-				$(select).empty().append($(`#process_name_${element}`));
-					
-				$.ajax({
-					url: "../weekly-report/process-name-ajax",
-					type: 'GET',
-					dataType: 'html',
-					async: true,
-					success: function(data) { 
-						var result = JSON.parse(data); 
-						
-						for (var i = 0; i < result.length; i++) {
-							if (valueProcessGroup === result[i].pmbok_group_id) {
-								$(select).append($('<option>', {
-									value: result[i].pmbok_process_id,
-									text: result[i].name
-								}));
+				/**
+				 * Only if the active element is a number.
+				 */
+				if (!isNaN(element)) {
+					/**
+					 * Weekly Report
+					 * 
+			 * 
+					 * 
+					 * Getting the process name based on process group
+					 * selected, using ajax calls. This will catch all
+					 * selected processes returned by database.
+					 */
+					let select = $(`select#process_name_${element}`);
+					let valueProcessGroup = $(`select#${element} option:selected`).val();
+
+					const PATH = "../weekly-report/process-name-ajax";
+
+					/**
+					 * Only 'triggers' if the process group has been selected.
+					 */
+					if (valueProcessGroup !== 'Select') {
+						$.get(PATH, function(data, status) {
+							$(select).empty();
+							const dataToManipulate = JSON.parse(data);
+
+							for (let i = 0; i < dataToManipulate.length; i++) {
+								if (valueProcessGroup === dataToManipulate[i].pmbok_group_id) {
+									$(select).append($('<option>', {
+										value: dataToManipulate[i].pmbok_process_id,
+										text: dataToManipulate[i].name
+									}));
+								}
 							}
-						}
+							$(select).value = 1;
+						});
 					}
-				});
-			});
+				}
+			}, {
+				passive: true
+			})
 
 			/**
 			 * Triggering the input button.
@@ -165,7 +177,7 @@
 					$(`#remove-${id}`).remove(); 
 					alertify.success('<?= $this->lang->line('wr_alert_confirm_ok') ?>') 
 				}, function() { 
-					alertify.error('<?= $this->lang->line('wr_alert_confirm_cancel') ?>')
+					alertify.warning('<?= $this->lang->line('wr_alert_confirm_cancel') ?>')
 				}
 			);
 		}
