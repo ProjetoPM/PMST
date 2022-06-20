@@ -27,6 +27,7 @@ class WeeklyReport extends CI_Controller
 		$this->load->model('Report_upload_model');
 		$this->load->model('Pmbok_process_model');
 		$this->load->model('WeeklyEvaluation_model');
+		$this->load->model('Workspace_model');
 		// $this->load->CI_Controller('LanguageSwitcher_controller');
 		$this->load->helper('url');
 		$this->load->helper('log_activity');
@@ -46,14 +47,19 @@ class WeeklyReport extends CI_Controller
 
 	public function new()
 	{
-		if (verifyLanguage()) {
-			$dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(2);
-		} else {
-			$dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
+		if($this->Workspace_model->getRole($_SESSION['workspace_id'], $_SESSION['user_id']) == 2){
+			if (verifyLanguage()) {
+				$dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(2);
+			} else {
+				$dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
+			}
+			
+			$dado['evaluation'] = $this->WeeklyEvaluation_model->getAll();
+			loadViews('project/weekly_report/new', $dado);
+		}else{
+			$this->session->set_flashdata('error', 'You are not allowed to access this page');
+			redirect('workspace/list');
 		}
-
-		$dado['evaluation'] = $this->WeeklyEvaluation_model->getAll();
-		loadViews('project/weekly_report/new', $dado);
 	}
 
 	public function insert()

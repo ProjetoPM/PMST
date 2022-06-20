@@ -52,17 +52,18 @@ class WeeklyEvaluation extends CI_Controller
 	
 	public function new()
 	{
-		
-		if (strcmp($_SESSION['language'], "US") == 0) {
-			$this->lang->load('btn', 'english');
-		} else {
-			$this->lang->load('btn', 'portuguese-brazilian');
+		if($this->Workspace_model->getRole($_SESSION['workspace_id'], $_SESSION['user_id']) == 2){
+			if (strcmp($_SESSION['language'], "US") == 0) {
+				$this->lang->load('btn', 'english');
+			} else {
+				$this->lang->load('btn', 'portuguese-brazilian');
+			}
+			
+			$this->load->view('frame/header_view');
+			$this->load->view('frame/topbar');
+			$this->load->view('frame/sidebar_nav_view');
+			$this->load->view('project/weekly_evaluation/new');
 		}
-		
-		$this->load->view('frame/header_view');
-		$this->load->view('frame/topbar');
-		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/weekly_evaluation/new');
 	}
 	
 	function insert()

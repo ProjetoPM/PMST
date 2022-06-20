@@ -11,44 +11,36 @@
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <strong><?php echo $this->session->flashdata('success'); ?></strong>
+                        <?php echo $this->session->flashdata('success'); ?>
                     </div>
-                <?php elseif ($this->session->flashdata('faildeleteproject')) : ?>
+                <?php elseif ($this->session->flashdata('warning')) : ?>
                     <div class="alert alert-warning">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <strong><?php echo $this->session->flashdata('faildeleteproject'); ?></strong>
+                        <?php echo $this->session->flashdata('warning'); ?>
                     </div>
-                <?php elseif ($this->session->flashdata('error2')) : ?>
-                    <div class="alert alert-success">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <strong><?php echo $this->session->flashdata('error2'); ?></strong>
-                    </div>
-                <?php elseif ($this->session->flashdata('error3')) : ?>
+                <?php elseif ($this->session->flashdata('error')) : ?>
                     <div class="alert alert-danger">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <strong><?php echo $this->session->flashdata('error3'); ?></strong>
+                        <?php echo $this->session->flashdata('error'); ?>
                     </div>
                 <?php endif; ?>
 
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel-body">
-                            <h1 class="page-header">
-
-                                <?= $this->lang->line('ws_title') ?>
-
-                            </h1>
-
+                            <h1 class="page-header"><?= $this->lang->line('ws_title') ?></h1>
                             <div class="row">
                                 <div class="col-lg-12">
 
-                                <button class="btn btn-info btn-lg glyphicon-plus" data-toggle="modal" data-target="#newWorkspace"> <?= $this->lang->line('ws_new_workspace') ?></button>
+                                <div class="form-group">
+                                    <button class="btn btn-info btn-lg glyphicon-plus" data-toggle="modal" data-target="#newWorkspace">
+                                        <?= $this->lang->line('ws_new_workspace') ?>
+                                    </button>
+                                </div>
 
                                     <table class="table table-bordered table-striped" id="tableProjects">
                                         <thead>
@@ -59,17 +51,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            
                                             <?php foreach ($workspace as $item) : ?>
-                                                <td><?= $item->name ?></td>
-                                                <td>
-                                                    <a href="<?= base_url("projects/" . $item->workspace_id) ?>" class="btn btn-default"><em class="fa fa-folder-open-o"></em><span class="hidden-xs"><?= $this->lang->line('btn-open') ?> </span></a>
-                                                    <a href="<?= base_url("workspace/members/$item->workspace_id" ) ?>" class="btn btn-default"><i class="fa fa-users"></i></a>
-                                                </td>
-                                                <td><?= verifyWorkspaceAcesslevel($item->workspace_id, $item->user_id);  ?></td>
-                                            <?php endforeach ?>
-
-
+                                            <tr>
+                                                    <td><?= $item->name ?></td>
+                                                    <td>
+                                                        <a href="<?= base_url("projects/" . $item->workspace_id) ?>" class="btn btn-default"><em class="fa fa-folder-open-o"></em><span class="hidden-xs"><?= $this->lang->line('btn-open') ?> </span></a>
+                                                        <a href="<?= base_url("workspace/members/$item->workspace_id" ) ?>" class="btn btn-default"><i class="fa fa-users"></i></a>
+                                                    </td>
+                                                    <td><?= verifyWorkspaceAcesslevel($item->workspace_id, $item->user_id);  ?></td>
+                                                    <?php endforeach ?>
+                                                </tr>
                                         </tbody>
                                     </table>
                                 </div>

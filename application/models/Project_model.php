@@ -13,7 +13,6 @@ class Project_model extends CI_Model
 
 
     public function getProjectName($project_id)
-
     {
 
         $this->db->select('*');
@@ -33,34 +32,18 @@ class Project_model extends CI_Model
 
 
 
-    function insert_project($postData)
+    function insert_project($project)
     {
 
-        $data = array(
-            'workspace_id' => $postData['workspace_id'],
-            'title' => $postData['title'],
-            'description' => $postData['description'],
-            'objectives' => $postData['objectives'],
-            'created_by' => $this->session->userdata('user_id')
-        );
+        $this->db->insert('project', $project);        
+        $project_id = $this->db->insert_id();
 
-        $this->db->insert('project', $data);
-        $this->db->select_max('project_id');
-        $result = $this->db->get('project')->row_array();
-        $project_id = $result['project_id'];
+        $project_user['project_id'] = $project_id;
+        $project_user['user_id'] = $project['created_by'];
+        $project_user['access_level'] = 2;
 
-        $projectUser = array(
-            'project_id' => $project_id,
-            'user_id' => $this->session->userdata('user_id'),
-            'access_level' => 2
-        );
-        $_SESSION['project_id'] = $project_id;
-
-        $status = $this->db->insert('project_user', $projectUser);
-        if ($status == 1)
-            return true;
-        else
-            return false;
+        return $this->db->insert('project_user', $project_user);
+        ;
     }
 
     function insert_log($activity, $module)
@@ -80,16 +63,16 @@ class Project_model extends CI_Model
     {
         return $this->db->insert('project_user', $data);
 
-        // if ($this->db->insert('project_user', $data)) {
-        //     $this->session->set_flashdata('error2', 'User added.');
-        //     redirect('projects/');
-        // }
+    // if ($this->db->insert('project_user', $data)) {
+    //     $this->session->set_flashdata('error2', 'User added.');
+    //     redirect('projects/');
+    // }
 
-        // $error = $this->db->error();
-        // if ($error['code'] == 1062) {
-        //     $this->session->set_flashdata('error3', 'User already a member.');
-        //     redirect('projects/');
-        // }
+    // $error = $this->db->error();
+    // if ($error['code'] == 1062) {
+    //     $this->session->set_flashdata('error3', 'User already a member.');
+    //     redirect('projects/');
+    // }
 
     }
 
@@ -126,7 +109,7 @@ class Project_model extends CI_Model
         $this->db->where('email', $email);
         $userdata = $this->db->get('user');
         foreach ($resultado = $userdata->result() as $row) {
-            $project_id   = $row->user_id;
+            $project_id = $row->user_id;
             $name = $row->name;
         }
         $retorna = array(
@@ -155,9 +138,10 @@ class Project_model extends CI_Model
         if ($this->db->delete('project')) {
             $this->session->set_flashdata('error3', 'Project Deleted!');
             redirect('project/show_projects');
-        } else {
+        }
+        else {
             $this->session->set_flashdata('faildeleteproject', 'Problem to delete project!');
-            //echo "Problema ao deletar projeto";
+        //echo "Problema ao deletar projeto";
         }
     }
     public function getAllKnowledgeArea()
@@ -184,7 +168,7 @@ class Project_model extends CI_Model
 
         return $query;
     }
-}  
-   
-   
-   /* End of file */
+}
+
+
+/* End of file */

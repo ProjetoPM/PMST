@@ -116,7 +116,7 @@ $route['workspace/insert'] = 'Workspace/insert';
 
 // Projects
 $route['researcher/(:num)'] = 'Project/add_researcher_page/$1';
-$route['new'] = 'Project/project_form';
+$route['new/(:num)'] = 'Project/project_form/$1';
 $route['projects/(:num)'] = 'Project/show_projects/$1';
 $route['edit/(:num)'] = 'Project/update/$1';
 $route['project/(:num)'] = 'Project/initial/$1';

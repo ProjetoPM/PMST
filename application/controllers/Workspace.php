@@ -11,9 +11,6 @@ class Workspace extends CI_Controller
 			redirect(base_url());
 		}
 
-		// $this->load->helper('url', 'english');
-
-
 		if (strcmp($_SESSION['language'], "US") == 0) {
 			$this->lang->load('btn', 'english');
 			$this->lang->load('user', 'english');
@@ -38,15 +35,10 @@ class Workspace extends CI_Controller
 	{
 		$data['workspace'] = $this->Workspace_model->getUserWorkSpaces($_SESSION['user_id']);
 
-		if (count($data['workspace']) > 0) {
-
-			$this->load->view('frame/header_view');
-			$this->load->view('frame/topbar');
-			$this->load->view('frame/sidebar_nav_view');
-			$this->load->view('workspace/workspace', $data);
-		} else {
-			redirect(base_url());
-		}
+		$this->load->view('frame/header_view');
+		$this->load->view('frame/topbar');
+		$this->load->view('frame/sidebar_nav_view');
+		$this->load->view('workspace/list', $data);
 	}
 
 	public function members($workspace_id)

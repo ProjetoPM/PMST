@@ -67,31 +67,27 @@ class Project extends CI_Controller
 			$this->lang->load('new-project','portuguese-brazilian');
         }
 
-
-		// $this->load->helper('url');
-		// $this->load->view('frame/header_view');
-		// $this->load->view('frame/topbar');
-		// $this->load->view('frame/topbar');
-		// $this->load->view('frame/sidebar_nav_view');
-		// $this->load->view('project/new_project', $data);
 		loadViews('project/new_project', $data);
 	}
 
 
-	function add_project()
+	function add_project($workspace_id)
 	{
-
 		//$this->ajax_checking();
 		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
-		$postData = $this->input->post();
-		$status = $this->project_model->insert_project($postData);
-		if ($status == 1) {
-			$this->session->set_flashdata('success', 'Project ' . $postData['title'] . ' has been successfully created!');
 
+		$project['title'] = $this->input->post('title');
+		$project['description'] = $this->input->post('description');
+		$project['objectives'] = $this->input->post('objectives');
+		$project['created_by'] = $this->session->userdata('user_id');
+		$project['workspace_id'] = $workspace_id;
+
+		$insert = $this->Project_model->insert_project($project);
+		if ($insert) {
+			$this->session->set_flashdata('success', 'Project ' . $project['title'] . ' has been successfully created!');
 			insertLogActivity('insert', 'project');
-
-			redirect('project/show_projects');
+			redirect("projects/{$project['workspace_id']}");
 		} else {
 			$this->session->set_flashdata('failinsertproject', 'Problem to insert project!');
 			//echo "Problema ao deletar projeto";
@@ -289,7 +285,7 @@ class Project extends CI_Controller
 	//passa todos esses dados para a view my_projects
 	
 
-	public function show_projects($workspace_id = null)
+	public function show_projects($workspace_id)
 	{
 		$_SESSION['project_name'] = null;
 		$_SESSION['access_level'] = null;

@@ -74,7 +74,7 @@ position:-webkit-sticky
             </li>
 
             <!-- INÍCIO WEEKLY REPORT -->
-            <?php if (strcmp(verifyWorkspaceAcesslevel($_SESSION['workspace_id'], $_SESSION['user_id']), "Student") == 0) { ?>
+            <?php if (strcmp(verifyWorkspaceAcesslevel($_SESSION['workspace_id'], $_SESSION['user_id']), "Project Manager") == 0) { ?>
 
                <li class="<?php if ($uri1 == 'weekly-report') {
                               echo 'active';

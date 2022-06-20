@@ -46,7 +46,7 @@
 
                </h1>
 
-               <form action="<?= base_url() ?>project/add_project/" method="post">
+               <form action="<?= base_url("project/add_project/{$_SESSION['workspace_id']}") ?>" method="post">
 
 
                  <!-- Text input-->

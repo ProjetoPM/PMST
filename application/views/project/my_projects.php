@@ -50,7 +50,9 @@
                             <div class="row">
                                 <div class="col-lg-12">
 
-                                    <button class="btn btn-info btn-lg glyphicon-plus" data-toggle="modal" data-target="#newWorkspace"> <?= $this->lang->line('btn-create-project') ?></button>
+                                    
+                                    
+                                    <button onClick=goTo(`<?= base_url("new/{$_SESSION['workspace_id']}") ?>`) class="btn btn-info btn-lg glyphicon-plus" ><?= $this->lang->line('btn-create-project') ?></a></button>
 
                                     <table class="table table-bordered table-striped" id="tableProjects">
                                         <thead>
