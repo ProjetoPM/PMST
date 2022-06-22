@@ -12,4 +12,6 @@ $lang['ws_status'] = 'Status';
 
 $lang['ws_invite'] = 'Invite Users';
 
+$lang['ws_add_new_user'] = 'Add New User';
+
 ?>

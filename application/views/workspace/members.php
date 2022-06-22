@@ -1,12 +1,4 @@
 <body class="hold-transition skin-gray sidebar-mini">
-    <script>
-        (function() {
-            if (Boolean(sessionStorage.getItem('sidebar-toggle-collapsed'))) {
-                var body = document.getElementsByTagName('body')[0];
-                body.className = body.className + ' sidebar-collapse';
-            }
-        })();
-    </script>
     <div class="wrapper">
         <div class="content-wrapper">
             <section class="content">
@@ -111,33 +103,30 @@
                 </style>
                 <div class="row">
                     <div class="col-lg-12">
-
                         <div class="panel-body">
                             <h1 class="page-header">
                                 User List
                             </h1>
-
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#inviteUsers">
-                                        <i class="fa fa-plus-square m-r-5"></i>
-                                        <?= $this->lang->line('btn-new') ?>
-                                    </button>
+                                    <div class="form-group">
+                                        <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#inviteUsers">
+                                            <i class="fa fa-plus-square m-r-5"></i>
+                                            <?= $this->lang->line('ws_add_new_user') ?>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-
-                            <br><br>
                             <div class="row">
                                 <div class="col-lg-12">
 
                                     <table class="table table-bordered table-striped" id="table_stake">
                                         <thead>
                                             <tr>
-
                                                 <th><?= $this->lang->line('user_name') ?></th>
+                                                <th><?= $this->lang->line('user_email') ?></th>
                                                 <th><?= $this->lang->line('user_institution') ?></th>
                                                 <th><?= $this->lang->line('user_access_level') ?></th>
-                                                <th><?= $this->lang->line('user_email') ?></th>
                                                 <th><?= $this->lang->line('btn-actions') ?></th>
                                             </tr>
                                         </thead>
@@ -145,15 +134,14 @@
                                             <?php foreach ($users as $item): ?>
                                                 <tr>
                                                     <td><span class="texttd"><?= $item->name ?></span></td>
+                                                    <td><span class="texttd"><?= $item->email ?></span></td>
                                                     <td><span class="texttd"><?= $item->institution ?></span></td>
                                                     <td><span class="texttd"><?= getAcesslevelNameByAcessLevelId($item->access_level) ?></span></td>
-                                                    <td><span class="texttd"><?= $item->email ?></span></td>
                                                     <td style="display: fixed;min-width: 100px;">
 
                                                     </td>
                                                     </tr>
                                                 <?php endforeach ?>
-
                                         </tbody>
                                     </table>
 

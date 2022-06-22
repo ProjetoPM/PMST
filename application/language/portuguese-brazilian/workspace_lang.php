@@ -13,7 +13,7 @@ $lang['ws_status'] = 'Situação';
 
 $lang['ws_invite'] = 'Convidar Usuários';
 
-
+$lang['ws_add_new_user'] = 'Adicionar Novo Usuário';
 
 
 
