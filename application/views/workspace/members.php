@@ -114,15 +114,15 @@
 
                         <div class="panel-body">
                             <h1 class="page-header">
-
                                 User List
-
                             </h1>
 
                             <div class="row">
                                 <div class="col-lg-12">
-
-                                    <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#inviteUsers"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
+                                    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#inviteUsers">
+                                        <i class="fa fa-plus-square m-r-5"></i>
+                                        <?= $this->lang->line('btn-new') ?>
+                                    </button>
                                 </div>
                             </div>
 
