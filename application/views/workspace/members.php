@@ -169,7 +169,7 @@
         </div>
     </div>
 </body>
-<?php $this->load->view('workspace/modal_invite_user'); ?>
+<?php $this->load->view('workspace/modal/invite_user'); ?>
 
 <script src="<?= base_url() ?>assets/js/jquery-2.1.3.min.js"></script>
 <script src="<?= base_url() ?>assets/js/jquery.dataTables.min.js"></script>

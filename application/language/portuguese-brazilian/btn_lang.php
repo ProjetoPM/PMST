@@ -12,6 +12,7 @@ $lang['btn-back'] = 'Voltar';
 $lang['btn-close'] = 'Fechar';
 $lang['btn-edit'] = 'Editar';
 $lang['btn-open'] = 'Abrir';
+$lang['btn-list-members'] = 'Listar Membros';
 $lang['btn-delete'] = 'Deletar';
 $lang['btn-add_member'] = 'Adicionar Membro';
 $lang['project_title'] = 'Título do Projeto: ';

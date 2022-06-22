@@ -11,6 +11,7 @@ $lang['btn-back'] = 'Back';
 $lang['btn-close'] = 'Close';
 $lang['btn-edit'] = 'Edit';
 $lang['btn-open'] = 'Open';
+$lang['btn-list-members'] = 'List Members';
 $lang['btn-delete'] = 'Delete';
 $lang['btn-new'] = 'New';
 $lang['btn-new2'] = 'New';

@@ -1,6 +1,3 @@
-<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
-<link rel="stylesheet" href="<?= base_url() ?>assets/css/workspace.css">
-
 <body class="hold-transition skin-gray sidebar-mini">
     <script src="<?= base_url() ?>assets/js/sidebar-menu.js" type="text/javascript"></script>
     <div class="wrapper">
@@ -35,19 +32,18 @@
                             <h1 class="page-header"><?= $this->lang->line('ws_title') ?></h1>
                             <div class="row">
                                 <div class="col-lg-12">
-
-                                <div class="form-group">
-                                    <button class="btn btn-info btn-lg glyphicon-plus" data-toggle="modal" data-target="#newWorkspace">
-                                        <?= $this->lang->line('ws_new_workspace') ?>
-                                    </button>
-                                </div>
-
+                                    <div class="form-group">
+                                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#newWorkspace">
+                                            <i class="fa fa-plus-square m-r-5" aria-hidden="true"></i>
+                                            <?= $this->lang->line('ws_new_workspace') ?>
+                                        </button>
+                                    </div>
                                     <table class="table table-bordered table-striped" id="tableProjects">
                                         <thead>
                                             <tr>
-                                                <th><?= $this->lang->line('ws_name') ?></th>
-                                                <th><em class="fa fa-cog"></em><?= $this->lang->line('actions') ?></th>
-                                                <th><?= $this->lang->line('ws_access_level') ?></th>
+                                                <th class="col-lg-3"><?= $this->lang->line('ws_name') ?></th>
+                                                <th class="col-lg-7"><em class="fa fa-cog"></em><?= $this->lang->line('actions') ?></th>
+                                                <th class="col-lg-2"><?= $this->lang->line('ws_access_level') ?></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -71,8 +67,7 @@
             </section>
         </div>
     </div>
-    
 </body>
 
-<?php $this->load->view('workspace/modal_new') ?>
+<?php $this->load->view('workspace/modal/new') ?>
 <?php $this->load->view('frame/footer_view') ?>

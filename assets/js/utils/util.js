@@ -41,8 +41,9 @@
 function stylingLimitText(id) {
     var element = document.getElementById(`count-${id}`);
 
+    element.style.fontSize = "12px";
     element.style.padding = "3px";
-    element.style.margin = "1px";
+    element.style.margin = "3px 0";
     element.style.borderRadius = "3px";
     element.style.backgroundColor = "#469714";
     element.style.color = "white";
@@ -54,7 +55,7 @@ function stylingLimitText(id) {
  * Growing textarea.
  */
  $("textarea").each(function () {
-    this.setAttribute("style", "height:" + (this.scrollHeight) + "px;overflow-y:hidden;");
+    this.setAttribute("style", "overflow-y:hidden;");
   }).on("input", function () {
     if (this.scrollHeight < 380) {
         this.style.height = "auto";

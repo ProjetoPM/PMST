@@ -58,18 +58,14 @@ position:-webkit-sticky
 
          <?php if ($_SESSION['workspace_id'] != null) { ?>
 
-
-
-
             <li class="<?= ($uri1 == 'worskpace') ? 'active' : 'not-active' ?>">
                <a href="<?= base_url('workspace/list'); ?>">
                   <i class="fa fa-thin fa-folder"></i> <span>Workspaces</span>
                </a>
             </li>
-
             <li class="<?php if ($uri1 == 'projects') {
                            echo 'active';
-                        } ?>"> <a href="<?= base_url('projects/' . $_SESSION['workspace_id']); ?>"><i class="fa-regular fa-file-lines"></i> <span><?= $this->lang->line('projects'); ?></span>
+                        } ?>"> <a href="<?= base_url('projects/' . $_SESSION['workspace_id']); ?>"><i class="fa fa-folder-open" aria-hidden="true"></i><span><?= $this->lang->line('projects'); ?></span>
                </a>
             </li>
 

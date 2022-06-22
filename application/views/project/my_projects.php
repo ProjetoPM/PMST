@@ -42,18 +42,16 @@
                     <div class="col-lg-12">
                         <div class="panel-body">
                             <h1 class="page-header">
-
                                 <?= $this->lang->line('projects') ?>
-
                             </h1>
-
                             <div class="row">
                                 <div class="col-lg-12">
-
-                                    
-                                    
-                                    <button onClick=goTo(`<?= base_url("new/{$_SESSION['workspace_id']}") ?>`) class="btn btn-info btn-lg glyphicon-plus" ><?= $this->lang->line('btn-create-project') ?></a></button>
-
+                                    <div class="form-group">
+                                        <button class="btn btn-success btn-lg" onClick=goTo(`<?= base_url("new/{$_SESSION['workspace_id']}") ?>`)>
+                                        <i class="fa fa-plus-circle m-r-5" aria-hidden="true"></i>
+                                        <?= $this->lang->line('btn-create-project') ?>
+                                        </button>
+                                    </div>
                                     <table class="table table-bordered table-striped" id="tableProjects">
                                         <thead>
                                             <tr>
@@ -74,21 +72,37 @@
                                                     <td><?= $project->title ?></td>
                                                     <td><?= $project->name ?></td>
                                                     <td align="left">
-                                                        <a href="<?= base_url("project/" . $project->project_id) ?>" class="btn btn-default"><em class="fa fa-folder-open-o"></em><span class="hidden-xs"><?= $this->lang->line('btn-open') ?> </span></a>
-                                                        <a href="<?= base_url("edit/" . $project->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-pencil"></em><span class="hidden-xs"><?= $this->lang->line('btn-edit') ?></span></a>
-                                                        <a href="<?= base_url("researcher/" . $project->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-users"></em><span class="hidden-xs"><?= $this->lang->line('btn-add_member') ?></span></a>
-                                                        <a href="<?= base_url("user/list/" . $project->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><span class="hidden-xs">Members</span></a>
-                                                        <a href="<?= base_url("projecttooverleaf/exportlatex/" . $project->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-book"></em><span class="hidden-xs"><?= $this->lang->line('export_overleaf') ?></span></a>
+                                                        <!-- open -->
+                                                        <a href="<?= base_url("project/" . $project->project_id) ?>"        class="btn btn-default" data-toggle="tooltip" title="<?= $this->lang->line('btn-open') ?>">
+                                                            <i class="fa fa-folder-open-o"></i>
+                                                        </a>
+
+                                                        <!-- edit -->
+                                                        <a href="<?= base_url("edit/" . $project->project_id) ?>" class="btn btn-default <?= $view . $execute; ?>" data-toggle="tooltip" title="<?= $this->lang->line('btn-edit') ?>">
+                                                            <i class="fa fa-pencil"></i>
+                                                        </a>
+
+                                                        <!-- add member -->
+                                                        <a href="<?= base_url("researcher/" . $project->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>" data-toggle="tooltip" title="<?= $this->lang->line('btn-add_member') ?>">
+                                                            <i class="fa fa-user-plus"></i>
+                                                        </a>
+
+                                                        <!-- list members -->
+                                                        <a href="<?= base_url("user/list/" . $project->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>" data-toggle="tooltip" title="<?= $this->lang->line('btn-list-members') ?>">
+                                                            <i class="fa fa-users"></i>
+                                                        </a>
+
+                                                        <!-- export overleaf -->
+                                                        <a href="<?= base_url("projecttooverleaf/exportlatex/" . $project->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>" data-toggle="tooltip" title="<?= $this->lang->line('export_overleaf') ?>">
+                                                            <i class="fa fa-book"></i>
+                                                        </a>
+
+                                                        <!-- delete -->
                                                         <a href="<?= base_url("delete/" . $project->project_id) ?>" onclick="return confirm('Are you sure you want to delete <?= $project->title; ?>?');" class="btn btn-danger <?php echo $view . $execute; ?>"><em class="fa fa-trash"></em><span class="hidden-xs"><?= $this->lang->line('btn-overleaf') ?></span></a>
                                                     </td>
-
                                                     <td><?= getAcesslevelNameByAcessLevelId($project->access_level); ?></td>
-
-
                                                 </tr>
                                             <?php } ?>
-
-
                                         </tbody>
                                     </table>
                                 </div>
