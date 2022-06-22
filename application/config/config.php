@@ -485,9 +485,10 @@ $config['compress_output'] = FALSE;
 | the system whether to use your server's local time as the master 'now'
 | reference, or convert it to the configured one timezone. See the 'date
 | helper' page of the user guide for information regarding date handling.
-|
+|   
+| $config['time_reference'] = 'local';
 */
-$config['time_reference'] = 'local';
+date_default_timezone_set('america/sao_paulo');
 
 /*
 |--------------------------------------------------------------------------
@@ -502,6 +503,9 @@ $config['time_reference'] = 'local';
 |
 */
 $config['rewrite_short_tags'] = FALSE;
+$config['email_address'] = 'rp1.time6@gmail.com';
+$config['email_password'] = '84956251asd';
+
 
 /*
 |--------------------------------------------------------------------------

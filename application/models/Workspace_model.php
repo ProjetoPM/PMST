@@ -42,6 +42,16 @@ class Workspace_model extends CI_Model
 		return $query;
 	}
 
+	public function getWorkspaceName($workspace_id)
+	{
+		$query = $this->db->select('name')
+			->from('workspace')
+			->where('workspace_id', $workspace_id)
+			->get()
+			->result();
+		return $query[0]->name;
+	}
+
 	public function getRole($workspace_id, $user_id)
 	{
 		$this->db->select('access_level')

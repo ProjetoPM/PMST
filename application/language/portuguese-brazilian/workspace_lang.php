@@ -11,6 +11,9 @@ $lang['ws_active_status'] = 'Ativo';
 $lang['ws_inactive_status'] = 'Inativo';
 $lang['ws_status'] = 'Situação';
 
+$lang['ws_invite'] = 'Convidar Usuários';
+
+
 
 
 

@@ -111,6 +111,7 @@ class Authentication extends CI_Controller {
 
             );
             $this->session->set_userdata($newdata);
+            date_default_timezone_set('america/sao_paulo');
             redirect(base_url("workspace/list"));
         } else {
             $data = array('alert' => true);

@@ -384,7 +384,7 @@ function loadViews($view, $data = '')
 	$object->load->view("frame/footer_view");
 }
 
-function loadLangs($views)
+function loadLangs($views = array())
 {
 	$object = &get_instance();
 
@@ -394,7 +394,7 @@ function loadLangs($views)
 		foreach ($views as $view) {
 			$object->lang->load($view, 'english');
 		}
-	}else{
+	} else{
 		$object->lang->load('project-page', 'portuguese-brazilian');
 		$object->lang->load('btn', 'portuguese-brazilian');
 		foreach ($views as $view) {

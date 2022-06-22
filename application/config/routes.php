@@ -112,6 +112,7 @@ $oute['get/processes/(:num)'] = 'WeeklyReport/getProcesses/$1';
 $route['workspace/list'] = 'Workspace/list';
 $route['workspace/members/(:num)'] = 'Workspace/members/$1';
 $route['workspace/insert'] = 'Workspace/insert';
+$route['workspace/invite'] = 'Workspace/sendInvite';
 // End Workspace
 
 // Projects

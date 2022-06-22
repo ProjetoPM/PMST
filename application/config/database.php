@@ -75,11 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	//'database' => 'lesse',
-	'database' => 'dbpmst',
+	'hostname' => 'sql130.main-hosting.eu',
+	'username' => 'u648750589_developer',
+	'password' => 'sb_Unip4mp@',
+	'database' => 'u648750589_pmst_developer',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

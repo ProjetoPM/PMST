@@ -57,6 +57,26 @@ class User_Model extends CI_Model
 		}
 	}
 
+	public function getUserEmail($user_id)
+	{
+		$query = $this->db->select('email')
+			->from($this->User)
+			->where('user_id', $user_id)
+			->get()
+			->result();
+		return $query[0]->email;
+	}
+
+	public function getUserIdByEmail($email)
+	{
+		$query = $this->db->select('user_id')
+			->from($this->User)
+			->where('email', $email)
+			->get()
+			->result();
+	
+		return !empty($query) ? intval($query[0]->user_id) : -1;
+	}
 
 
 
@@ -81,7 +101,7 @@ class User_Model extends CI_Model
 
 	public function GetUsersByProject($project_id)
 	{
-		$query = $this->db->get_where('project_user', array('project_user.project_id'=>$project_id));
+		$query = $this->db->get_where('project_user', array('project_user.project_id' => $project_id));
 		return $query->result();
 	}
 

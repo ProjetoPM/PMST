@@ -122,7 +122,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
 
-                                    <button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
+                                    <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#inviteUsers"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
                                 </div>
                             </div>
 
@@ -157,7 +157,7 @@
                                         </tbody>
                                     </table>
 
-                                    <form action="<?php echo base_url('projects/'); ?>">
+                                    <form action="<?= base_url("projects/{$_SESSION['user_id']}"); ?>">
                                         <button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
                                     </form>
                                 </div>
@@ -169,6 +169,7 @@
         </div>
     </div>
 </body>
+<?php $this->load->view('workspace/modal_invite_user'); ?>
 
 <script src="<?= base_url() ?>assets/js/jquery-2.1.3.min.js"></script>
 <script src="<?= base_url() ?>assets/js/jquery.dataTables.min.js"></script>

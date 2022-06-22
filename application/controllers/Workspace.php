@@ -3,32 +3,24 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Workspace extends CI_Controller
 {
-
 	function __construct()
 	{
 		parent::__construct();
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
+		$views = ['user', 'workspace'];
+		loadLangs($views);
 
-		if (strcmp($_SESSION['language'], "US") == 0) {
-			$this->lang->load('btn', 'english');
-			$this->lang->load('user', 'english');
-			$this->lang->load('workspace', 'english');
-			$this->lang->load('project-page', 'english');
-		} else {
-			$this->lang->load('btn', 'portuguese-brazilian');
-			$this->lang->load('user', 'portuguese-brazilian');
-			$this->lang->load('workspace', 'portuguese-brazilian');
-			$this->lang->load('project-page', 'portuguese-brazilian');
-		}
+		$this->load->helper('url');
+		$this->load->helper('log_activity');
 
+		$this->load->model('log_model');
+		$this->load->model('User_Model');
 		$this->load->model('view_model');
 		$this->load->model('Project_model');
-		$this->load->model('log_model');
-		$this->load->helper('url');
 		$this->load->model('Workspace_model');
-		$this->load->helper('log_activity');
+		$this->load->model('Workspace_invite_model');
 	}
 
 	public function list()
@@ -43,23 +35,22 @@ class Workspace extends CI_Controller
 
 	public function members($workspace_id)
 	{
+		$_SESSION['workspace_id'] = $workspace_id;
 		$data['users'] = $this->Workspace_model->getWorkSpaceUsers($workspace_id);
+		$data['workspace_id'] = $this->uri->segment(3);
 
-		if (count($data['users']) > 0) {
-
-			$this->load->view('frame/header_view');
-			$this->load->view('frame/topbar');
-			$this->load->view('frame/sidebar_nav_view');
-			$this->load->view('frame/footer_view');
-			$this->load->view('workspace/members', $data);
-		} else {
+		if (count($data['users']) <= 0) 
 			redirect(base_url());
-		}
+
+		$this->load->view('frame/header_view');
+		$this->load->view('frame/topbar');
+		$this->load->view('frame/sidebar_nav_view');
+		$this->load->view('frame/footer_view');
+		$this->load->view('workspace/members', $data);
 	}
 
 	public function new()
 	{
-
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
@@ -69,25 +60,6 @@ class Workspace extends CI_Controller
 
 	public function edit($project_id)
 	{
-
-		$this->db->where('user_id',  $_SESSION['user_id']);
-		$this->db->where('project_id',  $_SESSION['project_id']);
-		$project['dados'] = $this->db->get('project_user')->result();
-
-		if (count($project['dados']) > 0) {
-			$dado['business_case'] = $this->Business_case_model->get($_SESSION['project_id']);
-			if ($dado['business_case'] == null) {
-				redirect(base_url("integration/business-case/new/" . $_SESSION['project_id']));
-			}
-			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "business case", $dado['business_case'][0]->business_case_id);
-
-			$this->load->view('frame/header_view');
-			$this->load->view('frame/topbar');
-			$this->load->view('frame/sidebar_nav_view');
-			$this->load->view('project/integration/business_case/edit', $dado);
-		} else {
-			redirect(base_url());
-		}
 	}
 
 
@@ -100,7 +72,7 @@ class Workspace extends CI_Controller
 		}
 		$workspace['name'] = $this->input->post('workspace');
 		$workspace['status'] = $this->input->post('status');
-		
+
 		$workspace_user['user_id'] = $_SESSION['user_id'];
 		$workspace_user['access_level'] = 1;
 
@@ -119,27 +91,75 @@ class Workspace extends CI_Controller
 
 	public function update()
 	{
-		if (strcmp($_SESSION['language'], "US") == 0) {
-			$feedback_success = 'Item Updated';
+	}
+
+	public function sendInvite()
+	{
+		$date = date('Y-m-d H:i:s', time());
+		$receiver = $this->input->post('sendTo');
+		$sender = $this->User_Model->getUserEmail($_SESSION['user_id']);
+
+		$workspace_name = $this->Workspace_model->getWorkspaceName($_SESSION['workspace_id']);
+
+		if ($user_id = $this->User_Model->getUserIdByEmail($receiver) > 0) {
+			$workspace['user_id'] = $user_id;
 		} else {
-			$feedback_success = 'Item Atualizado ';
+			$subject = "Convite para se juntar a uma área de trabalho";
+			$message = "O usuário $sender te convidou para se juntar ao workspace $workspace_name";
+			$this->send_email_invite($sender, $message, $subject, $receiver);
 		}
 
-		$business_case['business_deals'] = $this->input->post('business_deals');
-		$business_case['situation_analysis'] = $this->input->post('situation_analysis');
-		$business_case['recommendation'] = $this->input->post('recommendation');
-		$business_case['evaluation'] = $this->input->post('evaluation');
+		$workspace['workspace_id'] = $_SESSION['workspace_id'];
+		$workspace['invited_at'] = $date;
+		
+		$workspace['access_level'] = $this->input->post('access_level');
+		$workspace['email'] = $receiver;
 
-		//$insert = $this->project_model->insert_project_pgq($quality_mp);
-		$query = $this->Business_case_model->update($business_case, $_SESSION['project_id']);
-		if ($query) {
-			$this->session->set_flashdata('success', $feedback_success);
-			insertLogActivity('update', 'business case');
+		$insertStatus = $this->Workspace_invite_model->insert($workspace);
+
+		if ($insertStatus) {
+			redirect("workspace/members/{$_SESSION['user_id']}");
 		}
+	}
 
-		$this->load->view('frame/header_view');
-		$this->load->view('frame/topbar');
-		$this->load->view('frame/sidebar_nav_view');
-		redirect("integration/business-case/edit/" . $_SESSION['project_id']);
+	function send_email_invite($message, $subject, $sendTo)
+	{
+		require_once APPPATH . 'libraries/mailer/class.phpmailer.php';
+		require_once APPPATH . 'libraries/mailer/class.smtp.php';
+		// require_once APPPATH.'libraries/mailer/mailer_config.php';
+		include APPPATH . 'libraries/mailer/template/template.php';
+
+		$mail = new PHPMailer;
+		$mail->IsSMTP();
+		$mail->SMTPDebug = 0;
+		$mail->SMTPAuth = true;
+		$mail->SMTPSecure = 'tls';
+		$mail->Host = "smtp.gmail.com";
+		$mail->Port = 587;
+		$mail->Username =  "rp1.time6@gmail.com";
+		$mail->Password = "84956251asd";
+		$mail->SetFrom("rp1.time6@gmail.com", "Admin SilverBullet");
+		$mail->AddReplyTo('no-reply@email.com.br');
+		$mail->Subject = $subject;
+		$mail->MsgHTML($message);
+		$mail->AddAddress($sendTo);
+		$mail->CharSet = "UTF-8";
+		$mail->WordWrap = 0;
+
+		$hello = '<h1 style="color:#333;font-family:Helvetica,Arial,sans-serif;font-weight:300;padding:0;margin:10px 0 25px;text-align:center;line-height:1;word-break:normal;font-size:38px;letter-spacing:-1px">Olá, &#9786;</h1>';
+		$thanks = "<br><br><i>This is autogenerated email please do not reply.</i><br/><br/>Thanks,<br/>Admin<br/><br/>";
+
+		$body = $hello . $message . $thanks;
+		$mail->Body = $header . $body . $footer;
+		$mail->AddAddress($sendTo);
+		// $mail->SMTPSecure = 'tls';
+		if (!$mail->Send()) {
+			$error = 'Mail error: ' . $mail->ErrorInfo;
+			return array('status' => false, 'message' => $error);
+			// return false;
+		} else {
+			return array('status' => true, 'message' => '');
+			// return true;
+		}
 	}
 }
