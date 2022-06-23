@@ -56,7 +56,7 @@ position:-webkit-sticky
          <!-- fim do main panel -->
 
 
-         <?php if ($_SESSION['workspace_id'] != null) { ?>
+         <?php if ($_SESSION['workspace_id'] != null): ?>
 
             <li class="<?= ($uri1 == 'worskpace') ? 'active' : 'not-active' ?>">
                <a href="<?= base_url('workspace/list'); ?>">
@@ -70,15 +70,15 @@ position:-webkit-sticky
             </li>
 
             <!-- INÍCIO WEEKLY REPORT -->
-            <?php if (strcmp(verifyWorkspaceAcesslevel($_SESSION['workspace_id'], $_SESSION['user_id']), "Project Manager") == 0) { ?>
-
-               <li class="<?php if ($uri1 == 'weekly-report') {
-                              echo 'active';
-                           } ?>"><a href="<?= base_url("weekly-report/list") ?>"><i class="glyphicon glyphicon-blackboard"></i> <span><?= $this->lang->line('wr_title'); ?></span>
+            <?php if (strcmp(verifyWorkspaceAcesslevel($_SESSION['workspace_id'], $_SESSION['user_id']), "Project Manager") == 0): ?>
+               <li class="<?= ($uri1 == 'weekly-report') ? 'active' : '' ?>">
+                     <a href="<?= base_url("weekly-report/list") ?>">
+                     <i class="glyphicon glyphicon-blackboard"></i>
+                     <span><?= $this->lang->line('wr_title'); ?></span>
                   </a>
                </li>
                <!-- FIM WEEKLY REPORT -->
-            <?php } else { ?>
+            <?php else: ?>
 
                <!-- INÍCIO WEEKLY EVALUATION -->
 
@@ -88,14 +88,10 @@ position:-webkit-sticky
                   </a>
                </li>
                <!-- FIM WEEKLY EVALUATION -->
-            <?php } ?>
-
-
-         <?php } ?>
+            <?php endif ?>
+         <?php endif ?>
 
          <?php if ($_SESSION['project_id'] != null) { ?>
-
-
             <li class="<?php if ($uri1 == 'chat') {
                            echo 'active';
                         } ?>">

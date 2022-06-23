@@ -61,7 +61,7 @@ class Workspace_model extends CI_Model
 			->limit(1);
 		$query = $this->db->get();
 		$res = $query->row_array();
-		return $res['access_level'];
+		return $res['access_level'] ?? "-1";
 	}
 
 	public function getWorkSpaceUsers($workspace_id){

@@ -112,9 +112,8 @@ function getRole($id)
 	$obj->load->model('User_Model');
 
 	$data1 = $obj->User_Model->GetUserById($id);
-	return $data1["role"];
+	return $data1['role'];
 }
-
 
 function getAllFieldEvaluation($project_id, $view, $item_id)
 {
@@ -131,11 +130,12 @@ function getAllFieldEvaluation($project_id, $view, $item_id)
 	return $data;
 }
 
-function verifyWorkspaceAcesslevel($worspace_id, $user_id){
+function verifyWorkspaceAcesslevel($workspace_id, $user_id){
 	$obj = &get_instance();
 	$obj->load->model('Workspace_model');
 
-	$data = $obj->Workspace_model->getRole($worspace_id, $user_id);
+	$data = $obj->Workspace_model->getRole($workspace_id, $user_id) ?? 1;
+
 	if ($data == 2) {
 		return "Project Manager";
 	} else if ($data == 1) {
