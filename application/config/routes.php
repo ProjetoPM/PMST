@@ -118,7 +118,7 @@ $route['workspace/invite'] = 'Workspace/sendInvite';
 // Projects
 $route['researcher/(:num)'] = 'Project/add_researcher_page/$1';
 $route['new/(:num)'] = 'Project/project_form/$1';
-$route['projects/(:num)'] = 'Project/show_projects/$1';
+$route['projects/(:num)'] = 'Project/listProjects/$1';
 $route['edit/(:num)'] = 'Project/update/$1';
 $route['project/(:num)'] = 'Project/initial/$1';
 $route['delete/(:num)'] = 'Project/delete/$1';
