@@ -80,14 +80,10 @@ function goTo(uri) {
  */
 $(document).ready(function() {
     $('#table_report_list').DataTable({
-        "bInfo": true,
+        "bInfo": false,
         "responsive": true,
         "paging": true,
         "pageLength": 5,
         "lengthMenu": [5, 10, 25, 50, 100],
-        "language": {
-            "infoEmpty": "No entries to show",
-            "emptyTable": "Nothing here"
-        }
     });
 });
