@@ -81,7 +81,7 @@ class Project extends CI_Controller
 			insertLogActivity('insert', 'project');
 			redirect("projects/{$project['workspace_id']}");
 		} else {
-			$this->session->set_flashdata('failinsertproject', 'Problem to insert project!');
+			$this->session->set_flashdata('fail', 'Problem to insert project!');
 			//echo "Problema ao deletar projeto";
 		}
 	}
@@ -89,7 +89,7 @@ class Project extends CI_Controller
 	//<!-- Metodo deletar projeto, passa id projeto pra model --> 
 	public function delete($project_id)
 	{
-		$this->project_model->deleteProjectModel($project_id);
+		$this->Project_model->deleteProjectModel($project_id);
 	}
 	//<!-- Fim do metodo deletar --> 
 
@@ -128,8 +128,8 @@ class Project extends CI_Controller
 		 */
 		foreach ($postData as $key => $value) {
 			if (empty($value)) {
-				$this->session->set_flashdata('error', 'An error has occurred while updating.');
-				redirect(base_url("edit/{$postData['project_id']}"));
+				$this->session->set_flashdata('fail', 'An error has occurred while updating.');
+				redirect("projects/{$_SESSION['workspace_id']}");
 			}
 		}
 		$this->db->where('project_id', $postData['project_id']);
@@ -193,7 +193,7 @@ class Project extends CI_Controller
 		);
 
 		if ($this->project_model->getResearcher($project_id, $user_id)) {
-			$this->session->set_flashdata('error2', 'User update!');
+			$this->session->set_flashdata('error', 'User update!');
 			$this->project_model->updateResearcher($project_id, $user_id, $data);
 			redirect('projects/');
 		}
@@ -202,24 +202,17 @@ class Project extends CI_Controller
 		$query= $this->project_model->insertResearcher($data);
 		 if($query){
 			insertLogActivity('insert', 'project members');
-			$this->session->set_flashdata('error2', 'User added.');
-        // $error = $this->db->error();
-        // if ($error['code'] == 1062) {
-        //     $this->session->set_flashdata('error3', 'User already a member.');
-        //     redirect('projects/');
+			$this->session->set_flashdata('error', 'User added.');
 		}else{
-			$this->session->set_flashdata('error3', 'User already a member.');
+			$this->session->set_flashdata('error', 'User already a member.');
 		}
-
 		redirect('projects/');
 	}
 
 	public function edit_researcher_page()
 	{
-		
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$dataproject['project'] = $this->db->get('project')->result();
-		
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
@@ -228,13 +221,7 @@ class Project extends CI_Controller
 	
 	//metodo para adicionar pesquisador a pesquisa
 	public function update_researcher()
-	{
-		// if ($_SESSION['acess_level'] != 3) {
-		// 	$this->session->set_flashdata('error', 'You are not allowed to update user role');
-		// 	redirect("user/list/" . $_SESSION['project_id']);
-		// 	redirect("integration/project-charter/edit/" . $_SESSION['project_id']);
-		// }
-		
+	{	
 		$researcher['role'] = $this->input->post('role');
 		
 		$data = $this->input->post();

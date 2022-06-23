@@ -135,13 +135,13 @@ class Project_model extends CI_Model
     function deleteProjectModel($id)
     {
         $this->db->where('project_id', $id);
+
         if ($this->db->delete('project')) {
-            $this->session->set_flashdata('error3', 'Project Deleted!');
-            redirect('project/show_projects');
+            $this->session->set_flashdata('success', 'Project Deleted!');
+            redirect("projects/{$_SESSION['workspace_id']}");
         }
         else {
-            $this->session->set_flashdata('faildeleteproject', 'Problem to delete project!');
-        //echo "Problema ao deletar projeto";
+            $this->session->set_flashdata('fail', 'Problem to delete project!');
         }
     }
     public function getAllKnowledgeArea()

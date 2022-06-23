@@ -51,7 +51,7 @@
                    <span id="count-a"></span>
                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('project-title-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-                    <textarea oninput="limitText(this, 255, 'a')" id="title" name="title" type="text" class="form-control input-md" rows="1" required></textarea>
+                    <textarea oninput="limitText(this, 35, 'a')" id="title" name="title" type="text" class="form-control input-md" rows="1" required></textarea>
                  </div>
 
                  <!-- Textarea -->

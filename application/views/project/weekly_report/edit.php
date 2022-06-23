@@ -1,22 +1,7 @@
 <div class="wrapper">
 	<div class="content-wrapper">
 		<section class="content">
-			<?php if ($this->session->flashdata('success')) : ?>
-				<div class="alert alert-success">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<strong><?= $this->session->flashdata('success') ?></strong>
-				</div>
-			<?php elseif ($this->session->flashdata('error')) : ?>
-				<div class="alert alert-warning">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<strong><?php echo $this->session->flashdata('error'); ?></strong>
-				</div>
-			<?php endif ?>
-
+			<?php $this->load->view('errors/exceptions') ?>
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel-body">

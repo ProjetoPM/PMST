@@ -8,36 +8,7 @@
     <div class="wrapper">
         <div class="content-wrapper" style="padding-top: 50px;">
             <section class="content">
-                <?php if ($this->session->flashdata('success')) : ?>
-                    <div class="alert alert-success">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <strong><?php echo $this->session->flashdata('success'); ?></strong>
-                    </div>
-                <?php elseif ($this->session->flashdata('faildeleteproject')) : ?>
-                    <div class="alert alert-warning">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <strong><?php echo $this->session->flashdata('faildeleteproject'); ?></strong>
-                    </div>
-                <?php elseif ($this->session->flashdata('error2')) : ?>
-                    <div class="alert alert-success">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <strong><?php echo $this->session->flashdata('error2'); ?></strong>
-                    </div>
-                <?php elseif ($this->session->flashdata('error3')) : ?>
-                    <div class="alert alert-danger">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <strong><?php echo $this->session->flashdata('error3'); ?></strong>
-                    </div>
-                <?php endif; ?>
-
+                <?php $this->load->view('errors/exceptions') ?>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel-body">
@@ -59,10 +30,10 @@
                                     <table class="table table-bordered table-striped" id="tableProjects">
                                         <thead>
                                             <tr>
-                                                <th><?= $this->lang->line('btn-title') ?></th>
-                                                <th><?= $this->lang->line('created_by') ?></th>
-                                                <th><em class="fa fa-cog"></em><?= $this->lang->line('actions') ?></th>
-                                                <th><?= $this->lang->line('acess_level') ?></th>
+                                                <th class="col-md-3"><?= $this->lang->line('btn-title') ?></th>
+                                                <th class="col-md-5"><em class="fa fa-cog"></em><?= $this->lang->line('actions') ?></th>
+                                                <th class="col-md-2"><?= $this->lang->line('created_by') ?></th>
+                                                <th class="col-md-2"><?= $this->lang->line('acess_level') ?></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -73,8 +44,7 @@
                                             <?php
                                             foreach ($projects as $project) { ?>
                                                 <tr>
-                                                    <td><?= $project->title ?></td>
-                                                    <td><?= $project->name ?></td>
+                                                    <td class="reticence"><?= $project->title ?></td>
                                                     <td align="left">
                                                         <!-- open -->
                                                         <a href="<?= base_url("project/" . $project->project_id) ?>"        class="btn btn-default" data-toggle="tooltip" title="<?= $this->lang->line('btn-open') ?>">
@@ -102,10 +72,11 @@
                                                         </a>
 
                                                         <!-- delete -->
-                                                        <a href="<?= base_url("delete/" . $project->project_id) ?>" onclick="return confirm('Are you sure you want to delete <?= $project->title; ?>?');" class="btn btn-danger <?php echo $view . $execute; ?>" data-toggle="tooltip" title="<?= $this->lang->line('btn-delete') ?>">
+                                                        <a href="<?= base_url("delete/$project->project_id") ?>" onclick="return confirm('Are you sure you want to delete <?= $project->title; ?>?');" class="btn btn-danger <?php echo $view . $execute; ?>" data-toggle="tooltip" title="<?= $this->lang->line('btn-delete') ?>">
                                                             <i class="fa fa-trash"></i>
                                                         </a>
                                                     </td>
+                                                    <td><?= $project->name ?></td>
                                                     <td><?= getAcesslevelNameByAcessLevelId($project->access_level); ?></td>
                                                 </tr>
                                             <?php } ?>
@@ -122,6 +93,22 @@
 </body>
 <?php
 $this->load->view('frame/footer_view') ?>
+
+<script>
+    function remove(id) {
+		alertify.set('notifier', 'delay', 1.5);
+		alertify.confirm('Are you sure you want to delete <?= $project->title ?>?',
+			'<?= $this->lang->line('wr_alert_confirm_text') ?>',
+			function() {
+				$(`#remove-${id}`).remove();
+				alertify.success('<?= $this->lang->line('wr_alert_confirm_ok') ?>')
+			},
+			function() {
+				alertify.error('<?= $this->lang->line('wr_alert_confirm_cancel') ?>')
+			}
+		);
+	}
+</script>
 
 <script type="text/javascript">
     'use strict'

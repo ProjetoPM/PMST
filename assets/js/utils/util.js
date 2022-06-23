@@ -86,8 +86,8 @@ $(document).ready(function() {
         "pageLength": 5,
         "lengthMenu": [5, 10, 25, 50, 100],
         "language": {
-            "info": "Mostrando _PAGE_ de _PAGES_ dados.",
-            "search": "Pesquise:"
+            "infoEmpty": "No entries to show",
+            "emptyTable": "Nothing here"
         }
     });
 });
