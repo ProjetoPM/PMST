@@ -4,6 +4,20 @@
     --footer-size: 50px;
 }
 
+/* Workspace title in 'list of projects'. */
+.workspace-title {
+    position: absolute;
+    background-color: rgb(255, 233, 105);
+    margin: 6.5px 0 0 5px;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 13px;
+}
+
+.workspace-title:hover::before {
+    content: "Workspace: ";
+}
+
 /* Temporary fix of grid style... */
 body {
     display: grid;

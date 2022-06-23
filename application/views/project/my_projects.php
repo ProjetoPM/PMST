@@ -43,7 +43,11 @@
                         <div class="panel-body">
                             <h1 class="page-header">
                                 <?= $this->lang->line('projects') ?>
+                                <span class="workspace-title" data-toggle="tooltip" data-placement="top" title="<?= $this->lang->line('current-workspace') ?>">
+                                    {workspace_title}
+                                </span>
                             </h1>
+                            
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
@@ -98,7 +102,9 @@
                                                         </a>
 
                                                         <!-- delete -->
-                                                        <a href="<?= base_url("delete/" . $project->project_id) ?>" onclick="return confirm('Are you sure you want to delete <?= $project->title; ?>?');" class="btn btn-danger <?php echo $view . $execute; ?>"><em class="fa fa-trash"></em><span class="hidden-xs"><?= $this->lang->line('btn-overleaf') ?></span></a>
+                                                        <a href="<?= base_url("delete/" . $project->project_id) ?>" onclick="return confirm('Are you sure you want to delete <?= $project->title; ?>?');" class="btn btn-danger <?php echo $view . $execute; ?>" data-toggle="tooltip" title="<?= $this->lang->line('btn-delete') ?>">
+                                                            <i class="fa fa-trash"></i>
+                                                        </a>
                                                     </td>
                                                     <td><?= getAcesslevelNameByAcessLevelId($project->access_level); ?></td>
                                                 </tr>
