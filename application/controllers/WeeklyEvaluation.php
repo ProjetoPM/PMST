@@ -30,11 +30,11 @@ class WeeklyEvaluation extends CI_Controller
 		$this->load->helper('url');
 		$this->load->model('WeeklyEvaluation_model');
 		$this->load->model('WeeklyReport_model');
+		$this->load->model('Workspace_model');
 	}
 	
 	public function list()
 	{
-		
 		if (strcmp($_SESSION['language'], "US") == 0) {
 			$this->lang->load('btn', 'english');
 		} else {
@@ -47,22 +47,26 @@ class WeeklyEvaluation extends CI_Controller
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/weekly_evaluation/list', $dado);
+		$this->load->view('workspace/weekly_evaluation/list', $dado);
 	}
 	
 	public function new()
 	{
-		if($this->Workspace_model->getRole($_SESSION['workspace_id'], $_SESSION['user_id']) == 2){
-			if (strcmp($_SESSION['language'], "US") == 0) {
-				$this->lang->load('btn', 'english');
-			} else {
-				$this->lang->load('btn', 'portuguese-brazilian');
-			}
-			
+		if (strcmp($_SESSION['language'], "US") == 0) {
+			$this->lang->load('btn', 'english');
+		} else {
+			$this->lang->load('btn', 'portuguese-brazilian');
+		}
+		$role = $this->Workspace_model->getRole($_SESSION['workspace_id'], $_SESSION['user_id']);
+
+		if ($role == 2) {			
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');
-			$this->load->view('project/weekly_evaluation/new');
+			$this->load->view('workspace/weekly_evaluation/new');
+		} else {
+			$this->session->set_flashdata('error', 'An error occurred while loading \'new evaluation\' page.');
+			redirect('/weekly-evaluation/list');
 		}
 	}
 	
@@ -73,7 +77,6 @@ class WeeklyEvaluation extends CI_Controller
 		} else {
 			$feedback_success = 'Item Criado ';
 		}
-		
 		$weekly_evaluation['name'] = $this->input->post('name');
 		$weekly_evaluation['start_date'] = $this->input->post('start_date');
 		$weekly_evaluation['end_date'] = $this->input->post('end_date');
@@ -81,19 +84,19 @@ class WeeklyEvaluation extends CI_Controller
 		$weekly_evaluation['status'] = $this->input->post('status');
 		$weekly_evaluation['individual_or_group'] = $this->input->post('type');
 		$weekly_evaluation['user_id'] = $_SESSION['user_id'];
+		$weekly_evaluation['workspace_id'] = $_SESSION['workspace_id'];
 		
 		$insert  = $this->WeeklyEvaluation_model->insert($weekly_evaluation);
+
 		if ($insert) {
 			$this->session->set_flashdata('success', $feedback_success);
 			insertLogActivity('insert', 'weekly evaluation');
 		}
 		redirect("weekly-evaluation/list");
-		// echo json_encode($insert);
 	}
 	
 	public function edit($weekly_evaluation)
 	{
-		
 		if (strcmp($_SESSION['language'], "US") == 0) {
 			$this->lang->load('btn', 'english');
 		} else {
@@ -105,7 +108,7 @@ class WeeklyEvaluation extends CI_Controller
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/weekly_evaluation/edit', $dado);
+		$this->load->view("workspace/weekly_evaluation/edit", $dado);
 	}
 	
 	public function update($weekly_evaluation_id)
@@ -148,7 +151,7 @@ class WeeklyEvaluation extends CI_Controller
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/weekly_evaluation/edit_score', $dado);
+		$this->load->view('workspace/weekly_evaluation/edit_score', $dado);
 	}
 
 	function update_score($weekly_report_id)

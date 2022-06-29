@@ -3,28 +3,7 @@
     <div class="wrapper">
         <div class="content-wrapper" style="padding-top: 50px;">
             <section class="content">
-                <?php if ($this->session->flashdata('success')) : ?>
-                    <div class="alert alert-success">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <?php echo $this->session->flashdata('success'); ?>
-                    </div>
-                <?php elseif ($this->session->flashdata('warning')) : ?>
-                    <div class="alert alert-warning">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <?php echo $this->session->flashdata('warning'); ?>
-                    </div>
-                <?php elseif ($this->session->flashdata('error')) : ?>
-                    <div class="alert alert-danger">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <?php echo $this->session->flashdata('error'); ?>
-                    </div>
-                <?php endif; ?>
+                <?php $this->load->view('errors/exceptions') ?>
 
                 <div class="row">
                     <div class="col-lg-12">

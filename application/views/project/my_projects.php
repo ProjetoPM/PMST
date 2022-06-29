@@ -33,7 +33,7 @@
                                                 <th class="col-md-3"><?= $this->lang->line('btn-title') ?></th>
                                                 <th class="col-md-5"><em class="fa fa-cog"></em><?= $this->lang->line('actions') ?></th>
                                                 <th class="col-md-2"><?= $this->lang->line('created_by') ?></th>
-                                                <th class="col-md-2"><?= $this->lang->line('acess_level') ?></th>
+                                                <th class="col-md-2"><?= $this->lang->line('access_level') ?></th>
                                             </tr>
                                         </thead>
                                         <tbody>

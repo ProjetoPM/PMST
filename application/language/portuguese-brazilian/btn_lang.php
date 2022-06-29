@@ -46,7 +46,7 @@ $lang['btn-title'] = 'Título';
 $lang['created_by'] = 'Criado por';
 
 $lang['actions'] = ' Ações';
-$lang['acess_level'] = 'Nível de Acesso';
+$lang['access_level'] = 'Nível de Acesso';
 $lang['pages'] = 'Página 1 de 1';
 
 $lang['professor'] = 'Professor';

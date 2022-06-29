@@ -50,7 +50,7 @@ $lang['btn-title'] = 'Title';
 $lang['created_by'] = "Created by";
 
 $lang['actions'] = ' Actions';
-$lang['acess_level'] = 'Acess Level';
+$lang['access_level'] = 'Access Level';
 $lang['professor'] = 'Professor';
 $lang['project_manager'] = 'Project Manager';
 $lang['staff'] = 'Staff';

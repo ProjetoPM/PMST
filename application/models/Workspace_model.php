@@ -54,14 +54,15 @@ class Workspace_model extends CI_Model
 
 	public function getRole($workspace_id, $user_id)
 	{
-		$this->db->select('access_level')
+		$result = $this->db->select('access_level')
 			->where('workspace_id', $workspace_id)
 			->where('user_id', $user_id)
 			->from('workspace_user')
-			->limit(1);
-		$query = $this->db->get();
-		$res = $query->row_array();
-		return $res['access_level'] ?? "-1";
+			->limit(1)
+			->get()
+			->row_array();
+
+		return $result !== null ? $result['access_level'] : "-1";
 	}
 
 	public function getWorkSpaceUsers($workspace_id){

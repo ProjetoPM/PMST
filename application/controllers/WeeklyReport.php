@@ -21,14 +21,13 @@ class WeeklyReport extends CI_Controller
 
 		$this->load->model('log_model');
 		$this->load->model('view_model');
-		$this->load->model('Project_model');
+		$this->load->model('Workspace_model');
 		$this->load->model('WeeklyReport_model');
-		$this->load->model('Weekly_process_model');
 		$this->load->model('Report_upload_model');
 		$this->load->model('Pmbok_process_model');
+		$this->load->model('Weekly_process_model');
 		$this->load->model('WeeklyEvaluation_model');
-		$this->load->model('Workspace_model');
-		// $this->load->CI_Controller('LanguageSwitcher_controller');
+		$this->load->library('parser');
 		$this->load->helper('url');
 		$this->load->helper('log_activity');
 	}
@@ -42,7 +41,7 @@ class WeeklyReport extends CI_Controller
 			$dado['processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
 		}
 
-		loadViews('project/weekly_report/list', $dado);
+		loadViews('workspace/weekly_report/list', $dado);
 	}
 
 	public function new()
@@ -55,7 +54,7 @@ class WeeklyReport extends CI_Controller
 			}
 			
 			$dado['evaluation'] = $this->WeeklyEvaluation_model->getAll();
-			loadViews('project/weekly_report/new', $dado);
+			loadViews('workspace/weekly_report/new', $dado);
 		}else{
 			$this->session->set_flashdata('error', 'You are not allowed to access this page');
 			redirect('workspace/list');
@@ -64,12 +63,20 @@ class WeeklyReport extends CI_Controller
 
 	public function insert()
 	{
-		if (verifyLanguage()) {
-			$id = 2;
-		} else {
-			$id = 1;
+        var_dump($_SESSION);
+        // ARRUMAR BANCO PARA ACEITAR OS ARQUIVOS
+        // exit();
+		$id = (verifyLanguage()) ? 2 : 1;
+
+		$weekly_evaluation_id = $this->input->post('evaluation_id');
+
+		// LINHA CERTA => if ($this->WeeklyReport_model->alreadySubmitted($weekly_evaluation_id, $_SESSION['user_id'])) { 
+		if (!$this->WeeklyReport_model->alreadySubmitted($weekly_evaluation_id, $_SESSION['user_id'])) {
+			$this->session->set_flashdata('error', 'You\'ve already submitted to this report');
+			return redirect("weekly-report/list");
 		}
-		$weekly_report['weekly_evaluation_id'] = $this->input->post('evaluation_id');
+		
+		$weekly_report['weekly_evaluation_id'] = $weekly_evaluation_id;
 		$weekly_report['tool_evaluation'] = $this->input->post('tool_evaluation');
 		$weekly_report['user_id'] = $_SESSION['user_id'];
 		$weekly_report['score'] = 3;
@@ -77,6 +84,7 @@ class WeeklyReport extends CI_Controller
 		// Compara a data atual com a data de submissão
 		$data = $this->WeeklyEvaluation_model->getDeadline($this->input->post('evaluation_id'));
 		$submitDay = new DateTime($data);
+		
 		$date = date('m/d/Y', time());
 		$currentDate = new DateTime($date);
 
@@ -94,6 +102,7 @@ class WeeklyReport extends CI_Controller
 		for ($i = 1; $this->input->post("process_name-${i}"); $i++) {
 			$weekly_report_process['weekly_report_id'] = $insert_id;
 			$weekly_report_process['pmbok_id'] = $id;
+			$weekly_report_process['pmbok_group_id'] = $this->input->post("process_group-$i");
 			$weekly_report_process['pmbok_process_id'] = $this->input->post("process_name-$i");
 			$weekly_report_process['description'] = $this->input->post("description-$i");
 			$query = $this->Weekly_process_model->insert($weekly_report_process);
@@ -114,18 +123,20 @@ class WeeklyReport extends CI_Controller
 		if (verifyLanguage()) $dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(2);
 		else $dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
 
-		$dado['evaluation'] = $this->WeeklyEvaluation_model->getAll();
 		$dado['weekly_report'] = $this->WeeklyReport_model->get($weekly_report_id);
 		$dado['weekly_processes'] = $this->WeeklyReport_model->getAllProcesses($weekly_report_id, getIndexOfLanguage());
 		$dado['pmbok_groups'] = $this->WeeklyReport_model->getProcessNamesByGroup(getIndexOfLanguage());
-
-		loadViews('project/weekly_report/edit', $dado);
+        
+		$dado['evaluation'] = array(
+            'name' => getWeeklyEvaluationName($dado['weekly_report']['weekly_evaluation_id']),
+			'tool' => $dado['weekly_report']['tool_evaluation'],
+		);
+		loadViews('workspace/weekly_report/edit', $dado);
 	}
 
 	public function update($weekly_report_id)
 	{
 		$weekly_report['tool_evaluation'] = $this->input->post('tool_evaluation');
-		$weekly_report['weekly_evaluation_id'] = $this->input->post('evaluation_id');
 		$weekly_report['user_id'] = $_SESSION['user_id'];
 
 		$weekly_report_process['process_name'] = $this->input->post('process');
@@ -177,23 +188,22 @@ class WeeklyReport extends CI_Controller
 
 	public function insert_process()
 	{
-
 		$weekly_report_process['description'] = $this->input->post('description');
 		$weekly_report_process['process_name'] = $this->input->post('process_name');
 
 		$data = $this->input->post('process_group');
-		var_dump($data);
-		exit();
 		$weekly_report_process['weekly_report_id'] = 1;
 		$query2 = $this->WeeklyReport_model->updateProcessReport($weekly_report_process, 1);
 	}
 
 
 	//Armazena a imagem localmente 
-	function do_upload()
+	function do_upload($id_file = null)
 	{
+		$indexFile = $id_file != null ? $id_file : "image";
+
 		$target_dir = "upload/reports/";
-		$image_data = explode(".", $_FILES["image"]["name"]);
+		$image_data = explode(".", $_FILES[$indexFile]["name"]);
 		$image_type = $image_data[1];
 		$tmp_name = uniqid(rand()) . "." . $image_type;
 		$target_file = $target_dir . $tmp_name;
@@ -201,11 +211,11 @@ class WeeklyReport extends CI_Controller
 		// $imageFileType pega o tipo do arquivo
 		$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-		$check = getimagesize($_FILES["image"]["tmp_name"]);
+		$check = getimagesize($_FILES[$indexFile]["tmp_name"]);
 		if ($check !== false) {
 			$uploadOK = 1;
 		} else {
-			$this->session->set_flashdata('error', 'File is not an image');
+			$this->session->set_flashdata('error', 'Invalid File.');
 			redirect('weekly-report/list');
 		}
 
@@ -213,12 +223,15 @@ class WeeklyReport extends CI_Controller
 		// Verificações do tipo da imagem, tamanho e se já existe
 		if (file_exists($target_file)) {
 		}
-		if ($_FILES["image"]["size"] > 500000) {
+
+		$sizeInMegaBytes = 50;
+
+		if ($_FILES["image"]["size"] > $sizeInMegaBytes * 10e6) {
 			$this->session->set_flashdata('error', 'File is too large');
 			redirect('weekly-report/list');
 		}
-		if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-			$this->session->set_flashdata('error', 'File must be a jpg, png or jpeg.');
+		if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "pdf") {
+			$this->session->set_flashdata('error', 'File must be a jpg, png, jpeg or pdf');
 			redirect('weekly-report/list');
 		}
 		if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
@@ -230,13 +243,13 @@ class WeeklyReport extends CI_Controller
 		}
 	}
 
-	// Método post realizando a persistência com o banco
-	function upload_image()
+	// Método para realizar a persistência com o banco
+	function upload_image($name, $process_id)
 	{
 		$target_file = $this->do_upload();
 		$data['path'] = $target_file;
-		$data['alt'] = $this->input->post('description');
-		$data['weekly_report_process_id'] = $this->input->post('process_id');
+		$data['alt'] = $name;
+		$data['weekly_report_process_id'] = $process_id;
 
 		$this->Report_upload_model->insert($data);
 		redirect('weekly-report/list');

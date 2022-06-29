@@ -10,9 +10,7 @@ position:-webkit-sticky
  ">
    <section class="sidebar">
       <div class="user-panel">
-
          <div class="pull-left image">
-
             <img src="<?= base_url() ?>assets/images/user-icon.jpg" class="img-circle profileImgUrl" alt="User Image">
          </div>
          <div class="pull-left info">

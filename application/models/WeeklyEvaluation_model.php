@@ -41,4 +41,5 @@ class WeeklyEvaluation_model extends CI_Model
 		$this->db->where('weekly_evaluation.weekly_evaluation_id', $weekly_evaluation_id);
 		return $this->db->update('weekly_evaluation', $weekly_evaluation);
 	}
+
 }
