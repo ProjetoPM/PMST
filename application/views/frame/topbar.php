@@ -131,7 +131,7 @@
            </form>
          </li>
 
-         <?php if ($_SESSION['project_id'] != null) { ?>
+         <?php if ($_SESSION['project_id'] != null) : ?>
 
            <li class="dropdown hidden-xs">
            <li class="dropdown notifications-menu">
@@ -140,23 +140,37 @@
              </a>
            </li>
            </li>
-         <?php } ?>
+         <?php endif ?>
 
-         <li class="dropdown">
-           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-pill label-danger count" style="border-radius:10px;"></span> <span class="glyphicon glyphicon-bell" style="font-size:18px;"></span></a>
-           <ul class="dropdown-menu">
-            <li style="max-width: 350px;">
-            <?php if (isset($invites)): ?>
-              <?php foreach ($invites as $item) : ?>
-                <label for="">Você foi convidado pra se juntar a uma área de trabalho: <?= $item->name ?></label>
-                <form action="<?= base_url("workspace/accept-invite") ?>"></form>
-              <?php endforeach ?>
-            <?php else: ?>
-              <label for="">Não há convites disponíveis no momento para você.</label>
-            <?php endif ?>
-            </li>
-           </ul>
-         </li>
+         <?php if (isset($view_id) && strcmp($view_id, "79") === 0) : ?>
+           <li class="dropdown">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+               <span class="label label-pill label-danger count" style="border-radius:10px;"></span>
+               <span class="glyphicon glyphicon-bell" style="font-size:18px;"></span>
+             </a>
+
+             <ul class="dropdown-menu">
+               <?php if (isset($invites)) : ?>
+                 <li style="min-width: 300px;">
+                   <?php foreach ($invites as $item) : ?>
+                     <span>
+                       <label for="">Você foi convidado pra se juntar a uma área de trabalho: <?= $item->name ?></label>
+                       <a class="btn btn-sm btn-success" href="<?= base_url("workspace/accept-invite/$item->workspace_id/$item->access_level") ?>">
+                         <i class="fa fa-check-square"></i>
+                       </a>
+                       <a class="btn btn-sm btn-warning" href="<?= base_url("workspace/decline-invite/$item->workspace_id") ?>">
+                         <i class="fa fa-check-square"></i>
+                       </a>
+                     </span>
+                   <?php endforeach ?>
+                 <?php else : ?>
+                   <label for="">Não há convites disponíveis no momento para você.</label>
+                 <?php endif ?>
+                 </li>
+             </ul>
+           </li>
+         <?php endif ?>
+
          <li class="dropdown user user-menu">
            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
              <img src="<?= base_url() ?>assets/images/user-icon.jpg" class="user-image profileImgUrl" alt="User Image">

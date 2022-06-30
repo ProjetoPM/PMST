@@ -16,7 +16,7 @@
               <span class="btn-sm btn-default" id="wr_tp_1" data-toggle="tooltip" data-placement="top" title="<?= $this->lang->line('wr_tool_evaluation_tp') ?>">
                 <i class="glyphicon glyphicon-comment"></i>
               </span>
-              <input name="workspace_name" oninput="limitText(this, 35, 'a')" class="form-control" rows="1" required></input>
+              <input name="workspace_name" oninput="limitText(this, 35, 'a')" class="form-control" required></input>
             </div>
           </div>
         </div>

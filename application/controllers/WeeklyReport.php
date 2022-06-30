@@ -65,7 +65,7 @@ class WeeklyReport extends CI_Controller
 	{
         var_dump($_SESSION);
         // ARRUMAR BANCO PARA ACEITAR OS ARQUIVOS
-        // exit();
+        exit();
 		$id = (verifyLanguage()) ? 2 : 1;
 
 		$weekly_evaluation_id = $this->input->post('evaluation_id');

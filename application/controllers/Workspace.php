@@ -9,15 +9,15 @@ class Workspace extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
-		$views = ['user', 'workspace'];
-		loadLangs($views);
+		$langs = ['user', 'workspace'];
+		loadLangs($langs);
 
 		$this->load->helper('url');
 		$this->load->helper('log_activity');
 
 		$this->load->model('log_model');
 		$this->load->model('User_Model');
-		$this->load->model('view_model');
+		$this->load->model('View_model');
 		$this->load->model('Project_model');
 		$this->load->model('Workspace_model');
 		$this->load->model('Workspace_invite_model');
@@ -26,8 +26,10 @@ class Workspace extends CI_Controller
 
 	public function list()
 	{
+
 		$data['workspace'] = $this->Workspace_model->getUserWorkSpaces($_SESSION['user_id']);
 		$data['invites'] = $this->Workspace_invite_model->getInvitesPerUser($_SESSION['user_id']);
+		$data['view_id'] = $this->View_model->GetIDByName('workspace');
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar', $data);
@@ -37,12 +39,16 @@ class Workspace extends CI_Controller
 
 	public function members($workspace_id)
 	{
+		$_SESSION['workspace_access_level'] = $this->Workspace_model->getRole($_SESSION['user_id']);
 		$_SESSION['workspace_id'] = $workspace_id;
 		$data['users'] = $this->Workspace_model->getWorkSpaceUsers($workspace_id);
 		$data['workspace_id'] = $this->uri->segment(3);
 
 		if (count($data['users']) <= 0)
 			redirect(base_url());
+
+		print_r($_SESSION);
+		exit();
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
@@ -67,9 +73,9 @@ class Workspace extends CI_Controller
 
 	public function insert()
 	{
-		$feedback_success = strcmp($_SESSION['language'], "US") === 0 
-            ? 'Item created successfully!' 
-            : 'Item criado com sucesso!';
+		$feedback_success = strcmp($_SESSION['language'], "US") === 0
+			? 'Item created successfully!'
+			: 'Item criado com sucesso!';
 
 		$workspace['name'] = $this->input->post('workspace_name');
 		$workspace['status'] = 1;
@@ -82,40 +88,48 @@ class Workspace extends CI_Controller
 		if ($insert) {
 			$this->session->set_flashdata('success', $feedback_success);
 			insertLogActivity('insert', 'workspace');
-		} else 
-            $this->session->set_flashdata('error', 'An error occurred while inserting.');
-            
+		} else
+			$this->session->set_flashdata('error', 'An error occurred while inserting.');
+
 		redirect("workspace/list");
 	}
 
-	public function delete($workspace_id) {
-        $feedback_success = strcmp($_SESSION['language'], "US") === 0 
-            ? 'Workspace removed successfully!' 
-            : 'Workspace removido com sucesso!';
+	public function delete($workspace_id)
+	{
+		$feedback_success = strcmp($_SESSION['language'], "US") === 0
+			? 'Workspace removed successfully!'
+			: 'Workspace removido com sucesso!';
 
-        $remove = $this->Workspace_model->delete($workspace_id);
+		$remove = $this->Workspace_model->delete($workspace_id);
 
-        if ($remove) {
-            $this->session->set_flashdata('success', $feedback_success);
-            insertLogActivity('delete', 'workspace');
-        } else 
-            $this->session->set_flashdata('error', 'An error has occurred while removing.');
-        
-        redirect("workspace/list");
-    }
+		if ($remove) {
+			$this->session->set_flashdata('success', $feedback_success);
+			insertLogActivity('delete', 'workspace');
+		} else
+			$this->session->set_flashdata('error', 'An error has occurred while removing.');
+
+		redirect("workspace/list");
+	}
 	public function update()
 	{
 	}
 
 	public function sendInvite()
 	{
+		$senderRole = $this->Workspace_model->getRole($_SESSION['workspace_id'], $_SESSION['user_id']);
+
+		if (strcmp($senderRole, "1") !== 0) {
+			$this->session->set_flashdata('error', $this->lang->line('ws_feedback_invite_error'));
+			redirect('workspace/list');
+		}
+
 		$date = date('Y-m-d H:i:s', time());
 		$receiver = $this->input->post('sendTo');
 		$sender = $this->User_Model->getUserEmail($_SESSION['user_id']);
 
 		$workspace_name = $this->Workspace_model->getWorkspaceName($_SESSION['workspace_id']);
 		$user_id = $this->User_Model->getUserIdByEmail($receiver);
-		if ($user_id == -1){
+		if ($user_id == -1) {
 			$subject = "Convite para se juntar a uma área de trabalho";
 			$message = "O usuário $sender te convidou para se juntar ao workspace $workspace_name";
 			$this->send_email_invite($sender, $message, $subject, $receiver);
@@ -143,6 +157,19 @@ class Workspace extends CI_Controller
 		$workspace_user['access_level'] = $access_level;
 
 		$insertStatus = $this->Workspace_user_model->insert($workspace_user);
+		$insertStatus = $this->Workspace_invite_model->delete($workspace_id, $_SESSION['user_id']);
+
+
+		if ($insertStatus) {
+			redirect("workspace/list");
+		}
+	}
+
+	public function declineInvite($workspace_id)
+	{
+		$user_id =  $_SESSION['user_id'];
+
+		$insertStatus = $this->Workspace_invite_model->delete($workspace_id, $user_id);
 
 		if ($insertStatus) {
 			redirect("workspace/list");

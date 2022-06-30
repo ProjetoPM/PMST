@@ -26,4 +26,10 @@ class Workspace_invite_model extends CI_Model
 
 		return $query;
 	}
+
+	function delete($workspace_id, $user_id){
+		return $this->db->delete('workspace_invite', array('workspace_id' => $workspace_id, 'user_id' => $user_id));
+	}
 }
+
+

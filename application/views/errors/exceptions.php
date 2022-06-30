@@ -4,7 +4,7 @@
             <span aria-hidden="true">&times;</span>
         </button>
         <i class="fa fa-info-circle m-r-5" aria-hidden="true"></i>
-        <strong><?php echo $this->session->flashdata('success'); ?></strong>
+        <?php echo $this->session->flashdata('success'); ?>
     </div>
 <?php elseif ($this->session->flashdata('fail')) : ?>
     <div class="alert alert-warning">
@@ -12,7 +12,7 @@
             <span aria-hidden="true">&times;</span>
         </button>
         <i class="fa fa-exclamation-circle m-r-5" aria-hidden="true"></i>
-        <strong><?php echo $this->session->flashdata('fail'); ?></strong>
+        <?php echo $this->session->flashdata('fail'); ?>
     </div>
 <?php elseif ($this->session->flashdata('error')) : ?>
     <div class="alert alert-danger">
@@ -20,6 +20,6 @@
             <span aria-hidden="true">&times;</span>
         </button>
         <i class="fa fa-exclamation-circle m-r-5" aria-hidden="true"></i>
-        <strong><?php echo $this->session->flashdata('error'); ?></strong>
+        <?php echo $this->session->flashdata('error'); ?>
     </div>
 <?php endif ?>
