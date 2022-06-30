@@ -39,16 +39,13 @@ class Workspace extends CI_Controller
 
 	public function members($workspace_id)
 	{
-		$_SESSION['workspace_access_level'] = $this->Workspace_model->getRole($_SESSION['user_id']);
+		$_SESSION['workspace_access_level'] = $this->Workspace_model->getRole($workspace_id, $_SESSION['user_id']);
 		$_SESSION['workspace_id'] = $workspace_id;
 		$data['users'] = $this->Workspace_model->getWorkSpaceUsers($workspace_id);
 		$data['workspace_id'] = $this->uri->segment(3);
 
 		if (count($data['users']) <= 0)
 			redirect(base_url());
-
-		print_r($_SESSION);
-		exit();
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');

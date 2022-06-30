@@ -63,14 +63,14 @@ class WeeklyReport extends CI_Controller
 
 	public function insert()
 	{
-        var_dump($_SESSION);
+        // var_dump($_SESSION);
         // ARRUMAR BANCO PARA ACEITAR OS ARQUIVOS
-        exit();
+        // exit();
 		$id = (verifyLanguage()) ? 2 : 1;
 
 		$weekly_evaluation_id = $this->input->post('evaluation_id');
 
-		// LINHA CERTA => if ($this->WeeklyReport_model->alreadySubmitted($weekly_evaluation_id, $_SESSION['user_id'])) { 
+		// if ($this->WeeklyReport_model->alreadySubmitted($weekly_evaluation_id, $_SESSION['user_id'])) { 
 		if (!$this->WeeklyReport_model->alreadySubmitted($weekly_evaluation_id, $_SESSION['user_id'])) {
 			$this->session->set_flashdata('error', 'You\'ve already submitted to this report');
 			return redirect("weekly-report/list");
