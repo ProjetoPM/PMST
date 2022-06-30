@@ -65,29 +65,42 @@ class Workspace extends CI_Controller
 
 	public function insert()
 	{
-		if (strcmp($_SESSION['language'], "US") == 0) {
-			$feedback_success = 'Item Created';
-		} else {
-			$feedback_success = 'Item Criado ';
-		}
-		$workspace['name'] = $this->input->post('workspace');
-		$workspace['status'] = $this->input->post('status');
+        $feedback_success = strcmp($_SESSION['language'], "US") === 0 
+            ? 'Item created successfully!' 
+            : 'Item criado com sucesso!';
+
+		$workspace['name'] = $this->input->post('workspace_name');
+		$workspace['status'] = 1;
 
 		$workspace_user['user_id'] = $_SESSION['user_id'];
 		$workspace_user['access_level'] = 1;
 
 		$insert  = $this->Workspace_model->insert($workspace, $workspace_user);
 
-		var_dump($insert);
 		if ($insert) {
 			$this->session->set_flashdata('success', $feedback_success);
 			insertLogActivity('insert', 'workspace');
-			redirect("projects/$insert");
-		}
+		} else 
+            $this->session->set_flashdata('error', 'An error occurred while inserting.');
+            
 		redirect("workspace/list");
-		// echo json_encode($insert);
 	}
 
+    public function delete($workspace_id) {
+        $feedback_success = strcmp($_SESSION['language'], "US") === 0 
+            ? 'Workspace removed successfully!' 
+            : 'Workspace removido com sucesso!';
+
+        $remove = $this->Workspace_model->delete($workspace_id);
+
+        if ($remove) {
+            $this->session->set_flashdata('success', $feedback_success);
+            insertLogActivity('delete', 'workspace');
+        } else 
+            $this->session->set_flashdata('error', 'An error has occurred while removing.');
+        
+        redirect("workspace/list");
+    }
 
 	public function update()
 	{

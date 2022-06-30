@@ -1,7 +1,7 @@
 <div class="wrapper">
 		<div class="content-wrapper">
 			<section class="content">
-				<?php $this->load->view('errors/exceptions') ?>
+                <?php $this->load->view('errors/exceptions') ?>
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="panel-body">

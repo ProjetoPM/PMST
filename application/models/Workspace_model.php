@@ -27,6 +27,13 @@ class Workspace_model extends CI_Model
 		return $this->db->update('workspace', $workspace);
 	}
 
+    public function delete($workspace_id) {
+        $removeFromWorkspaceUser = $this->db->delete("workspace_user", array("workspace_id" => $workspace_id));
+        $removeFromWorkspace = $this->db->delete("workspace", array("workspace_id" => $workspace_id));
+
+        return $removeFromWorkspaceUser && $removeFromWorkspace;
+    }
+
 	// public function getUserWorkSpaces($user_id){
 	// 	$query = $this->db->get_where('workspace', array('user_id'=>$user_id));
 	// 	return $query->result();

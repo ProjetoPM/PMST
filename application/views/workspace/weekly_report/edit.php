@@ -147,7 +147,7 @@
 		openFileButton(room);
 	});
 
-    document.addEventListener('input', function () {
+    document.addEventListener('click', function () {
         let element = parseInt(document.activeElement.id);
 
         /**

@@ -32,6 +32,7 @@
                                                     <td>
                                                         <a href="<?= base_url("projects/" . $item->workspace_id) ?>" class="btn btn-default"><em class="fa fa-folder-open-o"></em><span class="hidden-xs"></span></a>
                                                         <a href="<?= base_url("workspace/members/$item->workspace_id" ) ?>" class="btn btn-default"><i class="fa fa-users"></i></a>
+                                                        <a href="<?= base_url("workspace/delete/$item->workspace_id" ) ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                                     </td>
                                                     <td><?= verifyWorkspaceAcesslevel($item->workspace_id, $item->user_id);  ?></td>
                                                     <?php endforeach ?>
