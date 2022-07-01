@@ -220,7 +220,7 @@ $route['integration/change-log/delete/(:num)'] = "ChangeLog/delete/$1";
 
 $route['integration/project-closure/new/(:num)'] = "ProjectClosure/new/$1";
 $route['integration/project-closure/edit/(:num)'] = "ProjectClosure/edit/$1";
-$route['integration/project-closure/insert/(:num)'] = "projectclosure/insert/$1";
+$route['integration/project-closure/insert'] = "projectclosure/insert";
 $route['integration/project-closure/update/(:num)'] = "projectclosure/update/$1";
 
 $route['integration/lesson-learned-register/new/(:num)'] = "LessonLearnedRegister/new/$1";
