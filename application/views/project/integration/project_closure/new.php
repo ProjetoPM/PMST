@@ -44,7 +44,7 @@
 
 
 									<div class="col-lg-3 form-group">
-										<label><?= $this->lang->line('tep_project_closure_date') ?></label>
+										<label><?= $this->lang->line('tep-project_closure_date') ?></label>
 										<a class="btn-sm btn-default" id="tep_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep_project_closure_date-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div class="input-group">
 											<div class="input-group-addon">
@@ -54,19 +54,8 @@
 										</div>
 									</div>
 
-
-									<!--
-							<div class=" col-lg-6 form-group">
-								<label for="project_closure_date"><?= $this->lang->line('tep_project_closure_date') ?></label> 
-								<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep_project_closure_date-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-								<div >                 
-									<input oninput="eylem(this, this.value)" class="form-control" type="date" id="project_closure_date" name="project_closure_date" value="<?= $pc->project_closure_date; ?>">
-								</div>
-							</div>
-						-->
 									<div class=" col-lg-12 form-group">
-										<label for="main_changes_approved"><?= $this->lang->line('tep_main_changes_approved') ?></label>
+										<label for="main_changes_approved"><?= $this->lang->line('tep-main_changes_approved') ?></label>
 										<span class="tep_3">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id="tep_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-main_changes_approved-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
@@ -76,7 +65,7 @@
 
 
 									<div class=" col-lg-12 form-group">
-										<label for="main_lessons_learned"><?= $this->lang->line('tep_main_lessons_learned') ?> </label>
+										<label for="main_lessons_learned"><?= $this->lang->line('tep-main_lessons_learned') ?> </label>
 										<span class="tep_4">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id="tep_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep-main_lessons_learned-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
