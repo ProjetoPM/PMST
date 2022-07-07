@@ -1,12 +1,4 @@
 /**
- * Enabling 'tooltips' everywhere.
- */
- var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
- var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-     return new bootstrap.Tooltip(tooltipTriggerEl)
- })
- 
-/**
  * Function responsible to limit characters input
  * from text-fields and text-areas based on limit
  * pass by parameter.

@@ -30,20 +30,20 @@ class WeeklyReport extends CI_Controller
 	}
 
 	public function list() {
-        verifyLanguage() 
-            ? $this->WeeklyReport_model->getProcessGroupsByLanguage(2)
-            : $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
-            
         $dado['weekly_report'] = $this->WeeklyReport_model->getAllPerMember($_SESSION['user_id']);
+
+		$dado['processes'] = verifyLanguage()
+            ? $this->WeeklyReport_model->getProcessGroupsByLanguage(2)
+		    : $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
 
 		loadViews('workspace/weekly_report/list', $dado);
 	}
 
 	public function new() {
-		if($this->Workspace_model->getRole($_SESSION['workspace_id'], $_SESSION['user_id']) == 2) {
-			verifyLanguage() 
+		if($this->Workspace_model->getRole($_SESSION['workspace_id'], $_SESSION['user_id']) == 2){
+			$dado['pmbok_processes'] = verifyLanguage() 
                 ? $this->WeeklyReport_model->getProcessGroupsByLanguage(2)
-                : $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
+			    : $dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
 			
 			$dado['evaluation'] = $this->WeeklyEvaluation_model->getAll();
 			loadViews('workspace/weekly_report/new', $dado);
