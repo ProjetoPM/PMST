@@ -118,5 +118,6 @@
 
 <script src="<?= base_url('assets/js/utils/util.js') ?>"></script>
 <script src="https://kit.fontawesome.com/a3de6dbf75.js" crossorigin="anonymous"></script>
+
 </body>
 </html>

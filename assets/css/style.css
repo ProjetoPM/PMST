@@ -4,6 +4,14 @@
     --footer-size: 50px;
 }
 
+.badge-file {
+    background-color: #f3f3f3;
+    padding: 5px;
+    color: black;
+    border-radius: 3.5px;
+    font-size: 13px;
+}
+
 /* Workspace title in 'list of projects'. */
 .workspace-title {
     position: absolute;
