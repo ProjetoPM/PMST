@@ -29,7 +29,7 @@ $lang['wr_tool_evaluation_tp'] = 'Avaliação do Site Silver Bullet';
 /**
  * Weekly Report
  */
-$lang['wr_process_group'] = "Grupo de Processos";
+$lang['wr_process_group'] = "Grupo do Processo";
 $lang['wr_process_name'] = "Nome do Processo";
 $lang['wr_process_description'] = "Descrição do Processo";
 $lang['wr_upload_files'] = "Arquivos para Envio";
@@ -40,6 +40,7 @@ $lang['wr_date_upload'] = "Data/Hora de Envio";
 $lang['wr_no_file_selected'] = "Nenhum arquivo selecionado.";
 $lang['wr_process'] = "Processo";
 $lang['wr_select'] = "Selecione";
+$lang['wr_process_group_first'] = "Selecione um grupo de processo antes";
 
 
 

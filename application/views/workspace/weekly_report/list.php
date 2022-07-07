@@ -21,17 +21,21 @@
 									<table class="table table-bordered table-striped" id="table_report_list">
 										<thead>
 											<tr>
-												<th class="col-lg-2"><?= $this->lang->line('wr_username') ?></th>
-												<th class="col-lg-4"><?= $this->lang->line('we_name') ?></th>
+												<th class="col">#</th>
+												<th class="col"><?= $this->lang->line('wr_username') ?></th>
+												<th class="col-lg-2"><?= $this->lang->line('we_name') ?></th>
+												<th class="col-lg-4"><?= $this->lang->line('wr_tool_evaluation') ?></th>
 												<th class="col-lg-2"><?= $this->lang->line('we_score') ?></th>
-												<th class="col-lg-3"><?= $this->lang->line('actions') ?></th>
+												<th class="col-lg-2"><?= $this->lang->line('actions') ?></th>
 											</tr>
 										</thead>
 										<tbody>
 											<?php foreach ($weekly_report as $data) : ?>
 												<tr>
+                                                    <td><?= $data->weekly_report_id ?></td>
 													<td><?= getUserName($data->user_id) ?></td>
 													<td><?= getWeeklyEvaluationName($data->weekly_evaluation_id) ?></td>
+													<td><?= $data->tool_evaluation ?></td>
 													<td><?= getScoreIdAsScore($data->score) ?></td>
 													<td>
 														<div class="center">

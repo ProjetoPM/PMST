@@ -87,5 +87,6 @@ $(document).ready(function () {
         "paging": true,
         "pageLength": 5,
         "lengthMenu": [5, 10, 25, 50, 100],
+        "order": [[0, "desc"]]
     });
 });
