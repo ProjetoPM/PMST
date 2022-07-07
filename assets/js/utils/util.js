@@ -7,7 +7,9 @@
  * @param {int} limit the number to limit
  * @param {string} id the id to set to get the remaining
  */
- function limitText(element, limit, id) {
+function limitText(element, limit, id) {
+    grow(element);
+
     var text = $(element).val();
     var remaining = limit - text.length;
     var limitStyled = stylingLimitText(id);
@@ -21,7 +23,7 @@
     var twentyFive = limit * 0.25;
 
     limitStyled.style.display = "inline";
-    
+
     if (twentyFive >= remaining) {
         limitStyled.style.backgroundColor = "#971414";
         limitStyled.style.color = "white";
@@ -52,20 +54,20 @@ function stylingLimitText(id) {
 }
 
 /**
- * Growing textarea.
+ * Growing textarea vinculated with limitText function.
  */
- $("textarea").each(function () {
-    this.setAttribute("style", "overflow-y:hidden;");
-  }).on("input", function () {
-    if (this.scrollHeight < 380) {
-        this.style.height = "auto";
-        this.style.height = (this.scrollHeight) + "px";
-        this.style.overflow = "hidden";
+function grow(textarea) {
+    var maxSizeInPixels = 380;
+
+    if (textarea.scrollHeight < maxSizeInPixels) {
+        textarea.style.height = "auto";
+        textarea.style.height = Math.min(textarea.scrollHeight, maxSizeInPixels) + "px";
+        textarea.style.overflow = "hidden";
     } else {
-        this.style.height = "380px";
-        this.style.overflow = "auto";
+        textarea.style.height = maxSizeInPx + "px";
+        textarea.style.overflow = "auto";
     }
-});
+};
 
 /**
  * Going to another URL.
@@ -78,7 +80,7 @@ function goTo(uri) {
  * This will style all tables with id "#table_report_list"
  * on it. This will be the pattern in the next version.
  */
-$(document).ready(function() {
+$(document).ready(function () {
     $('#table_report_list').DataTable({
         "bInfo": false,
         "responsive": true,
