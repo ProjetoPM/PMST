@@ -51,13 +51,13 @@
 											<div id="remove-<?= $item->weekly_report_process_id ?>">
 												<div class="col-md-12">
 													<div class="process-title p-l-17 p-b-5 p-t-5">
-														Process #<?= $item->weekly_report_process_id ?>
+                                                    <?= $this->lang->line("wr_process") ?> #<?= $item->weekly_report_process_id ?>
 													</div>
 													<div class="around col-md-12 m-b-25">
 														<div class="form-group col-md-6">
-															<label for="<?= $item->weekly_report_process_id ?>">Process Group</label>
+															<label for="<?= $item->weekly_report_process_id ?>"><?= $this->lang->line("wr_process_group") ?></label>
 															<select class="form-control" id="<?= $item->weekly_report_process_id ?>">
-																<option selected disabled value="">Select</option>
+																<option selected disabled value=""><?= $this->lang->line("wr_select") ?></option>
 																<?php foreach($pmbok_processes as $process): ?>
 																	<option 
                                                                             <?= (($pmbok_group_id === $process->pmbok_group_id) ? 'selected' : '') ?> 
@@ -69,7 +69,7 @@
 															</select>
 														</div>
 														<div class="form-group col-md-6">
-															<label for="process_name-<?= $item->weekly_report_process_id ?>">Process Name</label>
+															<label for="process_name-<?= $item->weekly_report_process_id ?>"><?= $this->lang->line("wr_process_name") ?></label>
 															<select name="process_name-<?= $item->weekly_report_process_id ?>" class="form-control" id="process_name-<?= $item->weekly_report_process_id ?>" value="<?= $item->weekly_report_process_id ?>">
                                                                 <?php foreach ($list_processes_name as $list) : ?>
                                                                     <option <?= (strcmp($name, $list->name) === 0) ? 'selected' : '' ?> value="<?= $list->pmbok_group_id ?>">
@@ -79,42 +79,91 @@
 															</select>
 														</div>
 														<div class="form-group col-md-10">
-															<label for="process_description">Process Description*&nbsp;</label>
+															<label for="process_description"><?= $this->lang->line("wr_process_description") ?>*&nbsp;</label>
 															<span id="count-<?= $item->weekly_report_process_id ?>"></span>
 															<textarea oninput="limitText(this,2e3,&quot;<?= $item->weekly_report_process_id ?>&quot;)" class="form-control" name="description-<?= $item->weekly_report_process_id ?>" id="process_description-<?= $item->weekly_report_process_id ?>"><?= $item->description ?></textarea>
 														</div>
 														<div class="form-group col-md-2">
-															<label for="">Actions</label><br>
+															<label for=""><?= $this->lang->line("wr_actions") ?></label><br>
 															<span class="file-upload">
-																<input class="file-upload__input-<?= $item->weekly_report_process_id ?>" type="file" name="files-<?= $item->weekly_report_process_id ?>[]" style="display: none;" multiple>
-																<button onclick="openFileButton(<?= $item->weekly_report_process_id ?>, this)" id="<?= $item->weekly_report_process_id ?>" class="btn btn-default file-upload__button-<?= $item->weekly_report_process_id ?> m-b-5 m-r-7" data-toggle="toggle" title="Upload files" type="button">
+																<input 
+                                                                    class="file-upload__input-<?= $item->weekly_report_process_id ?>" 
+                                                                    type="file" 
+                                                                    name="files-<?= $item->weekly_report_process_id ?>[]" 
+                                                                    style="display: none;" 
+                                                                    multiple
+                                                                >
+																<button 
+                                                                    onclick="openFileButton(<?= $item->weekly_report_process_id ?>, this)" 
+                                                                    class="btn btn-default file-upload__button-<?= $item->weekly_report_process_id ?> m-b-5 m-r-7" 
+                                                                    data-toggle="toggle" 
+                                                                    title="Upload files" 
+                                                                    type="button"
+                                                                >
 																	<i class="fa fa-upload"></i>
 																</button>
-																<button onclick="remove(<?= $item->weekly_report_process_id ?>)" data-toggle="toggle" title="Upload files" type="button" class="btn btn-danger m-b-5 m-r-7">
+																<button 
+                                                                    onclick="remove(<?= $item->weekly_report_process_id ?>)" 
+                                                                    data-toggle="toggle" 
+                                                                    title="Upload files" 
+                                                                    type="button" 
+                                                                    class="btn btn-danger m-b-5 m-r-7"
+                                                                >
 																	<i class="fa fa-trash"></i>
 																</button>
 															</span>
 														</div>
 														<div class="f-u__label col-md-12 form-group">
-															<label>Upload Files</label>
+															<label><?= $this->lang->line("wr_upload_files") ?></label>
 															<div class="file-upload__label-<?= $item->weekly_report_process_id ?>">
-                                                                No file(s) selected.
+                                                                <?= $this->lang->line("wr_no_file_selected") ?>
                                                             </div>
-                                                            <label class="m-t-15">Uploaded Files</label>
+                                                            <label class="m-t-15"><?= $this->lang->line("wr_uploaded_files") ?></label>
                                                             <div class="uploaded-files">
-                                                                <?php foreach ($weekly_images as $image): ?>
-                                                                    <?php $count = 0 ?>
-                                                                    <?php if ($image->weekly_report_process_id == $item->weekly_report_process_id): ?>
-                                                                        <ul>
-                                                                            <li>
-                                                                                <span><?= $image->name ?></span>
-                                                                                <a data-bs-toggle="tooltip" title="Download image" href="<?= base_url($image->path) ?>" download><i class="m-l-2 fa-solid fa-file-arrow-down"></i></a>
-                                                                                <a data-bs-toggle="tooltip" title="Open image" href="<?= base_url($image->path) ?>" target="_blank"><i class="m-l-2 fa-solid fa-arrow-up-right-from-square"></i></a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    <?php $count++ ?>
-                                                                    <?php endif ?>
-                                                                <?php endforeach ?>
+                                                                <table class="table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th scope="col">#</th>
+                                                                            <th scope="col"><?= $this->lang->line("wr_filename") ?></th>
+                                                                            <th scope="col"><?= $this->lang->line("wr_actions") ?></th>
+                                                                            <th scope="col"><?= $this->lang->line("wr_date_upload") ?></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    <?php foreach ($weekly_images as $image): ?>
+                                                                        <?php if ($image->weekly_report_process_id == $item->weekly_report_process_id): ?>
+                                                                            <tr>
+                                                                                <td scope="row"><?= $image->report_upload_id ?></td>
+                                                                                <td><?= $image->name ?></td>
+                                                                                <td>
+                                                                                    <a 
+                                                                                            data-bs-toggle="tooltip" 
+                                                                                            title="Download image" 
+                                                                                            href="<?= base_url($image->path) ?>" 
+                                                                                            download>
+                                                                                        <i class="fa-solid fa-file-arrow-down"></i>
+                                                                                    </a>
+                                                                                    <a 
+                                                                                            data-bs-toggle="tooltip" 
+                                                                                            title="Open image" 
+                                                                                            href="<?= base_url($image->path) ?>" 
+                                                                                            target="_blank">
+                                                                                        <i class="m-l-2 fa-solid fa-arrow-up-right-from-square"></i>
+                                                                                    </a>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <?=
+                                                                                        strcmp($_SESSION['language'], "US") === 0
+                                                                                            ? $image->date_upload
+                                                                                            : date("d/m/Y H:i:s", strtotime($image->date_upload));
+                                                                                    ?>
+                                                                                </td>
+                                                                            </tr>
+                                                                        <?php endif ?>
+                                                                    <?php endforeach ?>
+                                                                    </tbody>
+                                                                </table>
+                                                                        
                                                             </div>
 														</div>
 													</div>
@@ -151,7 +200,7 @@
 		const div = document.createElement('div');
 		div.setAttribute('id', 'remove-' + room);
 		div.setAttribute('class', 'form-group');
-		div.innerHTML = `<div class="col-md-12"><div class="process-title p-l-17 p-b-5 p-t-5">Process #${++number}</div><div class="around col-md-12 m-b-25"><div class="form-group col-md-6"><label for="${room}">Process Group</label><select name="process_group-${room}" class="form-control" id="${room}" required><option selected disabled value="">Select</option><?php foreach($pmbok_processes as $process): ?><option value="<?=$process->pmbok_group_id?>"><?=$process->group_name?></option><?php endforeach?></select></div><div class="form-group col-md-6"><label for="process_name-${room}">Process Name</label><select name="process_name-${room}" class="form-control" id="process_name-${room}" value="${room}" required><option selected disabled value="">Select process group first</option></select></div><div class="form-group col-md-10"><label for="process_description">Process Description*&nbsp;</label><span id="count-${room}"></span><textarea oninput="limitText(this,2e3,&quot;${room}&quot;)" class="form-control" name="description-${room}" id="process_description-${room}" required></textarea></div><div class="form-group col-md-2"><label for="">Actions</label><br><span class="file-upload"><input class="file-upload__input-${room}" style="display: none;" type="file" name="files-${room}[]" id="files-${room}" multiple><button onclick="openFileButton(${room}, this)" class="btn btn-default file-upload__button-${room} m-b-5 m-r-7" data-toggle="toggle" title="Upload files" type="button"><i class="fa fa-upload"></i></button><button onclick="remove(${room})" data-toggle="toggle" title="Upload files" type="button" class="btn btn-danger m-b-5 m-r-7"><i class="fa fa-trash"></i></button></span></div><div class="f-u__label col-md-12 form-group"><label>Uploaded Files</label><div class="file-upload__label-${room}">No file(s) selected.</div></div></div></div>`;
+		div.innerHTML = `<div class="col-md-12"><div class="process-title p-l-17 p-b-5 p-t-5">Process #${++number}</div><div class="around col-md-12 m-b-25"><div class="form-group col-md-6"><label for="${room}"><?= $this->lang->line("wr_process_group") ?></label><select name="process_group-${room}" class="form-control" id="${room}" required><option selected disabled value="">Select</option><?php foreach($pmbok_processes as $process): ?><option value="<?=$process->pmbok_group_id?>"><?=$process->group_name?></option><?php endforeach?></select></div><div class="form-group col-md-6"><label for="process_name-${room}"><?= $this->lang->line("wr_process_name") ?></label><select name="process_name-${room}" class="form-control" id="process_name-${room}" value="${room}" required><option selected disabled value="">Select process group first</option></select></div><div class="form-group col-md-10"><label for="process_description"><?= $this->lang->line("wr_process_description") ?>*&nbsp;</label><span id="count-${room}"></span><textarea oninput="limitText(this,2e3,&quot;${room}&quot;)" class="form-control" name="description-${room}" id="process_description-${room}" required></textarea></div><div class="form-group col-md-2"><label for=""><?= $this->lang->line("wr_actions") ?></label><br><span class="file-upload"><input class="file-upload__input-${room}" style="display: none;" type="file" name="files-${room}[]" id="files-${room}" multiple><button onclick="openFileButton(${room}, this)" class="btn btn-default file-upload__button-${room} m-b-5 m-r-7" data-toggle="toggle" title="Upload files" type="button"><i class="fa fa-upload"></i></button><button onclick="remove(${room})" data-toggle="toggle" title="Upload files" type="button" class="btn btn-danger m-b-5 m-r-7"><i class="fa fa-trash"></i></button></span></div><div class="f-u__label col-md-12 form-group"><label><?= $this->lang->line("wr_upload_files") ?></label><div class="file-upload__label-${room}"><?= $this->lang->line("wr_no_file_selected") ?></div></div></div></div>`;
 		parent.appendChild(div);
 	});
 
@@ -207,7 +256,7 @@
         const formGroupFileUploadClass = fileUploadClass.parentElement;
         const lastElementToSwitch = formGroupFileUploadClass.parentElement;
         const label = lastElementToSwitch.querySelector(`.file-upload__label-${element}`);
-        const defaultLabelText = 'No file(s) selected';
+        const defaultLabelText = `No file(s) selected`;
 
         // Set default text for label
         label.textContent = defaultLabelText;

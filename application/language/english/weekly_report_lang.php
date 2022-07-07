@@ -28,6 +28,18 @@ $lang['wr_alert_confirm_ok'] = 'Deleted!';
 // Tooltips
 $lang['wr_tool_evaluation_tp'] = 'Evaluation of the Silver Bullet Website';
 
+/**
+ * Weekly Report
+ */
+$lang['wr_process_group'] = "Process Group";
+$lang['wr_process_name'] = "Process Name";
+$lang['wr_process_description'] = "Process Description";
+$lang['wr_upload_files'] = "Upload Files";
+$lang['wr_uploaded_files'] = "Uploaded Files";
+$lang['wr_filename'] = "Filename";
+$lang['wr_actions'] = "Actions";
+$lang['wr_date_upload'] = "Date/Time Upload";
+
 
 
 

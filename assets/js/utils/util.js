@@ -8,14 +8,13 @@
  * @param {string} id the id to set to get the remaining
  */
 function limitText(element, limit, id) {
-    grow(element);
-
     var text = $(element).val();
     var remaining = limit - text.length;
     var limitStyled = stylingLimitText(id);
 
     if (remaining === limit) {
         limitStyled.style.display = "none";
+        grow(element);
         return;
     }
 
@@ -38,6 +37,7 @@ function limitText(element, limit, id) {
     } else {
         $(`#count-${id}`).text(remaining + `/${limit}`);
     }
+    grow(element);
 }
 
 function stylingLimitText(id) {
@@ -57,15 +57,15 @@ function stylingLimitText(id) {
  * Growing textarea vinculated with limitText function.
  */
 function grow(textarea) {
-    var maxSizeInPixels = 380;
+    let maxSizeInPixels = 380;
 
     if (textarea.scrollHeight < maxSizeInPixels) {
         textarea.style.height = "auto";
         textarea.style.height = Math.min(textarea.scrollHeight, maxSizeInPixels) + "px";
         textarea.style.overflow = "hidden";
     } else {
-        textarea.style.height = maxSizeInPx + "px";
-        textarea.style.overflow = "auto";
+        textarea.style.height = maxSizeInPixels + "px";
+        textarea.style.overflow = "visible";
     }
 };
 

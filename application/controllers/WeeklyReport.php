@@ -84,8 +84,8 @@ class WeeklyReport extends CI_Controller
 
 		$weekly_evaluation_id = $this->input->post('evaluation_id');
 
-		if ($this->WeeklyReport_model->alreadySubmitted($weekly_evaluation_id, $_SESSION['user_id'])) { 
-		// if (!$this->WeeklyReport_model->alreadySubmitted($weekly_evaluation_id, $_SESSION['user_id'])) {
+		// if ($this->WeeklyReport_model->alreadySubmitted($weekly_evaluation_id, $_SESSION['user_id'])) { 
+		if (!$this->WeeklyReport_model->alreadySubmitted($weekly_evaluation_id, $_SESSION['user_id'])) {
 			$this->session->set_flashdata('error', 'You\'ve already submitted to this report');
 			return redirect("weekly-report/list");
 		}

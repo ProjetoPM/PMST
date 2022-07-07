@@ -113,38 +113,8 @@
 		});
 	});
 
-	if(<?= $_SESSION['access_level'] ?> == 1)
-	document.getElementById('btn-report').disabled = "true"
+	// document.getElementById('btn-report').disabled = "true"
 </script>
-
-<!-- <script type="text/javascript">
-	function deletar(idProjeto, assumption_log_id) {
-		//e.preventDefault();
-		alertify.confirm('Do you agree?').setting({
-			'labels': {
-				ok: 'Agree',
-				cancel: 'Cancel'
-			},
-			'reverseButtons': false,
-			'onok': function() {
-
-				console.log(`Passei o ${idProjeto} e ${assumption_log_id}`);
-
-				$.post("<?php echo base_url() ?>integration/assumption-log/delete/" + assumption_log_id, {
-					project_id: idProjeto,
-				});
-				// location.reload();
-				window.location.reload();
-				alertify.success('You agree.');
-			},
-			'oncancel': function() {
-				alertify.error('You did not agree.');
-			}
-		}).show();
-
-	}
-</script> -->
-<!-- fim do weekly_report -->
 
 <script src="<?= base_url('assets/js/utils/util.js') ?>"></script>
 <script src="https://kit.fontawesome.com/a3de6dbf75.js" crossorigin="anonymous"></script>
