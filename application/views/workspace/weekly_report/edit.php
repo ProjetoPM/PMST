@@ -138,7 +138,7 @@
 		const div = document.createElement('div');
 		div.setAttribute('id', 'remove-' + room);
 		div.setAttribute('class', 'form-group');
-		div.innerHTML = `<div class="col-md-12"><div class="process-title p-l-17 p-b-5 p-t-5">Process #${++number}</div><div class="around col-md-12 m-b-25"><div class="form-group col-md-6"><label for="${room}">Process Group</label><select name="process_group-${room}"class="form-control" id="${room}" required><option selected disabled value="">Select</option><?php foreach($pmbok_processes as $process): ?><option value="<?=$process->pmbok_group_id?>"><?=$process->group_name?></option><?php endforeach?></select></div><div class="form-group col-md-6"><label for="process_name-${room}">Process Name</label><select name="process_name-${room}" class="form-control" id="process_name-${room}" value="${room}" required><option selected disabled value="">Select process group first</option></select></div><div class="form-group col-md-10"><label for="process_description">Process Description*&nbsp;</label><span id="count-${room}"></span><textarea oninput="limitText(this,2e3,&quot;${room}&quot;)" class="form-control" name="description-${room}" id="process_description-${room}" required></textarea></div><div class="form-group col-md-2"><label for="">Actions</label><br><span class="file-upload"><input class="file-upload__input-${room}" style="display: none;" type="file" name="files[${room}][]" id="${room}" multiple><button class="btn btn-default file-upload__button-${room} m-b-5 m-r-7" data-toggle="toggle" title="Upload files" type="button"><i class="fa fa-upload"></i></button><button onclick="remove(${room})" data-toggle="toggle" title="Upload files" type="button" class="btn btn-danger m-b-5 m-r-7"><i class="fa fa-trash"></i></button></span></div><div class="f-u__label col-md-12 form-group"><label>Uploaded Files</label><div class="file-upload__label-${room}"></div></div></div></div>`;
+		div.innerHTML = `<div class="col-md-12"><div class="process-title p-l-17 p-b-5 p-t-5">Process #${++number}</div><div class="around col-md-12 m-b-25"><div class="form-group col-md-6"><label for="${room}">Process Group</label><select name="process_group-${room}" class="form-control" id="${room}" required><option selected disabled value="">Select</option><?php foreach($pmbok_processes as $process): ?><option value="<?=$process->pmbok_group_id?>"><?=$process->group_name?></option><?php endforeach?></select></div><div class="form-group col-md-6"><label for="process_name-${room}">Process Name</label><select name="process_name-${room}" class="form-control" id="process_name-${room}" value="${room}" required><option selected disabled value="">Select process group first</option></select></div><div class="form-group col-md-10"><label for="process_description">Process Description*&nbsp;</label><span id="count-${room}"></span><textarea oninput="limitText(this,2e3,&quot;${room}&quot;)" class="form-control" name="description-${room}" id="process_description-${room}" required></textarea></div><div class="form-group col-md-2"><label for="">Actions</label><br><span class="file-upload"><input class="file-upload__input-${room}" style="display: none;" type="file" name="files-${room}[]" id="files-${room}" multiple><button onclick="openFileButton(${room}, this)" class="btn btn-default file-upload__button-${room} m-b-5 m-r-7" data-toggle="toggle" title="Upload files" type="button"><i class="fa fa-upload"></i></button><button onclick="remove(${room})" data-toggle="toggle" title="Upload files" type="button" class="btn btn-danger m-b-5 m-r-7"><i class="fa fa-trash"></i></button></span></div><div class="f-u__label col-md-12 form-group"><label>Uploaded Files</label><div class="file-upload__label-${room}">No file(s) selected.</div></div></div></div>`;
 		parent.appendChild(div);
 
         /**
@@ -190,32 +190,30 @@
         }
     })
 
-    function openFileButton(element) {
-        console.log(element);
-        Array.prototype.forEach.call(document.querySelectorAll(`.file-upload__button-${room}`), function (button) {
-            const hiddenInput = button.parentElement.querySelector(`.file-upload__input-${room}`);
-            const fileUploadClass = button.parentElement;
-            const formGroupFileUploadClass = fileUploadClass.parentElement;
-            const lastElementToSwitch = formGroupFileUploadClass.parentElement;
-            const label = lastElementToSwitch.querySelector(`.file-upload__label-${room}`);
-            const defaultLabelText = 'No file(s) selected';
+    /**
+     * Triggering the input button.
+     */
+    function openFileButton(element, button) {
+        const hiddenInput = button.parentElement.querySelector(`.file-upload__input-${element}`);
+        const fileUploadClass = button.parentElement;
+        const formGroupFileUploadClass = fileUploadClass.parentElement;
+        const lastElementToSwitch = formGroupFileUploadClass.parentElement;
+        const label = lastElementToSwitch.querySelector(`.file-upload__label-${element}`);
+        const defaultLabelText = 'No file(s) selected';
 
-            // Set default text for label
-            label.textContent = defaultLabelText;
-            label.title = defaultLabelText;
+        // Set default text for label
+        label.textContent = defaultLabelText;
+        label.title = defaultLabelText;
 
-            button.addEventListener('click', function () {
-                hiddenInput.click();
+        hiddenInput.click();
+
+        hiddenInput.addEventListener('change', function () {
+            const filenameList = Array.prototype.map.call(hiddenInput.files, function (file) {
+                return file.name;
             });
 
-            hiddenInput.addEventListener('change', function () {
-                const filenameList = Array.prototype.map.call(hiddenInput.files, function (file) {
-                    return file.name;
-                });
-
-                label.textContent = filenameList.join(', ') || defaultLabelText;
-                label.title = label.textContent;
-            });
+            label.textContent = filenameList.join(', ') || defaultLabelText;
+            label.title = label.textContent;
         });
     }
 

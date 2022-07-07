@@ -61,11 +61,30 @@ class WeeklyReport extends CI_Controller
 		}
 	}
 
+    public function uploadImage($weekly_report_id, $name, $size, $tmpName) {
+        /* Tamanho máximo do arquivo. */
+        $maxSizeInMb = 50;
+    
+        if ($size > $maxSizeInMb * 1e6)
+            return false;
+        
+        $folder = "upload/weekly_report/";
+        $fileName = $name;
+        $fileUniqName = uniqid();
+        $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+    
+        if ($fileExtension != "jpg" && $fileExtension != "png" && $fileExtension != "pdf" && $fileExtension != "jpeg") {
+            return false;
+        } else {
+            $filePath = $folder . $fileUniqName . "." . $fileExtension;
+            move_uploaded_file($tmpName, $filePath);
+            $this->Report_upload_model->saveImage($weekly_report_id, $fileName, $filePath);
+            return true;
+        }
+    }
+
 	public function insert()
 	{
-        // var_dump($_SESSION);
-        // ARRUMAR BANCO PARA ACEITAR OS ARQUIVOS
-        // exit();
 		$id = (verifyLanguage()) ? 2 : 1;
 
 		$weekly_evaluation_id = $this->input->post('evaluation_id');
@@ -106,6 +125,19 @@ class WeeklyReport extends CI_Controller
 			$weekly_report_process['pmbok_process_id'] = $this->input->post("process_name-$i");
 			$weekly_report_process['description'] = $this->input->post("description-$i");
 			$query = $this->Weekly_process_model->insert($weekly_report_process);
+
+            $files = $_FILES["files-${i}"];
+
+            if (isset($files) && count($files) > 0) {
+                foreach ($files['name'] as $index => $file) {
+                    $this->uploadImage(
+                        1, // alterar para o weekly_report_process
+                        $files['name'][$index],
+                        $files['size'][$index],
+                        $files['tmp_name'][$index],
+                    );
+                }
+            }
 		}
 
 		if ($query) {

@@ -47,4 +47,12 @@ class Report_upload_model extends CI_Model
 		$this->db->where('report_uploads.report_upload_id', $id);
 		return $this->db->update('report_uploads', $report_uploads);
 	}
+
+    public function saveImage($weekly_report_process_id, $name, $path) {
+        return $this->db->insert('report_uploads', array(
+            'weekly_report_process_id' => $weekly_report_process_id,
+            'name' => $name,
+            'path' => $path
+        ));
+    }
 }

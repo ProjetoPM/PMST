@@ -4,9 +4,8 @@ if (!function_exists('insertLogActivity')) {
         {
 
                 $obj = &get_instance();
-                $obj->load->model('view_model');
+                $obj->load->model('View_model');
                 $obj->load->model('Log_model');
-
 
                 date_default_timezone_set('america/sao_paulo');
 
