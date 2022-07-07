@@ -50,4 +50,18 @@ class Weekly_process_model extends CI_Model
 		$db2 = $this->db->delete('weekly_report_process_id', array('quality_checklist_id' => $weekly_report_id));
 		return $db1 + $db2;
 	}
+
+    /**
+     * Return the last inserted id of the weekly_report_process table.
+     */
+    public function getLastIdWeeklyReportProcess() {
+        $id = $this->db->select("weekly_report_process_id")
+                        ->from("weekly_report_process")
+                        ->order_by("weekly_report_process_id", "desc")
+                        ->limit(1)
+                        ->get()
+                        ->result();
+        
+        return $id[0]->weekly_report_process_id;
+    }
 }

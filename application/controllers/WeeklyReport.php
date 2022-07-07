@@ -5,14 +5,11 @@ if (!defined('BASEPATH')) {
 
 class WeeklyReport extends CI_Controller
 {
-
-	public function __construct()
-	{
+	public function __construct() {
 		parent::__construct();
 
-		date_default_timezone_set('America/Sao_Paulo');
-
-		if (!$this->session->userdata('logged_in')) redirect(base_url());
+		if (!$this->session->userdata('logged_in')) 
+            redirect(base_url());
 
 		$langs = array();
 		array_push($langs, 'weekly_eval', 'weekly_report');
@@ -32,36 +29,35 @@ class WeeklyReport extends CI_Controller
 		$this->load->helper('log_activity');
 	}
 
-	public function list()
-	{
-		$dado['weekly_report'] = $this->WeeklyReport_model->getAllPerMember($_SESSION['user_id']);
-		if (verifyLanguage()) {
-			$dado['processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(2);
-		} else {
-			$dado['processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
-		}
+	public function list() {
+        verifyLanguage() 
+            ? $this->WeeklyReport_model->getProcessGroupsByLanguage(2)
+            : $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
+            
+        $dado['weekly_report'] = $this->WeeklyReport_model->getAllPerMember($_SESSION['user_id']);
 
 		loadViews('workspace/weekly_report/list', $dado);
 	}
 
-	public function new()
-	{
-		if($this->Workspace_model->getRole($_SESSION['workspace_id'], $_SESSION['user_id']) == 2){
-			if (verifyLanguage()) {
-				$dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(2);
-			} else {
-				$dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
-			}
+	public function new() {
+		if($this->Workspace_model->getRole($_SESSION['workspace_id'], $_SESSION['user_id']) == 2) {
+			verifyLanguage() 
+                ? $this->WeeklyReport_model->getProcessGroupsByLanguage(2)
+                : $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
 			
 			$dado['evaluation'] = $this->WeeklyEvaluation_model->getAll();
 			loadViews('workspace/weekly_report/new', $dado);
-		}else{
+		} else {
 			$this->session->set_flashdata('error', 'You are not allowed to access this page');
 			redirect('workspace/list');
 		}
 	}
 
-    public function uploadImage($weekly_report_id, $name, $size, $tmpName) {
+    /**
+     * Função responsável em organizar as informações das imagens dos processos da página
+     * 'new' do Weekly Report e salvar na tabela 'report_uploads'.
+     */
+    public function uploadImage($weekly_report_id, $weekly_report_process_id, $name, $size, $tmpName) {
         /* Tamanho máximo do arquivo. */
         $maxSizeInMb = 50;
     
@@ -78,19 +74,18 @@ class WeeklyReport extends CI_Controller
         } else {
             $filePath = $folder . $fileUniqName . "." . $fileExtension;
             move_uploaded_file($tmpName, $filePath);
-            $this->Report_upload_model->saveImage($weekly_report_id, $fileName, $filePath);
+            $this->Report_upload_model->saveImage($weekly_report_id, $weekly_report_process_id, $fileName, $filePath);
             return true;
         }
     }
 
-	public function insert()
-	{
-		$id = (verifyLanguage()) ? 2 : 1;
+	public function insert() {
+		$pmbok_id = (verifyLanguage()) ? 2 : 1;
 
 		$weekly_evaluation_id = $this->input->post('evaluation_id');
 
-		// if ($this->WeeklyReport_model->alreadySubmitted($weekly_evaluation_id, $_SESSION['user_id'])) { 
-		if (!$this->WeeklyReport_model->alreadySubmitted($weekly_evaluation_id, $_SESSION['user_id'])) {
+		if ($this->WeeklyReport_model->alreadySubmitted($weekly_evaluation_id, $_SESSION['user_id'])) { 
+		// if (!$this->WeeklyReport_model->alreadySubmitted($weekly_evaluation_id, $_SESSION['user_id'])) {
 			$this->session->set_flashdata('error', 'You\'ve already submitted to this report');
 			return redirect("weekly-report/list");
 		}
@@ -111,27 +106,33 @@ class WeeklyReport extends CI_Controller
 			$this->session->set_flashdata('error', 'You are not able to create this item, since the deadline has arrived');
 			redirect('weekly-report/list');
 		}
-		$insert_id   = $this->WeeklyReport_model->insert($weekly_report);
+		$weekly_report_id = $this->WeeklyReport_model->insert($weekly_report);
 
-		if (!$insert_id) {
+		if (!$weekly_report_id) {
 			$this->session->set_flashdata('error', 'There was an error inserting the weekly report');
 			redirect('weekly-report/list');
 		}
 
 		for ($i = 1; $this->input->post("process_name-${i}"); $i++) {
-			$weekly_report_process['weekly_report_id'] = $insert_id;
-			$weekly_report_process['pmbok_id'] = $id;
+			$weekly_report_process['weekly_report_id'] = $weekly_report_id;
+			$weekly_report_process['pmbok_id'] = $pmbok_id;
 			$weekly_report_process['pmbok_group_id'] = $this->input->post("process_group-$i");
 			$weekly_report_process['pmbok_process_id'] = $this->input->post("process_name-$i");
 			$weekly_report_process['description'] = $this->input->post("description-$i");
 			$query = $this->Weekly_process_model->insert($weekly_report_process);
 
+            /**
+             * Recupera o id do último 'weekly_report_process_id' inserido. Este id é usado para
+             * associar as imagens a um processo.
+             */
+            $weekly_report_process_id = $this->Weekly_process_model->getLastIdWeeklyReportProcess();
             $files = $_FILES["files-${i}"];
 
             if (isset($files) && count($files) > 0) {
                 foreach ($files['name'] as $index => $file) {
                     $this->uploadImage(
-                        1, // alterar para o weekly_report_process
+                        $weekly_report_id,
+                        $weekly_report_process_id,
                         $files['name'][$index],
                         $files['size'][$index],
                         $files['tmp_name'][$index],
@@ -147,18 +148,22 @@ class WeeklyReport extends CI_Controller
 		}
 	}
 
-	public function edit($weekly_report_id)
-	{
-		if (strcmp($_SESSION['language'], "US") == 0) $this->lang->load('btn', 'english');
-		else $this->lang->load('btn', 'portuguese-brazilian');
+	public function edit($weekly_report_id) {
+		if (strcmp($_SESSION['language'], "US") == 0) 
+            $this->lang->load('btn', 'english');
+		else 
+            $this->lang->load('btn', 'portuguese-brazilian');
 
-		if (verifyLanguage()) $dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(2);
-		else $dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
+		if (verifyLanguage()) 
+            $dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(2);
+		else 
+            $dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
 
 		$dado['weekly_report'] = $this->WeeklyReport_model->get($weekly_report_id);
 		$dado['weekly_processes'] = $this->WeeklyReport_model->getAllProcesses($weekly_report_id, getIndexOfLanguage());
 		$dado['pmbok_groups'] = $this->WeeklyReport_model->getProcessNamesByGroup(getIndexOfLanguage());
-        
+        $dado['weekly_images'] = $this->Report_upload_model->getImages($weekly_report_id);
+
 		$dado['evaluation'] = array(
             'name' => getWeeklyEvaluationName($dado['weekly_report']['weekly_evaluation_id']),
 			'tool' => $dado['weekly_report']['tool_evaluation'],

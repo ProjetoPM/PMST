@@ -96,8 +96,6 @@ class WeeklyReport_model extends CI_Model
 	 * specified, considering the language.
 	 * 
 	 * Used on edit of WeeklyReport.
-	 * 
-	 * @author Matheus Boeira Dias
 	 */
 	public function getProcessesName($group) {
 		return $this->db->select("pmbok_group_id, name")
@@ -115,7 +113,12 @@ class WeeklyReport_model extends CI_Model
 
 	public function alreadySubmitted($weekly_evaluation_id, $user_id)
 	{
-		$query = $this->db->get_where('weekly_report', array('weekly_evaluation_id' => $weekly_evaluation_id, 'user_id' => $user_id))
+		$query = $this->db
+            ->get_where('weekly_report', 
+                array(
+                    'weekly_evaluation_id' => $weekly_evaluation_id, 
+                    'user_id' => $user_id
+                ))
 			->result();
 			
 		return empty($query) ?  false : true;

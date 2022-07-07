@@ -116,7 +116,6 @@
 	if(<?= $_SESSION['access_level'] ?> == 1)
 	document.getElementById('btn-report').disabled = "true"
 </script>
-<script src="<?= base_url('assets/js/utils/util.js') ?>"></script>
 
 <!-- <script type="text/javascript">
 	function deletar(idProjeto, assumption_log_id) {
@@ -147,9 +146,7 @@
 </script> -->
 <!-- fim do weekly_report -->
 
-<!-- Summernote to make an text editor available in 'textarea' -->
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-
+<script src="<?= base_url('assets/js/utils/util.js') ?>"></script>
 <script src="https://kit.fontawesome.com/a3de6dbf75.js" crossorigin="anonymous"></script>
 </body>
 </html>

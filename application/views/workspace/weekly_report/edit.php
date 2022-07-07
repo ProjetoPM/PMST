@@ -12,7 +12,7 @@
 						<form method="POST" action="<?= base_url('weekly-report/insert/') ?>">
 							<div class="col-lg-3 form-group">
 								<label><?= $this->lang->line('we_name') ?></label>
-								<span name="evaluation_id" size="1" class="form-control" tabindex="1" required>
+								<span name="evaluation_id" size="1" class="form-control" tabindex="1" disabled required>
 									<?= $evaluation['name'] ?>
 								</span>
 							</div>
@@ -86,8 +86,8 @@
 														<div class="form-group col-md-2">
 															<label for="">Actions</label><br>
 															<span class="file-upload">
-																<input class="file-upload__input-<?= $item->weekly_report_process_id ?>" type="file" name="files[<?= $item->weekly_report_process_id ?>][]" style="display: none;" multiple>
-																<button id="<?= $item->weekly_report_process_id ?>" class="btn btn-default file-upload__button-<?= $item->weekly_report_process_id ?> m-b-5 m-r-7" data-toggle="toggle" title="Upload files" type="button">
+																<input class="file-upload__input-<?= $item->weekly_report_process_id ?>" type="file" name="files-<?= $item->weekly_report_process_id ?>[]" style="display: none;" multiple>
+																<button onclick="openFileButton(<?= $item->weekly_report_process_id ?>, this)" id="<?= $item->weekly_report_process_id ?>" class="btn btn-default file-upload__button-<?= $item->weekly_report_process_id ?> m-b-5 m-r-7" data-toggle="toggle" title="Upload files" type="button">
 																	<i class="fa fa-upload"></i>
 																</button>
 																<button onclick="remove(<?= $item->weekly_report_process_id ?>)" data-toggle="toggle" title="Upload files" type="button" class="btn btn-danger m-b-5 m-r-7">
@@ -96,8 +96,26 @@
 															</span>
 														</div>
 														<div class="f-u__label col-md-12 form-group">
-															<label>Uploaded Files</label>
-															<div class="file-upload__label-<?= $item->weekly_report_process_id ?>">No file(s) selected.</div>
+															<label>Upload Files</label>
+															<div class="file-upload__label-<?= $item->weekly_report_process_id ?>">
+                                                                No file(s) selected.
+                                                            </div>
+                                                            <label class="m-t-15">Uploaded Files</label>
+                                                            <div class="uploaded-files">
+                                                                <?php foreach ($weekly_images as $image): ?>
+                                                                    <?php $count = 0 ?>
+                                                                    <?php if ($image->weekly_report_process_id == $item->weekly_report_process_id): ?>
+                                                                        <ul>
+                                                                            <li>
+                                                                                <span><?= $image->name ?></span>
+                                                                                <a data-bs-toggle="tooltip" title="Download image" href="<?= base_url($image->path) ?>" download><i class="m-l-2 fa-solid fa-file-arrow-down"></i></a>
+                                                                                <a data-bs-toggle="tooltip" title="Open image" href="<?= base_url($image->path) ?>" target="_blank"><i class="m-l-2 fa-solid fa-arrow-up-right-from-square"></i></a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    <?php $count++ ?>
+                                                                    <?php endif ?>
+                                                                <?php endforeach ?>
+                                                            </div>
 														</div>
 													</div>
 												</div>
@@ -122,13 +140,8 @@
 		</section>
 	</div>
 </div>
+<script src="https://kit.fontawesome.com/a3de6dbf75.js" crossorigin="anonymous"></script>
 <script>
-    /** 
-     *  TODO
-     *  
-     *  Correção do 'trigger' do botão de abrir a seleção de arquivos para os arquivos
-     *  antigos (os que vem no edit).
-     */
 	var room = 0, number = 0;
 
 	$('#add_process').on("click", function() {
@@ -140,11 +153,6 @@
 		div.setAttribute('class', 'form-group');
 		div.innerHTML = `<div class="col-md-12"><div class="process-title p-l-17 p-b-5 p-t-5">Process #${++number}</div><div class="around col-md-12 m-b-25"><div class="form-group col-md-6"><label for="${room}">Process Group</label><select name="process_group-${room}" class="form-control" id="${room}" required><option selected disabled value="">Select</option><?php foreach($pmbok_processes as $process): ?><option value="<?=$process->pmbok_group_id?>"><?=$process->group_name?></option><?php endforeach?></select></div><div class="form-group col-md-6"><label for="process_name-${room}">Process Name</label><select name="process_name-${room}" class="form-control" id="process_name-${room}" value="${room}" required><option selected disabled value="">Select process group first</option></select></div><div class="form-group col-md-10"><label for="process_description">Process Description*&nbsp;</label><span id="count-${room}"></span><textarea oninput="limitText(this,2e3,&quot;${room}&quot;)" class="form-control" name="description-${room}" id="process_description-${room}" required></textarea></div><div class="form-group col-md-2"><label for="">Actions</label><br><span class="file-upload"><input class="file-upload__input-${room}" style="display: none;" type="file" name="files-${room}[]" id="files-${room}" multiple><button onclick="openFileButton(${room}, this)" class="btn btn-default file-upload__button-${room} m-b-5 m-r-7" data-toggle="toggle" title="Upload files" type="button"><i class="fa fa-upload"></i></button><button onclick="remove(${room})" data-toggle="toggle" title="Upload files" type="button" class="btn btn-danger m-b-5 m-r-7"><i class="fa fa-trash"></i></button></span></div><div class="f-u__label col-md-12 form-group"><label>Uploaded Files</label><div class="file-upload__label-${room}">No file(s) selected.</div></div></div></div>`;
 		parent.appendChild(div);
-
-        /**
-		 * Triggering the input button.
-		 */
-		openFileButton(room);
 	});
 
     document.addEventListener('click', function () {
