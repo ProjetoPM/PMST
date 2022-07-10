@@ -72,6 +72,12 @@
                                                     </div>
                                                     <div class="around-edit col-md-12">
                                                         <div class="form-group col-md-6">
+                                                            <input 
+                                                                type="hidden" 
+                                                                id="update[<?= $item->weekly_report_process_id ?>][remove_process]" 
+                                                                name="update[<?= $item->weekly_report_process_id ?>][remove_process]" 
+                                                                value="false"
+                                                            >
                                                             <label for="update[<?= $item->weekly_report_process_id ?>][process_group]">
                                                                 <?= $this->lang->line("wr_process_group") ?>
                                                             </label>
@@ -107,8 +113,8 @@
                                                                 required
                                                             >
                                                                 <?php foreach ($list_processes_name as $list) : ?>
-                                                                    <option <?= (strcmp($name, $list->name) === 0) ? 'selected' : '' ?> value="<?= $list->pmbok_group_id ?>">
-                                                                        <?= $name ?><?= $list->name ?>
+                                                                    <option <?= (strcmp($name, $list->name) === 0) ? 'selected' : '' ?> value="<?= $list->pmbok_process_id ?>">
+                                                                        <?= $list->name ?>
                                                                     </option>
                                                                 <?php endforeach ?>
                                                             </select>
@@ -148,7 +154,7 @@
                                                                     <i class="fa fa-upload"></i>
                                                                 </button>
                                                                 <button 
-                                                                    onclick="remove('<?= $item->weekly_report_process_id ?>')" 
+                                                                    onclick="markToRemove('<?= $item->weekly_report_process_id ?>')" 
                                                                     data-toggle="toggle" 
                                                                     title="Upload files" 
                                                                     type="button" 
@@ -269,6 +275,21 @@
             function() {
                 $(`#remove-${id}`).remove();
                 alertify.success('<?= $this->lang->line('wr_alert_confirm_ok') ?>')
+            },
+            function() {
+                alertify.warning('<?= $this->lang->line('wr_alert_confirm_cancel') ?>')
+            }
+        );
+    }
+
+    function markToRemove(id) {
+        alertify.set('notifier', 'delay', 1.5);
+        alertify.confirm('<?= $this->lang->line('wr_alert_confirm_title') ?>',
+            '<?= $this->lang->line('wr_alert_confirm_text') ?>',
+            function() {
+                document.getElementById(`remove-${id}`).style.display = "none";
+                alertify.success('<?= $this->lang->line('wr_alert_confirm_ok') ?>');
+                document.getElementById(`update[${id}][remove_process]`).value = true;
             },
             function() {
                 alertify.warning('<?= $this->lang->line('wr_alert_confirm_cancel') ?>')

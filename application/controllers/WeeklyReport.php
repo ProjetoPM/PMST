@@ -92,7 +92,7 @@ class WeeklyReport extends CI_Controller
          */
         $weekly_report          = $this->input->post('weekly_report');
         $processes              = $this->input->post('add');
-        $files                  = $_FILES['files'];
+        $files                  = $_FILES['files'] ?? [];
 
         /** 
          * Getting the informations.
@@ -140,43 +140,41 @@ class WeeklyReport extends CI_Controller
         /**
          * Inserting all the processes of the weekly report.
          */
-        
-        foreach ($processes as $i => $value) {
-            $save_weekly_report_process['weekly_report_id']         = $weekly_report_id;
-            $save_weekly_report_process['pmbok_id']                 = $pmbok_id;
-            $save_weekly_report_process['pmbok_group_id']           = $processes[$i]['process_group'];
-            $save_weekly_report_process['pmbok_process_id']         = $processes[$i]['process_name'];
-            $save_weekly_report_process['description']              = $processes[$i]['process_description'];
-
-            /**
-             * Inserting the weekly_report_process.
-             */
-            $query = $this->Weekly_process_model->insert($save_weekly_report_process);
-
-            /**
-             * Recovering the last of 'weekly_report_process_id' inserted. This will be used 
-             * to associate the images.
-             */
-            $weekly_report_process_id = $this->Weekly_process_model->getLastIdWeeklyReportProcess();
-
-            /**
-             * Inserting images.
-             */
-            for ($j = 0; $j < count($files['name'][$i]); $j++) {
-                $this->uploadImage(
-                    $weekly_report_id,
-                    $weekly_report_process_id,
-                    $files['name'][$i][$j],
-                    $files['size'][$i][$j],
-                    $files['tmp_name'][$i][$j],
-                );
+        if ($processes !== null) {
+            foreach ($processes as $i => $value) {
+                $save_weekly_report_process['weekly_report_id']         = $weekly_report_id;
+                $save_weekly_report_process['pmbok_id']                 = $pmbok_id;
+                $save_weekly_report_process['pmbok_group_id']           = $processes[$i]['process_group'];
+                $save_weekly_report_process['pmbok_process_id']         = $processes[$i]['process_name'];
+                $save_weekly_report_process['description']              = $processes[$i]['process_description'];
+    
+                /**
+                 * Inserting the weekly_report_process.
+                 */
+                $this->Weekly_process_model->insert($save_weekly_report_process);
+    
+                /**
+                 * Recovering the last of 'weekly_report_process_id' inserted. This will be used 
+                 * to associate the images.
+                 */
+                $weekly_report_process_id = $this->Weekly_process_model->getLastIdWeeklyReportProcess();
+    
+                /**
+                 * Inserting images.
+                 */
+                for ($j = 0; $j < count($files['name'][$i]); $j++) {
+                    $this->uploadImage(
+                        $weekly_report_id,
+                        $weekly_report_process_id,
+                        $files['name'][$i][$j],
+                        $files['size'][$i][$j],
+                        $files['tmp_name'][$i][$j],
+                    );
+                }
             }
         }
-
-        if ($query) {
-            $this->session->set_flashdata('success', 'Weekly Report has been successfully created!');
-            redirect('weekly-report/list');
-        }
+        $this->session->set_flashdata('success', 'Weekly Report has been successfully created!');
+        redirect('weekly-report/list');
     }
 
     public function edit($weekly_report_id)
@@ -219,8 +217,6 @@ class WeeklyReport extends CI_Controller
         /**
          * Adding new processes.
          */
-        print_r(empty($new_processes) ? 'new_processes está vazio.' : 'new_processes não está vazio.');
-
         if (!empty($new_processes)) {
             foreach ($new_processes as $i => $value) {
                 $save_weekly_report_process['weekly_report_id']         = $weekly_report_id;
@@ -243,25 +239,29 @@ class WeeklyReport extends CI_Controller
                 /**
                  * Inserting images.
                  */
-                for ($j = 0; $j < count($new_files_new_processes['name'][$i]); $j++) {
-                    $this->uploadImage(
-                        $weekly_report_id,
-                        $weekly_report_process_id,
-                        $new_files_new_processes['name'][$i][$j],
-                        $new_files_new_processes['size'][$i][$j],
-                        $new_files_new_processes['tmp_name'][$i][$j],
-                    );
+                if (!empty($new_files_new_processes)) {
+                    for ($j = 0; $j < count($new_files_new_processes['name'][$i]); $j++) {
+                        $this->uploadImage(
+                            $weekly_report_id,
+                            $weekly_report_process_id,
+                            $new_files_new_processes['name'][$i][$j],
+                            $new_files_new_processes['size'][$i][$j],
+                            $new_files_new_processes['tmp_name'][$i][$j],
+                        );
+                    }
                 }
             }
         }
-
-        print_r(empty($old_processes) ? '----------old_processes está vazio.' : 'old_processes não está vazio.');
 
         /**
          * Updating old processes.
          */
         if (!empty($old_processes)) {
             foreach ($old_processes as $i => $value) {
+                if ($old_processes[$i]['remove_process'] == 'true') {
+                    $this->Weekly_process_model->delete_process($i, $weekly_report_id);
+                    continue;
+                }
                 $update_weekly_report_process['weekly_report_process_id']   = $i;
                 $update_weekly_report_process['pmbok_id']                   = $pmbok_id;
                 $update_weekly_report_process['pmbok_group_id']             = $old_processes[$i]['process_group'];
@@ -276,59 +276,30 @@ class WeeklyReport extends CI_Controller
                 /**
                  * Inserting images.
                  */
-                for ($j = 0; $j < count($new_files_old_processes['name'][$i]); $j++) {
-                    $this->uploadImage(
-                        $weekly_report_id,
-                        $i,
-                        $new_files_old_processes['name'][$i][$j],
-                        $new_files_old_processes['size'][$i][$j],
-                        $new_files_old_processes['tmp_name'][$i][$j],
-                    );
+                if (!empty($new_files_old_processes)) {
+                    for ($j = 0; $j < count($new_files_old_processes['name'][$i]); $j++) {
+                        $this->uploadImage(
+                            $weekly_report_id,
+                            $i,
+                            $new_files_old_processes['name'][$i][$j],
+                            $new_files_old_processes['size'][$i][$j],
+                            $new_files_old_processes['tmp_name'][$i][$j],
+                        );
+                    }
                 }
             }
         }
-
-
-        // print_r($_FILES);
-        // // print_r($new_files_old_processes);
-        // exit();
-
-        // /** 
-        //  * Getting the informations.
-        //  */
-        // $user_id                = $_SESSION['user_id'];
-        // $evaluation_id          = $weekly_report['evaluation_id'];
-        // $tool_evaluation        = $weekly_report['tool_evaluation'];
-
-        // $weekly_report['tool_evaluation'] = $this->input->post('tool_evaluation');
-        // $weekly_report['user_id'] = $_SESSION['user_id'];
-
-        // $weekly_report_process['process_name'] = $this->input->post('process');
-        // $weekly_report_process['description'] = $this->input->post('description');
-
-        // $data = $this->WeeklyEvaluation_model->getDeadline($weekly_report['weekly_evaluation_id']);
-        // $date = date('m/d/Y', time());
-        // $currentDate = new DateTime($date);
-        // $submitDay = new DateTime($data);
-
-        // if ($currentDate > $submitDay) {
-        //     $this->session->set_flashdata('error', 'You are not able to update this item, since the deadline has arrived');
-        //     redirect('weekly-report/list');
-        // } else {
-        //     $insert_id   = $this->WeeklyReport_model->update($weekly_report, $weekly_report_id);
-        //     $query2 = $this->WeeklyReport_model->updateProcessReport($weekly_report_process, $insert_id);
-        //     insertLogActivity('update', 'weekly report');
-        //     $this->session->set_flashdata('update', 'Weekly Report has been successfully changed!');
-        //     redirect('weekly-report/list');
-        // }
+        $this->session->set_flashdata('success', 'Weekly Report has been successfully changed!');
+        redirect('weekly-report/list');
     }
 
     public function delete($weekly_report_id)
     {
-        //$project_id['project_id'] = $project_id;
         $query = $this->WeeklyReport_model->delete($weekly_report_id);
+
         if ($query) {
-            insertLogActivity('delete', 'quality checklist');
+            insertLogActivity('delete', 'weekly report');
+            $this->session->set_flashdata('success', 'Weekly Report has been successfully deleted!');
             redirect('weekly-report/list');
         }
     }

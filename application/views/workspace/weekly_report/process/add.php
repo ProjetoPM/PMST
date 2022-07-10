@@ -18,7 +18,7 @@
                     <?= $this->lang->line('wr_select_process_group') ?>
                 </option>
                 <?php foreach($pmbok_processes as $process): ?>
-                    <option value="<?=$process->pmbok_group_id?>">
+                    <option value="<?= $process->pmbok_group_id ?>">
                         <?=$process->group_name?>
                     </option>
                 <?php endforeach ?>

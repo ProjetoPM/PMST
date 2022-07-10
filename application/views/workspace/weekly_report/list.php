@@ -23,10 +23,10 @@
 											<tr>
 												<th class="col">#</th>
 												<th class="col"><?= $this->lang->line('wr_username') ?></th>
-												<th class="col-lg-2"><?= $this->lang->line('we_name') ?></th>
-												<th class="col-lg-4"><?= $this->lang->line('wr_tool_evaluation') ?></th>
-												<th class="col-lg-2"><?= $this->lang->line('we_score') ?></th>
-												<th class="col-lg-2"><?= $this->lang->line('actions') ?></th>
+												<th class="col"><?= $this->lang->line('we_name') ?></th>
+												<th class="col-lg-3"><?= $this->lang->line('wr_tool_evaluation') ?></th>
+												<th class="col"><?= $this->lang->line('we_score') ?></th>
+												<th class="col-lg-3"><?= $this->lang->line('actions') ?></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -39,14 +39,16 @@
 													<td><?= getScoreIdAsScore($data->score) ?></td>
 													<td>
 														<div class="center">
-															<div class="col-sm-4 p-l-0">
+															<div class="col-md-4 p-l-0">
 																<span>
-																	<input type="hidden" value="<?= $data->weekly_report_id ?>">
 																	<button onclick=goTo(`<?= base_url("weekly-report/edit/$data->weekly_report_id") ?>`) class="btn btn-default">
 																		<i class="fa fa-pencil"></i>
 																		<span class="hidden-xs"></span>
 																	</button>
-																	<input type="hidden" value="<?= $data->weekly_report_id ?>">
+                                                                    <button onclick=remove(`<?= $data->weekly_report_id ?>`) class="btn btn-danger">
+																		<i class="fa fa-trash"></i>
+																		<span class="hidden-xs"></span>
+																	</button>
 																</span>
 															</div>
 														</div>
@@ -67,4 +69,19 @@
 			</section>
 		</div>
 	</div>
+    <script>
+        function remove(id) {
+            alertify.set('notifier', 'delay', 1.5);
+            alertify.confirm('<?= $this->lang->line('wr_alert_confirm_title') ?>',
+                '<?= $this->lang->line('wr_alert_confirm_text') ?>',
+                function() {
+                    window.location.href = `<?= base_url('weekly-report/delete/') ?>${id}`;
+                    alertify.success('<?= $this->lang->line('wr_alert_confirm_ok') ?>')
+                },
+                function() {
+                    alertify.warning('<?= $this->lang->line('wr_alert_confirm_cancel') ?>')
+                }
+            );
+        }
+    </script>
 </body>

@@ -120,9 +120,8 @@ function openFileButton(element, button, textLabel) {
 }
 
 function getProcessesName(processNumber, editPage = false, update = false, newPage = true) {
-    const PATH = editPage 
-        ? '../../weekly-report/process-name-ajax' 
-        : '../weekly-report/process-name-ajax';
+    let PATH = editPage ? '../../weekly-report/process-name-ajax' 
+                        : '../weekly-report/process-name-ajax';
 
     /**
      * Weekly Report
@@ -132,8 +131,6 @@ function getProcessesName(processNumber, editPage = false, update = false, newPa
      */
     let valueProcessGroup;
     let selectProcessName;
-
-    console.log(newPage);
 
     if (!newPage) {
         if (update) {
@@ -147,12 +144,13 @@ function getProcessesName(processNumber, editPage = false, update = false, newPa
         valueProcessGroup = document.getElementById(`add[${processNumber}][process_group]`).value;
         selectProcessName = document.getElementById(`add[${processNumber}][process_name]`);
     }
-
+    
     /**
      * Ajax call.
      */
+    $(selectProcessName).empty();
+
     $.get(PATH, function(data, status) {
-        $(selectProcessName).empty();
         const dataToManipulate = JSON.parse(data);
 
         for (let i = 0; i < dataToManipulate.length; i++) {

@@ -22,18 +22,20 @@ class WeeklyReport_model extends CI_Model
 		return $query->row_array();
 	}
 
-	public function update($weekly_report, $weekly_report_id)
+	public function update($weekly_report_id, $weekly_report)
 	{
-		$this->db->where('weekly_report.weekly_report_id', $weekly_report_id);
-		return $this->db->update('weekly_report', $weekly_report);
+        $this->db->set('tool_evaluation', $weekly_report['tool_evaluation']);
+		$this->db->where('weekly_report_id', $weekly_report_id);
+		return $this->db->update('weekly_report');
 	}
 	
 	public function delete($weekly_report_id)
 	{
-		$this->db->where('weekly_report.weekly_report_id', $weekly_report_id);
-		$db1 = $this->db->delete('weekly_report');
-		$db2 = $this->db->delete('weekly_report_process_id', array('quality_checklist_id' => $weekly_report_id));
-		return $db1 + $db2;
+		$this->db->where('weekly_report_id', $weekly_report_id);
+		$weekly_report = $this->db->delete('weekly_report');
+        $this->db->where('weekly_report_id', $weekly_report_id);
+        $weekly_report_process = $this->db->delete('weekly_report_process');
+        return $weekly_report && $weekly_report_process;
 	}
 	// __________________________________________________
 
@@ -98,7 +100,7 @@ class WeeklyReport_model extends CI_Model
 	 * Used on edit of WeeklyReport.
 	 */
 	public function getProcessesName($group) {
-		return $this->db->select("pmbok_group_id, name")
+		return $this->db->select("pmbok_process_id, pmbok_group_id, name")
 						->from("pmbok_process")
 						->where("pmbok_group_id", $group)
 						->where("pmbok_id", getIndexOfLanguage())

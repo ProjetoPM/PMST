@@ -47,12 +47,11 @@ class Weekly_process_model extends CI_Model
 		return $this->db->update('weekly_report_process');
 	}
 
-	public function delete($weekly_report_id)
+	public function delete_process($weekly_report_process_id, $weekly_report_id)
 	{
-		$this->db->where('weekly_report.weekly_report_id', $weekly_report_id);
-		$db1 = $this->db->delete('weekly_report');
-		$db2 = $this->db->delete('weekly_report_process_id', array('quality_checklist_id' => $weekly_report_id));
-		return $db1 + $db2;
+        $this->db->where('weekly_report_process_id', $weekly_report_process_id);
+        $this->db->where('weekly_report_id', $weekly_report_id);
+		return $this->db->delete('weekly_report_process');
 	}
 
     /**
