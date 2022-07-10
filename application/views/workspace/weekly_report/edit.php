@@ -79,7 +79,7 @@
                                                                 name="update[<?= $item->weekly_report_process_id ?>][process_group]" 
                                                                 class="form-control" 
                                                                 id="update[<?= $item->weekly_report_process_id ?>][process_group]" 
-                                                                oninput="getProcessesName('<?= $item->weekly_report_process_id ?>')" 
+                                                                oninput="getProcessesName('<?= $item->weekly_report_process_id ?>', true, true, false)" 
                                                                 required
                                                             >
                                                                 <option selected disabled value="">
@@ -88,8 +88,9 @@
                                                                 <?php foreach($pmbok_processes as $process): ?>
                                                                     <option 
                                                                         <?= (($pmbok_group_id === $process->pmbok_group_id) ? 'selected' : '') ?> 
-                                                                            name="update[<?= $process->pmbok_group_id ?>][group_name]" 
-                                                                            value="<?= $process->pmbok_group_id ?>">
+                                                                        name="update[<?= $process->pmbok_group_id ?>][group_name]" 
+                                                                        value="<?= $process->pmbok_group_id ?>"
+                                                                    >
                                                                         <?= $process->group_name ?>
                                                                     </option>
                                                                 <?php endforeach?>
@@ -107,7 +108,7 @@
                                                             >
                                                                 <?php foreach ($list_processes_name as $list) : ?>
                                                                     <option <?= (strcmp($name, $list->name) === 0) ? 'selected' : '' ?> value="<?= $list->pmbok_group_id ?>">
-                                                                        <?= $list->name ?>
+                                                                        <?= $name ?><?= $list->name ?>
                                                                     </option>
                                                                 <?php endforeach ?>
                                                             </select>
@@ -133,8 +134,8 @@
                                                                     class="file-upload__input-<?= $item->weekly_report_process_id ?>" 
                                                                     style="display: none;" 
                                                                     type="file" 
-                                                                    name="update-files[<?= $item->weekly_report_process_id ?>][]" 
-                                                                    id="update-files[<?= $item->weekly_report_process_id ?>]" 
+                                                                    name="files_update[<?= $item->weekly_report_process_id ?>][]" 
+                                                                    id="files_update[<?= $item->weekly_report_process_id ?>]" 
                                                                     multiple
                                                                 >
                                                                 <button 
@@ -260,38 +261,6 @@
 
         parent.appendChild(div);
     });
-
-    function getProcessesName(processNumber) {
-        "use strict"
-        /**
-         * Weekly Report
-         * Getting the process name based on process group
-         * selected, using ajax calls. This will catch all
-         * selected processes returned by database.
-         */
-        let valueProcessGroup = document.getElementById(`add[${processNumber}][process_group]`).value;
-        let selectProcessName = document.getElementById(`add[${processNumber}][process_name]`)
-
-        const PATH = `../weekly-report/process-name-ajax`;
-
-        /**
-         * Ajax call.
-         */
-        $.get(PATH, function(data, status) {
-            $(selectProcessName).empty();
-            const dataToManipulate = JSON.parse(data);
-
-            for (let i = 0; i < dataToManipulate.length; i++) {
-                if (valueProcessGroup === dataToManipulate[i].pmbok_group_id) {
-                    $(selectProcessName).append($('<option>', {
-                        value: dataToManipulate[i].pmbok_process_id,
-                        text: dataToManipulate[i].name
-                    }));
-                }
-            }
-            $(selectProcessName).value = 1;
-        });
-    }
 
     function remove(id) {
         alertify.set('notifier', 'delay', 1.5);

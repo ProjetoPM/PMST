@@ -11,7 +11,7 @@
                 name="add[${room}][process_group]" 
                 class="form-control" 
                 id="add[${room}][process_group]" 
-                oninput="getProcessesName('${room}')" 
+                oninput="getProcessesName('${room}', <?= strcmp($this->uri->segment(2), 'edit') === 0 ? 'true' : 'false' ?>, <?= strcmp($this->uri->segment(2), 'edit') === 0 ? 'false' : 'true' ?>, <?= strcmp($this->uri->segment(2), 'new') === 0 ? 'true' : 'false' ?>)" 
                 required
             >
                 <option selected disabled value="">

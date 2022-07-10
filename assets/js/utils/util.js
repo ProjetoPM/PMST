@@ -118,3 +118,51 @@ function openFileButton(element, button, textLabel) {
         label.title = label.textContent;
     });
 }
+
+function getProcessesName(processNumber, editPage = false, update = false, newPage = true) {
+    const PATH = editPage 
+        ? '../../weekly-report/process-name-ajax' 
+        : '../weekly-report/process-name-ajax';
+
+    /**
+     * Weekly Report
+     * Getting the process name based on process group
+     * selected, using ajax calls. This will catch all
+     * selected processes returned by database.
+     */
+    let valueProcessGroup;
+    let selectProcessName;
+
+    console.log(newPage);
+
+    if (!newPage) {
+        if (update) {
+            valueProcessGroup = document.getElementById(`update[${processNumber}][process_group]`).value;
+            selectProcessName = document.getElementById(`update[${processNumber}][process_name]`);
+        } else {
+            valueProcessGroup = document.getElementById(`add[${processNumber}][process_group]`).value;
+            selectProcessName = document.getElementById(`add[${processNumber}][process_name]`);
+        }
+    } else {
+        valueProcessGroup = document.getElementById(`add[${processNumber}][process_group]`).value;
+        selectProcessName = document.getElementById(`add[${processNumber}][process_name]`);
+    }
+
+    /**
+     * Ajax call.
+     */
+    $.get(PATH, function(data, status) {
+        $(selectProcessName).empty();
+        const dataToManipulate = JSON.parse(data);
+
+        for (let i = 0; i < dataToManipulate.length; i++) {
+            if (valueProcessGroup === dataToManipulate[i].pmbok_group_id) {
+                $(selectProcessName).append($('<option>', {
+                    value: dataToManipulate[i].pmbok_process_id,
+                    text: dataToManipulate[i].name
+                }));
+            }
+        }
+        $(selectProcessName).value = 1;
+    });
+}

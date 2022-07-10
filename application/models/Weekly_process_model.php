@@ -36,11 +36,15 @@ class Weekly_process_model extends CI_Model
 		return $query->result();
 	}
 
-	
-	public function update($weekly_report, $weekly_report_id)
+    public function update_processes($weekly_report_id, $update_weekly_report)
 	{
-		$this->db->where('weekly_report.weekly_report_id', $weekly_report_id);
-		return $this->db->update('weekly_report', $weekly_report);
+        $this->db->set('pmbok_id', $update_weekly_report['pmbok_id']);
+        $this->db->set('pmbok_group_id', $update_weekly_report['pmbok_group_id']);
+        $this->db->set('pmbok_process_id', $update_weekly_report['pmbok_process_id']);
+        $this->db->set('description', $update_weekly_report['description']);
+		$this->db->where('weekly_report_id', $weekly_report_id);
+		$this->db->where('weekly_report_process_id', $update_weekly_report['weekly_report_process_id']);
+		return $this->db->update('weekly_report_process');
 	}
 
 	public function delete($weekly_report_id)
