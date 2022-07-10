@@ -8,6 +8,7 @@
  * @param {string} id the id to set to get the remaining
  */
 function limitText(element, limit, id) {
+    "use strict"
     var text = $(element).val();
     var remaining = limit - text.length;
     var limitStyled = stylingLimitText(id);
@@ -90,3 +91,30 @@ $(document).ready(function () {
         "order": [[0, "desc"]]
     });
 });
+
+/**
+ * WeeklyReport trigger input file.
+ */
+function openFileButton(element, button, textLabel) {
+    "use strict"
+    const hiddenInput = button.parentElement.querySelector(`.file-upload__input-${element}`);
+    const fileUploadClass = button.parentElement;
+    const formGroupFileUploadClass = fileUploadClass.parentElement;
+    const lastElementToSwitch = formGroupFileUploadClass.parentElement;
+    const label = lastElementToSwitch.querySelector(`.file-upload__label-${element}`);
+    const defaultLabelText = `${textLabel}`;
+
+    label.textContent = defaultLabelText;
+    label.title = defaultLabelText;
+
+    hiddenInput.click();
+
+    hiddenInput.addEventListener('change', function () {
+        const filenameList = Array.prototype.map.call(hiddenInput.files, function (file) {
+            return file.name;
+        });
+
+        label.textContent = filenameList.join(', ') || defaultLabelText;
+        label.title = label.textContent;
+    });
+}

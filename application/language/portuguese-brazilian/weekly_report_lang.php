@@ -39,7 +39,7 @@ $lang['wr_actions'] = "Ações";
 $lang['wr_date_upload'] = "Data/Hora de Envio";
 $lang['wr_no_file_selected'] = "Nenhum arquivo selecionado.";
 $lang['wr_process'] = "Processo";
-$lang['wr_select'] = "Selecione";
+$lang['wr_select_process_group'] = "Selecione o grupo de processo";
 $lang['wr_process_group_first'] = "Selecione um grupo de processo antes";
 
 

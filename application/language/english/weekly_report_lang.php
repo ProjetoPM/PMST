@@ -41,7 +41,7 @@ $lang['wr_actions'] = "Actions";
 $lang['wr_date_upload'] = "Date/Time Upload";
 $lang['wr_no_file_selected'] = "No file(s) selected.";
 $lang['wr_process'] = "Process";
-$lang['wr_select'] = "Select";
+$lang['wr_select_process_group'] = "Select the process group";
 $lang['wr_process_group_first'] = "Select a process group first";
 
 

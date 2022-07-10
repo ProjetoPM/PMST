@@ -103,17 +103,33 @@ button.close:hover {
 
 /* testing */
 .around {
-    margin: 0;
     padding: 15px 0;
-    border: 1.6px #3c8e29;
-    border-style: none dotted dotted dotted;
+    border: 1px #3c8e29;
+    border-style: none solid solid solid;
     border-radius: 0 0 7px 7px;
 }
 
 .process-title {
+    padding: 5px 7px;
+    margin: 0;
     color: white;
-    background-color: rgb(77, 154, 77);
-    border-radius: 4px 4px 0 0;
+    background-color: #3c8e29;
+    border-radius: 7px 7px 0 0;
+}
+
+.around-edit {
+    padding: 15px 0;
+    border: 1px #3d6e9c;
+    border-style: none solid solid solid;
+    border-radius: 0 0 7px 7px;
+}
+
+.process-title-edit {
+    padding: 5px 7px;
+    margin: 0;
+    color: white;
+    background-color: #3d6e9c;
+    border-radius: 7px 7px 0 0;
 }
 
 .form-control {
