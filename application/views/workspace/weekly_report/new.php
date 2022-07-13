@@ -92,38 +92,6 @@
         parent.appendChild(div);
     });
 
-    function getProcessesName(processNumber) {
-        "use strict"
-        /**
-         * Weekly Report
-         * Getting the process name based on process group
-         * selected, using ajax calls. This will catch all
-         * selected processes returned by database.
-         */
-        let valueProcessGroup = document.getElementById(`add[${processNumber}][process_group]`).value;
-        let selectProcessName = document.getElementById(`add[${processNumber}][process_name]`)
-
-        const PATH = `../weekly-report/process-name-ajax`;
-
-        /**
-         * Ajax call.
-         */
-        $.get(PATH, function(data, status) {
-            $(selectProcessName).empty();
-            const dataToManipulate = JSON.parse(data);
-
-            for (let i = 0; i < dataToManipulate.length; i++) {
-                if (valueProcessGroup === dataToManipulate[i].pmbok_group_id) {
-                    $(selectProcessName).append($('<option>', {
-                        value: dataToManipulate[i].pmbok_process_id,
-                        text: dataToManipulate[i].name
-                    }));
-                }
-            }
-            $(selectProcessName).value = 1;
-        });
-    }
-
     function remove(id) {
         alertify.set('notifier', 'delay', 1.5);
         alertify.confirm('<?= $this->lang->line('wr_alert_confirm_title') ?>',
