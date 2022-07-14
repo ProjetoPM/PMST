@@ -59,7 +59,7 @@ class WeeklyEvaluation extends CI_Controller
 		}
 		$role = $this->Workspace_model->getRole($_SESSION['workspace_id'], $_SESSION['user_id']);
 
-		if ($role == 2) {			
+		if ($role == 1) {			
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');
@@ -85,6 +85,7 @@ class WeeklyEvaluation extends CI_Controller
 		$weekly_evaluation['individual_or_group'] = $this->input->post('type');
 		$weekly_evaluation['user_id'] = $_SESSION['user_id'];
 		$weekly_evaluation['workspace_id'] = $_SESSION['workspace_id'];
+		$weekly_evaluation['group_score_id'] = $this->input->post('score_metric');
 		
 		$insert  = $this->WeeklyEvaluation_model->insert($weekly_evaluation);
 

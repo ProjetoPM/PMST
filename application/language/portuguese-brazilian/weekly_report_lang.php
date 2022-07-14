@@ -13,6 +13,8 @@ $lang['wr_process_description'] = 'Descrição do Processo';
 $lang['wr_new_report'] = 'Nova Submissão';
 $lang['wr_submissions'] = 'Submissões';
 $lang['wr_score'] = 'Nota';
+$lang['wr_score_feedback'] = 'Submissão Não Avaliada até o Momento';
+
 
 
 $lang['wr_username'] = 'Usuário';

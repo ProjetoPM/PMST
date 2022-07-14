@@ -33,7 +33,6 @@ class WeeklyReport extends CI_Controller
     public function list()
     {
         $dado['weekly_report'] = $this->WeeklyReport_model->getAllPerMember($_SESSION['user_id']);
-
         $dado['processes'] = verifyLanguage()
             ? $this->WeeklyReport_model->getProcessGroupsByLanguage(2)
             : $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
@@ -147,18 +146,18 @@ class WeeklyReport extends CI_Controller
                 $save_weekly_report_process['pmbok_group_id']           = $processes[$i]['process_group'];
                 $save_weekly_report_process['pmbok_process_id']         = $processes[$i]['process_name'];
                 $save_weekly_report_process['description']              = $processes[$i]['process_description'];
-    
+
                 /**
                  * Inserting the weekly_report_process.
                  */
                 $this->Weekly_process_model->insert($save_weekly_report_process);
-    
+
                 /**
                  * Recovering the last of 'weekly_report_process_id' inserted. This will be used 
                  * to associate the images.
                  */
                 $weekly_report_process_id = $this->Weekly_process_model->getLastIdWeeklyReportProcess();
-    
+
                 /**
                  * Inserting images.
                  */
@@ -210,7 +209,7 @@ class WeeklyReport extends CI_Controller
          */
         $weekly_report              = $this->input->post('weekly_report');
         $new_processes              = $this->input->post('add');
-        $old_processes              = $this->input->post('update');  
+        $old_processes              = $this->input->post('update');
         $new_files_new_processes    = $_FILES['files'] ?? [];
         $new_files_old_processes    = $_FILES['files_update'] ?? [];
 
@@ -224,18 +223,18 @@ class WeeklyReport extends CI_Controller
                 $save_weekly_report_process['pmbok_group_id']           = $new_processes[$i]['process_group'];
                 $save_weekly_report_process['pmbok_process_id']         = $new_processes[$i]['process_name'];
                 $save_weekly_report_process['description']              = $new_processes[$i]['process_description'];
-    
+
                 /**
                  * Inserting the weekly_report_process.
                  */
                 $this->Weekly_process_model->insert($save_weekly_report_process);
-    
+
                 /**
                  * Recovering the last of 'weekly_report_process_id' inserted. This will be used 
                  * to associate the images.
                  */
                 $weekly_report_process_id = $this->Weekly_process_model->getLastIdWeeklyReportProcess();
-    
+
                 /**
                  * Inserting images.
                  */
@@ -267,12 +266,12 @@ class WeeklyReport extends CI_Controller
                 $update_weekly_report_process['pmbok_group_id']             = $old_processes[$i]['process_group'];
                 $update_weekly_report_process['pmbok_process_id']           = $old_processes[$i]['process_name'];
                 $update_weekly_report_process['description']                = $old_processes[$i]['process_description'];
-    
+
                 /**
                  * Inserting the weekly_report_process.
                  */
                 $this->Weekly_process_model->update_processes($weekly_report_id, $update_weekly_report_process);
-    
+
                 /**
                  * Inserting images.
                  */

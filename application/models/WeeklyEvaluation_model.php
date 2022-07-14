@@ -26,8 +26,12 @@ class WeeklyEvaluation_model extends CI_Model
 	}
 	public function get($weekly_evaluation_id)
 	{
-		$query = $this->db->get_where('weekly_evaluation', array('weekly_evaluation_id' => $weekly_evaluation_id));
-		return $query->result();
+		 return $this->db->select("weekly_evaluation.*, score_metric.name as score_metric_name")
+			->from('weekly_evaluation')
+			->join('score_metric', 'weekly_evaluation.group_score_id = score_metric.score_metric_id')
+			->where('weekly_evaluation_id', $weekly_evaluation_id)
+			->get()
+			->result();
 	}
 
 	public function getAll()

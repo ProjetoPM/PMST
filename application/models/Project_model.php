@@ -43,7 +43,6 @@ class Project_model extends CI_Model
         $project_user['access_level'] = 2;
 
         return $this->db->insert('project_user', $project_user);
-        ;
     }
 
     function insert_log($activity, $module)

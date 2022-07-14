@@ -311,21 +311,11 @@ function getUserName($user_id)
 	return $data;
 }
 
-function getScoreIdAsScore($score_id)
+function getWeeklyEvaluationScore($weekly_report_id)
 {
 	$obj = &get_instance();
-	$data = $obj->WeeklyReport_model->getScore($score_id);
-
-	if ($data == 0) {
-		$score = 'NOK';
-	} else if ($data == 1) {
-		$score = 'POK';
-	} else  if ($data == 2) {
-		$score = 'TOK';
-	} else {
-		$score = 'No Score Available Yet';
-	}
-	return $score;
+	$data = $obj->WeeklyReport_model->getScore($weekly_report_id);
+	return $data[0]->score_evaluation === null ? $obj->lang->line('wr_score_feedback') : $data[0]->score_evaluation;
 }
 
 function getActivityName($id)

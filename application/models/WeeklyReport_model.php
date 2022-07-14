@@ -53,22 +53,26 @@ class WeeklyReport_model extends CI_Model
 		return $query->result();
 	}
 
-	public function getScore($score_id)
+	public function getScore($weekly_report_id)
 	{
-		$this->db->select('score');
-		$this->db->where('score', $score_id);
-		$this->db->from('weekly_report');
+		return $this->db->select('sum(score.value) / count(*) as score_evaluation')
+			->from('report_score')
+			->join('score', 'report_score.score_id = score.score_id')
+			->where('report_id', $weekly_report_id)
+			->get()
+			->result();
 
-		$query = $this->db->get();
-		$res = $query->row_array();
-
-		return $res['score'];
 	}
 
 	public function getAllPerMember($id)
 	{
-		$query = $this->db->get_where('weekly_report', array('user_id' => $id));
-		return $query->result();
+		return $query = $this->db->select('*')
+		->from('weekly_report')
+		->join('score', 'weekly_report.score = score.score_id')
+		->where('user_id', $id)
+		->get()
+		->result();
+		// $query = $this->db->get_where('weekly_report', array('user_id' => $id));
 	}
 
 	public function getAllProcesses($id, $language)

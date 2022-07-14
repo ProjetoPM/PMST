@@ -14,6 +14,7 @@ $lang['wr_process_description'] = 'Process Description';
 $lang['wr_new_report'] = 'New Submission';
 $lang['wr_submissions'] = 'Submissions';
 $lang['wr_score'] = 'Score';
+$lang['wr_score_feedback'] = 'Report Not Evaluated Yet';
 
 $lang['wr_evaluation'] = 'Evaluation Name';
 $lang['wr_username'] = 'User';

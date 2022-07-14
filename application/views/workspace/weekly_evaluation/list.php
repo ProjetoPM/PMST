@@ -79,7 +79,7 @@
 
 									</h1>
 
-									<table class="table table-bordered table-striped" id="table_submission">
+									<table class="table table-bordered table-striped" id="table_submission_">
 										<thead>
 											<tr>
 												<th><?= $this->lang->line('wr_username') ?></th>
@@ -93,7 +93,7 @@
 												<tr>
 													<td><?= getUserName($item->user_id) ?></td>
 													<td><?= getWeeklyEvaluationName($item->weekly_evaluation_id) ?></td>
-													<td><?= getScoreIdAsScore($item->score) ?></td>
+													<td><?= getWeeklyEvaluationScore($item->weekly_report_id) ?></td>
 													<td>
 														<div class="row center">
 															<div class="col-sm-4">

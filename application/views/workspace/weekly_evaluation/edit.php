@@ -71,9 +71,15 @@
 								<div class=" col-lg-3 form-group">
 									<label for="name"><?= $this->lang->line('we_name') ?> </label>
 									<div>
-										<input type="text" class="form-control" id="name" name="name" maxlength="255" value="<?php echo $weekly_evaluation[0]->name ?>">
+										<input type="text" class="form-control" id="name" name="name" maxlength="255" value="<?= $weekly_evaluation[0]->name ?>">
 									</div>
 								</div>
+
+								<div class="col-lg-3 form-group">
+									<label><?= $this->lang->line('we_score_metric') ?></label>
+									<span class="form-control" disabled><?= $weekly_evaluation[0]->score_metric_name ?></span>
+								</div>
+								
 
 								<div class="col-lg-3 form-group">
 									<label><?= $this->lang->line('we_start_date') ?></label>
@@ -107,7 +113,7 @@
 									</select>
 								</div>
 
-								<div class="col-lg-5 form-group">
+								<div class="col-lg-4 form-group">
 									<label for="status"><?= $this->lang->line('we_status') ?></label>
 									<select name="status" class="form-control">
 									<?php if($weekly_evaluation[0]->status != null) {?>

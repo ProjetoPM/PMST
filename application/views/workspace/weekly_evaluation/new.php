@@ -111,6 +111,14 @@
 									</select>
 								</div>
 
+								<div class="col-lg-5 form-group">
+									<label for="status">Score Metric</label>
+									<select name="score_metric" class="form-control">
+										<option value="1">NOK, POK, TOK</option>
+										<option value="2">NOK, PNOK, POK, PTOK, TOK</option>
+									</select>
+								</div>
+
 								<div class="col-lg-12">
 									<button id="stakeholder-submit" style="margin-top: 30px;" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
 										<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>

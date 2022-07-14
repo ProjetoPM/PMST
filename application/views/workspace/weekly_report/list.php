@@ -36,7 +36,7 @@
 													<td><?= getUserName($data->user_id) ?></td>
 													<td><?= getWeeklyEvaluationName($data->weekly_evaluation_id) ?></td>
 													<td><?= $data->tool_evaluation ?></td>
-													<td><?= getScoreIdAsScore($data->score) ?></td>
+													<td><?= $data->name ?></td>
 													<td>
 														<div class="center">
 															<div class="col-md-4 p-l-0">
