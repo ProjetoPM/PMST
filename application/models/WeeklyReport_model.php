@@ -53,8 +53,10 @@ class WeeklyReport_model extends CI_Model
 
 	public function getAll()
 	{
-		$query = $this->db->get('weekly_report');
-		return $query->result();
+		return $this->db->select('weekly_report_id, weekly_report.weekly_evaluation_id, weekly_report.user_id, tool_evaluation, weekly_report.status, group_score_id, weekly_evaluation.name')
+		->from('weekly_report')
+		->join('weekly_evaluation', 'weekly_report.weekly_evaluation_id = weekly_evaluation.weekly_evaluation_id')
+		->get()->result();
 	}
 
 	public function getScore($weekly_report_id)
@@ -81,7 +83,6 @@ class WeeklyReport_model extends CI_Model
 	{
 		return $query = $this->db->select('*')
 		->from('weekly_report')
-		->join('score', 'weekly_report.score = score.score_id')
 		->where('user_id', $id)
 		->get()
 		->result();

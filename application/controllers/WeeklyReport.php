@@ -33,6 +33,8 @@ class WeeklyReport extends CI_Controller
     public function list()
     {
         $dado['weekly_report'] = $this->WeeklyReport_model->getAllPerMember($_SESSION['user_id']);
+        // var_dump($dado['weekly_report']);
+        // exit();
         $dado['processes'] = verifyLanguage()
             ? $this->WeeklyReport_model->getProcessGroupsByLanguage(2)
             : $this->WeeklyReport_model->getProcessGroupsByLanguage(1);

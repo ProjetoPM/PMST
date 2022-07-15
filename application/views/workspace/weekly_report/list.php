@@ -34,9 +34,9 @@
 												<tr>
                                                     <td><?= $data->weekly_report_id ?></td>
 													<td><?= getUserName($data->user_id) ?></td>
-													<td><?= getWeeklyEvaluationName($data->weekly_evaluation_id) ?></td>
+													<td><?= getWeeklyEvaluationName($data->weekly_evaluation_id)?></td>
 													<td><?= $data->tool_evaluation ?></td>
-													<td><?= $data->name ?></td>
+													<td><?= getWeeklyEvaluationScore($data->weekly_report_id) ?></td>
 													<td>
 														<div class="center">
 															<div class="col-md-4 p-l-0">
