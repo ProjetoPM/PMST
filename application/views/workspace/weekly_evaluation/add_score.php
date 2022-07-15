@@ -56,7 +56,7 @@
 								<?= $this->lang->line('we_title') ?>
 
 							</h1>
-							<form method="POST" action="<?php echo base_url() ?>weekly-evaluation/update-score/<?php echo $weekly_report[0]->weekly_report_id ?>">
+							<form method="POST" action="<?php echo base_url() ?>weekly-evaluation/insert-score/<?= $weekly_report[0]->weekly_report_id ?>">
 
 								<div class="col-lg-6 form-group">
 									<label for="name"><?= $this->lang->line('we_name') ?></label>
@@ -67,9 +67,6 @@
 
 								<div class="col-lg-6 form-group">
 									<label for="name"><?= $this->lang->line('we_score') ?></label>
-									<span class="given-score" data-toggle="tooltip" data-placement="top" title="Given Score">
-                                    <?= $score[0]->grade ?>
-                                </span>
 									<div>
 										<select id="score" name="score" class="form-control" required>
 											<?php foreach($scores as $s): ?>
@@ -91,7 +88,7 @@
 									<label for="comments"><?= $this->lang->line('we_comments') ?></label>
 									<span class="wr_1">5000</span><?= $this->lang->line('character5') ?>
 									<div>
-										<textarea onkeyup="limite_textarea(this.value, 'wr_1')" id="wr_txt_1" maxlength="5000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="comments" required="true"><?php echo $score[0]->comments; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'wr_1')" id="wr_txt_1" maxlength="5000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="comments" required="true"></textarea>
 									</div>
 								</div>
 

@@ -34,10 +34,12 @@ class WeeklyEvaluation_model extends CI_Model
 			->result();
 	}
 
-	public function getAll()
+	public function getAll($workspace_id)
 	{
-		$query = $this->db->get('weekly_evaluation');
-		return $query->result();
+		return $this->db->select('*')
+			->from('weekly_evaluation')
+			->where('workspace_id', $workspace_id)
+			->get()->result();
 	}
 
 	public function update($weekly_evaluation_id, $weekly_evaluation)

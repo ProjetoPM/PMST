@@ -21,4 +21,8 @@
 		$this->db->update('report_score', $score);
 		}
 
+		public function insert($score){
+			$this->db->insert('report_score', $score);
+		}
+
 	}

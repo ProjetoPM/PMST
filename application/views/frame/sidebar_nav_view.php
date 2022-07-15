@@ -82,7 +82,7 @@ position:-webkit-sticky
 
                <li class="<?php if ($uri1 == 'weekly-evaluation') {
                               echo 'active';
-                           } ?>"><a href="<?= base_url("weekly-evaluation/list") ?>"><i class="glyphicon glyphicon-blackboard"></i> <span><?= $this->lang->line('we_title'); ?></span>
+                           } ?>"><a href="<?= base_url("weekly-evaluation/list/{$_SESSION['workspace_id']}") ?>"><i class="glyphicon glyphicon-blackboard"></i> <span><?= $this->lang->line('we_title'); ?></span>
                   </a>
                </li>
                <!-- FIM WEEKLY EVALUATION -->

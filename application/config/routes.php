@@ -140,13 +140,15 @@ $route['weekly-report/images/(:num)'] = "WeeklyReport/images/$1";
 $route['weekly-report/form'] = "WeeklyReport/extending_form/";
 $route['weekly-report/process-name-ajax'] = "WeeklyReport/getProcessNameViaAjax/"; 
 
+$route['weekly-evaluation/add-score/(:num)'] = "WeeklyEvaluation/add_score/$1";
+$route['weekly-evaluation/insert-score/(:num)'] = "WeeklyEvaluation/insert_score/$1";
 $route['weekly-evaluation/edit-score/(:num)'] = "WeeklyEvaluation/edit_score/$1";
 $route['weekly-evaluation/update-score/(:num)'] = "WeeklyEvaluation/update_score/$1";
 $route['weekly-evaluation/new'] = "WeeklyEvaluation/new";
 $route['weekly-evaluation/insert'] = "WeeklyEvaluation/insert";
 $route['weekly-evaluation/edit/(:num)'] = "WeeklyEvaluation/edit/$1";
 $route['weekly-evaluation/update/(:num)'] = "WeeklyEvaluation/update/$1";
-$route['weekly-evaluation/list'] = "WeeklyEvaluation/list";
+$route['weekly-evaluation/list/(:num)'] = "WeeklyEvaluation/list/$1";
 
 $route['integration/project-charter/new/(:num)'] = "ProjectCharter/new/$1";
 $route['integration/project-charter/edit/(:num)'] = "ProjectCharter/edit/$1";

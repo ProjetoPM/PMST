@@ -97,7 +97,7 @@
 													<td>
 														<div class="row center">
 															<div class="col-sm-4">
-																<form action="./edit-score/<?= $item->weekly_report_id ?>")" method="post">
+																<form action="<?= base_url("weekly-evaluation/add-score/$item->weekly_report_id")?>") method="get">
 																	<input 
                                                                         type="hidden" 
                                                                         name="project_id" 

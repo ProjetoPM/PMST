@@ -318,6 +318,13 @@ function getWeeklyEvaluationScore($weekly_report_id)
 	return $data[0]->score_evaluation === null ? $obj->lang->line('wr_score_feedback') : $data[0]->score_evaluation;
 }
 
+function getScorePerReport($weekly_report_id)
+{
+	$obj = &get_instance();
+	$data = $obj->WeeklyReport_model->getAllScoresPerReport($weekly_report_id);
+	return empty($data) ? 'Not Evaluated yet': $data;
+}
+
 function getActivityName($id)
 {
 	$obj = &get_instance();
