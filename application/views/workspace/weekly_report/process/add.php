@@ -59,7 +59,8 @@
                 <input 
                     class="file-upload__input-${room}" 
                     style="display: none;" 
-                    type="file" 
+                    type="file"
+                    accept=".jpg, .jpeg, .png, .pdf"
                     name="files[${room}][]" 
                     id="files-${room}" 
                     multiple

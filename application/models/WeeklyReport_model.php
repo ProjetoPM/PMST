@@ -25,12 +25,11 @@ class WeeklyReport_model extends CI_Model
 		->get()->result();
 	}
 
-	public function update($weekly_report_id, $weekly_report)
+	public function update($weekly_report_id, $tool_evaluation)
 	{
-        $this->db->set('tool_evaluation', $weekly_report['tool_evaluation']);
+        $this->db->set('tool_evaluation', $tool_evaluation);
 		$this->db->where('weekly_report_id', $weekly_report_id);
 		$this->db->update('weekly_report');
-
 	}
 	
 	public function delete($weekly_report_id)
@@ -41,6 +40,27 @@ class WeeklyReport_model extends CI_Model
         $weekly_report_process = $this->db->delete('weekly_report_process');
         return $weekly_report && $weekly_report_process;
 	}
+
+    public function get_path_image_by_wr_process_id($weekly_report_process_id) {
+        return $this->db->select('path')
+            ->from('report_uploads')
+            ->where('weekly_report_process_id', $weekly_report_process_id)
+            ->get()->result();
+    }
+
+    public function get_path_image_by_wr_id($weekly_report_id) {
+        return $this->db->select('path')
+            ->from('report_uploads')
+            ->where('weekly_report_id', $weekly_report_id)
+            ->get()->result();
+    }
+
+    public function get_path_image_by_report_upload_id($report_upload_id) {
+        return $this->db->select('path')
+            ->from('report_uploads')
+            ->where('report_upload_id', $report_upload_id)
+            ->get()->result();
+    }
 	// __________________________________________________
 
 	// Other Methods
