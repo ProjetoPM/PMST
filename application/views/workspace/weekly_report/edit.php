@@ -149,7 +149,7 @@
                                                                     onclick="openFileButton(<?= $item->weekly_report_process_id ?>, this, '<?= $this->lang->line('wr_no_file_selected') ?>')"
                                                                     class="btn btn-default file-upload__button-<?= $item->weekly_report_process_id ?> m-b-5 m-r-7" 
                                                                     data-toggle="toggle" 
-                                                                    title="Upload files" 
+                                                                    title="Upload files: JPG, JPEG, PNG and PDF" 
                                                                     type="button"
                                                                 >
                                                                     <i class="fa fa-upload"></i>
@@ -157,7 +157,7 @@
                                                                 <button 
                                                                     onclick="markToRemove('<?= $item->weekly_report_process_id ?>')" 
                                                                     data-toggle="toggle" 
-                                                                    title="Upload files" 
+                                                                    title="Delete process" 
                                                                     type="button" 
                                                                     class="btn btn-danger m-b-5 m-r-7"
                                                                 >
@@ -221,7 +221,7 @@
                                                                                         style="cursor: pointer;"
                                                                                         onclick="markToRemoveImage('<?= $image->report_upload_id ?>')" 
                                                                                         data-toggle="toggle" 
-                                                                                        title="Delete image" 
+                                                                                        title="Delete file" 
                                                                                     >
                                                                                         <i class="m-l-2 fa-solid fa-trash"></i>
                                                                                     </a>

@@ -69,7 +69,7 @@
                     onclick="openFileButton(${room}, this, '<?= $this->lang->line('wr_no_file_selected') ?>')"
                     class="btn btn-default file-upload__button-${room} m-b-5 m-r-7" 
                     data-toggle="toggle" 
-                    title="Upload files" 
+                    title="Upload files: JPG, JPEG, PNG and PDF" 
                     type="button"
                 >
                     <i class="fa fa-upload"></i>
@@ -77,7 +77,7 @@
                 <button 
                     onclick="remove('${room}')" 
                     data-toggle="toggle" 
-                    title="Upload files" 
+                    title="Delete process" 
                     type="button" 
                     class="btn btn-danger m-b-5 m-r-7"
                 >
