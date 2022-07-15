@@ -61,7 +61,7 @@ class WeeklyReport extends CI_Controller
      * Função responsável em organizar as informações das imagens dos processos da página
      * 'new' do Weekly Report e salvar na tabela 'report_uploads'.
      */
-    public function uploadImage($weekly_report_id, $weekly_report_process_id, $name, $size, $tmpName)
+    public function upload_image($weekly_report_id, $weekly_report_process_id, $name, $size, $tmpName)
     {
         /* Tamanho máximo do arquivo. */
         $maxSizeInMb = 50;
@@ -76,12 +76,11 @@ class WeeklyReport extends CI_Controller
 
         if ($fileExtension != "jpg" && $fileExtension != "png" && $fileExtension != "pdf" && $fileExtension != "jpeg") {
             return false;
-        } else {
-            $filePath = $folder . $fileUniqName . "." . $fileExtension;
-            move_uploaded_file($tmpName, $filePath);
-            $this->Report_upload_model->saveImage($weekly_report_id, $weekly_report_process_id, $fileName, $filePath);
-            return true;
-        }
+        } 
+        $filePath = $folder . $fileUniqName . "." . $fileExtension;
+        move_uploaded_file($tmpName, $filePath);
+        $this->Report_upload_model->saveImage($weekly_report_id, $weekly_report_process_id, $fileName, $filePath);
+        return true;
     }
 
     public function insert()
@@ -126,7 +125,6 @@ class WeeklyReport extends CI_Controller
         $date_submit            = new DateTime($date_evaluation);
         $current_date           = new DateTime(date('m/d/Y', time()));
 
-
         if ($current_date > $date_submit) {
             $this->session->set_flashdata('error', 'You are not able to create this item, since the deadline has arrived');
             redirect('weekly-report/list');
@@ -141,6 +139,8 @@ class WeeklyReport extends CI_Controller
         /**
          * Inserting all the processes of the weekly report.
          */
+        $upload_image_has_errors = false;
+
         if ($processes !== null) {
             foreach ($processes as $i => $value) {
                 $save_weekly_report_process['weekly_report_id']         = $weekly_report_id;
@@ -164,17 +164,23 @@ class WeeklyReport extends CI_Controller
                  * Inserting images.
                  */
                 for ($j = 0; $j < count($files['name'][$i]); $j++) {
-                    $this->uploadImage(
+                    $is_image_uploaded = $this->upload_image(
                         $weekly_report_id,
                         $weekly_report_process_id,
                         $files['name'][$i][$j],
                         $files['size'][$i][$j],
                         $files['tmp_name'][$i][$j],
                     );
+                    if (!$is_image_uploaded) {
+                        $upload_image_has_errors = true;
+                    }
                 }
             }
         }
-        $this->session->set_flashdata('success', 'Weekly Report has been successfully created!');
+        $upload_image_has_errors 
+            ? $this->session->set_flashdata('warning', 'Weekly Report created with some images not uploaded. Please check the images and try again.')
+            : $this->session->set_flashdata('success', 'Weekly Report has been successfully created!');
+
         redirect('weekly-report/list');
     }
 
@@ -196,8 +202,8 @@ class WeeklyReport extends CI_Controller
         $dado['weekly_images'] = $this->Report_upload_model->getImages($weekly_report_id);
 
         $dado['evaluation'] = array(
-            'name' => getWeeklyEvaluationName($dado['weekly_report']['weekly_evaluation_id']),
-            'tool' => $dado['weekly_report']['tool_evaluation'],
+            'name' => getWeeklyEvaluationName($dado['weekly_report'][0]->weekly_evaluation_id),
+            'tool' => $dado['weekly_report'][0]->tool_evaluation,
         );
         loadViews('workspace/weekly_report/edit', $dado);
     }
@@ -214,10 +220,18 @@ class WeeklyReport extends CI_Controller
         $old_processes              = $this->input->post('update');
         $new_files_new_processes    = $_FILES['files'] ?? [];
         $new_files_old_processes    = $_FILES['files_update'] ?? [];
+        $individual_image_delete    = $this->input->post('image_uploaded') ?? [];
+
+        /**
+         * Updating 'tool_evaluation' field.
+         */
+        $this->WeeklyReport_model->update($weekly_report_id, $weekly_report['tool_evaluation']);
 
         /**
          * Adding new processes.
          */
+        $upload_image_has_errors = false;
+
         if (!empty($new_processes)) {
             foreach ($new_processes as $i => $value) {
                 $save_weekly_report_process['weekly_report_id']         = $weekly_report_id;
@@ -242,13 +256,16 @@ class WeeklyReport extends CI_Controller
                  */
                 if (!empty($new_files_new_processes)) {
                     for ($j = 0; $j < count($new_files_new_processes['name'][$i]); $j++) {
-                        $this->uploadImage(
+                        $is_image_uploaded = $this->upload_image(
                             $weekly_report_id,
                             $weekly_report_process_id,
                             $new_files_new_processes['name'][$i][$j],
                             $new_files_new_processes['size'][$i][$j],
                             $new_files_new_processes['tmp_name'][$i][$j],
                         );
+                        if (!$is_image_uploaded) {
+                            $upload_image_has_errors = true;
+                        }
                     }
                 }
             }
@@ -259,7 +276,11 @@ class WeeklyReport extends CI_Controller
          */
         if (!empty($old_processes)) {
             foreach ($old_processes as $i => $value) {
+                /**
+                 * Removing processes marked for deletion.
+                 */
                 if ($old_processes[$i]['remove_process'] == 'true') {
+                    $this->delete_images($i);
                     $this->Weekly_process_model->delete_process($i, $weekly_report_id);
                     continue;
                 }
@@ -279,47 +300,88 @@ class WeeklyReport extends CI_Controller
                  */
                 if (!empty($new_files_old_processes)) {
                     for ($j = 0; $j < count($new_files_old_processes['name'][$i]); $j++) {
-                        $this->uploadImage(
-                            $weekly_report_id,
-                            $i,
-                            $new_files_old_processes['name'][$i][$j],
-                            $new_files_old_processes['size'][$i][$j],
-                            $new_files_old_processes['tmp_name'][$i][$j],
-                        );
+                        if (!empty($new_files_old_processes['name'][$i][0])) {
+                            $is_image_uploaded = $this->upload_image(
+                                $weekly_report_id,
+                                $i,
+                                $new_files_old_processes['name'][$i][$j],
+                                $new_files_old_processes['size'][$i][$j],
+                                $new_files_old_processes['tmp_name'][$i][$j],
+                            );
+                            if (!$is_image_uploaded) {
+                                $upload_image_has_errors = true;
+                            }
+                        }
                     }
                 }
             }
         }
-        $this->session->set_flashdata('success', 'Weekly Report has been successfully changed!');
+        /**
+         * Deleting individual images from processes using the 'report_upload_id' field.
+         */
+        if (!empty($individual_image_delete)) {
+            foreach ($individual_image_delete as $i => $value) {
+                if ($individual_image_delete[$i]['remove'] == 'true') {
+                    $this->delete_image_by_report_upload_id($i);
+                }
+            }
+        }
+
+        $upload_image_has_errors 
+            ? $this->session->set_flashdata('warning', 'Weekly Report changed with some images not uploaded. Please check the images and try again.')
+            : $this->session->set_flashdata('success', 'Weekly Report has been successfully changed!');
+        
         redirect('weekly-report/list');
+    }
+
+    public function delete_images($weekly_report_process_id) {
+        $array_path = $this->WeeklyReport_model->get_path_image_by_wr_process_id($weekly_report_process_id);
+        
+        if ($array_path != null) {
+            foreach ($array_path as $path) {
+                if (file_exists($path->path)) {
+                    unlink($path->path);
+                }
+            }
+        }
+    }
+
+    public function delete_images_by_wr_id($weekly_report_id) {
+        $array_path = $this->WeeklyReport_model->get_path_image_by_wr_id($weekly_report_id);
+        
+        if ($array_path != null) {
+            foreach ($array_path as $path) {
+                if (file_exists($path->path)) {
+                    unlink($path->path);
+                }
+            }
+        }
+    }
+
+    public function delete_image_by_report_upload_id($report_upload_id) {
+        $array_path = $this->WeeklyReport_model->get_path_image_by_report_upload_id($report_upload_id);
+        
+        if ($array_path != null) {
+            foreach ($array_path as $path) {
+                if (file_exists($path->path)) {
+                    unlink($path->path);
+                }
+            }
+        }
+        $this->Weekly_process_model->delete_image_from_process_by($report_upload_id);
     }
 
     public function delete($weekly_report_id)
     {
         $query = $this->WeeklyReport_model->delete($weekly_report_id);
+        $this->delete_images_by_wr_id($weekly_report_id);
+        $this->Weekly_process_model->delete_process_images_by_wr_id($weekly_report_id);
 
         if ($query) {
             insertLogActivity('delete', 'weekly report');
             $this->session->set_flashdata('success', 'Weekly Report has been successfully deleted!');
             redirect('weekly-report/list');
         }
-    }
-
-    public function images($weekly_report_id)
-    {
-        if (strcmp($_SESSION['language'], "US") == 0) {
-            $this->lang->load('btn', 'english');
-        } else {
-            $this->lang->load('btn', 'portuguese-brazilian');
-        }
-
-        $dado['uploads'] = $this->Report_upload_model->getAllPerProcesses($weekly_report_id);
-
-        exit();
-        $this->load->view('frame/header_view');
-        $this->load->view('frame/topbar');
-        $this->load->view('frame/sidebar_nav_view');
-        $this->load->view('project/weekly_report/images', $dado);
     }
 
     public function insert_process()
@@ -330,65 +392,6 @@ class WeeklyReport extends CI_Controller
         $data = $this->input->post('process_group');
         $weekly_report_process['weekly_report_id'] = 1;
         $query2 = $this->WeeklyReport_model->updateProcessReport($weekly_report_process, 1);
-    }
-
-
-    //Armazena a imagem localmente 
-    function do_upload($id_file = null)
-    {
-        $indexFile = $id_file != null ? $id_file : "image";
-
-        $target_dir = "upload/reports/";
-        $image_data = explode(".", $_FILES[$indexFile]["name"]);
-        $image_type = $image_data[1];
-        $tmp_name = uniqid(rand()) . "." . $image_type;
-        $target_file = $target_dir . $tmp_name;
-
-        // $imageFileType pega o tipo do arquivo
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-        $check = getimagesize($_FILES[$indexFile]["tmp_name"]);
-        if ($check !== false) {
-            $uploadOK = 1;
-        } else {
-            $this->session->set_flashdata('error', 'Invalid File.');
-            redirect('weekly-report/list');
-        }
-
-
-        // Verificações do tipo da imagem, tamanho e se já existe
-        if (file_exists($target_file)) {
-        }
-
-        $sizeInMegaBytes = 50;
-
-        if ($_FILES["image"]["size"] > $sizeInMegaBytes * 10e6) {
-            $this->session->set_flashdata('error', 'File is too large');
-            redirect('weekly-report/list');
-        }
-        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "pdf") {
-            $this->session->set_flashdata('error', 'File must be a jpg, png, jpeg or pdf');
-            redirect('weekly-report/list');
-        }
-        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-            $this->session->set_flashdata('success', 'File ' . htmlspecialchars(basename($_FILES["image"]["name"])) . ' has been uploaded.');
-            return $target_file;
-        } else {
-            $this->session->set_flashdata('error', 'There was an error uploading this file.');
-            return false;
-        }
-    }
-
-    // Método para realizar a persistência com o banco
-    function upload_image($name, $process_id)
-    {
-        $target_file = $this->do_upload();
-        $data['path'] = $target_file;
-        $data['alt'] = $name;
-        $data['weekly_report_process_id'] = $process_id;
-
-        $this->Report_upload_model->insert($data);
-        redirect('weekly-report/list');
     }
 
     public function getProcessNameViaAjax()

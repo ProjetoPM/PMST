@@ -140,6 +140,7 @@
                                                                     class="file-upload__input-<?= $item->weekly_report_process_id ?>" 
                                                                     style="display: none;" 
                                                                     type="file" 
+                                                                    accept=".jpg, .jpeg, .png, .pdf"
                                                                     name="files_update[<?= $item->weekly_report_process_id ?>][]" 
                                                                     id="files_update[<?= $item->weekly_report_process_id ?>]" 
                                                                     multiple
@@ -148,7 +149,7 @@
                                                                     onclick="openFileButton(<?= $item->weekly_report_process_id ?>, this, '<?= $this->lang->line('wr_no_file_selected') ?>')"
                                                                     class="btn btn-default file-upload__button-<?= $item->weekly_report_process_id ?> m-b-5 m-r-7" 
                                                                     data-toggle="toggle" 
-                                                                    title="Upload files" 
+                                                                    title="Upload files: JPG, JPEG, PNG and PDF" 
                                                                     type="button"
                                                                 >
                                                                     <i class="fa fa-upload"></i>
@@ -156,7 +157,7 @@
                                                                 <button 
                                                                     onclick="markToRemove('<?= $item->weekly_report_process_id ?>')" 
                                                                     data-toggle="toggle" 
-                                                                    title="Upload files" 
+                                                                    title="Delete process" 
                                                                     type="button" 
                                                                     class="btn btn-danger m-b-5 m-r-7"
                                                                 >
@@ -188,7 +189,9 @@
                                                                     <tbody>
                                                                     <?php foreach ($weekly_images as $image): ?>
                                                                         <?php if ($image->weekly_report_process_id == $item->weekly_report_process_id): ?>
-                                                                            <tr>
+                                                                            <tr 
+                                                                                id="image_uploaded-<?= $image->report_upload_id ?>"
+                                                                            >
                                                                                 <td scope="row"><?= $image->report_upload_id ?></td>
                                                                                 <td><?= $image->name ?></td>
                                                                                 <td>
@@ -208,11 +211,17 @@
                                                                                     >
                                                                                         <i class="m-l-2 fa-solid fa-arrow-up-right-from-square"></i>
                                                                                     </a>
+                                                                                    <input 
+                                                                                        type="hidden" 
+                                                                                        id="image_uploaded[<?= $image->report_upload_id ?>][remove]" 
+                                                                                        name="image_uploaded[<?= $image->report_upload_id ?>][remove]" 
+                                                                                        value="false"
+                                                                                    >
                                                                                     <a 
-                                                                                        data-bs-toggle="tooltip" 
-                                                                                        title="Delete image" 
-                                                                                        href="<?= base_url($image->path) ?>" 
-                                                                                        target="_blank"
+                                                                                        style="cursor: pointer;"
+                                                                                        onclick="markToRemoveImage('<?= $image->report_upload_id ?>')" 
+                                                                                        data-toggle="toggle" 
+                                                                                        title="Delete file" 
                                                                                     >
                                                                                         <i class="m-l-2 fa-solid fa-trash"></i>
                                                                                     </a>
@@ -288,8 +297,23 @@
             '<?= $this->lang->line('wr_alert_confirm_text') ?>',
             function() {
                 document.getElementById(`remove-${id}`).style.display = "none";
-                alertify.success('<?= $this->lang->line('wr_alert_confirm_ok') ?>');
                 document.getElementById(`update[${id}][remove_process]`).value = true;
+                alertify.success('<?= $this->lang->line('wr_alert_confirm_ok') ?>');
+            },
+            function() {
+                alertify.warning('<?= $this->lang->line('wr_alert_confirm_cancel') ?>')
+            }
+        );
+    }
+
+    function markToRemoveImage(report_upload_id) {
+        alertify.set('notifier', 'delay', 1.5);
+        alertify.confirm('Delete image',
+            'Do you really want to delete this image?',
+            function() {
+                document.getElementById(`image_uploaded-${report_upload_id}`).style.display = "none";
+                document.getElementById(`image_uploaded[${report_upload_id}][remove]`).value = true;
+                alertify.success('<?= $this->lang->line('wr_alert_confirm_ok') ?>');
             },
             function() {
                 alertify.warning('<?= $this->lang->line('wr_alert_confirm_cancel') ?>')
