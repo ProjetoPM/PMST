@@ -169,15 +169,21 @@ class WeeklyEvaluation extends CI_Controller
 		} else {
 			$feedback_success = 'Item Avaliado';
 		}
+		$evaluationExists = $this->WeeklyEvaluation_model->alreadyEvaluated($weekly_report_id);
+		if(empty($evaluationExists)){
 
-
-		$score['report_id'] = $weekly_report_id;
-		$score['professor_id'] = $_SESSION['user_id'];
-		$score['score_id'] = $this->input->post('score');
-		$score['comments'] = $this->input->post('comments');
-
-		$insert = $this->Score_model->insert($score);
-
+			
+			$score['report_id'] = $weekly_report_id;
+			$score['professor_id'] = $_SESSION['user_id'];
+			$score['score_id'] = $this->input->post('score');
+			$score['comments'] = $this->input->post('comments');
+			$score['evaluation_date'] = new DateTime(date('m/d/Y', time()));
+			
+			$insert = $this->Score_model->insert($score);
+		}else{
+			$this->session->set_flashdata('error', 'This report has already been evaluated');
+		}
+		
 		if ($insert) {
 			$this->session->set_flashdata('success', $feedback_success);
 			insertLogActivity('insert', 'weekly report score');
@@ -194,10 +200,13 @@ class WeeklyEvaluation extends CI_Controller
 		$language = strcmp($_SESSION['language'], "US") == 0 ? "english" : "portuguese-brazilian";
 		$this->lang->load('btn', $language);
 
+		$evaluationExists = $this->WeeklyEvaluation_model->alreadyEvaluated($id);
+		if(empty($evaluationExists)){
 		$dado['weekly_report'] = $this->WeeklyReport_model->get($id);
 		$dado['score'] = $this->WeeklyReport_model->getScoreGivenByProfessor($id, $_SESSION['user_id']);
 		$dado['scores'] = $this->Score_model->getAllByGroup($dado['weekly_report'][0]->group_score_id, $_SESSION['user_id']);
 		$dado['weekly_processes'] = $this->WeeklyReport_model->getAllProcesses($id, getIndexOfLanguage());
+		}
 		// var_dump($dado['weekly_processes']);
 		// exit();
 		$this->load->view('frame/header_view');
@@ -213,6 +222,7 @@ class WeeklyEvaluation extends CI_Controller
 		} else {
 			$feedback_success = 'Item Avaliado';
 		}
+
 
 		$weekly_report['comments'] = $this->input->post('comments');
 

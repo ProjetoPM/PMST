@@ -18,15 +18,24 @@ class WeeklyEvaluation_model extends CI_Model
 		$result = $query->row_array();
 
 		return $result['deadline'];
-
 	}
 	function insert($data)
 	{
 		return $this->db->insert('weekly_evaluation', $data);
 	}
+
+	public function alreadyEvaluated($weekly_report_id)
+	{
+		$query =  $this->db->select('report_id')
+			->from('report_score')
+			->where('report_id', $weekly_report_id)
+			->get()->result();
+
+			return $query[0];
+	}
 	public function get($weekly_evaluation_id)
 	{
-		 return $this->db->select("weekly_evaluation.*, score_metric.name as score_metric_name")
+		return $this->db->select("weekly_evaluation.*, score_metric.name as score_metric_name")
 			->from('weekly_evaluation')
 			->join('score_metric', 'weekly_evaluation.group_score_id = score_metric.score_metric_id')
 			->where('weekly_evaluation_id', $weekly_evaluation_id)
@@ -47,5 +56,4 @@ class WeeklyEvaluation_model extends CI_Model
 		$this->db->where('weekly_evaluation.weekly_evaluation_id', $weekly_evaluation_id);
 		return $this->db->update('weekly_evaluation', $weekly_evaluation);
 	}
-
 }
