@@ -22,17 +22,18 @@ class WeeklyEvaluation extends CI_Controller
 			$this->lang->load('weekly_report', 'portuguese-brazilian');
 			$this->lang->load('project-page', 'portuguese-brazilian');
 		}
-		
-		$this->load->model('Project_model');
+
 		$this->load->helper('log_activity');
+		$this->load->helper('url');
 		$this->load->model('log_model');
 		$this->load->model('view_model');
-		$this->load->helper('url');
-		$this->load->model('WeeklyEvaluation_model');
-		$this->load->model('WeeklyReport_model');
+		$this->load->model('Score_model');
+		$this->load->model('Project_model');
 		$this->load->model('Workspace_model');
+		$this->load->model('WeeklyReport_model');
+		$this->load->model('WeeklyEvaluation_model');
 	}
-	
+
 	public function list()
 	{
 		if (strcmp($_SESSION['language'], "US") == 0) {
@@ -40,16 +41,16 @@ class WeeklyEvaluation extends CI_Controller
 		} else {
 			$this->lang->load('btn', 'portuguese-brazilian');
 		}
-		
+
 		$dado['weekly_evaluation'] = $this->WeeklyEvaluation_model->getAll($_SESSION['user_id']);
 		$dado['weekly_report'] = $this->WeeklyReport_model->getAll();
-		
+
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('workspace/weekly_evaluation/list', $dado);
 	}
-	
+
 	public function new()
 	{
 		if (strcmp($_SESSION['language'], "US") == 0) {
@@ -59,7 +60,7 @@ class WeeklyEvaluation extends CI_Controller
 		}
 		$role = $this->Workspace_model->getRole($_SESSION['workspace_id'], $_SESSION['user_id']);
 
-		if ($role == 1) {			
+		if ($role == 1) {
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');
@@ -69,7 +70,7 @@ class WeeklyEvaluation extends CI_Controller
 			redirect('/weekly-evaluation/list');
 		}
 	}
-	
+
 	function insert()
 	{
 		if (strcmp($_SESSION['language'], "US") == 0) {
@@ -86,7 +87,7 @@ class WeeklyEvaluation extends CI_Controller
 		$weekly_evaluation['user_id'] = $_SESSION['user_id'];
 		$weekly_evaluation['workspace_id'] = $_SESSION['workspace_id'];
 		$weekly_evaluation['group_score_id'] = $this->input->post('score_metric');
-		
+
 		$insert  = $this->WeeklyEvaluation_model->insert($weekly_evaluation);
 
 		if ($insert) {
@@ -95,7 +96,7 @@ class WeeklyEvaluation extends CI_Controller
 		}
 		redirect("weekly-evaluation/list");
 	}
-	
+
 	public function edit($weekly_evaluation)
 	{
 		if (strcmp($_SESSION['language'], "US") == 0) {
@@ -103,15 +104,15 @@ class WeeklyEvaluation extends CI_Controller
 		} else {
 			$this->lang->load('btn', 'portuguese-brazilian');
 		}
-		
+
 		$dado['weekly_evaluation'] = $this->WeeklyEvaluation_model->get($weekly_evaluation);
-		
+
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view("workspace/weekly_evaluation/edit", $dado);
 	}
-	
+
 	public function update($weekly_evaluation_id)
 	{
 		if (strcmp($_SESSION['language'], "US") == 0) {
@@ -147,8 +148,9 @@ class WeeklyEvaluation extends CI_Controller
 		$this->lang->load('btn', $language);
 
 		$dado['weekly_report'] = $this->WeeklyReport_model->get($id);
+		$dado['score'] = $this->WeeklyReport_model->getScoreGivenByProfessor($id, $_SESSION['user_id']);
+		$dado['scores'] = $this->Score_model->getAllByGroup($dado['weekly_report'][0]->group_score_id, $_SESSION['user_id']);
 		$dado['weekly_processes'] = $this->WeeklyReport_model->getAllProcesses($id, getIndexOfLanguage());
-
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
@@ -160,13 +162,16 @@ class WeeklyEvaluation extends CI_Controller
 		if (strcmp($_SESSION['language'], "US") == 0) {
 			$feedback_success = 'Item Evaluated';
 		} else {
-			$feedback_success = 'Item Evaluated';
+			$feedback_success = 'Item Avaliado';
 		}
 
-		$weekly_report['score'] = $this->input->post('score');
 		$weekly_report['comments'] = $this->input->post('comments');
 
-		$insert  = $this->WeeklyReport_model->update($weekly_report, $weekly_report_id);
+		$score['report_id'] = $weekly_report_id;
+		$score['professor_id'] = $_SESSION['user_id'];
+		$score['score_id'] = $this->input->post('score');
+
+		$insert = $this->Score_model->update($score);
 
 		if ($insert) {
 			$this->session->set_flashdata('success', $feedback_success);
@@ -178,5 +183,4 @@ class WeeklyEvaluation extends CI_Controller
 		redirect("weekly-evaluation/list");
 		// echo json_encode($insert);
 	}
-
 }

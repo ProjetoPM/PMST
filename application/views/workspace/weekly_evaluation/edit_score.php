@@ -56,25 +56,25 @@
 								<?= $this->lang->line('we_title') ?>
 
 							</h1>
-							<form method="POST" action="<?php echo base_url() ?>weekly-evaluation/update-score/<?php echo $weekly_report['weekly_report_id'] ?>">
+							<form method="POST" action="<?php echo base_url() ?>weekly-evaluation/update-score/<?php echo $weekly_report[0]->weekly_report_id ?>">
 
 								<div class="col-lg-6 form-group">
 									<label for="name"><?= $this->lang->line('we_name') ?></label>
 									<div>
-										<input id="we_txt_1" type="text" name="name" class="form-control" onkeyup="limite_textarea(this.value, 'we_1')" maxlength="2000" oninput="eylem(this, this.value)" required="true" value="<?= getWeeklyEvaluationName($weekly_report['weekly_evaluation_id']); ?> " disabled>
+										<input id="we_txt_1" type="text" name="name" class="form-control" onkeyup="limite_textarea(this.value, 'we_1')" maxlength="2000" oninput="eylem(this, this.value)" required="true" value="<?= $weekly_report[0]->name ?> " disabled>
 									</div>
 								</div>
 
 								<div class="col-lg-6 form-group">
 									<label for="name"><?= $this->lang->line('we_score') ?></label>
+									<span class="given-score" data-toggle="tooltip" data-placement="top" title="Given Score">
+                                    <?= $score[0]->grade ?>
+                                </span>
 									<div>
 										<select id="score" name="score" class="form-control" required>
-											<?php if ($weekly_report['score'] != null) { ?>
-												"<option value="<?php echo $weekly_report['score'] ?>"><?= $this->lang->line('selected') ?></option>"
-											<?php } ?>
-											<option value="0">NOK</option>
-											<option value="1">POK</option>
-											<option value="2">TOK</option>
+											<?php foreach($scores as $s): ?>
+											<option value="<?= $s->score_id ?>"><?= $s->name?></option>
+											<?php endforeach; ?>
 										</select>
 									</div>
 								</div>
@@ -83,7 +83,7 @@
 									<label for="tool_evaluation"><?= $this->lang->line('wr_tool_evaluation') ?></label>
 									<a class="btn-sm btn-default" id="wr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wr_tool_evaluation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea disabled onkeyup="limite_textarea(this.value, 'wr_1')" id="wr_txt_1" maxlength="5000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="tool_evaluation"><?php echo $weekly_report['tool_evaluation'] ?></textarea>
+										<textarea disabled onkeyup="limite_textarea(this.value, 'wr_1')" id="wr_txt_1" maxlength="5000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="tool_evaluation"><?php echo $weekly_report[0]->tool_evaluation ?></textarea>
 									</div>
 								</div>
 
@@ -91,7 +91,7 @@
 									<label for="comments"><?= $this->lang->line('we_comments') ?></label>
 									<span class="wr_1">5000</span><?= $this->lang->line('character5') ?>
 									<div>
-										<textarea onkeyup="limite_textarea(this.value, 'wr_1')" id="wr_txt_1" maxlength="5000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="comments" required="true"><?php echo $weekly_report['comments']; ?></textarea>
+										<textarea onkeyup="limite_textarea(this.value, 'wr_1')" id="wr_txt_1" maxlength="5000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="comments" required="true"><?php echo $weekly_report[0]->comments; ?></textarea>
 									</div>
 								</div>
 

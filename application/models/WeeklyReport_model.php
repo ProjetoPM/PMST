@@ -18,15 +18,19 @@ class WeeklyReport_model extends CI_Model
 
 	public function get($id)
 	{
-		$query = $this->db->get_where('weekly_report', array('weekly_report_id' => $id));
-		return $query->row_array();
+		return $this->db->select('weekly_report_id, weekly_report.weekly_evaluation_id, weekly_report.user_id, tool_evaluation, weekly_report.status, comments, group_score_id, weekly_evaluation.name')
+		->from('weekly_report')
+		->join('weekly_evaluation', 'weekly_report.weekly_evaluation_id = weekly_evaluation.weekly_evaluation_id')
+		->where('weekly_report_id', $id)
+		->get()->result();
 	}
 
 	public function update($weekly_report_id, $weekly_report)
 	{
         $this->db->set('tool_evaluation', $weekly_report['tool_evaluation']);
 		$this->db->where('weekly_report_id', $weekly_report_id);
-		return $this->db->update('weekly_report');
+		$this->db->update('weekly_report');
+
 	}
 	
 	public function delete($weekly_report_id)
@@ -61,7 +65,16 @@ class WeeklyReport_model extends CI_Model
 			->where('report_id', $weekly_report_id)
 			->get()
 			->result();
+	}
 
+	public function getScoreGivenByProfessor($weekly_report_id, $user_id)
+	{
+		return $this->db->select('report_score.score_id, score.name as grade')
+		->from('report_score')
+		->join('score', 'report_score.score_id = score.score_id')
+		->where('professor_id', $user_id)
+		->where('report_id', $weekly_report_id)
+		->get()->result();
 	}
 
 	public function getAllPerMember($id)
