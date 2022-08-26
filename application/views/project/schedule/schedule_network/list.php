@@ -14,17 +14,17 @@
 				<?php if ($this->session->flashdata('success')) : ?>
 					<div class="alert alert-success">
 						<a href="#" class="close" data-dismiss="alert">&times;</a>
-						<strong><?php echo $this->session->flashdata('success'); ?></strong>
+						<strong><?= $this->session->flashdata('success'); ?></strong>
 					</div>
 				<?php elseif ($this->session->flashdata('error')) : ?>
 					<div class="alert alert-warning">
 						<a href="#" class="close" data-dismiss="alert">&times;</a>
-						<strong><?php echo $this->session->flashdata('error'); ?></strong>
+						<strong><?= $this->session->flashdata('error'); ?></strong>
 					</div>
 				<?php elseif ($this->session->flashdata('delete')) : ?>
 					<div class="alert alert-danger">
 						<a href="#" class="close" data-dismiss="alert">&times;</a>
-						<strong><?php echo $this->session->flashdata('delete'); ?></strong>
+						<strong><?= $this->session->flashdata('delete'); ?></strong>
 					</div>
 				<?php endif; ?>
 				<!-- /.row -->
@@ -45,7 +45,7 @@
 
 							<div class="row">
 								<div class="col-lg-12">
-									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>schedule/schedule-network-diagram/new/<?= $_SESSION['project_id'] ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
+									<button class="btn btn-info btn-lg" onclick="window.location.href='<?= base_url() ?>schedule/schedule-network-diagram/new/<?= $_SESSION['project_id'] ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
 									<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#upload"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-upload') ?></button>
 								</div>
 							</div>
@@ -70,15 +70,15 @@
 											foreach ($schedule_network as $snd) {
 											?>
 												<tr dados='<?= json_encode($snd); ?>'>
-													<td><?php echo getActivityName($snd->activity_id) ?></td>
-													<td><?php echo getActivityName($snd->predecessor_activity_id) ?></td>
-													<td><?php echo $snd->dependence_type; ?></td>
-													<td><?php echo $snd->lead_lag; ?></td>
+													<td><?= $snd->name ?></td>
+													<td><?= $snd->predecessor_activity_id ?></td>
+													<td><?= $snd->dependence_type; ?></td>
+													<td><?= $snd->lead_lag; ?></td>
 
 													<td style="max-width: 20px">
 														<div class="row center">
 															<div class="col-sm-3">
-																<form action="<?php echo base_url() ?>schedule/project-schedule-network-diagram/edit/<?php echo $snd->schedule_network_id; ?>" method="post">
+																<form action="<?= base_url() ?>schedule/project-schedule-network-diagram/edit/<?= $snd->schedule_network_id; ?>" method="post">
 																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 																</form>
 															</div>
@@ -97,7 +97,7 @@
 									</table>
 
 
-									<form action="<?php echo base_url('project/'); ?><?php echo $_SESSION['project_id'] ?>">
+									<form action="<?= base_url('project/'); ?><?= $_SESSION['project_id'] ?>">
 										<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 									</form>
 								</div>
@@ -179,7 +179,7 @@
 				// var form_data = $(this).serialize();
 
 				$.ajax({
-					url: "<?php echo base_url() ?>schedule/project-schedule-network-diagram/delete/" + id,
+					url: "<?= base_url() ?>schedule/project-schedule-network-diagram/delete/" + id,
 					type: "POST",
 					// data: form_data,
 					cache: false,

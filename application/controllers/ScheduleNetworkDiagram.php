@@ -33,6 +33,7 @@ class ScheduleNetworkDiagram extends CI_Controller
 	public function list($project_id)
 	{
 		$dado['schedule_network'] = $this->ScheduleNetwork_model->getAll($project_id);
+		
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
