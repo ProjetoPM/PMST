@@ -60,7 +60,7 @@
 										<span class="pca_1">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id = "pca_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pca-resource_name-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-										<input id="pca_txt_1" type="text" name="resource_name" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'pca_1')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value="<?php echo $resource_name; ?>">
+										<input id="pca_txt_1" type="text" name="resource_name" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'pca_1')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
 										</div>
 									</div>
 								</div>
@@ -70,7 +70,7 @@
 										<span class="pca_2">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id = "pca_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pca-function-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-										<input id="pca_txt_2" type="text" name="function" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'pca_2')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value="<?php echo $function; ?>">
+										<input id="pca_txt_2" type="text" name="function" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'pca_2')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
 										</div>
 									</div>
 
@@ -79,7 +79,7 @@
 										
 										<a class="btn-sm btn-default" id = "pca_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pca-availability_start-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<input id="availability_start" type="date" name="availability_start" class="form-control input-md" value="<?php echo $availability_start; ?>">
+											<input id="availability_start" type="date" name="availability_start" class="form-control input-md">
 										</div>
 									</div>
 								</div>
@@ -89,7 +89,7 @@
 										
 										<a class="btn-sm btn-default" id = "pca_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pca-availability_ends-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<input id="availability_ends" type="date" name="availability_ends" class="form-control input-md" value="<?php echo $availability_ends; ?>">
+											<input id="availability_ends" type="date" name="availability_ends" class="form-control input-md">
 										</div>
 									</div>
 								</div>
@@ -98,7 +98,7 @@
 										<label for="allocation_start"><?= $this->lang->line('pca-allocation_start') ?></label>
 										<a class="btn-sm btn-default" id = "pca_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pca-allocation_start-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<input id="allocation_start" type="date" name="allocation_start" class="form-control input-md" value="<?php echo $allocation_start; ?>">
+											<input id="allocation_start" type="date" name="allocation_start" class="form-control input-md">
 										</div>
 									</div>
 								</div>
@@ -107,7 +107,7 @@
 										<label for="allocation_ends"><?= $this->lang->line('pca-allocation_ends') ?></label>
 										<a class="btn-sm btn-default" id = "pca_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pca-allocation_ends-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<input id="allocation_ends" type="date" name="allocation_ends" class="form-control input-md" value="<?php echo $allocation_ends; ?>">
+											<input id="allocation_ends" type="date" name="allocation_ends" class="form-control input-md">
 										</div>
 									</div>
 								</div>

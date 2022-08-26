@@ -32,17 +32,25 @@
 								<?= $this->lang->line('rr_title')  ?>
 
 							</h1>
-							<form action="<?= base_url() ?>schedule/resource-requirements/update/" method="post">
-									<div class=" col-lg-12 form-group">
-										<label for="resource_description"><?= $this->lang->line('rr_resource_description') ?></label>
-										<a class="btn-sm btn-default" id="rr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rr_resource_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+							<form action="<?= base_url() ?>schedule/resource/insert" method="post">
+									<div class=" col-lg-6 form-group">
+										<label for="resource_name"><?= $this->lang->line('resource_name') ?></label>
+										<a class="btn-sm btn-default" id="rr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rr_resource_name_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<input id="resource_description" name="resource_description" class="form-control input-md" >
+											<input id="resource_name" name="resource_name" class="form-control input-md" >
 										</div>
 									</div>
 
+                                    <div class=" col-lg-6 form-group">
+                                        <label for="resource_description"><?= $this->lang->line('resource_description') ?></label>
+                                        <a class="btn-sm btn-default" id="rr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rr_resource_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                                        <div>
+                                            <input id="resource_description" name="resource_description" class="form-control input-md" >
+                                        </div>
+                                    </div>
+
 									<div class=" col-lg-3 form-group">
-										<label for="resource_cost_per_unit"><?= $this->lang->line('rr_resource_cost_per_unit') ?></label>
+										<label for="resource_cost_per_unit"><?= $this->lang->line('resource_cost_per_unit') ?></label>
 										<a class="btn-sm btn-default" id="rr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rr_resource_cost_per_unit_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<input id="resource_cost_per_unit" name="resource_cost_per_unit" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" >
@@ -50,7 +58,7 @@
 									</div>
 
 									<div class=" col-lg-9 form-group">
-										<label for="resource_type"><?= $this->lang->line('rr_resource_type') ?></label>
+										<label for="resource_type"><?= $this->lang->line('resource_type') ?></label>
 										<span class="rr_4">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id="rr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rr_resource_type_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>

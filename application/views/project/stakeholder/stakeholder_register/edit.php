@@ -43,7 +43,7 @@
 							</h1>
 							<?php extract($stakeholder); ?>
 
-							<form action="<?= base_url() ?>stakeholder/stakeholder-register/update/<?php echo $stakeholder_id; ?>" method="post">
+							<form action="<?= base_url() ?>stakeholder/stakeholder-register/update/<?= $stakeholder_id; ?>" method="post">
 
 								<input type="hidden" name="project_id" value="<?php echo $project_id; ?>">
 								<input type="hidden" name="status" value="1">

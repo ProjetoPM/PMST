@@ -14,13 +14,7 @@ class User_Model extends CI_Model
 		$this->load->database();
 	}
 
-
-
 	private $User = 'user';
-
-
-
-
 
 	public function GetUserData()
 

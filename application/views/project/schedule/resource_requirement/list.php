@@ -31,8 +31,8 @@
 
 								<?= $this->lang->line('rr_title')  ?>
 
-								
-								<?php $view_name = "resource requirements"?>
+
+								<?php $view_name = "resource requirements" ?>
 								<?php $this->load->view('construction_services/rating', array(
 									"view_name" => $view_name,
 								)) ?>
@@ -41,8 +41,8 @@
 
 							<div class="row">
 								<div class="col-lg-12">
-								<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>schedule/resource-requirements/new'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?> Resource Requirements</button>
-									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>schedule/resource-requirements/newr'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?> Resource</button>
+									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>schedule/resource-requirements/new'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?> Resource Requirements</button>
+									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>schedule/resource/new'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') . $this->lang->line('resource')  ?></button>
 								</div>
 							</div>
 
@@ -50,15 +50,13 @@
 
 							<div class="row">
 								<div class="col-lg-12">
-
 									<table class="table table-bordered table-striped" id="tableNB">
 										<thead>
 											<tr>
 												<th><?= $this->lang->line('activity_name') ?></th>
-												<th><?= $this->lang->line('rr_resource_description') ?></th>
-												<th><?= $this->lang->line('rr_required_amount_of_resource') ?></th>
-												<th><?= $this->lang->line('rr_resource_cost_per_unit') ?></th>
-												<th><?= $this->lang->line('rr_resource_type') ?></th>
+												<th><?= $this->lang->line('resource_name') ?></th>
+												<th><?= $this->lang->line('required_amount_of_resource') ?></th>
+												<th><?= $this->lang->line('cost_per_unit') ?></th>
 												<th>Total Cost</th>
 
 												<th><?= $this->lang->line('btn-actions') ?></th>
@@ -66,39 +64,63 @@
 										</thead>
 										<tbody>
 											<?php
-											foreach ($activity as $a) {
+											foreach ($resource_requirements as $r):
 											?>
 												<tr dados='<?= json_encode($a); ?>'>
-													<td><?php echo $a->activity_name; ?></td>
-													<td>Computador</td>
-													<td>3</td>
-													<td>5</td>
-													<td>Eletronico</td>
-													<td>15 </td>
+													<td><?= $r->activity_name; ?></td>
+													<td><?= $r->resource_name; ?></td>
+													<td id="amount"><?= $r->resource_amount; ?></td>
+													<td id="unit" ><?= $r->cost_per_unit; ?></td>
+													<td><?= $r->total_cost; ?></td>
 
-													<td style="max-width: 20px">
+													<td <?= getStatusFieldsList("resource requirements", $r->resource_requirements_id) ?> style="max-width: 20px">
 														<div class="row center">
 															<div class="col-sm-3">
-																<form action="<?php echo base_url() ?>schedule/resource-requirements/edit/<?php echo $a->id; ?>" method="post">
-																	<input type="hidden" name="project_id" value="<?= $a->project_id; ?>">
+																<form action="<?php echo base_url() ?>schedule/resource-requirements/edit/<?= $r->resource_requirements_id; ?>" method="post">
+																	<input type="hidden" name="project_id" value="<?= $project_id; ?>">
 																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 																</form>
 															</div>
-
-
-
 														</div>
 													</td>
 												</tr>
 											<?php
-											}
+											endforeach
+											?>
+
+										</tbody>
+									</table>
+
+									<table class="table table-bordered table-striped" id="tableResources">
+										<thead>
+											<tr>
+												<th><?= $this->lang->line('resource_name') ?></th>
+												<th><?= $this->lang->line('resource_description') ?></th>
+												<th><?= $this->lang->line('resource_cost_per_unit') ?></th>
+												<th><?= $this->lang->line('resource_type') ?></th>
+
+												<th><?= $this->lang->line('btn-actions') ?></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+											foreach ($resources as $resource):
+											?>
+												<tr dados='<?= json_encode($resource); ?>'>
+													<td><?= $resource->resource_name; ?></td>
+													<td><?= $resource->resource_description; ?></td>
+													<td><?= $resource->cost_per_unit; ?></td>
+													<td><?= $resource->resource_type; ?></td>
+												</tr>
+											<?php
+											endforeach
 											?>
 
 										</tbody>
 									</table>
 
 
-									<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>">
+									<form action="<?php echo base_url('project/'); ?><?= $project_id; ?>">
 										<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 									</form>
 								</div>
@@ -149,17 +171,12 @@
 					"data": "activity_name"
 				},
 				{
-					"data": "resource_description"
-				},
-				{
 					"data": "required_amount_of_resource"
 				},
 				{
 					"data": "resource_cost_per_unit"
 				},
-				{
-					"data": "resource_type"
-				},
+
 				{
 					"data": "btn-actions",
 					"orderable": false
@@ -169,6 +186,12 @@
 				[1, 'attr']
 			]
 		});
+	});
+
+	$(document).ready(function() {
+		var units = document.getElementById("units")
+		var amount = document.getElementById("amount");
+		console.log(units)
 	});
 </script>
 
@@ -185,7 +208,7 @@
 
 				console.log(`Passei o ${idProjeto} e ${id}`);
 
-				$.post("<?php echo base_url() ?>schedule/activity-list/delete/" + id, {
+				$.post("<?= base_url() ?>schedule/activity-list/delete/" + id, {
 					project_id: idProjeto,
 				});
 

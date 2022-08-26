@@ -40,7 +40,7 @@
 								<?= $this->lang->line('snd_title')  ?>
 
 							</h1>
-							<form action="<?= base_url() ?>schedule/project-schedule-network-diagram/insert" method="post">
+							<form action="<?= base_url() ?>schedule/project-schedule-network-diagram/insert/" <?= $id ?> method="post">
 
 								<div class="col-lg-6 form-group">
 									<label><?= $this->lang->line('activity_name') ?></label>
