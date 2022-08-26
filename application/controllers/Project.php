@@ -23,6 +23,14 @@ class Project extends CI_Controller
 			redirect(base_url());
 		}
 
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+			$this->lang->load('project-page', 'english');
+        }else{
+            $this->lang->load('btn', 'portuguese-brazilian');
+			$this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
 		$this->load->helper('url');
 		$this->load->helper('log_activity');
 		$this->load->model('project_model');
@@ -294,13 +302,7 @@ class Project extends CI_Controller
 		$_SESSION['project_id'] = null;
 
 		
-		if(strcmp($_SESSION['language'],"US") == 0){
-            $this->lang->load('btn', 'english');
-			$this->lang->load('project-page', 'english');
-        }else{
-            $this->lang->load('btn', 'portuguese-brazilian');
-			$this->lang->load('project-page', 'portuguese-brazilian');
-        }
+
 
 		$dataproject['project'] = $this->db->get_where('project', array(
 			'created_by' => $this->session->userdata('user_id')
@@ -314,16 +316,7 @@ class Project extends CI_Controller
 		//array CONVIDADO é um JOIN da PROJECT_USER + PROJECT
 		$dataproject['convidado'] = $this->db->get('project_user')->result();
 
-		/*
-        foreach ($dataproject['convidado'] as $key => $value) {
-        $ids = array($value); 
-        }
         
-        $dataproject['teste'] = $ids;
-        //print_r($ids);
-        */
-
-
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');

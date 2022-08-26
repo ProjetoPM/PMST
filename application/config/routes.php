@@ -208,8 +208,8 @@ $route['integration/change-log/delete/(:num)'] = "ChangeLog/delete/$1";
 
 $route['integration/project-closure/new/(:num)'] = "ProjectClosure/new/$1";
 $route['integration/project-closure/edit/(:num)'] = "ProjectClosure/edit/$1";
-$route['integration/project-closure/insert/(:num)'] = "projectclosure/insert/$1";
-$route['integration/project-closure/update/(:num)'] = "projectclosure/update/$1";
+$route['integration/project-closure/insert'] = "projectclosure/insert";
+$route['integration/project-closure/update'] = "projectclosure/update";
 
 $route['integration/lesson-learned-register/new/(:num)'] = "LessonLearnedRegister/new/$1";
 $route['integration/lesson-learned-register/edit/(:num)'] = "LessonLearnedRegister/edit/$1";
@@ -282,19 +282,20 @@ $route['schedule/earned-value-management/insert/(:num)'] = "EVM/insert/$1";
 $route['schedule/earned-value-management/update/(:num)'] = "EVM/update/$1";
 $route['schedule/earned-value-management/delete/(:num)'] = "EVM/delete/$1";
 
-$route['schedule/project-schedule-network-diagram/new'] = "ProjectScheduleNetworkDiagram/new";
-$route['schedule/project-schedule-network-diagram/edit/(:num)'] = "ProjectScheduleNetworkDiagram/edit/$1";
-$route['schedule/project-schedule-network-diagram/list/(:num)'] = "ProjectScheduleNetworkDiagram/list/$1";
-$route['schedule/project-schedule-network-diagram/insert'] = "ProjectScheduleNetworkDiagram/insert";
-$route['schedule/project-schedule-network-diagram/update/(:num)'] = "ProjectScheduleNetworkDiagram/update/$1";
-$route['schedule/project-schedule-network-diagram/delete/(:num)'] = "ProjectScheduleNetworkDiagram/delete/$1";
+$route['schedule/schedule-network-diagram/new/(:num)'] = "ScheduleNetworkDiagram/new/$1";
+$route['schedule/project-schedule-network-diagram/edit/(:num)'] = "ScheduleNetworkDiagram/edit/$1";
+$route['schedule/project-schedule-network-diagram/list/(:num)'] = "ScheduleNetworkDiagram/list/$1";
+$route['schedule/project-schedule-network-diagram/insert'] = "ScheduleNetworkDiagram/insert";
+$route['schedule/project-schedule-network-diagram/update/(:num)'] = "ScheduleNetworkDiagram/update/$1";
+$route['schedule/project-schedule-network-diagram/delete/(:num)'] = "ScheduleNetworkDiagram/delete/$1";
 
-$route['schedule/resource-requirements/newr'] = "ResourceRequirements/newr";
-$route['schedule/resource-requirements/new'] = "ResourceRequirements/new";
+$route['schedule/resource/new'] = "Resources/new";
+$route['schedule/resource/insert'] = "Resources/insert";
 
 $route['schedule/resource-requirements/edit/(:num)'] = "ResourceRequirements/edit/$1";
 $route['schedule/resource-requirements/list/(:num)'] = "ResourceRequirements/list/$1";
-$route['schedule/resource-requirements/insert'] = "ResourceRequirements/insert";
+$route['schedule/resource-requirements/insert/(:num)'] = "ResourceRequirements/insert/$1";
+$route['schedule/resource-requirements/new'] = "ResourceRequirements/new";
 $route['schedule/resource-requirements/update/(:num)'] = "ResourceRequirements/update/$1";
 $route['schedule/resource-requirements/delete/(:num)'] = "ResourceRequirements/delete/$1";
 

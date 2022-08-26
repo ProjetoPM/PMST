@@ -23,7 +23,7 @@
 					</div>
 				<?php endif; ?>
 
-				<?php extract($activity); ?>
+				<?php extract($resource_requirement); ?>
 
 				<div class="row">
 					<div class="col-lg-12">
@@ -31,11 +31,22 @@
 							<h1 class="page-header">
 
 								<?= $this->lang->line('rr_title')  ?>
-
+								<?php $view_name = "resource requirements" ?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
 							</h1>
-							<form action="<?= base_url() ?>schedule/resource-requirements/update/<?php echo $id; ?>" method="post">
 
-								<input type="hidden" id="project_id" name="project_id" value="<?php echo $project_id; ?>">
+							<!-- avaliação -->
+							<link href="<?= base_url() ?>assets/css/field_evaluation.css" rel="stylesheet" type="text/css">
+							<?php
+							getViewFields($view_name);
+							?>
+							<?php $this->load->view('construction_services/write_field_evaluation') ?>
+
+							<form action="<?= base_url() ?>schedule/resource-requirements/update/<?= $resource_requirement[0]->resource_requirements_id; ?>" method="post">
+
+								<input type="hidden" id="project_id" name="project_id" value="<?= $resource_requirement[0]->project_id; ?>">
 								<!-- Textarea -->
 								<ul class="abas">
 									<!-- Aqui, criação da primeira aba -->
@@ -43,41 +54,16 @@
 									<div class="col-lg-12 form-group">
 										<label for="name"><?= $this->lang->line('activity_name') ?></label>
 										<div>
-											<input id="name_text" name="name" type="text" class="form-control input-md" required="false" value="<?php echo $activity_name; ?>" disabled>
-										</div>
-									</div>
-
-									<div class=" col-lg-12 form-group">
-										<label for="resource_description"><?= $this->lang->line('rr_resource_description') ?></label>
-										<a class="btn-sm btn-default" id="rr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rr_resource_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-										<div>
-											<input id="resource_description" name="resource_description" class="form-control input-md" value="<?php echo $resource_description; ?>">
+											<input id="name_text" name="name" type="text" class="form-control input-md" required="false" value="<?= $resource_requirement[0]->activity_name; ?>" disabled>
 										</div>
 									</div>
 
 									<div class=" col-lg-4 form-group">
-										<label for="required_amount_of_resource"><?= $this->lang->line('rr_required_amount_of_resource') ?></label>
-										<a class="btn-sm btn-default" id="rr_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rr_required_amount_of_resource_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<label for="required_amount_of_resource"><?= $this->lang->line('required_amount_of_resource') ?></label>
+										<a class="btn-sm btn-default" id="rr_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('required_amount_of_resource_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a <?= fieldStatus($view_name, $resource_requirement[0]->resource_requirements_id, "required_amount_of_resource") ?> data-field="required_amount_of_resource" data-field_name="<?= $this->lang->line('required_amount_of_resource') ?>" data-item_id="<?= $resource_requirement[0]->resource_requirements_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
-											<input id="required_amount_of_resource" type="number" name="required_amount_of_resource" class="form-control input-md" value="<?php echo $required_amount_of_resource; ?>">
-										</div>
-									</div>
-
-
-									<div class=" col-lg-4 form-group">
-										<label for="resource_cost_per_unit"><?= $this->lang->line('rr_resource_cost_per_unit') ?></label>
-										<a class="btn-sm btn-default" id="rr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rr_resource_cost_per_unit_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-										<div>
-											<input id="resource_cost_per_unit" name="resource_cost_per_unit" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $resource_cost_per_unit; ?>">
-										</div>
-									</div>
-
-									<div class=" col-lg-4 form-group">
-										<label for="resource_type"><?= $this->lang->line('rr_resource_type') ?></label>
-										<span class="rr_4">2000</span><?= $this->lang->line('character') ?>
-										<a class="btn-sm btn-default" id="rr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rr_resource_type_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-										<div>
-										<input id="rr_txt_4" type="text" name="resource_type" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'rr_4')" maxlength="2000" oninput="eylem(this, this.value)" required="false" value="<?php echo $resource_type; ?>">
+											<input id="required_amount_of_resource" type="number" name="required_amount_of_resource" class="form-control input-md" value="<?= $resource_requirement[0]->resource_amount; ?>">
 										</div>
 									</div>
 
@@ -87,7 +73,7 @@
 										</button>
 							</form>
 
-							<form action="<?php echo base_url('schedule/resource-requirements/list/'); ?><?php echo $project_id; ?>">
+							<form action="<?= base_url('schedule/resource-requirements/list/'); ?><?= $resource_requirement[0]->project_id; ?>">
 								<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 							</form>
 						</div>
