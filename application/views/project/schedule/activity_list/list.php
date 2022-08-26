@@ -36,21 +36,9 @@
 							</div>
 							<br><br>
 
-							<!-- Nav tabs
-								<ul class="nav nav-tabs" id="myTab" role="tablist">
-								<li class="nav-item active">
-									<a class="nav-link show active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" aria-expanded="true">Activity List</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" id="milestone-tab" data-toggle="tab" href="#milestone" role="tab" aria-controls="milestone" aria-selected="false">Milestone</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" id="phase-tab" data-toggle="tab" href="#phase" role="tab" aria-controls="phase" aria-selected="false">Project Phase</a>
-								</li>
-							</ul>
 							
 							<div class="tab-content" style="margin-top: 10px;">
-								<div class="tab-pane fade show active in" id="home" role="tabpanel" aria-labelledby="home-tab"> -->
+								<div class="tab-pane fade show active in" id="home" role="tabpanel" aria-labelledby="home-tab">
 							<div class="row">
 								<div class="col-lg-12">
 									<table class="table table-bordered table-striped" id="tableNB">
@@ -75,7 +63,7 @@
 													<td><?= $a->milestone; ?></td>
 													<td><?= $a->activity_name; ?></td>
 
-													<td style="max-width: 10px">
+													<td <?= getStatusFieldsList("activity list", $a->id) ?> style="max-width: 10px">
 														<div class="row" style="margin: auto">
 															<div class="col-sm-3" style="padding-left: 5px">
 																<form action="<?= base_url("schedule/activity-list/edit/$a->id") ?>" method="post">
@@ -88,12 +76,6 @@
 															</div>
 														</div>
 								</div>
-								<!-- <div class="col-sm-3">
-												<form target="_blank" action="<?php echo base_url() ?>TeamPerformanceEvaluation_PDF/pdfGenerator/<?php echo $a->id; ?>" method="post">
-													<input type="hidden" name="project_id" value="<?= $project_id ?>">
-													<button type="submit" class="btn btn-success" ><em class="glyphicon glyphicon-file"></em> to PDF<span class="hidden-xs"></span></button>
-												</form>
-											</div> -->
 							</div>
 							</td>
 							</tr>
@@ -111,16 +93,10 @@
 								</form>
 							</div>
 						</div>
-
-						<!-- /.row -->
-
-
 						<!--1º preencher o nome da view-->
 						<?php $view = array(
 							"name" => "activity_list",
 						); ?>
-
-
 
 						<!--Carrega as imagens do projeto de acordo com a view, utiliza id ou project_id pra pegar o id do projeto e criar a query-->
 						<?php $this->load->view('upload/retrieve', $view) ?>
@@ -137,9 +113,6 @@
 
 <!--Carrega o form de envio e envia para ele o nome da view que tu setou -->
 <?php $this->load->view('upload/index', $view) ?>
-
-
-
 
 <!-- Modal Milestone -->
 <div class="modal fade" id="milestone" role="dialog">
