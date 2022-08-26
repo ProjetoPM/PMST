@@ -22,6 +22,14 @@ class Project extends CI_Controller
 			redirect(base_url());
 		}
 
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+			$this->lang->load('project-page', 'english');
+        }else{
+            $this->lang->load('btn', 'portuguese-brazilian');
+			$this->lang->load('project-page', 'portuguese-brazilian');
+        }
+
 		$this->load->helper('url');
 		$this->load->helper('log_activity');
 		$this->load->model('Project_model');
@@ -287,7 +295,6 @@ class Project extends CI_Controller
 
 		$data['projects'] = $this->Project_model->getProjectsRelatedToUser($_SESSION['user_id'], $workspace_id);
 		$data['workspace_title'] = $this->Workspace_model->getWorkspaceName($workspace_id);
-
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');

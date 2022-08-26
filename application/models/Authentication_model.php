@@ -9,17 +9,6 @@ class Authentication_model extends CI_Model {
         parent::__construct();
     }
 
-    // function getUserId($user_id)
-    // {
-    //     $this->db->select('role');
-    //     $this->db->where('user_id', $user_id);
-    //     $this->db->from('user');
-    //     $this->db->limit(1);
-    //     $query = $this->db->get();
-    //     $res = $query->row_array();
-    //     return $res['role'];
-    // }
-
     function getUserRole($user_id)
     {
         $this->db->select('role');
@@ -70,16 +59,6 @@ class Authentication_model extends CI_Model {
             );
             $this->db->where('user_id', $this->session->userdata('user_id'));
             $this->db->update('user', $data);
-
-    //         $module = "Change Password";
-    //         $activity = "change its own password";
-    //         $this->admin_model->insert_log($activity, $module);
-    //         return array('status' => 'success', 'message' => '');
-    //     }else{
-    //         return array('status' => 'invalid', 'message' => '');
-    //     }
-
-    //    }
         }
         
     }

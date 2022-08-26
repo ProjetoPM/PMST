@@ -14,12 +14,12 @@
 				<?php if ($this->session->flashdata('success')) : ?>
 					<div class="alert alert-success">
 						<a href="#" class="close" data-dismiss="alert">&times;</a>
-						<strong><?php echo $this->session->flashdata('success'); ?></strong>
+						<strong><?= $this->session->flashdata('success'); ?></strong>
 					</div>
 				<?php elseif ($this->session->flashdata('error')) : ?>
 					<div class="alert alert-warning">
 						<a href="#" class="close" data-dismiss="alert">&times;</a>
-						<strong><?php echo $this->session->flashdata('error'); ?></strong>
+						<strong><?= $this->session->flashdata('error'); ?></strong>
 					</div>
 				<?php endif; ?>
 				<!-- /.row -->
@@ -68,7 +68,7 @@
 							</h1>
 							<div class="row">
 								<div class="col-lg-12">
-									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>schedule/duration-estimates/new/<?php echo $_SESSION['project_id'] ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
+									<button class="btn btn-info btn-lg" onclick="window.location.href='<?= base_url() ?>schedule/duration-estimates/new/<?= $_SESSION['project_id'] ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
 									<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#upload"><i class="fa fa-plus-circle"></i><?= $this->lang->line('btn-upload') ?></button>
 									<?php
 									if ($duration_estimates != null) {
@@ -84,15 +84,6 @@
 								<div class="col-lg-12" id="table1">
 									<?php
 									if ($duration_estimates != null) {
-										// Obtain a list of columns
-										foreach ($duration_estimates as $key => $row) {
-											$id[$key]  = $row->activity_id;
-											$version[$key] = $row->version;
-										}
-
-										// Ordena os dados por volume decrescente, edition crescente.
-										// Adiciona $data como último parâmetro, para ordenar por uma chave comum.
-										array_multisort($id, SORT_ASC, $version, SORT_DESC, $duration_estimates);
 									?>
 
 										<table class="table table-bordered table-striped" id="tableNB">
@@ -114,19 +105,19 @@
 													if ($a->status == 1) {
 												?>
 														<tr dados='<?= json_encode($a); ?>'>
-															<td><?php echo getActivityName($a->activity_id) ?></td>
-															<td><?php echo $a->estimated_duration; ?></td>
-															<td><?php echo $a->performed_duration; ?></td>
-															<td><?php echo $a->estimated_start_date; ?></td>
-															<td><?php echo $a->performed_start_date; ?></td>
-															<td><?php echo $a->estimated_end_date; ?></td>
-															<td><?php echo $a->performed_end_date; ?></td>
+															<td><?= $a->activity_name ?></td>
+															<td><?= $a->estimated_duration; ?></td>
+															<td><?= $a->performed_duration; ?></td>
+															<td><?= $a->estimated_start_date; ?></td>
+															<td><?= $a->performed_start_date; ?></td>
+															<td><?= $a->estimated_end_date; ?></td>
+															<td><?= $a->performed_end_date; ?></td>
 
 
-															<td style="max-width: 20px">
+															<td <?= getStatusFieldsList("duration estimates", $a->duration_estimates_id) ?> style="max-width: 20px">
 																<div class="row" style="margin: auto">
 																	<div class="col-sm-3" style="padding-left: 5px">
-																		<form action="<?php echo base_url() ?>schedule/duration-estimates/edit/<?php echo $a->duration_estimates_id; ?>" method="post">
+																		<form action="<?= base_url() ?>schedule/duration-estimates/edit/<?= $a->duration_estimates_id; ?>" method="post">
 																			<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 																		</form>
 																	</div>
@@ -175,19 +166,19 @@
 											foreach ($duration_estimates as $a) {
 											?>
 												<tr dados='<?= json_encode($a); ?>'>
-													<td><?php echo getActivityName($a->activity_id) ?></td>
-													<td><?php echo $a->estimated_duration; ?></td>
-													<td><?php echo $a->performed_duration; ?></td>
-													<td><?php echo $a->estimated_start_date; ?></td>
-													<td><?php echo $a->performed_start_date; ?></td>
-													<td><?php echo $a->estimated_end_date; ?></td>
-													<td><?php echo $a->performed_end_date; ?></td>
-													<td style="text-align: center;"><?php echo $a->version; ?></td>
+													<td><?= getActivityName($a->activity_id) ?></td>
+													<td><?= $a->estimated_duration; ?></td>
+													<td><?= $a->performed_duration; ?></td>
+													<td><?= $a->estimated_start_date; ?></td>
+													<td><?= $a->performed_start_date; ?></td>
+													<td><?= $a->estimated_end_date; ?></td>
+													<td><?= $a->performed_end_date; ?></td>
+													<td style="text-align: center;"><?= $a->version; ?></td>
 
 													<td style="max-width: 20px">
 														<div class="row" style="margin:auto">
 															<div class="col-sm-3">
-																<form action="<?php echo base_url() ?>schedule/duration-estimates/read/<?php echo $a->duration_estimates_id; ?>" method="post">
+																<form action="<?= base_url() ?>schedule/duration-estimates/read/<?= $a->duration_estimates_id; ?>" method="post">
 																	<button type="submit" class="btn btn-default"><em class="fa fa-eye"></em><span class="hidden-xs"></span></button>
 																</form>
 															</div>
@@ -208,7 +199,7 @@
 
 
 								<div class="col-lg-12">
-									<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>">
+									<form action="<?= base_url('project/'); ?><?= $project_id; ?>">
 										<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 									</form>
 								</div>
@@ -350,7 +341,7 @@
 			'reverseButtons': false,
 			'onok': function() {
 
-				$.post("<?php echo base_url() ?>schedule/duration-estimates/delete/" + id);
+				$.post("<?= base_url() ?>schedule/duration-estimates/delete/" + id);
 
 				alertify.success('You agree.');
 				location.reload();

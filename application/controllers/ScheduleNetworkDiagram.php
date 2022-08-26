@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class ProjectScheduleNetworkDiagram extends CI_Controller
+class ScheduleNetworkDiagram extends CI_Controller
 {
 
 	function __construct()
@@ -26,11 +26,6 @@ class ProjectScheduleNetworkDiagram extends CI_Controller
 		$this->load->helper('log_activity');
 		
 		
-		// $this->lang->load('btn','portuguese-brazilian');
-		
-		
-		// $this->lang->load('manage-cost','portuguese-brazilian');
-		
 	}
 	
 	
@@ -38,6 +33,7 @@ class ProjectScheduleNetworkDiagram extends CI_Controller
 	public function list($project_id)
 	{
 		$dado['schedule_network'] = $this->ScheduleNetwork_model->getAll($project_id);
+		
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
@@ -55,7 +51,17 @@ class ProjectScheduleNetworkDiagram extends CI_Controller
 		$this->load->view('project/schedule/schedule_network/edit', $query);
 	}
 
-	public function update()
+	public function new($id)
+	{
+		$data['activity'] = $this->Activity_model->getAll($id);
+		$data['id'] = $id;
+		$this->load->view('frame/header_view.php');
+		$this->load->view('frame/topbar');
+		$this->load->view('frame/sidebar_nav_view.php');
+		$this->load->view('project/schedule/schedule_network/new', $data);
+	}
+	
+	public function update($schedule_network_id)
 	{
 		if(strcmp($_SESSION['language'],"US") == 0){
 			$feedback_success = 'Item Updated';
@@ -63,15 +69,21 @@ class ProjectScheduleNetworkDiagram extends CI_Controller
 			$feedback_success = 'Item Atualizado ';
 		}
 
-		$activity['predecessor_activity'] = $this->input->post('predecessor_activity');
-		$activity['dependence_type'] = $this->input->post('dependence_type');
-		$activity['anticipation'] = $this->input->post('anticipation');
-		$activity['wait'] = $this->input->post('wait');
+		$snd['activity_id'] = $this->input->post('activity_id');
+		$sn['predecessor_activity'] = $this->input->post('predecessor_activity');
+		$sn['dependence_type'] = $this->input->post('dependence_type');
+		$sn['anticipation'] = $this->input->post('anticipation');
+		$sn['wait'] = $this->input->post('wait');
 		
-		$activity['project_id'] = $this->input->post('project_id');
+		if (strcmp($sn['activity_id'], $sn['predecessor_activity']) == 0) {
+			$this->session->set_flashdata('error', 'An activity cannot be a predecessor of itself!');
+			redirect('schedule/project-schedule-network-diagram/list/'. $_SESSION['project_id']);
+		}
+
+		$sn['project_id'] = $this->input->post('project_id');
 		
-		$data['activity'] = $activity;
-		$query = $this->Activity_model->update($data['activity'], $_SESSION['project_id']);
+		$data['schedule_network'] = $sn;
+		$query = $this->ScheduleNetwork_model->update($data['schedule_network'], $schedule_network_id);
 		
 		if ($query) {
 			insertLogActivity('update', 'project schedule network diagram');

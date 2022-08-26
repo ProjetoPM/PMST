@@ -47,10 +47,7 @@
 										<label><?= $this->lang->line('tep-project_closure_date') ?></label>
 										<a class="btn-sm btn-default" id="tep_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('tep_project_closure_date-tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div class="input-group">
-											<div class="input-group-addon">
-												<i class="fa fa-calendar"></i>
-											</div>
-											<input class="form-control" id="project_closure_date" placeholder="YYYY/MM/DD" type="text" name="project_closure_date" />
+											<input class="form-control" id="project_closure_date" placeholder="YYYY/MM/DD" type="date" name="project_closure_date" />
 										</div>
 									</div>
 

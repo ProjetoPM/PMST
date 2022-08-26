@@ -25,12 +25,6 @@ class StakeholderRegister extends CI_Controller
         $this->load->model('log_model');
         $this->load->helper('log_activity');
 
-
-        // $this->lang->load('btn','portuguese-brazilian');
-       
-
-        // $this->lang->load('manage-cost','portuguese-brazilian');
-
     }
 
     public function new($project_id)

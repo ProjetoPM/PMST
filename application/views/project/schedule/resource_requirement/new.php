@@ -31,7 +31,7 @@
 								<?= $this->lang->line('rr_title')  ?>
 
 							</h1>
-							<form action="<?= base_url() ?>schedule/resource-requirements/update/" method="post">
+							<form action="<?= base_url() ?>schedule/resource-requirements/insert/<?= $_SESSION['project_id']; ?>" method="post">
 
 									<div class="col-lg-6 form-group">
 										<label>Activity</label>
@@ -46,37 +46,22 @@
 
 									<div class="col-lg-6 form-group">
 										<label>Resource</label>
-										<select name="activity_id" size="1" class="form-control" tabindex="1">
+										<select name="resource_id" size="1" class="form-control" tabindex="1">
 										<option selected disabled value=""> Select </option>	
-										<!-- <?php foreach ($activities as $t) { ?>
-												<option  value="<?= $t->id; ?>">
-													<?= $t->activity_name; ?></option>
-											<?php  } ?> -->
-											<option > Computador </option>
-											<option > Mesa </option>
-											<option > Software de testes </option>	
+										<?php foreach ($resources as $r): ?> 
+												<option  value="<?= $r->resource_id; ?>">
+													<?= $r->resource_name; ?></option>
+											<?php endforeach ?>
 										</select>
 									</div>
 
-
-
 									<div class="col-lg-6 form-group">
-										<label for="required_amount_of_resource"><?= $this->lang->line('rr_required_amount_of_resource') ?></label>
+										<label for="required_amount_of_resource"><?= $this->lang->line('required_amount_of_resource') ?></label>
 										<a class="btn-sm btn-default" id="rr_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rr_required_amount_of_resource_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
 											<input id="required_amount_of_resource" type="number" name="required_amount_of_resource" class="form-control input-md" >
 										</div>
 									</div>
-
-
-									<div class="col-lg-6 form-group">
-										<label for="resource_cost_per_unit" style="color:red">Total Cost?</label>
-										<a class="btn-sm btn-default" id="rr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rr_resource_cost_per_unit_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-										<div>
-											<input id="resource_cost_per_unit" name="resource_cost_per_unit" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" >
-										</div>
-									</div>
-
 
 									<div class="col-lg-12">
 										<button id="activity-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
@@ -109,5 +94,6 @@
 		var caracteresRestantes = limite - caracteresDigitados;
 		$("." + txt).text(caracteresRestantes);
 	}
+
   </script>
 <?php $this->load->view('frame/footer_view') ?>

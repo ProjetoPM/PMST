@@ -25,12 +25,6 @@ class EVM extends CI_Controller
 		$this->load->model('log_model');
 		$this->load->helper('log_activity');
 
-
-		// $this->lang->load('btn','portuguese-brazilian');
-		
-
-		// $this->lang->load('manage-cost','portuguese-brazilian');
-
 	}
 
 	//AGREGATE VALUE
@@ -83,6 +77,8 @@ class EVM extends CI_Controller
 
 
 		$activity['project_id'] = $this->input->post('project_id');
+		var_dump($activity['project_id']);
+		exit();
 
 		$data['activity'] = $activity;
 		$query = $this->Activity_model->update($data['activity'], $project_id);
