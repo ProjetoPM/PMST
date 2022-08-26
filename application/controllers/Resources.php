@@ -55,31 +55,30 @@ class Resources extends CI_Controller
             $this->load->view('frame/sidebar_nav_view', $_SESSION['project_id']);
             $this->load->view('project/schedule/resources/new', $dado);
         
-        }
+    }
         
-        public function insert()
-        {
-            if (strcmp($_SESSION['language'], "US") == 0) {
-                $feedback_success = 'Item Created';
-            } else {
-                $feedback_success = 'Item Criado ';
-            }
-    
-            $resource['resource_name'] = $this->input->post('resource_name');
-            $resource['resource_description'] = $this->input->post('resource_description');
-            $resource['cost_per_unit'] = $this->input->post('resource_cost_per_unit');
-            $resource['resource_type'] = $this->input->post('resource_type');
-            $resource['project_id'] = $_SESSION['project_id'];
-            $query = $this->Resources_model->insert($resource);
-    
-            if ($query) {
-                insertLogActivity('insert', 'project resource');
-                $this->session->set_flashdata('success', $feedback_success);
-                redirect('schedule/resource-requirements/list/' . $resource['project_id']);
-            }
+    public function insert()
+    {
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $feedback_success = 'Item Created';
+        } else {
+            $feedback_success = 'Item Criado ';
+        }
+
+        $resource['resource_name'] = $this->input->post('resource_name');
+        $resource['resource_description'] = $this->input->post('resource_description');
+        $resource['cost_per_unit'] = $this->input->post('resource_cost_per_unit');
+        $resource['resource_type'] = $this->input->post('resource_type');
+        $resource['project_id'] = $_SESSION['project_id'];
+        $query = $this->Resources_model->insert($resource);
+
+        if ($query) {
+            insertLogActivity('insert', 'project resource');
+            $this->session->set_flashdata('success', $feedback_success);
+            redirect('schedule/resource-requirements/list/' . $resource['project_id']);
         }
     
-
+    }
 
     
     public function list($project_id)
