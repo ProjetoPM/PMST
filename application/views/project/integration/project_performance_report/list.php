@@ -33,8 +33,7 @@
 							<div class="row">
 								<div class="col-lg-12">
 
-									<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>integration/project-performance-report/new/<?php echo $project_id ?>'"> <?= $this->lang->line('btn-new') ?> <?= $this->lang->line('project_performance_report-title') ?></button>
-									<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Imovel/new'"> name</button
+									<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>integration/project-performance-report/new/<?php echo $project_id ?>'"> <?= $this->lang->line('btn-new') ?> <?= $this->lang->line('ppr_new') ?></button>
 								</div>
 							</div>
 

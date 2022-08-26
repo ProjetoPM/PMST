@@ -18,22 +18,37 @@ class WeeklyEvaluation_model extends CI_Model
 		$result = $query->row_array();
 
 		return $result['deadline'];
-
 	}
 	function insert($data)
 	{
 		return $this->db->insert('weekly_evaluation', $data);
 	}
+
+	public function alreadyEvaluated($weekly_report_id)
+	{
+		$query =  $this->db->select('report_id')
+			->from('report_score')
+			->where('report_id', $weekly_report_id)
+			->get()->result();
+
+			return $query[0];
+	}
 	public function get($weekly_evaluation_id)
 	{
-		$query = $this->db->get_where('weekly_evaluation', array('weekly_evaluation_id' => $weekly_evaluation_id));
-		return $query->result();
+		return $this->db->select("weekly_evaluation.*, score_metric.name as score_metric_name")
+			->from('weekly_evaluation')
+			->join('score_metric', 'weekly_evaluation.group_score_id = score_metric.score_metric_id')
+			->where('weekly_evaluation_id', $weekly_evaluation_id)
+			->get()
+			->result();
 	}
 
-	public function getAll()
+	public function getAll($workspace_id)
 	{
-		$query = $this->db->get('weekly_evaluation');
-		return $query->result();
+		return $this->db->select('*')
+			->from('weekly_evaluation')
+			->where('workspace_id', $workspace_id)
+			->get()->result();
 	}
 
 	public function update($weekly_evaluation_id, $weekly_evaluation)

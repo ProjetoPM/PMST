@@ -20,6 +20,8 @@ $lang['we_comments'] = 'Comentários';
 $lang['we_closed'] = 'Fechado';
 $lang['we_open'] = 'Aberto';
 
+$lang['we_score_metric'] = 'Métrica de Avaliação';
+
 
 ?>
 

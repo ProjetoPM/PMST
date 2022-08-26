@@ -1,8 +1,8 @@
- <!-- 
+ <!--
 <div id="page-wrapper">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header"> $title ?></h1> 
+      <h1 class="page-header"> $title ?></h1>
  <h1 class="page-header">$this->lang->line('title') ?></h1>
  </div>
 
@@ -41,40 +41,43 @@
            <div class="col-lg-12">
              <div class="panel-body">
                <h1 class="page-header">
-
-                 New Project
-
+                 <?= $this->lang->line('title') ?>
                </h1>
 
-               <form action="<?= base_url() ?>project/add_project/" method="post">
-
-
+               <form action="<?= base_url("project/add_project/{$_SESSION['workspace_id']}") ?>" method="post">
                  <!-- Text input-->
                  <div class="col-lg-12 form-group">
                    <label for="title"><?= $this->lang->line('project-title') ?> *</label>
+                   <span id="count-a"></span>
                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('project-title-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                   <div>
-                     <input id="title" name="title" type="text" class="form-control input-md" required="true">
-                     <!-- <input id="title" name="title" type="text" placeholder="Title" class="form-control input-md" required="true"> -->
 
-                   </div>
+                    <textarea oninput="limitText(this, 35, 'a')" id="title" name="title" type="text" class="form-control input-md" rows="1" required></textarea>
                  </div>
 
                  <!-- Textarea -->
                  <div class="col-lg-6 form-group">
-                   <label for="description"><?= $this->lang->line('project-description') ?></label>
-                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('project-description-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                    <label for="description">
+                      <?= $this->lang->line('project-description') ?>
+                    </label>
+                    <span id="count-b"></span>
+                   <a class="btn-sm btn-default" 
+                          data-toggle="tooltip" 
+                          data-placement="right" 
+                          title="<?= $this->lang->line('project-description-tooltip') ?>">
+                      <i class="glyphicon glyphicon-comment"></i>
+                    </a>
                    <div>
-                     <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="description" name="description"></textarea>
+                     <textarea oninput="limitText(this, 1000, 'b')" class="form-control elasticteste" id="description" name="description"></textarea>
                    </div>
                  </div>
 
                  <!-- Textarea -->
                  <div class="col-lg-6 form-group">
                    <label for="objectives"><?= $this->lang->line('project-objectives') ?></label>
+                   <span id="count-c"></span>
                    <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('project-objectives-tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                    <div>
-                     <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="objectives" name="objectives"></textarea>
+                     <textarea oninput="limitText(this, 1000, 'c')" class="form-control elasticteste" id="objectives" name="objectives"></textarea>
                    </div>
                  </div>
 
@@ -83,14 +86,12 @@
                      <i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
                    </button>
                </form>
-               <form action="<?php echo base_url('projects/'); ?>">
+               <form action='<?php echo base_url("projects/{$_SESSION['workspace_id']}"); ?>'>
                  <button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
                </form>
-
              </div>
            </div>
          </div>
        </section>
      </div>
    </div>
- 

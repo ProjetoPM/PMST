@@ -80,16 +80,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Authentication';
 $route['authentication/register'] = 'Authentication/register';
 $route['register'] = 'Register/addUser';
-$route['projects'] = 'Project/show_projects';
-$route['new'] = 'Project/project_form';
 $route['recover_password'] = 'Admin/reset_user_password';
 $route['register/update_password'] = 'Register/savePassword';
 $route['user/list/(:num)'] = 'Register/list/$1';
 $route['change_language/(:any)'] = "Authentication/language/$1";
-$route['project/(:num)'] = 'Project/initial/$1';
-$route['edit/(:num)'] = 'Project/update/$1';
-$route['researcher/(:num)'] = 'Project/add_researcher_page/$1';
-$route['delete/(:num)'] = 'Project/delete/$1';
 
 $route['researcher/edit-researcher/(:num)'] = 'Project/edit_researcher_page/$1';
 $route['researcher/update'] = 'Project/update_researcher';
@@ -114,26 +108,47 @@ $route['translate_uri_dashes'] = FALSE;
 
 $oute['get/processes/(:num)'] = 'WeeklyReport/getProcesses/$1';
 
+// Workspace
+$route['workspace/list'] = 'Workspace/list';
+$route['workspace/members/(:num)'] = 'Workspace/members/$1';
+$route['workspace/insert'] = 'Workspace/insert';
+$route['workspace/invite'] = 'Workspace/sendInvite';
+$route['workspace/accept-invite/(:num)/(:num)'] = 'Workspace/acceptInvite/$1/$2';
+$route['workspace/decline-invite/(:num)'] = 'Workspace/declineInvite/$1';
+$route['workspace/delete/(:num)'] = 'Workspace/delete/$1';
+// End Workspace
+
+// Projects
+$route['researcher/(:num)'] = 'Project/add_researcher_page/$1';
+$route['new/(:num)'] = 'Project/project_form/$1';
+$route['projects/(:num)'] = 'Project/listProjects/$1';
+$route['edit/(:num)'] = 'Project/update/$1';
+$route['project/(:num)'] = 'Project/initial/$1';
+$route['delete/(:num)'] = 'Project/delete/$1';
+// End Projects
 
 $route['weekly-report/new'] = "WeeklyReport/new";
 $route['weekly-report/insert'] = "WeeklyReport/insert";
 $route['weekly-report/edit/(:num)'] = "WeeklyReport/edit/$1";
 $route['weekly-report/update/(:num)'] = "WeeklyReport/update/$1";
+$route['weekly-report/delete/(:num)'] = "WeeklyReport/delete/$1";
 $route['weekly-report/list'] = "WeeklyReport/list";
 $route['weekly-report/get-processes/(:alpha)'] = "WeeklyReport/getProcesses/$1";
 $route['weekly-report/upload'] = "WeeklyReport/upload_img";
 $route['weekly-report/upload-image'] = "WeeklyReport/upload_image/";
 $route['weekly-report/images/(:num)'] = "WeeklyReport/images/$1";
 $route['weekly-report/form'] = "WeeklyReport/extending_form/";
-$route['weekly-report/process-name-ajax'] = "WeeklyReport/getProcessNameViaAjax/"; // ROUTE HAS BEEN MADE!!!!!!!!!!!!!!!!!!!!
+$route['weekly-report/process-name-ajax'] = "WeeklyReport/getProcessNameViaAjax/"; 
 
+$route['weekly-evaluation/add-score/(:num)'] = "WeeklyEvaluation/add_score/$1";
+$route['weekly-evaluation/insert-score/(:num)'] = "WeeklyEvaluation/insert_score/$1";
 $route['weekly-evaluation/edit-score/(:num)'] = "WeeklyEvaluation/edit_score/$1";
 $route['weekly-evaluation/update-score/(:num)'] = "WeeklyEvaluation/update_score/$1";
 $route['weekly-evaluation/new'] = "WeeklyEvaluation/new";
 $route['weekly-evaluation/insert'] = "WeeklyEvaluation/insert";
 $route['weekly-evaluation/edit/(:num)'] = "WeeklyEvaluation/edit/$1";
 $route['weekly-evaluation/update/(:num)'] = "WeeklyEvaluation/update/$1";
-$route['weekly-evaluation/list'] = "WeeklyEvaluation/list";
+$route['weekly-evaluation/list/(:num)'] = "WeeklyEvaluation/list/$1";
 
 $route['integration/project-charter/new/(:num)'] = "ProjectCharter/new/$1";
 $route['integration/project-charter/edit/(:num)'] = "ProjectCharter/edit/$1";

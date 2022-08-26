@@ -112,9 +112,8 @@ function getRole($id)
 	$obj->load->model('User_Model');
 
 	$data1 = $obj->User_Model->GetUserById($id);
-	return $data1["role"];
+	return $data1['role'];
 }
-
 
 function getAllFieldEvaluation($project_id, $view, $item_id)
 {
@@ -131,6 +130,21 @@ function getAllFieldEvaluation($project_id, $view, $item_id)
 	return $data;
 }
 
+function verifyWorkspaceAcesslevel($workspace_id, $user_id){
+	$obj = &get_instance();
+	$obj->load->model('Workspace_model');
+
+	$data = $obj->Workspace_model->getRole($workspace_id, $user_id) ?? 1;
+
+	if ($data == 2) {
+		return "Project Manager";
+	} else if ($data == 1) {
+		return "Professor";
+	} else {
+		return "Staff";
+	}
+}
+
 function getAcesslevelName($project_id, $user_id)
 {
 	$obj = &get_instance();
@@ -140,6 +154,18 @@ function getAcesslevelName($project_id, $user_id)
 	if ($data == 2) {
 		return "Project Manager";
 	} else if ($data == 1) {
+		return "Professor";
+	} else {
+		return "Staff";
+	}
+}
+
+function getAcesslevelNameByAcessLevelId($access_level)
+{
+	
+	if ($access_level == 2) {
+		return "Project Manager";
+	} else if ($access_level == 1) {
 		return "Professor";
 	} else {
 		return "Staff";
@@ -285,21 +311,18 @@ function getUserName($user_id)
 	return $data;
 }
 
-function getScoreIdAsScore($score_id)
+function getWeeklyEvaluationScore($weekly_report_id)
 {
 	$obj = &get_instance();
-	$data = $obj->WeeklyReport_model->getScore($score_id);
+	$data = $obj->WeeklyReport_model->getScore($weekly_report_id);
+	return $data[0]->score_evaluation === null ? $obj->lang->line('wr_score_feedback') : $data[0]->score_evaluation;
+}
 
-	if ($data == 0) {
-		$score = 'NOK';
-	} else if ($data == 1) {
-		$score = 'POK';
-	} else  if ($data == 2) {
-		$score = 'TOK';
-	} else {
-		$score = 'No Score Available Yet';
-	}
-	return $score;
+function getScorePerReport($weekly_report_id)
+{
+	$obj = &get_instance();
+	$data = $obj->WeeklyReport_model->getAllScoresPerReport($weekly_report_id);
+	return empty($data) ? 'Not Evaluated yet': $data;
 }
 
 function getActivityName($id)
@@ -318,9 +341,6 @@ function getWeeklyEvaluationName($id)
 	$obj->load->model('WeeklyEvaluation_model');
 
 	$data = $obj->WeeklyEvaluation_model->get($id);
-
-
-
 
 	return $data[0]->name;
 }
@@ -361,7 +381,7 @@ function loadViews($view, $data = '')
 	$object->load->view("frame/footer_view");
 }
 
-function loadLangs($views)
+function loadLangs($views = array())
 {
 	$object = &get_instance();
 
@@ -371,7 +391,7 @@ function loadLangs($views)
 		foreach ($views as $view) {
 			$object->lang->load($view, 'english');
 		}
-	}else{
+	} else{
 		$object->lang->load('project-page', 'portuguese-brazilian');
 		$object->lang->load('btn', 'portuguese-brazilian');
 		foreach ($views as $view) {

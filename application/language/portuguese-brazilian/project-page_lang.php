@@ -1,5 +1,6 @@
 <?php
 $lang['phases'] = 'FASES';
+$lang['current-workspace'] = "Área de Trabalho Atual";
 
 // Top Phases
 $lang['initiating'] = 'Iniciação';

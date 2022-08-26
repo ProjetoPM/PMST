@@ -4,6 +4,7 @@
 $lang['ppr_title'] = 'Project Performance and Monitoring Report';
 
 //Form
+$lang['ppr_new'] = ' New Project Performance and Monitoring Report';
 $lang['ppr_date'] = 'Date of Report';
 $lang['ppr_current_performance_analysis'] = 'Current Performance Analysis';
 $lang['ppr_planned_forecasts'] = 'Forecasts as planned';

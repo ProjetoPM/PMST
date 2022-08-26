@@ -21,6 +21,7 @@ $lang['we_comments'] = 'Comments';
 $lang['we_closed'] = 'Closed';
 $lang['we_open'] = 'Open';
 
+$lang['we_score_metric'] = 'Score metric';
 
 
 ?>

@@ -160,8 +160,8 @@
 													} elseif (getRole($item->user_id) == 3) {
 														$acess_level = 'Admin';
 													} ?>
-													<td><span class="texttd"><?php echo $acess_level ?></span></td>
-													<td><span class="texttd"><?php echo getEmail($item->user_id) ?></span></td>
+													<td><span class="texttd"><?= $acess_level ?></span></td>
+													<td><span class="texttd"><?= getEmail($item->user_id) ?></span></td>
 													<td style="display: fixed;min-width: 100px;">
 														<div class="row center">
 															<div class="col-sm-4">

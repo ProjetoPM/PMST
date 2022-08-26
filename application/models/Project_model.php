@@ -13,7 +13,6 @@ class Project_model extends CI_Model
 
 
     public function getProjectName($project_id)
-
     {
 
         $this->db->select('*');
@@ -32,33 +31,18 @@ class Project_model extends CI_Model
     }
 
 
-    function insert_project($postData)
+
+    function insert_project($project)
     {
 
-        $data = array(
-            'title' => $postData['title'],
-            'description' => $postData['description'],
-            'objectives' => $postData['objectives'],
-            'created_by' => $this->session->userdata('user_id')
-        );
+        $this->db->insert('project', $project);        
+        $project_id = $this->db->insert_id();
 
-        $this->db->insert('project', $data);
-        $this->db->select_max('project_id');
-        $result = $this->db->get('project')->row_array();
-        $project_id = $result['project_id'];
+        $project_user['project_id'] = $project_id;
+        $project_user['user_id'] = $project['created_by'];
+        $project_user['access_level'] = 2;
 
-        $projectUser = array(
-            'project_id' => $project_id,
-            'user_id' => $this->session->userdata('user_id'),
-            'access_level' => 2
-        );
-        $_SESSION['project_id'] = $project_id;
-
-        $status = $this->db->insert('project_user', $projectUser);
-        if ($status == 1)
-            return true;
-        else
-            return false;
+        return $this->db->insert('project_user', $project_user);
     }
 
     function insert_log($activity, $module)
@@ -77,11 +61,24 @@ class Project_model extends CI_Model
     function insertResearcher($data)
     {
         return $this->db->insert('project_user', $data);
+
+        // if ($this->db->insert('project_user', $data)) {
+        //     $this->session->set_flashdata('error2', 'User added.');
+        //     redirect('projects/');
+        // }
+
+        // $error = $this->db->error();
+        // if ($error['code'] == 1062) {
+        //     $this->session->set_flashdata('error3', 'User already a member.');
+        //     redirect('projects/');
+        // }
     }
 
 
-    function getAll($project_id){
-        $query = $this->db->get_where('lesson_learned_register', array('lesson_learned_register.project_id'=>$project_id));
+
+    function getAll($project_id)
+    {
+        $query = $this->db->get_where('lesson_learned_register', array('lesson_learned_register.project_id' => $project_id));
         return $query->result();
     }
 
@@ -96,20 +93,20 @@ class Project_model extends CI_Model
         $res = $query->row_array();
         return $res['access_level'];
     }
-
-     function getIdUser($email){
-
+    
+    function getIdUser($email) 
+    {
         $this->db->where('email', $email);
         $userdata = $this->db->get('user');
         foreach ($resultado = $userdata->result() as $row) {
-            $project_id   = $row->user_id;
+            $project_id = $row->user_id;
             $name = $row->name;
         }
         $retorna = array(
             '$user_id' => $project_id
         );
         return $retorna['$user_id'];
-     }
+    }
 
     function getResearcher($project_id, $user_id)
     {
@@ -117,7 +114,7 @@ class Project_model extends CI_Model
         return $query->result();
     }
 
-    public function update_role($project_id,$user_id,$researcher)
+    public function update_role($project_id, $user_id, $researcher)
     {
         $this->db->where('user_id', $user_id);
         $this->db->where('project_id', $project_id);
@@ -128,31 +125,39 @@ class Project_model extends CI_Model
     function deleteProjectModel($id)
     {
         $this->db->where('project_id', $id);
+
         if ($this->db->delete('project')) {
-            $this->session->set_flashdata('error3', 'Project Deleted!');
-            redirect('project/show_projects');
-        } else {
-            $this->session->set_flashdata('faildeleteproject', 'Problem to delete project!');
-            //echo "Problema ao deletar projeto";
+            $this->session->set_flashdata('success', 'Project Deleted!');
+            redirect("projects/{$_SESSION['workspace_id']}");
+        }
+        else {
+            $this->session->set_flashdata('fail', 'Problem to delete project!');
         }
     }
-    public function getAllKnowledgeArea(){
+    
+    public function getAllKnowledgeArea()
+    {
         $data = $this->db->get('knowledge_area');
-		return $data->result();
+        return $data->result();
     }
 
-    // Verifica se o usuário possui vínculo com um determinado projeto
-    function userInProject($user_id, $project_id){
-        $query = $this->db->select('*')
-        ->from('project_user')
-        ->where('user_id', $user_id)
-        ->where('project_id', $project_id)
-        ->get()->result();
+    public function getProjectsRelatedToUser($user_id, $workspace_id)
+    {
 
-        return empty($query);
-	
+        // Um join entre project_user e project para pegar projetos em que um usuário está vinculado
+        // E a filtragem pelo workspace do projeto
+        // $query = $this->db->select('*')
+        $query = $this->db->select('user.name, project.title, project.project_id, project_user.access_level ')
+            ->from('project_user')
+            ->join('project', 'project_user.project_id = project.project_id')
+            ->join('user', 'project.created_by = user.user_id')
+            ->where('project_user.user_id', $user_id)
+            ->where('project.workspace_id', $workspace_id)
+            ->get()->result();
+
+        return $query;
     }
-}  
-   
-   
-   /* End of file */
+}
+
+
+/* End of file */
