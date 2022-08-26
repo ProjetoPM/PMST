@@ -77,21 +77,8 @@ class Project_model extends CI_Model
     function insertResearcher($data)
     {
         return $this->db->insert('project_user', $data);
-
-        // if ($this->db->insert('project_user', $data)) {
-        //     $this->session->set_flashdata('error2', 'User added.');
-        //     redirect('projects/');
-        // }
-
-        // $error = $this->db->error();
-        // if ($error['code'] == 1062) {
-        //     $this->session->set_flashdata('error3', 'User already a member.');
-        //     redirect('projects/');
-        // }
-
     }
 
-    
 
     function getAll($project_id){
         $query = $this->db->get_where('lesson_learned_register', array('lesson_learned_register.project_id'=>$project_id));
@@ -111,14 +98,7 @@ class Project_model extends CI_Model
     }
 
      function getIdUser($email){
-        // {
-        //     $this->db->select('user_id');
-        //     $this->db->where('email', $email);
-        //     $this->db->from('user');
-        //     $this->db->limit(1);
-        //     $query = $this->db->get();
-        //     $res = $query->row_array();
-        //     return $res['user_id'];
+
         $this->db->where('email', $email);
         $userdata = $this->db->get('user');
         foreach ($resultado = $userdata->result() as $row) {
@@ -159,6 +139,18 @@ class Project_model extends CI_Model
     public function getAllKnowledgeArea(){
         $data = $this->db->get('knowledge_area');
 		return $data->result();
+    }
+
+    // Verifica se o usuário possui vínculo com um determinado projeto
+    function userInProject($user_id, $project_id){
+        $query = $this->db->select('*')
+        ->from('project_user')
+        ->where('user_id', $user_id)
+        ->where('project_id', $project_id)
+        ->get()->result();
+
+        return empty($query);
+	
     }
 }  
    
