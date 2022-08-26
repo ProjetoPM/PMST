@@ -150,7 +150,7 @@ class Admin_model extends CI_Model {
         $this->db->where('user.user_id', $id);
         $this->db->update('user', $data);
 
-        $message = "Your account password has been reset.<br><br>Email: ".$email."<br>Tempolary password: ".$password."<br>Please change your password after login.<br><br> you can login at ".base_url().".";
+        $message = "Your account password has been reset.<br><br>Email: ".$email."<br>Temporary password: ".$password."<br>Please change your password after login.<br><br> you can login at ".base_url().".";
         $subject = "Password Reset";
         return $this->send_email($message,$subject,$email);
         }

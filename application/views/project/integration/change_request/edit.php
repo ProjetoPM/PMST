@@ -58,7 +58,7 @@
 								<div class="col-lg-2 form-group">
 									<label for="number_id">Number </label>
 									<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cr_number_id_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-									<a <?= fieldStatus($view_name, $id, "number_id") ?> data-field="number_id" data-field_name="<?= $this->lang->line('cr_number_id') ?>" data-item_id="<?= $team_performance_evaluation_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+									<a <?= fieldStatus($view_name, $id, "number_id") ?> data-field="number_id" data-field_name="<?= $this->lang->line('cr_number_id') ?>" data-item_id="<?= $number_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<div>
 									<input id="number_id" name="number_id" type="number" class="form-control input-md" required="false" value="<?php echo $number_id; ?>">
 									</div>

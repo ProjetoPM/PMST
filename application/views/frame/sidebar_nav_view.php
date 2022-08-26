@@ -10,9 +10,7 @@ position:-webkit-sticky
  ">
    <section class="sidebar">
       <div class="user-panel">
-
          <div class="pull-left image">
-
             <img src="<?= base_url() ?>assets/images/user-icon.jpg" class="img-circle profileImgUrl" alt="User Image">
          </div>
          <div class="pull-left info">
@@ -55,37 +53,47 @@ position:-webkit-sticky
          </li> -->
          <!-- fim do main panel -->
 
-         <li class="<?php if ($uri1 == 'projects') {
-                        echo 'active';
-                     } ?>"> <a href="<?= base_url('projects'); ?>"><i class="fa fa-folder fa-fw"></i> <span><?= $this->lang->line('projects'); ?></span>
-            </a>
-         </li>
 
-         <!-- INÍCIO WEEKLY REPORT -->
-         <li class="<?php if ($uri1 == 'weekly-report') {
-                        echo 'active';
-                     } ?>"><a href="<?= base_url("weekly-report/list") ?>"><i class="glyphicon glyphicon-blackboard"></i> <span><?= $this->lang->line('wr_title'); ?></span>
-            </a>
-         </li>
-         <!-- FIM WEEKLY REPORT -->
+         <?php if ($_SESSION['workspace_id'] != null): ?>
 
-         <!-- INÍCIO WEEKLY EVALUATION -->
+            <li class="<?= ($uri1 == 'worskpace') ? 'active' : 'not-active' ?>">
+               <a href="<?= base_url('workspace/list'); ?>">
+                  <i class="fa fa-thin fa-folder"></i> <span>Workspaces</span>
+               </a>
+            </li>
+            <li class="<?php if ($uri1 == 'projects') {
+                           echo 'active';
+                        } ?>"> <a href="<?= base_url('projects/' . $_SESSION['workspace_id']); ?>"><i class="fa fa-folder-open" aria-hidden="true"></i><span><?= $this->lang->line('projects'); ?></span>
+               </a>
+            </li>
 
-         <li class="<?php if ($uri1 == 'weekly-evaluation') {
-                        echo 'active';
-                     } ?>"><a href="<?= base_url("weekly-evaluation/list") ?>"><i class="glyphicon glyphicon-blackboard"></i> <span><?= $this->lang->line('we_title'); ?></span>
-            </a>
-         </li>
-         <!-- FIM WEEKLY EVALUATION -->
+            <!-- INÍCIO WEEKLY REPORT -->
+            <?php if (strcmp(verifyWorkspaceAcesslevel($_SESSION['workspace_id'], $_SESSION['user_id']), "Project Manager") == 0): ?>
+               <li class="<?= ($uri1 == 'weekly-report') ? 'active' : '' ?>">
+                     <a href="<?= base_url("weekly-report/list") ?>">
+                     <i class="glyphicon glyphicon-blackboard"></i>
+                     <span><?= $this->lang->line('wr_title'); ?></span>
+                  </a>
+               </li>
+               <!-- FIM WEEKLY REPORT -->
+            <?php else: ?>
 
+               <!-- INÍCIO WEEKLY EVALUATION -->
+
+               <li class="<?php if ($uri1 == 'weekly-evaluation') {
+                              echo 'active';
+                           } ?>"><a href="<?= base_url("weekly-evaluation/list/{$_SESSION['workspace_id']}") ?>"><i class="glyphicon glyphicon-blackboard"></i> <span><?= $this->lang->line('we_title'); ?></span>
+                  </a>
+               </li>
+               <!-- FIM WEEKLY EVALUATION -->
+            <?php endif ?>
+         <?php endif ?>
 
          <?php if ($_SESSION['project_id'] != null) { ?>
-
-
             <li class="<?php if ($uri1 == 'chat') {
                            echo 'active';
                         } ?>">
-                <a href="<?= base_url('chat'); ?>">
+               <a href="<?= base_url('chat'); ?>">
                   <i class="fa fa-comment fa-fw"></i> <span>Chat</span>
                </a>
             </li>

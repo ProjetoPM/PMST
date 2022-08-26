@@ -11,6 +11,7 @@ $lang['btn-back'] = 'Back';
 $lang['btn-close'] = 'Close';
 $lang['btn-edit'] = 'Edit';
 $lang['btn-open'] = 'Open';
+$lang['btn-list-members'] = 'List Members';
 $lang['btn-delete'] = 'Delete';
 $lang['btn-new'] = 'New';
 $lang['btn-new2'] = 'New';
@@ -49,7 +50,7 @@ $lang['btn-title'] = 'Title';
 $lang['created_by'] = "Created by";
 
 $lang['actions'] = ' Actions';
-$lang['acess_level'] = 'Acess Level';
+$lang['access_level'] = 'Access Level';
 $lang['professor'] = 'Professor';
 $lang['project_manager'] = 'Project Manager';
 $lang['staff'] = 'Staff';

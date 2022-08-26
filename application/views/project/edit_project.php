@@ -20,22 +20,7 @@
    <div class="wrapper">
      <div class="content-wrapper">
        <section class="content">
-
-         <?php if ($this->session->flashdata('success')) : ?>
-           <div class="alert alert-success">
-             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
-             </button>
-             <strong><?php echo $this->session->flashdata('success'); ?></strong>
-           </div>
-         <?php elseif ($this->session->flashdata('error')) : ?>
-           <div class="alert alert-warning">
-             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
-             </button>
-             <strong><?php echo $this->session->flashdata('error'); ?></strong>
-           </div>
-         <?php endif; ?>
+         <?php $this->load->view('errors/exceptions') ?>
          <div class="row">
            <div class="col-lg-12">
 
@@ -57,8 +42,12 @@
                  <!-- Text input-->
                  <div class="form-group">
                    <label for="title">Title</label>
+                   <span id="count-a"></span>
+									  <span class="btn-sm btn-default" data-toggle="tooltip">
+										  <i class="glyphicon glyphicon-comment"></i>
+									  </span>
                    <div>
-                     <input id="title" name="title" type="text" placeholder="Title" class="form-control input-md" value="<?= $project[0]->title; ?>" required="true">
+                     <input oninput="limitText(this, 35, 'a')" id="title" name="title" type="text" placeholder="Title" class="form-control input-md" value="<?= $project[0]->title; ?>" required="true">
 
                    </div>
                  </div>
@@ -66,16 +55,24 @@
                  <!-- Textarea -->
                  <div class="form-group">
                    <label for="description">Description</label>
+                   <span id="count-b"></span>
+									  <span class="btn-sm btn-default" data-toggle="tooltip">
+										  <i class="glyphicon glyphicon-comment"></i>
+									  </span>
                    <div>
-                     <input id="description" name="description" type="text" placeholder="Description" class="form-control input-md" value="<?= $project[0]->description; ?>" required="true">
+                     <input oninput="limitText(this, 1000, 'b')" oninput="limitText(this, 1000, 'c')" id="description" name="description" type="text" placeholder="Description" class="form-control input-md" value="<?= $project[0]->description; ?>" required="true">
                    </div>
                  </div>
 
                  <!-- Textarea -->
                  <div class="form-group">
                    <label for="objectives">Objectives</label>
+                   <span id="count-c"></span>
+									  <span class="btn-sm btn-default" data-toggle="tooltip">
+										  <i class="glyphicon glyphicon-comment"></i>
+									  </span>
                    <div>
-                     <input id="objectives" name="objectives" type="text" placeholder="Objectives" class="form-control input-md" value="<?= $project[0]->objectives; ?>" required="true">
+                     <input oninput="limitText(this, 1000, 'c')" oninput="limitText(this, 1000, 'c')" id="objectives" name="objectives" type="text" placeholder="Objectives" class="form-control input-md" value="<?= $project[0]->objectives; ?>" required="true">
                    </div>
                  </div>
                  <input id="new_project-submit" type="submit" value="Update" class="btn btn-lg btn-success btn-block">

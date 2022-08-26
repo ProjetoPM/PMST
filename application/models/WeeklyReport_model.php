@@ -7,39 +7,66 @@ class WeeklyReport_model extends CI_Model
 		$this->load->database();
 	}
 
+
+	// Crud Mehtods
+
 	public function insert($weekly_report)
 	{
 		$this->db->insert('weekly_report', $weekly_report);
 		return $this->db->insert_id();
 	}
 
-	
-	// function updateProcessReport($process, $weekly_report_id)
-	// {
-	// // 	$this->db->trans_start();
-	// // 	$result = array();
-	// // 	$this->db->delete('weekly_report_process', array('weekly_report_id' => $weekly_report_id));
-	// // 	// var_dump($process);
-	// // 	for ($j = 0; $j < count($process) / 3; $j++) {
-	// // 		$result[] = array(
-	// // 			'description' => $process['description'][$j],
-	// // 			'process_name' => $process['process_name'][$j],
-	// // 			'weekly_report_id' => $weekly_report_id,
-	// // 		);
-	// // 	}
-
-	// // 	//MULTIPLE INSERT TO DETAIL TABLE
-	// // 	$this->db->insert_batch('weekly_report_process', $result);
-	// // 	$this->db->trans_complete();
-	// // 	// die();
-	// // 	return $result;
-	// // }
-
 	public function get($id)
 	{
-		$query = $this->db->get_where('weekly_report', array('weekly_report_id' => $id));
-		return $query->row_array();
+		return $this->db->select('weekly_report_id, weekly_report.weekly_evaluation_id, weekly_report.user_id, tool_evaluation, weekly_report.status, group_score_id, weekly_evaluation.name')
+			->from('weekly_report')
+			->join('weekly_evaluation', 'weekly_report.weekly_evaluation_id = weekly_evaluation.weekly_evaluation_id')
+			->where('weekly_report_id', $id)
+			->get()->result();
 	}
+
+	public function update($weekly_report_id, $tool_evaluation)
+	{
+		$this->db->set('tool_evaluation', $tool_evaluation);
+		$this->db->where('weekly_report_id', $weekly_report_id);
+		$this->db->update('weekly_report');
+	}
+
+	public function delete($weekly_report_id)
+	{
+		$this->db->where('weekly_report_id', $weekly_report_id);
+		$weekly_report = $this->db->delete('weekly_report');
+		$this->db->where('weekly_report_id', $weekly_report_id);
+		$weekly_report_process = $this->db->delete('weekly_report_process');
+		return $weekly_report && $weekly_report_process;
+	}
+
+	public function get_path_image_by_wr_process_id($weekly_report_process_id)
+	{
+		return $this->db->select('path')
+			->from('report_uploads')
+			->where('weekly_report_process_id', $weekly_report_process_id)
+			->get()->result();
+	}
+
+	public function get_path_image_by_wr_id($weekly_report_id)
+	{
+		return $this->db->select('path')
+			->from('report_uploads')
+			->where('weekly_report_id', $weekly_report_id)
+			->get()->result();
+	}
+
+	public function get_path_image_by_report_upload_id($report_upload_id)
+	{
+		return $this->db->select('path')
+			->from('report_uploads')
+			->where('report_upload_id', $report_upload_id)
+			->get()->result();
+	}
+	// __________________________________________________
+
+	// Other Methods
 
 	public function getByEvaluation($id)
 	{
@@ -49,44 +76,78 @@ class WeeklyReport_model extends CI_Model
 
 	public function getAll()
 	{
-		$query = $this->db->get('weekly_report');
-		return $query->result();
+		return $this->db->select('weekly_report_id, weekly_report.weekly_evaluation_id, weekly_report.user_id, tool_evaluation, weekly_report.status, group_score_id, weekly_evaluation.name')
+			->from('weekly_report')
+			->join('weekly_evaluation', 'weekly_report.weekly_evaluation_id = weekly_evaluation.weekly_evaluation_id')
+			->get()->result();
 	}
 
-	public function getScore($score_id)
+	public function getAllPerWorkspace($workspace_id)
 	{
-		$this->db->select('score');
-		$this->db->where('score', $score_id);
-		$this->db->from('weekly_report');
+		return $this->db->select('weekly_report_id, weekly_report.weekly_evaluation_id, weekly_report.user_id, tool_evaluation, weekly_report.status, group_score_id, weekly_evaluation.name')
+			->from('weekly_report')
+			->join('weekly_evaluation', 'weekly_report.weekly_evaluation_id = weekly_evaluation.weekly_evaluation_id')
+			->where('workspace_id', $workspace_id)
+			->get()->result();
+	}
 
-		$query = $this->db->get();
-		$res = $query->row_array();
+	public function getScore($weekly_report_id)
+	{
+		return $this->db->select('sum(score.value) / count(*) as score_evaluation')
+			->from('report_score')
+			->join('score', 'report_score.score_id = score.score_id')
+			->where('report_id', $weekly_report_id)
+			->get()
+			->result();
+	}
 
-		return $res['score'];
+	public function getAllScoresPerReport($weekly_report_id)
+	{
+		return $this->db->select('report_score.comments, score.name, user.name as username')
+			->from('report_score')
+			->join('score', 'report_score.score_id = score.score_id')
+			->join('user', 'report_score.professor_id = user.user_id')
+			->where('report_id', $weekly_report_id)
+			->get()
+			->result();
+	}
+	public function getScoreGivenByProfessor($weekly_report_id, $user_id)
+	{
+		return $this->db->select('report_score.score_id, report_score.comments, score.name as grade')
+			->from('report_score')
+			->join('score', 'report_score.score_id = score.score_id')
+			->where('professor_id', $user_id)
+			->where('report_id', $weekly_report_id)
+			->get()->result();
 	}
 
 	public function getAllPerMember($id)
 	{
-		$query = $this->db->get_where('weekly_report', array('user_id' => $id));
-		return $query->result();
+		return $query = $this->db->select('*')
+			->from('weekly_report')
+			->where('user_id', $id)
+			->get()
+			->result();
 	}
 
 	public function getAllProcesses($id, $language)
 	{
 		return $this->db->select('weekly_report_process.*, pmbok_process.pmbok_group_id, pmbok_process.name')
-				->from('weekly_report_process')
-				->join('pmbok_process', 'weekly_report_process.pmbok_process_id = pmbok_process.pmbok_process_id AND weekly_report_process.pmbok_id = pmbok_process.pmbok_id')
-				->where('weekly_report_process.weekly_report_id', $id)
-				->where('pmbok_process.pmbok_id', $language)
-				->get()->result();
+			->from('weekly_report_process')
+			->join('pmbok_process', 'weekly_report_process.pmbok_process_id = pmbok_process.pmbok_process_id AND weekly_report_process.pmbok_id = pmbok_process.pmbok_id')
+			->where('weekly_report_process.weekly_report_id', $id)
+			->where('pmbok_process.pmbok_id', $language)
+			->get()->result();
 	}
 
-	public function getProcessGroupsByLanguage($id) {
+	public function getProcessGroupsByLanguage($id)
+	{
 		$query = $this->db->get_where('pmbok_group', array('pmbok_id' => $id));
 		return $query->result();
 	}
 
-	public function getProcessNamesByGroup($language) { 
+	public function getProcessNamesByGroup($language)
+	{
 		$query = $this->db->select('pmbok_process_id, pmbok_group_id, name')
 			->get_where('pmbok_process', array('pmbok_id' => $language));
 
@@ -98,15 +159,14 @@ class WeeklyReport_model extends CI_Model
 	 * specified, considering the language.
 	 * 
 	 * Used on edit of WeeklyReport.
-	 * 
-	 * @author Matheus Boeira Dias
 	 */
-	public function getProcessesName($group) {
-		return $this->db->select("pmbok_group_id, name")
-						->from("pmbok_process")
-						->where("pmbok_group_id", $group)
-						->where("pmbok_id", getIndexOfLanguage())
-						->get()->result();
+	public function getProcessesName($group)
+	{
+		return $this->db->select("pmbok_process_id, pmbok_group_id, name")
+			->from("pmbok_process")
+			->where("pmbok_group_id", $group)
+			->where("pmbok_id", getIndexOfLanguage())
+			->get()->result();
 	}
 
 	public function getPmbokEditionByLanguage($id)
@@ -115,17 +175,18 @@ class WeeklyReport_model extends CI_Model
 		return $query->result();
 	}
 
-	public function update($weekly_report, $weekly_report_id)
+	public function alreadySubmitted($weekly_evaluation_id, $user_id)
 	{
-		$this->db->where('weekly_report.weekly_report_id', $weekly_report_id);
-		return $this->db->update('weekly_report', $weekly_report);
-	}
+		$query = $this->db
+			->get_where(
+				'weekly_report',
+				array(
+					'weekly_evaluation_id' => $weekly_evaluation_id,
+					'user_id' => $user_id
+				)
+			)
+			->result();
 
-	public function delete($weekly_report_id)
-	{
-		$this->db->where('weekly_report.weekly_report_id', $weekly_report_id);
-		$db1 = $this->db->delete('weekly_report');
-		$db2 = $this->db->delete('weekly_report_process_id', array('quality_checklist_id' => $weekly_report_id));
-		return $db1 + $db2;
+		return empty($query) ?  false : true;
 	}
 }

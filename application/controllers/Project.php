@@ -8,7 +8,6 @@ class Project extends CI_Controller
 
 	function index()
 	{
-
 		$this->db->select('*');
 		$dataproject['project'] = $this->db->get('project')->result();
 
@@ -33,13 +32,8 @@ class Project extends CI_Controller
 
 		$this->load->helper('url');
 		$this->load->helper('log_activity');
-		$this->load->model('project_model');
-		
-		// if(strcmp($_SESSION['language'],"US") == 0){
-        //     $this->lang->load('btn', 'english');
-        // }else{
-        //     $this->lang->load('btn', 'portuguese-brazilian');
-        // }
+		$this->load->model('Project_model');
+		$this->load->model('Workspace_model');
 	}
 
 	private function ajax_checking()
@@ -51,7 +45,6 @@ class Project extends CI_Controller
 
 	public function project_form()
 	{
-
 		if(strcmp($_SESSION['language'],"US") == 0){
             $this->lang->load('btn', 'english');
 			$this->lang->load('project-page', 'english');
@@ -75,33 +68,28 @@ class Project extends CI_Controller
 			$this->lang->load('new-project','portuguese-brazilian');
         }
 
-
-		// $this->load->helper('url');
-		// $this->load->view('frame/header_view');
-		// $this->load->view('frame/topbar');
-		// $this->load->view('frame/topbar');
-		// $this->load->view('frame/sidebar_nav_view');
-		// $this->load->view('project/new_project', $data);
 		loadViews('project/new_project', $data);
 	}
 
 
-	function add_project()
+	function add_project($workspace_id)
 	{
-
-		//$this->ajax_checking();
 		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
-		$postData = $this->input->post();
-		$status = $this->project_model->insert_project($postData);
-		if ($status == 1) {
-			$this->session->set_flashdata('success', 'Project ' . $postData['title'] . ' has been successfully created!');
 
+		$project['title'] = $this->input->post('title');
+		$project['description'] = $this->input->post('description');
+		$project['objectives'] = $this->input->post('objectives');
+		$project['created_by'] = $this->session->userdata('user_id');
+		$project['workspace_id'] = $workspace_id;
+
+		$insert = $this->Project_model->insert_project($project);
+		if ($insert) {
+			$this->session->set_flashdata('success', 'Project ' . $project['title'] . ' has been successfully created!');
 			insertLogActivity('insert', 'project');
-
-			redirect('project/show_projects');
+			redirect("projects/{$project['workspace_id']}");
 		} else {
-			$this->session->set_flashdata('failinsertproject', 'Problem to insert project!');
+			$this->session->set_flashdata('fail', 'Problem to insert project!');
 			//echo "Problema ao deletar projeto";
 		}
 	}
@@ -109,7 +97,7 @@ class Project extends CI_Controller
 	//<!-- Metodo deletar projeto, passa id projeto pra model --> 
 	public function delete($project_id)
 	{
-		$this->project_model->deleteProjectModel($project_id);
+		$this->Project_model->deleteProjectModel($project_id);
 	}
 	//<!-- Fim do metodo deletar --> 
 
@@ -138,22 +126,28 @@ class Project extends CI_Controller
 
 	public function saveUpdate()
 	{
-		//$this->ajax_checking();
-
 		$postData = $this->input->post();
 
+		/**
+		 * Verifica se os dados estão devidamente preenchidos.
+		 * 
+		 * Estes podem ser alterados via client-side. Evita que mesmo retirando
+		 * o atributo 'required', não possa ser enviado com campos vazios.
+		 */
+		foreach ($postData as $key => $value) {
+			if (empty($value)) {
+				$this->session->set_flashdata('fail', 'An error has occurred while updating.');
+				redirect("projects/{$_SESSION['workspace_id']}");
+			}
+		}
 		$this->db->where('project_id', $postData['project_id']);
-		// $_SESSION['project_id'] = $postData['project_id'];
 
 		if ($this->db->update('project', $postData)) {
-
 			insertLogActivity('update', 'project');
-
-			$this->session->set_flashdata('success', 'Project ' . $postData['title'] . ' has been updated created!');
+			$this->session->set_flashdata('success', "Project {$postData['title']} has been updated!");
 		}
 		$_SESSION['project_id'] = null;
-		redirect('projects');
-		//echo json_encode($insert);            
+		redirect("projects/{$_SESSION['workspace_id']}");            
 	}
 
 	//chama a pagina de adicionar pesquisador ao projeto
@@ -207,7 +201,7 @@ class Project extends CI_Controller
 		);
 
 		if ($this->project_model->getResearcher($project_id, $user_id)) {
-			$this->session->set_flashdata('error2', 'User update!');
+			$this->session->set_flashdata('error', 'User update!');
 			$this->project_model->updateResearcher($project_id, $user_id, $data);
 			redirect('projects/');
 		}
@@ -216,24 +210,17 @@ class Project extends CI_Controller
 		$query= $this->project_model->insertResearcher($data);
 		 if($query){
 			insertLogActivity('insert', 'project members');
-			$this->session->set_flashdata('error2', 'User added.');
-        // $error = $this->db->error();
-        // if ($error['code'] == 1062) {
-        //     $this->session->set_flashdata('error3', 'User already a member.');
-        //     redirect('projects/');
+			$this->session->set_flashdata('error', 'User added.');
 		}else{
-			$this->session->set_flashdata('error3', 'User already a member.');
+			$this->session->set_flashdata('error', 'User already a member.');
 		}
-
 		redirect('projects/');
 	}
 
 	public function edit_researcher_page()
 	{
-		
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$dataproject['project'] = $this->db->get('project')->result();
-		
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
@@ -242,13 +229,7 @@ class Project extends CI_Controller
 	
 	//metodo para adicionar pesquisador a pesquisa
 	public function update_researcher()
-	{
-		// if ($_SESSION['acess_level'] != 3) {
-		// 	$this->session->set_flashdata('error', 'You are not allowed to update user role');
-		// 	redirect("user/list/" . $_SESSION['project_id']);
-		// 	redirect("integration/project-charter/edit/" . $_SESSION['project_id']);
-		// }
-		
+	{	
 		$researcher['role'] = $this->input->post('role');
 		
 		$data = $this->input->post();
@@ -295,40 +276,29 @@ class Project extends CI_Controller
 	//busca todos projetos do usuario pelo seu id
 	//salva na variavel dataproject
 	//passa todos esses dados para a view my_projects
-	public function show_projects()
+	
+
+	public function listProjects($workspace_id)
 	{
 		$_SESSION['project_name'] = null;
 		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
+		$_SESSION['workspace_id'] = $workspace_id;
 
-		
+		if(strcmp($_SESSION['language'],"US") == 0){
+            $this->lang->load('btn', 'english');
+			$this->lang->load('project-page', 'english');
+        }else{
+            $this->lang->load('btn', 'portuguese-brazilian');
+			$this->lang->load('project-page', 'portuguese-brazilian');
+        }
 
-
-		$dataproject['project'] = $this->db->get_where('project', array(
-			'created_by' => $this->session->userdata('user_id')
-		))->result();
-
-		//busca projetos que foi convidado
-		$iduser = $this->session->userdata('user_id');
-		$this->db->where('user_id', $iduser);
-		$this->db->join('project', 'project_user.project_id = project.project_id');
-
-		//array CONVIDADO é um JOIN da PROJECT_USER + PROJECT
-		$dataproject['convidado'] = $this->db->get('project_user')->result();
-
-        
+		$data['projects'] = $this->Project_model->getProjectsRelatedToUser($_SESSION['user_id'], $workspace_id);
+		$data['workspace_title'] = $this->Workspace_model->getWorkspaceName($workspace_id);
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->parser->parse('project/my_projects', $dataproject);
-
-		// if(strcmp($_SESSION['language'],"US") == 0){
-        //     $this->lang->load('btn', 'english');
-        // }else{
-        //     $this->lang->load('btn', 'portuguese-brazilian');
-        // }
-		// $this->load->view('construction_services/chat_template', $dataproject);
-
+		$this->parser->parse('project/my_projects', $data);
 	}
 
 
@@ -406,11 +376,13 @@ class Project extends CI_Controller
 	//pagina inicial do projeto
 	public function initial($project_id = null)
 	{
-		$_SESSION['access_level'] = $this->project_model->getRole($project_id,$_SESSION['user_id']);
+		
+		$_SESSION['access_level'] = $this->Project_model->getRole($project_id,$_SESSION['user_id']);
 		$_SESSION['project_id'] = $project_id;
-		if ($project_id == null) {
+
+		if ($project_id === null) 
 			redirect(base_url());
-		}
+		
 		//validar acesso do usuario
 		$idusuario = $_SESSION['user_id'];
 		$this->db->where('user_id', $idusuario);

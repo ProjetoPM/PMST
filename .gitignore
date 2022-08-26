@@ -29,3 +29,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.png
 *.jpeg
 *.pdf
+
+# Project configuration
+application/config/config.php
+application/config/database.php

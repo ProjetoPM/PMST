@@ -12,6 +12,7 @@ $lang['btn-back'] = 'Voltar';
 $lang['btn-close'] = 'Fechar';
 $lang['btn-edit'] = 'Editar';
 $lang['btn-open'] = 'Abrir';
+$lang['btn-list-members'] = 'Listar Membros';
 $lang['btn-delete'] = 'Deletar';
 $lang['btn-add_member'] = 'Adicionar Membro';
 $lang['project_title'] = 'Título do Projeto: ';
@@ -32,7 +33,7 @@ $lang['user_institution'] = 'Sua Instituição';
 $lang['member_since'] = 'Membro desde ';
 
 
-$lang['btn-create-project'] = 'Criar Novo Projeto';
+$lang['btn-create-project'] = ' Criar Novo Projeto';
 $lang['btn-add-researcher'] = 'Add Researcher';
 
 $lang['search'] = 'Pesquisar';
@@ -45,7 +46,7 @@ $lang['btn-title'] = 'Título';
 $lang['created_by'] = 'Criado por';
 
 $lang['actions'] = ' Ações';
-$lang['acess_level'] = 'Nível de Acesso';
+$lang['access_level'] = 'Nível de Acesso';
 $lang['pages'] = 'Página 1 de 1';
 
 $lang['professor'] = 'Professor';

@@ -16,7 +16,7 @@ class Authentication extends CI_Controller {
         $_SESSION['language'] = 0;
 
         if($this->session->userdata('logged_in')) {
-            redirect(base_url("projects"));
+            redirect(base_url("workspace/list"));
         }else {
             $data = array('alert' => false);
             $this->load->view('login',$data);
@@ -92,6 +92,7 @@ class Authentication extends CI_Controller {
 
     public function login() {
         $_SESSION['project_id'] = null;
+        $_SESSION['workspace_id'] = null;
         $_SESSION['language'] = "US";
         $postData = $this->input->post();
 
@@ -110,7 +111,8 @@ class Authentication extends CI_Controller {
 
             );
             $this->session->set_userdata($newdata);
-            redirect(base_url("projects"));
+            date_default_timezone_set('america/sao_paulo');
+            redirect(base_url("workspace/list"));
         } else {
             $data = array('alert' => true);
             $this->session->set_flashdata('flashError', 'The email or password is incorrect!');
