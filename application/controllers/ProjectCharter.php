@@ -14,6 +14,14 @@ class ProjectCharter extends CI_Controller
 			redirect(base_url());
 		}
 
+		$this->load->helper('log_activity');
+		
+		$this->load->model('log_model');
+		$this->load->model('view_model');
+		$this->load->model('Project_model');
+		$this->load->model('Stakeholder_mp_model');
+		$this->load->model('Project_Charter_model');
+
 		if(strcmp($_SESSION['language'],"US") == 0){
 			$this->lang->load('project-page', 'english');
 			$this->lang->load('btn', 'english');
@@ -24,13 +32,16 @@ class ProjectCharter extends CI_Controller
 			$this->lang->load('tap', 'portuguese-brazilian');
 		}
 
+		$array = array();
+		array_push($array, 'tap');
+		loadLangs($array);
 
-		$this->load->model('Project_Charter_model');
-		$this->load->model('log_model');
-		$this->load->model('Stakeholder_mp_model');
-		$this->load->model('view_model');
-		$this->load->helper('log_activity');
-		$this->load->model('Project_model');
+		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
+		
+		if ($userInProject) {
+			$this->session->set_flashdata('error3', 'You have no access to this project');
+			redirect('projects/' . $_SESSION['project_id']);
+		}
 	}
 
 	public function new($project_id)

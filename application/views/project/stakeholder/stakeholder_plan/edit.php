@@ -153,7 +153,7 @@
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('stakeholder_mp-text2_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <a <?= fieldStatus($view_name, $stakeholder_id, "scope") ?> data-field="scope" data-field_name="<?= $this->lang->line('text') ?>" data-item_id="<?= $stakeholder_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                   <div>
-                    <textarea onkeyup="limite_textarea(this.value, 'shep_10')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shep_txt_10" name="scope" required="false"><?php echo $scope; ?></textarea>
+                    <textarea onkeyup="limite_textarea(this.value, 'shep_10')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shep_txt_10" name="scope" required="false"><?= $scope; ?></textarea>
                   </div>
                 </div>
 
@@ -163,7 +163,7 @@
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('stakeholder_mp-text3_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <a <?= fieldStatus($view_name, $stakeholder_id, "observation") ?> data-field="deobservationscription" data-field_name="<?= $this->lang->line('text') ?>" data-item_id="<?= $stakeholder_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                   <div>
-                    <textarea onkeyup="limite_textarea(this.value, 'shep_11')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shep_txt_11" name="observation" required="false"><?php echo $observation; ?></textarea>
+                    <textarea onkeyup="limite_textarea(this.value, 'shep_11')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shep_txt_11" name="observation" required="false"><?= $observation; ?></textarea>
                   </div>
                 </div>
 
@@ -173,7 +173,7 @@
                   </button>
               </form>
 
-              <form action="<?php echo base_url("stakeholder/stakeholder-engagement-plan/list/" . $project_id); ?>">
+              <form action="<?= base_url("stakeholder/stakeholder-engagement-plan/list/" . $project_id); ?>">
                 <button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
               </form>
             </div>

@@ -11,23 +11,24 @@ class BusinessCase extends CI_Controller
 			redirect(base_url());
 		}
 
-		// $this->load->helper('url', 'english');
-
+		$this->load->helper('url');
+		$this->load->helper('log_activity');
 		
-        if(strcmp($_SESSION['language'],"US") == 0){
-            $this->lang->load('business_case', 'english');
-            $this->lang->load('project-page', 'english');
-        }else{
-            $this->lang->load('business_case', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
-
+		$this->load->model('log_model');
 		$this->load->model('view_model');
 		$this->load->model('Project_model');
-		$this->load->model('log_model');
-		$this->load->helper('url');
 		$this->load->model('Business_case_model');
-		$this->load->helper('log_activity');
+
+		$array = array();
+		array_push($array, 'business_case');
+		loadLangs($array);
+
+		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
+		
+		if ($userInProject) {
+			$this->session->set_flashdata('error3', 'You have no access to this project');
+			redirect('projects/' . $_SESSION['project_id']);
+		}
 	}
 
 	public function new($project_id)

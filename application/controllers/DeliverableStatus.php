@@ -11,27 +11,24 @@ class DeliverableStatus extends CI_Controller
             redirect(base_url());
         }
         $this->load->helper('url');
-        $this->load->model('Delivery_acceptance_term_model');
-        $this->load->model('view_model');
-        $this->load->model('log_model');
         $this->load->helper('log_activity');
+
+        $this->load->model('log_model');
+        $this->load->model('view_model');
+        $this->load->model('Project_model');
         $this->load->model('Stakeholder_model');
+        $this->load->model('Delivery_acceptance_term_model');
 
-        if (strcmp($_SESSION['language'], "US") == 0) {
-            $this->lang->load('delivery_acceptance_term', 'english');
-            $this->lang->load('project-page', 'english');
-        } else {
-            $this->lang->load('delivery_acceptance_term', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
+        $array = array();
+		array_push($array, 'delivery_acceptance_term');
+		loadLangs($array);
 
-
-        // $this->lang->load('btn','portuguese-brazilian');
-        // $this->load->model('Stakeholder_model');
-
-
-        // $this->lang->load('manage-cost','portuguese-brazilian');
-
+		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
+		
+		if ($userInProject) {
+			$this->session->set_flashdata('error3', 'You have no access to this project');
+			redirect('projects/' . $_SESSION['project_id']);
+		}
     }
 
     public function new($project_id)

@@ -10,24 +10,30 @@ class ScheduleNetworkDiagram extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
-		if (strcmp($_SESSION['language'], "US") == 0) {
-            $this->lang->load('schedule_net', 'english');
-            $this->lang->load('project-page', 'english');
-        } else {
-            $this->lang->load('schedule_net', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
+
+		$this->load->model('log_model');
+		$this->load->model('view_model');
+		$this->load->model('Project_model');
+		$this->load->model('Activity_model');
+		$this->load->model('ScheduleNetwork_model');
+
+		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
+		
+		if ($userInProject) {
+			$this->session->set_flashdata('error3', 'You have no access to this project');
+			redirect('projects/' . $_SESSION['project_id']);
+		}
+
+		$langs = array();
+        array_push($langs, 'schedule_net');
+
+        loadLangs($langs);
 
 		$this->load->helper('url');
-		$this->load->model('ScheduleNetwork_model');
-		$this->load->model('Activity_model');
-		$this->load->model('view_model');
-		$this->load->model('log_model');
 		$this->load->helper('log_activity');
 		
 		
 	}
-	
 	
 	//SCHEDULE NETWORK
 	public function list($project_id)

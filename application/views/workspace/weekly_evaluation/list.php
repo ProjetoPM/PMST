@@ -20,7 +20,7 @@
 							<div class="row">
 								<div class="col-lg-12">
                                     <a 
-                                        href="./new" 
+                                        href="<?= base_url('weekly-evaluation/new') ?>" 
                                         class="btn btn-lg btn-success"
                                         id="btn-evaluation"
                                     >

@@ -11,23 +11,29 @@ class ResourceRequirements extends CI_Controller
 			redirect(base_url());
 		}
 		
-		if (strcmp($_SESSION['language'], "US") == 0) {
-            $this->lang->load('resource_requirements', 'english');
-            $this->lang->load('resources', 'english');
-            $this->lang->load('project-page', 'english');
-        } else {
-            $this->lang->load('resource_requirements', 'portuguese-brazilian');
-            $this->lang->load('resources', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
-
-		$this->load->helper('url');
+		$this->load->model('log_model');
+		$this->load->model('view_model');
+		$this->load->model('Project_model');
 		$this->load->model('Activity_model');
 		$this->load->model('Resources_model');
 		$this->load->model('Resource_requirements_model');
-		$this->load->model('view_model');
-		$this->load->model('log_model');
+
+		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
+		
+		if ($userInProject) {
+			$this->session->set_flashdata('error3', 'You have no access to this project');
+			redirect('projects/' . $_SESSION['project_id']);
+		}
+
+		$langs = array();
+        array_push($langs, 'resource_requirements', 'resources');
+
+        loadLangs($langs);
+		
+
+		$this->load->helper('url');
 		$this->load->helper('log_activity');
+
 
 	}
 

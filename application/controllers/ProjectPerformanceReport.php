@@ -10,28 +10,24 @@ class ProjectPerformanceReport extends CI_Controller
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }
-
-
-        if (strcmp($_SESSION['language'], "US") == 0) {
-            $this->lang->load('project_performance_report', 'english');
-            $this->lang->load('project-page', 'english');
-        } else {
-            $this->lang->load('project_performance_report', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
-
         $this->load->helper('url');
-        $this->load->model('Project_performance_report_model');
-        $this->load->model('view_model');
-        $this->load->model('log_model');
         $this->load->helper('log_activity');
-
-
         
-        // $this->lang->load('btn','portuguese-brazilian');
+        $this->load->model('log_model');
+        $this->load->model('view_model');
+        $this->load->model('Project_model');
+        $this->load->model('Project_performance_report_model');
 
+		$array = array();
+		array_push($array, 'project_performance_report');
+		loadLangs($array);
 
-        // $this->lang->load('manage-cost','portuguese-brazilian');
+		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
+		
+		if ($userInProject) {
+			$this->session->set_flashdata('error3', 'You have no access to this project');
+			redirect('projects/' . $_SESSION['project_id']);
+		}
 
     }
 

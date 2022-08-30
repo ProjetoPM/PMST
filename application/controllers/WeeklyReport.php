@@ -16,18 +16,21 @@ class WeeklyReport extends CI_Controller
         array_push($langs, 'weekly_eval', 'weekly_report');
 
         loadLangs($langs);
+        
+        $this->load->helper('url');
+        $this->load->helper('log_activity');
 
+        $this->load->library('parser');
+        
         $this->load->model('log_model');
         $this->load->model('view_model');
+        $this->load->model('Project_model');
         $this->load->model('Workspace_model');
         $this->load->model('WeeklyReport_model');
         $this->load->model('Report_upload_model');
         $this->load->model('Pmbok_process_model');
         $this->load->model('Weekly_process_model');
         $this->load->model('WeeklyEvaluation_model');
-        $this->load->library('parser');
-        $this->load->helper('url');
-        $this->load->helper('log_activity');
     }
 
     public function list()
@@ -49,7 +52,7 @@ class WeeklyReport extends CI_Controller
                 ? $this->WeeklyReport_model->getProcessGroupsByLanguage(2)
                 : $dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
 
-            $dado['evaluation'] = $this->WeeklyEvaluation_model->getAll();
+            $dado['evaluation'] = $this->WeeklyEvaluation_model->getAll($_SESSION['workspace_id']);
             loadViews('workspace/weekly_report/new', $dado);
         } else {
             $this->session->set_flashdata('error', 'You are not allowed to access this page');

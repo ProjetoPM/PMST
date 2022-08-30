@@ -10,21 +10,24 @@ class ProjectScopeStatement extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
-
-		if (strcmp($_SESSION['language'], "US") == 0) {
-			$this->lang->load('scope_specification', 'english');
-            $this->lang->load('project-page', 'english');
-        } else {
-            $this->lang->load('scope_specification', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
-
 		$this->load->helper('url');
-		$this->load->model('Scope_specification_model');
-		$this->load->model('view_model');
-		$this->load->model('log_model');
 		$this->load->helper('log_activity');
+		
+		$this->load->model('log_model');
+		$this->load->model('view_model');
+        $this->load->model('Project_model');
+		$this->load->model('Scope_specification_model');
 
+		$array = array();
+		array_push($array, 'scope_specification');
+		loadLangs($array);
+
+		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
+		
+		if ($userInProject) {
+			$this->session->set_flashdata('error3', 'You have no access to this project');
+			redirect('projects/' . $_SESSION['project_id']);
+		}
 		// $this->lang->load('btn','portuguese-brazilian');
 		
 		// $this->lang->load('manage-scope','portuguese-brazilian');

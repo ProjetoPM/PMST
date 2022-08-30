@@ -90,6 +90,7 @@
 
 										</tbody>
 									</table>
+									<h1><?= $this->lang->line('r_title')  ?></h1>
 
 									<table class="table table-bordered table-striped" id="tableResources">
 										<thead>

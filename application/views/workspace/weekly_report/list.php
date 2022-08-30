@@ -92,7 +92,7 @@
 </body>
 
 <!-- Modal -->
-<div class="modal fade" id="scoreDetails<?php $data->weekly_report_id ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="scoreDetails" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header modal-green">

@@ -19,6 +19,7 @@
             return $this->db->select(" activity.activity_name as name, $this->table.*")
             ->from($this->table)
             ->join('activity', "$this->table.activity_id = activity.id")
+            ->where("$this->table.project_id", $project_id)
             ->get()->result();
         }
 

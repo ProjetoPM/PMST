@@ -28,17 +28,10 @@ class Resources extends CI_Controller
         $this->load->helper('url');
         $this->load->helper('log_activity');
 
-        
-        
-        if (strcmp($_SESSION['language'], "US") == 0) {
-            $this->lang->load('resources', 'english');
-            $this->lang->load('resource_requirements', 'english');
-            $this->lang->load('project-page', 'english');
-        } else {
-            $this->lang->load('resources', 'portuguese-brazilian');
-            $this->lang->load('resource_requirements', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
+		$langs = array();
+        array_push($langs, 'resource_requirements', 'resources');
+
+        loadLangs($langs);
     }
     
     public function new()

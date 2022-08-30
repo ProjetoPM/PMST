@@ -21,62 +21,67 @@ class Project extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
-
-		if(strcmp($_SESSION['language'],"US") == 0){
-            $this->lang->load('btn', 'english');
-			$this->lang->load('project-page', 'english');
-        }else{
-            $this->lang->load('btn', 'portuguese-brazilian');
-			$this->lang->load('project-page', 'portuguese-brazilian');
-        }
-
+		
+		$array = array();
+		loadLangs($array);
+		
 		$this->load->helper('url');
 		$this->load->helper('log_activity');
 		$this->load->model('Project_model');
 		$this->load->model('Workspace_model');
 	}
-
+	
 	private function ajax_checking()
 	{
 		if (!$this->input->is_ajax_request()) {
 			redirect(base_url());
 		}
 	}
-
+	
 	public function project_form()
 	{
-		if(strcmp($_SESSION['language'],"US") == 0){
-            $this->lang->load('btn', 'english');
-			$this->lang->load('project-page', 'english');
-        }else{
-            $this->lang->load('btn', 'portuguese-brazilian');
-			$this->lang->load('project-page', 'portuguese-brazilian');
-        }
-
+		
 		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
 		$data = array(
 			'formTitle' => 'New Project',
 			'title' => 'New Project'
 		);
-
+		
 		if(strcmp($_SESSION['language'],"US") == 0){
-            $this->lang->load('btn', 'english');
 			$this->lang->load('new-project', 'english');
         }else{
-            $this->lang->load('btn', 'portuguese-brazilian');
 			$this->lang->load('new-project','portuguese-brazilian');
         }
-
+		
 		loadViews('project/new_project', $data);
 	}
-
-
+	
+	//busca todos projetos do usuario pelo seu id
+	//salva na variavel dataproject
+	//passa todos esses dados para a view my_projects
+	
+	
+	public function listProjects($workspace_id)
+	{
+			$_SESSION['project_name'] = null;
+			$_SESSION['access_level'] = null;
+			$_SESSION['project_id'] = null;
+			$_SESSION['workspace_id'] = $workspace_id;
+	
+			$data['projects'] = $this->Project_model->getProjectsRelatedToUser($_SESSION['user_id'], $workspace_id);
+			$data['workspace_title'] = $this->Workspace_model->getWorkspaceName($workspace_id);
+			$this->load->view('frame/header_view');
+			$this->load->view('frame/topbar');
+			$this->load->view('frame/sidebar_nav_view');
+			$this->parser->parse('project/my_projects', $data);
+	}
+	
 	function add_project($workspace_id)
 	{
 		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
-
+		
 		$project['title'] = $this->input->post('title');
 		$project['description'] = $this->input->post('description');
 		$project['objectives'] = $this->input->post('objectives');
@@ -104,14 +109,7 @@ class Project extends CI_Controller
 	//<!-- Begin Update method --> 
 	public function update($project_id)
 	{
-		if(strcmp($_SESSION['language'],"US") == 0){
-			$this->lang->load('project-page', 'english');
-			$this->lang->load('btn', 'english');
-		}else{
-			$this->lang->load('project-page', 'portuguese-brazilian');
-			$this->lang->load('btn', 'portuguese-brazilian');
-		}
-		
+
 		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
 		 $this->db->where('project_id', $project_id);
@@ -154,13 +152,7 @@ class Project extends CI_Controller
 	//passando id como parametro
 	public function add_researcher_page($project_id = null)
 	{
-		if(strcmp($_SESSION['language'],"US") == 0){
-		$this->lang->load('btn', 'english');
-		$this->lang->load('project-page', 'english');
-	}else{
-		$this->lang->load('btn', 'portuguese-brazilian');
-		$this->lang->load('project-page', 'portuguese-brazilian');
-	}
+
 		$_SESSION['access_level'] = null;
 		$_SESSION['project_id'] = null;
 		$this->db->where('project_id', $project_id);
@@ -262,7 +254,7 @@ class Project extends CI_Controller
 		);
 		return $retorna['$user_id'];
 	}
-
+	
 	//carrega a tela principal do projeto
 	public function dashboard_c()
 	{
@@ -273,33 +265,6 @@ class Project extends CI_Controller
 		$this->load->view('project/dashboard'); //joga os resultados la pra view
 	}
 
-	//busca todos projetos do usuario pelo seu id
-	//salva na variavel dataproject
-	//passa todos esses dados para a view my_projects
-	
-
-	public function listProjects($workspace_id)
-	{
-		$_SESSION['project_name'] = null;
-		$_SESSION['access_level'] = null;
-		$_SESSION['project_id'] = null;
-		$_SESSION['workspace_id'] = $workspace_id;
-
-		if(strcmp($_SESSION['language'],"US") == 0){
-            $this->lang->load('btn', 'english');
-			$this->lang->load('project-page', 'english');
-        }else{
-            $this->lang->load('btn', 'portuguese-brazilian');
-			$this->lang->load('project-page', 'portuguese-brazilian');
-        }
-
-		$data['projects'] = $this->Project_model->getProjectsRelatedToUser($_SESSION['user_id'], $workspace_id);
-		$data['workspace_title'] = $this->Workspace_model->getWorkspaceName($workspace_id);
-		$this->load->view('frame/header_view');
-		$this->load->view('frame/topbar');
-		$this->load->view('frame/sidebar_nav_view');
-		$this->parser->parse('project/my_projects', $data);
-	}
 
 
 	//busca o nome do dono do projeto pelo seu id atrelado no projeto
@@ -398,17 +363,7 @@ class Project extends CI_Controller
 			$this->db->where('project_id', $project_id);
 			$this->db->join('user', 'user.user_id = project_user.user_id');
 			$dataproject['members'] = $this->db->get('project_user')->result();
-
-			if(strcmp($_SESSION['language'],"US") == 0){
-				$this->lang->load('project-page', 'english');
-				$this->lang->load('btn', 'english');
-			}else{
-				$this->lang->load('project-page', 'portuguese-brazilian');
-				$this->lang->load('btn', 'portuguese-brazilian');
-			}
-
-			
-			// $this->lang->load('project-page','portuguese-brazilian');   
+   
 
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
