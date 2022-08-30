@@ -74,6 +74,10 @@
 					<div class="col-lg-12">
 						<div class="panel-body">
 							<h1 class="page-header">
+								
+							<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
 								<?= $this->lang->line('pch_title')  ?> <?php if ($items != null) { ?>
 									<span data_tp="<?= $this->lang->line('signed') ?>"> <i class="glyphicon glyphicon-lock"></i></span>
 								<?php }  ?>

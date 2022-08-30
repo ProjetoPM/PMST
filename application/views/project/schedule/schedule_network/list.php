@@ -36,11 +36,6 @@
 
 								<?= $this->lang->line('snd_title')  ?>
 
-								<?php $view_name = "project schedule network diagram"?>
-								<?php $this->load->view('construction_services/rating', array(
-									"view_name" => $view_name,
-								)) ?>
-
 							</h1>
 
 							<div class="row">
@@ -75,7 +70,7 @@
 													<td><?= $snd->dependence_type; ?></td>
 													<td><?= $snd->lead_lag; ?></td>
 
-													<td style="max-width: 20px">
+													<td <?= getStatusFieldsList("project schedule network diagram", $snd->schedule_network_id) ?>style="max-width: 20px">
 														<div class="row center">
 															<div class="col-sm-3">
 																<form action="<?= base_url() ?>schedule/project-schedule-network-diagram/edit/<?= $snd->schedule_network_id; ?>" method="post">

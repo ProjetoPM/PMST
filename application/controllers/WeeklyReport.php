@@ -52,7 +52,7 @@ class WeeklyReport extends CI_Controller
                 ? $this->WeeklyReport_model->getProcessGroupsByLanguage(2)
                 : $dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
 
-            $dado['evaluation'] = $this->WeeklyEvaluation_model->getAll();
+            $dado['evaluation'] = $this->WeeklyEvaluation_model->getAll($_SESSION['workspace_id']);
             loadViews('workspace/weekly_report/new', $dado);
         } else {
             $this->session->set_flashdata('error', 'You are not allowed to access this page');

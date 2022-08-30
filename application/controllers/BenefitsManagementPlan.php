@@ -22,7 +22,7 @@ class BenefitsManagementPlan extends CI_Controller
 		
 
 		$array = array();
-		array_push($array, 'benefits-plan');
+		array_push($array, 'benefits_plan');
 		loadLangs($array);
 
 		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
