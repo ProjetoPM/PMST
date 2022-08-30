@@ -32,7 +32,16 @@ class ProjectCharter extends CI_Controller
 			$this->lang->load('tap', 'portuguese-brazilian');
 		}
 
+		$array = array();
+		array_push($array, 'tap');
+		loadLangs($array);
 
+		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
+		
+		if ($userInProject) {
+			$this->session->set_flashdata('error3', 'You have no access to this project');
+			redirect('projects/' . $_SESSION['project_id']);
+		}
 	}
 
 	public function new($project_id)

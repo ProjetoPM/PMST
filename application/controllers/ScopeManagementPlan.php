@@ -29,12 +29,16 @@ class ScopeManagementPlan extends CI_Controller
 			$this->lang->load('project-page', 'portuguese-brazilian');
 		}
 
-		//$this->load->helper('url');
+		$array = array();
+		array_push($array, 'scope_mp');
+		loadLangs($array);
 
-		//$this->lang->load('btn', 'portuguese-brazilian');
-
-		//$this->lang->load('tap', 'portuguese-brazilian');
-
+		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
+		
+		if ($userInProject) {
+			$this->session->set_flashdata('error3', 'You have no access to this project');
+			redirect('projects/' . $_SESSION['project_id']);
+		}
 	}
 
 

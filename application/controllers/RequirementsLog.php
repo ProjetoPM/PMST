@@ -15,7 +15,6 @@ class RequirementsLog extends CI_Controller {
         $this->load->model('Project_model');
 		$this->load->model('Requirements_log_model');
 
-		//$this->lang->load('requirements-log','portuguese-brazilian');
    
         $this->lang->load('requirements-log','english');
    

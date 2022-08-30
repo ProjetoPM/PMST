@@ -21,19 +21,16 @@ class QualityChecklist extends CI_Controller
 		$this->load->model('Project_model');
 		$this->load->model('QualityChecklist_model');
 
-		if (strcmp($_SESSION['language'], "US") == 0) {
-			$this->lang->load('quality_checklist', 'english');
-            $this->lang->load('risk-mp', 'english');
-            $this->lang->load('project-page', 'english');
-        } else {
-			$this->lang->load('quality_checklist', 'portuguese-brazilian');
-            $this->lang->load('risk-mp', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
+		$array = array();
+		array_push($array, 'quality_checklist', 'risk-mp');
+		loadLangs($array);
 
-		//$this->lang->load('btn','portuguese-brazilian');
-		//$this->lang->load('risk-mp','portuguese-brazilian');
-
+		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
+		
+		if ($userInProject) {
+			$this->session->set_flashdata('error3', 'You have no access to this project');
+			redirect('projects/' . $_SESSION['project_id']);
+		}
 	}
 
 	public function list($project_id)

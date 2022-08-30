@@ -27,8 +27,17 @@ class ProcurementManagementPlan extends CI_Controller
             $this->lang->load('project-page', 'portuguese-brazilian');
         }
 
-        $this->lang->load('btn', 'english');
         
+        $array = array();
+		array_push($array, 'procurement-mp');
+		loadLangs($array);
+
+		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
+		
+		if ($userInProject) {
+			$this->session->set_flashdata('error3', 'You have no access to this project');
+			redirect('projects/' . $_SESSION['project_id']);
+		}
     }
 
     private function ajax_checking()

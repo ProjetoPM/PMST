@@ -19,14 +19,6 @@ class CostManagementPlan extends CI_Controller
 		$this->load->model('view_model');
 		$this->load->model('Project_model');
 
-		if (strcmp($_SESSION['language'], "US") == 0) {
-            $this->lang->load('manage-cost', 'english');
-            $this->lang->load('project-page', 'english');
-        } else {
-            $this->lang->load('manage-cost', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
-
        $array = array();
 		array_push($array, 'manage-cost');
 		loadLangs($array);

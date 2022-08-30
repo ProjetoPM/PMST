@@ -21,21 +21,17 @@ class RequirementsManagementPlan extends CI_Controller
 		$this->load->model('Project_model');
 		$this->load->model('Requirements_mp_model');
 
-		if (strcmp($_SESSION['language'], "US") == 0) {
-            $this->lang->load('requirements_mp', 'english');
-            $this->lang->load('project-page', 'english');
+	
+		$array = array();
+		array_push($array, 'requirements_mp');
+		loadLangs($array);
 
-        } else {
-            $this->lang->load('requirements_mp', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-
-        }
+		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
 		
-		//$this->load->helper('url');
-		
-		//$this->lang->load('btn', 'portuguese-brazilian');
-		
-		//$this->lang->load('tap', 'portuguese-brazilian');
+		if ($userInProject) {
+			$this->session->set_flashdata('error3', 'You have no access to this project');
+			redirect('projects/' . $_SESSION['project_id']);
+		}
 	}
 	
 	

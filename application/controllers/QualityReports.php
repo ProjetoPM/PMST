@@ -19,20 +19,16 @@ class QualityReports extends CI_Controller
         $this->load->model('Project_model');
         $this->load->model('Quality_reports_model');
 
-        if (strcmp($_SESSION['language'], "US") == 0) {
-            $this->lang->load('quality_reports', 'english');
-            $this->lang->load('project-page', 'english');
-        } else {
-            $this->lang->load('quality_reports', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
+        $array = array();
+		array_push($array, 'quality_reports');
+		loadLangs($array);
 
-
-
-        // $this->lang->load('btn','portuguese-brazilian');
-        
-
-        // $this->lang->load('manage-cost','portuguese-brazilian');
+		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
+		
+		if ($userInProject) {
+			$this->session->set_flashdata('error3', 'You have no access to this project');
+			redirect('projects/' . $_SESSION['project_id']);
+		}
 
     }
 

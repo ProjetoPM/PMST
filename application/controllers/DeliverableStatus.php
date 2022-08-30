@@ -19,15 +19,6 @@ class DeliverableStatus extends CI_Controller
         $this->load->model('Stakeholder_model');
         $this->load->model('Delivery_acceptance_term_model');
 
-        if (strcmp($_SESSION['language'], "US") == 0) {
-            $this->lang->load('delivery_acceptance_term', 'english');
-            $this->lang->load('project-page', 'english');
-        } else {
-            $this->lang->load('delivery_acceptance_term', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
-
-
         $array = array();
 		array_push($array, 'delivery_acceptance_term');
 		loadLangs($array);

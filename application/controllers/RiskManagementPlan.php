@@ -28,11 +28,16 @@ class RiskManagementPlan extends CI_Controller
             $this->lang->load('project-page', 'portuguese-brazilian');
         }
 
-		$this->lang->load('btn', 'english');
-		//$this->lang->load('btn','portuguese-brazilian');
-		
-		//$this->lang->load('risk-mp','portuguese-brazilian');
+		$array = array();
+		array_push($array, 'risk-mp');
+		loadLangs($array);
 
+		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
+		
+		if ($userInProject) {
+			$this->session->set_flashdata('error3', 'You have no access to this project');
+			redirect('projects/' . $_SESSION['project_id']);
+		}
 	}
 
 	public function new($project_id)

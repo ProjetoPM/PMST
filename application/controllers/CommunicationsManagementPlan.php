@@ -27,14 +27,6 @@ class CommunicationsManagementPlan extends CI_Controller
         $this->load->model('communications_mp_model');
         $this->load->model('Communications_stakeholder_model');
 
-        if (strcmp($_SESSION['language'], "US") == 0) {
-            $this->lang->load('communication-item', 'english');
-            $this->lang->load('project-page', 'english');
-        } else {
-            $this->lang->load('communication-item','portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
-
         $array = array();
 		array_push($array, 'communication-item');
 		loadLangs($array);

@@ -27,13 +27,16 @@ class ResourceManagementPlan extends CI_Controller
         $this->load->model('Project_model');
         $this->load->model('human_resource_model');
 
-        if (strcmp($_SESSION['language'], "US") == 0) {
-            $this->lang->load('resource', 'english');
-            $this->lang->load('project-page', 'english');
-        } else {
-            $this->lang->load('resource', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
+        $array = array();
+		array_push($array, 'resource');
+		loadLangs($array);
+
+		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
+		
+		if ($userInProject) {
+			$this->session->set_flashdata('error3', 'You have no access to this project');
+			redirect('projects/' . $_SESSION['project_id']);
+		}
         
     }
 

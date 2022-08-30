@@ -18,14 +18,16 @@ class EVM extends CI_Controller
 		$this->load->model('Project_model');
 		$this->load->model('Activity_model');
 
-		if (strcmp($_SESSION['language'], "US") == 0) {
-            $this->lang->load('earned_value', 'english');
-            $this->lang->load('project-page', 'english');
-        } else {
-            $this->lang->load('earned_value', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
+		$array = array();
+		array_push($array, 'earned_value', 'change_log');
+		loadLangs($array);
 
+		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
+		
+		if ($userInProject) {
+			$this->session->set_flashdata('error3', 'You have no access to this project');
+			redirect('projects/' . $_SESSION['project_id']);
+		}
 
 	}
 

@@ -19,15 +19,6 @@ class ClosedProcurementDocumentation extends CI_Controller
         $this->load->model('Project_model');
         $this->load->model('Procurement_cpd_model');
 
-        if (strcmp($_SESSION['language'], "US") == 0) {
-            $this->lang->load('closed_procurement_documentation', 'english');
-            $this->lang->load('project-page', 'english');
-        } else {
-            $this->lang->load('closed_procurement_documentation', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
-
-
 
         $array = array();
 		array_push($array, 'closed_procurement_documentation');
