@@ -25,9 +25,11 @@ class ScheduleManagementPlan extends CI_Controller
 		
 		// $this->lang->load('schedule','portuguese-brazilian');
 		$this->load->helper('url');
-		$this->load->model('view_model');
-		$this->load->model('log_model');
 		$this->load->helper('log_activity');
+		
+		$this->load->model('log_model');
+		$this->load->model('view_model');
+        $this->load->model('Project_model');
 		$this->load->model('Schedule_model');
 	}
 

@@ -21,10 +21,12 @@ class ProjectClosure extends CI_Controller
         }
 
 		$this->load->helper('url');
-		$this->load->model('Project_Closure_model');
-		$this->load->model('view_model');
-		$this->load->model('log_model');
 		$this->load->helper('log_activity');
+		
+		$this->load->model('log_model');
+		$this->load->model('view_model');
+        $this->load->model('Project_model');
+		$this->load->model('Project_Closure_model');
 
 		// $this->lang->load('btn','portuguese-brazilian');
 		// $this->lang->load('tep','portuguese-brazilian');

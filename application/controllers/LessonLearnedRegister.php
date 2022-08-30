@@ -11,6 +11,15 @@ class LessonLearnedRegister extends CI_Controller
             redirect(base_url());
         }
 
+        $this->load->helper('url');
+        $this->load->helper('log_activity');
+        
+        $this->load->model('log_model');
+        $this->load->model('view_model');
+        $this->load->model('Project_model');
+        $this->load->model('Stakeholder_model');
+        $this->load->model('Lesson_learned_register_model');
+
         if (strcmp($_SESSION['language'], "US") == 0) {
             $this->lang->load('lesson_learned_register', 'english');
             $this->lang->load('project-page', 'english');
@@ -19,13 +28,6 @@ class LessonLearnedRegister extends CI_Controller
             $this->lang->load('project-page', 'portuguese-brazilian');
         }
 
-        $this->load->helper('url');
-        $this->load->model('Lesson_learned_register_model');
-        $this->load->model('view_model');
-        $this->load->model('log_model');
-        $this->load->helper('log_activity');
-        $this->load->model('Project_model');
-        $this->load->model('Stakeholder_model');
         
 
 

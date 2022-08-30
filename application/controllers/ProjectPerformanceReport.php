@@ -10,6 +10,13 @@ class ProjectPerformanceReport extends CI_Controller
         if (!$this->session->userdata('logged_in')) {
             redirect(base_url());
         }
+        $this->load->helper('url');
+        $this->load->helper('log_activity');
+        
+        $this->load->model('log_model');
+        $this->load->model('view_model');
+        $this->load->model('Project_model');
+        $this->load->model('Project_performance_report_model');
 
 
         if (strcmp($_SESSION['language'], "US") == 0) {
@@ -20,11 +27,6 @@ class ProjectPerformanceReport extends CI_Controller
             $this->lang->load('project-page', 'portuguese-brazilian');
         }
 
-        $this->load->helper('url');
-        $this->load->model('Project_performance_report_model');
-        $this->load->model('view_model');
-        $this->load->model('log_model');
-        $this->load->helper('log_activity');
 
 
         

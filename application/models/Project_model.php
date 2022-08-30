@@ -35,7 +35,7 @@ class Project_model extends CI_Model
     function insert_project($project)
     {
 
-        $this->db->insert('project', $project);        
+        $this->db->insert('project', $project);
         $project_id = $this->db->insert_id();
 
         $project_user['project_id'] = $project_id;
@@ -93,8 +93,8 @@ class Project_model extends CI_Model
         $res = $query->row_array();
         return $res['access_level'];
     }
-    
-    function getIdUser($email) 
+
+    function getIdUser($email)
     {
         $this->db->where('email', $email);
         $userdata = $this->db->get('user');
@@ -129,12 +129,11 @@ class Project_model extends CI_Model
         if ($this->db->delete('project')) {
             $this->session->set_flashdata('success', 'Project Deleted!');
             redirect("projects/{$_SESSION['workspace_id']}");
-        }
-        else {
+        } else {
             $this->session->set_flashdata('fail', 'Problem to delete project!');
         }
     }
-    
+
     public function getAllKnowledgeArea()
     {
         $data = $this->db->get('knowledge_area');
@@ -156,6 +155,18 @@ class Project_model extends CI_Model
             ->get()->result();
 
         return $query;
+    }
+
+    // Função responsável por verificar se um usuário tem acesso a um determinado projeto
+    public function userInProject($user_id, $project_id)
+    {
+        $query = $this->db->select('access_level')
+            ->from('project_user')
+            ->where('user_id', $user_id)
+            ->where('project_id', $project_id)
+            ->get()->result();
+
+        return empty($query);
     }
 }
 

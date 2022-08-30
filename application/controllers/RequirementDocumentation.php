@@ -20,25 +20,27 @@ class RequirementDocumentation extends CI_Controller
             $this->lang->load('requirement_documentation', 'portuguese-brazilian');
             $this->lang->load('project-page', 'portuguese-brazilian');
         }
-
-        $this->load->model('project_model');
-        $this->load->model('requirement_registration_model');
-        $this->load->model('view_model');
-        $this->load->model('log_model');
+        
         $this->load->helper('log_activity');
+        
+        $this->load->model('log_model');
+        $this->load->model('view_model');
+        $this->load->model('Project_model');
+        $this->load->model('requirement_registration_model');
+        
 
         // $this->lang->load('btn','portuguese-brazilian');
         // $this->lang->load('requirement-registration','portuguese-brazilian');
-        
+
     }
-    
+
     private function ajax_checking()
     {
         if (!$this->input->is_ajax_request()) {
             redirect(base_url());
         }
     }
-    
+
     public function list($project_id)
     {
         if (strcmp($_SESSION['language'], "US") == 0) {
@@ -58,18 +60,18 @@ class RequirementDocumentation extends CI_Controller
     public function new($project_id)
     {
         if (strcmp($_SESSION['language'], "US") == 0) {
-			$this->lang->load('btn', 'english');
-		} else {
-			$this->lang->load('btn', 'portuguese-brazilian');
-		}
-        
+            $this->lang->load('btn', 'english');
+        } else {
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+
         $idusuario = $_SESSION['user_id'];
         $this->db->where('user_id', $idusuario);
         $this->db->where('project_id', $project_id);
         $project['dados'] = $this->db->get('project_user')->result();
-        
+
         if (count($project['dados']) > 0) {
-            
+
             $query['project_id'] = $project_id;
             $this->load->view('frame/header_view');
             $this->load->view('frame/topbar');
@@ -79,7 +81,7 @@ class RequirementDocumentation extends CI_Controller
             redirect(base_url());
         }
     }
-    
+
     public function edit($requirement_registration_id)
     {
         if (strcmp($_SESSION['language'], "US") == 0) {
@@ -87,10 +89,10 @@ class RequirementDocumentation extends CI_Controller
         } else {
             $this->lang->load('btn', 'portuguese-brazilian');
         }
-        
+
         $query['requirement_registration'] = $this->requirement_registration_model->get($requirement_registration_id);
         $query['project_id'] = $this->input->post('project_id');
-        
+
         $query["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "requirement documentation", $query['requirement_registration'][0]->requirement_registration_id);
 
         $this->load->view('frame/header_view');
@@ -98,7 +100,7 @@ class RequirementDocumentation extends CI_Controller
         $this->load->view('frame/sidebar_nav_view');
         $this->load->view('project/scope/requirement/edit', $query);
     }
-    
+
     public function insert()
     {
         $requirement_registration['associated_id'] = $this->input->post('associated_id');
@@ -117,16 +119,16 @@ class RequirementDocumentation extends CI_Controller
         $requirement_registration['requirement_situation'] = $this->input->post('requirement_situation');
         $requirement_registration['supporting_documentation'] = $this->input->post('supporting_documentation');
         $requirement_registration['project_id'] = $this->input->post('project_id');
-        
+
         $query = $this->requirement_registration_model->insert($requirement_registration);
-        
+
         if ($query) {
             insertLogActivity('insert', 'requirement documentation');
             $this->session->set_flashdata('success', 'Requirement Documentation has been successfully created!');
             redirect('scope/requirement-documentation/list/' . $requirement_registration['project_id']);
         }
     }
-    
+
     public function update($project_id)
     {
         $requirement_registration['business_strategy'] = $this->input->post('business_strategy');
@@ -145,16 +147,16 @@ class RequirementDocumentation extends CI_Controller
         $requirement_registration['associated_id'] = $this->input->post('associated_id');
         $requirement_registration['supporting_documentation'] = $this->input->post('supporting_documentation');
         $requirement_registration['project_id'] = $this->input->post('project_id');
-        
+
         $query = $this->requirement_registration_model->update($requirement_registration, $project_id);
-        
+
         if ($query) {
             insertLogActivity('update', 'requirement documentation');
             $this->session->set_flashdata('success', 'Requirement Documentation has been successfully changed!');
             redirect('scope/requirement-documentation/list/' . $requirement_registration['project_id']);
         }
     }
-    
+
     public function delete($id)
     {
         $project_id['id'] = $this->input->post('project_id');

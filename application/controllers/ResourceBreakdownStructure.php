@@ -10,6 +10,12 @@ class ResourceBreakdownStructure extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
+		
+		$this->load->helper('url');
+		
+		$this->load->model('log_model');
+		$this->load->model('Project_model');
+		$this->load->model('Benefits_plan_model');
 
 		if (strcmp($_SESSION['language'], "US") == 0) {
             $this->lang->load('resource_breakdown_structure', 'english');
@@ -25,11 +31,6 @@ class ResourceBreakdownStructure extends CI_Controller
 		
 		// $this->lang->load('quality_mp','portuguese-brazilian');
 
-
-		$this->load->model('Project_model');
-		$this->load->model('log_model');
-		$this->load->helper('url');
-		$this->load->model('Benefits_plan_model');
 	}
 
 	public function new($project_id)

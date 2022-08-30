@@ -8,6 +8,12 @@ class ProcurementStatementOfWork extends CI_Controller {
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
+		$this->load->helper('url');
+		$this->load->helper('log_activity');
+
+		
+		$this->load->model('Project_model');
+		$this->load->model('Procurement_statement_of_work_model');
 
 		if (strcmp($_SESSION['language'], "US") == 0) {
             $this->lang->load('procurement_statement_of_work','english');
@@ -17,9 +23,6 @@ class ProcurementStatementOfWork extends CI_Controller {
             $this->lang->load('project-page', 'portuguese-brazilian');
         }
 
-		$this->load->helper('url');
-		$this->load->model('Procurement_statement_of_work_model');
-		$this->load->helper('log_activity');
 
         // $this->lang->load('btn','portuguese-brazilian');
         

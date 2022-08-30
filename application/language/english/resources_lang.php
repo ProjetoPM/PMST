@@ -1,6 +1,6 @@
 <?php
 
-$lang['title'] = 'Project Resources';
+$lang['r_title'] = 'Project Resources';
 
 $lang['resource'] = ' Resource';
 

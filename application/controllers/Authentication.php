@@ -1,47 +1,54 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Authentication extends CI_Controller {   
-    public function __construct() {
+class Authentication extends CI_Controller
+{
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model("authentication_model");
         $this->load->library('user_agent');
         $this->load->model('view_model');
-        $this->load->model('project_model');
+        $this->load->model('Project_model');
         $this->load->helper('log_activity');
         $this->lang->load('btn', 'english');
     }
 
-    public function index() {
+    public function index()
+    {
         $_SESSION['language'] = 0;
 
-        if($this->session->userdata('logged_in')) {
+        if ($this->session->userdata('logged_in')) {
             redirect(base_url("workspace/list"));
-        }else {
+        } else {
             $data = array('alert' => false);
-            $this->load->view('login',$data);
+            $this->load->view('login', $data);
         }
     }
 
-    public function register() {
+    public function register()
+    {
         $this->load->view('register');
     }
 
-    public function forgot() {
+    public function forgot()
+    {
         $this->load->view('forgot');
     }
 
-    private function ajax_checking(){
+    private function ajax_checking()
+    {
         if (!$this->input->is_ajax_request()) {
             redirect(base_url());
         }
     }
 
-    public function signature($item_id, $view_name) {
+    public function signature($item_id, $view_name)
+    {
         $str_replace = str_replace("-", " ", $view_name);
         $postData = $this->input->post();
 
-        if ($postData == null){
+        if ($postData == null) {
             $this->session->set_flashdata('error', 'Error: it was not possible to sign this document');
             redirect($this->agent->referrer());
         }
@@ -57,14 +64,14 @@ class Authentication extends CI_Controller {
                 $signature['item_id'] = $item_id;
                 $signature['view_id'] = $this->view_model->GetIDByName(str_replace("-", " ", $view_name));
                 $query = $this->authentication_model->insertSignature($signature);
-               
+
                 if ($query) {
                     $this->session->set_flashdata('success', 'Document successfully signed!');
                     insertLogActivity('sign', $str_replace);
                 } else {
                     $this->session->set_flashdata('error', 'Error: it was not possible to sign this document');
                 }
-            } elseif ($this->input->post('terms') == "2"){
+            } elseif ($this->input->post('terms') == "2") {
                 $query = $this->authentication_model->deleteAllSignature($item_id);
 
                 if ($query) {
@@ -75,22 +82,23 @@ class Authentication extends CI_Controller {
                 }
             }
             redirect($this->agent->referrer());
-        }
-        else {
+        } else {
             $this->session->set_flashdata('error', 'The email or password is incorrect!');
             redirect($this->agent->referrer());
         }
     }
 
-    public function language($language) {
-		if (strcmp($language, "US") == 0) {
-			$_SESSION['language'] = "US";
-		} else{
-			$_SESSION['language'] = "BR";
-		}
-	}
+    public function language($language)
+    {
+        if (strcmp($language, "US") == 0) {
+            $_SESSION['language'] = "US";
+        } else {
+            $_SESSION['language'] = "BR";
+        }
+    }
 
-    public function login() {
+    public function login()
+    {
         $_SESSION['project_id'] = null;
         $_SESSION['workspace_id'] = null;
         $_SESSION['language'] = "US";
@@ -120,18 +128,20 @@ class Authentication extends CI_Controller {
         }
     }
 
-    function change_password() {
+    function change_password()
+    {
         $this->ajax_checking();
         $postData = $this->input->post();
         $update = $this->authentication_model->change_password($postData);
 
-        if($update['status'] === 'success') {
+        if ($update['status'] === 'success') {
             $this->session->set_flashdata('success', 'Your password has been successfully changed!');
         }
         echo json_encode($update);
     }
 
-    public function logout() {
+    public function logout()
+    {
         $this->session->sess_destroy();
         redirect(base_url());
     }

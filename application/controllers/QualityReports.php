@@ -11,6 +11,14 @@ class QualityReports extends CI_Controller
             redirect(base_url());
         }
 
+        $this->load->helper('url');
+        $this->load->helper('log_activity');
+        
+        $this->load->model('log_model');
+        $this->load->model('view_model');
+        $this->load->model('Project_model');
+        $this->load->model('Quality_reports_model');
+
         if (strcmp($_SESSION['language'], "US") == 0) {
             $this->lang->load('quality_reports', 'english');
             $this->lang->load('project-page', 'english');
@@ -19,11 +27,6 @@ class QualityReports extends CI_Controller
             $this->lang->load('project-page', 'portuguese-brazilian');
         }
 
-        $this->load->helper('url');
-        $this->load->model('Quality_reports_model');
-        $this->load->model('view_model');
-        $this->load->model('log_model');
-        $this->load->helper('log_activity');
 
 
         // $this->lang->load('btn','portuguese-brazilian');

@@ -14,6 +14,14 @@ class ProjectCharter extends CI_Controller
 			redirect(base_url());
 		}
 
+		$this->load->helper('log_activity');
+		
+		$this->load->model('log_model');
+		$this->load->model('view_model');
+		$this->load->model('Project_model');
+		$this->load->model('Stakeholder_mp_model');
+		$this->load->model('Project_Charter_model');
+
 		if(strcmp($_SESSION['language'],"US") == 0){
 			$this->lang->load('project-page', 'english');
 			$this->lang->load('btn', 'english');
@@ -25,12 +33,6 @@ class ProjectCharter extends CI_Controller
 		}
 
 
-		$this->load->model('Project_Charter_model');
-		$this->load->model('log_model');
-		$this->load->model('Stakeholder_mp_model');
-		$this->load->model('view_model');
-		$this->load->helper('log_activity');
-		$this->load->model('Project_model');
 	}
 
 	public function new($project_id)

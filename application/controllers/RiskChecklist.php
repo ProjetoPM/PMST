@@ -12,6 +12,13 @@ class RiskChecklist extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
+		$this->load->helper('url');
+		$this->load->helper('log_activity');
+		
+		$this->load->model('log_model');
+		$this->load->model('view_model');
+		$this->load->model('Project_model');
+		$this->load->model('RiskChecklist_model');
 
 		if (strcmp($_SESSION['language'], "US") == 0) {
             $this->lang->load('risk-mp', 'english');
@@ -23,12 +30,6 @@ class RiskChecklist extends CI_Controller
 		//$this->lang->load('btn','portuguese-brazilian');
 		//$this->lang->load('risk-mp','portuguese-brazilian');
 
-		$this->load->model('Project_model');
-		$this->load->helper('log_activity');
-		$this->load->model('log_model');
-		$this->load->model('view_model');
-		$this->load->helper('url');
-		$this->load->model('RiskChecklist_model');
 	}
 
 	public function edit($project_id)

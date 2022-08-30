@@ -13,6 +13,14 @@ class RequirementsManagementPlan extends CI_Controller
 			redirect(base_url());
 		}
 
+		$this->load->helper('url');
+		$this->load->helper('log_activity');
+		
+		$this->load->model('log_model');
+		$this->load->model('view_model');
+		$this->load->model('Project_model');
+		$this->load->model('Requirements_mp_model');
+
 		if (strcmp($_SESSION['language'], "US") == 0) {
             $this->lang->load('requirements_mp', 'english');
             $this->lang->load('project-page', 'english');
@@ -28,12 +36,6 @@ class RequirementsManagementPlan extends CI_Controller
 		//$this->lang->load('btn', 'portuguese-brazilian');
 		
 		//$this->lang->load('tap', 'portuguese-brazilian');
-		$this->load->model('Project_model');
-		$this->load->model('view_model');
-		$this->load->model('log_model');
-		$this->load->helper('url');
-		$this->load->helper('log_activity');
-		$this->load->model('Requirements_mp_model');
 	}
 	
 	

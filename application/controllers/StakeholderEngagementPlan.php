@@ -13,6 +13,15 @@ class StakeholderEngagementPlan extends CI_Controller
             redirect(base_url());
         }
 
+        $this->load->helper('url');
+        $this->load->helper('log_activity');
+        
+        $this->load->model('log_model');
+        $this->load->model('view_model');
+        $this->load->model('Project_model');
+        $this->load->model('Stakeholder_model');
+        $this->load->model('Stakeholder_mp_model');
+
         if (strcmp($_SESSION['language'], "US") == 0) {
             $this->lang->load('stakeholder_mp', 'english');
             $this->lang->load('project-page', 'english');
@@ -27,12 +36,6 @@ class StakeholderEngagementPlan extends CI_Controller
         //   $this->lang->load('stakeholder_mp','portuguese-brazilian');
 
 
-        $this->load->helper('url');
-        $this->load->model('Stakeholder_mp_model');
-        $this->load->model('log_model');
-        $this->load->model('view_model');
-        $this->load->model('Stakeholder_model');
-        $this->load->helper('log_activity');
     }
 
 

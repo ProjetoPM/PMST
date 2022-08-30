@@ -11,27 +11,29 @@ class QualityManagementPlan extends CI_Controller
 			redirect(base_url());
 		}
 
+		$this->load->helper('url');
+		$this->load->helper('log_activity');
+		
+		$this->load->model('log_model');
+		$this->load->model('view_model');
+		$this->load->model('Project_model');
+		$this->load->model('Quality_model');
+
 		if (strcmp($_SESSION['language'], "US") == 0) {
-            $this->lang->load('quality_plan', 'english');
-            $this->lang->load('project-page', 'english');
-        } else {
-            $this->lang->load('quality_plan', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
+			$this->lang->load('quality_plan', 'english');
+			$this->lang->load('project-page', 'english');
+		} else {
+			$this->lang->load('quality_plan', 'portuguese-brazilian');
+			$this->lang->load('project-page', 'portuguese-brazilian');
+		}
 
 		// $this->load->helper('url', 'english');
 
 		// $this->lang->load('btn','portuguese-brazilian');
-		
+
 		// $this->lang->load('quality_mp','portuguese-brazilian');
 
 
-		$this->load->model('project_model');
-		$this->load->helper('log_activity');
-		$this->load->model('log_model');
-		$this->load->model('view_model');
-		$this->load->helper('url');
-		$this->load->model('Quality_model');
 	}
 
 	public function new($project_id)
@@ -42,7 +44,7 @@ class QualityManagementPlan extends CI_Controller
 		} else {
 			$this->lang->load('btn', 'portuguese-brazilian');
 		}
-		
+
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
@@ -53,7 +55,7 @@ class QualityManagementPlan extends CI_Controller
 			if ($dado['quality_mp'] != null) {
 				redirect("quality/quality-mp/edit/" . $_SESSION['project_id']);
 			}
-			
+
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');
@@ -62,7 +64,7 @@ class QualityManagementPlan extends CI_Controller
 			redirect(base_url());
 		}
 	}
-	
+
 	public function edit($project_id)
 	{
 		if (strcmp($_SESSION['language'], "US") == 0) {
@@ -70,11 +72,11 @@ class QualityManagementPlan extends CI_Controller
 		} else {
 			$this->lang->load('btn', 'portuguese-brazilian');
 		}
-		
+
 		$this->db->where('user_id',  $_SESSION['user_id']);
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
-		
+
 		if (count($project['dados']) > 0) {
 			$dado['quality_mp'] = $this->Quality_model->get($project_id);
 			if ($dado['quality_mp'] == null) {
@@ -95,9 +97,9 @@ class QualityManagementPlan extends CI_Controller
 	function insert()
 	{
 
-		if(strcmp($_SESSION['language'],"US") == 0){
+		if (strcmp($_SESSION['language'], "US") == 0) {
 			$feedback_success = 'Item Created';
-        }else{
+		} else {
 			$feedback_success = 'Item Criado ';
 		}
 
@@ -114,9 +116,9 @@ class QualityManagementPlan extends CI_Controller
 	public function update()
 	{
 
-		if(strcmp($_SESSION['language'],"US") == 0){
+		if (strcmp($_SESSION['language'], "US") == 0) {
 			$feedback_success = 'Item Updated';
-        }else{
+		} else {
 			$feedback_success = 'Item Atualizado ';
 		}
 

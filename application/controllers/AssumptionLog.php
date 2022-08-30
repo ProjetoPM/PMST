@@ -11,10 +11,12 @@ class AssumptionLog extends CI_Controller
             redirect(base_url());
         }
         $this->load->helper('url');
-        $this->load->model('Assumption_log_model');
-        $this->load->model('view_model');
-        $this->load->model('log_model');
         $this->load->helper('log_activity');
+        
+        $this->load->model('log_model');
+        $this->load->model('view_model');
+		$this->load->model('Project_model');
+        $this->load->model('Assumption_log_model');
 
 
         if (strcmp($_SESSION['language'], "US") == 0) {
@@ -24,8 +26,6 @@ class AssumptionLog extends CI_Controller
             $this->lang->load('assumption_log', 'portuguese-brazilian');
             $this->lang->load('project-page', 'portuguese-brazilian');
         }
-
-        // $this->lang->load('manage-cost','portuguese-brazilian');
 
     }
 

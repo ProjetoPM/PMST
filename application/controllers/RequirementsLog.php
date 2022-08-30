@@ -9,9 +9,11 @@ class RequirementsLog extends CI_Controller {
 			redirect(base_url());
 		}
 		$this->load->helper('url');
-		$this->load->model('Requirements_log_model');
-		$this->load->model('view_model');
+		
 		$this->load->model('log_model');
+		$this->load->model('view_model');
+        $this->load->model('Project_model');
+		$this->load->model('Requirements_log_model');
 
 		//$this->lang->load('requirements-log','portuguese-brazilian');
    

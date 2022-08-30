@@ -13,6 +13,14 @@ class ScopeManagementPlan extends CI_Controller
 			redirect(base_url());
 		}
 
+		$this->load->helper('url');
+		$this->load->helper('log_activity');
+		
+		$this->load->model('log_model');
+		$this->load->model('view_model');
+		$this->load->model('Project_model');
+		$this->load->model('Scope_mp_model');
+
 		if (strcmp($_SESSION['language'], "US") == 0) {
 			$this->lang->load('scope_mp', 'english');
 			$this->lang->load('project-page', 'english');
@@ -27,12 +35,6 @@ class ScopeManagementPlan extends CI_Controller
 
 		//$this->lang->load('tap', 'portuguese-brazilian');
 
-		$this->load->model('Project_model');
-		$this->load->model('view_model');
-		$this->load->helper('url');
-		$this->load->model('log_model');
-		$this->load->model('Scope_mp_model');
-		$this->load->helper('log_activity');
 	}
 
 

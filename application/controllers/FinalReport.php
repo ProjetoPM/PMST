@@ -11,6 +11,14 @@ class FinalReport extends CI_Controller
 			redirect(base_url());
 		}
 
+		$this->load->helper('url');
+		$this->load->helper('log_activity');
+		
+		$this->load->model('log_model');
+		$this->load->model('view_model');
+		$this->load->model('Project_model');
+		$this->load->model('Final_report_model');
+
 		if (strcmp($_SESSION['language'], "US") == 0) {
             $this->lang->load('final_report', 'english');
             $this->lang->load('project-page', 'english');
@@ -25,12 +33,6 @@ class FinalReport extends CI_Controller
 		// $this->lang->load('btn','portuguese-brazilian');
 		// $this->lang->load('quality_mp','portuguese-brazilian');
 		
-		$this->load->model('view_model');
-		$this->load->model('Project_model');
-		$this->load->model('log_model');
-		$this->load->helper('url');
-		$this->load->model('Final_report_model');
-		$this->load->helper('log_activity');
 	}
 	
 	public function new($project_id)

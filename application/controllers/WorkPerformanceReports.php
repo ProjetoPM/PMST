@@ -20,11 +20,13 @@ class WorkPerformanceReports extends CI_Controller
         }
         
         $this->load->helper('url');
-        $this->load->model('Work_performance_report_model');
-        $this->load->model('view_model');
-        $this->load->model('log_model');
         $this->load->helper('log_activity');
+        
+        $this->load->model('log_model');
+        $this->load->model('view_model');
+        $this->load->model('Project_model');
         $this->load->model('Stakeholder_model');
+        $this->load->model('Work_performance_report_model');
         
         // $this->lang->load('btn','portuguese-brazilian');
         

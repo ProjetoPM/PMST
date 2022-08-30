@@ -17,6 +17,16 @@ class CommunicationsManagementPlan extends CI_Controller
             redirect(base_url());
         }
 
+        $this->load->helper('log_activity');
+        
+        $this->load->model('log_model');
+        $this->load->model('view_model');
+        $this->load->model('Project_model');
+        $this->load->model('Stakeholder_model');
+        $this->load->model('Project_Charter_model');
+        $this->load->model('communications_mp_model');
+        $this->load->model('Communications_stakeholder_model');
+
         if (strcmp($_SESSION['language'], "US") == 0) {
             $this->lang->load('communication-item', 'english');
             $this->lang->load('project-page', 'english');
@@ -25,14 +35,16 @@ class CommunicationsManagementPlan extends CI_Controller
             $this->lang->load('project-page', 'portuguese-brazilian');
         }
 
-        $this->load->model('project_model');
-        $this->load->model('view_model');
-        $this->load->model('communications_mp_model');
-        $this->load->model('log_model');
-        $this->load->model('Communications_stakeholder_model');
-        $this->load->helper('log_activity');
-        $this->load->model('Stakeholder_model');
-        $this->load->model('Project_Charter_model');
+        $array = array();
+		array_push($array, 'communication-item');
+		loadLangs($array);
+
+		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
+		
+		if ($userInProject) {
+			$this->session->set_flashdata('error3', 'You have no access to this project');
+			redirect('projects/' . $_SESSION['project_id']);
+		}
     }
 
     private function ajax_checking()

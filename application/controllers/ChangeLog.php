@@ -14,27 +14,24 @@ class ChangeLog extends CI_Controller
             redirect(base_url());
         }
 
-        if(strcmp($_SESSION['language'],"US") == 0){
-            $this->lang->load('change_log', 'english');
-            $this->lang->load('change_request', 'english');
-            $this->lang->load('project-page', 'english');
-        }else{
-            $this->lang->load('change_log', 'english');
-            $this->lang->load('change_request','portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
-
-        //$this->load->helper('url');
-        $this->load->model('view_model');
-        $this->load->model('project_model');
-        $this->load->model('Change_log_model');
-        $this->load->model('log_model');
         $this->load->helper('log_activity');
+        
+        $this->load->model('log_model');
+        $this->load->model('view_model');
+        $this->load->model('Project_model');
+        $this->load->model('Change_log_model');
         $this->load->model('Change_request_model');
 
-        // $this->lang->load('btn','portuguese-brazilian');
-        // $this->lang->load('change_log', 'english');
-        // $this->lang->load('change_log_view','portuguese-brazilian');
+        $array = array();
+		array_push($array, 'change_request', 'change_log');
+		loadLangs($array);
+
+		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
+		
+		if ($userInProject) {
+			$this->session->set_flashdata('error3', 'You have no access to this project');
+			redirect('projects/' . $_SESSION['project_id']);
+		}
     }
 
 
