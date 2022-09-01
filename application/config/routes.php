@@ -111,6 +111,8 @@ $oute['get/processes/(:num)'] = 'WeeklyReport/getProcesses/$1';
 // Workspace
 $route['workspace/list'] = 'Workspace/list';
 $route['workspace/members/(:num)'] = 'Workspace/members/$1';
+$route['workspace/member/edit/(:num)'] = 'Workspace/editMembers/$1';
+$route['workspace/member/update/(:num)'] = 'Workspace/updateMember/$1';
 $route['workspace/insert'] = 'Workspace/insert';
 $route['workspace/invite'] = 'Workspace/sendInvite';
 $route['workspace/accept-invite/(:num)/(:num)'] = 'Workspace/acceptInvite/$1/$2';

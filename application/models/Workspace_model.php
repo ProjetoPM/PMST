@@ -27,17 +27,15 @@ class Workspace_model extends CI_Model
 		return $this->db->update('workspace', $workspace);
 	}
 
-    public function delete($workspace_id) {
-        $removeFromWorkspaceUser = $this->db->delete("workspace_user", array("workspace_id" => $workspace_id));
-        $removeFromWorkspace = $this->db->delete("workspace", array("workspace_id" => $workspace_id));
+	public function delete($workspace_id)
+	{
+		$removeFromWorkspaceUser = $this->db->delete("workspace_user", array("workspace_id" => $workspace_id));
+		$removeFromWorkspace = $this->db->delete("workspace", array("workspace_id" => $workspace_id));
 
-        return $removeFromWorkspaceUser && $removeFromWorkspace;
-    }
+		return $removeFromWorkspaceUser && $removeFromWorkspace;
+	}
 
-	// public function getUserWorkSpaces($user_id){
-	// 	$query = $this->db->get_where('workspace', array('user_id'=>$user_id));
-	// 	return $query->result();
-	// }
+
 	public function getUserWorkSpaces($user_id)
 	{
 		$query = $this->db->select('*')
@@ -72,7 +70,8 @@ class Workspace_model extends CI_Model
 		return $result !== null ? $result['access_level'] : "-1";
 	}
 
-	public function getWorkSpaceUsers($workspace_id){
+	public function getWorkSpaceUsers($workspace_id)
+	{
 		$query = $this->db->select('user.user_id, user.name, user.email, user.institution, workspace_user.access_level')
 			->from('workspace_user')
 			->join('user', 'workspace_user.user_id = user.user_id')
@@ -80,6 +79,34 @@ class Workspace_model extends CI_Model
 			->get()
 			->result();
 
-			return $query;
+		return $query;
+	}
+
+	public function getWorkSpaceUser($workspace_id, $user_id)
+	{
+		$query = $this->db->select('user.user_id, user.name, user.email, user.institution, workspace_user.access_level')
+			->from('workspace_user')
+			->join('user', 'workspace_user.user_id = user.user_id')
+			->where('workspace_user.workspace_id', $workspace_id)
+			->where('workspace_user.user_id', $user_id)
+			->get()
+			->result();
+
+		return $query;
+	}
+
+	public function isWorkspaceOwner($workspace_id, $user_id)
+	{
+		$result = $this->db->select('access_level')
+			->where('workspace_id', $workspace_id)
+			->where('user_id', $user_id)
+			->from('workspace_user')
+			->limit(1)
+			->get()
+			->row_array();
+
+		if ($result['access_level'] != null) {
+			return $result['access_level'] == 1 ? true : false;
+		};	
 	}
 }
