@@ -75,8 +75,10 @@ class Workspace extends CI_Controller
 
 		$isWorkspaceOwner = $this->Workspace_model->isWorkspaceOwner($_SESSION['workspace_id'], $_SESSION['user_id']);
 
+		$teste = $this->lang->line('no_permission');
+
 		if(!$isWorkspaceOwner){
-			$this->session->set_flashdata('error', "You don't have permissions for this action");
+			$this->session->set_flashdata('error', $this->lang->line('no_permission'));
 			redirect("workspace/list");
 		}
 
