@@ -25,7 +25,9 @@
 .workspace-title:hover::before {
     content: "Workspace: ";
 }
-.given-score{
+.given-score {
+    padding: 3px;
+    border-radius: 5px;
     background-color: rgb(255, 233, 105);
 }
 

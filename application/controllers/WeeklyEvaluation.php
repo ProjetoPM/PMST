@@ -11,8 +11,9 @@ class WeeklyEvaluation extends CI_Controller
 			redirect(base_url());
 		}
 
-		// $this->load->helper('url', 'english');
-
+		$array = array();
+		array_push($array, 'weekly_eval', 'weekly_report', 'feedback');
+		loadLangs($array);
 		if (strcmp($_SESSION['language'], "US") == 0) {
 			$this->lang->load('weekly_eval', 'english');
 			$this->lang->load('weekly_report', 'english');
@@ -31,6 +32,7 @@ class WeeklyEvaluation extends CI_Controller
 		$this->load->model('Project_model');
 		$this->load->model('Workspace_model');
 		$this->load->model('WeeklyReport_model');
+        $this->load->model('Report_upload_model');
 		$this->load->model('WeeklyEvaluation_model');
 	}
 
@@ -129,7 +131,6 @@ class WeeklyEvaluation extends CI_Controller
 		$weekly_evaluation['individual_or_group'] = $this->input->post('type');
 		$weekly_evaluation['user_id'] = $_SESSION['user_id'];
 
-
 		$query = $this->WeeklyEvaluation_model->update($weekly_evaluation_id, $weekly_evaluation);
 		if ($query) {
 			$this->session->set_flashdata('success', $feedback_success);
@@ -149,8 +150,8 @@ class WeeklyEvaluation extends CI_Controller
 		$dado['score'] = $this->WeeklyReport_model->getScoreGivenByProfessor($weekly_report_id, $_SESSION['user_id']);
 		$dado['weekly_report'] = $this->WeeklyReport_model->get($weekly_report_id);
 		$dado['scores'] = $this->Score_model->getAllByGroup($dado['weekly_report'][0]->group_score_id, $_SESSION['user_id']);
-
 		$dado['weekly_processes'] = $this->WeeklyReport_model->getAllProcesses($weekly_report_id, getIndexOfLanguage());
+        $dado['weekly_images'] = $this->Report_upload_model->getImages($weekly_report_id);
 
 		if (count($dado['score']) > 0) {
 			redirect("weekly-evaluation/edit-score/" . $weekly_report_id);
@@ -163,36 +164,30 @@ class WeeklyEvaluation extends CI_Controller
 		}
 	}
 	function insert_score($weekly_report_id)
-	{
-		if (strcmp($_SESSION['language'], "US") == 0) {
-			$feedback_success = 'Item Evaluated';
-		} else {
-			$feedback_success = 'Item Avaliado';
-		}
+	{       
 		$evaluationExists = $this->WeeklyEvaluation_model->alreadyEvaluated($weekly_report_id);
-		if(empty($evaluationExists)){
 
-			
-			$score['report_id'] = $weekly_report_id;
-			$score['professor_id'] = $_SESSION['user_id'];
-			$score['score_id'] = $this->input->post('score');
-			$score['comments'] = $this->input->post('comments');
-			$score['evaluation_date'] = new DateTime(date('m/d/Y', time()));
-			
-			$insert = $this->Score_model->insert($score);
-		}else{
-			$this->session->set_flashdata('error', 'This report has already been evaluated');
-		}
+		if(!empty($evaluationExists)) {
+            $this->session->set_flashdata('error', 'This report has already been evaluated');
+            return;
+		} 
+
+        $score['report_id'] = $weekly_report_id;
+        $score['professor_id'] = $_SESSION['user_id'];
+        $score['score_id'] = $this->input->post('score');
+        $score['comments'] = $this->input->post('comments');
+        
+        $insert = $this->Score_model->insert($score);
 		
 		if ($insert) {
-			$this->session->set_flashdata('success', $feedback_success);
+			$this->session->set_flashdata('success', $this->lang->line('item_evaluated'));
 			insertLogActivity('insert', 'weekly report score');
 		}
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
+
 		redirect("weekly-evaluation/list/{$_SESSION['workspace_id']}");
-		// echo json_encode($insert);
 	}
 
 	function edit_score($id)
@@ -200,15 +195,12 @@ class WeeklyEvaluation extends CI_Controller
 		$language = strcmp($_SESSION['language'], "US") == 0 ? "english" : "portuguese-brazilian";
 		$this->lang->load('btn', $language);
 
-		$evaluationExists = $this->WeeklyEvaluation_model->alreadyEvaluated($id);
-		if(empty($evaluationExists)){
-		$dado['weekly_report'] = $this->WeeklyReport_model->get($id);
-		$dado['score'] = $this->WeeklyReport_model->getScoreGivenByProfessor($id, $_SESSION['user_id']);
-		$dado['scores'] = $this->Score_model->getAllByGroup($dado['weekly_report'][0]->group_score_id, $_SESSION['user_id']);
-		$dado['weekly_processes'] = $this->WeeklyReport_model->getAllProcesses($id, getIndexOfLanguage());
-		}
-		// var_dump($dado['weekly_processes']);
-		// exit();
+        $dado['weekly_report'] = $this->WeeklyReport_model->get($id);
+        $dado['score'] = $this->WeeklyReport_model->getScoreGivenByProfessor($id, $_SESSION['user_id']);
+        $dado['scores'] = $this->Score_model->getAllByGroup($dado['weekly_report'][0]->group_score_id, $_SESSION['user_id']);
+        $dado['weekly_processes'] = $this->WeeklyReport_model->getAllProcesses($id, getIndexOfLanguage());
+        $dado['weekly_images'] = $this->Report_upload_model->getImages($id);
+
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
@@ -218,14 +210,12 @@ class WeeklyEvaluation extends CI_Controller
 	function update_score($weekly_report_id)
 	{
 		if (strcmp($_SESSION['language'], "US") == 0) {
-			$feedback_success = 'Item Evaluated';
+			$feedback_success = 'Item re-evaluated successfully!';
 		} else {
-			$feedback_success = 'Item Avaliado';
+			$feedback_success = 'Item reavaliado com sucesso!';
 		}
 
-
-		$weekly_report['comments'] = $this->input->post('comments');
-
+		$score['comments'] = $this->input->post('comments');
 		$score['report_id'] = $weekly_report_id;
 		$score['professor_id'] = $_SESSION['user_id'];
 		$score['score_id'] = $this->input->post('score');
@@ -233,12 +223,14 @@ class WeeklyEvaluation extends CI_Controller
 		$insert = $this->Score_model->update($score);
 
 		if ($insert) {
-			$this->session->set_flashdata('success', $feedback_success);
+			$this->session->set_flashdata('success', $this->lang->line('item_created'));
 			insertLogActivity('update', 'weekly report score');
 		}
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
+
+        $this->session->set_flashdata('success', $feedback_success);
 		redirect("weekly-evaluation/list/{$_SESSION['workspace_id']}");
 	}
 }

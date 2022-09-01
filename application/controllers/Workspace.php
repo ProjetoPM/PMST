@@ -14,7 +14,6 @@ class Workspace extends CI_Controller
 
 		$this->load->helper('url');
 		$this->load->helper('log_activity');
-
 		$this->load->model('log_model');
 		$this->load->model('User_Model');
 		$this->load->model('View_model');
@@ -27,7 +26,6 @@ class Workspace extends CI_Controller
 
 	public function list()
 	{
-
 		$data['workspace'] = $this->Workspace_model->getUserWorkSpaces($_SESSION['user_id']);
 		$data['invites'] = $this->Workspace_invite_model->getInvitesPerUser($_SESSION['user_id']);
 		$data['view_id'] = $this->View_model->GetIDByName('workspace');
@@ -57,7 +55,6 @@ class Workspace extends CI_Controller
 
 	public function editMembers($user_id)
 	{
-
 		$data['user'] = $this->Workspace_model->getWorkSpaceUser($_SESSION['workspace_id'], $user_id);
 		$language = getIndexOfLanguage();
 
@@ -72,7 +69,6 @@ class Workspace extends CI_Controller
 
 	public function updateMember($user_id)
 	{
-
 		$isWorkspaceOwner = $this->Workspace_model->isWorkspaceOwner($_SESSION['workspace_id'], $_SESSION['user_id']);
 
 		$teste = $this->lang->line('no_permission');
@@ -106,7 +102,6 @@ class Workspace extends CI_Controller
 	public function edit($project_id)
 	{
 	}
-
 
 	public function insert()
 	{
@@ -147,6 +142,7 @@ class Workspace extends CI_Controller
 
 		redirect("workspace/list");
 	}
+    
 	public function update()
 	{
 	}

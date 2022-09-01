@@ -46,19 +46,16 @@
 											</tr>
 										</thead>
 										<tbody>
-											<?php
-											foreach ($weekly_evaluation as $item) {
-											?>
+											<?php foreach ($weekly_evaluation as $item): ?>
 												<tr>
 													<td><?= $item->name ?></td>
 													<td><?= $item->start_date ?></td>
 													<td><?= $item->end_date ?></td>
 													<td><?= $item->deadline ?></td>
-
 													<td>
 														<div class="row center">
 															<div class="col-sm-4">
-																<form action="<?php echo base_url() ?>weekly-evaluation/edit/<?php echo $item->weekly_evaluation_id; ?>" method="post">
+																<form action='<?= base_url("weekly-evaluation/edit/$item->weekly_evaluation_id") ?>' method="post">
 																	<input type="hidden" name="project_id" value="<?= $item->weekly_evaluation_id; ?>">
 																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 																</form>
@@ -66,19 +63,12 @@
 														</div>
 													</td>
 												</tr>
-											<?php
-											}
-											?>
-
+											<?php endforeach ?>
 										</tbody>
 									</table>
-
 									<h1 class="page-header">
-
 										<?= $this->lang->line('wr_submissions')  ?>
-
 									</h1>
-
 									<table class="table table-bordered table-striped" id="table_submission_">
 										<thead>
 											<tr>
@@ -97,7 +87,7 @@
 													<td>
 														<div class="row center">
 															<div class="col-sm-4">
-																<form action="<?= base_url("weekly-evaluation/add-score/$item->weekly_report_id")?>") method="get">
+																<form action="<?= base_url("weekly-evaluation/add-score/$item->weekly_report_id") ?>">
 																	<input 
                                                                         type="hidden" 
                                                                         name="project_id" 
@@ -105,7 +95,7 @@
                                                                     >
 																	<button 
                                                                         type="submit" 
-                                                                        class="btn btn-lg btn-info"
+                                                                        class="btn btn-info"
                                                                     >
                                                                         <i class = "fa fa-check-square"></i>
                                                                         <span class="hidden-xs"></span>

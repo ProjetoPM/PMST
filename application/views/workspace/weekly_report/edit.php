@@ -125,7 +125,7 @@
                                                             </label>
                                                             <span id="count-<?= $item->weekly_report_process_id ?>"></span>
                                                             <textarea 
-                                                                oninput="limitText(this,2e3,'<?= $item->weekly_report_process_id ?>')" 
+                                                                oninput="limitText(this, 2e3,'<?= $item->weekly_report_process_id ?>')" 
                                                                 class="form-control" 
                                                                 name="update[<?= $item->weekly_report_process_id ?>][process_description]" 
                                                                 id="update[<?= $item->weekly_report_process_id ?>][process_description]" 

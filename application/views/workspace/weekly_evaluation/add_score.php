@@ -1,67 +1,21 @@
 <body id="body" class="hold-transition skin-gray sidebar-mini">
-	<script>
-		(function() {
-			if (Boolean(sessionStorage.getItem('sidebar-toggle-collapsed'))) {
-				var body = document.getElementsByTagName('body')[0];
-				body.className = body.className + ' sidebar-collapse';
-			}
-		})(); 
-	</script>
 	<div class="wrapper">
 		<div class="content-wrapper">
 			<section class="content">
-				<?php if ($this->session->flashdata('success')) : ?>
-					<div class="alert alert-success">
-						<a href="#" class="close" data-dismiss="alert">&times;</a>
-						<strong><?php echo $this->session->flashdata('success'); ?></strong>
-					</div>
-				<?php elseif ($this->session->flashdata('update')) : ?>
-					<div class="alert alert-warning">
-						<a href="#" class="close" data-dismiss="alert">&times;</a>
-						<strong><?php echo $this->session->flashdata('update'); ?></strong>
-					</div>
-				<?php endif; ?>
-				<style>
-					input button[disabled],
-					html input[disabled] {
-						text-align: center;
-					}
-
-					.elasticteste {
-						min-height: 70px;
-						/* min-width: 120px; */
-						/* outline: 0; */
-						resize: none;
-						line-height: 20px;
-					}
-
-					.elasticteste2 {
-						height: 35px;
-						/* min-width: 120px; */
-						/* outline: 0; */
-						resize: none;
-
-					}
-
-					textarea.form-control {
-						height: 35px;
-					}
-				</style>
-
+				<?php $this->load->view('errors/exceptions') ?>
 				<?php extract($weekly_processes) ?>
+                
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="panel-body">
 							<h1 class="page-header">
 								<?= $this->lang->line('we_title') ?>
-
 							</h1>
-							<form method="POST" action="<?php echo base_url() ?>weekly-evaluation/insert-score/<?= $weekly_report[0]->weekly_report_id ?>">
-
+							<form method="POST" action="<?= base_url() ?>weekly-evaluation/insert-score/<?= $weekly_report[0]->weekly_report_id ?>">
 								<div class="col-lg-6 form-group">
 									<label for="name"><?= $this->lang->line('we_name') ?></label>
 									<div>
-										<input id="we_txt_1" type="text" name="name" class="form-control" onkeyup="limite_textarea(this.value, 'we_1')" maxlength="2000" oninput="eylem(this, this.value)" required="true" value="<?= $weekly_report[0]->name ?> " disabled>
+										<input class="form-control" id="we_txt_1" type="text" value="<?= $weekly_report[0]->name ?> " readonly>
 									</div>
 								</div>
 
@@ -80,70 +34,84 @@
 									<label for="tool_evaluation"><?= $this->lang->line('wr_tool_evaluation') ?></label>
 									<a class="btn-sm btn-default" id="wr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('wr_tool_evaluation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<textarea disabled onkeyup="limite_textarea(this.value, 'wr_1')" id="wr_txt_1" maxlength="5000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="tool_evaluation"><?php echo $weekly_report[0]->tool_evaluation ?></textarea>
+										<textarea readonly oninput="limitText(this,2e3,'1')" class="form-control"><?= $weekly_report[0]->tool_evaluation ?></textarea>
 									</div>
-								</div>
+                                </div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="comments"><?= $this->lang->line('we_comments') ?></label>
-									<span class="wr_1">5000</span><?= $this->lang->line('character5') ?>
-									<div>
-										<textarea onkeyup="limite_textarea(this.value, 'wr_1')" id="wr_txt_1" maxlength="5000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="comments" required="true"></textarea>
-									</div>
+                                    <span id="count-a"></span>
+                                    <textarea oninput="limitText(this, 5e3, 'a')" maxlength="5000" class="form-control" name="comments" required></textarea>
 								</div>
 
-
-
-
-								<div class="row">
-									<div class="col-lg-12">
-										<h1 class="page-header">
-
-											<?= $this->lang->line('wr_submissions')  ?>
-
-										</h1>
-
-										<table class="table table-bordered table-striped" id="table_processes">
-											<thead>
-												<tr>
-													<th><?= $this->lang->line('wr_attach_pdf') ?></th>
-													<th><?= $this->lang->line('wr_process_name') ?></th>
-													<th><?= $this->lang->line('wr_process_description') ?></th>
-												</tr>
-											</thead>
-											<tbody>
-												<?php
-												foreach ($weekly_processes as $item) {
-												?>
-													<tr>
-														<td>
-															<a target="_blank" href="' . base_url() . $item['pdf_path'] . '">
-																<img style=" padding-top: 5px; border: 1px solid #ddd;border-radius: 4px; padding: 5px; width: 130px;" src="' . base_url() . $item['pdf_path'] . '" class="pdf" alt="" />
-															</a>
-														</td>
-
-														<td><?= $item->name ?></td>
-														<td><?= $item->description ?></td>
-													</tr>
-												<?php
-												}
-												?>
-
-											</tbody>
-										</table>
-									</div>
-									<!-- buttons -->
-									<div class="col-lg-12">
-										<button type="submit" style="margin-top: 30px;" class="btn btn-lg btn-success pull-right">
-											<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
-										</button>
-									</div>
-								</div>
-
-							</form>
-
-							<form action="<?php echo base_url('weekly-evaluation/list/'); ?><?php echo  $_SESSION['project_id']; ?>">
-								<button style="margin-top: 30px;" class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
+                                <div class="col-md-12">
+                                    <div class="uploaded-files">
+                                        <h1 class="page-header">
+                                            <?= $this->lang->line('wr_submissions')  ?>
+                                        </h1>
+                                        <table class="table table-responsive table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col-lg-2">#</th>
+                                                    <th scope="col-lg-6"><?= $this->lang->line("wr_filename") ?></th>
+                                                    <th scope="col-lg-2"><?= $this->lang->line("wr_actions") ?></th>
+                                                    <th scope="col-lg-2"><?= $this->lang->line("wr_date_upload") ?></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php foreach ($weekly_processes as $item) : ?>
+                                                <?php foreach ($weekly_images as $image): ?>
+                                                    <?php if ($image->weekly_report_process_id == $item->weekly_report_process_id): ?>
+                                                        <tr 
+                                                            id="image_uploaded-<?= $image->report_upload_id ?>"
+                                                        >
+                                                            <td scope="row"><?= $image->report_upload_id ?></td>
+                                                            <td><?= $image->name ?></td>
+                                                            <td>
+                                                                <a 
+                                                                    data-bs-toggle="tooltip" 
+                                                                    title="Download image" 
+                                                                    href="<?= base_url($image->path) ?>" 
+                                                                    download="<?= $image->name ?>"
+                                                                >
+                                                                    <i class="fa-solid fa-file-arrow-down"></i>
+                                                                </a>
+                                                                <a 
+                                                                    data-bs-toggle="tooltip" 
+                                                                    title="Open image" 
+                                                                    href="<?= base_url($image->path) ?>" 
+                                                                    target="_blank"
+                                                                >
+                                                                    <i class="m-l-2 fa-solid fa-arrow-up-right-from-square"></i>
+                                                                </a>
+                                                                <input 
+                                                                    type="hidden" 
+                                                                    id="image_uploaded[<?= $image->report_upload_id ?>][remove]"  
+                                                                    value="false"
+                                                                >
+                                                            </td>
+                                                            <td>
+                                                                <?=
+                                                                    strcmp($_SESSION['language'], "US") === 0
+                                                                        ? $image->date_upload
+                                                                        : date("d/m/Y H:i:s", strtotime($image->date_upload));
+                                                                ?>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endif ?>
+                                                <?php endforeach ?> 
+                                            <?php endforeach ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 m-b-10">
+                                    <form action='<?= base_url("weekly-evaluation/list/{$_SESSION['workspace_id']}") ?>'>
+                                        <button style="margin-top: 30px;" class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i><?= $this->lang->line('btn-back') ?></button>
+                                    </form>
+                                    <button style="margin-top: 30px;" class="btn btn-lg btn-success pull-right"><i class="glyphicon glyphicon-ok m-r-4"></i><?= $this->lang->line('btn-save') ?></button>
+                                </div>
+                                
 							</form>
 						</div>
 					</div>
@@ -159,25 +127,3 @@
 <script src="<?= base_url() ?>assets/js/jquery.dataTables.min.js"></script>
 <script src="<?= base_url() ?>assets/js/dataTables.bootstrap.js"></script>
 <script src="<?= base_url() ?>assets/js/dataTables.responsive.js"></script>
-
-<script type="text/javascript">
-	'use strict'
-	let table;
-	$(document).ready(function() {
-		table = $('#table_processes').DataTable({
-			"columns": [{
-					"data": "pdf_path"
-				},
-				{
-					"data": "process_name"
-				},
-				{
-					"data": "process_description"
-				},
-			],
-			"order": [
-				[0, 'attr']
-			]
-		});
-	});
-</script>
