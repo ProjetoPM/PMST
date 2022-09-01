@@ -15,7 +15,6 @@ $lang['ws_invite'] = 'Convidar Usuários';
 
 $lang['ws_add_new_user'] = 'Adicionar Novo Usuário';
 
-$lang['ws_feedback_invite_error'] = 'Only professors are able to invite users to workspace';
-
-
+$lang['ws_feedback_invite_error'] = 'Somente professores podem convidar usuários para a área de trabalho.';
+$lang['ws_delete_workspace'] = 'Você tem certeza que deseja deletar esta área de trabalho?';
 ?>

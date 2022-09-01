@@ -32,7 +32,7 @@
                                                     <td>
                                                         <a href="<?= base_url("projects/" . $item->workspace_id) ?>" class="btn btn-default"><em class="fa fa-folder-open-o"></em><span class="hidden-xs"></span></a>
                                                         <a href="<?= base_url("workspace/members/$item->workspace_id" ) ?>" class="btn btn-default"><i class="fa fa-users"></i></a>
-                                                        <a href="<?= base_url("workspace/delete/$item->workspace_id" ) ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                                        <button onclick=remove(<?= $item->workspace_id ?>) class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                                     </td>
                                                     <td><?= verifyWorkspaceAcesslevel($item->workspace_id, $item->user_id);  ?></td>
                                                     <?php endforeach ?>
@@ -47,6 +47,21 @@
             </section>
         </div>
     </div>
+    <script>
+		function remove(id) {
+			alertify.set('notifier', 'delay', 1.5);
+			alertify.confirm('<?= $this->lang->line('wr_alert_confirm_title') ?>',
+				'<?= $this->lang->line('ws_delete_workspace') ?>',
+				function() {
+					window.location.href = `<?= base_url("workspace/delete/$item->workspace_id" ) ?>`;
+					alertify.success('<?= $this->lang->line('wr_alert_confirm_ok') ?>')
+				},
+				function() {
+					alertify.warning('<?= $this->lang->line('wr_alert_confirm_cancel') ?>')
+				}
+			);
+		}
+	</script>
 </body>
 
 <?php $this->load->view('workspace/modal/new') ?>
