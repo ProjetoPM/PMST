@@ -32,8 +32,13 @@
 
 							<div class="row">
 								<div class="col-lg-12">
+								<?php $view_name = 'project performance and monitoring report' ?> 
+								<?php $this->load->view('construction_services/write_field_evaluation') ?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
 
-									<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>integration/project-performance-report/new/<?php echo $project_id ?>'"> <?= $this->lang->line('btn-new') ?> <?= $this->lang->line('ppr_new') ?></button>
+									<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>integration/project-performance-report/new/<?php echo $project_id ?>'"><?= $this->lang->line('ppr_new') ?></button>
 								</div>
 							</div>
 
