@@ -116,7 +116,13 @@
 							<h1 class="page-header">
 
 								<?= $this->lang->line('shr_title')  ?>
-
+								<?php 
+								$this->load->view('construction_services/write_field_evaluation');
+								$view_name = 'stakeholder register';
+								?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
 							</h1>
 
 							<div class="row">

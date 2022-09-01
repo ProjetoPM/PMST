@@ -9,7 +9,7 @@ class Workspace extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect(base_url());
 		}
-		$langs = ['user', 'workspace'];
+		$langs = ['user', 'workspace', 'feedback'];
 		loadLangs($langs);
 
 		$this->load->helper('url');
@@ -20,8 +20,8 @@ class Workspace extends CI_Controller
 		$this->load->model('View_model');
 		$this->load->model('Project_model');
 		$this->load->model('Workspace_model');
-		$this->load->model('Workspace_invite_model');
 		$this->load->model('Workspace_user_model');
+		$this->load->model('Workspace_invite_model');
 	}
 
 	public function list()
@@ -119,13 +119,26 @@ class Workspace extends CI_Controller
 			$this->session->set_flashdata('error', $this->lang->line('ws_feedback_invite_error'));
 			redirect('workspace/list');
 		}
-
+		
 		$date = date('Y-m-d H:i:s', time());
 		$receiver = $this->input->post('sendTo');
 		$sender = $this->User_Model->getUserEmail($_SESSION['user_id']);
-
+		
 		$workspace_name = $this->Workspace_model->getWorkspaceName($_SESSION['workspace_id']);
 		$user_id = $this->User_Model->getUserIdByEmail($receiver);
+		
+		$alreadyInvited = $this->Workspace_invite_model->userAlreadyInvited($_SESSION['workspace_id'], $_SESSION['user_id']);
+		$alreadyInWorkspace = $this->Workspace_user_model->userAlreadyInWorkspace($_SESSION['workspace_id'], $_SESSION['user_id']);
+		
+		if(!$alreadyInWorkspace){
+			$this->session->set_flashdata('error', $this->lang->line('already_in_workspace'));
+			redirect('workspace/list');
+		}
+
+		if(!$alreadyInvited){
+			$this->session->set_flashdata('error', $this->lang->line('already_in_invited'));
+			redirect('workspace/list');
+		}
 		if ($user_id == -1) {
 			$subject = "Convite para se juntar a uma área de trabalho";
 			$message = "O usuário $sender te convidou para se juntar ao workspace $workspace_name";

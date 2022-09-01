@@ -14,7 +14,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="access_level">Nível de Acesso</label>
-                            <input class="form-control" name="access_level" type="number">
+                            <input class="form-control" name="access_level" type="number" min="0" max="2">
                         </div>
                     </div>
                 </div>
