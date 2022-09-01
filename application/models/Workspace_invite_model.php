@@ -7,29 +7,40 @@ class Workspace_invite_model extends CI_Model
 		$this->load->database();
 	}
 
+	private $table = 'workspace_invite';
+	// Crud
 	function insert($data)
 	{
-		return $this->db->insert('workspace_invite', $data);
+		return $this->db->insert($this->table, $data);
 	}
+
+	function delete($workspace_id, $user_id){
+		return $this->db->delete($this->table, array('workspace_id' => $workspace_id, 'user_id' => $user_id));
+	}
+	// ---------------------------
 
 	function getInvitesPerUser($user_id){
 		$query = $this->db->select('workspace.name, workspace_invite.access_level, workspace_invite.workspace_id')
-		// $query = $this->db->select('*')
-		->from('workspace_invite')
+		->from($this->table)
 		->join('workspace', 'workspace_invite.workspace_id = workspace.workspace_id')
 		->where('workspace_invite.user_id', $user_id)
 		->get()
 		->result();
 
-		// var_dump($query);
-		// exit();
-
 		return $query;
 	}
 
-	function delete($workspace_id, $user_id){
-		return $this->db->delete('workspace_invite', array('workspace_id' => $workspace_id, 'user_id' => $user_id));
+	function userAlreadyInvited($workspace_id, $user_id){
+		$query = $this->db->select('user_id')
+		->from($this->table)
+		->where("$this->table.workspace_id", $workspace_id)
+		->where("$this->table.user_id", $user_id)
+		->get()
+		->result();
+
+		return empty($query);
 	}
+
 }
 
 

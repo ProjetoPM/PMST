@@ -7,9 +7,21 @@ class Workspace_user_model extends CI_Model
 		$this->load->database();
 	}
 
+	private $table = 'workspace_user';
 	function insert($data)
 	{
-		return $this->db->insert('workspace_user', $data);
+		return $this->db->insert($this->table, $data);
+	}
+
+	function userAlreadyInWorkspace($workspace_id, $user_id){
+		$query = $this->db->select('user_id')
+		->from($this->table)
+		->where("$this->table.workspace_id", $workspace_id)
+		->where("$this->table.user_id", $user_id)
+		->get()
+		->result();
+
+		return empty($query);
 	}
 
 }
