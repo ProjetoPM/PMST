@@ -68,7 +68,7 @@ class WeeklyEvaluation extends CI_Controller
 			$this->load->view('frame/sidebar_nav_view');
 			$this->load->view('workspace/weekly_evaluation/new');
 		} else {
-			$this->session->set_flashdata('error', 'An error occurred while loading \'new evaluation\' page.');
+			$this->session->set_flashdata('error', 'An error occurred while loading \'new evaluation\' page. Verify if you\'re in a workspace.');
 			redirect('/weekly-evaluation/list');
 		}
 	}
