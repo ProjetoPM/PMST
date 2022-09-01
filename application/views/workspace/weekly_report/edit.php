@@ -199,7 +199,7 @@
                                                                                         data-bs-toggle="tooltip" 
                                                                                         title="Download image" 
                                                                                         href="<?= base_url($image->path) ?>" 
-                                                                                        download
+                                                                                        download="<?= $image->name ?>"
                                                                                     >
                                                                                         <i class="fa-solid fa-file-arrow-down"></i>
                                                                                     </a>

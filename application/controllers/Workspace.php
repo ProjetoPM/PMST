@@ -167,18 +167,19 @@ class Workspace extends CI_Controller
 		$workspace_name = $this->Workspace_model->getWorkspaceName($_SESSION['workspace_id']);
 		$user_id = $this->User_Model->getUserIdByEmail($receiver);
 		
-		$alreadyInvited = $this->Workspace_invite_model->userAlreadyInvited($_SESSION['workspace_id'], $_SESSION['user_id']);
-		$alreadyInWorkspace = $this->Workspace_user_model->userAlreadyInWorkspace($_SESSION['workspace_id'], $_SESSION['user_id']);
+		$alreadyInvited = $this->Workspace_invite_model->userAlreadyInvited($_SESSION['workspace_id'], $user_id);
+		$alreadyInWorkspace = $this->Workspace_user_model->userAlreadyInWorkspace($_SESSION['workspace_id'], $user_id);
 		
-		if(!$alreadyInWorkspace){
+		if(!$alreadyInWorkspace) {
 			$this->session->set_flashdata('error', $this->lang->line('already_in_workspace'));
 			redirect('workspace/list');
 		}
 
-		if(!$alreadyInvited){
-			$this->session->set_flashdata('error', $this->lang->line('already_in_invited'));
+		if(!$alreadyInvited) {
+			$this->session->set_flashdata('error', $this->lang->line('already_invited'));
 			redirect('workspace/list');
 		}
+
 		if ($user_id == -1) {
 			$subject = "Convite para se juntar a uma área de trabalho";
 			$message = "O usuário $sender te convidou para se juntar ao workspace $workspace_name";
