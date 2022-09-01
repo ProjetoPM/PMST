@@ -19,6 +19,7 @@ class Workspace extends CI_Controller
 		$this->load->model('User_Model');
 		$this->load->model('View_model');
 		$this->load->model('Project_model');
+		$this->load->model('Access_level_model');
 		$this->load->model('Workspace_model');
 		$this->load->model('Workspace_user_model');
 		$this->load->model('Workspace_invite_model');
@@ -51,7 +52,44 @@ class Workspace extends CI_Controller
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('frame/footer_view');
-		$this->load->view('workspace/members', $data);
+		$this->load->view('workspace/members/list', $data);
+	}
+
+	public function editMembers($user_id)
+	{
+
+		$data['user'] = $this->Workspace_model->getWorkSpaceUser($_SESSION['workspace_id'], $user_id);
+		$language = getIndexOfLanguage();
+
+		$data['access_levels'] = $this->Access_level_model->getAll($language);
+
+		$this->load->view('frame/header_view');
+		$this->load->view('frame/topbar');
+		$this->load->view('frame/sidebar_nav_view');
+		$this->load->view('frame/footer_view');
+		$this->load->view('workspace/members/edit', $data);
+	}
+
+	public function updateMember($user_id)
+	{
+
+		$isWorkspaceOwner = $this->Workspace_model->isWorkspaceOwner($_SESSION['workspace_id'], $_SESSION['user_id']);
+
+		if(!$isWorkspaceOwner){
+			$this->session->set_flashdata('error', "You don't have permissions for this action");
+			redirect("workspace/list");
+		}
+
+		$member['access_level'] = $this->input->post('access_level');
+		$insert  = $this->Workspace_user_model->update($member, $user_id, $_SESSION['workspace_id']);
+
+		if ($insert) {
+			$this->session->set_flashdata('success', $this->lang->line('item_created'));
+			insertLogActivity('update', 'workspace');
+		} else
+			$this->session->set_flashdata('error', 'An error occurred while inserting.');
+
+		redirect("workspace/list");
 	}
 
 	public function new()

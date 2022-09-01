@@ -24,4 +24,10 @@ class Workspace_user_model extends CI_Model
 		return empty($query);
 	}
 
+	public function update($member, $user_id, $workspace_id){
+		$this->db->where("$this->table.user_id", $user_id);
+		$this->db->where("$this->table.workspace_id", $workspace_id);
+		return $this->db->update($this->table, $member);
+	}
+
 }

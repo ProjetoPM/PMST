@@ -410,9 +410,6 @@ function verifyLanguage()
 	}
 }
 
-function verifyAccess(){
-	
-}
 
 function getIndexOfLanguage() {
 	return strcmp($_SESSION['language'], 'US') === 0 ? 2 : 1;

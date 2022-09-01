@@ -13,7 +13,7 @@ if (!function_exists('insertLogActivity')) {
                 $log['date'] = date('Y-m-d');
                 $log['time'] = date('H:i:s');
                 $log['project_id'] = $_SESSION['project_id'];
-                $log['view_id'] = $obj->view_model->GetIDByName($view_name);;
+                $log['view_id'] = $obj->View_model->GetIDByName($view_name);
                 $log['user_id'] = $obj->session->userdata('user_id');
                 $log['ip_address'] = $obj->input->ip_address();
 
