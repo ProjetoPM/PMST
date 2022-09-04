@@ -110,7 +110,7 @@
 									</table>
 									<a 
                                         class="btn btn-lg btn-info pull-left" 
-                                        href="<?= base_url("/projects") ?>"    
+                                        href="<?= base_url("/projects/{$_SESSION['workspace_id']}") ?>"    
                                     >
                                         <i class="glyphicon glyphicon-chevron-left"></i>
                                         <?= $this->lang->line('btn-back') ?>
