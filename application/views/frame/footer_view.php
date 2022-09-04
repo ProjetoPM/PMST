@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <div class="col-lg-12 text-center" vertical-align="middle">
-        <small>&copy; <?= date('Y') ?> by <a target="_blank" href="http://unipampa.edu.br">UNIPAMPA</a></small>
+        <small>&copy; <?= date('Y') ?> by <a target="_blank" href="https://lesse.com.br/site/">LESSE</a></small>
     </div>
 </footer>
 

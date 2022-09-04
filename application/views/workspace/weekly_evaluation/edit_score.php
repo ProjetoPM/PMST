@@ -190,7 +190,6 @@
                                     </a>
                                     <button style="margin-top: 30px;" class="btn btn-lg btn-success pull-right"><i class="glyphicon glyphicon-ok m-r-4"></i><?= $this->lang->line('btn-save') ?></button>
                                 </div>
-
 							</form>
 						</div>
 					</div>
