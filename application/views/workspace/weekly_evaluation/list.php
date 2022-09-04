@@ -36,13 +36,11 @@
 									<table class="table table-bordered table-striped" id="table_evaluation">
 										<thead>
 											<tr>
-												<th><?= $this->lang->line('we_name') ?></th>
-												<th><?= $this->lang->line('we_start_date') ?></th>
-												<th><?= $this->lang->line('we_end_date') ?></th>
-												<th><?= $this->lang->line('we_deadline') ?></th>
-												<th><?= $this->lang->line('actions') ?></th>
-												<!-- <th><?= $this->lang->line('wr_date') ?></th>
-												<th><?= $this->lang->line('actions') ?></th> -->
+												<th class="col-lg-3"><?= $this->lang->line('we_name') ?></th>
+												<th class="col-lg-2"><?= $this->lang->line('we_start_date') ?></th>
+												<th class="col-lg-2"><?= $this->lang->line('we_end_date') ?></th>
+												<th class="col-lg-2"><?= $this->lang->line('we_deadline') ?></th>
+												<th class="col-lg-3"><?= $this->lang->line('actions') ?></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -72,10 +70,10 @@
 									<table class="table table-bordered table-striped" id="table_submission_">
 										<thead>
 											<tr>
-												<th><?= $this->lang->line('wr_username') ?></th>
-												<th><?= $this->lang->line('we_name') ?></th>
-												<th><?= $this->lang->line('we_score') ?></th>
-												<th><?= $this->lang->line('actions') ?></th>
+												<th class="col-lg-3"><?= $this->lang->line('wr_username') ?></th>
+												<th class="col-lg-3"><?= $this->lang->line('we_name') ?></th>
+												<th class="col-lg-3"><?= $this->lang->line('we_score') ?></th>
+												<th class="col-lg-3"><?= $this->lang->line('actions') ?></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -95,7 +93,7 @@
                                                                     >
 																	<button 
                                                                         type="submit" 
-                                                                        class="btn btn-info"
+                                                                        class="btn btn-default"
                                                                     >
                                                                         <i class = "fa fa-check-square"></i>
                                                                         <span class="hidden-xs"></span>
