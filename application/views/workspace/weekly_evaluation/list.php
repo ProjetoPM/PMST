@@ -33,7 +33,7 @@
 							<br><br>
 							<div class="row">
 								<div class="col-lg-12">
-									<table class="table table-bordered table-striped" id="table_evaluation">
+									<table class="table table-view table-bordered table-striped" id="table_evaluation">
 										<thead>
 											<tr>
 												<th class="col-lg-3"><?= $this->lang->line('we_name') ?></th>
@@ -67,7 +67,7 @@
 									<h1 class="page-header">
 										<?= $this->lang->line('wr_submissions')  ?>
 									</h1>
-									<table class="table table-bordered table-striped" id="table_submission_">
+									<table class="table table-view table-bordered table-striped" id="table_submission_">
 										<thead>
 											<tr>
 												<th class="col-lg-3"><?= $this->lang->line('wr_username') ?></th>
@@ -135,19 +135,3 @@
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
 <!-- CSS -->
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css" />
-
-<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-
--->
-<script type="text/javascript">
-	'use strict'
-    $(document).ready(function () {
-        $('.table').DataTable({
-            "bInfo": false,
-            "responsive": true,
-            "paging": true,
-            "pageLength": 5,
-            "lengthMenu": [5, 10, 25, 50, 100],
-        });
-    });
-</script>

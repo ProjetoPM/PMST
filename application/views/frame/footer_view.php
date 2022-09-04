@@ -119,5 +119,26 @@
 <script src="<?= base_url('assets/js/utils/util.js') ?>"></script>
 <script src="https://kit.fontawesome.com/a3de6dbf75.js" crossorigin="anonymous"></script>
 
+<script>
+/**
+ * This will style all tables with class "table-view"
+ * on it. This will be the pattern in the next version.
+ */
+$(document).ready(function () {
+    $('.table-view').DataTable({
+        "bInfo": false,
+        "responsive": true,
+        "paging": true,
+        "pageLength": 5,
+        "lengthMenu": [5, 10, 25, 50, 100],
+        "order": [[0, "desc"]],
+        <?php if (!verifyLanguage()): ?>
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+            }
+        <?php endif ?>
+    });
+});
+</script>
 </body>
 </html>

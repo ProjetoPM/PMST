@@ -18,7 +18,7 @@
 							<br><br>
 							<div class="row">
 								<div class="col-lg-12">
-									<table class="table table-bordered table-striped" id="table_report_list">
+									<table class="table table-view table-bordered table-striped" id="table_report_list">
 										<thead>
 											<tr>
 												<th class="col-lg-1">#</th>
