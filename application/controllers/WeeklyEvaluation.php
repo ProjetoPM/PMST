@@ -106,7 +106,6 @@ class WeeklyEvaluation extends CI_Controller
 		} else {
 			$this->lang->load('btn', 'portuguese-brazilian');
 		}
-
 		$dado['weekly_evaluation'] = $this->WeeklyEvaluation_model->get($weekly_evaluation);
 
 		$this->load->view('frame/header_view');
@@ -201,6 +200,10 @@ class WeeklyEvaluation extends CI_Controller
         $dado['weekly_processes'] = $this->WeeklyReport_model->getAllProcesses($id, getIndexOfLanguage());
         $dado['weekly_images'] = $this->Report_upload_model->getImages($id);
 
+        // print_r("Group Name: " . getProcessGroupName(2, 1));
+        // print_r("Process Name: " . getProcessName(2, 1));
+        // print_r($dado);
+        // exit();
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
