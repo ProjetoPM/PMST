@@ -183,12 +183,23 @@
                                             </div>
                                         <?php endforeach ?>
                                     </div>
-                                </div>
-                                <div class="col-md-12 m-b-10">
-                                    <a style="margin-top: 30px;" class="btn btn-lg btn-info pull-left" href='<?= base_url("weekly-evaluation/list/{$_SESSION['workspace_id']}") ?>'>
-                                        <i class="glyphicon glyphicon-chevron-left"></i><?= $this->lang->line('btn-back') ?>
-                                    </a>
-                                    <button style="margin-top: 30px;" class="btn btn-lg btn-success pull-right"><i class="glyphicon glyphicon-ok m-r-4"></i><?= $this->lang->line('btn-save') ?></button>
+                                    <div class="col-md-12 m-b-10">
+                                        <a 
+                                            style="margin-top: 30px;" 
+                                            class="btn btn-lg btn-info pull-left" 
+                                            href='<?= base_url("weekly-evaluation/list/{$_SESSION['workspace_id']}") ?>'
+                                        >
+                                            <i class="glyphicon glyphicon-chevron-left"></i>
+                                            <?= $this->lang->line('btn-back') ?>
+                                        </a>
+                                        <button 
+                                            style="margin-top: 30px;" 
+                                            class="btn btn-lg btn-success pull-right"
+                                        >
+                                            <i class="glyphicon glyphicon-ok m-r-4"></i>
+                                            <?= $this->lang->line('btn-save') ?>
+                                        </button>
+                                    </div>
                                 </div>
 							</form>
 						</div>
