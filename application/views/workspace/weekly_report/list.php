@@ -61,7 +61,7 @@
 											<?php endforeach ?>
 										</tbody>
 									</table>
-									<button onclick=goTo(`<?= base_url('projects') ?>`) class="btn btn-lg btn-info m-t-20">
+									<button onclick=goTo(`<?= base_url("projects/{$_SESSION['workspace_id']}") ?>`) class="btn btn-lg btn-info m-t-20">
 										<i class="glyphicon glyphicon-chevron-left"></i>
 										<?= $this->lang->line('btn-back') ?>
 									</button>
