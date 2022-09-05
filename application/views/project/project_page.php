@@ -116,9 +116,9 @@
 
                             <?php
                             $obj = &get_instance();
-                            $obj->load->model('Project_Management_model');
+                            $obj->load->model('Project_management_model');
 
-                            if ($obj->Project_Management_model->get($project[0]->project_id) == null) { ?>
+                            if ($obj->Project_management_model->get($project[0]->project_id) == null) { ?>
                               <a href="<?= base_url("integration/project-mp/new/" . $project[0]->project_id) ?>">
                               <?php } else { ?>
                                 <a href="<?= base_url("integration/project-mp/edit/" . $project[0]->project_id) ?>">
