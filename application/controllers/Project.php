@@ -71,6 +71,16 @@ class Project extends CI_Controller
 	
 			$data['projects'] = $this->Project_model->getProjectsRelatedToUser($_SESSION['user_id'], $workspace_id);
 			$data['workspace_title'] = $this->Workspace_model->getWorkspaceName($workspace_id);
+            $data['workspace_verification'] = $this->Project_model->verifyProjectAccess($workspace_id, $_SESSION['user_id']);
+
+            /**
+             * Verifica se o usuário tem acesso ao workspace.
+             */
+            if (empty($data['workspace_verification'])) {
+                $this->session->set_flashdata('error', 'You do not have access to this workspace or an error has occurred.');
+                redirect(base_url("workspace/list"));
+                return;
+            }
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view');

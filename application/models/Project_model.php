@@ -157,6 +157,14 @@ class Project_model extends CI_Model
         return $query;
     }
 
+    public function verifyProjectAccess($workspace_id, $user_id) {
+        return $this->db->select("access_level")
+            ->from("workspace_user")
+            ->where("workspace_id", $workspace_id)
+            ->where("user_id", $user_id)
+            ->get()->result();
+    }
+
     // Função responsável por verificar se um usuário tem acesso a um determinado projeto
     public function userInProject($user_id, $project_id)
     {
