@@ -81,7 +81,6 @@ function goTo(uri) {
  * WeeklyReport trigger input file.
  */
 function openFileButton(element, button, textLabel) {
-    "use strict"
     const hiddenInput = button.parentElement.querySelector(`.file-upload__input-${element}`);
     const fileUploadClass = button.parentElement;
     const formGroupFileUploadClass = fileUploadClass.parentElement;
