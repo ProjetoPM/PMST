@@ -1,4 +1,4 @@
- <header class="main-header" style="
+<header class="main-header" style="
     position:fixed;
     width:100%;
     height:auto;
