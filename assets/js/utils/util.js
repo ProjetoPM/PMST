@@ -78,25 +78,9 @@ function goTo(uri) {
 }
 
 /**
- * This will style all tables with id "#table_report_list"
- * on it. This will be the pattern in the next version.
- */
-$(document).ready(function () {
-    $('#table_report_list').DataTable({
-        "bInfo": false,
-        "responsive": true,
-        "paging": true,
-        "pageLength": 5,
-        "lengthMenu": [5, 10, 25, 50, 100],
-        "order": [[0, "desc"]]
-    });
-});
-
-/**
  * WeeklyReport trigger input file.
  */
 function openFileButton(element, button, textLabel) {
-    "use strict"
     const hiddenInput = button.parentElement.querySelector(`.file-upload__input-${element}`);
     const fileUploadClass = button.parentElement;
     const formGroupFileUploadClass = fileUploadClass.parentElement;

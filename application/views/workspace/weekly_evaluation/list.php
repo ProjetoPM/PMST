@@ -33,16 +33,14 @@
 							<br><br>
 							<div class="row">
 								<div class="col-lg-12">
-									<table class="table table-bordered table-striped" id="table_evaluation">
+									<table class="table table-view table-bordered table-striped" id="table_evaluation">
 										<thead>
 											<tr>
-												<th><?= $this->lang->line('we_name') ?></th>
-												<th><?= $this->lang->line('we_start_date') ?></th>
-												<th><?= $this->lang->line('we_end_date') ?></th>
-												<th><?= $this->lang->line('we_deadline') ?></th>
-												<th><?= $this->lang->line('actions') ?></th>
-												<!-- <th><?= $this->lang->line('wr_date') ?></th>
-												<th><?= $this->lang->line('actions') ?></th> -->
+												<th class="col-lg-3"><?= $this->lang->line('we_name') ?></th>
+												<th class="col-lg-2"><?= $this->lang->line('we_start_date') ?></th>
+												<th class="col-lg-2"><?= $this->lang->line('we_end_date') ?></th>
+												<th class="col-lg-2"><?= $this->lang->line('we_deadline') ?></th>
+												<th class="col-lg-3"><?= $this->lang->line('actions') ?></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -69,13 +67,13 @@
 									<h1 class="page-header">
 										<?= $this->lang->line('wr_submissions')  ?>
 									</h1>
-									<table class="table table-bordered table-striped" id="table_submission_">
+									<table class="table table-view table-bordered table-striped" id="table_submission_">
 										<thead>
 											<tr>
-												<th><?= $this->lang->line('wr_username') ?></th>
-												<th><?= $this->lang->line('we_name') ?></th>
-												<th><?= $this->lang->line('we_score') ?></th>
-												<th><?= $this->lang->line('actions') ?></th>
+												<th class="col-lg-3"><?= $this->lang->line('wr_username') ?></th>
+												<th class="col-lg-3"><?= $this->lang->line('we_name') ?></th>
+												<th class="col-lg-3"><?= $this->lang->line('we_score') ?></th>
+												<th class="col-lg-3"><?= $this->lang->line('actions') ?></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -95,7 +93,7 @@
                                                                     >
 																	<button 
                                                                         type="submit" 
-                                                                        class="btn btn-info"
+                                                                        class="btn btn-default"
                                                                     >
                                                                         <i class = "fa fa-check-square"></i>
                                                                         <span class="hidden-xs"></span>
@@ -137,19 +135,3 @@
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
 <!-- CSS -->
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css" />
-
-<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-
--->
-<script type="text/javascript">
-	'use strict'
-    $(document).ready(function () {
-        $('.table').DataTable({
-            "bInfo": false,
-            "responsive": true,
-            "paging": true,
-            "pageLength": 5,
-            "lengthMenu": [5, 10, 25, 50, 100],
-        });
-    });
-</script>

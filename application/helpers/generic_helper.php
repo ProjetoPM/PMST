@@ -322,7 +322,7 @@ function getScorePerReport($weekly_report_id)
 {
 	$obj = &get_instance();
 	$data = $obj->WeeklyReport_model->getAllScoresPerReport($weekly_report_id);
-	return empty($data) ? 'Not Evaluated yet': $data;
+	return empty($data) ? 'Not Evaluated yet' : $data;
 }
 
 function getActivityName($id)
@@ -409,7 +409,6 @@ function verifyLanguage()
 		return false;
 	}
 }
-
 
 function getIndexOfLanguage() {
 	return strcmp($_SESSION['language'], 'US') === 0 ? 2 : 1;

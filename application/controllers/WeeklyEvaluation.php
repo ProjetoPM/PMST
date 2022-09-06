@@ -106,7 +106,6 @@ class WeeklyEvaluation extends CI_Controller
 		} else {
 			$this->lang->load('btn', 'portuguese-brazilian');
 		}
-
 		$dado['weekly_evaluation'] = $this->WeeklyEvaluation_model->get($weekly_evaluation);
 
 		$this->load->view('frame/header_view');

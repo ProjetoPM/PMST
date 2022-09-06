@@ -18,14 +18,14 @@
 							<br><br>
 							<div class="row">
 								<div class="col-lg-12">
-									<table class="table table-bordered table-striped" id="table_report_list">
+									<table class="table table-view table-bordered table-striped" id="table_report_list">
 										<thead>
 											<tr>
-												<th class="col">#</th>
-												<th class="col"><?= $this->lang->line('wr_username') ?></th>
-												<th class="col"><?= $this->lang->line('we_name') ?></th>
-												<th class="col"><?= $this->lang->line('we_score') ?></th>
-												<th class="col-lg-3"><?= $this->lang->line('actions') ?></th>
+												<th class="col-lg-1">#</th>
+												<th class="col-lg-3"><?= $this->lang->line('wr_username') ?></th>
+												<th class="col-lg-3"><?= $this->lang->line('we_name') ?></th>
+												<th class="col-lg-1"><?= $this->lang->line('we_score') ?></th>
+												<th class="col-lg-4"><?= $this->lang->line('actions') ?></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -35,7 +35,7 @@
 													<td><?= getUserName($data->user_id) ?></td>
 													<td><?= getWeeklyEvaluationName($data->weekly_evaluation_id) ?></td>
 													<td><?= getWeeklyEvaluationScore($data->weekly_report_id) ?></td>
-													<td>
+													<td style="white-space: nowrap;">
 														<div class="center">
 															<div class="col-md-4 p-l-0">
 																<span>
@@ -44,10 +44,11 @@
 																		<span class="hidden-xs"></span>
 																	</button>
 
-																	<button type="button" data-toggle="modal" data-target="#scoreDetails<?php $data->weekly_report_id ?>">
+																	<button class="btn btn-default" type="button" data-toggle="modal" data-target="#scoreDetails<?php $data->weekly_report_id ?>">
 																		<i class="fa-solid fa-file" aria-hidden="true"></i>
 																		<span class="hidden-xs"></span>
 																	</button>
+
 																	<button onclick=remove(`<?= $data->weekly_report_id ?>`) class="btn btn-danger">
 																		<i class="fa fa-trash"></i>
 																		<span class="hidden-xs"></span>
@@ -96,26 +97,29 @@
 			<div class="modal-header modal-green">
 				<h3 class="modal-title" id="myModalLabel">Score Details</h3>
 			</div>
-			<?php $scores = getScorePerReport($data->weekly_report_id) ?>
-			<table>
-				<thead>
-					<tr>
-						<th>Professor</th>
-						<th>Nota</th>
-						<th>Comentários</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php foreach ($scores as $s) : ?>
-						<tr>
-							<td><?= $s->username ?></td>
-							<td><?= $s->name ?></td>
-							<td><?= $s->comments ?></td>
-						</tr>
 
-					<?php endforeach; ?>
-				</tbody>
-			</table>
+			<?php $scores = getScorePerReport($data->weekly_report_id) ?? [] ?>
+
+            <div class="modal-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th class="col">Professor</th>
+                            <th class="col">Nota</th>
+                            <th class="col">Comentário</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($scores as $s) : ?>
+                            <tr>
+                                <td><?= $s->username ?></td>
+                                <td><?= $s->name ?></td>
+                                <td><?= $s->comments ?></td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>            
 		</div>
 		<!-- /.modal-content -->
 	</div>

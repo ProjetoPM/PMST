@@ -137,6 +137,35 @@ button.close:hover {
     border-radius: 7px 7px 0 0;
 }
 
+.around-edit-score {
+    padding: 15px 0;
+    border: 1px #666;
+    border-style: none solid solid solid;
+    border-radius: 0 0 7px 7px;
+}
+
+.process-title-edit-score {
+    padding: 5px 7px;
+    margin: 0;
+    color: white;
+    background-color: #666;
+    border-radius: 7px 7px 0 0;
+}
+
+.edit-score:link {
+    color: #666 !important;
+}
+
+.edit-score:hover {
+    color: #222;
+}
+
+.edit-score:visited,
+.edit-score:hover {
+    color: #888 !important;
+}
+
+
 .form-control {
     border-radius: 4px !important;
 }

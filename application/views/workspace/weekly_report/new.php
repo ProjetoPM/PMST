@@ -83,7 +83,7 @@
     $(document).on("click", "#add_process", function() {
         room++;
 
-        const parent = document.getElementById('education_fields')
+        const parent = document.getElementById('education_fields');
         const div = document.createElement('div');
         div.setAttribute('id', `remove-${room}`);
         div.setAttribute('class', 'form-group');
