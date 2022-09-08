@@ -132,7 +132,6 @@
 												<tbody>
 
 													<?php
-													// var_dump($communication_item);exit;die;
 													foreach ($communication_item as $item) {
 													?>
 														<tr>

@@ -86,8 +86,6 @@ class Chat extends CI_Controller
 
 		$post = $this->input->post();
 		$messageTxt = 'NULL';
-		//print($post['messageTxt']);
-		// var_dump( $post['receiver_id']);exit;
 		insertLogActivity('send message', 'chat');
 	
 		$messageTxt = $post['messageTxt'];
@@ -119,14 +117,9 @@ class Chat extends CI_Controller
 	public function get_chat_history()
 	{
 		$receiver_id = $this->Outh_model->Encryptor('decrypt', $this->input->get('receiver_id'));
-		//var_dump($this->input->get('receiver'));exit;
 		$Logged_sender_id = $this->session->userdata("user_id");
-		//var_dump($receiver_id);exit;
 		$history = $this->Chat_model->GetReciverChatHistory($receiver_id);
-		//var_dump( $history);exit;
 		foreach ($history as $chat) :
-			//var_dump( $chat);exit;
-			//$message_id = $this->OuthModel->Encryptor('encrypt', $chat['id']);
 			$sender_id = $chat['sender_id'];
 
 			$userName = $this->Admin_model->get_user_name($chat['sender_id']);

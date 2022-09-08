@@ -115,7 +115,6 @@ class IssueLog extends CI_Controller
 		//issues_record = objeto do array query
 		$query['issues_record'] = $this->Issues_record_model->get($issues_record_id);
 		$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "issue log", $query['issues_record']['issues_record_id']);
-		//var_dump($query);
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view.php');
@@ -136,7 +135,6 @@ class IssueLog extends CI_Controller
 		$issues_record['observations'] = $this->input->post('observations');
 		$issues_record['status'] = $this->input->post('status');
 
-		//var_dump($issues_record);
 		$data['issues_record'] = $issues_record;
 		$query = $this->Issues_record_model->update($data['issues_record'], $issues_record_id);
 

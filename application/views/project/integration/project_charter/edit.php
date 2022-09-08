@@ -325,7 +325,6 @@
 														<div class="wrap-login100">
 															<form class="login100-form validate-form" role="form" method="post" onsubmit="return checkEmptyInput();" action="<?= base_url() ?>authentication/signature/<?= $project_charter[0]->project_charter_id ?>/<?= $this->uri->segment(2); ?>">
 																<?php
-																// var_dump(array_search($_SESSION['user_id'], array_column($items, 'user_id')));exit;die;
 																if ($items == null || array_search($_SESSION['user_id'], array_column($items, 'user_id')) === false) { ?>
 
 																	<div>

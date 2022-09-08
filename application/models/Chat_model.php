@@ -14,7 +14,6 @@
 
 		public function SendTxtMessage($data)
 		{
-			//var_dump($data);exit;
 			$res = $this->db->insert($this->Table, $data);
 			if ($res == 1)
 				return true;
@@ -23,7 +22,6 @@
 		}
 		public function GetReciverChatHistory($receiver_id)
 		{
-			//var_dump($receiver_id);exit;
 			//	$sender_id = $this->session->userdata('user_id');
 
 			//SELECT * FROM `chat` WHERE `sender_id`= 197 AND `receiver_id` = 184 OR `sender_id`= 184 AND `receiver_id` = 197

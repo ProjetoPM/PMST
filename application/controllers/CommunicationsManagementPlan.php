@@ -225,8 +225,6 @@ class CommunicationsManagementPlan extends CI_Controller
     //UPDATE
     function updateResponsability()
     {
-        // var_dump($this->input->post('responsability'));
-        // die;
         $communication_item_id = $this->input->post('communication_item_id');
         $communication_responsability_id = $this->input->post('communication_responsability_id');
         $stakeholder_responsability = $this->input->post('responsability');

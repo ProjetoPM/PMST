@@ -92,7 +92,6 @@ class RiskChecklist extends CI_Controller
 		}
 
 		insertLogActivity('update', $feedback_success);
-		// var_dump($this->input->post());exit;die;
 		$postData = $this->input->post();
 		$insert   = $this->RiskChecklist_model->updateRiskCheckList($postData, $_SESSION['project_id']);
 		$this->session->set_flashdata('success', 'General Project Risk Checklist has been successfully changed!');

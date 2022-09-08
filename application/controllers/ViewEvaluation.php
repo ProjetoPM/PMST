@@ -24,7 +24,6 @@ class ViewEvaluation extends CI_Controller
 	{
 		$view_id = $this->View_model->GetIDByName($this->input->post('view'));
 		$view_evaluation = $this->ViewEvaluation_model->GetByProjectView($view_id, $_SESSION['project_id']);
-		// var_dump($view_evaluation);exit;die;
 		$view_evaluation_id = null;
 		if ($view_evaluation == null) {
 			$view_evaluation['view_id'] = $view_id;
@@ -34,7 +33,6 @@ class ViewEvaluation extends CI_Controller
 		} else {
 			$view_evaluation_id = $view_evaluation['view_evaluation_id'];
 		}
-	// var_dump($view_evaluation_id);exit;die;
 		$evaluation['user_id'] = $_SESSION['user_id'];
 		$evaluation['points'] = $this->input->post('points');
 		$evaluation['view_evaluation_id'] = $view_evaluation_id;
@@ -64,7 +62,6 @@ class ViewEvaluation extends CI_Controller
 		$this->ViewEvaluation_model->UpdateViewEvaluation($update_evaluation, $view_evaluation_id);
 		
 		$ev = getViewEvaluation($this->input->post('view'));
-		// var_dump(getViewEvaluation($this->input->post('view')));exit;die;
 
 		$return = ["average" =>  $ev['average'], "evaluationTxt" => $ev['evaluationTxt']];
 		echo json_encode($return);

@@ -138,7 +138,6 @@ class QualityChecklist extends CI_Controller
 		$quality_item['item_check'] = $this->input->post('item_check');
 		$quality_item['comments'] = $this->input->post('comments');
 		$quality_item['status'] = $this->input->post('status');
-		// var_dump($this->input->post());exit;
 
 		$insert_id   = $this->QualityChecklist_model->update($quality_check, $quality_check_id);
 		$query2 = $this->QualityChecklist_model->updateQualityCheckItem($quality_item, $quality_check_id );

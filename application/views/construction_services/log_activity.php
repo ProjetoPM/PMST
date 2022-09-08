@@ -69,9 +69,6 @@
                     <li>
 
                       <?php
-                    // var_dump($l->action);
-                    // exit;
-                    // die;
                       if ($l->action_type == 'insert') { ?>
                         <i class=" fa fa-save bg-green"></i>
                       <?php } elseif ($l->action_type  == 'update') { ?>

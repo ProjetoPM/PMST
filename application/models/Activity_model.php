@@ -5,8 +5,9 @@
 			$this->load->database();
 		}
 
+        private $table = 'activity';
 		public function insert($activity){
-			return $this->db->insert('activity', $activity);
+			return $this->db->insert($this->table, $activity);
 		}
 
         public function insertMilestone($milestone){
@@ -28,13 +29,22 @@
         }
 
         public function get($id){
-            $query = $this->db->get_where('activity',array('id'=>$id));
+            $query = $this->db->get_where($this->table,array('id'=>$id));
             return $query->row_array();
         }
 
         public function getAll($project_id){
-            $query = $this->db->get_where('activity', array('activity.project_id'=>$project_id));
+            $query = $this->db->get_where($this->table, array('activity.project_id'=>$project_id));
             return $query->result();
+        }
+
+        public function getAllPerProject($project_id){
+            return $this->db->select('*')
+            ->from($this->table)
+            ->where('project_id', $project_id)
+            ->get()->result();
+
+            
         }
 
         public function getAllMilestone($project_id){
@@ -49,16 +59,16 @@
 
         public function update($activity, $id){
             $this->db->where('activity.id', $id);
-            return $this->db->update('activity', $activity);
+            return $this->db->update($this->table, $activity);
         }
 
         public function delete($id){
             $this->db->where('activity.id', $id);
-            return $this->db->delete('activity');
+            return $this->db->delete($this->table);
         }
 
         public function edit($id) {
-            $query = $this->db->get_where('activity', array('activity.id'=>$id));
+            $query = $this->db->get_where($this->table, array('activity.id'=>$id));
             return $query->result();
         }
 	}

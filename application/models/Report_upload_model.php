@@ -29,8 +29,6 @@ class Report_upload_model extends CI_Model
 		$uploads = array();
 		$processes_ids = array();
 		$query = $this->WeeklyReport_model->getAllProcesses($weekly_report_id);
-		var_dump($query->result());
-		exit();
 
 		foreach ($query as $q) {
 			array_push($processes_ids, $q->weekly_report_process_id);

@@ -50,15 +50,6 @@ class Register extends CI_Controller
         $this->session->set_flashdata('flashCreated', 'User ' . $user['email'] . '`s password has been successfully created!');
             redirect(site_url());
     }
-    
-    // public function c_recover_password(){
-
-    //     $user['email'] = $this->input->post('email');
-    //     $this->load->model('user_register');
-    //     $this->user_register->model_recover_password($user);
-        
-    //     //var_dump($user['email']);
-    // }
 
     public function show_Edit_User($project_id = null)
     {

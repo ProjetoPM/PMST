@@ -62,9 +62,6 @@ class BenefitsManagementPlan extends CI_Controller
 		$this->db->where('project_id',  $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
 
-		// var_dump(fieldStatus('benefits management plan',"5","premises"));die;exit;
-		// var_dump(getStatusButtonCheck('benefits management plan',"5","premises"));die;exit;
-
 
 		if (count($project['dados']) > 0) {
 			$dado['benefits_mp'] = $this->Benefits_plan_model->get($_SESSION['project_id']);

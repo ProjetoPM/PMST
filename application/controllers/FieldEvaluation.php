@@ -22,7 +22,6 @@ class FieldEvaluation extends CI_Controller
 
 	public function insert()
 	{
-		// var_dump($_POST);exit;die;
 		$view_id = $this->View_model->GetIDByName($this->input->post('view'));
 
 		date_default_timezone_set('america/sao_paulo');
@@ -77,7 +76,6 @@ class FieldEvaluation extends CI_Controller
 	public function delete($id)
 	{
 
-		// var_dump("dewdew");exit;die;
 		$query = $this->FieldEvaluation_model->delete($id);
 		if ($query) {
 			// insertLogActivity('delete', 'closed procurement documentation');

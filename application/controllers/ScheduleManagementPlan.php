@@ -143,7 +143,6 @@ class ScheduleManagementPlan extends CI_Controller
 
 
 
-	//var_dump($shed);
 
 
 

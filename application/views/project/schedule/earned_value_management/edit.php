@@ -14,12 +14,12 @@
 				<?php if ($this->session->flashdata('success')) : ?>
 					<div class="alert alert-success">
 						<a href="#" class="close" data-dismiss="alert">&times;</a>
-						<strong><?php echo $this->session->flashdata('success'); ?></strong>
+						<strong><?= $this->session->flashdata('success'); ?></strong>
 					</div>
 				<?php elseif ($this->session->flashdata('error')) : ?>
 					<div class="alert alert-warning">
 						<a href="#" class="close" data-dismiss="alert">&times;</a>
-						<strong><?php echo $this->session->flashdata('error'); ?></strong>
+						<strong><?= $this->session->flashdata('error'); ?></strong>
 					</div>
 				<?php endif; ?>
 
@@ -54,7 +54,7 @@
 								<?= $this->lang->line('av_title')  ?>
 
 							</h1>
-							<form action="<?= base_url() ?>schedule/earned-value-management/update/<?php echo $id; ?>" method="post">
+							<form action="<?= base_url() ?>schedule/earned-value-management/update/<?= $id; ?>" method="post">
 
 								
 							<div class="col-lg-12 form-group">
@@ -75,7 +75,7 @@
 									<label for="agregate_value"><?= $this->lang->line('agregate_value') ?></label>
 									<a class="btn-sm btn-default" id="av_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_agregate_value_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="agregate_value" name="agregate_value" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $agregate_value; ?>" onchange="variation()">
+										<input id="agregate_value" name="agregate_value" type="number" min="0.00" max="100000.00" step="0.01" class="form-control input-md" value="<?= $agregate_value; ?>" onchange="variation()">
 									</div>
 								</div>
 
@@ -83,7 +83,7 @@
 									<label for="planned_value"><?= $this->lang->line('planned_value') ?></label>
 									<a class="btn-sm btn-default" id="av_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_planned_value_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="planned_value" name="planned_value" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $planned_value; ?>">
+										<input id="planned_value" name="planned_value" type="number" min="0.00" max="100000.00" step="0.01" class="form-control input-md" value="<?= $planned_value; ?>">
 									</div>
 								</div>
 
@@ -91,7 +91,7 @@
 									<label for="real_agregate_cost"><?= $this->lang->line('real_agregate_cost') ?></label>
 									<a class="btn-sm btn-default" id="av_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_real_agregate_cost_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="real_agregate_cost" name="real_agregate_cost" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" onchange="variation()" value="<?php echo $real_agregate_cost; ?>">
+										<input id="real_agregate_cost" name="real_agregate_cost" type="number" min="0.00" max="100000.00" step="0.01" class="form-control input-md" onchange="variation()" value="<?= $real_agregate_cost; ?>">
 									</div>
 								</div>
 
@@ -103,7 +103,7 @@
 									<label for="variation_of_terms"><?= $this->lang->line('variation_of_terms') ?></label>
 									<a class="btn-sm btn-default" id="av_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_variation_of_terms_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="variation_of_terms" name="variation_of_terms" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $variation_of_terms; ?>">
+										<input  type="number" disabled step="0.01" class="form-control input-md" value="<?= $sv; ?>">
 									</div>
 								</div>
 
@@ -111,7 +111,7 @@
 									<label for="variation_of_costs"><?= $this->lang->line('variation_of_costs') ?></label>
 									<a class="btn-sm btn-default" id="av_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_variation_of_costs_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="variation_of_costs" name="variation_of_costs" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $variation_of_costs; ?>">
+										<input id="variation_of_costs" disabled type="number" step="0.01" class="form-control input-md" value="<?= $cv; ?>">
 									</div>
 								</div>
 
@@ -119,7 +119,7 @@
 									<label for="deadline_performance_index"><?= $this->lang->line('deadline_performance_index') ?></label>
 									<a class="btn-sm btn-default" id="av_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_deadline_performance_index_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="deadline_performance_index" name="deadline_performance_index" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $deadline_performance_index; ?>">
+										<input id="deadline_performance_index" type="number" class="form-control input-md" disabled value="<?= $spi; ?>">
 									</div>
 								</div>
 
@@ -127,7 +127,7 @@
 									<label for="costs_performance_index"><?= $this->lang->line('costs_performance_index') ?></label>
 									<a class="btn-sm btn-default" id="av_tp_9" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_costs_performance_index_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="costs_performance_index" name="costs_performance_index" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $costs_performance_index; ?>">
+										<input id="costs_performance_index" name="costs_performance_index" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?= $cpi; ?>">
 									</div>
 								</div>
 
@@ -139,7 +139,7 @@
 									<label for="budget_at_cumulative_end"><?= $this->lang->line('budget_at_cumulative_end') ?></label>
 									<a class="btn-sm btn-default" id="av_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_budget_at_cumulative_end_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="budget_at_cumulative_end" name="budget_at_cumulative_end" onchange="estimate()" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $budget_at_cumulative_end; ?>">
+										<input id="budget_at_cumulative_end"  type="number" disabled class="form-control input-md" value="<?= $bac; ?>">
 									</div>
 								</div>
 
@@ -148,7 +148,7 @@
 									<label for="estimated_of_completation"><?= $this->lang->line('estimated_of_completation') ?></label>
 									<a class="btn-sm btn-default" id="av_tp_10" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_estimated_of_completation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="estimated_of_completation" name="estimated_of_completation" onchange="estimate()" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $estimated_of_completation; ?>">
+										<input id="estimated_of_completation" name="estimated_of_completation" onchange="estimate()" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?= $estimated_of_completation; ?>">
 									</div>
 								</div>
 
@@ -156,7 +156,7 @@
 									<label for="estimate_for_completion"><?= $this->lang->line('estimate_for_completion') ?></label>
 									<a class="btn-sm btn-default" id="av_tp_11" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_estimate_for_completion_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="estimate_for_completion" name="estimate_for_completion" readonly=“true” type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $estimate_for_completion; ?>">
+										<input id="estimate_for_completion" name="estimate_for_completion" readonly=“true” type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?= $estimate_for_completion; ?>">
 									</div>
 								</div>
 								
@@ -164,7 +164,7 @@
 									<label for="variation_at_the_end"><?= $this->lang->line('variation_at_the_end') ?></label>
 									<a class="btn-sm btn-default" id="av_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_variation_at_the_end_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="variation_at_the_end" name="variation_at_the_end" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" readonly=“true” value="<?php echo $variation_at_the_end; ?>">
+										<input id="variation_at_the_end" name="variation_at_the_end" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" readonly=“true” value="<?= $variation_at_the_end; ?>">
 									</div>
 								</div>
 
@@ -176,7 +176,7 @@
 									</button>
 							</form>
 
-							<form action="<?php echo base_url('schedule/earned-value-management/list/'); ?><?php echo $project_id; ?>">
+							<form action="<?= base_url('schedule/earned-value-management/list/'); ?><?= $project_id; ?>">
 								<button onclick="estimate()" class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 							</form>
 						</div>

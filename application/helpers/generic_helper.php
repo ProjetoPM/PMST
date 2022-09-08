@@ -33,7 +33,6 @@ function getViewEvaluation($view_id)
 	}
 	$view_evaluation['evaluationTxt'] = "";
 	foreach ($obj2->ViewEvaluation_model->getAllProfessorEvaluation($view_evaluation['view_evaluation_id']) as $pe) {
-		// var_dump(getUserName($pe->user_id));exit;
 		$view_evaluation['evaluationTxt'] = $view_evaluation['evaluationTxt'] . getUserName($pe->user_id) . ": " . $pe->points . ", ";
 	}
 	$view_evaluation['evaluationTxt'] = $view_evaluation['evaluationTxt'] . "Average: " . $view_evaluation['average'];
@@ -126,7 +125,6 @@ function getAllFieldEvaluation($project_id, $view, $item_id)
 	$view_id = $obj2->View_model->GetIDByName($view);
 
 	$data = $obj->FieldEvaluation_model->getAll($project_id, $view_id, $item_id);
-	// var_dump($data);exit;
 	return $data;
 }
 

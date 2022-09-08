@@ -142,8 +142,6 @@ class TeamPerformanceAssessments extends CI_Controller
 		$team_performance_evaluation['team_mates_comments'] = $this->input->post('team_mates_comments');
 		$team_performance_evaluation['team_performance_evaluationcol'] = $this->input->post('team_performance_evaluationcol');
 		$team_performance_evaluation['project_id'] = $this->input->post('project_id');
-		//var_dump($team_performance_evaluation['project_id']);
-		//die();
 
 		$query = $this->Team_Performance_Evaluation_model->update($team_performance_evaluation, $team_performance_evaluation_id);
 

@@ -18,7 +18,6 @@ class QualityChecklist_model extends CI_Model
 	function updateQualityCheckItem($check_item, $quality_checklist_id)
 	{
 		$this->db->trans_start();
-// var_dump($quality_checklist_id);exit;
 		$result = array();
 		$this->db->delete('quality_checklist_item', array('quality_checklist_id' => $quality_checklist_id));
 		if ($check_item['status'][0] != null) {
