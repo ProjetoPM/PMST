@@ -39,12 +39,12 @@
         }
 
         public function getAllPerProject($project_id){
-            return $this->db->select('*')
+             $query = $this->db->select('*')
             ->from($this->table)
             ->where('project_id', $project_id)
             ->get()->result();
 
-            
+            var_dump($query);
         }
 
         public function getAllMilestone($project_id){
