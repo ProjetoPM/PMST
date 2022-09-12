@@ -39,7 +39,7 @@ $lang['final-report'] = 'Relatório Final';
 
 // Scope
 $lang['requirement-management'] = 'Gerenciar Requisitos';
-$lang['scope-management'] = 'Gerencar Escopo';
+$lang['scope-management'] = 'Gerenciar Escopo';
 $lang['requirement-documentation'] = 'Documentação dos Requisitos';
 $lang['project-scope'] = 'Especificação do Escopo do Projeto';
 // $lang['scope-baseline'] = 'Linhas de Base do Escopo';

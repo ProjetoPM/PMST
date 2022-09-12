@@ -29,6 +29,14 @@
 
 								<?= $this->lang->line('cl_title') ?>
 
+								<?php
+								$view_name = 'change log'; 
+								$this->load->view('construction_services/write_field_evaluation') 
+								?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
+
 							</h1>
 							
 							<div class="row">

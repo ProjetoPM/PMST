@@ -85,7 +85,7 @@ class ProjectClosure extends CI_Controller
 			if ($dado['project_closure'] == null) {
 				redirect("integration/project-closure/new/" . $_SESSION['project_id']);
 			}
-			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "project closure report", $dado['project_closure'][0]->project_closure_term_id);
+			$dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "project closure", $dado['project_closure'][0]->project_closure_term_id);
 			$dado['project_id'] = $_SESSION['project_id'];
 
 			$this->load->view('frame/header_view');

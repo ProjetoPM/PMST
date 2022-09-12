@@ -17,6 +17,7 @@ class IssueLog extends CI_Controller
 
 		$this->load->model('log_model');
 		$this->load->model('view_model');
+		$this->load->model('Project_model');
 		$this->load->model('Stakeholder_model');
 		$this->load->model('Issues_record_model');
 		$this->load->model('Issues_record_stakeholder_model');
@@ -51,7 +52,7 @@ class IssueLog extends CI_Controller
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view.php');
-		$this->load->view('project/risk/issues_record/list', $query);
+		$this->load->view('project/integration/issues_log/list', $query);
 	}
 
 	public function new($project_id)
@@ -73,7 +74,7 @@ class IssueLog extends CI_Controller
 			$this->load->view('frame/header_view');
 			$this->load->view('frame/topbar');
 			$this->load->view('frame/sidebar_nav_view.php');
-			$this->load->view('project/risk/issues_record/new', $query);
+			$this->load->view('project/integration/issues_log/new', $query);
 		} else {
 			redirect(base_url());
 		}
@@ -120,7 +121,7 @@ class IssueLog extends CI_Controller
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view.php');
 		//passa pra view todo array de objetos
-		$this->load->view('project/risk/issues_record/edit', $query);
+		$this->load->view('project/integration/issues_log/edit', $query);
 	}
 	public function update($issues_record_id)
 	{
@@ -136,7 +137,6 @@ class IssueLog extends CI_Controller
 		$issues_record['observations'] = $this->input->post('observations');
 		$issues_record['status'] = $this->input->post('status');
 
-		//var_dump($issues_record);
 		$data['issues_record'] = $issues_record;
 		$query = $this->Issues_record_model->update($data['issues_record'], $issues_record_id);
 
