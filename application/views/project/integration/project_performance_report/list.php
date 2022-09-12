@@ -28,6 +28,14 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 								<?= $this->lang->line('ppr_title')  ?>
+
+								<?php
+								$view_name = 'project performance and monitoring report'; 
+								$this->load->view('construction_services/write_field_evaluation') 
+								?>
+								<?php $this->load->view('construction_services/rating', array(
+									"view_name" => $view_name,
+								)) ?>
 							</h1>
 
 							<div class="row">

@@ -110,7 +110,7 @@
                     <a class="btn-sm btn-default" id="pcmp_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <a <?= fieldStatus($view_name, $pmp->procurement_mp_id, "roles") ?> data-field="roles" data-field_name="<?= $this->lang->line('pcmp_roles') ?>" data-item_id="<?= $pmp->procurement_mp_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                     <div>
-                    <textarea onkeyup="limite_textarea(this.value, 'pcmp_6')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pcmp_txt_6" name="legal_jurisdiction"><?php echo $pmp->roles; ?></textarea>
+                    <textarea onkeyup="limite_textarea(this.value, 'pcmp_6')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pcmp_txt_6" name="roles"><?php echo $pmp->roles; ?></textarea>
                     </div>
                   </div>
 
