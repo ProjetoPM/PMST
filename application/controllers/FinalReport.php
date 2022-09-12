@@ -87,9 +87,10 @@ class FinalReport extends CI_Controller
 		}
 	}
 
-
+	
 	function insert()
 	{
+
 		$final_report['description'] = $this->input->post('description');
 		$final_report['scope_objectives'] = $this->input->post('scope_objectives');
 		$final_report['quality_objectives'] = $this->input->post('quality_objectives');

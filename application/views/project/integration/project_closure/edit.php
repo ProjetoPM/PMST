@@ -28,7 +28,7 @@
 							<h1 class="page-header">
 
 								<?= $this->lang->line('tep-title')  ?>
-								<?php $view_name = "project closure report" ?>
+								<?php $view_name = "project closure" ?>
 								<?php $this->load->view('construction_services/rating', array(
 									"view_name" => $view_name,
 								)) ?>
