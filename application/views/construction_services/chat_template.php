@@ -21,8 +21,6 @@
     text-align: right;
   }
 
-  .spiner {}
-
   .spiner .fa-spin {
     font-size: 24px;
   }
@@ -88,9 +86,9 @@
                   <?php
 
                   $obj = &get_instance();
-                  $obj->load->model('User_model');
+                  $obj->load->model('User_Model');
 
-                  $user = $obj->User_model->GetUserData();
+                  $user = $obj->User_Model->GetUserData();
                   //$user= $this->session->userdata();
                   // print($user['name']);
                   ?>
