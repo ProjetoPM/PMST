@@ -14,12 +14,12 @@
         <?php if ($this->session->flashdata('success')) : ?>
           <div class="alert alert-success">
             <a href="#" class="close" data-dismiss="alert">&times;</a>
-            <strong><?php echo $this->session->flashdata('success'); ?></strong>
+            <strong><?= $this->session->flashdata('success'); ?></strong>
           </div>
         <?php elseif ($this->session->flashdata('error')) : ?>
           <div class="alert alert-warning">
             <a href="#" class="close" data-dismiss="alert">&times;</a>
-            <strong><?php echo $this->session->flashdata('error'); ?></strong>
+            <strong><?= $this->session->flashdata('error'); ?></strong>
           </div>
         <?php endif; ?>
 
@@ -39,16 +39,16 @@
 							<?php $this->load->view('construction_services/write_field_evaluation') ?>
               <?php extract($stakeholder); ?>
 
-              <form action="<?= base_url() ?>stakeholder/stakeholder-engagement-plan/update/<?php echo $stakeholder_id; ?>" method="post">
+              <form action="<?= base_url() ?>stakeholder/stakeholder-engagement-plan/update/<?= $stakeholder_id; ?>" method="post">
 
-                <input type="hidden" name="project_id" value="<?php echo $project_id; ?>">
+                <input type="hidden" name="project_id" value="<?= $project_id; ?>">
                 <input type="hidden" name="status" value="1">
 
                 <div class="col-lg-4 form-group">
                   <label for="name"><?= $this->lang->line('stake') ?></label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('stakeholder_mp-text2_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
-                    <input id="name_text" name="name" type="text" class="form-control input-md" required="false" value="<?php echo $name; ?>" disabled>
+                    <input id="name_text" name="name" type="text" class="form-control input-md" required="false" value="<?= $name; ?>" disabled>
                   </div>
                 </div>
 
@@ -76,14 +76,7 @@
                   </select>
                 </div>
 
-                <div class="col-lg-4 form-group">
-                  <label for="average"><?= $this->lang->line('average') ?></label>
-                  <a class="btn-sm btn-default" id="" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                  <div>
-                    <input name="average" class="form-control input-md" id="average" value="<?php echo $average; ?>" readonly=“true”>
-                  </div>
-                </div>
-
+                
                 <div class="col-lg-2 form-group">
                   <label for="interest"><?= $this->lang->line('shep_2') ?></label>
                   <a <?= fieldStatus($view_name, $stakeholder_id, "interest") ?> data-field="interest" data-field_name="<?= $this->lang->line('shep_2') ?>" data-item_id="<?= $stakeholder_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
@@ -95,7 +88,7 @@
                     <option value=90 <?php if ($interest == 90) echo 'selected'; ?>>90%</option>
                   </select>
                 </div>
-
+                
                 <div class="col-lg-2">
                   <label for="power"><?= $this->lang->line('shep_3') ?></label>
                   <a <?= fieldStatus($view_name, $stakeholder_id, "power") ?> data-field="power" data-field_name="<?= $this->lang->line('shep_3') ?>" data-item_id="<?= $stakeholder_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
@@ -107,7 +100,7 @@
                     <option value=90 <?php if ($power == 90) echo 'selected'; ?>>90%</option>
                   </select>
                 </div>
-
+                
                 <div class="col-lg-2">
                   <label for="influence"><?= $this->lang->line('shep_4') ?></label>
                   <a <?= fieldStatus($view_name, $stakeholder_id, "influence") ?> data-field="influence" data-field_name="<?= $this->lang->line('shep_4') ?>" data-item_id="<?= $stakeholder_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
@@ -119,7 +112,7 @@
                     <option value=90 <?php if ($influence == 90) echo 'selected'; ?>>90%</option>
                   </select>
                 </div>
-
+                
                 <div class="col-lg-2">
                   <label for="impact"><?= $this->lang->line('shep_5') ?></label>
                   <a <?= fieldStatus($view_name, $stakeholder_id, "impact") ?> data-field="impact" data-field_name="<?= $this->lang->line('shep_5') ?>" data-item_id="<?= $stakeholder_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
@@ -131,22 +124,25 @@
                     <option value=90 <?php if ($impact == 90) echo 'selected'; ?>>90%</option>
                   </select>
                 </div>
-
+                    
                 <div class="col-lg-4 form-group">
                   <label for="average"><?= $this->lang->line('average') ?></label>
-                  <a <?= fieldStatus($view_name, $stakeholder_id, "average") ?> data-field="average" data-field_name="<?= $this->lang->line('average') ?>" data-item_id="<?= $stakeholder_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
-                  <input name="average" class="form-control" id="average" value="<?php echo $average; ?>" readonly=“true”>
+                  <a class="btn-sm btn-default" id="" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+                  <div>
+                    <input name="average" class="form-control input-md" id="average" value="<?= $average; ?>" readonly=“true”>
+                  </div>
                 </div>
+
                 <div class="col-lg-12 form-group">
                   <label for="strategy"><?= $this->lang->line('text-1') ?></label>
                   <span class="shep_9">2000</span><?= $this->lang->line('character') ?>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('stakeholder_mp-text1_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <a <?= fieldStatus($view_name, $stakeholder_id, "strategy") ?> data-field="strategy" data-field_name="<?= $this->lang->line('text') ?>" data-item_id="<?= $stakeholder_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                   <div>
-                    <textarea onkeyup="limite_textarea(this.value, 'shep_9')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shep_txt_9" name="strategy" required="false"><?php echo $strategy; ?></textarea>
+                    <textarea onkeyup="limite_textarea(this.value, 'shep_9')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shep_txt_9" name="strategy" required="false"><?= $strategy; ?></textarea>
                   </div>
                 </div>
-
+                
                 <div class="col-lg-12 form-group">
                   <label for="scope"><?= $this->lang->line('text-2') ?></label>
                   <span class="shep_10">2000</span><?= $this->lang->line('character') ?>
