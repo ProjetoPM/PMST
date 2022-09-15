@@ -41,7 +41,7 @@ class ProjectToOverleaf extends CI_Controller
 		// Integration
 		$this->load->model('Admin_model');
 		$this->load->model('Project_Charter_model');
-		$this->load->model('Project_Management_model');
+		$this->load->model('Project_management_model');
 		$this->load->model('Project_performance_report_model');
 		$this->load->model('Change_request_model');
 		$this->load->model('Project_Closure_model');
@@ -269,7 +269,7 @@ class ProjectToOverleaf extends CI_Controller
 
 	public function PMP_Overleaf($project_id)
 	{
-		$dataPMP = $this->Project_Management_model->get($project_id);
+		$dataPMP = $this->Project_management_model->get($project_id);
 		$file["name_task"] = "ProjectManagementPlan.tex";
 		if ($dataPMP != null) {
 			$file["task"] = "\n";

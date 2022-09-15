@@ -18,7 +18,7 @@ class ProjectManagementPlan extends CI_Controller
 		$this->load->model('log_model');
 		$this->load->model('view_model');
 		$this->load->model('Project_model');
-		$this->load->model('Project_Management_model');
+		$this->load->model('Project_management_model');
 		
 		$array = array();
 		array_push($array, 'project_mp');
@@ -45,7 +45,7 @@ class ProjectManagementPlan extends CI_Controller
 		// Verificando se o usuario logado tem acesso a esse projeto
 
 		if (count($project['dados']) > 0) {
-			$dado['project_mp'] = $this->Project_Management_model->get($_SESSION['project_id']);
+			$dado['project_mp'] = $this->Project_management_model->get($_SESSION['project_id']);
 			if ($dado['project_mp'] != null) {
 				redirect("integration/project-mp/edit/" . $_SESSION['project_id']);
 			}
@@ -75,7 +75,7 @@ class ProjectManagementPlan extends CI_Controller
 		$project['dados'] = $this->db->get('project_user')->result();
 
 		if (count($project['dados']) > 0) {
-			$dado['project_mp'] = $this->Project_Management_model->get($_SESSION['project_id']);
+			$dado['project_mp'] = $this->Project_management_model->get($_SESSION['project_id']);
 			if ($dado['project_mp'] == null) {
 				redirect("integration/project-mp/new/" . $_SESSION['project_id']);
 			}
@@ -126,7 +126,7 @@ class ProjectManagementPlan extends CI_Controller
 
 		$project_mp['project_id'] = $_SESSION['project_id'];
 		
-		$query = $this->Project_Management_model->insert($project_mp);
+		$query = $this->Project_management_model->insert($project_mp);
 		
 		if ($query) {
 			insertLogActivity('insert', 'project management plan');
@@ -168,7 +168,7 @@ class ProjectManagementPlan extends CI_Controller
 
 		$project_mp['status'] = $this->input->post('status');
 
-		$query = $this->Project_Management_model->update($project_mp, $_SESSION['project_id']);
+		$query = $this->Project_management_model->update($project_mp, $_SESSION['project_id']);
 
 		insertLogActivity('update', 'project management plan');
 		$this->session->set_flashdata('success', $feedback_success);
