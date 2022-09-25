@@ -149,22 +149,24 @@
                <span class="glyphicon glyphicon-bell" style="font-size:18px;"></span>
              </a>
 
-             <ul class="dropdown-menu">
-               <?php if (isset($invites)) : ?>
-                 <li style="min-width: 300px;">
-                   <?php foreach ($invites as $item) : ?>
+             <ul class="dropdown-menu" style="width: 350px; padding: 5px 10px;">
+               <?php if (isset($invites) && !empty($invites)) : ?>
+                 <li>
+                   <?php foreach ($invites as $item): ?>
                      <span>
-                       <label for="">Você foi convidado pra se juntar a uma área de trabalho: <?= $item->name ?></label>
-                       <a class="btn btn-sm btn-success" href="<?= base_url("workspace/accept-invite/$item->workspace_id/$item->access_level") ?>">
-                         <i class="fa fa-check-square"></i>
-                       </a>
-                       <a class="btn btn-sm btn-warning" href="<?= base_url("workspace/decline-invite/$item->workspace_id") ?>">
-                         <i class="fa fa-check-square"></i>
-                       </a>
+                       <label><?= $this->lang->line('ws_feedback_invite') ?><strong><?= $item->name  ?></strong>.</label>
+                       <div style="display: flex; justify-content: center; gap: 2px; margin-bottom: 5px;">
+                            <a class="btn btn-sm btn-success" href="<?= base_url("workspace/accept-invite/$item->workspace_id/$item->access_level") ?>">
+                                <i class="fa fa-check" style="width: 20px; height: 10px;" aria-hidden="true"></i>
+                            </a>
+                            <a class="btn btn-sm btn-danger" href="<?= base_url("workspace/decline-invite/$item->workspace_id") ?>">
+                                <i class="fa fa-times" style="width: 20px; height: 10px;" aria-hidden="true"></i>
+                            </a>
+                       </div>
                      </span>
                    <?php endforeach ?>
                  <?php else : ?>
-                   <label for="">Não há convites disponíveis no momento para você.</label>
+                   <label for=""><?= $this->lang->line('ws_feedback_no_invite') ?> <i class="fa fa-smile-o" aria-hidden="true"></i></label>
                  <?php endif ?>
                  </li>
              </ul>

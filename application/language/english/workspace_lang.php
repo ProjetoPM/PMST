@@ -18,6 +18,7 @@ $lang['ws_new_users'] = "Insert the e-mail of the users you want to invite:";
 $lang['ws_placeholder_example'] = "email@example.com, email2@example.com, email3@example.com...";
 
 $lang['ws_feedback_invite_error'] = 'Only professors are able to invite users to workspace';
+$lang['ws_feedback_invite_success'] = 'Invitation sent successfully';
 $lang['ws_feedback_error'] = 'An error has occurred while inviting users, make sure you\'ve entered at least one e-mail.';
 $lang['ws_delete_workspace'] = 'Are sure you want to delete this workspace?';
 ?>

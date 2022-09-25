@@ -198,17 +198,44 @@ class Workspace extends CI_Controller
 	}
 
     public function inviteUsers() {
-        // replace -> split -> invite_user
-        
+        $senderRole = $this->Workspace_model->getRole($_SESSION['workspace_id'], $_SESSION['user_id']);
+        $date = date('Y-m-d H:i:s', time());
+        $workspace_name = $this->Workspace_model->getWorkspaceName($_SESSION['workspace_id']);
+
+		if (strcmp($senderRole, "1") !== 0) {
+			$this->session->set_flashdata('error', $this->lang->line('ws_feedback_invite_error'));
+			redirect('workspace/list');
+		}
+
         $new_users = trim($this->input->post('new_users') ?? []);
+        $eliminating_spaces = str_replace(' ', '', $new_users);
+        $split_users = explode(',', $eliminating_spaces);
 
         if (empty($new_users)) {
             $this->session->set_flashdata('error', $this->lang->line('ws_feedback_error'));
             redirect("workspace/members/{$_SESSION['workspace_id']}");
         }
 
-        $eliminating_spaces = str_replace(' ', '', $new_users);
-        $split_users = explode(',', $eliminating_spaces);
+        foreach ($split_users as $user) {
+            if (empty($user)) continue;
+
+            $user_id = $this->User_Model->getUserIdByEmail($user);
+            $alreadyInvited = $this->Workspace_invite_model->userAlreadyInvited($_SESSION['workspace_id'], $user_id);
+            $alreadyInWorkspace = $this->Workspace_user_model->userAlreadyInWorkspace($_SESSION['workspace_id'], $user_id);
+            
+            if ($alreadyInvited || $alreadyInWorkspace) continue;
+
+            $workspace['workspace_id'] = $_SESSION['workspace_id'];
+            $workspace['invited_at'] = $date;
+            $workspace['access_level'] = $this->input->post('access_level');
+            $workspace['email'] = $user;
+
+            $insertStatus = $this->Workspace_invite_model->insert($workspace);
+        }
+
+        $this->session->set_flashdata('error', $this->lang->line('ws_feedback_invite_success'));
+        redirect("workspace/members/{$_SESSION['user_id']}");
+
         var_dump($split_users);
         // não dá pra usar a função criada individualmente porque ela redireciona em casos de erro...
         // adaptar a função para cá ou refazê-la aqui.

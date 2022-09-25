@@ -7,5 +7,6 @@ $lang['item_created'] = 'Item successfully created';
 $lang['item_evaluated'] = 'Item Evaluated';
 $lang['no_permission'] = 'You don\'t have permissions for this action';
 
-
+$lang['ws_feedback_invite'] = 'You have been invited to join the workspace: ';
+$lang['ws_feedback_no_invite'] = 'There are no invites available at the moment.';
 ?>
