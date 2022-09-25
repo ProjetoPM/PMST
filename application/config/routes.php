@@ -309,6 +309,8 @@ $route['schedule/project-schedule-network-diagram/delete/(:num)'] = "ScheduleNet
 
 $route['schedule/resource/new'] = "Resources/new";
 $route['schedule/resource/insert'] = "Resources/insert";
+$route['schedule/resource/edit/(:num)'] = "Resources/edit/$1";
+$route['schedule/resource/update/(:num)'] = "Resources/update/$1";
 
 $route['schedule/resource-requirements/edit/(:num)'] = "ResourceRequirements/edit/$1";
 $route['schedule/resource-requirements/list/(:num)'] = "ResourceRequirements/list/$1";
