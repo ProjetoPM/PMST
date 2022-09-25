@@ -166,12 +166,12 @@ class Workspace extends CI_Controller
 		$alreadyInvited = $this->Workspace_invite_model->userAlreadyInvited($_SESSION['workspace_id'], $user_id);
 		$alreadyInWorkspace = $this->Workspace_user_model->userAlreadyInWorkspace($_SESSION['workspace_id'], $user_id);
 		
-		if(!$alreadyInWorkspace) {
+		if($alreadyInWorkspace) {
 			$this->session->set_flashdata('error', $this->lang->line('already_in_workspace'));
 			redirect('workspace/list');
 		}
 
-		if(!$alreadyInvited) {
+		if($alreadyInvited) {
 			$this->session->set_flashdata('error', $this->lang->line('already_invited'));
 			redirect('workspace/list');
 		}
@@ -198,6 +198,7 @@ class Workspace extends CI_Controller
 	}
 
     public function inviteUsers() {
+        $user_exists_or_already_invited = false;
         $senderRole = $this->Workspace_model->getRole($_SESSION['workspace_id'], $_SESSION['user_id']);
         $date = date('Y-m-d H:i:s', time());
         $workspace_name = $this->Workspace_model->getWorkspaceName($_SESSION['workspace_id']);
@@ -220,10 +221,13 @@ class Workspace extends CI_Controller
             if (empty($user)) continue;
 
             $user_id = $this->User_Model->getUserIdByEmail($user);
-            $alreadyInvited = $this->Workspace_invite_model->userAlreadyInvited($_SESSION['workspace_id'], $user_id);
-            $alreadyInWorkspace = $this->Workspace_user_model->userAlreadyInWorkspace($_SESSION['workspace_id'], $user_id);
+            $already_invited = $this->Workspace_invite_model->userAlreadyInvited($_SESSION['workspace_id'], $user_id);
+            $already_in_workspace = $this->Workspace_user_model->userAlreadyInWorkspace($_SESSION['workspace_id'], $user_id);
             
-            if ($alreadyInvited || $alreadyInWorkspace) continue;
+            if ($already_invited || $already_in_workspace) { 
+                $user_exists_or_already_invited = true;
+                continue;
+            }
 
             $workspace['workspace_id'] = $_SESSION['workspace_id'];
             $workspace['invited_at'] = $date;
@@ -233,12 +237,13 @@ class Workspace extends CI_Controller
             $insertStatus = $this->Workspace_invite_model->insert($workspace);
         }
 
+        if ($user_exists_or_already_invited) {
+            $this->session->set_flashdata('warning', $this->lang->line('ws_feedback_invite_warning'));
+            redirect("workspace/members/{$_SESSION['workspace_id']}");
+        }
+
         $this->session->set_flashdata('error', $this->lang->line('ws_feedback_invite_success'));
         redirect("workspace/members/{$_SESSION['user_id']}");
-
-        var_dump($split_users);
-        // não dá pra usar a função criada individualmente porque ela redireciona em casos de erro...
-        // adaptar a função para cá ou refazê-la aqui.
     }
 
 	public function acceptInvite($workspace_id, $access_level)

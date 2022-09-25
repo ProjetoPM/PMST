@@ -21,7 +21,7 @@ class Workspace_user_model extends CI_Model
 		->get()
 		->result();
 
-		return empty($query);
+		return !empty($query);
 	}
 
 	public function update($member, $user_id, $workspace_id){

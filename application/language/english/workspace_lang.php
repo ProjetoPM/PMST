@@ -16,7 +16,7 @@ $lang['ws_add_new_user'] = 'New User';
 $lang['ws_add_list_of_users'] = 'New Users';
 $lang['ws_new_users'] = "Insert the e-mail of the users you want to invite:";
 $lang['ws_placeholder_example'] = "email@example.com, email2@example.com, email3@example.com...";
-
+$lang['ws_feedback_invite_warning'] = 'Invitation sent successfully but some e-mails were not found in the system or is already invited.';
 $lang['ws_feedback_invite_error'] = 'Only professors are able to invite users to workspace';
 $lang['ws_feedback_invite_success'] = 'Invitation sent successfully';
 $lang['ws_feedback_error'] = 'An error has occurred while inviting users, make sure you\'ve entered at least one e-mail.';

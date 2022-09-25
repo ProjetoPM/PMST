@@ -38,9 +38,8 @@ class Workspace_invite_model extends CI_Model
 		    ->get()
 		    ->result();
 
-		return empty($query);
+		return !empty($query);
 	}
-
 }
 
 
