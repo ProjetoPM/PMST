@@ -53,7 +53,7 @@
 			alertify.confirm('<?= $this->lang->line('wr_alert_confirm_title') ?>',
 				'<?= $this->lang->line('ws_delete_workspace') ?>',
 				function() {
-					window.location.href = `<?= base_url("workspace/delete/$item->workspace_id" ) ?>`;
+					window.location.href = `<?= base_url("workspace/delete/") ?>${id}`;
 					alertify.success('<?= $this->lang->line('wr_alert_confirm_ok') ?>')
 				},
 				function() {
