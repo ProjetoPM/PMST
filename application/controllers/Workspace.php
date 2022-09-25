@@ -197,6 +197,23 @@ class Workspace extends CI_Controller
 		}
 	}
 
+    public function inviteUsers() {
+        // replace -> split -> invite_user
+        
+        $new_users = trim($this->input->post('new_users') ?? []);
+
+        if (empty($new_users)) {
+            $this->session->set_flashdata('error', $this->lang->line('ws_feedback_error'));
+            redirect("workspace/members/{$_SESSION['workspace_id']}");
+        }
+
+        $eliminating_spaces = str_replace(' ', '', $new_users);
+        $split_users = explode(',', $eliminating_spaces);
+        var_dump($split_users);
+        // não dá pra usar a função criada individualmente porque ela redireciona em casos de erro...
+        // adaptar a função para cá ou refazê-la aqui.
+    }
+
 	public function acceptInvite($workspace_id, $access_level)
 	{
 		$workspace_user['workspace_id'] = $workspace_id;

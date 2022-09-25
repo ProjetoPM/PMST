@@ -6,6 +6,7 @@ $lang['btn-register'] = 'Register';
 $lang['btn-upload'] = 'Upload';
 
 $lang['btn-save'] = 'Save';
+$lang['btn-send'] = 'Send';
 $lang['btn-cancel'] = 'Cancel';
 $lang['btn-back'] = 'Back';
 $lang['btn-close'] = 'Close';

@@ -115,6 +115,7 @@ $route['workspace/member/edit/(:num)'] = 'Workspace/editMembers/$1';
 $route['workspace/member/update/(:num)'] = 'Workspace/updateMember/$1';
 $route['workspace/insert'] = 'Workspace/insert';
 $route['workspace/invite'] = 'Workspace/sendInvite';
+$route['workspace/invite-users'] = 'Workspace/inviteUsers';
 $route['workspace/accept-invite/(:num)/(:num)'] = 'Workspace/acceptInvite/$1/$2';
 $route['workspace/decline-invite/(:num)'] = 'Workspace/declineInvite/$1';
 $route['workspace/delete/(:num)'] = 'Workspace/delete/$1';
