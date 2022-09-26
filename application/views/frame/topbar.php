@@ -148,7 +148,6 @@
                <span class="label label-pill label-danger count" style="border-radius:10px;"></span>
                <span class="glyphicon glyphicon-bell" style="font-size:18px;"></span>
              </a>
-
              <ul class="dropdown-menu" style="width: 350px; padding: 5px 10px;">
                <?php if (isset($invites) && !empty($invites)) : ?>
                  <li>
