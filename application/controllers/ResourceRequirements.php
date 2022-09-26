@@ -37,7 +37,7 @@ class ResourceRequirements extends CI_Controller
 
 	}
 
-
+	private $document = 'resource requirements';
 	//RESOURCE REQUIREMENT
 	public function list($project_id)
 	{
@@ -100,7 +100,7 @@ class ResourceRequirements extends CI_Controller
 		$query = $this->Resource_requirements_model->insert($resource_requirement);
 
 		if ($query) {
-			insertLogActivity('insert', 'resource requirements');
+			insertLogActivity('insert', $this->document);
 			$this->session->set_flashdata('success', $feedback_success);
 
 			redirect('schedule/resource-requirements/list/' . $project_id);
@@ -120,10 +120,20 @@ class ResourceRequirements extends CI_Controller
 		$query = $this->Resource_requirements_model->update($data['resource'], $resource_requirement_id);
 
 		if ($query) {
-			insertLogActivity('update', 'resource requirements');
+			insertLogActivity('update', $this->document);
 			$this->session->set_flashdata('success', $feedback_success);
 
 			redirect('schedule/resource-requirements/list/' . $_SESSION['project_id']);
 		}
 	}
+
+	public function delete($resource_requirement_id){
+
+        $query = $this->Resource_requirements_model->delete($resource_requirement_id);
+
+        if ($query) {
+			insertLogActivity('delete', $this->document);
+			redirect('schedule/resource-requirements/list/' . $_SESSION['project_id']);
+		}
+    }
 }

@@ -387,12 +387,14 @@ function loadLangs($views = array())
 
 	if (verifyLanguage()) {
 		$object->lang->load('project-page', 'english');
+		$object->lang->load('feedback', 'english');
 		$object->lang->load('btn', 'english');
 		foreach ($views as $view) {
 			$object->lang->load($view, 'english');
 		}
 	} else{
 		$object->lang->load('project-page', 'portuguese-brazilian');
+		$object->lang->load('feedback', 'portuguese-brazilian');
 		$object->lang->load('btn', 'portuguese-brazilian');
 		foreach ($views as $view) {
 			$object->lang->load($view, 'portuguese-brazilian');

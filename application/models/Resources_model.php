@@ -5,13 +5,14 @@
 			$this->load->database();
 		}
 		private $table = 'resource';
+		private $id = 'resource_id';
 
 		public function insert($resource){
 			return $this->db->insert($this->table, $resource);
 		}
 
-        public function get($id){
-            $query = $this->db->get_where($this->table, array('resource_id'=>$id));
+        public function get($resource_id){
+            $query = $this->db->get_where($this->table, array($this->id => $resource_id));
             return $query->row_array();
         }
 
@@ -24,12 +25,12 @@
 
 
         public function update($resource, $resource_id){
-            $this->db->where('resource.resource_id', $resource_id);
+            $this->db->where("$this->table.$this->id", $resource_id);
             return $this->db->update($this->table, $resource);
         }
 
         public function delete($resource_id){
-            $this->db->where('resource.resource_id', $resource_id);
+            $this->db->where("$this->table.$this->id", $resource_id);
             return $this->db->delete($this->table);
         }
 

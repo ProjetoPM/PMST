@@ -51,7 +51,7 @@ $lang['agregate-value'] = 'Earned Value Management';
 $lang['project-schedule-network'] = 'Schedule Network Diagram';
 $lang['activity-resource'] = 'Resource Requirements';
 $lang['activity-duration'] = 'Duration Estimates';
-$lang['project-calendar'] = 'Project Calendars';
+$lang['project-calendar'] = 'Stakeholder Calendars';
 
 // Cost
 $lang['cost-management'] = 'Cost Management Plan';

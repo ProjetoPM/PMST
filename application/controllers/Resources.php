@@ -13,8 +13,9 @@ class Resources extends CI_Controller
         $this->load->model('Project_model');
         $this->load->model('view_model');
         $this->load->model('log_model');
-        
 
+        
+        
         $userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
         
         if ($userInProject) {
@@ -27,12 +28,13 @@ class Resources extends CI_Controller
         }
         $this->load->helper('url');
         $this->load->helper('log_activity');
-
+        
 		$langs = array();
         array_push($langs, 'resource_requirements', 'resources');
-
+        
         loadLangs($langs);
     }
+    private $document = 'resources';
     
     public function new()
     {
@@ -108,10 +110,20 @@ class Resources extends CI_Controller
         $query = $this->Resources_model->update($resource, $resource_id);
 
         if ($query) {
-            insertLogActivity('update', 'resources');
+            insertLogActivity('update', $this->document);
             $this->session->set_flashdata('success', $feedback_success);
             redirect('schedule/resource-requirements/list/' . $resource['project_id']);
         }
+    }
+
+    public function delete($resource_id){
+
+        $query = $this->Resources_model->delete($resource_id);
+
+        if ($query) {
+			insertLogActivity('delete', $this->document);
+			redirect('schedule/resource-requirements/list/' . $_SESSION['project_id']);
+		}
     }
 
 }

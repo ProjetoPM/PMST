@@ -286,6 +286,19 @@ $route['schedule/activity-list/milestone/delete/(:num)'] = "ActivityList/deleteM
 $route['schedule/activity-list/project-phase/insert']= "ActivityList/insertPhase";
 $route['schedule/activity-list/project-phase/delete/(:num)']= "ActivityList/deletePhase/$1";
 
+$route['schedule/resource/new'] = "Resources/new";
+$route['schedule/resource/insert'] = "Resources/insert";
+$route['schedule/resource/edit/(:num)'] = "Resources/edit/$1";
+$route['schedule/resource/update/(:num)'] = "Resources/update/$1";
+$route['schedule/resource/delete/(:num)'] = "Resources/delete/$1";
+
+$route['schedule/resource-requirements/edit/(:num)'] = "ResourceRequirements/edit/$1";
+$route['schedule/resource-requirements/list/(:num)'] = "ResourceRequirements/list/$1";
+$route['schedule/resource-requirements/insert/(:num)'] = "ResourceRequirements/insert/$1";
+$route['schedule/resource-requirements/new'] = "ResourceRequirements/new";
+$route['schedule/resource-requirements/update/(:num)'] = "ResourceRequirements/update/$1";
+$route['schedule/resource-requirements/delete/(:num)'] = "ResourceRequirements/delete/$1";
+
 $route['procurement/closed-procurement-documentation/new/(:num)'] = "ClosedProcurementDocumentation/new/$1";
 $route['procurement/closed-procurement-documentation/edit/(:num)'] = "ClosedProcurementDocumentation/edit/$1";
 $route['procurement/closed-procurement-documentation/list/(:num)'] = "ClosedProcurementDocumentation/list/$1";
@@ -307,17 +320,6 @@ $route['schedule/project-schedule-network-diagram/insert'] = "ScheduleNetworkDia
 $route['schedule/project-schedule-network-diagram/update/(:num)'] = "ScheduleNetworkDiagram/update/$1";
 $route['schedule/project-schedule-network-diagram/delete/(:num)'] = "ScheduleNetworkDiagram/delete/$1";
 
-$route['schedule/resource/new'] = "Resources/new";
-$route['schedule/resource/insert'] = "Resources/insert";
-$route['schedule/resource/edit/(:num)'] = "Resources/edit/$1";
-$route['schedule/resource/update/(:num)'] = "Resources/update/$1";
-
-$route['schedule/resource-requirements/edit/(:num)'] = "ResourceRequirements/edit/$1";
-$route['schedule/resource-requirements/list/(:num)'] = "ResourceRequirements/list/$1";
-$route['schedule/resource-requirements/insert/(:num)'] = "ResourceRequirements/insert/$1";
-$route['schedule/resource-requirements/new'] = "ResourceRequirements/new";
-$route['schedule/resource-requirements/update/(:num)'] = "ResourceRequirements/update/$1";
-$route['schedule/resource-requirements/delete/(:num)'] = "ResourceRequirements/delete/$1";
 
 $route['schedule/duration-estimates/new/(:num)'] = "DurationEstimates/new/$1";
 $route['schedule/duration-estimates/edit/(:num)'] = "DurationEstimates/edit/$1";
