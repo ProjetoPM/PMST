@@ -12,8 +12,8 @@
 
      <span class="logo-mini"><b>SB</b></span>
      <!-- logo for regular state and mobile devices -->
-     <figure class="logo-lg"><img src="<?= base_url() ?>assets/images/silverbullet_logo.png" style="max-width: 65%; height: auto; margin-left: auto; max-height: max-content;
-  margin-right: auto;"></figure>
+     <figure class="logo-lg"><img src="<?= base_url() ?>assets/images/silverbullet_logo.png" align="center" style="display: block; max-width: 65%; height: auto; margin-left: auto; max-height: max-content;
+  margin-right: auto;" margin-left: auto; margin-right: auto;></figure>
      <!-- <span class="logo-lg"><b>Silver Bullet</b></span> -->
    </a>
    <!-- Header Navbar: style can be found in header.less -->
@@ -30,17 +30,6 @@
          <img id="loading" width="250px" src="<?= base_url() ?>assets/images/loading.gif" alt="Loading...">  -->
 
          <style>
-           /* Solução temporária... */
-           @media(max-width: 768px) {
-             .main-header>.logo>.logo-lg {
-               display: none;
-             }
-
-             .main-header>a.logo {
-               display: none;
-             }
-           }
-
            .load {
              width: 100px;
              height: 100px;
@@ -108,25 +97,28 @@
            }
          </style>
 
-         <?php if ($_SESSION['project_id'] != null) : ?>
+         <?php if ($_SESSION['project_id'] != null) { ?>
            <div class="title">
              <p>
                <strong><?= $this->lang->line('project_title') ?> <?php echo $_SESSION['project_name'] ?></strong>
              </p>
            </div>
-           <div class="load"><i style="padding-top:2px;padding-right:100%" class="fa fa-cog fa-spin fa-2x fa-fw"></i><span class="sr-only">Loading...</span></div>
-         <?php endif ?>
+
+         <?php } ?>
+         <div class="load" ><i style="padding-top:2px;padding-right:100%" class="fa fa-cog fa-spin fa-2x fa-fw"></i><span  class="sr-only">Loading...</span>
+         </div>
 
          <li class="dropdown hidden-xs" style="max-height: 50px;background-color: transparent;vertical-align:bottom">
            <form>
              <div class="form-group" style="vertical-align:bottom">
-             <div id="advanced" style="vertical-align:bottom" data-input-name="country3" data-selected-country="<?php if(strcmp($_SESSION['language'],"US") == 0){ echo "US";}else{echo"BR";} ?>" data-button-size="btn-lg" data-button-type="language" data-scrollable="true" data-scrollable-height="250px" data-countries='{"US": "United States","BR": "Brazil"}'>
+            
+               <div id="advanced" style="vertical-align:bottom" data-input-name="country3" data-selected-country="<?php if(strcmp($_SESSION['language'],"US") == 0){ echo "US";}else{echo"BR";} ?>" data-button-size="btn-lg" data-button-type="language" data-scrollable="true" data-scrollable-height="250px" data-countries='{"US": "United States","BR": "Brazil"}'>
                </div>
              </div>
            </form>
          </li>
 
-         <?php if ($_SESSION['project_id'] != null) : ?>
+         <?php if ($_SESSION['project_id'] != null) { ?>
 
            <li class="dropdown hidden-xs">
            <li class="dropdown notifications-menu">
@@ -135,8 +127,9 @@
              </a>
            </li>
            </li>
-         <?php endif ?>
 
+         <?php } ?>
+         
          <?php if (isset($view_id) && strcmp($view_id, "79") === 0) : ?>
            <li class="dropdown">
              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -167,6 +160,7 @@
            </li>
          <?php endif ?>
 
+
          <li class="dropdown user user-menu">
            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
              <img src="<?= base_url() ?>assets/images/user-icon.jpg" class="user-image profileImgUrl" alt="User Image">
@@ -186,7 +180,7 @@
              <li class="user-footer">
                <div class="pull-left">
                  <!-- <a href="#" class="btn btn-info btn-flat">Profile</a> -->
-                 <a data-toggle="modal" data-target="#myAccount" href="#myAccount" class="btn btn-info btn-flat"><?= $this->lang->line('my_profile') ?> </a>
+                 <a data-toggle="modal" data-target="#myAccount" href="#myAccount" class="btn btn-info btn-flat"><?= $this->lang->line('my_profile')?> </a>
                </div>
                <div class="pull-right">
                  <a href="<?= base_url(); ?>authentication/logout" class="btn btn-danger btn-block"><?= $this->lang->line('logout'); ?></a>
@@ -204,7 +198,7 @@
                <form role="form" method="post" onsubmit="return checkEmptyInput();" action="<?= base_url() ?>register/saveUpdateUser/">
                  <div class="modal-header text-center">
                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                   <h2 class="modal-title w-100 font-weight-bold"><?= $this->lang->line('user_data') ?></h2>
+                   <h2 class="modal-title w-100 font-weight-bold"><?= $this->lang->line('user_data')?></h2>
                  </div>
                  <?php $this->db->where('user_id', $_SESSION['user_id']);
                   $datauser = $this->db->get('user')->result();
@@ -214,17 +208,17 @@
                        <input id="user_id" name="user_id" type="hidden" placeholder="user_id" class="form-control input-md" value="<?= $data->user_id; ?>" required="true" readonly>
                      </div>
                      <div class="md-form mb-5">
-                       <label data-error="wrong" data-success="right" for="form3"><?= $this->lang->line('user_name') ?></label>
+                       <label data-error="wrong" data-success="right" for="form3"><?= $this->lang->line('user_name')?></label>
                        <input class="form-control" id="name" placeholder="Full name" name="name" type="name" value="<?= $data->name; ?>" required="true">
                      </div>
                      <br>
                      <div class="md-form mb-4">
-                       <label data-error="wrong" data-success="right" for="form2"><?= $this->lang->line('user_email') ?></label>
+                       <label data-error="wrong" data-success="right" for="form2"><?= $this->lang->line('user_email')?></label>
                        <input class="form-control" id="email" placeholder="E-mail" name="email" type="email" value="<?= $data->email; ?>" required="true" readonly>
                      </div>
                      <br>
                      <div class="md-form mb-4">
-                       <label data-error="wrong" data-success="right" for="form2"><?= $this->lang->line('user_institution') ?></label>
+                       <label data-error="wrong" data-success="right" for="form2"><?= $this->lang->line('user_institution')?></label>
                        <input class="form-control" id="institution" placeholder="Institution" name="institution" type="institution" value="<?= $data->institution; ?>" required="true">
                      </div>
                      <br>
@@ -239,10 +233,10 @@
 
                    <div class="modal-footer">
                      <div class="pull-left">
-                       <a data-toggle="modal" data-target="#changePasswordModal" href="#changePasswordModal" class="btn btn-info btn-flat"><?= $this->lang->line('change-password') ?></a>
+                       <a data-toggle="modal" data-target="#changePasswordModal" href="#changePasswordModal" class="btn btn-info btn-flat"><?= $this->lang->line('change-password')?></a>
                      </div>
-                     <button type="button" class="btn btn-default" data-dismiss="modal"><?= $this->lang->line('btn-close') ?></button>
-                     <input id="login-submit" id="login-submit" type="submit" class="btn btn-success" value="<?= $this->lang->line('btn-save'); ?>">
+                     <button type="button" class="btn btn-default" data-dismiss="modal"><?= $this->lang->line('btn-close')?></button>
+                     <input id="login-submit" id="login-submit" type="submit" class="btn btn-success" value="<?= $this->lang->line('btn-save');?>">
                    </div>
                </form>
              </div>
@@ -276,8 +270,8 @@
                    </div>
                </div>
                <div class="modal-footer">
-                 <button type="button" class="btn btn-danger" data-dismiss="modal"><?= $this->lang->line('btn-cancel') ?></button>
-                 <button type="submit" onclick="return validar()" class="btn btn-success"><?= $this->lang->line('btn-save') ?></button>
+                 <button type="button" class="btn btn-danger" data-dismiss="modal"><?= $this->lang->line('btn-cancel')?></button>
+                 <button type="submit" onclick="return validar()" class="btn btn-success"><?= $this->lang->line('btn-save')?></button>
                  </form>
                </div>
              </div>
@@ -304,7 +298,7 @@
                    url: "<?php echo base_url() ?>change_language/" + value,
                    type: "POST",
                    // data: form_data,
-                   cache: false,
+                   cache: true,
                    success: function(returnhtml) {
                      alertify.success('Language Changed!');
                      location.reload(true);
