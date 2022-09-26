@@ -120,12 +120,7 @@
          <li class="dropdown hidden-xs" style="max-height: 50px;background-color: transparent;vertical-align:bottom">
            <form>
              <div class="form-group" style="vertical-align:bottom">
-
-               <div id="advanced" style="vertical-align:bottom" data-input-name="country3" data-selected-country="<?php if (strcmp($_SESSION['language'], "US") == 0) {
-                                                                                                                    echo "US";
-                                                                                                                  } else {
-                                                                                                                    echo "BR";
-                                                                                                                  } ?>" data-button-size="btn-lg" data-button-type="language" data-scrollable="true" data-scrollable-height="250px" data-countries='{"US": "United States","BR": "Brazil"}'>
+             <div id="advanced" style="vertical-align:bottom" data-input-name="country3" data-selected-country="<?php if(strcmp($_SESSION['language'],"US") == 0){ echo "US";}else{echo"BR";} ?>" data-button-size="btn-lg" data-button-type="language" data-scrollable="true" data-scrollable-height="250px" data-countries='{"US": "United States","BR": "Brazil"}'>
                </div>
              </div>
            </form>
