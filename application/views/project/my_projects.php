@@ -62,12 +62,12 @@
                                                         </a>
 
                                                         <!-- list members -->
-                                                        <a href="<?= base_url("user/list/" . $project->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>" data-toggle="tooltip" title="<?= $this->lang->line('btn-list-members') ?>">
+                                                        <a href="<?= base_url("user/list/$project->project_id") ?>" class="btn btn-default <?php echo $view . $execute; ?>" data-toggle="tooltip" title="<?= $this->lang->line('btn-list-members') ?>">
                                                             <i class="fa fa-users"></i>
                                                         </a>
 
                                                         <!-- export overleaf -->
-                                                        <a href="<?= base_url("projecttooverleaf/exportlatex/" . $project->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>" data-toggle="tooltip" title="<?= $this->lang->line('export_overleaf') ?>">
+                                                        <a href="<?= base_url("project/overleaf/$project->project_id") ?>" class="btn btn-default <?php echo $view . $execute; ?>" data-toggle="tooltip" title="<?= $this->lang->line('export_overleaf') ?>">
                                                             <i class="fa fa-book"></i>
                                                         </a>
 

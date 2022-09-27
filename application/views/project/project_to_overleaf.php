@@ -104,7 +104,7 @@
 									</button>
 							</form>
 
-							<form action="<?php echo base_url('projects'); ?><?php echo $_SESSION['project_id']; ?>">
+							<form action='<?= base_url("projects/{$_SESSION['workspace_id']}") ?>'>
 								<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 							</form>
 

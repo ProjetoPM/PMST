@@ -114,15 +114,11 @@
 
 						<div class="panel-body">
 							<h1 class="page-header">
-
 								User List
-
 							</h1>
-
 							<div class="row">
 								<div class="col-lg-12">
-
-									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>researcher/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
+									<button class="btn btn-success btn-lg" onclick="window.location.href='<?php echo base_url() ?>researcher/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?></button>
 								</div>
 							</div>
 
@@ -164,16 +160,12 @@
 													<td><span class="texttd"><?= getEmail($item->user_id) ?></span></td>
 													<td style="display: fixed;min-width: 100px;">
 														<div class="row center">
-															<div class="col-sm-4">
+															<div class="col-sm-12">
 																<form action="<?php echo base_url() ?>researcher/edit-researcher/<?php echo $project_id ?>" method="post">
 																	<input type="hidden" name="project_id" value="<?= $item->project_id ?>">
 																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
-
+																	<button type="submit" class="btn btn-danger" onclick="deletar(<?= $item->project_id ?>, <?= $item->user_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
 																</form>
-															</div>
-
-															<div class="col-sm-4">
-																<button type="submit" class="btn btn-danger" onclick="deletar(<?= $item->project_id ?>, <?= $item->user_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
 															</div>
 														</div>
 													</td>
@@ -185,7 +177,7 @@
 										</tbody>
 									</table>
 
-									<form action="<?php echo base_url('projects/'); ?>">
+									<form action='<?= base_url("projects/{$_SESSION['workspace_id']}") ?>'>
 										<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 									</form>
 								</div>
