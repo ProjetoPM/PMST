@@ -32,15 +32,14 @@ class Workspace_invite_model extends CI_Model
 
 	function userAlreadyInvited($workspace_id, $user_id){
 		$query = $this->db->select('user_id')
-		->from($this->table)
-		->where("$this->table.workspace_id", $workspace_id)
-		->where("$this->table.user_id", $user_id)
-		->get()
-		->result();
+		    ->from($this->table)
+		    ->where("$this->table.workspace_id", $workspace_id)
+		    ->where("$this->table.user_id", $user_id)
+		    ->get()
+		    ->result();
 
-		return empty($query);
+		return !empty($query);
 	}
-
 }
 
 
