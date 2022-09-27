@@ -13,8 +13,9 @@ class Resources extends CI_Controller
         $this->load->model('Project_model');
         $this->load->model('view_model');
         $this->load->model('log_model');
-        
 
+        
+        
         $userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
         
         if ($userInProject) {
@@ -27,12 +28,13 @@ class Resources extends CI_Controller
         }
         $this->load->helper('url');
         $this->load->helper('log_activity');
-
+        
 		$langs = array();
         array_push($langs, 'resource_requirements', 'resources');
-
+        
         loadLangs($langs);
     }
+    private $document = 'resources';
     
     public function new()
     {
@@ -73,26 +75,8 @@ class Resources extends CI_Controller
     
     }
 
-    
-    public function list($project_id)
-    {
-        if (strcmp($_SESSION['language'], "US") == 0) {
-            $this->lang->load('btn', 'english');
-        } else {
-            $this->lang->load('btn', 'portuguese-brazilian');
-        }
-        
-        $dado['project_id'] = $_SESSION['project_id'];
-        $dado['assumption_log'] = $this->Assumption_log_model->getAll($_SESSION['project_id']);
-        $this->load->view('frame/header_view');
-        $this->load->view('frame/topbar');
-        $this->load->view('frame/sidebar_nav_view');
 
-        $this->load->view('project/integration/assumption_log/list', $dado);
-    }
-
-
-    public function edit($assumption_log_id)
+    public function edit($resource_id)
     {
         if (strcmp($_SESSION['language'], "US") == 0) {
             $this->lang->load('btn', 'english');
@@ -100,16 +84,16 @@ class Resources extends CI_Controller
             $this->lang->load('btn', 'portuguese-brazilian');
         }
 
-        $query['assumption_log'] = $this->Assumption_log_model->get($assumption_log_id);
-        $query["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "assumption log", $query['assumption_log']['assumption_log_id']);
+        $query['resource'] = $this->Resources_model->get($resource_id);
+        $query["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "resources", $query['resource']['resource_id']);
 
         $this->load->view('frame/header_view.php');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view.php');
-        $this->load->view('project/integration/assumption_log/edit', $query);
+        $this->load->view('project/schedule/resources/edit', $query);
     }
 
-    public function update($assumption_log_id)
+    public function update($resource_id)
     {
         if (strcmp($_SESSION['language'], "US") == 0) {
             $feedback_success = 'Item Updated';
@@ -117,16 +101,29 @@ class Resources extends CI_Controller
             $feedback_success = 'Item Atualizado ';
         }
 
-        $assumption_log['description_log'] = $this->input->post('description_log');
-        // $assumption_log['type'] = $this->input->post('type');
-        $assumption_log['project_id'] = $_SESSION['project_id'];
-        $query = $this->Assumption_log_model->update($assumption_log, $assumption_log_id);
+        $resource['resource_name'] = $this->input->post('resource_name');
+        $resource['resource_type'] = $this->input->post('resource_type');
+        $resource['resource_description'] = $this->input->post('resource_description');
+        $resource['cost_per_unit'] = $this->input->post('resource_cost_per_unit');
+        $resource['project_id'] = $_SESSION['project_id'];
+
+        $query = $this->Resources_model->update($resource, $resource_id);
 
         if ($query) {
-            insertLogActivity('update', 'assumption log');
+            insertLogActivity('update', $this->document);
             $this->session->set_flashdata('success', $feedback_success);
-            redirect('integration/assumption-log/list/' . $_SESSION['project_id']);
+            redirect('schedule/resource-requirements/list/' . $resource['project_id']);
         }
+    }
+
+    public function delete($resource_id){
+
+        $query = $this->Resources_model->delete($resource_id);
+
+        if ($query) {
+			insertLogActivity('delete', $this->document);
+			redirect('schedule/resource-requirements/list/' . $_SESSION['project_id']);
+		}
     }
 
 }
