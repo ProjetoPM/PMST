@@ -12,7 +12,7 @@
 				$this->lang->load('btn', 'english');
 				//$this->lang->load('btn', 'portuguese-brazilian');
         		$this->lang->load('project_mp','english');
-				$this->load->model('Project_Management_model');
+				$this->load->model('Project_management_model');
 				$this->load->model('Project_model');
 			}
 
@@ -38,7 +38,7 @@
 	    $this->db->where('user_id', $idusuario);
 	    $project['dados'] = $this->db->get('project_user')->result();
 
-		$dado['project_mp'] = $this->Project_Management_model->get($project_id);
+		$dado['project_mp'] = $this->Project_management_model->get($project_id);
        	// $this->db->where('id', $project_id);
 		
 

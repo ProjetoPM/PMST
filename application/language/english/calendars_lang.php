@@ -1,7 +1,7 @@
 <?php
 
 // Title
-$lang['pca-title'] = 'Project Calendars';
+$lang['pca-title'] = 'Stakeholder Calendars';
 //Form
 $lang['pca-activity_name'] = 'Activity Name';
 $lang['pca-resource_name'] = 'Resource Name';

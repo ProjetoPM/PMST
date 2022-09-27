@@ -70,9 +70,13 @@
 									</button>
 							</form>
 
-							<form action="<?= base_url("projects/{$_SESSION['workspace_id']}") ?>">
-								<button style="margin-top: 30px;" class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
-							</form>
+							<a 
+                                style="margin-top: 30px;" 
+                                class="btn btn-lg btn-info pull-left" 
+                                href="<?= base_url("weekly-evaluation/list/{$_SESSION['workspace_id']}") ?>"
+                            >
+								<i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ $lang['btn-save'] = 'Salvar';
 $lang['btn-new'] = 'Novo';
 $lang['btn-new2'] = 'Nova';
 $lang['btn-cancel'] = 'Cancelar';
+$lang['btn-send'] = 'Enviar';
 $lang['btn-back'] = 'Voltar';
 $lang['btn-close'] = 'Fechar';
 $lang['btn-edit'] = 'Editar';

@@ -2,23 +2,7 @@
     <div class="wrapper">
         <div class="content-wrapper">
             <section class="content">
-
-                <?php if ($this->session->flashdata('success')) : ?>
-                    <div class="alert alert-success">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <strong><?php echo $this->session->flashdata('success'); ?></strong>
-                    </div>
-                <?php elseif ($this->session->flashdata('error')) : ?>
-                    <div class="alert alert-warning">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <strong><?php echo $this->session->flashdata('error'); ?></strong>
-                    </div>
-                <?php endif; ?>
-                <!-- /.row -->
+                <?php $this->load->view('errors/exceptions') ?>
 
                 <style>
                     @media (min-width: 1200px) {
@@ -110,9 +94,13 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#inviteUsers">
+                                        <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#invite-user">
                                             <i class="fa fa-plus-square m-r-5"></i>
                                             <?= $this->lang->line('ws_add_new_user') ?>
+                                        </button>
+                                        <button class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#invite-users">
+                                            <i class="fa fa-plus-square m-r-5"></i>
+                                            <?= $this->lang->line('ws_add_list_of_users') ?>
                                         </button>
                                     </div>
                                 </div>
@@ -166,6 +154,7 @@
     </div>
 </body>
 <?php $this->load->view('workspace/members/invite_user_modal'); ?>
+<?php $this->load->view('workspace/members/invite_list_modal'); ?>
 
 <script src="<?= base_url() ?>assets/js/jquery-2.1.3.min.js"></script>
 <script src="<?= base_url() ?>assets/js/jquery.dataTables.min.js"></script>

@@ -76,7 +76,7 @@
 									</button>
 							</form>
 
-							<form action="<?php echo base_url("weekly-evaluation/list") ?>">
+							<form action="<?php echo base_url("weekly-evaluation/list/{$_SESSION['workspace_id']}") ?>">
 								<button style="margin-top: 30px;" class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 							</form>
                         </div>

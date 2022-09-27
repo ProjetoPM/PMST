@@ -37,7 +37,7 @@ class ResourceRequirements extends CI_Controller
 
 	}
 
-
+	private $document = 'resource requirements';
 	//RESOURCE REQUIREMENT
 	public function list($project_id)
 	{
@@ -61,6 +61,7 @@ class ResourceRequirements extends CI_Controller
 		$this->load->view('project/schedule/resource_requirement/list', $data);
 	}
 	
+	
 	public function edit($resource_requirement_id)
 	{
 		
@@ -71,7 +72,6 @@ class ResourceRequirements extends CI_Controller
 		$this->load->view('frame/sidebar_nav_view.php');
 		$this->load->view('project/schedule/resource_requirement/edit', $data);
 	}
-
 
 	public function new()
 	{
@@ -100,13 +100,13 @@ class ResourceRequirements extends CI_Controller
 		$query = $this->Resource_requirements_model->insert($resource_requirement);
 
 		if ($query) {
-			insertLogActivity('insert', 'resource requirements');
+			insertLogActivity('insert', $this->document);
 			$this->session->set_flashdata('success', $feedback_success);
 
 			redirect('schedule/resource-requirements/list/' . $project_id);
 		}
 	}
-	public function update($activity_id)
+	public function update($resource_requirement_id)
 	{
 		if(strcmp($_SESSION['language'],"US") == 0){
 			$feedback_success = 'Item Updated';
@@ -114,21 +114,26 @@ class ResourceRequirements extends CI_Controller
 			$feedback_success = 'Item Atualizado ';
 		}
 
-		$activity['resource_description'] = $this->input->post('resource_description');
-		$activity['required_amount_of_resource'] = $this->input->post('required_amount_of_resource');
-		$activity['resource_cost_per_unit'] = $this->input->post('resource_cost_per_unit');
-		$activity['resource_type'] = $this->input->post('resource_type');
+		$resource['resource_amount'] = $this->input->post('required_amount_of_resource');
 
-		$activity['project_id'] = $_SESSION['project_id'];
-
-		$data['activity'] = $activity;
-		$query = $this->Activity_model->update($data['activity'], $activity_id);
+		$data['resource'] = $resource;
+		$query = $this->Resource_requirements_model->update($data['resource'], $resource_requirement_id);
 
 		if ($query) {
-			insertLogActivity('update', 'resource requirements');
+			insertLogActivity('update', $this->document);
 			$this->session->set_flashdata('success', $feedback_success);
 
-			redirect('schedule/resource-requirements/list/' . $activity['project_id']);
+			redirect('schedule/resource-requirements/list/' . $_SESSION['project_id']);
 		}
 	}
+
+	public function delete($resource_requirement_id){
+
+        $query = $this->Resource_requirements_model->delete($resource_requirement_id);
+
+        if ($query) {
+			insertLogActivity('delete', $this->document);
+			redirect('schedule/resource-requirements/list/' . $_SESSION['project_id']);
+		}
+    }
 }

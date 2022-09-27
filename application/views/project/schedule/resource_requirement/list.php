@@ -56,8 +56,8 @@
 												<th><?= $this->lang->line('activity_name') ?></th>
 												<th><?= $this->lang->line('resource_name') ?></th>
 												<th><?= $this->lang->line('required_amount_of_resource') ?></th>
-												<th><?= $this->lang->line('cost_per_unit') ?></th>
-												<th>Total Cost</th>
+												<th><?= $this->lang->line('resource_cost_per_unit') ?></th>
+												<th><?= $this->lang->line('resource_total_cost') ?></th>
 
 												<th><?= $this->lang->line('btn-actions') ?></th>
 											</tr>
@@ -81,6 +81,10 @@
 																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 																</form>
 															</div>
+															<button onclick="remove(`<?= $r->resource_requirements_id ?>`,'resource-requirements')" class="btn btn-danger">
+															<i class="fa fa-trash"></i>
+															<span class="hidden-xs"></span>
+														</button>
 														</div>
 													</td>
 												</tr>
@@ -112,6 +116,20 @@
 													<td><?= $resource->resource_description; ?></td>
 													<td><?= $resource->cost_per_unit; ?></td>
 													<td><?= $resource->resource_type; ?></td>
+													<td <?= getStatusFieldsList("resources", $resource->resource_id) ?> style="max-width: 20px">
+														<div class="row center">
+															<div class="col-sm-3">
+																<form action="<?php echo base_url() ?>schedule/resource/edit/<?= $resource->resource_id; ?>" method="post">
+																	<input type="hidden" name="project_id" value="<?= $project_id; ?>">
+																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
+																</form>
+															</div>
+														</div>
+														<button onclick="remove(`<?= $resource->resource_id ?>`,'resources')" class="btn btn-danger">
+															<i class="fa fa-trash"></i>
+															<span class="hidden-xs"></span>
+														</button>
+													</td>
 												</tr>
 											<?php
 											endforeach
@@ -196,30 +214,23 @@
 	});
 </script>
 
-<script type="text/javascript">
-	function deletar(idProjeto, id) {
-		//e.preventDefault();
-		alertify.confirm('Do you agree?').setting({
-			'labels': {
-				ok: 'Agree',
-				cancel: 'Cancel'
-			},
-			'reverseButtons': false,
-			'onok': function() {
-
-				console.log(`Passei o ${idProjeto} e ${id}`);
-
-				$.post("<?= base_url() ?>schedule/activity-list/delete/" + id, {
-					project_id: idProjeto,
-				});
-
-				alertify.success('You agree.');
-				location.reload();
-				//location.reload();
-			},
-			'oncancel': function() {
-				alertify.error('You did not agree.');
-			}
-		}).show();
-	}
+<script>
+		function remove(id, view) {
+			console.log(view)
+			alertify.set('notifier', 'delay', 1.5);
+			alertify.confirm('<?= $this->lang->line('delete_item') ?>',
+				'<?= $this->lang->line('delete_item_confirm') ?>',
+				function() {
+					if(view == 'resources'){
+						window.location.href = `<?= base_url('schedule/resource/delete/') ?>${id}`;
+					}else{
+						window.location.href = `<?= base_url('schedule/resource-requirements/delete/') ?>${id}`;
+					}
+					alertify.success('<?= $this->lang->line('wr_alert_confirm_ok') ?>')
+				},
+				function() {
+					alertify.warning('<?= $this->lang->line('wr_alert_confirm_cancel') ?>')
+				}
+			);
+		}
 </script>
