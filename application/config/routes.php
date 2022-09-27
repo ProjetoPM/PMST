@@ -128,6 +128,7 @@ $route['projects/(:num)'] = 'Project/listProjects/$1';
 $route['edit/(:num)'] = 'Project/update/$1';
 $route['project/(:num)'] = 'Project/initial/$1';
 $route['delete/(:num)'] = 'Project/delete/$1';
+$route['project/overleaf/(:num)'] = 'ProjectToOverleaf/exportLatex/$1';
 // End Projects
 
 $route['weekly-report/new'] = "WeeklyReport/new";
