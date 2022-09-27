@@ -237,7 +237,7 @@ class Workspace extends CI_Controller
 
             $workspace['workspace_id'] = $_SESSION['workspace_id'];
             $workspace['invited_at'] = $date;
-            $workspace['access_level'] = 1;
+            $workspace['access_level'] = 2;
             $workspace['email'] = $user;
             $workspace['user_id'] = $user_id;
 
