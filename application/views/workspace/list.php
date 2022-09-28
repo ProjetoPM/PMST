@@ -27,15 +27,16 @@
                                         </thead>
                                         <tbody>
                                             <?php foreach ($workspace as $item) : ?>
+                                            <?php $is_professor = strcmp(verifyWorkspaceAcesslevel($item->workspace_id, $item->user_id), "Professor") === 0; ?>
                                             <tr>
                                                     <td><?= $item->name ?></td>
                                                     <td>
                                                         <a href="<?= base_url("projects/" . $item->workspace_id) ?>" class="btn btn-default"><em class="fa fa-folder-open-o"></em><span class="hidden-xs"></span></a>
                                                         <a href="<?= base_url("workspace/members/$item->workspace_id" ) ?>" class="btn btn-default"><i class="fa fa-users"></i></a>
                                                         <button 
-                                                            onclick=remove(<?= $item->workspace_id ?>) 
-                                                            class="btn btn-danger"
-                                                        ><i class="fa <?= strcmp(verifyWorkspaceAcesslevel($item->workspace_id, $item->user_id), "Professor") ? 'fa-trash' : 'fa-sign-out' ?>"></i></a>
+                                                            onclick="<?= $is_professor ? 'remove' : 'leave' ?>(<?= $item->workspace_id ?>)"
+                                                            class="btn <?= $is_professor ? 'btn-danger' : 'btn-default' ?>"
+                                                        ><i class="fa <?= $is_professor ? 'fa-trash' : 'fa-sign-out' ?>"></i></a>
                                                     </td>
                                                     <td><?= verifyWorkspaceAcesslevel($item->workspace_id, $item->user_id);  ?></td>
                                                     <?php endforeach ?>
@@ -55,6 +56,20 @@
 			alertify.set('notifier', 'delay', 1.5);
 			alertify.confirm('<?= $this->lang->line('wr_alert_confirm_title') ?>',
 				'<?= $this->lang->line('ws_delete_workspace') ?>',
+				function() {
+					window.location.href = `<?= base_url("workspace/delete/") ?>${id}`;
+					alertify.success('<?= $this->lang->line('wr_alert_confirm_ok') ?>')
+				},
+				function() {
+					alertify.warning('<?= $this->lang->line('wr_alert_confirm_cancel') ?>')
+				}
+			);
+		}
+
+        function leave(id) {
+			alertify.set('notifier', 'delay', 1.5);
+			alertify.confirm('<?= $this->lang->line('wr_alert_confirm_title') ?>',
+				'<?= $this->lang->line('ws_exit_workspace') ?>',
 				function() {
 					window.location.href = `<?= base_url("workspace/delete/") ?>${id}`;
 					alertify.success('<?= $this->lang->line('wr_alert_confirm_ok') ?>')

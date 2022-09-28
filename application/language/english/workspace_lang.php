@@ -3,15 +3,12 @@
 $lang['ws_title'] = 'Workspaces';
 $lang['ws_workspaces'] = 'Workspace';
 $lang['ws_name'] = 'Name';
-
 $lang['ws_access_level'] = 'Access Level';
 $lang['ws_new_workspace'] = 'New Workspace';
 $lang['ws_active_status'] = 'Active';
 $lang['ws_inactive_status'] = 'Inactive';
 $lang['ws_status'] = 'Status';
-
 $lang['ws_invite'] = 'Invite Users';
-
 $lang['ws_add_new_user'] = 'New User';
 $lang['ws_add_list_of_users'] = 'New Users';
 $lang['ws_new_users'] = "Insert the e-mail of the users you want to invite:";
@@ -24,5 +21,6 @@ $lang['ws_delete_workspace'] = 'Are sure you want to delete this workspace?';
 $lang['ws_professor'] = 'Professor';
 $lang['ws_grade'] = 'Grade';
 $lang['ws_comment'] = 'Comment';
-$lang['ws_no_grade'] = 'Report Not Evaluated Yet'
+$lang['ws_no_grade'] = 'Report Not Evaluated Yet';
+$lang['ws_exit_workspace'] = 'Are you sure you want to leave this workspace?';
 ?>

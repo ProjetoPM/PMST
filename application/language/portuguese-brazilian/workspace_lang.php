@@ -10,9 +10,7 @@ $lang['ws_new_workspace'] = 'Nova Área de Trabalho';
 $lang['ws_active_status'] = 'Ativo';
 $lang['ws_inactive_status'] = 'Inativo';
 $lang['ws_status'] = 'Situação';
-
 $lang['ws_invite'] = 'Convidar Usuários';
-
 $lang['ws_add_new_user'] = 'Novo Usuário';
 $lang['ws_add_list_of_users'] = 'Novos Usuários';
 $lang['ws_new_users'] = "Insira o e-mail dos usuários que você deseja convidar:";
@@ -25,5 +23,6 @@ $lang['ws_delete_workspace'] = 'Você tem certeza que deseja deletar esta área 
 $lang['ws_professor'] = 'Professor';
 $lang['ws_grade'] = 'Nota';
 $lang['ws_comment'] = 'Comentário';
-$lang['ws_no_grade'] = 'Submissão Não Avaliada até o Momento'
+$lang['ws_no_grade'] = 'Submissão Não Avaliada até o Momento';
+$lang['ws_exit_workspace'] = 'Você tem certeza que deseja sair desta área de trabalho?';
 ?>
