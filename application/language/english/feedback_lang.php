@@ -11,4 +11,7 @@ $lang['delete_item_confirm'] = 'Are you sure You want do delete this item?';
 
 $lang['ws_feedback_invite'] = 'You have been invited to join the workspace: ';
 $lang['ws_feedback_no_invite'] = 'There are no invites available at the moment.';
+
+
+$lang['project_invite_error'] = 'You can\'t add someone who is not in this workspace';
 ?>
