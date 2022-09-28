@@ -145,18 +145,7 @@
 
 													<td><span class="texttd"><?= getUserName($item->user_id); ?></span></td>
 													<td><span class="texttd"><?php echo getInstitution($item->user_id) ?></span></td>
-
-
-													<?php if (getRole($item->user_id) == 0) {
-														$acess_level = "Staff";
-													} elseif (getRole($item->user_id) == 1) {
-														$acess_level = "Professor";
-													} elseif (getRole($item->user_id) == 2) {
-														$acess_level = "Project Manager";
-													} elseif (getRole($item->user_id) == 3) {
-														$acess_level = 'Admin';
-													} ?>
-													<td><span class="texttd"><?= $acess_level ?></span></td>
+													<td><span class="texttd"><?= getAcesslevelName($project_id, $item->user_id) ?></span></td>
 													<td><span class="texttd"><?= getEmail($item->user_id) ?></span></td>
 													<td style="display: fixed;min-width: 100px;">
 														<div class="row center">
