@@ -71,8 +71,6 @@ class Workspace extends CI_Controller
 	{
 		$isWorkspaceOwner = $this->Workspace_model->isWorkspaceOwner($_SESSION['workspace_id'], $_SESSION['user_id']);
 
-		$teste = $this->lang->line('no_permission');
-
 		if(!$isWorkspaceOwner){
 			$this->session->set_flashdata('error', $this->lang->line('no_permission'));
 			redirect("workspace/list");
@@ -128,6 +126,14 @@ class Workspace extends CI_Controller
 
 	public function delete($workspace_id)
 	{
+
+		$isWorkspaceOwner = $this->Workspace_model->isWorkspaceOwner($_SESSION['workspace_id'], $_SESSION['user_id']);
+		if(!$isWorkspaceOwner){
+			$this->session->set_flashdata('error', $this->lang->line('no_permission'));
+			redirect("workspace/list");
+		}
+
+
 		$feedback_success = strcmp($_SESSION['language'], "US") === 0
 			? 'Workspace removed successfully!'
 			: 'Workspace removido com sucesso!';
@@ -242,7 +248,7 @@ class Workspace extends CI_Controller
             $this->Workspace_invite_model->insert($workspace);
         }
 
-        if ($user_exists_or_already_invited || $some_user_does_not_exist) {
+        if ($user_exists_or_already_invited) {
             $this->session->set_flashdata('warning', $this->lang->line('ws_feedback_invite_warning'));
             redirect("workspace/members/{$_SESSION['workspace_id']}");
         }
