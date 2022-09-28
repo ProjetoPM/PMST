@@ -32,7 +32,7 @@ class Project_model extends CI_Model
 
 
 
-    function insert_project($project)
+    function insert_project_and_get_id($project)
     {
 
         $this->db->insert('project', $project);
@@ -42,7 +42,9 @@ class Project_model extends CI_Model
         $project_user['user_id'] = $project['created_by'];
         $project_user['access_level'] = 2;
 
-        return $this->db->insert('project_user', $project_user);
+        $this->db->insert('project_user', $project_user);
+
+        return $project_id;
     }
 
     function insert_log($activity, $module)
@@ -175,6 +177,17 @@ class Project_model extends CI_Model
             ->get()->result();
 
         return empty($query);
+    }
+    
+    public function userInvitedNotInWorkspace($user_id, $workspace_id){
+        $query = $this->db->select('access_level')
+            ->from('workspace_user')
+            ->where('user_id', $user_id)
+            ->where('workspace_id', $workspace_id)
+            ->get()->result();
+    
+        return empty($query);
+
     }
 }
 

@@ -12,4 +12,7 @@ $lang['delete_item_confirm'] = 'Tem certeza de que quer deletar esse item?';
 $lang['ws_feedback_invite'] = 'Você foi convidado para se juntar ao workspace: ';
 $lang['ws_feedback_no_invite'] = "Não há convites disponíveis no momento.";
 
+
+$lang['project_invite_error'] = 'Não é possível adicionar um membro que não esteja na área de trabalho atual';
+
 ?>
