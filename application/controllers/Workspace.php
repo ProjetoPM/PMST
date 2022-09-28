@@ -242,7 +242,7 @@ class Workspace extends CI_Controller
             $this->Workspace_invite_model->insert($workspace);
         }
 
-        if ($user_exists_or_already_invited || $some_user_does_not_exist) {
+        if ($user_exists_or_already_invited) {
             $this->session->set_flashdata('warning', $this->lang->line('ws_feedback_invite_warning'));
             redirect("workspace/members/{$_SESSION['workspace_id']}");
         }

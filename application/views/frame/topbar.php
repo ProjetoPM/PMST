@@ -156,7 +156,7 @@
                 <?php $last_index = count($_SESSION['invites']) ?>
                 <?php foreach ($_SESSION['invites'] as $key => $item): ?>
                   <span>
-                    <div style="display: flex; justify-content: end; align-items: center; gap: 2px; margin: 10px 0;">
+                    <div style="display: flex;justify-content: end;align-items: center;gap: 2px;margin: 10px 0;border-left: 5px solid #5a5a5a;border-left-width: 10px;padding-left: 15px;left: -20px;">
                         <p style="margin: 0;"><?= $this->lang->line('ws_feedback_invite') ?><strong><?= $item->name  ?></strong>.</p>
                         <a class="btn btn-sm btn-success" href="<?= base_url("workspace/accept-invite/$item->workspace_id/$item->access_level") ?>">
                             <i class="fa fa-check" style="width: 20px; height: 10px;" aria-hidden="true"></i>
