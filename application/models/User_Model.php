@@ -72,8 +72,6 @@ class User_Model extends CI_Model
 		return !empty($query) ? intval($query[0]->user_id) : -1;
 	}
 
-
-
 	public function GetName($project_id)
 
 	{

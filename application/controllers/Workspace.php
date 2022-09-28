@@ -143,7 +143,7 @@ class Workspace extends CI_Controller
 		redirect("workspace/list");
 	}
     
-	public function update()
+	public function update($user_id, $email)
 	{
 	}
 
@@ -198,7 +198,6 @@ class Workspace extends CI_Controller
 
     public function inviteUsers() {
         $user_exists_or_already_invited = false;
-        $some_user_does_not_exist = false;
         $senderRole = $this->Workspace_model->getRole($_SESSION['workspace_id'], $_SESSION['user_id']);
         $date = date('Y-m-d H:i:s', time());
         $workspace_name = $this->Workspace_model->getWorkspaceName($_SESSION['workspace_id']);
@@ -220,24 +219,23 @@ class Workspace extends CI_Controller
         foreach ($split_users as $user) {
             if (empty($user)) continue;
 
-            $user_id = $this->User_Model->getUserIdByEmail($user) ?? -1;
-            $already_invited = $this->Workspace_invite_model->userAlreadyInvited($_SESSION['workspace_id'], $user_id);
-            $already_in_workspace = $this->Workspace_user_model->userAlreadyInWorkspace($_SESSION['workspace_id'], $user_id);
-            
-            /** Usuário não existe, apenas ignora e vai para a próxima iteração. */
-            if ($user_id === -1) {
-                $some_user_does_not_exist = true;
-                continue;
-            }
+            $user_id = $this->User_Model->getUserIdByEmail($user) !== -1 
+				? $this->User_Model->getUserIdByEmail($user) 
+				: null;
 
-            if ($already_invited || $already_in_workspace) { 
-                $user_exists_or_already_invited = true;
-                continue;
-            }
+			if (isset($user_id)) {
+				$already_invited = $this->Workspace_invite_model->userAlreadyInvited($_SESSION['workspace_id'], $user_id);
+				$already_in_workspace = $this->Workspace_user_model->userAlreadyInWorkspace($_SESSION['workspace_id'], $user_id);
+
+				if ($already_invited || $already_in_workspace) { 
+					$user_exists_or_already_invited = true;
+					continue;
+				}
+			}
 
             $workspace['workspace_id'] = $_SESSION['workspace_id'];
             $workspace['invited_at'] = $date;
-            $workspace['access_level'] = 1;
+            $workspace['access_level'] = $this->input->post('access_level');;
             $workspace['email'] = $user;
             $workspace['user_id'] = $user_id;
 
@@ -262,7 +260,6 @@ class Workspace extends CI_Controller
 		$insertStatus = $this->Workspace_user_model->insert($workspace_user);
 		$insertStatus = $this->Workspace_invite_model->delete($workspace_id, $_SESSION['user_id']);
 
-
 		if ($insertStatus) {
 			redirect("workspace/list");
 		}
@@ -271,7 +268,6 @@ class Workspace extends CI_Controller
 	public function declineInvite($workspace_id)
 	{
 		$user_id =  $_SESSION['user_id'];
-
 		$insertStatus = $this->Workspace_invite_model->delete($workspace_id, $user_id);
 
 		if ($insertStatus) {

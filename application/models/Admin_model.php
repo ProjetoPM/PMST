@@ -126,13 +126,11 @@ class Admin_model extends CI_Model {
     }
 
     function getUserByEmail($email){
-        $this->db->select('user_id');
-        $this->db->from('user');
-        $this->db->where("email", $email);
-        $this->db->limit(1);
-        $query = $this->db->get();
-        $query2 = $query->row_array();
-        return $query2['user_id'];
+        return $this->db->select('user_id')
+            ->from('user')
+            ->where('email', $email)
+            ->get()
+            ->result();
     }
 
 

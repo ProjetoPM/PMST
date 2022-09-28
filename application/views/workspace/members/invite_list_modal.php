@@ -21,6 +21,12 @@
                         name="new_users"
                         rows="4"
                         required></textarea>
+                    <label class="m-t-10"><?= $this->lang->line('access_level') ?></label>
+                    <select name="access_level" class="form-control">
+                        <option value="0"><?= getAcesslevelNameByAcessLevelId(0) ?></option>
+                        <option value="1"><?= getAcesslevelNameByAcessLevelId(1) ?></option>
+                        <option selected value="2"><?= getAcesslevelNameByAcessLevelId(2) ?></option>
+                    </select>
                 </div>
                 <div class="modal-footer">
                     <button
