@@ -71,8 +71,6 @@ class Workspace extends CI_Controller
 	{
 		$isWorkspaceOwner = $this->Workspace_model->isWorkspaceOwner($_SESSION['workspace_id'], $_SESSION['user_id']);
 
-		$teste = $this->lang->line('no_permission');
-
 		if(!$isWorkspaceOwner){
 			$this->session->set_flashdata('error', $this->lang->line('no_permission'));
 			redirect("workspace/list");
@@ -128,6 +126,16 @@ class Workspace extends CI_Controller
 
 	public function delete($workspace_id)
 	{
+
+		$isWorkspaceOwner = $this->Workspace_model->isWorkspaceOwner($_SESSION['workspace_id'], $_SESSION['user_id']);
+
+		if(!$isWorkspaceOwner){
+			$this->Workspace_user_model->delete($_SESSION['user_id'], $workspace_id);
+			$this->session->set_flashdata('info', $this->lang->line('ws_exit_workspace'));
+			redirect("workspace/list");
+		}
+
+
 		$feedback_success = strcmp($_SESSION['language'], "US") === 0
 			? 'Workspace removed successfully!'
 			: 'Workspace removido com sucesso!';
@@ -161,7 +169,10 @@ class Workspace extends CI_Controller
 		$sender = $this->User_Model->getUserEmail($_SESSION['user_id']);
 		
 		$workspace_name = $this->Workspace_model->getWorkspaceName($_SESSION['workspace_id']);
-		$user_id = $this->User_Model->getUserIdByEmail($receiver);
+		$user_id = $this->User_Model->getUserIdByEmail($receiver) !== -1
+			? $this->User_Model->getUserIdByEmail($receiver) 
+			: null;
+		
 		
 		$alreadyInvited = $this->Workspace_invite_model->userAlreadyInvited($_SESSION['workspace_id'], $user_id);
 		$alreadyInWorkspace = $this->Workspace_user_model->userAlreadyInWorkspace($_SESSION['workspace_id'], $user_id);
@@ -170,17 +181,19 @@ class Workspace extends CI_Controller
 			$this->session->set_flashdata('error', $this->lang->line('already_in_workspace'));
 			redirect('workspace/list');
 		}
-
+		
 		if($alreadyInvited) {
 			$this->session->set_flashdata('error', $this->lang->line('already_invited'));
 			redirect('workspace/list');
 		}
-
-		if ($user_id == -1) {
+		
+		if (!isset($user_id)) {
 			$subject = "Convite para se juntar a uma área de trabalho";
 			$message = "O usuário $sender te convidou para se juntar ao workspace $workspace_name";
-			$this->send_email_invite($sender, $message, $subject, $receiver);
+			$this->session->set_flashdata('warning', $this->lang->line('ws_feedback_invite_warning'));
+			$this->send_email($message, $subject, $receiver);
 		} else {
+			$this->session->set_flashdata('success', $this->lang->line('ws_feedback_invite_success'));
 			$workspace['user_id'] = $user_id;
 		}
 
@@ -192,7 +205,7 @@ class Workspace extends CI_Controller
 		$insertStatus = $this->Workspace_invite_model->insert($workspace);
 
 		if ($insertStatus) {
-			redirect("workspace/members/{$_SESSION['user_id']}");
+			redirect("workspace/members/{$_SESSION['workspace_id']}");
 		}
 	}
 
@@ -275,44 +288,42 @@ class Workspace extends CI_Controller
 		}
 	}
 
-	function send_email_invite($message, $subject, $sendTo)
-	{
-		require_once APPPATH . 'libraries/mailer/class.phpmailer.php';
-		require_once APPPATH . 'libraries/mailer/class.smtp.php';
-		// require_once APPPATH.'libraries/mailer/mailer_config.php';
-		include APPPATH . 'libraries/mailer/template/template.php';
+	function send_email($message, $subject, $receiver){
+        require_once APPPATH.'libraries/mailer/class.phpmailer.php';
+        require_once APPPATH.'libraries/mailer/class.smtp.php';
+        // require_once APPPATH.'libraries/mailer/mailer_config.php';
+        include APPPATH.'libraries/mailer/template/template.php';
+        
+            $mail = new PHPMailer;
+            $mail->IsSMTP();
+            $mail->SMTPDebug = 0;  
+            $mail->SMTPAuth = true; 
+            $mail->SMTPSecure = 'ssl';
+            $mail->Host = "smtp.hostinger.com.br";
+            $mail->Port = "465";
+            $mail->Username =  $this->config->item('mail_username');
+            $mail->Password = $this->config->item('mail_password');
+            $mail->SetFrom($this->config->item('mail_username'), "Admin SilverBullet");
+            $mail->Subject = $subject;
+            $mail->MsgHTML($message);
+            $mail->AddAddress($receiver);
+            $mail->CharSet = "UTF-8";  
+            $mail->WordWrap = 0;
 
-		$mail = new PHPMailer;
-		$mail->IsSMTP();
-		$mail->SMTPDebug = 0;
-		$mail->SMTPAuth = true;
-		$mail->SMTPSecure = 'tls';
-		$mail->Host = "smtp.gmail.com";
-		$mail->Port = 587;
-		$mail->Username =  "rp1.time6@gmail.com";
-		$mail->Password = "84956251asd";
-		$mail->SetFrom("rp1.time6@gmail.com", "Admin SilverBullet");
-		$mail->AddReplyTo('no-reply@email.com.br');
-		$mail->Subject = $subject;
-		$mail->MsgHTML($message);
-		$mail->AddAddress($sendTo);
-		$mail->CharSet = "UTF-8";
-		$mail->WordWrap = 0;
+            $hello = '<h1 style="color:#333;font-family:Helvetica,Arial,sans-serif;font-weight:300;padding:0;margin:10px 0 25px;text-align:center;line-height:1;word-break:normal;font-size:38px;letter-spacing:-1px">Hello, &#9786;</h1>';
+            $thanks = "<br><br><i>This is autogenerated email please do not reply.</i><br/><br/>Thanks,<br/>Admin<br/><br/>";
 
-		$hello = '<h1 style="color:#333;font-family:Helvetica,Arial,sans-serif;font-weight:300;padding:0;margin:10px 0 25px;text-align:center;line-height:1;word-break:normal;font-size:38px;letter-spacing:-1px">Olá, &#9786;</h1>';
-		$thanks = "<br><br><i>This is autogenerated email please do not reply.</i><br/><br/>Thanks,<br/>Admin<br/><br/>";
-
-		$body = $hello . $message . $thanks;
-		$mail->Body = $header . $body . $footer;
-		$mail->AddAddress($sendTo);
-		// $mail->SMTPSecure = 'tls';
-		if (!$mail->Send()) {
-			$error = 'Mail error: ' . $mail->ErrorInfo;
-			return array('status' => false, 'message' => $error);
-			// return false;
-		} else {
-			return array('status' => true, 'message' => '');
-			// return true;
-		}
-	}
+            $body = $hello.$message.$thanks;
+            $mail->Body = $header.$body.$footer;
+            $mail->AddAddress($receiver);
+            // $mail->SMTPSecure = 'tls';
+            if(!$mail->Send()) {
+                $error = 'Mail error: '.$mail->ErrorInfo;
+                return array('status' => false, 'message' => $error);
+                // return false;
+            } else { 
+                return array('status' => true, 'message' => '');
+                // return true;
+            }
+    }
 }

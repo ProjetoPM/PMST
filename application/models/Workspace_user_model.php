@@ -29,4 +29,10 @@ class Workspace_user_model extends CI_Model
 		$this->db->where("$this->table.workspace_id", $workspace_id);
 		return $this->db->update($this->table, $member);
 	}
+	
+	public function delete($user_id, $workspace_id){
+		$this->db->where("$this->table.user_id", $user_id);
+		$this->db->where("$this->table.workspace_id", $workspace_id);
+		return $this->db->delete('workspace_user');
+	}
 }

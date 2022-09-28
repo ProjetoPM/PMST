@@ -106,7 +106,16 @@ class Workspace_model extends CI_Model
 			->row_array();
 
 		if ($result['access_level'] != null) {
-			return $result['access_level'] == 1 ? true : false;
+			return strcmp($result['access_level'], '1') === 0;
 		};	
+	}
+
+	public function getWorkspaceProfessors($workspace_id){
+		return $this->db->select('user_id')
+		->where('workspace_id', $workspace_id)
+		->where('access_level', 1)
+		->from('workspace_user')
+		->get()
+		->result();
 	}
 }
