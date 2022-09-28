@@ -77,7 +77,10 @@ class CI_Controller {
 
 		$this->load =& load_class('Loader', 'core');
 		$this->load->initialize();
+		$this->load->model('Workspace_invite_model');
 		log_message('info', 'Controller Class Initialized');
+
+		$_SESSION['invites'] = $this->Workspace_invite_model->getInvitesPerUser($_SESSION['user_id']);
 	}
 
 	// --------------------------------------------------------------------

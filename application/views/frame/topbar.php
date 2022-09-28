@@ -89,6 +89,16 @@
            .dropdown-menu > li > a {
               cursor: pointer;
            }
+
+           .animation {
+            animation: text-change 1.5s infinite;
+           }
+
+           @keyframes text-change {
+            100% {
+              text-shadow: 0 0 20px red;
+            }
+           }
          </style>
 
          <?php if ($_SESSION['project_id'] != null) { ?>
@@ -124,36 +134,33 @@
 
          <?php } ?>
          
-         <?php if (isset($view_id) && strcmp($view_id, "79") === 0) : ?>
-           <li class="dropdown">
-             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-               <span class="label label-pill label-danger count" style="border-radius:10px;"></span>
-               <span class="glyphicon glyphicon-bell" style="font-size:18px; <?= isset($invites) && !empty($invites) ? 'text-shadow: 0px 0px 15px red;' : ''?>"></span>
-             </a>
-             <ul class="dropdown-menu" style="width: 400px; padding: 5px 10px; border-radius: 0 0 10px 10px;">
-               <?php if (isset($invites) && !empty($invites)) : ?>
-                 <li>
-                   <?php foreach ($invites as $item): ?>
-                     <span>
-                       <label><?= $this->lang->line('ws_feedback_invite') ?><strong><?= $item->name  ?></strong>.</label>
-                       <div style="display: flex; justify-content: center; gap: 2px; margin-bottom: 5px;">
-                            <a class="btn btn-sm btn-success" href="<?= base_url("workspace/accept-invite/$item->workspace_id/$item->access_level") ?>">
-                                <i class="fa fa-check" style="width: 20px; height: 10px;" aria-hidden="true"></i>
-                            </a>
-                            <a class="btn btn-sm btn-danger" href="<?= base_url("workspace/decline-invite/$item->workspace_id") ?>">
-                                <i class="fa fa-times" style="width: 20px; height: 10px;" aria-hidden="true"></i>
-                            </a>
-                       </div>
-                     </span>
-                   <?php endforeach ?>
-                 <?php else : ?>
-                   <label for=""><?= $this->lang->line('ws_feedback_no_invite') ?> <i class="fa fa-smile-o" aria-hidden="true"></i></label>
-                 <?php endif ?>
-                 </li>
-             </ul>
-           </li>
-         <?php endif ?>
-
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="label label-pill label-danger count" style="border-radius:10px;"></span>
+            <span class="fa fa-inbox <?= isset($_SESSION['invites']) && !empty($_SESSION['invites']) ? 'animation' : '' ?>" style="font-size:18px;"></span>
+          </a>
+          <ul class="dropdown-menu" style="width: 400px; padding: 5px 10px; border-radius: 0 0 10px 10px;">
+            <?php if (isset($_SESSION['invites']) && !empty($_SESSION['invites'])) : ?>
+              <li>
+                <?php foreach ($_SESSION['invites'] as $item): ?>
+                  <span>
+                    <label><?= $this->lang->line('ws_feedback_invite') ?><strong><?= $item->name  ?></strong>.</label>
+                    <div style="display: flex; justify-content: center; gap: 2px; margin-bottom: 5px;">
+                        <a class="btn btn-sm btn-success" href="<?= base_url("workspace/accept-invite/$item->workspace_id/$item->access_level") ?>">
+                            <i class="fa fa-check" style="width: 20px; height: 10px;" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn btn-sm btn-danger" href="<?= base_url("workspace/decline-invite/$item->workspace_id") ?>">
+                            <i class="fa fa-times" style="width: 20px; height: 10px;" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                  </span>
+                <?php endforeach ?>
+              <?php else : ?>
+                <label for=""><?= $this->lang->line('ws_feedback_no_invite') ?> <i class="fa fa-smile-o" aria-hidden="true"></i></label>
+              <?php endif ?>
+              </li>
+          </ul>
+        </li>
 
          <li class="dropdown user user-menu">
            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
