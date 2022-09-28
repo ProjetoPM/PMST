@@ -157,7 +157,7 @@
                 <?php foreach ($_SESSION['invites'] as $key => $item): ?>
                   <span>
                     <div style="display: flex; justify-content: end; align-items: center; gap: 2px; margin: 10px 0;">
-                        <p><?= $this->lang->line('ws_feedback_invite') ?><strong><?= $item->name  ?></strong>.</p>
+                        <p style="margin: 0;"><?= $this->lang->line('ws_feedback_invite') ?><strong><?= $item->name  ?></strong>.</p>
                         <a class="btn btn-sm btn-success" href="<?= base_url("workspace/accept-invite/$item->workspace_id/$item->access_level") ?>">
                             <i class="fa fa-check" style="width: 20px; height: 10px;" aria-hidden="true"></i>
                         </a>
