@@ -30,6 +30,17 @@
          <img id="loading" width="250px" src="<?= base_url() ?>assets/images/loading.gif" alt="Loading...">  -->
 
          <style>
+          /* Solução temporária... */
+          @media(max-width: 768px) {
+             .main-header>.logo>.logo-lg {
+               display: none;
+             }
+
+             .main-header>a.logo {
+               display: none;
+             }
+           }
+           
            .load {
              width: 100px;
              height: 100px;
@@ -139,13 +150,14 @@
             <span class="label label-pill label-danger count" style="border-radius:10px;"></span>
             <span class="fa fa-inbox <?= isset($_SESSION['invites']) && !empty($_SESSION['invites']) ? 'animation' : '' ?>" style="font-size:18px;"></span>
           </a>
-          <ul class="dropdown-menu" style="width: 400px; padding: 5px 10px; border-radius: 0 0 10px 10px;">
+          <ul class="dropdown-menu" style="width: 400px; padding: 10px; border-radius: 0 0 10px 10px;">
             <?php if (isset($_SESSION['invites']) && !empty($_SESSION['invites'])) : ?>
               <li>
-                <?php foreach ($_SESSION['invites'] as $item): ?>
+                <?php $last_index = count($_SESSION['invites']) ?>
+                <?php foreach ($_SESSION['invites'] as $key => $item): ?>
                   <span>
-                    <label><?= $this->lang->line('ws_feedback_invite') ?><strong><?= $item->name  ?></strong>.</label>
-                    <div style="display: flex; justify-content: center; gap: 2px; margin-bottom: 5px;">
+                    <div style="display: flex; justify-content: end; align-items: center; gap: 2px; margin: 10px 0;">
+                        <p><?= $this->lang->line('ws_feedback_invite') ?><strong><?= $item->name  ?></strong>.</p>
                         <a class="btn btn-sm btn-success" href="<?= base_url("workspace/accept-invite/$item->workspace_id/$item->access_level") ?>">
                             <i class="fa fa-check" style="width: 20px; height: 10px;" aria-hidden="true"></i>
                         </a>
@@ -154,6 +166,7 @@
                         </a>
                     </div>
                   </span>
+                  <?= $key !== $last_index - 1 ? '<hr>' : ''?>
                 <?php endforeach ?>
               <?php else : ?>
                 <label for=""><?= $this->lang->line('ws_feedback_no_invite') ?> <i class="fa fa-smile-o" aria-hidden="true"></i></label>

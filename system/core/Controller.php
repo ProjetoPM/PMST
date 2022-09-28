@@ -80,7 +80,7 @@ class CI_Controller {
 		$this->load->model('Workspace_invite_model');
 		log_message('info', 'Controller Class Initialized');
 
-		$_SESSION['invites'] = $this->Workspace_invite_model->getInvitesPerUser($_SESSION['user_id']);
+		$_SESSION['invites'] = $this->Workspace_invite_model->getInvitesPerUser($_SESSION['user_id'] ?? null);
 	}
 
 	// --------------------------------------------------------------------
