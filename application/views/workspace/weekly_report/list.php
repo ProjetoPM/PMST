@@ -101,24 +101,28 @@
 			<?php $scores = getScorePerReport($data->weekly_report_id) ?? [] ?>
 
             <div class="modal-body">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th class="col">Professor</th>
-                            <th class="col">Nota</th>
-                            <th class="col">Comentário</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($scores as $s) : ?>
-                            <tr>
-                                <td><?= $s->username ?></td>
-                                <td><?= $s->name ?></td>
-                                <td><?= $s->comments ?></td>
-                            </tr>
-                        <?php endforeach ?>
-                    </tbody>
-                </table>
+				<?php if (!is_array($scores)) : ?>
+					<p><?= getWeeklyEvaluationScore($data->weekly_report_id) ?></p>
+				<?php else : ?>	
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th class="col"><?= $this->lang->line('ws_professor') ?></th>
+								<th class="col"><?= $this->lang->line('ws_grade') ?></th>
+								<th class="col"><?= $this->lang->line('ws_comment') ?></th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach ($scores as $s) : ?>
+								<tr>
+									<td><?= $s->username ?></td>
+									<td><?= $s->name ?></td>
+									<td><?= $s->comments ?></td>
+								</tr>
+							<?php endforeach ?>
+						</tbody>
+					</table>
+				<?php endif ?>
             </div>            
 		</div>
 		<!-- /.modal-content -->

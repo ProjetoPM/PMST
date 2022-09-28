@@ -21,4 +21,8 @@ $lang['ws_feedback_invite_error'] = 'Only professors are able to invite users to
 $lang['ws_feedback_invite_success'] = 'Invitation sent successfully';
 $lang['ws_feedback_error'] = 'An error has occurred while inviting users, make sure you\'ve entered at least one e-mail.';
 $lang['ws_delete_workspace'] = 'Are sure you want to delete this workspace?';
+$lang['ws_professor'] = 'Professor';
+$lang['ws_grade'] = 'Grade';
+$lang['ws_comment'] = 'Comment';
+$lang['ws_no_grade'] = 'Report Not Evaluated Yet'
 ?>
