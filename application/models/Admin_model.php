@@ -275,7 +275,7 @@ class Admin_model extends CI_Model {
         return $output;
     }
 
-    function send_email($message,$subject,$sendTo){
+    function send_email($message, $subject, $receiver){
         require_once APPPATH.'libraries/mailer/class.phpmailer.php';
         require_once APPPATH.'libraries/mailer/class.smtp.php';
         // require_once APPPATH.'libraries/mailer/mailer_config.php';
@@ -288,12 +288,12 @@ class Admin_model extends CI_Model {
             $mail->SMTPSecure = 'ssl';
             $mail->Host = "smtp.hostinger.com.br";
             $mail->Port = "465";
-            $mail->Username =  "silverbullet_admin@lesse.com.br";
-            $mail->Password = "L3ss3Unipampa";
-            $mail->SetFrom("silverbullet_admin@lesse.com.br", "Admin SilverBullet");
+            $mail->Username =  $this->config->item('mail_username');
+            $mail->Password = $this->config->item('mail_password');
+            $mail->SetFrom($this->config->item('mail_username'), "Admin SilverBullet");
             $mail->Subject = $subject;
             $mail->MsgHTML($message);
-            $mail->AddAddress($sendTo);
+            $mail->AddAddress($receiver);
             $mail->CharSet = "UTF-8";  
             $mail->WordWrap = 0;
 
@@ -302,7 +302,7 @@ class Admin_model extends CI_Model {
 
             $body = $hello.$message.$thanks;
             $mail->Body = $header.$body.$footer;
-            $mail->AddAddress($sendTo);
+            $mail->AddAddress($receiver);
             // $mail->SMTPSecure = 'tls';
             if(!$mail->Send()) {
                 $error = 'Mail error: '.$mail->ErrorInfo;
