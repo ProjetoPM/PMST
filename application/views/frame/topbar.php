@@ -69,14 +69,9 @@
            .language:active.focus,
            .language:active:focus,
            .language:focus {
-             color: #f6f6f6;
+              color: #f6f6f6;
              text-decoration: none;
-             border: transparent;
-             background-color: transparent;
-             padding-top: 15px;
-             font-size: 15px;
              background: rgba(0, 0, 0, 0.1);
-
            }
 
            /* .language.dropdown-menu>li>a:hover {
@@ -86,14 +81,13 @@
            .language.focus,
            .language.focus,
            .language:hover {
-             color: #f6f6f6;
+            color: #f6f6f6;
              text-decoration: none;
-             padding-top: 14px;
-             border: transparent;
-             padding-top: 15px;
-             font-size: 15px;
              background: rgba(0, 0, 0, 0.1);
+           }
 
+           .dropdown-menu > li > a {
+              cursor: pointer;
            }
          </style>
 
@@ -134,9 +128,9 @@
            <li class="dropdown">
              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                <span class="label label-pill label-danger count" style="border-radius:10px;"></span>
-               <span class="glyphicon glyphicon-bell" style="font-size:18px;"></span>
+               <span class="glyphicon glyphicon-bell" style="font-size:18px; <?= isset($invites) && !empty($invites) ? 'text-shadow: 0px 0px 15px red;' : ''?>"></span>
              </a>
-             <ul class="dropdown-menu" style="width: 350px; padding: 5px 10px;">
+             <ul class="dropdown-menu" style="width: 400px; padding: 5px 10px; border-radius: 0 0 10px 10px;">
                <?php if (isset($invites) && !empty($invites)) : ?>
                  <li>
                    <?php foreach ($invites as $item): ?>
