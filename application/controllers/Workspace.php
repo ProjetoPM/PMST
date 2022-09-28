@@ -128,8 +128,10 @@ class Workspace extends CI_Controller
 	{
 
 		$isWorkspaceOwner = $this->Workspace_model->isWorkspaceOwner($_SESSION['workspace_id'], $_SESSION['user_id']);
+
 		if(!$isWorkspaceOwner){
-			$this->session->set_flashdata('error', $this->lang->line('no_permission'));
+			$this->Workspace_user_model->delete($_SESSION['user_id'], $workspace_id);
+			$this->session->set_flashdata('info', $this->lang->line('ws_exit_workspace'));
 			redirect("workspace/list");
 		}
 

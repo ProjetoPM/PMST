@@ -30,4 +30,12 @@
         <i class="fa fa-exclamation-circle m-r-5" aria-hidden="true"></i>
         <?php echo $this->session->flashdata('error'); ?>
     </div>
+<?php elseif ($this->session->flashdata('info')) : ?>
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <i class="fa fa-exclamation-circle m-r-5" aria-hidden="true"></i>
+        <?php echo $this->session->flashdata('info'); ?>
+    </div>
 <?php endif ?>

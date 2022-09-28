@@ -106,7 +106,7 @@ class Workspace_model extends CI_Model
 			->row_array();
 
 		if ($result['access_level'] != null) {
-			return $result['access_level'] == 1 ? true : false;
+			return strcmp($result['access_level'], '1') === 0;
 		};	
 	}
 
