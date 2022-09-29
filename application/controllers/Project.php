@@ -27,8 +27,10 @@ class Project extends CI_Controller
 		
 		$this->load->helper('url');
 		$this->load->helper('log_activity');
+
 		$this->load->model('Project_model');
 		$this->load->model('Workspace_model');
+		$this->load->model('Project_user_model');
 	}
 	
 	private function ajax_checking()
@@ -238,32 +240,38 @@ class Project extends CI_Controller
 		redirect('projects/');
 	}
 
-	public function edit_researcher_page()
+	public function edit_researcher_page($user_id)
 	{
-		$this->db->where('project_id', $_SESSION['project_id']);
-		$dataproject['project'] = $this->db->get('project')->result();
+
+
+		$data['user'] = $this->Project_user_model->get($user_id, $_SESSION['project_id']);
+
+		// var_dump($data['user']);
+		// exit();
+
+
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/edit_researcher', $dataproject);
+		$this->load->view('project/edit_researcher', $data);
 	}
 	
 	//metodo para adicionar pesquisador a pesquisa
-	public function update_researcher()
+	public function update_researcher($user_id)
 	{	
-		$researcher['role'] = $this->input->post('role');
-		
-		$data = $this->input->post();
-		$project_id   = $data['project_id'];
-		$access_level = $data['access_level'];
-		$user_id      = $this->retornaIdUserByEmail($data['email']);
-		
-		$query = $this->Project_model->update_role($_SESSION['project_id'], $_SESSION['user_id'], $researcher);
-		if ($this->Project_model->getResearcher($project_id, $user_id)) {
-			$this->session->set_flashdata('success', 'Benefits Management Plan has been successfully changed!');
+		$workspaceOwner = $this->Project_model->isProjectOwner($_SESSION['project_id'], $_SESSION['user_id']);
+		if(!$workspaceOwner){
+			$this->session->set_flashdata('error', $this->lang->line('project_change_access_level_no_permission'));
+			redirect('user/list/' . $_SESSION['project_id']);
+		}
+		$researcher['access_level'] = $this->input->post('access_level');
+				
+		$query = $this->Project_user_model->update($user_id, $_SESSION['project_id'], $researcher);
+		if ($query) {
+			$this->session->set_flashdata('success', 'Researcher has been successfully updated!');
 			insertLogActivity('update', 'benefits management plan');
 		}
-		redirect('user/list' . $_SESSION['project_id']);
+		redirect('user/list/' . $_SESSION['project_id']);
 	}
 
 

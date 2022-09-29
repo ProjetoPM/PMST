@@ -16,5 +16,7 @@ $lang['ws_exit_workspace'] = 'Agora você não pertence mais a esta área de tra
 
 
 $lang['project_invite_error'] = 'Não é possível adicionar um membro que não esteja na área de trabalho atual';
+$lang['project_change_access_level_no_permission'] = 'Apenas o dono do projeto consegue alterar o nível de acesso dos membros';
+
 
 ?>
