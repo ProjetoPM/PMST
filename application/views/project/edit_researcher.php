@@ -33,14 +33,16 @@
 
 								Researcher
 
+								<?php extract($user); ?>
+
 							</h1>
-							<form method="POST" action="<?php echo base_url('researcher/update'); ?>">
+							<form method="POST" action='<?= base_url("researcher/update/$user_id"); ?>'>
 								<input type="hidden" name="status" value="1">
 
 								<div class="form-group">
 									<label for="email">Member E-mail</label>
 									<div>
-										<input id="email" name="email" type="text" placeholder="E-mail" class="form-control input-md" value="" disabled="disabled">
+										<input id="email" name="email" type="text" placeholder="E-mail" class="form-control input-md" value="<?= $email ?>" disabled="disabled">
 									</div>
 								</div>
 								<!-- Select Basic -->

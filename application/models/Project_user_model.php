@@ -12,13 +12,16 @@
         }
 
         public function get($user_id, $project_id){
-                return $this->db->select("user.name, user.email, $this->table.access_level")
+                $query =  $this->db->select("user.user_id, user.email, $this->table.access_level")
                     ->from($this->table)
                     ->where('project_id', $project_id)
-                    ->where('user_id', $user_id)
+                    ->where('project_user.user_id', $user_id)
                     ->join('user', 'user.user_id = project_user.user_id')
-                    ->get()->result();
+                    ->get()->row_array();
+
+                    return $query;
         }
+
 
         public function update($user_id, $project_id, $researcher){
             $this->db->where("$this->table.user_id", $user_id);

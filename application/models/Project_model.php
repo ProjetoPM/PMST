@@ -10,7 +10,7 @@ class Project_model extends CI_Model
     {
         parent::__construct();
     }
-
+    private $table = 'project';
 
     public function getProjectName($project_id)
     {
@@ -63,18 +63,8 @@ class Project_model extends CI_Model
     function insertResearcher($data)
     {
         return $this->db->insert('project_user', $data);
-
-        // if ($this->db->insert('project_user', $data)) {
-        //     $this->session->set_flashdata('error2', 'User added.');
-        //     redirect('projects/');
-        // }
-
-        // $error = $this->db->error();
-        // if ($error['code'] == 1062) {
-        //     $this->session->set_flashdata('error3', 'User already a member.');
-        //     redirect('projects/');
-        // }
     }
+
 
 
 
@@ -187,7 +177,18 @@ class Project_model extends CI_Model
             ->get()->result();
     
         return empty($query);
+    }
 
+    public function isProjectOwner($project_id, $user_id)
+    {
+        $result = $this->db->select('created_by')
+            ->where('project_id', $project_id)
+            ->from($this->table)
+            ->limit(1)
+            ->get()
+            ->row_array();
+
+       return strcmp($result['created_by'], $user_id) === 0;
     }
 }
 

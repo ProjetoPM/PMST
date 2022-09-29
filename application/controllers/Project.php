@@ -243,7 +243,12 @@ class Project extends CI_Controller
 	public function edit_researcher_page($user_id)
 	{
 
+
 		$data['user'] = $this->Project_user_model->get($user_id, $_SESSION['project_id']);
+
+		// var_dump($data['user']);
+		// exit();
+
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
@@ -254,6 +259,11 @@ class Project extends CI_Controller
 	//metodo para adicionar pesquisador a pesquisa
 	public function update_researcher($user_id)
 	{	
+		$workspaceOwner = $this->Project_model->isProjectOwner($_SESSION['project_id'], $_SESSION['user_id']);
+		if(!$workspaceOwner){
+			$this->session->set_flashdata('error', $this->lang->line('project_change_access_level_no_permission'));
+			redirect('user/list/' . $_SESSION['project_id']);
+		}
 		$researcher['access_level'] = $this->input->post('access_level');
 				
 		$query = $this->Project_user_model->update($user_id, $_SESSION['project_id'], $researcher);
@@ -261,7 +271,7 @@ class Project extends CI_Controller
 			$this->session->set_flashdata('success', 'Researcher has been successfully updated!');
 			insertLogActivity('update', 'benefits management plan');
 		}
-		redirect('user/list' . $_SESSION['project_id']);
+		redirect('user/list/' . $_SESSION['project_id']);
 	}
 
 

@@ -8,21 +8,22 @@ class Register extends CI_Controller
     public function __Construct()
     {
         parent::__Construct();
-       
+
         $this->load->model('Admin_model');
         $this->load->model('User_Model');
         $this->load->model('Workspace_invite_model');
     }
-    
+
     public function list($project_id)
     {
-        if(strcmp($_SESSION['language'],"US") == 0){
-			$this->lang->load('project-page', 'english');
-			$this->lang->load('btn', 'english');
-		}else{
-			$this->lang->load('project-page', 'portuguese-brazilian');
-			$this->lang->load('btn', 'portuguese-brazilian');
-		}
+        if (strcmp($_SESSION['language'], "US") == 0) {
+            $this->lang->load('project-page', 'english');
+            $this->lang->load('btn', 'english');
+        } else {
+            $this->lang->load('project-page', 'portuguese-brazilian');
+            $this->lang->load('btn', 'portuguese-brazilian');
+        }
+        $_SESSION['project_id'] = $project_id;
 
         $dado['project_id'] = $project_id;
 
@@ -42,7 +43,7 @@ class Register extends CI_Controller
             redirect(site_url());
         }
 
-        if($this->Admin_model->getUserByEmail($email)) {
+        if ($this->Admin_model->getUserByEmail($email)) {
             $this->session->set_flashdata('flashError', 'User ' . $email . '`s already created!');
             redirect(site_url());
         }
@@ -75,15 +76,15 @@ class Register extends CI_Controller
         }
 
         $this->session->set_flashdata('flashCreated', 'User ' . $user['email'] . '`s password has been successfully created!');
-            redirect(site_url());
+        redirect(site_url());
     }
-    
+
     // public function c_recover_password(){
 
     //     $user['email'] = $this->input->post('email');
     //     $this->load->model('user_register');
     //     $this->user_register->model_recover_password($user);
-        
+
     //     //var_dump($user['email']);
     // }
 
@@ -94,8 +95,8 @@ class Register extends CI_Controller
             'user_id' => $this->session->userdata('user_id')
         ))->result();
         $this->db->where('user_id', $project_id);
-        $this->load->view('frame/header_view'); 
-		 $this->load->view('frame/topbar');
+        $this->load->view('frame/header_view');
+        $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');
         $this->load->view('frame/footer_view');
         $this->load->view('edit_user', $datauser);
@@ -104,8 +105,8 @@ class Register extends CI_Controller
     {
         $this->db->where('user_id', $project_id);
         $datauser['user'] = $this->db->get('user')->result();
-        $this->load->view('frame/header_view'); 
-		 $this->load->view('frame/topbar');
+        $this->load->view('frame/header_view');
+        $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view');
         $this->load->view('edit_user', $datauser);
     }
@@ -116,7 +117,7 @@ class Register extends CI_Controller
         $this->db->where('user_id', $postData['user_id']);
         $_SESSION['name'] = $postData['name'];
         $this->db->update('user', $postData);
-        $this->session->set_flashdata('success', 'User ' . $postData['name'] . ' has been updated!');   
+        $this->session->set_flashdata('success', 'User ' . $postData['name'] . ' has been updated!');
         redirect('project/show_projects');
     }
 
@@ -127,7 +128,7 @@ class Register extends CI_Controller
         $this->db->where('user_id', $postData['user_id']);
         $this->db->update('user', $postData);
         $this->session->set_flashdata('success', 'Password has been updated!');
-        
+
         redirect('project/show_projects');
     }
 }
