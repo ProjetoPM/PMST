@@ -135,6 +135,12 @@ class Admin_model extends CI_Model {
             return $query[0]->user_id;
     }
 
+    function update_user($user_id, $password){
+        $this->db->set('password', $password);
+        $this->db->where('user.user_id', $user_id);
+        $this->db->update('user');
+    }
+
 
     function reset_user_password($email){
 
@@ -147,8 +153,7 @@ class Admin_model extends CI_Model {
 
         if($id != null){
         // update user
-        $this->db->where('user.user_id', $id);
-        $this->db->update('user', $data);
+        $this->update_user($id, $data['password']);
 
         $message = "Your account password has been reset.<br><br>Email: ".$email."<br>Temporary password: ".$password."<br>Please change your password after login.<br><br> you can login at ".base_url().".";
         $subject = "Password Reset";
