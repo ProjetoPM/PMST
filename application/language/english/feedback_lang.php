@@ -15,4 +15,6 @@ $lang['ws_exit_workspace'] = 'Now you\'re off this workspace';
 
 
 $lang['project_invite_error'] = 'You can\'t add someone who is not in this workspace';
+
+$lang['project_change_access_level_no_permission'] = 'You can\'t change your access level as you are not the owner of the project';
 ?>

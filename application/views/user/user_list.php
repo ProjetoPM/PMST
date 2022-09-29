@@ -150,7 +150,7 @@
 													<td style="display: fixed;min-width: 100px;">
 														<div class="row center">
 															<div class="col-sm-12">
-																<form action="<?php echo base_url() ?>researcher/edit-researcher/<?php echo $project_id ?>" method="post">
+																<form action="<?php echo base_url() ?>researcher/edit-researcher/<?= $item->user_id ?>" method="post">
 																	<input type="hidden" name="project_id" value="<?= $item->project_id ?>">
 																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 																	<button type="submit" class="btn btn-danger" onclick="deletar(<?= $item->project_id ?>, <?= $item->user_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
