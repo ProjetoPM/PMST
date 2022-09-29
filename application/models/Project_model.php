@@ -32,7 +32,20 @@ class Project_model extends CI_Model
 
     function insert_project_and_get_id($project)
     {
+        $this->db->insert('project', $project);
+        $project_id = $this->db->insert_id();
 
+        $project_user['project_id'] = $project_id;
+        $project_user['user_id'] = $project['created_by'];
+        $project_user['access_level'] = 2;
+
+        $this->db->insert('project_user', $project_user);
+
+        return $project_id;
+    }
+
+    function insert_project($project)
+    {
         $this->db->insert('project', $project);
         $project_id = $this->db->insert_id();
 

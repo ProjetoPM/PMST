@@ -10,6 +10,8 @@
 	<div class="wrapper">
 		<div class="content-wrapper">
 			<section class="content">
+				<?php $error = $this->session->flashdata('error') ?>
+				<?php $style = "style='border: 1px solid red;'" ?>
 				<?php if ($this->session->flashdata('success')) : ?>
 					<div class="alert alert-success">
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -89,18 +91,25 @@
 								<form method="POST" action="<?php echo base_url('integration/project-charter/update'); ?>">
 									<input type="hidden" name="status" value="1">
 
-									<div class=" col-lg-6 form-group">
+									<div class=" col-lg-12 form-group">
 										<label for="project_description"><?= $this->lang->line('pch_description') ?></label>
-										<span class="pch_1">2000</span><?= $this->lang->line('character') ?>
-										<a class="btn-sm btn-default" id="pch_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_description_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<a <?= fieldStatus($view_name, $pj->project_charter_id, "project_description") ?> data-field="project_description" data-field_name="<?= $this->lang->line('pch_description') ?>" data-item_id="<?= $pj->project_charter_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+										<span id="count-a"></span>
 										<div>
-											<textarea onkeyup="limite_textarea(this.value, 'pch_1')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pch_txt_1" name="project_description"><?php echo $pj->project_description; ?></textarea>
-										</div>
+											<textarea 
+												name="project_description" 
+												oninput="limitText(this, 2e3, 'a')" 
+												class="form-control" 
+												id="project_description"
+												placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
+												rows="3"
+												required
+											><?= $pj->project_description; ?></textarea>
+                                		</div>
 									</div>
 
 
-									<div class="col-lg-3 form-group">
+									<div class="col-lg-12 form-group">
 										<label><?= $this->lang->line('pch_start') ?></label>
 										<a <?= fieldStatus($view_name, $pj->project_charter_id, "start_date") ?> data-field="start_date" data-field_name="<?= $this->lang->line('pch_start') ?>" data-item_id="<?= $pj->project_charter_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
@@ -108,9 +117,9 @@
 										</div>
 									</div>
 
-									<div class="col-lg-3 form-group">
+									<div class="col-lg-12 form-group">
 										<label><?= $this->lang->line('pch_end') ?></label>
-										<a <?= fieldStatus($view_name, $pj->project_charter_id, "end_date") ?> data-field="end_date" data-field_name="<?= $this->lang->line('pch_end') ?>" data-item_id="<?= $pj->project_charter_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+										<a <?= fieldStatus($view_name, $pj->project_charter_id, "end_date") ?> <?= $error ? $style : '' ?> data-field="end_date" data-field_name="<?= $this->lang->line('pch_end') ?>" data-item_id="<?= $pj->project_charter_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 											<input autocomplete="off" class="form-control input-md" id="end_date" placeholder="YYYY/MM/DD" type="date" name="end_date" required="true" value="<?php echo $pj->end_date; ?>" />
 										</div>
@@ -120,111 +129,199 @@
 									<div class=" col-lg-12 form-group">
 										<label for="project_purpose"><?= $this->lang->line('pch_purpose') ?></label>
 										<a class="btn-sm btn-default" id="pch_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_purpose_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-										<span class="pch_2">2000</span><?= $this->lang->line('character') ?>
 										<a <?= fieldStatus($view_name, $pj->project_charter_id, "project_purpose") ?> data-field="project_purpose" data-field_name="<?= $this->lang->line('pch_purpose') ?>" data-item_id="<?= $pj->project_charter_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+										<span id="count-b"></span>
 										<div>
-											<textarea onkeyup="limite_textarea(this.value, 'pch_2')" maxlength="2000" oninput=" eylem(this, this.value)" class="form-control elasticteste" id="pch_txt_2" name="project_purpose"><?php echo $pj->project_purpose; ?></textarea>
+											<textarea 
+												name="project_purpose" 
+												oninput="limitText(this, 2e3, 'b')" 
+												class="form-control" 
+												id="project_purpose"
+												placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
+												rows="3"
+												required
+											><?= $pj->project_purpose; ?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="project_objective"><?= $this->lang->line('pch_objectives') ?></label>
 										<a class="btn-sm btn-default" id="pch_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_objectives_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-										<span class="pch_3">2000</span><?= $this->lang->line('character') ?>
 										<a <?= fieldStatus($view_name, $pj->project_charter_id, "project_objective") ?> data-field="project_objective" data-field_name="<?= $this->lang->line('pch_objectives') ?>" data-item_id="<?= $pj->project_charter_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+										<span id="count-c"></span>
 										<div>
-											<textarea onkeyup="limite_textarea(this.value, 'pch_3')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pch_txt_3" name="project_objective"><?php echo $pj->project_objective; ?></textarea>
+											<textarea 
+												name="project_objective" 
+												oninput="limitText(this, 2e3, 'c')" 
+												class="form-control" 
+												id="project_objective"
+												placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
+												rows="3"
+												required
+											><?= $pj->project_objective; ?></textarea>
 										</div>
 									</div>
 
 									<div class="col-lg-12 form-group">
 										<label for="benefits"><?= $this->lang->line('pch_benefits') ?></label>
 										<a class="btn-sm btn-default" id="pch_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_benefits_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-										<span class="pch_4">2000</span><?= $this->lang->line('character') ?>
 										<a <?= fieldStatus($view_name, $pj->project_charter_id, "benefits") ?> data-field="benefits" data-field_name="<?= $this->lang->line('pch_benefits') ?>" data-item_id="<?= $pj->project_charter_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+										<span id="count-d"></span>
 										<div>
-											<textarea onkeyup="limite_textarea(this.value, 'pch_4')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pch_txt_4" name="benefits"><?php echo $pj->benefits; ?></textarea>
+											<textarea 
+												name="benefits" 
+												oninput="limitText(this, 2e3, 'd')" 
+												class="form-control" 
+												id="benefits"
+												placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
+												rows="3"
+												required
+											><?= $pj->benefits; ?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="high_level_requirements"><?= $this->lang->line('pch_high_level_req') ?></label>
 										<a class="btn-sm btn-default" id="pch_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_high_level_req_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-										<span class="pch_5">2000</span><?= $this->lang->line('character') ?>
 										<a <?= fieldStatus($view_name, $pj->project_charter_id, "high_level_requirements") ?> data-field="high_level_requirements" data-field_name="<?= $this->lang->line('pch_high_level_req') ?>" data-item_id="<?= $pj->project_charter_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+										<span id="count-e"></span>
 										<div>
-											<textarea onkeyup="limite_textarea(this.value, 'pch_5')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pch_txt_5" name="high_level_requirements"><?php echo $pj->high_level_requirements; ?></textarea>
+											<textarea 
+												name="high_level_requirements" 
+												oninput="limitText(this, 2e3, 'e')" 
+												class="form-control" 
+												id="high_level_requirements"
+												placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
+												rows="3"
+												required
+											><?= $pj->high_level_requirements; ?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="boundaries"><?= $this->lang->line('pch_boundaries') ?></label>
-										<span class="pch_6">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id="pch_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_boundaries_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<a <?= fieldStatus($view_name, $pj->project_charter_id, "boundaries") ?> data-field="boundaries" data-field_name="<?= $this->lang->line('pch_boundaries') ?>" data-item_id="<?= $pj->project_charter_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+										<span id="count-f"></span>
 										<div>
-											<textarea onkeyup="limite_textarea(this.value, 'pch_6')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pch_txt_6" name="boundaries"><?php echo $pj->boundaries; ?></textarea>
+											<textarea 
+												name="boundaries" 
+												oninput="limitText(this, 2e3, 'f')" 
+												class="form-control" 
+												id="boundaries"
+												placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
+												rows="3"
+												required
+											><?= $pj->boundaries; ?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="pch_risks"><?= $this->lang->line('pch_risks') ?></label>
-										<span class="pch_7">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id="pch_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_risks_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<a <?= fieldStatus($view_name, $pj->project_charter_id, "high_level_risks") ?> data-field="high_level_risks" data-field_name="<?= $this->lang->line('pch_risks') ?>" data-item_id="<?= $pj->project_charter_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+										<span id="count-g"></span>
 										<div>
-											<textarea onkeyup="limite_textarea(this.value, 'pch_7')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pch_txt_7" name="high_level_risks"><?php echo $pj->high_level_risks; ?></textarea>
+											<textarea 
+												name="high_level_risks" 
+												oninput="limitText(this, 2e3, 'g')" 
+												class="form-control" 
+												id="high_level_risks"
+												placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
+												rows="3"
+												required
+											><?= $pj->high_level_risks; ?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="summary_schedule"><?= $this->lang->line('pch_schedule') ?></label>
 										<a class="btn-sm btn-default" id="pch_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_schedule_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-										<span class="pch_8">2000</span><?= $this->lang->line('character') ?>
 										<a <?= fieldStatus($view_name, $pj->project_charter_id, "summary_schedule") ?> data-field="summary_schedule" data-field_name="<?= $this->lang->line('pch_schedule') ?>" data-item_id="<?= $pj->project_charter_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+										<span id="count-h"></span>
 										<div>
-											<textarea onkeyup="limite_textarea(this.value, 'pch_8')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pch_txt_8" name="summary_schedule"><?php echo $pj->summary_schedule; ?></textarea>
+											<textarea 
+												name="summary_schedule" 
+												oninput="limitText(this, 2e3, 'h')" 
+												class="form-control" 
+												id="summary_schedule"
+												placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
+												rows="3"
+												required
+											><?= $pj->summary_schedule; ?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-12 form-group">
 										<label for="budge_summary"><?= $this->lang->line('pch_budge') ?></label>
 										<a class="btn-sm btn-default" id="pch_tp_9" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_budge_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-										<span class="pch_9">2000</span><?= $this->lang->line('character') ?>
 										<a <?= fieldStatus($view_name, $pj->project_charter_id, "budge_summary") ?> data-field="budge_summary" data-field_name="<?= $this->lang->line('pch_budge') ?>" data-item_id="<?= $pj->project_charter_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+										<span id="count-i"></span>
 										<div>
-											<textarea onkeyup="limite_textarea(this.value, 'pch_9')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pch_txt_9" name="budge_summary"><?php echo $pj->budge_summary; ?></textarea>
+											<textarea 
+												name="budge_summary" 
+												oninput="limitText(this, 2e3, 'i')" 
+												class="form-control" 
+												id="budge_summary"
+												placeholder="<?= $this->lang->line('placeholder_generic') ?>"
+												rows="3" 
+												required
+											><?php echo $pj->budge_summary; ?></textarea>
 										</div>
 									</div>
 
 
 									<div class=" col-lg-12 form-group">
 										<label for="project_approval_requirements"><?= $this->lang->line('pch_approval') ?></label>
-										<span class="pch_10">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id="pch_tp_10" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_approval_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<a <?= fieldStatus($view_name, $pj->project_charter_id, "project_approval_requirements") ?> data-field="project_approval_requirements" data-field_name="<?= $this->lang->line('pch_approval') ?>" data-item_id="<?= $pj->project_charter_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+										<span id="count-j"></span>
 										<div>
-											<textarea onkeyup="limite_textarea(this.value, 'pch_10')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pch_txt_10" name="project_approval_requirements"><?php echo $pj->project_approval_requirements; ?></textarea>
+											<textarea 
+												name="project_approval_requirements" 
+												oninput="limitText(this, 2e3, 'j')" 
+												class="form-control" 
+												id="project_approval_requirements"
+												placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
+												rows="3"
+												required
+											><?php echo $pj->project_approval_requirements; ?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-6 form-group">
 										<label for="success_criteria"><?= $this->lang->line('pch_sucess_criteria') ?></label>
 										<a class="btn-sm btn-default" id="pch_tp_11" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_success_criteria_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-										<span class="pch_11">2000</span><?= $this->lang->line('character') ?>
 										<a <?= fieldStatus($view_name, $pj->project_charter_id, "success_criteria") ?> data-field="success_criteria" data-field_name="<?= $this->lang->line('pch_sucess_criteria') ?>" data-item_id="<?= $pj->project_charter_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+										<span id="count-k"></span>
 										<div>
-											<textarea onkeyup="limite_textarea(this.value, 'pch_11')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pch_txt_11" name="success_criteria"><?php echo $pj->success_criteria; ?></textarea>
+											<textarea 
+												name="success_criteria" 
+												oninput="limitText(this, 2e3, 'k')" 
+												class="form-control" 
+												id="success_criteria"
+												placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
+												rows="3"
+												required
+											><?php echo $pj->success_criteria; ?></textarea>
 										</div>
 									</div>
 
 									<div class=" col-lg-6 form-group">
 										<label for="exit_criteria"><?= $this->lang->line('pch_exit_criteria') ?></label>
-										<span class="pch_12">2000</span><?= $this->lang->line('character') ?>
 										<a class="btn-sm btn-default" id="pch_tp_12" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('pch_exit_criteria_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<a <?= fieldStatus($view_name, $pj->project_charter_id, "exit_criteria") ?> data-field="exit_criteria" data-field_name="<?= $this->lang->line('pch_exit_criteria') ?>" data-item_id="<?= $pj->project_charter_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+										<span id="count-m"></span>
 										<div>
-											<textarea onkeyup="limite_textarea(this.value, 'pch_12')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="pch_txt_12" name="exit_criteria"><?php echo $pj->exit_criteria; ?></textarea>
+											<textarea 
+												name="exit_criteria" 
+												oninput="limitText(this, 2e3, 'm')" 
+												class="form-control" 
+												id="exit_criteria"
+												placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
+												rows="3"
+												required
+											><?php echo $pj->exit_criteria; ?></textarea>
 										</div>
 									</div>
 
@@ -463,6 +560,8 @@
 		$("." + txt).text(caracteresRestantes);
 	}
 </script>
+<!-- Não mostrar -->
+<?php if (1 + 1 === 3): ?>
 <script type="text/javascript">
 	//////////////////////////////////
 	// Start Date & End Date
@@ -471,32 +570,36 @@
 	var today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 0, 0, 0, 0);
 	var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
 
-	var startDate = $("#start_date").datepicker({
-		autoclose: true,
-		format: 'yyyy/mm/dd',
-		//language: 'pt-BR', //Idioma do Calendario
-		container: container,
-		keyboardNavigation: true,
-		orientation: "bottom",
-		todayHighlight: true,
-		startDate: today,
-	}).on('changeDate', function(ev) {
-		var newDate = new Date(ev.date.setDate(ev.date.getDate() + 1));
-		endDate.datepicker("setStartDate", newDate);
-	});
+	// var startDate = $("#start_date").datepicker({
+	// 	autoclose: true,
+	// 	format: 'yyyy/mm/dd',
+	// 	//language: 'pt-BR', //Idioma do Calendario
+	// 	container: container,
+	// 	keyboardNavigation: true,
+	// 	orientation: "bottom",
+	// 	todayHighlight: true,
+	// 	startDate: today,
+	// }).on('changeDate', function(ev) {
+	// 	var newDate = new Date(ev.date.setDate(ev.date.getDate() + 1));
+	// 	endDate.datepicker("setStartDate", newDate);
+	// });
 
 	//Start Date Ends Here
-	var endDate = $("#end_date").datepicker({
-		autoclose: true,
-		format: 'yyyy/mm/dd',
-		//language: 'pt-BR', //Idioma do Calendario
-		container: container,
-		keyboardNavigation: true,
-		orientation: "bottom",
-		startDate: today,
-		/*todayHighlight : true,*/
-	});
+	// var endDate = $("#end_date").datepicker({
+	// 	autoclose: false,
+	// 	format: 'YYYY/mm/dd',
+	// 	//language: 'pt-BR', //Idioma do Calendario
+	// 	container: container,
+	// 	keyboardNavigation: true,
+	// 	orientation: "bottom",
+	// 	startDate: today,
+	// 	/*todayHighlight : true,*/
+	// }).on('change', function(ev) {
+	// 	var newDate = new Date(ev.date.setDate(ev.date.getDate() + 1));
+	// 	endDate.datepicker("setStartDate", newDate);
+	// });
 	//End Date Ends Here
 </script>
+<?php endif ?>
 
 <?php $this->load->view('frame/footer_view') ?>

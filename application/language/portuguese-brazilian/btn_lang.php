@@ -57,5 +57,6 @@ $lang['staff'] = 'Equipe';
 $lang['footer_unipampa'] = '2019 por';
 // Overleaf
 $lang['export_overleaf'] = 'Exportar para Overleaf';
+$lang['placeholder_generic'] = 'Digite aqui...';
 
 ?>

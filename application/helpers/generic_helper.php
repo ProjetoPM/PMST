@@ -162,7 +162,6 @@ function getAcesslevelName($project_id, $user_id)
 
 function getAcesslevelNameByAcessLevelId($access_level)
 {
-	
 	if ($access_level == 2) {
 		return "Project Manager";
 	} else if ($access_level == 1) {
@@ -414,4 +413,13 @@ function verifyLanguage()
 
 function getIndexOfLanguage() {
 	return strcmp($_SESSION['language'], 'US') === 0 ? 2 : 1;
+}
+
+/**
+ * @return true se a data final for maior que a inicial | false se não for
+ */
+function diff_date($start_date, $end_date): bool {
+	$start = new DateTime($start_date);
+	$end = new DateTime($end_date);
+	return $start >= $end;
 }

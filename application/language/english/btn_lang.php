@@ -62,5 +62,6 @@ $lang['pages'] = 'Page 1 of 1';
 $lang['export_overleaf'] = 'Export Overleaf';
 
 $lang['btn-see'] = 'Mark all comments as viewed';
+$lang['placeholder_generic'] = 'Type here...';
 
 ?>

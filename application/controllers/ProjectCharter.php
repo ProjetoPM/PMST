@@ -73,7 +73,6 @@ class ProjectCharter extends CI_Controller
 
 	public function edit($project_id)
 	{
-	
 		$this->db->where('user_id', $_SESSION['user_id']);
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$project['dados'] = $this->db->get('project_user')->result();
@@ -104,11 +103,22 @@ class ProjectCharter extends CI_Controller
 
 	public function insert()
 	{
-		if(strcmp($_SESSION['language'],"US") == 0){
-			$feedback_success = 'Item Created';
+		$date = [
+			'start_date' => $this->input->post('start_date'),
+			'end_date' => $this->input->post('end_date')
+		];
+		
+		if (diff_date($date['start_date'], $date['end_date'])) {
+			$this->session->set_flashdata('error', 'The end date must be greater than the start date');
+			$this->session->set_flashdata('data', $this->input->post());
+			redirect("integration/project-charter/new/{$_SESSION['project_id']}");
+		}
+
+		if (strcmp($_SESSION['language'],"US") == 0) {
+			$feedback_success = 'Item created successfully!';
 			$feedback_permission = 'You are not allowed to create or change documents!';
-        }else{
-			$feedback_success = 'Item Criado ';
+        } else {
+			$feedback_success = 'Item criado com sucesso!';
 			$feedback_permission = 'Você não tem permissão para criar ou mudar documentos';
 
 		}
@@ -139,6 +149,18 @@ class ProjectCharter extends CI_Controller
 			$this->session->set_flashdata('error', 'You are not allowed to create or change documents!');
 			redirect("integration/project-charter/edit/" . $_SESSION['project_id']);
 		}
+
+		$date = [
+			'start_date' => $this->input->post('start_date'),
+			'end_date' => $this->input->post('end_date')
+		];
+		
+		if (diff_date($date['start_date'], $date['end_date'])) {
+			$this->session->set_flashdata('error', 'The end date must be greater than the start date');
+			$this->session->set_flashdata('data', $this->input->post());
+			redirect("integration/project-charter/new/{$_SESSION['project_id']}");
+		}
+		
 		$project_charter['project_description'] = $this->input->post('project_description');
 		$project_charter['project_purpose'] = $this->input->post('project_purpose');
 		$project_charter['project_objective'] = $this->input->post('project_objective');

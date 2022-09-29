@@ -10,10 +10,7 @@
 							<h1 class="page-header">
 								<?= $this->lang->line('pch_title')  ?>
 							</h1>
-							<form method="POST" action="<?= base_url('integration/project-charter/insert') ?>">
-								<?php $data = $this->session->flashdata('data') ?>
-								<?php $error = $this->session->flashdata('error') ?>
-								<?php $style = "style='border: 1px solid red;'" ?>
+							<form method="POST" action="<?= base_url('integration/project-charter/update') ?>">
 								<input type="hidden" name="project_id" value="<?= $_SESSION['project_id']; ?>">
 								<input type="hidden" name="status" value="1">
 								<div class="col-lg-12 form-group">
@@ -29,7 +26,7 @@
 											placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
 											rows="3"
 											required
-										><?= $data['project_description'] ?? '' ?></textarea>
+										></textarea>
                                 	</div>
 								</div>
 
@@ -37,14 +34,14 @@
 									<div class="col-lg-12 form-group">
 										<label><?= $this->lang->line('pch_start') ?></label>
 										<div>
-											<input autocomplete="off" class="form-control input-md" id="start_date" placeholder="YYYY/MM/DD" type="date" name="start_date" required="true" value="<?= $data['start_date'] ?? '' ?>" />
+											<input autocomplete="off" class="form-control input-md" id="start_date" placeholder="YYYY/MM/DD" type="date" name="start_date" required="true" />
 										</div>
 									</div>
 
 									<div class="col-lg-12 form-group">
 										<label><?= $this->lang->line('pch_end') ?></label>
 										<div>
-											<input autocomplete="off" <?= $error ? $style : '' ?> class="form-control input-md" id="end_date" placeholder="YYYY/MM/DD" type="date" name="end_date" required="true" />
+											<input autocomplete="off" class="form-control input-md" id="end_date" placeholder="YYYY/MM/DD" type="date" name="end_date" required="true" />
 										</div>
 									</div>
 								<!-- Fim teste Datas -->
@@ -62,7 +59,7 @@
 											placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
 											rows="3"
 											required
-										><?= $data['project_purpose'] ?? '' ?></textarea>
+										></textarea>
                                 	</div>
 								</div>
 
@@ -79,7 +76,7 @@
 											placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
 											rows="3"
 											required
-										><?= $data['project_objective'] ?? '' ?></textarea>
+										></textarea>
                                 	</div>
 								</div>
 
@@ -96,7 +93,7 @@
 											placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
 											rows="3"
 											required
-										><?= $data['benefits'] ?? '' ?></textarea>
+										></textarea>
                                 	</div>
 								</div>
 
@@ -113,7 +110,7 @@
 											placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
 											rows="3"
 											required
-										><?= $data['high_level_requirements'] ?? '' ?></textarea>
+										></textarea>
                                 	</div>
 								</div>
 
@@ -130,7 +127,7 @@
 											placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
 											rows="3"
 											required
-										><?= $data['boundaries'] ?? '' ?></textarea>
+										></textarea>
                                 	</div>
 								</div>
 
@@ -147,7 +144,7 @@
 											placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
 											rows="3"
 											required
-										><?= $data['high_level_risks'] ?? '' ?></textarea>
+										></textarea>
                                 	</div>
 								</div>
 
@@ -164,7 +161,7 @@
 											placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
 											rows="3"
 											required
-										><?= $data['summary_schedule'] ?? '' ?></textarea>
+										></textarea>
                                 	</div>
 								</div>
 
@@ -181,7 +178,7 @@
 											placeholder="<?= $this->lang->line('placeholder_generic') ?>"
 											rows="3" 
 											required
-										><?= $data['budge_summary'] ?? '' ?></textarea>
+										></textarea>
                                 	</div>
 								</div>
 
@@ -198,7 +195,7 @@
 											placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
 											rows="3"
 											required
-										><?= $data['project_approval_requirements'] ?? '' ?></textarea>
+										></textarea>
                                 	</div>
 								</div>
 
@@ -215,7 +212,7 @@
 											placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
 											rows="3"
 											required
-										><?= $data['success_criteria'] ?? '' ?></textarea>
+										></textarea>
                                 	</div>
 								</div>
 
@@ -232,12 +229,13 @@
 											placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
 											rows="3"
 											required
-										><?= $data['exit_criteria'] ?? '' ?></textarea>
+										></textarea>
                                 	</div>
 								</div>
 								<!-- Início modal da lista de stakeholder -->
 
 								<!-- Trigger the modal with a button -->
+								<button type="button" class="open-AddBookDialog btn btn-warning btn-lg center-block" data-toggle="modal" data-target="#add">View Stakeholder List</button>
 								<!-- Modal -->
 								<div class="modal fade" id="add" role="dialog">
 									<div class="modal-dialog">
@@ -279,17 +277,13 @@
 
 								<input type="hidden" name="status" value="1">
 
-								<div class="col-lg-12 m-t-15">
-									<a class="btn btn-lg btn-info pull-left" href="<?php echo base_url('project/'); ?><?php echo $_SESSION['project_id']; ?>">
-										<i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?>
-									</a>
-
+								<div class="col-lg-12">
 									<button <?php if ($_SESSION['access_level'] == "1") { ?> disabled <?php } ?> id="pch_submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
 										<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
 									</button>
-
-									<button type="button" class="open-AddBookDialog btn btn-warning btn-lg center-block" data-toggle="modal" data-target="#add">View Stakeholder List</button>
-								</div>
+							</form>
+							<form action="<?php echo base_url('project/'); ?><?php echo $_SESSION['project_id']; ?>">
+								<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 							</form>
 						</div>
 					</div>
@@ -306,8 +300,6 @@
 <script src="<?= base_url() ?>assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
 <script src="<?= base_url() ?>assets/js/bootstrap-datepicker.pt-BR.min.js" type="text/javascript"></script>
 
-<!-- Não mostrar -->
-<?php if (1 + 1 === 3): ?>
 <script type="text/javascript">
 	for (var i = 1; i <= 18; i++) {
 		if (document.getElementById("pch_tp_" + i).title == "") {
@@ -344,21 +336,17 @@
 	});
 
 	//Start Date Ends Here
-	$("#end_date").datepicker({
-		autoclose: false,
+	var endDate = $("#end_date").datepicker({
+		autoclose: true,
 		format: 'yyyy/mm/dd',
 		//language: 'pt-BR', //Idioma do Calendario
 		container: container,
 		keyboardNavigation: true,
 		orientation: "bottom",
 		startDate: today,
-		/* todayHighlight : true,*/
-	}).on('changeDate', function(ev) {
-		var newDate = new Date(ev.date.setDate(ev.date.getDate() + 1));
-		endDate.datepicker("setStartDate", newDate);
+		/todayHighlight : true,/
 	});
 	//End Date Ends Here
 </script>
-<?php endif ?>
 
 <?php $this->load->view('frame/footer_view') ?>
