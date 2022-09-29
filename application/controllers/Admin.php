@@ -83,10 +83,6 @@ class Admin extends CI_Controller {
 		}else{
 			$this->session->set_flashdata('flashError', 'Erro:'. $update['message']);
 		}
-		// echo json_encode($update);
-		// if ($update) {
-		// 	$this->session->set_flashdata('flashSuccess', 'User ' . $email . '`s password has been successfully reset!');
-		// }else{
 			
 		redirect(base_url());
 	}

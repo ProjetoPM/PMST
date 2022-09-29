@@ -126,11 +126,13 @@ class Admin_model extends CI_Model {
     }
 
     function getUserByEmail($email){
-        return $this->db->select('user_id')
+        $query = $this->db->select('user_id')
             ->from('user')
             ->where('email', $email)
             ->get()
             ->result();
+
+            return $query[0]->user_id;
     }
 
 
@@ -142,7 +144,7 @@ class Admin_model extends CI_Model {
         $data = array(
             'password' => md5($password),
         );
-        
+
         if($id != null){
         // update user
         $this->db->where('user.user_id', $id);
