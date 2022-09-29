@@ -27,10 +27,8 @@ class Project extends CI_Controller
 		
 		$this->load->helper('url');
 		$this->load->helper('log_activity');
-
 		$this->load->model('Project_model');
 		$this->load->model('Workspace_model');
-		$this->load->model('Project_user_model');
 	}
 	
 	private function ajax_checking()
@@ -100,20 +98,8 @@ class Project extends CI_Controller
 		$project['created_by'] = $this->session->userdata('user_id');
 		$project['workspace_id'] = $workspace_id;
 
-		
-		$project_id = $this->Project_model->insert_project_and_get_id($project);
-		
-		
-		if ($project_id != null) {
-			$professors = $this->Workspace_model->getWorkspaceProfessors($workspace_id);
-
-			foreach($professors as $professor){
-				$member['user_id'] = $professor->user_id;
-				$member['access_level'] = 1;
-				$member['project_id'] = $project_id;
-				$this->Project_model->insertResearcher($member);
-			}
-
+		$insert = $this->Project_model->insert_project($project);
+		if ($insert) {
 			$this->session->set_flashdata('success', 'Project ' . $project['title'] . ' has been successfully created!');
 			insertLogActivity('insert', 'project');
 			redirect("projects/{$project['workspace_id']}");
@@ -191,19 +177,12 @@ class Project extends CI_Controller
 	//metodo para adicionar pesquisador a pesquisa
 	public function add_researcher()
 	{
-		$dados = $this->input->post();
 		
+		$dados = $this->input->post();
+
 		$project_id   = $dados['project_id'];
 		$access_level = $dados['access_level'];
 		$user_id      = $this->retornaIdUserByEmail($dados['email']);
-		
-		$userNotInWorkspace = $this->Project_model->userInvitedNotInWorkspace($user_id, $_SESSION['workspace_id']);
-
-		if($userNotInWorkspace){
-			$this->session->set_flashdata('error', $this->lang->line('project_invite_error'));
-			redirect('researcher/' . $project_id);
-		}
-		
 
 		//verifica se usuario existe
 		if ($user_id == null) {
@@ -240,38 +219,32 @@ class Project extends CI_Controller
 		redirect('projects/');
 	}
 
-	public function edit_researcher_page($user_id)
+	public function edit_researcher_page()
 	{
-
-
-		$data['user'] = $this->Project_user_model->get($user_id, $_SESSION['project_id']);
-
-		// var_dump($data['user']);
-		// exit();
-
-
+		$this->db->where('project_id', $_SESSION['project_id']);
+		$dataproject['project'] = $this->db->get('project')->result();
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/edit_researcher', $data);
+		$this->load->view('project/edit_researcher', $dataproject);
 	}
 	
 	//metodo para adicionar pesquisador a pesquisa
-	public function update_researcher($user_id)
+	public function update_researcher()
 	{	
-		$workspaceOwner = $this->Project_model->isProjectOwner($_SESSION['project_id'], $_SESSION['user_id']);
-		if(!$workspaceOwner){
-			$this->session->set_flashdata('error', $this->lang->line('project_change_access_level_no_permission'));
-			redirect('user/list/' . $_SESSION['project_id']);
-		}
-		$researcher['access_level'] = $this->input->post('access_level');
-				
-		$query = $this->Project_user_model->update($user_id, $_SESSION['project_id'], $researcher);
-		if ($query) {
-			$this->session->set_flashdata('success', 'Researcher has been successfully updated!');
+		$researcher['role'] = $this->input->post('role');
+		
+		$data = $this->input->post();
+		$project_id   = $data['project_id'];
+		$access_level = $data['access_level'];
+		$user_id      = $this->retornaIdUserByEmail($data['email']);
+		
+		$query = $this->Project_model->update_role($_SESSION['project_id'], $_SESSION['user_id'], $researcher);
+		if ($this->Project_model->getResearcher($project_id, $user_id)) {
+			$this->session->set_flashdata('success', 'Benefits Management Plan has been successfully changed!');
 			insertLogActivity('update', 'benefits management plan');
 		}
-		redirect('user/list/' . $_SESSION['project_id']);
+		redirect('user/list' . $_SESSION['project_id']);
 	}
 
 
