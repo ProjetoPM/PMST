@@ -30,8 +30,6 @@ class Project_model extends CI_Model
         return $u['title'];
     }
 
-
-
     function insert_project_and_get_id($project)
     {
 
@@ -64,9 +62,6 @@ class Project_model extends CI_Model
     {
         return $this->db->insert('project_user', $data);
     }
-
-
-
 
     function getAll($project_id)
     {
