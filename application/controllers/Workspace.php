@@ -16,7 +16,7 @@ class Workspace extends CI_Controller
 		$this->load->helper('log_activity');
 		$this->load->model('log_model');
 		$this->load->model('User_Model');
-		$this->load->model('Admin_Model');
+		$this->load->model('Admin_model');
 		$this->load->model('View_model');
 		$this->load->model('Project_model');
 		$this->load->model('Access_level_model');
