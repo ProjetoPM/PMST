@@ -129,6 +129,6 @@ class Register extends CI_Controller
         $this->db->update('user', $postData);
         $this->session->set_flashdata('success', 'Password has been updated!');
 
-        redirect('project/show_projects');
+        redirect('workspace/list');
     }
 }
