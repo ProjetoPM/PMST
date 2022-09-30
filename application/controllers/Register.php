@@ -118,7 +118,7 @@ class Register extends CI_Controller
         $_SESSION['name'] = $postData['name'];
         $this->db->update('user', $postData);
         $this->session->set_flashdata('success', 'User ' . $postData['name'] . ' has been updated!');
-        redirect('project/show_projects');
+        redirect('workspace/list');
     }
 
     public function savePassword()
