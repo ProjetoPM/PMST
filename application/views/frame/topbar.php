@@ -345,6 +345,9 @@ $language = strcmp($_SESSION['language'], "US") == 0 ? "US" : "BR";
                }
              }
 
+             /**
+              * Ajustando ao centro o botão de trocar o idioma. 🫣
+              */
              const advanced = document.getElementById('advanced');
              const advancedButton = advanced.childNodes;
 

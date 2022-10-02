@@ -58,46 +58,78 @@
 
                   <div class=" col-lg-12 form-group">
                     <label for="business_deals"><?= $this->lang->line('bc_business_deals') ?> </label>
-                    <span class="bc_1">2000</span><?= $this->lang->line('character') ?>
                     <a class="btn-sm btn-default" id="bc_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('bc_business_deals_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <a <?= fieldStatus($view_name, $business_case[0]->business_case_id, "business_deals") ?> data-field="business_deals" data-field_name="<?= $this->lang->line('bc_business_deals') ?>" data-item_id="<?= $business_case[0]->business_case_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+                    <span id="count-a"></span>
                     <div>
-                      <textarea onkeyup="limite_textarea(this.value, 'bc_1')" id="bc_txt_1" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="business_deals"><?=  $business_case[0]->business_deals; ?></textarea>
+                      <textarea 
+                        oninput="limitText(this, 2e3, 'a')" 
+                        placeholder="<?= $this->lang->line('placeholder_generic') ?>"
+                        rows="3" 
+                        id="bc_txt_1" 
+                        maxlength="2000" 
+                        class="form-control" 
+                        name="business_deals"
+                      ><?=  $business_case[0]->business_deals; ?></textarea>
                     </div>
                   </div>
 
                   <div class=" col-lg-12 form-group">
                     <label for="situation_analysis"><?= $this->lang->line('bc_situation_analysis') ?> </label>
-                    <span class="bc_2">2000</span><?= $this->lang->line('character') ?>
                     <a class="btn-sm btn-default" id="bc_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('bc_situation_analysis_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <a <?= fieldStatus($view_name, $business_case[0]->business_case_id, "situation_analysis") ?> data-field="situation_analysis" data-field_name="<?= $this->lang->line('bc_situation_analysis') ?>" data-item_id="<?= $business_case[0]->business_case_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+                    <span id="count-b"></span>
                     <div>
-                      <textarea onkeyup="limite_textarea(this.value, 'bc_2')" id="bc_txt_2" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="situation_analysis"><?= $business_case[0]->situation_analysis; ?></textarea>
+                      <textarea 
+                        oninput="limitText(this, 2e3, 'b')" 
+                        placeholder="<?= $this->lang->line('placeholder_generic') ?>"
+                        rows="3" 
+                        id="bc_txt_2" 
+                        maxlength="2000" 
+                        class="form-control" 
+                        name="situation_analysis"
+                      ><?= $business_case[0]->situation_analysis; ?></textarea>
                     </div>
                   </div>
 
                   <div class=" col-lg-12 form-group">
                     <label for="recommendation"><?= $this->lang->line('bc_recommendation') ?> </label>
-                    <span class="bc_3">2000</span><?= $this->lang->line('character') ?>
                     <a class="btn-sm btn-default" id="bc_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('bc_recommendation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <a <?= fieldStatus($view_name, $business_case[0]->business_case_id, "recommendation") ?> data-field="recommendation" data-field_name="<?= $this->lang->line('bc_recommendation') ?>" data-item_id="<?= $business_case[0]->business_case_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+                    <span id="count-c"></span>
                     <div>
-                      <textarea onkeyup="limite_textarea(this.value, 'bc_3')" id="bc_txt_3" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="recommendation"><?= $business_case[0]->recommendation; ?></textarea>
+                      <textarea 
+                        oninput="limitText(this, 2e3, 'c')" 
+                        placeholder="<?= $this->lang->line('placeholder_generic') ?>"
+                        rows="3" 
+                        id="bc_txt_3" 
+                        maxlength="2000" 
+                        class="form-control" 
+                        name="recommendation"
+                      ><?= $business_case[0]->recommendation; ?></textarea>
                     </div>
                   </div>
 
 
                   <div class=" col-lg-12 form-group">
                     <label for="evaluation"><?= $this->lang->line('bc_evaluation') ?> </label>
-                    <span class="bc_4">2000</span><?= $this->lang->line('character') ?>
                     <a class="btn-sm btn-default" id="bc_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('bc_evaluation_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                     <a <?= fieldStatus($view_name, $business_case[0]->business_case_id, "evaluation") ?> data-field="evaluation" data-field_name="<?= $this->lang->line('bc_evaluation') ?>" data-item_id="<?= $business_case[0]->business_case_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+                    <span id="count-d"></span>
                     <div>
-                      <textarea onkeyup="limite_textarea(this.value, 'bc_4')" id="bc_txt_4" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" name="evaluation"><?= $business_case[0]->evaluation; ?></textarea>
+                      <textarea 
+                        oninput="limitText(this, 2e3, 'd')" 
+                        placeholder="<?= $this->lang->line('placeholder_generic') ?>"
+                        rows="3" 
+                        id="bc_txt_4" 
+                        maxlength="2000" 
+                        class="form-control" 
+                        name="evaluation"
+                      ><?= $business_case[0]->evaluation; ?></textarea>
                     </div>
                   </div>
 
-                  <div class="col-lg-12">
+                  <div class="col-lg-12 m-t-10">
                     <button id="new_bc_submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
                       <i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
                     </button>

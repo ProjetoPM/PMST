@@ -1,3 +1,14 @@
+.dropdown-menu {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    opacity: 0;
+    display: block;
+}
+
+.open .dropdown-menu {
+    opacity: 1;
+}
+
 /*[ FONT SIZE ]
 ///////////////////////////////////////////////////////////
 */

@@ -98,9 +98,9 @@
 										<div>
 											<textarea 
 												name="project_description" 
-												oninput="limitText(this, 2e3, 'a')" 
 												class="form-control" 
 												id="project_description"
+												oninput="limitText(this, 2e3, 'a')" 
 												placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
 												rows="3"
 												required
