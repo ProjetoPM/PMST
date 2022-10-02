@@ -19,10 +19,10 @@ $lang['ws_feedback_invite_warning'] = 'Convite enviado com sucesso, mas alguns e
 $lang['ws_feedback_invite_error'] = 'Somente professores podem convidar usuários para a área de trabalho.';
 $lang['ws_feedback_invite_success'] = 'Convite enviado com sucesso';
 $lang['ws_feedback_error'] = 'Ocorreu um erro ao convidar os usuários, certifique-se de ter inserido pelo menos um e-mail.';
-$lang['ws_delete_workspace'] = 'Você tem certeza que deseja deletar esta área de trabalho?';
+$lang['ws_delete_workspace'] = 'Você tem certeza que deseja deletar esta Área de Trabalho?';
 $lang['ws_professor'] = 'Professor';
 $lang['ws_grade'] = 'Nota';
 $lang['ws_comment'] = 'Comentário';
 $lang['ws_no_grade'] = 'Submissão Não Avaliada até o Momento';
-$lang['ws_exit_workspace'] = 'Você tem certeza que deseja sair desta área de trabalho?';
+$lang['ws_exit_workspace'] = 'Você tem certeza que deseja sair desta Área de Trabalho?';
 ?>

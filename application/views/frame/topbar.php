@@ -1,3 +1,12 @@
+<?php 
+
+$invites = $_SESSION['invites'] ?? [];
+$open_inbox = isset($view_id) && strcmp($view_id, "79") === 0 && count($invites) > 0 ? 'open' : '';
+$animate = isset($invites) && !empty($invites) ? 'animation' : '';
+$language = strcmp($_SESSION['language'], "US") == 0 ? "US" : "BR";
+
+?>
+
 <header class="main-header" style="
     position:fixed;
     width:100%;
@@ -115,7 +124,7 @@
          <?php if ($_SESSION['project_id'] != null) { ?>
            <div class="title">
              <p>
-               <strong><?= $this->lang->line('project_title') ?> <?php echo $_SESSION['project_name'] ?></strong>
+               <strong><?= $this->lang->line('project_title') ?> <?= $_SESSION['project_name'] ?></strong>
              </p>
            </div>
 
@@ -127,7 +136,7 @@
            <form>
              <div class="form-group" style="vertical-align:bottom">
             
-               <div id="advanced" style="vertical-align:bottom" data-input-name="country3" data-selected-country="<?php if(strcmp($_SESSION['language'],"US") == 0){ echo "US";}else{echo"BR";} ?>" data-button-size="btn-lg" data-button-type="language" data-scrollable="true" data-scrollable-height="250px" data-countries='{"US": "United States","BR": "Brazil"}'>
+               <div id="advanced" style="vertical-align:bottom" data-input-name="country3" data-selected-country="<?= $language ?>" data-button-size="btn-lg" data-button-type="language" data-scrollable="true" data-scrollable-height="250px" data-countries='{"US": "English","BR": "Português"}'>
                </div>
              </div>
            </form>
@@ -144,17 +153,16 @@
            </li>
 
          <?php } ?>
-         
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <span class="label label-pill label-danger count" style="border-radius:10px;"></span>
-            <span class="fa fa-inbox <?= isset($_SESSION['invites']) && !empty($_SESSION['invites']) ? 'animation' : '' ?>" style="font-size:18px;"></span>
+            <span class="fa fa-inbox <?= $animate ?>" style="font-size:18px;"></span>
           </a>
-          <ul class="dropdown-menu" style="width: 400px; padding: 10px; border-radius: 0 0 10px 10px;">
-            <?php if (isset($_SESSION['invites']) && !empty($_SESSION['invites'])) : ?>
+          <ul class="dropdown-menu <?= $open_inbox ?>" style="width: 400px; padding: 10px; border-radius: 0 0 10px 10px;">
+            <?php if (isset($invites) && !empty($invites)) : ?>
               <li>
-                <?php $last_index = count($_SESSION['invites']) ?>
-                <?php foreach ($_SESSION['invites'] as $key => $item): ?>
+                <?php $last_index = count($invites) ?>
+                <?php foreach ($invites as $key => $item): ?>
                   <span>
                     <div style="display: flex;justify-content: end;align-items: center;gap: 2px;margin: 10px 0;border-left: 5px solid #5a5a5a;border-left-width: 10px;padding-left: 15px;left: -20px;">
                         <p style="margin: 0;"><?= $this->lang->line('ws_feedback_invite') ?><strong><?= $item->name  ?></strong>.</p>
@@ -169,7 +177,9 @@
                   <?= $key !== $last_index - 1 ? '<hr>' : ''?>
                 <?php endforeach ?>
               <?php else : ?>
-                <label for=""><?= $this->lang->line('ws_feedback_no_invite') ?> <i class="fa fa-smile-o" aria-hidden="true"></i></label>
+                <div>
+                  <label for=""><?= $this->lang->line('ws_feedback_no_invite') ?> <i class="fa fa-smile-o" aria-hidden="true"></i></label>
+                </div>
               <?php endif ?>
               </li>
           </ul>
@@ -237,7 +247,7 @@
                      </div>
                      <br>
                      <div class="md-form mb-4">
-                       <label data-error="wrong" data-success="right" for="form2">Member Since <?php echo date("l jS \of F Y", strtotime($data->created_at)); ?></label>
+                       <label data-error="wrong" data-success="right" for="form2">Member Since <?= date("l jS \of F Y", strtotime($data->created_at)); ?></label>
                      </div> <?php } ?>
                    </div>
 
@@ -309,12 +319,12 @@
                scrollableHeight: "350px",
                onSelect: function(value, element) {
                  $.ajax({
-                   url: "<?php echo base_url() ?>change_language/" + value,
+                   url: "<?= base_url() ?>change_language/" + value,
                    type: "POST",
                    // data: form_data,
                    cache: true,
                    success: function(returnhtml) {
-                     alertify.success('Language Changed!');
+                     alertify.success('<?= strcmp($_SESSION['language'], "US") !== 0 ? 'Language changed! Updating...' : 'Idioma alterado! Atualizando...' ?>');
                      location.reload(true);
                    }
                  });
@@ -334,6 +344,11 @@
                  return false;
                }
              }
+
+             const advanced = document.getElementById('advanced');
+             const advancedButton = advanced.childNodes;
+
+             advancedButton[2].style = "padding-top: 10px; margin: 5px 0";
            </script>
        </ul>
      </div>

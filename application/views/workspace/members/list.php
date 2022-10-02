@@ -141,7 +141,7 @@
                                         </tbody>
                                     </table>
 
-                                    <form action="<?= base_url("projects/{$_SESSION['workspace_id']}"); ?>">
+                                    <form action="<?= base_url("workspace/list"); ?>">
                                         <button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
                                     </form>
                                 </div>
