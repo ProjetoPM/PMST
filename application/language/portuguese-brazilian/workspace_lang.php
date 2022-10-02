@@ -25,4 +25,5 @@ $lang['ws_grade'] = 'Nota';
 $lang['ws_comment'] = 'Comentário';
 $lang['ws_no_grade'] = 'Submissão Não Avaliada até o Momento';
 $lang['ws_exit_workspace'] = 'Você tem certeza que deseja sair desta Área de Trabalho?';
+$lang['ws_feedback_invite_detected'] = 'Detectado um ou mais convites pendentes. Esta janela sempre será aberta automaticamente nesta página.';
 ?>

@@ -43,13 +43,22 @@
                                 <div class=" col-lg-12 form-group">
                                     <label for="description_log"><?= $this->lang->line('acl_description_log') ?>*</label>
                                     <a class="btn-sm btn-default" id="acl_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('acl_description_log_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-                                    <span class="acl_1">2000</span> <?= $this->lang->line('character') ?> <br>
+                                    <span id="count-a"></span>
                                     <div>
-                                        <textarea onkeyup="limite_textarea(this.value, 'acl_1')" maxlength="2000" style="min-height:300px;" required oninput="eylem(this, this.value)" class="form-control elasticteste" id="acl_txt_1" name="description_log"></textarea>
+                                        <textarea 
+                                            oninput="limitText(this, 2e3, 'a')" 
+                                            placeholder="<?= $this->lang->line('placeholder_generic') ?>"
+                                            rows="15"
+                                            maxlength="2000" 
+                                            class="form-control" 
+                                            id="acl_txt_1" 
+                                            name="description_log"
+                                            required 
+                                        ></textarea>
                                     </div>
                                 </div>
 
-                                <div class="col-lg-12">
+                                <div class="col-lg-12 m-t-10">
                                     <button id="assumption-log-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
                                         <i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
                                     </button>

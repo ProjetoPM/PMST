@@ -153,12 +153,16 @@ $language = strcmp($_SESSION['language'], "US") == 0 ? "US" : "BR";
            </li>
 
          <?php } ?>
-        <li class="dropdown">
+        <li class="dropdown <?= $open_inbox ?>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <span class="label label-pill label-danger count" style="border-radius:10px;"></span>
             <span class="fa fa-inbox <?= $animate ?>" style="font-size:18px;"></span>
           </a>
-          <ul class="dropdown-menu <?= $open_inbox ?>" style="width: 400px; padding: 10px; border-radius: 0 0 10px 10px;">
+          <ul class="dropdown-menu" style="width: 400px; padding: 10px; border-radius: 0 0 10px 10px;">
+            <?php if (isset($view_id) && strcmp($view_id, "79") === 0 && count($invites) > 0): ?>
+                <p class="text-center m-t-2"><?= $this->lang->line('ws_feedback_invite_detected') ?></p>
+                <hr>
+            <?php endif ?>
             <?php if (isset($invites) && !empty($invites)) : ?>
               <li>
                 <?php $last_index = count($invites) ?>

@@ -87,8 +87,8 @@
 
 							<div class="row">
 								<div class="col-lg-12">
-									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>integration/assumption-log/new-assumption/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i><?= $this->lang->line('acl_new_assumption')?></button>
-									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>integration/assumption-log/new-constraint/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i><?= $this->lang->line('acl_new_constraint')?></button>
+									<button class="btn btn-success btn-lg" onclick="window.location.href='<?php echo base_url() ?>integration/assumption-log/new-assumption/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i><?= $this->lang->line('acl_new_assumption')?></button>
+									<button class="btn btn-secondary btn-lg" onclick="window.location.href='<?php echo base_url() ?>integration/assumption-log/new-constraint/<?php echo $project_id ?>'"><i class="fa fa-plus-circle"></i><?= $this->lang->line('acl_new_constraint')?></button>
 								</div>
 							</div>
 
@@ -135,7 +135,7 @@
 									</table>
 
 									<form action="<?php echo base_url('project/'); ?><?php echo $project_id; ?>">
-										<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
+										<button class="btn btn-lg btn-info pull-left m-t-10"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 									</form>
 								</div>
 							</div>

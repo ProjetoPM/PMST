@@ -40,10 +40,18 @@
 
                             <div class="col-lg-4 form-group">
 									<label for="name"><?= $this->lang->line('shr_name') ?> *</label>
-									<span class="shr_1">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="shr_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_name_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span id="count-a"></span>
 									<div>
-									<input id="shr_txt_1" type="text" name="name" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'shr_1')" maxlength="2000" oninput="eylem(this, this.value)" required="true">
+									<input 
+										oninput="limitText(this, 2e2, 'a')" 
+                        				placeholder="<?= $this->lang->line('placeholder_generic') ?>"
+										id="shr_txt_1" 
+										type="text" 
+										name="name" 
+										class="form-control" 
+										maxlength="200" 
+										required>
 									</div>
 								</div>
 
@@ -73,105 +81,171 @@
 								</div>
 								<div class="col-lg-4 form-group">
 									<label for="organization"><?= $this->lang->line('shr_organization') ?> </label>
-									<span class="shr_4">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="shr_tp_4" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_organization_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+									<span id="count-b"></span>
 									<div>
-									<input id="shr_txt_4" type="text" name="organization" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'shr_4')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
+									<input 
+										oninput="limitText(this, 2e2, 'b')" 
+										placeholder="<?= $this->lang->line('placeholder_generic') ?>"
+										id="shr_txt_4" 
+										type="text" 
+										name="organization" 
+										class="form-control" 
+										maxlength="200">
 									</div>
 								</div>
 
 
 								<div class=" col-lg-4 form-group">
 									<label for="position"><?= $this->lang->line('shr_position') ?></label>
-									<span class="shr_5">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="shr_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_position_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
+									<span id="count-c"></span>
 									<div>
-									<input id="shr_txt_5" type="text" name="position" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'shr_5')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
+									<input 
+										oninput="limitText(this, 2e3, 'c')" 
+										placeholder="<?= $this->lang->line('placeholder_generic') ?>"
+										id="shr_txt_5" 
+										type="text" 
+										name="position" 
+										class="form-control" 
+										maxlength="2000">
 									</div>
 								</div>
 
 								<div class=" col-lg-4 form-group">
 									<label for="email"><?= $this->lang->line('shr_email') ?> *</label>
-									<span class="shr_6">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="shr_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_email_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
+									<span id="count-d"></span>
 									<div>
-									<input id="shr_txt_6" type="text" name="email" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'shr_6')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
+									<input 
+										oninput="limitText(this, 5e2, 'd')" 
+										placeholder="<?= $this->lang->line('placeholder_generic') ?>"
+										id="shr_txt_6" 
+										type="text" 
+										name="email" 
+										class="form-control" 
+										maxlength="500">
 									</div>
 								</div>
 
 								<div class=" col-lg-12 form-group">
 									<label for="responsibility"><?= $this->lang->line('shr_responsibility') ?></label>
-									<span class="shr_7">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="shr_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_responsibility_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
+									<span id="count-e"></span>
 									<div>
-									<textarea onkeyup="limite_textarea(this.value, 'shr_7')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shr_txt_7" name="responsibility" required ="false" ></textarea>
+									<textarea 
+										oninput="limitText(this, 2e3, 'e')" 
+										placeholder="<?= $this->lang->line('placeholder_generic') ?>"
+										rows="3"
+										id="shr_txt_7" 
+										type="text" 
+										name="responsibility" 
+										class="form-control" 
+										maxlength="2000"></textarea>
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="phone_number"><?= $this->lang->line('shr_phone_number') ?></label>
 									<a class="btn-sm btn-default" id="shr_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_phone_number_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
+									<span id="count-f"></span>
 									<div>
-										<input id="phone_number" name="phone_number" type="tel" class="form-control phone-ddd-mask" data-mask="(000) 0000-0000" placeholder="Ex.: (000) 00000-0000">
+										<input 
+											id="phone_number" 
+											name="phone_number" 
+											type="tel" 
+											class="form-control phone-ddd-mask" 
+											data-mask="(000) 0000-0000" 
+											placeholder="(000) 0000-0000">
 									</div>
 								</div>
 
 								<div class=" col-lg-6 form-group">
 									<label for="work_place"><?= $this->lang->line('shr_work_place') ?></label>
-									<span class="shr_9">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="shr_tp_9" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_work_place_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
+									<span id="count-g"></span>
 									<div>
-									<input id="shr_txt_9" type="text" name="work_place" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'shr_9')" maxlength="2000" oninput="eylem(this, this.value)" required="false">
+									<input 
+										oninput="limitText(this, 5e2, 'g')" 
+										placeholder="<?= $this->lang->line('placeholder_generic') ?>"
+										id="shr_txt_9" 
+										type="text" 
+										name="work_place" 
+										class="form-control" 
+										maxlength="500">
 									</div>
 								</div>
 
 
 								<div class=" col-lg-12 form-group">
 									<label for="essential_requirements"><?= $this->lang->line('shr_essential_requirements') ?></label>
-									<span class="shr_10">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="shr_tp_10" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_essential_requirements_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
+									<span id="count-h"></span>
 									<div>
-									<textarea onkeyup="limite_textarea(this.value, 'shr_10')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shr_txt_10" name="essential_requirements" required ="false" ></textarea>
+									<textarea 
+										oninput="limitText(this, 2e3, 'h')" 
+										placeholder="<?= $this->lang->line('placeholder_generic') ?>"
+										rows="3"
+										id="shr_txt_10" 
+										type="text" 
+										name="essential_requirements" 
+										class="form-control" 
+										maxlength="2000"></textarea>
 									</div>
 								</div>
 
 								<div class=" col-lg-12 form-group">
 									<label for="main_expectations"><?= $this->lang->line('shr_main_expectations') ?></label>
-									<span class="shr_11">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="shr_tp_11" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_main_expectations_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
+									<span id="count-i"></span>
 									<div>
-									<textarea onkeyup="limite_textarea(this.value, 'shr_11')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shr_txt_11" name="main_expectations" required ="false" ></textarea>
+									<textarea 
+										oninput="limitText(this, 2e3, 'i')" 
+										placeholder="<?= $this->lang->line('placeholder_generic') ?>"
+										rows="3"
+										id="shr_txt_11" 
+										type="text" 
+										name="main_expectations" 
+										class="form-control" 
+										maxlength="2000"></textarea>
 									</div>
 								</div>
 
 								<div class=" col-lg-12 form-group">
 									<label for="interest_phase"><?= $this->lang->line('shr_interest_phase') ?></label>
-									<span class="shr_12">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="shr_tp_12" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_interest_phase_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
+									<span id="count-j"></span>
 									<div>
-									<textarea onkeyup="limite_textarea(this.value, 'shr_12')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shr_txt_12" name="interest_phase" required ="false" ></textarea>
+									<textarea 
+										oninput="limitText(this, 2e3, 'j')" 
+										placeholder="<?= $this->lang->line('placeholder_generic') ?>"
+										rows="3"
+										id="shr_txt_12" 
+										type="text" 
+										name="interest_phase" 
+										class="form-control" 
+										maxlength="2000"></textarea>
 									</div>
 								</div>
 
 								<div class=" col-lg-12 form-group">
 									<label for="observations"><?= $this->lang->line('shr_observations') ?></label>
-									<span class="shr_13">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="shr_tp_13" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_observations_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-
+									<span id="count-k"></span>
 									<div>
-									<textarea onkeyup="limite_textarea(this.value, 'shr_13')" maxlength="2000" oninput="eylem(this, this.value)" class="form-control elasticteste" id="shr_txt_13" name="observations" required ="false" ></textarea>
+									<textarea 
+										oninput="limitText(this, 2e3, 'k')" 
+										placeholder="<?= $this->lang->line('placeholder_generic') ?>"
+										rows="5"
+										id="shr_txt_13" 
+										type="text" 
+										name="observations" 
+										class="form-control" 
+										maxlength="2000"></textarea>
 									</div>
 								</div>
 
-                                <div class="col-lg-12">
+                                <div class="col-lg-12 m-t-10">
                                     <button id="stakeholder-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
                                         <i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
                                     </button>

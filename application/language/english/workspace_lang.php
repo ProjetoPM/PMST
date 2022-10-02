@@ -23,4 +23,5 @@ $lang['ws_grade'] = 'Grade';
 $lang['ws_comment'] = 'Comment';
 $lang['ws_no_grade'] = 'Report Not Evaluated Yet';
 $lang['ws_exit_workspace'] = 'Are you sure you want to leave this Workspace?';
+$lang['ws_feedback_invite_detected'] = 'Detected one or more pending invitations. This window will always be opened automatically on this page.';
 ?>
