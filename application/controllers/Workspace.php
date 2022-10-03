@@ -72,7 +72,7 @@ class Workspace extends CI_Controller
 	{
 		$isWorkspaceOwner = $this->Workspace_model->isWorkspaceOwner($_SESSION['workspace_id'], $_SESSION['user_id']);
 
-		if(!$isWorkspaceOwner){
+		if (!$isWorkspaceOwner) {
 			$this->session->set_flashdata('error', $this->lang->line('no_permission'));
 			redirect("workspace/list");
 		}
@@ -130,7 +130,7 @@ class Workspace extends CI_Controller
 
 		$isWorkspaceOwner = $this->Workspace_model->isWorkspaceOwner($_SESSION['workspace_id'], $_SESSION['user_id']);
 
-		if(!$isWorkspaceOwner){
+		if (!$isWorkspaceOwner) {
 			$this->Workspace_user_model->delete($_SESSION['user_id'], $workspace_id);
 			$this->session->set_flashdata('info', $this->lang->line('ws_exit_workspace'));
 			redirect("workspace/list");
@@ -151,7 +151,7 @@ class Workspace extends CI_Controller
 
 		redirect("workspace/list");
 	}
-    
+
 	public function update($user_id, $email)
 	{
 	}
@@ -164,30 +164,30 @@ class Workspace extends CI_Controller
 			$this->session->set_flashdata('error', $this->lang->line('ws_feedback_invite_error'));
 			redirect('workspace/list');
 		}
-		
+
 		$date = date('Y-m-d H:i:s', time());
 		$receiver = $this->input->post('sendTo');
 		$sender = $this->User_Model->getUserEmail($_SESSION['user_id']);
-		
+
 		$workspace_name = $this->Workspace_model->getWorkspaceName($_SESSION['workspace_id']);
 		$user_id = $this->User_Model->getUserIdByEmail($receiver) !== -1
-			? $this->User_Model->getUserIdByEmail($receiver) 
+			? $this->User_Model->getUserIdByEmail($receiver)
 			: null;
-		
-		
+
+
 		$alreadyInvited = $this->Workspace_invite_model->userAlreadyInvited($_SESSION['workspace_id'], $user_id);
 		$alreadyInWorkspace = $this->Workspace_user_model->userAlreadyInWorkspace($_SESSION['workspace_id'], $user_id);
-		
-		if($alreadyInWorkspace) {
+
+		if ($alreadyInWorkspace) {
 			$this->session->set_flashdata('error', $this->lang->line('already_in_workspace'));
 			redirect('workspace/list');
 		}
-		
-		if($alreadyInvited) {
+
+		if ($alreadyInvited) {
 			$this->session->set_flashdata('error', $this->lang->line('already_invited'));
 			redirect('workspace/list');
 		}
-		
+
 		if (!isset($user_id)) {
 			$subject = "Convite para se juntar a uma área de trabalho";
 			$message = "O usuário $sender te convidou para se juntar ao workspace $workspace_name";
@@ -210,66 +210,74 @@ class Workspace extends CI_Controller
 		}
 	}
 
-    public function inviteUsers() {
-        $user_exists_or_already_invited = false;
-        $senderRole = $this->Workspace_model->getRole($_SESSION['workspace_id'], $_SESSION['user_id']);
-        $date = date('Y-m-d H:i:s', time());
-        $workspace_name = $this->Workspace_model->getWorkspaceName($_SESSION['workspace_id']);
+	public function inviteUsers()
+	{
+		$user_exists_or_already_invited = false;
+		$senderRole = $this->Workspace_model->getRole($_SESSION['workspace_id'], $_SESSION['user_id']);
+		$date = date('Y-m-d H:i:s', time());
+		$workspace_name = $this->Workspace_model->getWorkspaceName($_SESSION['workspace_id']);
 
 		if (strcmp($senderRole, "1") !== 0) {
 			$this->session->set_flashdata('error', $this->lang->line('ws_feedback_invite_error'));
 			redirect('workspace/list');
 		}
 
-        $new_users = trim($this->input->post('new_users') ?? []);
-        $eliminating_spaces = str_replace(' ', '', $new_users);
-        $split_users = explode(',', $eliminating_spaces);
+		$new_users = trim($this->input->post('new_users') ?? []);
+		$eliminating_spaces = str_replace(' ', '', $new_users);
+		$split_users = explode(',', $eliminating_spaces);
 
-        if (empty($new_users)) {
-            $this->session->set_flashdata('error', $this->lang->line('ws_feedback_error'));
-            redirect("workspace/members/{$_SESSION['workspace_id']}");
-        }
+		if (empty($new_users)) {
+			$this->session->set_flashdata('error', $this->lang->line('ws_feedback_error'));
+			redirect("workspace/members/{$_SESSION['workspace_id']}");
+		}
 
-        foreach ($split_users as $user) {
-            if (empty($user)) continue;
+		foreach ($split_users as $user) {
+			if (empty($user)) continue;
 
-            $user_id = $this->User_Model->getUserIdByEmail($user) !== -1 
-				? $this->User_Model->getUserIdByEmail($user) 
+			$user_id = $this->User_Model->getUserIdByEmail($user) !== -1
+				? $this->User_Model->getUserIdByEmail($user)
 				: null;
 
 			if (isset($user_id)) {
 				$already_invited = $this->Workspace_invite_model->userAlreadyInvited($_SESSION['workspace_id'], $user_id);
 				$already_in_workspace = $this->Workspace_user_model->userAlreadyInWorkspace($_SESSION['workspace_id'], $user_id);
 
-				if ($already_invited || $already_in_workspace) { 
+				if ($already_invited || $already_in_workspace) {
 					$user_exists_or_already_invited = true;
 					continue;
 				}
 			}
 
-            $workspace['workspace_id'] = $_SESSION['workspace_id'];
-            $workspace['invited_at'] = $date;
-            $workspace['access_level'] = $this->input->post('access_level');;
-            $workspace['email'] = $user;
-            $workspace['user_id'] = $user_id;
+			$workspace['workspace_id'] = $_SESSION['workspace_id'];
+			$workspace['invited_at'] = $date;
+			$workspace['access_level'] = $this->input->post('access_level');;
+			$workspace['email'] = $user;
+			$workspace['user_id'] = $user_id;
 
-            $this->Workspace_invite_model->insert($workspace);
-        }
+			$this->Workspace_invite_model->insert($workspace);
+		}
 
-        if ($user_exists_or_already_invited) {
-            $this->session->set_flashdata('warning', $this->lang->line('ws_feedback_invite_warning'));
-            redirect("workspace/members/{$_SESSION['workspace_id']}");
-        }
+		if ($user_exists_or_already_invited) {
+			$this->session->set_flashdata('warning', $this->lang->line('ws_feedback_invite_warning'));
+			redirect("workspace/members/{$_SESSION['workspace_id']}");
+		}
 
-        $this->session->set_flashdata('success', $this->lang->line('ws_feedback_invite_success'));
-        redirect("workspace/members/{$_SESSION['workspace_id']}");
-    }
+		$this->session->set_flashdata('success', $this->lang->line('ws_feedback_invite_success'));
+		redirect("workspace/members/{$_SESSION['workspace_id']}");
+	}
 
 	public function acceptInvite($workspace_id, $access_level)
 	{
 		$workspace_user['workspace_id'] = $workspace_id;
 		$workspace_user['user_id'] = $_SESSION['user_id'];
 		$workspace_user['access_level'] = $access_level;
+
+		$workspaceExists = $this->Workspace_model->workspaceExists($workspace_id);
+
+		if (!$workspaceExists) {
+			$this->session->set_flashdata('error', 'This workspace has been deleted!');
+			redirect("workspace/list");
+		}
 
 		$insertStatus = $this->Workspace_user_model->insert($workspace_user);
 		$insertStatus = $this->Workspace_invite_model->delete($workspace_id, $_SESSION['user_id']);

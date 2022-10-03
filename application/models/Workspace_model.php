@@ -7,6 +7,7 @@ class Workspace_model extends CI_Model
 		$this->load->database();
 	}
 
+	private $table = 'workspace';
 	function insert($workspace, $workspace_user)
 	{
 		$this->db->insert('workspace', $workspace);
@@ -117,5 +118,14 @@ class Workspace_model extends CI_Model
 		->from('workspace_user')
 		->get()
 		->result();
+	}
+	
+	public function workspaceExists($workspace_id):bool {
+		$query =  $this->db->select('workspace_id')
+		->where('workspace_id', $workspace_id)
+		->from($this->table)
+		->get->result();
+
+		return $query[0]->workspace_id ?? false;
 	}
 }
