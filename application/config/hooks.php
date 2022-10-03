@@ -14,9 +14,9 @@ $hook['post_controller_constructor'] = array(
  * Compressing the HTML to reduce the size and increase
  * the performance of the pages.
  */
-$hook['display_override'][] = array(
-    'class' => '',
-    'function' => 'compress',
-    'filename' => 'compress.php',
-    'filepath' => 'hooks'
-);
+// $hook['display_override'][] = array(
+//     'class' => '',
+//     'function' => 'compress',
+//     'filename' => 'compress.php',
+//     'filepath' => 'hooks'
+// );

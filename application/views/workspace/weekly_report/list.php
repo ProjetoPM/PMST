@@ -30,12 +30,13 @@
 										</thead>
 										<tbody>
 											<?php foreach ($weekly_report as $data) : ?>
+												<?php $scores = getScorePerReport($data->weekly_report_id) ?? [] /* Usado no modal. */ ?>
 												<tr>
 													<td><?= $data->weekly_report_id ?></td>
 													<td><?= getUserName($data->user_id) ?></td>
 													<td><?= getWeeklyEvaluationName($data->weekly_evaluation_id) ?></td>
 													<td>
-														<button class="btn btn-default" type="button" data-toggle="modal" data-target="#scoreDetails<?php $data->weekly_report_id ?>">
+														<button class="btn <?= !is_array($scores) ? 'btn-default' : 'btn-success' ?>" type="button" data-toggle="modal" data-target="#scoreDetails<?php $data->weekly_report_id ?>">
 															<i class="fa fa-sticky-note" aria-hidden="true"></i>
 															<span class="hidden-xs"></span>
 														</button>	
@@ -97,9 +98,6 @@
 			<div class="modal-header modal-green">
 				<h3 class="modal-title" id="myModalLabel">Score Details</h3>
 			</div>
-
-			<?php $scores = getScorePerReport($data->weekly_report_id) ?? [] ?>
-
             <div class="modal-body">
 				<?php if (!is_array($scores)) : ?>
 					<p><?= getWeeklyEvaluationScore($data->weekly_report_id) ?></p>

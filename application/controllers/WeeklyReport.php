@@ -13,7 +13,7 @@ class WeeklyReport extends CI_Controller
             redirect(base_url());
 
         $langs = array();
-        array_push($langs, 'weekly_eval', 'weekly_report');
+        array_push($langs, 'weekly_eval', 'weekly_report', 'workspace');
 
         loadLangs($langs);
         
