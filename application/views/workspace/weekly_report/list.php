@@ -35,16 +35,15 @@
 													<td><?= $data->weekly_report_id ?></td>
 													<td><?= getUserName($data->user_id) ?></td>
 													<td><?= getWeeklyEvaluationName($data->weekly_evaluation_id) ?></td>
-													<td>
-														<button class="btn <?= !is_array($scores) ? 'btn-default' : 'btn-success' ?>" type="button" data-toggle="modal" data-target="#scoreDetails<?php $data->weekly_report_id ?>">
-															<i class="fa fa-sticky-note" aria-hidden="true"></i>
-															<span class="hidden-xs"></span>
-														</button>	
-													</td>
+													<td><?= getWeeklyEvaluationScore($data->weekly_report_id) ?></td>
 													<td style="white-space: nowrap;">
 														<div class="center">
 															<div class="col-md-4 p-l-0">
 																<span>
+																	<button style="border-color: <?= !is_array($scores) ? '' : '#00a65a' ?> " class="btn btn-default" type="button" data-toggle="modal" data-target="#scoreDetails<?php $data->weekly_report_id ?>">
+																		<i class="fa fa-sticky-note" aria-hidden="true"></i>
+																		<span class="hidden-xs"></span>
+																	</button>
 																	<button onclick=goTo(`<?= base_url("weekly-report/edit/$data->weekly_report_id") ?>`) class="btn btn-default">
 																		<i class="fa fa-pencil"></i>
 																		<span class="hidden-xs"></span>
@@ -100,7 +99,7 @@
 			</div>
             <div class="modal-body">
 				<?php if (!is_array($scores)) : ?>
-					<p><?= getWeeklyEvaluationScore($data->weekly_report_id) ?></p>
+					<p><?= $this->lang->line('ws_report_not_evaluated_yet') ?></p>
 				<?php else : ?>	
 					<table class="table table-bordered table-striped">
 						<thead>

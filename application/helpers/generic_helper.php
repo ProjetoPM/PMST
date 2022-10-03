@@ -314,7 +314,7 @@ function getWeeklyEvaluationScore($weekly_report_id)
 {
 	$obj = &get_instance();
 	$data = $obj->WeeklyReport_model->getScore($weekly_report_id);
-	return $data[0]->score_evaluation === null ? $obj->lang->line('wr_score_feedback') : $data[0]->score_evaluation;
+	return $data[0]->score_evaluation ?? $obj->lang->line('ws_no_grade');
 }
 
 function getScorePerReport($weekly_report_id)
