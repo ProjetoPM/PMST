@@ -24,8 +24,8 @@
 												<th class="col-lg-1">#</th>
 												<th class="col-lg-3"><?= $this->lang->line('wr_username') ?></th>
 												<th class="col-lg-3"><?= $this->lang->line('we_name') ?></th>
-												<th class="col-lg-1"><?= $this->lang->line('we_score') ?></th>
-												<th class="col-lg-4"><?= $this->lang->line('actions') ?></th>
+												<th class="col-lg-2"><?= $this->lang->line('we_score') ?></th>
+												<th class="col-lg-3"><?= $this->lang->line('actions') ?></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -34,18 +34,18 @@
 													<td><?= $data->weekly_report_id ?></td>
 													<td><?= getUserName($data->user_id) ?></td>
 													<td><?= getWeeklyEvaluationName($data->weekly_evaluation_id) ?></td>
-													<td><?= getWeeklyEvaluationScore($data->weekly_report_id) ?></td>
+													<td>
+														<button class="btn btn-default" type="button" data-toggle="modal" data-target="#scoreDetails<?php $data->weekly_report_id ?>">
+															<i class="fa-solid fa-file" aria-hidden="true"></i>
+															<span class="hidden-xs"></span>
+														</button>	
+													</td>
 													<td style="white-space: nowrap;">
 														<div class="center">
 															<div class="col-md-4 p-l-0">
 																<span>
 																	<button onclick=goTo(`<?= base_url("weekly-report/edit/$data->weekly_report_id") ?>`) class="btn btn-default">
 																		<i class="fa fa-pencil"></i>
-																		<span class="hidden-xs"></span>
-																	</button>
-
-																	<button class="btn btn-default" type="button" data-toggle="modal" data-target="#scoreDetails<?php $data->weekly_report_id ?>">
-																		<i class="fa-solid fa-file" aria-hidden="true"></i>
 																		<span class="hidden-xs"></span>
 																	</button>
 
