@@ -136,7 +136,6 @@ class WeeklyReport_model extends CI_Model
 			->from('weekly_report_process')
 			->join('pmbok_process', 'weekly_report_process.pmbok_process_id = pmbok_process.pmbok_process_id AND weekly_report_process.pmbok_id = pmbok_process.pmbok_id')
 			->where('weekly_report_process.weekly_report_id', $id)
-			->where('pmbok_process.pmbok_id', $language)
 			->get()->result();
 	}
 
