@@ -27,7 +27,7 @@
                                         <?= $this->lang->line('btn-create-project') ?>
                                         </button>
                                     </div>
-                                    <table class="table table-bordered table-striped" id="tableProjects">
+                                    <table class="table table-view table-bordered table-striped" id="tableProjects">
                                         <thead>
                                             <tr>
                                                 <th class="col-md-3"><?= $this->lang->line('btn-title') ?></th>

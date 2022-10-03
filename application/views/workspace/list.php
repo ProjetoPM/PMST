@@ -17,7 +17,7 @@
                                             <?= $this->lang->line('ws_new_workspace') ?>
                                         </button>
                                     </div>
-                                    <table class="table table-bordered table-striped" id="tableProjects">
+                                    <table class="table table-view table-bordered table-striped" id="tableProjects">
                                         <thead>
                                             <tr>
                                                 <th class="col-lg-3"><?= $this->lang->line('ws_name') ?></th>

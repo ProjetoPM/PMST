@@ -107,8 +107,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12">
-
-                                    <table class="table table-bordered table-striped" id="table_stake">
+                                    <table class="table table-view table-bordered table-striped" id="table_stake">
                                         <thead>
                                             <tr>
                                                 <th><?= $this->lang->line('user_name') ?></th>
