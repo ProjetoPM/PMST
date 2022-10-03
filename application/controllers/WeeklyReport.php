@@ -104,7 +104,6 @@ class WeeklyReport extends CI_Controller
         $evaluation_id          = $weekly_report['evaluation_id'];
         $tool_evaluation        = $weekly_report['tool_evaluation'];
 
-
         /**
          * Verifying if the weekly report is already submitted.
          */
@@ -166,16 +165,18 @@ class WeeklyReport extends CI_Controller
                 /**
                  * Inserting images.
                  */
-                for ($j = 0; $j < count($files['name'][$i]); $j++) {
-                    $is_image_uploaded = $this->upload_image(
-                        $weekly_report_id,
-                        $weekly_report_process_id,
-                        $files['name'][$i][$j],
-                        $files['size'][$i][$j],
-                        $files['tmp_name'][$i][$j],
-                    );
-                    if (!$is_image_uploaded) {
-                        $upload_image_has_errors = true;
+                if (!empty($files['size'][$i][0])) {
+                    for ($j = 0; $j < count($files['name'][$i]); $j++) {
+                        $is_image_uploaded = $this->upload_image(
+                            $weekly_report_id,
+                            $weekly_report_process_id,
+                            $files['name'][$i][$j],
+                            $files['size'][$i][$j],
+                            $files['tmp_name'][$i][$j],
+                        );
+                        if (!$is_image_uploaded) {
+                            $upload_image_has_errors = true;
+                        }
                     }
                 }
             }
@@ -257,7 +258,7 @@ class WeeklyReport extends CI_Controller
                 /**
                  * Inserting images.
                  */
-                if (!empty($new_files_new_processes)) {
+                if (!empty($new_files_new_processes['size'][$i][0])) {
                     for ($j = 0; $j < count($new_files_new_processes['name'][$i]); $j++) {
                         $is_image_uploaded = $this->upload_image(
                             $weekly_report_id,

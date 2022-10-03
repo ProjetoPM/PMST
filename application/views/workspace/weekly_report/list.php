@@ -23,8 +23,8 @@
 											<tr>
 												<th class="col-lg-1">#</th>
 												<th class="col-lg-3"><?= $this->lang->line('wr_username') ?></th>
-												<th class="col-lg-3"><?= $this->lang->line('we_name') ?></th>
-												<th class="col-lg-2"><?= $this->lang->line('we_score') ?></th>
+												<th class="col-lg-4"><?= $this->lang->line('we_name') ?></th>
+												<th class="col-lg-1"><?= $this->lang->line('we_score') ?></th>
 												<th class="col-lg-3"><?= $this->lang->line('actions') ?></th>
 											</tr>
 										</thead>
@@ -36,7 +36,7 @@
 													<td><?= getWeeklyEvaluationName($data->weekly_evaluation_id) ?></td>
 													<td>
 														<button class="btn btn-default" type="button" data-toggle="modal" data-target="#scoreDetails<?php $data->weekly_report_id ?>">
-															<i class="fa-solid fa-file" aria-hidden="true"></i>
+															<i class="fa fa-sticky-note" aria-hidden="true"></i>
 															<span class="hidden-xs"></span>
 														</button>	
 													</td>
