@@ -7,6 +7,7 @@
                     <div class="panel-body">
                         <h1 class="page-header">
                             <?= $this->lang->line('wr_title') ?>
+                            <?php extract($weekly_report)?>
                         </h1>
                         <form method="POST" action='<?= base_url("weekly-report/update/{$this->uri->segment(3)}") ?>' enctype="multipart/form-data">
                             <div class="col-lg-3 form-group">
@@ -39,6 +40,7 @@
                                         required
                                     ><?= $evaluation['tool'] ?></textarea>
                                 </div>
+                                <input type="hidden" name="weekly_evaluation_id" value ="<?= $weekly_report[0]->weekly_evaluation_id ?>">
                             </div>
                             <div class="col-lg-12">
                                 <div class="panel panel-default">

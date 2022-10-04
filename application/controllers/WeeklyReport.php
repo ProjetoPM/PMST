@@ -125,12 +125,16 @@ class WeeklyReport extends CI_Controller
          */
         $date_evaluation        = $this->WeeklyEvaluation_model->getDeadline($evaluation_id);
         $date_submit            = new DateTime($date_evaluation);
-        $current_date           = new DateTime(date('m/d/Y', time()));
+        $current_date           = new DateTime(date('m/d/Y H:i:s', time()));
 
-        if ($current_date > $date_submit) {
+        $teste = $current_date->format('m/d/Y H:i:s');
+        $teste2 = $date_submit->format('m/d/Y H:i:s');
+
+        if (diff_date($teste, $teste2)) {
             $this->session->set_flashdata('error', 'You are not able to create this item, since the deadline has arrived');
             redirect('weekly-report/list');
         }
+
         $weekly_report_id = $this->WeeklyReport_model->insert($save_weekly_report);
 
         if (!$weekly_report_id) {
@@ -216,15 +220,32 @@ class WeeklyReport extends CI_Controller
     {
         $pmbok_id = (verifyLanguage()) ? 2 : 1;
 
+
         /**
          * Getting the data from the form.
          */
         $weekly_report              = $this->input->post('weekly_report');
         $new_processes              = $this->input->post('add');
+        $evaluation_id              = $this->input->post('weekly_evaluation_id');
         $old_processes              = $this->input->post('update');
         $new_files_new_processes    = $_FILES['files'] ?? [];
         $new_files_old_processes    = $_FILES['files_update'] ?? [];
         $individual_image_delete    = $this->input->post('image_uploaded') ?? [];
+
+
+        $date_evaluation        = $this->WeeklyEvaluation_model->getDeadline($evaluation_id);
+        $date_submit            = new DateTime($date_evaluation);
+        $current_date           = new DateTime(date('m/d/Y H:i:s', time()));
+        
+        // retorna o horário porém da erro no if
+        $teste = $current_date->format('m/d/Y H:i:s');
+        $teste2 = $date_submit->format('m/d/Y H:i:s');
+
+        // $bool = ;
+        if (diff_date($teste, $teste2)) {
+            $this->session->set_flashdata('error', 'You are not able to create this item, since the deadline has arrived');
+            redirect('weekly-report/list');
+        }
 
         /**
          * Updating 'tool_evaluation' field.
