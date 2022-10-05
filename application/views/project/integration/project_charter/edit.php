@@ -100,7 +100,7 @@
 												name="project_description" 
 												class="form-control" 
 												id="project_description"
-												oninput="limitText(this, 2e3, 'a')" 
+												oninput="limitText(this, 2e3, 'a')"
 												placeholder="<?= $this->lang->line('placeholder_generic') ?>" 
 												rows="3"
 												required
@@ -545,6 +545,8 @@
 <script src="<?= base_url() ?>assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
 <script src="<?= base_url() ?>assets/js/bootstrap-datepicker.pt-BR.min.js" type="text/javascript"></script>
 
+<!-- Não mostrar -->
+<?php if (1 + 1 === 3): ?>
 <script type="text/javascript">
 	for (var i = 1; i <= 12; i++) {
 		if (document.getElementById("pch_tp_" + i).title == "") {
@@ -560,15 +562,14 @@
 		$("." + txt).text(caracteresRestantes);
 	}
 </script>
-<!-- Não mostrar -->
-<?php if (1 + 1 === 3): ?>
 <script type="text/javascript">
+	
 	//////////////////////////////////
 	// Start Date & End Date
 	//////////////////////////////////
-	var currentDate = new Date();
-	var today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 0, 0, 0, 0);
-	var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+	// var currentDate = new Date();
+	// var today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 0, 0, 0, 0);
+	// var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
 
 	// var startDate = $("#start_date").datepicker({
 	// 	autoclose: true,

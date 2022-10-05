@@ -1,4 +1,19 @@
 /**
+ * Growing all textareas based on the content.
+ */
+document.addEventListener('DOMContentLoaded', function () {
+    const textAreas = document.getElementsByTagName('textarea');
+
+    for (const textarea of textAreas) {
+        grow(textarea);
+
+        textarea.addEventListener('click', function () {
+            grow(textarea);
+        });
+    }
+})
+
+/**
  * Function responsible to limit characters input
  * from text-fields and text-areas based on limit
  * pass by parameter.
