@@ -127,28 +127,22 @@ class Workspace extends CI_Controller
 
 	public function delete($workspace_id)
 	{
-
-		$isWorkspaceOwner = $this->Workspace_model->isWorkspaceOwner($_SESSION['workspace_id'], $_SESSION['user_id']);
+		$isWorkspaceOwner = $this->Workspace_model->isWorkspaceOwner($workspace_id, $_SESSION['user_id']);
 
 		if (!$isWorkspaceOwner) {
 			$this->Workspace_user_model->delete($_SESSION['user_id'], $workspace_id);
-			$this->session->set_flashdata('info', $this->lang->line('ws_exit_workspace'));
+			$this->session->set_flashdata('info', 'You have left the workspace.');
 			redirect("workspace/list");
 		}
-
-
-		$feedback_success = strcmp($_SESSION['language'], "US") === 0
-			? 'Workspace removed successfully!'
-			: 'Workspace removido com sucesso!';
-
+		$feedback_success = $this->lang->line('ws_deleted');
 		$remove = $this->Workspace_model->delete($workspace_id);
 
 		if ($remove) {
 			$this->session->set_flashdata('success', $feedback_success);
 			insertLogActivity('delete', 'workspace');
-		} else
+		} else {
 			$this->session->set_flashdata('error', 'An error has occurred while removing.');
-
+		}
 		redirect("workspace/list");
 	}
 
@@ -275,8 +269,9 @@ class Workspace extends CI_Controller
 		$workspaceExists = $this->Workspace_model->workspaceExists($workspace_id);
 
 		if (!$workspaceExists) {
-			$this->session->set_flashdata('error', 'This workspace has been deleted!');
+			$this->session->set_flashdata('error', 'This workspace doesn\'t exist.');
 			redirect("workspace/list");
+			return;
 		}
 
 		$insertStatus = $this->Workspace_user_model->insert($workspace_user);

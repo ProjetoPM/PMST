@@ -25,4 +25,6 @@ $lang['ws_no_grade'] = 'No grade';
 $lang['ws_report_not_evaluated_yet'] = 'Report not evaluated yet';
 $lang['ws_exit_workspace'] = 'Are you sure you want to leave this Workspace?';
 $lang['ws_feedback_invite_detected'] = 'Detected one or more pending invitations. This window will always be opened automatically on this page.';
+$lang['ws_deleted'] = 'Workspace deleted successfully';
+$lang['ws_isnt_available'] = 'This Workspace is not available at the moment.';
 ?>

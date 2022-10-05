@@ -27,4 +27,6 @@ $lang['ws_no_grade'] = 'Sem nota';
 $lang['ws_report_not_evaluated_yet'] = 'Relatório ainda não avaliado';
 $lang['ws_exit_workspace'] = 'Você tem certeza que deseja sair desta Área de Trabalho?';
 $lang['ws_feedback_invite_detected'] = 'Detectado um ou mais convites pendentes. Esta janela sempre será aberta automaticamente nesta página.';
+$lang['ws_deleted'] = 'Área de Trabalho deletada com sucesso';
+$lang['ws_isnt_available'] = 'Esta Área de Trabalho não está mais disponível no momento.';
 ?>

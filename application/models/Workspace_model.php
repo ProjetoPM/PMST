@@ -105,10 +105,9 @@ class Workspace_model extends CI_Model
 			->limit(1)
 			->get()
 			->row_array();
-
-		if ($result['access_level'] != null) {
-			return strcmp($result['access_level'], '1') === 0;
-		};	
+		
+		$comparing = $result['access_level'] ?? '-1';
+		return strcmp($comparing, '1') === 0;	
 	}
 
 	public function getWorkspaceProfessors($workspace_id){
@@ -122,9 +121,9 @@ class Workspace_model extends CI_Model
 	
 	public function workspaceExists($workspace_id):bool {
 		$query =  $this->db->select('workspace_id')
-		->where('workspace_id', $workspace_id)
-		->from($this->table)
-		->get->result();
+			->where('workspace_id', $workspace_id)
+			->from($this->table)
+			->get()->result();
 
 		return $query[0]->workspace_id ?? false;
 	}
