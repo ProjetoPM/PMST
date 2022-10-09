@@ -122,7 +122,7 @@
 															</div>
 
 															<div class="col-sm-4">
-																<button type="submit" class="btn btn-danger" onclick="deletar(<?= $item->project_id ?>, <?= $item->assumption_log_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+																<button type="submit" class="btn btn-danger" onclick="remove(<?= $item->assumption_log_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
 															</div>
 														</div>
 													</td>
@@ -212,4 +212,18 @@
 		}).show();
 
 	}
+
+	function remove(id) {
+			alertify.set('notifier', 'delay', 1.5);
+			alertify.confirm('<?= $this->lang->line('delete_item_confirm') ?>',
+				'<?= $this->lang->line('ws_delete_workspace') ?>',
+				function() {
+					window.location.href = `<?= base_url("integration/assumption-log/delete/") ?>${id}`;
+					alertify.success('<?= $this->lang->line('Item deleted') ?>')
+				},
+				function() {
+					alertify.warning('<?= $this->lang->line('btn-cancel') ?>')
+				}
+			);
+		}
 </script>

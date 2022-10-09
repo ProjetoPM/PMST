@@ -146,7 +146,7 @@ class StakeholderRegister extends CI_Controller
 			$feedback_success = 'Item Criado ';
 		}
         $stakeholder['name'] = $this->input->post('name');
-        $stakeholder['type'] = $this->input->post('closing_');
+        $stakeholder['type'] = $this->input->post('type');
         $stakeholder['organization'] = $this->input->post('organization');
         $stakeholder['position'] = $this->input->post('position');
         $stakeholder['role'] = $this->input->post('role');

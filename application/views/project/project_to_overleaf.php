@@ -155,9 +155,9 @@
 		} else {
 			var latex_provisorio = latex1;
 			var kw = <?= $json ?>;
-			for (let index = 0; index < kw.schedule.length; index++) {
-				latex_provisorio = latex_provisorio + kw.schedule[index]["task"];
-				create_snip("integration", kw.schedule[index]["name_task"], kw.schedule[index]["task"]);
+			for (let index = 0; index < kw.integration.length; index++) {
+				latex_provisorio = latex_provisorio + kw.integration[index]["task"];
+				create_snip("integration", kw.integration[index]["name_task"], kw.integration[index]["task"]);
 				console.log(latex_provisorio);
 			}
 

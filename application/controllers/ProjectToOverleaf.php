@@ -2273,7 +2273,6 @@ class ProjectToOverleaf extends CI_Controller
 			$SHEP = $this->SHEP_Overleaf($project_id);
 
 
-
 			// template + array dos documentos
 			$files["template"] = $this->templateOverleaf($project_id);
 			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PMP, $PPR, $DS, $WP, $IR, $LLR, $CR, $CL, $TEP, $FR), "scope" => array($RMP, $SCOMP, $RD, $SSP), "schedule" => array($SMP, $EVM, $SND, $RR, $ADE, $PCA), "cost" => array($CMP, $CE), "quality" => array($QMP, $QR), "resources" => array($REMP, $EVAL), "communications" => ($COMP), "risk" => array($RIMP, $RIR), "procurement" => array($PCMP, $PSW, $CPD), "stakeholder" => array($SHR, $SHEP));

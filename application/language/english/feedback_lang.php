@@ -8,6 +8,7 @@ $lang['item_evaluated'] = 'Item Evaluated';
 $lang['no_permission'] = 'You don\'t have permissions for this action';
 $lang['delete_item'] = 'Delete item';
 $lang['delete_item_confirm'] = 'Are you sure You want do delete this item?';
+$lang['item_deleted'] = 'Item deleted';
 
 $lang['ws_feedback_invite'] = 'You have been invited to join the Workspace: ';
 $lang['ws_feedback_no_invite'] = 'There are no invites available at the moment.';
