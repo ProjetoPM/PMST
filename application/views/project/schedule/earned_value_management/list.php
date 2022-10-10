@@ -64,11 +64,11 @@
 										</thead>
 										<tbody>
 											<?php
-											foreach ($activity as $a) {
+											foreach ($activities as $a) {
 											?>
 												<tr dados='<?= json_encode($a); ?>'>
-													<td><?= $a->activity_name; ?></td>
-													<td><?= $a->agregate_value; ?></td>
+													<td><?= $a['activity_name']; ?></td>
+													<td><?= $a['agregate_value']; ?></td>
 													<td><?= $a->planned_value; ?></td>
 													<td><?= $a->sv; ?></td>
 													<td><?= $a->cv; ?></td>
