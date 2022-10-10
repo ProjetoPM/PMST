@@ -33,7 +33,6 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 								Overleaf Project
-								<!-- <?= $this->lang->line('qmp_title')  ?> -->
 
 							</h1>
 

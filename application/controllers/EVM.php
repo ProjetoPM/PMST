@@ -46,7 +46,6 @@ class EVM extends CI_Controller
 		$data['activities'] = $this->Activity_model->getAllPerProject($project_id);
 		$data['activities']['bac'] = 0;
 
-		// print_r($data['activities']);
 		foreach ($data['activities'] as $ac => $value) {
 
 			// var_dump($ac->agregate_value); 
@@ -58,8 +57,6 @@ class EVM extends CI_Controller
 			// $ac->planned_value == 0 ? $ac->cpi = 0 : $ac->cpi = $ac->agregate_value / $ac->real_agregate_cost; 
 			// $data['activities']['bac'] += $ac->planned_value;
 		}
-
-		exit();
 
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
@@ -116,18 +113,23 @@ class EVM extends CI_Controller
 			$feedback_success = 'Item Atualizado ';
 		}
 
+		var_dump($_POST);
+		echo('<br>');
+		var_dump($this->input->post());
+		// exit();
+		
 		$activity['agregate_value'] = $this->input->post('agregate_value');
 		$activity['planned_value'] = $this->input->post('planned_value');
 		$activity['real_agregate_cost'] = $this->input->post('real_agregate_cost');
 
 
 		$data['activity'] = $activity;
-		$query = $this->Activity_model->update($data['activity'], $activity_id);
+		$query = $this->Activity_model->update($activity, $activity_id);
 
 		if ($query) {
 			insertLogActivity('update', 'earned value management');
 			$this->session->set_flashdata('success', $feedback_success);
-			// redirect('schedule/earned-value-management/list/' . $_SESSION['project_id']);
+			redirect('schedule/earned-value-management/list/' . $_SESSION['project_id']);
 		}
 	}
 }
