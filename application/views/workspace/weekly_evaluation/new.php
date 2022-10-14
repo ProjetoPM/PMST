@@ -12,35 +12,49 @@
 							</h1>
 
 							<form method="POST" action="<?php echo base_url('weekly-evaluation/insert/'); ?>">
-								<div class=" col-lg-3 form-group">
+								<div class=" col-lg-4 form-group">
 									<label for="name"><?= $this->lang->line('we_name') ?> </label>
+									<span id="count-a"></span>
 									<div>
-										<input type="text" class="form-control" id="name" name="name" maxlength="255">
-									</div>
+										<input 
+											oninput="limitText(this, 255, 'a')" 
+											class="form-control" 
+											id="name"
+											name="name" 
+											placeholder="<?= $this->lang->line('placeholder_generic') ?>"
+											maxlength="255" 
+											required
+										>
+                                	</div>
 								</div>
 
-								<div class="col-lg-3 form-group">
+								<div class="col-lg-2 form-group">
 									<label><?= $this->lang->line('we_start_date') ?></label>
 									<div>
 										<input autocomplete="off" class="form-control input-md" id="date" placeholder="YYYY/MM/DD" type="date" name="start_date" required="true" />
 									</div>
 								</div>
 
-								<div class="col-lg-3 form-group">
+								<div class="col-lg-2 form-group">
 									<label><?= $this->lang->line('we_end_date') ?></label>
 									<div>
 										<input autocomplete="off" class="form-control input-md" id="date" placeholder="YYYY/MM/DD" type="date" name="end_date" required="true" />
 									</div>
 								</div>
 
-								<div class="col-lg-3 form-group">
+								<div class="col-lg-2 form-group">
 									<label><?= $this->lang->line('we_deadline') ?></label>
 									<div>
 										<input autocomplete="off" class="form-control input-md" id="date" placeholder="YYYY/MM/DD" type="date" name="deadline" required="true" />
 									</div>
 								</div>
 
-								<div class="col-lg-5 form-group">
+								<div class="col-lg-2 form-group">
+									<label><?= $this->lang->line('we_deadline_time') ?></label>
+									<input class="form-control" type="time" name="deadline-time" value="18:30" required>
+								</div>
+
+								<div class="col-lg-4 form-group">
 									<label for="type"><?= $this->lang->line('we_type') ?></label>
 									<select name="type" class="form-control">
 										<option value="0"><?= $this->lang->line('we_individual') ?></option>
@@ -48,7 +62,7 @@
 									</select>
 								</div>
 
-								<div class="col-lg-5 form-group">
+								<div class="col-lg-4 form-group">
 									<label for="status"><?= $this->lang->line('we_status') ?></label>
 									<select name="status" class="form-control">
 										<option value="1"><?= $this->lang->line('we_open') ?></option>
@@ -56,7 +70,7 @@
 									</select>
 								</div>
 
-								<div class="col-lg-5 form-group">
+								<div class="col-lg-4 form-group">
 									<label for="status">Score Metric</label>
 									<select name="score_metric" class="form-control">
 										<option value="1">NOK, POK, TOK</option>
@@ -65,13 +79,13 @@
 								</div>
 
 								<div class="col-lg-12">
-									<button id="stakeholder-submit" style="margin-top: 30px;" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+									<button id="stakeholder-submit" style="margin-top: 15px;" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
 										<i class="glyphicon glyphicon-ok"></i> <?= $this->lang->line('btn-save') ?>
 									</button>
 							</form>
 
 							<a 
-                                style="margin-top: 30px;" 
+                                style="margin-top: 15px;" 
                                 class="btn btn-lg btn-info pull-left" 
                                 href="<?= base_url("weekly-evaluation/list/{$_SESSION['workspace_id']}") ?>"
                             >

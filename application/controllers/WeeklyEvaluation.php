@@ -80,10 +80,14 @@ class WeeklyEvaluation extends CI_Controller
 		} else {
 			$feedback_success = 'Item Criado ';
 		}
+		$deadline_date = $this->input->post('deadline');
+		$deadline_time = $this->input->post('deadline-time');
+		$deadline = new DateTime($deadline_date . ' ' . $deadline_time);
+
 		$weekly_evaluation['name'] = $this->input->post('name');
 		$weekly_evaluation['start_date'] = $this->input->post('start_date');
 		$weekly_evaluation['end_date'] = $this->input->post('end_date');
-		$weekly_evaluation['deadline'] = $this->input->post('deadline');
+		$weekly_evaluation['deadline'] = $deadline->format('Y-m-d H:i:s');
 		$weekly_evaluation['status'] = $this->input->post('status');
 		$weekly_evaluation['individual_or_group'] = $this->input->post('type');
 		$weekly_evaluation['user_id'] = $_SESSION['user_id'];
@@ -108,6 +112,13 @@ class WeeklyEvaluation extends CI_Controller
 		}
 		$dado['weekly_evaluation'] = $this->WeeklyEvaluation_model->get($weekly_evaluation);
 
+		$deadline = new DateTime($dado['weekly_evaluation'][0]->deadline);
+		$deadline_date = $deadline->format('Y-m-d');
+		$deadline_time = $deadline->format('H:i');
+
+		$dado['deadline_date'] = $deadline_date;
+		$dado['deadline_time'] = $deadline_time;
+
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
@@ -121,11 +132,14 @@ class WeeklyEvaluation extends CI_Controller
 		} else {
 			$feedback_success = 'Item Atualizado ';
 		}
+		$deadline_date = $this->input->post('deadline');
+		$deadline_time = $this->input->post('deadline-time');
+		$deadline = new DateTime($deadline_date . ' ' . $deadline_time);
 
 		$weekly_evaluation['name'] = $this->input->post('name');
 		$weekly_evaluation['start_date'] = $this->input->post('start_date');
 		$weekly_evaluation['end_date'] = $this->input->post('end_date');
-		$weekly_evaluation['deadline'] = $this->input->post('deadline');
+		$weekly_evaluation['deadline'] = $deadline->format('Y-m-d H:i:s');
 		$weekly_evaluation['status'] = $this->input->post('status');
 		$weekly_evaluation['individual_or_group'] = $this->input->post('type');
 		$weekly_evaluation['user_id'] = $_SESSION['user_id'];

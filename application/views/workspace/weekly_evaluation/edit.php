@@ -13,61 +13,66 @@
 							<?php extract($weekly_evaluation) ?>
 
 							<form method="POST" action="<?php echo base_url() ?>weekly-evaluation/update/<?php echo $weekly_evaluation[0]->weekly_evaluation_id ?>">
-
-								<div class=" col-lg-3 form-group">
+								<div class=" col-lg-4 form-group">
 									<label for="name"><?= $this->lang->line('we_name') ?> </label>
+									<span id="count-a"></span>
 									<div>
-										<input type="text" class="form-control" id="name" name="name" maxlength="255" value="<?= $weekly_evaluation[0]->name ?>">
+										<input 
+											oninput="limitText(this, 255, 'a')"
+											type="text" 
+											class="form-control" 
+											id="name" 
+											name="name" 
+											maxlength="255" 
+											value="<?= $weekly_evaluation[0]->name ?>">
 									</div>
 								</div>
-
-								<div class="col-lg-3 form-group">
-									<label><?= $this->lang->line('we_score_metric') ?></label>
-									<span class="form-control" disabled><?= $weekly_evaluation[0]->score_metric_name ?></span>
-								</div>
 								
-
-								<div class="col-lg-3 form-group">
+								<div class="col-lg-2 form-group">
 									<label><?= $this->lang->line('we_start_date') ?></label>
 									<div>
 										<input autocomplete="off" class="form-control input-md" id="date" placeholder="YYYY/MM/DD" type="date" name="start_date" required="true" value="<?php echo $weekly_evaluation[0]->start_date ?>" />
 									</div>
 								</div>
 
-								<div class=" col-lg-3 form-group">
+								<div class=" col-lg-2 form-group">
 									<label><?= $this->lang->line('we_end_date') ?></label>
 									<div>
 										<input autocomplete="off" class="form-control input-md" id="date" placeholder="YYYY/MM/DD" type="date" name="end_date" required="true" value="<?php echo $weekly_evaluation[0]->end_date ?>" />
 									</div>
 								</div>
 
-								<div class=" col-lg-3 form-group">
+								<div class=" col-lg-2 form-group">
 									<label><?= $this->lang->line('we_deadline') ?></label>
 									<div>
-										<input autocomplete="off" class="form-control input-md" id="date" placeholder="YYYY/MM/DD" type="date" name="deadline" required="true" value="<?php echo $weekly_evaluation[0]->deadline ?>" />
+										<input autocomplete="off" class="form-control input-md" id="date" placeholder="YYYY/MM/DD" type="date" name="deadline" required="true" value="<?= $deadline_date ?>" />
 									</div>
 								</div>
+
+								<div class="col-lg-2 form-group">
+									<label><?= $this->lang->line('we_deadline_time') ?></label>
+									<input class="form-control" type="time" name="deadline-time" value="<?= $deadline_time ?>" required>
+								</div>
 								
-								<div class=" col-lg-5 form-group">
+								<div class=" col-lg-4 form-group">
 									<label for="type"><?= $this->lang->line('we_type') ?></label>
 									<select name="type" class="form-control">
-										<?php if($weekly_evaluation[0]->individual_or_group != null) {?>
-										"<option value="<?php echo $weekly_evaluation[0]->individual_or_group ?>" ><?= $this->lang->line('selected') ?></option>" 
-										<?php } ?>
-										<option value="0"><?= $this->lang->line('we_individual') ?></option>
-										<option value="1"><?= $this->lang->line('we_group') ?></option>
+										<option <?= strcmp($weekly_evaluation[0]->individual_or_group, 0) === 0 ? 'selected' : '' ?> value="0"><?= $this->lang->line('we_individual') ?></option>
+										<option <?= strcmp($weekly_evaluation[0]->individual_or_group, 1) === 0 ? 'selected' : '' ?> value="1"><?= $this->lang->line('we_group') ?></option>
 									</select>
 								</div>
 
 								<div class="col-lg-4 form-group">
 									<label for="status"><?= $this->lang->line('we_status') ?></label>
 									<select name="status" class="form-control">
-									<?php if($weekly_evaluation[0]->status != null) {?>
-										"<option value="<?php echo $weekly_evaluation[0]->status ?>" ><?= $this->lang->line('selected') ?></option>" 
-										<?php } ?>
-										<option value="1"><?= $this->lang->line('we_open') ?></option>
-										<option value="0"><?= $this->lang->line('we_closed') ?></option>
+										<option <?= strcmp($weekly_evaluation[0]->status, 1) === 0 ? 'selected' : '' ?> value="1"><?= $this->lang->line('we_open') ?></option>
+										<option <?= strcmp($weekly_evaluation[0]->status, 0) === 0 ? 'selected' : '' ?> value="0"><?= $this->lang->line('we_closed') ?></option>
 									</select>
+								</div>
+
+								<div class="col-lg-4 form-group">
+									<label><?= $this->lang->line('we_score_metric') ?></label>
+									<span class="form-control" disabled><?= $weekly_evaluation[0]->score_metric_name ?></span>
 								</div>
 
 								<div class="col-lg-12">
