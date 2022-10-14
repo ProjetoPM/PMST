@@ -42,16 +42,11 @@
 									</div>
 								</div>
 
-								<div class=" col-lg-2 form-group">
+								<div class=" col-lg-4 form-group">
 									<label><?= $this->lang->line('we_deadline') ?></label>
 									<div>
-										<input autocomplete="off" class="form-control input-md" id="date" placeholder="YYYY/MM/DD" type="date" name="deadline" required="true" value="<?= $deadline_date ?>" />
+										<input autocomplete="off" class="form-control input-md" id="date" placeholder="YYYY/MM/DD" type="datetime-local" name="deadline" required="true" value="<?= $weekly_evaluation[0]->deadline ?>" />
 									</div>
-								</div>
-
-								<div class="col-lg-2 form-group">
-									<label><?= $this->lang->line('we_deadline_time') ?></label>
-									<input class="form-control" type="time" name="deadline-time" value="<?= $deadline_time ?>" required>
 								</div>
 								
 								<div class=" col-lg-4 form-group">

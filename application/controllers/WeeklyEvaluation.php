@@ -80,9 +80,7 @@ class WeeklyEvaluation extends CI_Controller
 		} else {
 			$feedback_success = 'Item Criado ';
 		}
-		$deadline_date = $this->input->post('deadline');
-		$deadline_time = $this->input->post('deadline-time');
-		$deadline = new DateTime($deadline_date . ' ' . $deadline_time);
+		$deadline = new DateTime($this->input->post('deadline'));
 
 		$weekly_evaluation['name'] = $this->input->post('name');
 		$weekly_evaluation['start_date'] = $this->input->post('start_date');
@@ -132,9 +130,7 @@ class WeeklyEvaluation extends CI_Controller
 		} else {
 			$feedback_success = 'Item Atualizado ';
 		}
-		$deadline_date = $this->input->post('deadline');
-		$deadline_time = $this->input->post('deadline-time');
-		$deadline = new DateTime($deadline_date . ' ' . $deadline_time);
+		$deadline = new DateTime($this->input->post('deadline'));
 
 		$weekly_evaluation['name'] = $this->input->post('name');
 		$weekly_evaluation['start_date'] = $this->input->post('start_date');
@@ -145,6 +141,7 @@ class WeeklyEvaluation extends CI_Controller
 		$weekly_evaluation['user_id'] = $_SESSION['user_id'];
 
 		$query = $this->WeeklyEvaluation_model->update($weekly_evaluation_id, $weekly_evaluation);
+		
 		if ($query) {
 			$this->session->set_flashdata('success', $feedback_success);
 			insertLogActivity('update', 'weekly_evaluation');
@@ -153,6 +150,7 @@ class WeeklyEvaluation extends CI_Controller
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
+
 		redirect("weekly-evaluation/list/{$_SESSION['workspace_id']}");
 	}
 

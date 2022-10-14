@@ -42,16 +42,20 @@
 									</div>
 								</div>
 
-								<div class="col-lg-2 form-group">
+								<div class="col-lg-4 form-group">
 									<label><?= $this->lang->line('we_deadline') ?></label>
 									<div>
-										<input autocomplete="off" class="form-control input-md" id="date" placeholder="YYYY/MM/DD" type="date" name="deadline" required="true" />
+										<?php $datetime = new DateTime() ?>
+										<input 
+											autocomplete="off" 
+											class="form-control input-md" 
+											id="date" 
+											type="datetime-local" 
+											name="deadline" 
+											min="<?= $datetime->format('Y-m-d\TH:i') ?>"
+											required
+										>
 									</div>
-								</div>
-
-								<div class="col-lg-2 form-group">
-									<label><?= $this->lang->line('we_deadline_time') ?></label>
-									<input class="form-control" type="time" name="deadline-time" value="18:30" required>
 								</div>
 
 								<div class="col-lg-4 form-group">
