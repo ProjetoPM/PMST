@@ -1,10 +1,10 @@
 <?php
 
 // Title
-$lang['pca-title'] = 'Calendários do Projeto';
+$lang['pca-title'] = 'Calendário das Partes Interessadas';
 //Form
 $lang['pca-activity_name'] = 'Nome da Atividade';
-$lang['pca-resource_name'] = 'Recurso';
+$lang['pca-resource_name'] = 'Parte Interessada';
 $lang['pca-function'] = 'Função';
 $lang['pca-availability_start'] = 'Disponibilidade de Início';
 $lang['pca-availability_ends'] = 'Disponibilidade de Fim';

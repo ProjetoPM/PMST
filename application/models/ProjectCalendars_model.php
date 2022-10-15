@@ -19,6 +19,15 @@
             return $query->result();
         }
 
+        public function getAllPerProject($project_id){
+            return $this->db->select('stakeholder.role, stakeholder.name, project_calendars.project_calendars_id, project_calendars.allocation_start, project_calendars.allocation_ends, project_calendars.activity_id, project_calendars.stakeholder_id, activity.activity_name')
+                ->from('project_calendars')
+                ->join('activity', 'activity.id = project_calendars.activity_id')
+                ->join('stakeholder', 'project_calendars.stakeholder_id = stakeholder.stakeholder_id')
+                ->where('activity.project_id', $project_id)
+                ->get()->result();
+        }
+
         public function update($project_calendars, $id){
             $this->db->where('project_calendars.project_calendars_id', $id);
             return $this->db->update('project_calendars', $project_calendars);

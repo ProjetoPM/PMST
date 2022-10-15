@@ -26,16 +26,10 @@ class ProjectCalendars extends CI_Controller
 			redirect(base_url());
 		}
 
-		if (strcmp($_SESSION['language'], "US") == 0) {
-			$this->lang->load('calendars', 'english');
-            $this->lang->load('project-page', 'english');
-			$this->lang->load('stakeholder', 'english');
-        } else {
-            $this->lang->load('calendars', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-			$this->lang->load('stakeholder', 'portuguese-brazilian');
+		$array = array();
+		array_push($array, 'calendars', 'stakeholder');
+		loadLangs($array);
 
-        }
 		$this->load->helper('url');
 		$this->load->helper('log_activity');
 		
@@ -58,7 +52,7 @@ class ProjectCalendars extends CI_Controller
             $this->load->view('frame/header_view');
             $this->load->view('frame/topbar');
             $this->load->view('frame/sidebar_nav_view');
-            $this->load->view('project/schedule/resource_calendar/new', $dado);
+            $this->load->view('project/schedule/project_calendar/new', $dado);
         } else {
             redirect(base_url());
         }
@@ -73,11 +67,11 @@ class ProjectCalendars extends CI_Controller
 			$this->lang->load('btn', 'portuguese-brazilian');
 		}
 		$dado['project_id'] = $project_id;
-		$dado['calendars'] = $this->ProjectCalendars_model->getAll($project_id);
+		$dado['calendars'] = $this->ProjectCalendars_model->getAllPerProject($project_id);
 		$this->load->view('frame/header_view'); 
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/schedule/resource_calendar/list', $dado);
+		$this->load->view('project/schedule/project_calendar/list', $dado);
 	}
 
 	public function edit($id)
@@ -95,7 +89,7 @@ class ProjectCalendars extends CI_Controller
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view.php');
-		$this->load->view('project/schedule/resource_calendar/edit', $query);
+		$this->load->view('project/schedule/project_calendar/edit', $query);
 	}
 
 	public function insert()
@@ -107,13 +101,17 @@ class ProjectCalendars extends CI_Controller
 			$feedback_success = 'Item Atualizado ';
 		}
 
-		$activity['resource_name'] = $this->input->post('resource_name');
-		$activity['function'] = $this->input->post('function');
-		$activity['availability_start'] = $this->input->post('availability_start');
-		$activity['availability_ends'] = $this->input->post('availability_ends');
+		$activity['activity_id'] = $this->input->post('activity_id');
+		$activity['stakeholder_id'] = $this->input->post('stakeholder_id');
 		$activity['allocation_start'] = $this->input->post('allocation_start');
 		$activity['allocation_ends'] = $this->input->post('allocation_ends');
-		$activity['project_id'] = $_SESSION['project_id'];
+
+		$start_date_higher_than_end_date = diff_date($activity['allocation_start'], $activity['allocation_ends']);
+
+		if($start_date_higher_than_end_date){
+			$this->session->set_flashdata('error', $this->lang->line('start_date_higher_than_end_date'));
+			redirect('schedule/project-calendars/list/' . $_SESSION['project_id']);
+		}
 		
 
 		$query = $this->ProjectCalendars_model->insert($activity);
@@ -135,18 +133,22 @@ class ProjectCalendars extends CI_Controller
 
 		$activity['activity_id'] = $this->input->post('activity_id');
 		$activity['stakeholder_id'] = $this->input->post('stakeholder_id');
-		$activity['function'] = $this->input->post('function');
-		$activity['availability_start'] = $this->input->post('availability_start');
-		$activity['availability_ends'] = $this->input->post('availability_ends');
 		$activity['allocation_start'] = $this->input->post('allocation_start');
 		$activity['allocation_ends'] = $this->input->post('allocation_ends');
+
+		$start_date_higher_than_end_date = diff_date($activity['allocation_start'], $activity['allocation_ends']);
+
+		if($start_date_higher_than_end_date){
+			$this->session->set_flashdata('error', $this->lang->line('start_date_higher_than_end_date'));
+			redirect('schedule/project-calendars/list/' . $_SESSION['project_id']);
+		}
 
 		$query = $this->ProjectCalendars_model->update($activity, $id);
 
 		if ($query) {
 			insertLogActivity('update', 'project calendars');
 			$this->session->set_flashdata('success', $feedback_success);
-			redirect('schedule/project-calendars/list/' . $activity['project_id']);
+			redirect('schedule/project-calendars/list/' . $_SESSION['project_id']);
 		}
 	}
 

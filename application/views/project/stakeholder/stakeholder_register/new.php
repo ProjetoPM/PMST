@@ -155,8 +155,8 @@
 											name="phone_number" 
 											type="tel" 
 											class="form-control phone-ddd-mask" 
-											data-mask="(000) 0000-0000" 
-											placeholder="(000) 0000-0000">
+											data-mask="(00) 00000-0000" 
+											placeholder="(00) 00000-0000">
 									</div>
 								</div>
 

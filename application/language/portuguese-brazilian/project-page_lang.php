@@ -53,7 +53,7 @@ $lang['agregate-value'] = 'Valor Agregado';
 $lang['project-schedule-network'] = 'Rede do Cronograma do Projeto';
 $lang['activity-resource'] = 'Requisitos de Recursos das Atividades';
 $lang['activity-duration'] = 'Estimativas de Duração das Atividades';
-$lang['project-calendar'] = 'Calendários do Projeto';
+$lang['project-calendar'] = 'Calendário das Partes Interessadas';
 
 // Cost
 $lang['cost-management'] = 'Gerenciar Custos';

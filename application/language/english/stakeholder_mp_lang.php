@@ -47,7 +47,7 @@ $lang['impact'] = "Impact";
 $lang['average'] = "Average Importance";
 $lang['current_engagement'] = "Current Engagement";
 $lang['expected_engagement'] = "Current Engagement";
-$lang['scope'] = "Scope and Impact of Changes to Stakeholder";
+$lang['scope'] = "Scope";
 $lang['strategy'] = "Engagement / Management Strategy";
 $lang['observation'] = "Observations with other Stakeholders";
 

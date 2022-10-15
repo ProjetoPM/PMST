@@ -4,7 +4,7 @@
 $lang['pca-title'] = 'Stakeholder Calendars';
 //Form
 $lang['pca-activity_name'] = 'Activity Name';
-$lang['pca-resource_name'] = 'Resource Name';
+$lang['pca-resource_name'] = 'Stakeholder';
 $lang['pca-function'] = 'Function';
 $lang['pca-availability_start'] = 'Availability Start';
 $lang['pca-availability_ends'] = 'Availability Ends';

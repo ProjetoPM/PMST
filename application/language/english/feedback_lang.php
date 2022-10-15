@@ -14,6 +14,8 @@ $lang['ws_feedback_invite'] = 'You have been invited to join the Workspace: ';
 $lang['ws_feedback_no_invite'] = 'There are no invites available at the moment.';
 $lang['ws_exit_workspace'] = 'Now you\'re off this workspace';
 
+$lang['start_date_higher_than_end_date'] = 'The start date can\'t be higher than the end date';
+
 
 $lang['project_invite_error'] = 'You can\'t add someone who is not in this Workspace';
 
