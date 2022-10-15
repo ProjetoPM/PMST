@@ -11,17 +11,8 @@
 		<div class="content-wrapper">
 			<section class="content">
 
-				<?php if ($this->session->flashdata('success')) : ?>
-					<div class="alert alert-success">
-						<a href="#" class="close" data-dismiss="alert">&times;</a>
-						<strong><?php echo $this->session->flashdata('success'); ?></strong>
-					</div>
-				<?php elseif ($this->session->flashdata('error')) : ?>
-					<div class="alert alert-warning">
-						<a href="#" class="close" data-dismiss="alert">&times;</a>
-						<strong><?php echo $this->session->flashdata('error'); ?></strong>
-					</div>
-				<?php endif; ?>
+			<?php $this->load->view('errors/exceptions') ?>
+
 				<!-- /.row -->
 				<div class="row">
 					<div class="col-lg-12">
@@ -57,8 +48,6 @@
 												<th><?= $this->lang->line('pca-activity_name') ?></th>
 												<th><?= $this->lang->line('pca-resource_name') ?></th>
 												<th><?= $this->lang->line('pca-function') ?></th>
-												<th><?= $this->lang->line('pca-availability_start') ?></th>
-												<th><?= $this->lang->line('pca-availability_ends') ?></th>
 												<th><?= $this->lang->line('pca-allocation_start') ?></th>
 												<th><?= $this->lang->line('pca-allocation_ends') ?></th>
 
@@ -70,18 +59,16 @@
 											foreach ($calendars as $a) {
 											?>
 												<tr dados='<?= json_encode($a); ?>'>
-													<td><?php echo getActivityName($a->activity_id) ?></td>
-													<td><?php echo getStakeholdername($a->stakeholder_id) ?></td>
-													<td><?php echo $a->function; ?></td>
-													<td><?php echo $a->availability_start; ?></td>
-													<td><?php echo $a->availability_ends; ?></td>
-													<td><?php echo $a->allocation_start; ?></td>
-													<td><?php echo $a->allocation_ends; ?></td>
+													<td><?= $a->activity_name ?></td>
+													<td><?= $a->name ?></td>
+													<td><?= getStakeholderRole($a->role); ?></td>
+													<td><?= $a->allocation_start; ?></td>
+													<td><?= $a->allocation_ends; ?></td>
 
 													<td style="max-width: 23px">
 														<div class="row center">
 															<div class="col-sm-4">
-																<form action="<?php echo base_url() ?>schedule/project-calendars/edit/<?php echo $a->project_calendars_id; ?>" method="post">
+																<form action="<?= base_url() ?>schedule/project-calendars/edit/<?= $a->project_calendars_id; ?>" method="post">
 																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 																</form>
 															</div>

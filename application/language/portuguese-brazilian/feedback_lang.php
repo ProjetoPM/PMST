@@ -15,6 +15,9 @@ $lang['ws_feedback_invite'] = 'Você foi convidado para se juntar à Área de Tr
 $lang['ws_feedback_no_invite'] = "Não há convites disponíveis no momento.";
 $lang['ws_exit_workspace'] = 'Agora você não pertence mais a esta Área de Trabalho';
 
+$lang['start_date_higher_than_end_date'] = 'A data de início não pode ser maior que a data de fim';
+
+
 
 
 $lang['project_invite_error'] = 'Não é possível adicionar um membro que não esteja na Área de Trabalho atual';
