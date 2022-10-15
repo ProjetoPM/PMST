@@ -50,7 +50,7 @@
 									<option selected disabled value=""> Select </option>	
 									<?php foreach ($stakeholders as $s) { ?>
 											<option value="<?= $s->stakeholder_id; ?>">
-												<?= $s->name . " | " . getStakeholderRole($s->role);  ?></option>
+												<?= $s->name . " | " . $s->rolename;  ?></option>
 										<?php  } ?>
 									</select>
 								</div>

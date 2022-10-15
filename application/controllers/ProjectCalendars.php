@@ -48,7 +48,7 @@ class ProjectCalendars extends CI_Controller
 
         if (count($project['dados']) > 0) {
 			$dado['activities'] = $this->Activity_model->getAll($_SESSION['project_id']);
-			$dado['stakeholders'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
+			$dado['stakeholders'] = $this->Stakeholder_model->getAllWithRole($_SESSION['project_id'], getIndexOfLanguage());
             $this->load->view('frame/header_view');
             $this->load->view('frame/topbar');
             $this->load->view('frame/sidebar_nav_view');
@@ -83,7 +83,7 @@ class ProjectCalendars extends CI_Controller
 		}
 		
 		$query['activities'] = $this->Activity_model->getAll($_SESSION['project_id']);
-		$query['stakeholders'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
+		$query['stakeholders'] = $this->Stakeholder_model->getAllWithRole($_SESSION['project_id'], getIndexOfLanguage());
 		$query['calendar'] = $this->ProjectCalendars_model->get($id);
 
 		$this->load->view('frame/header_view.php');

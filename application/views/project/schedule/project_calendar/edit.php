@@ -54,7 +54,7 @@
 										<select name="stakeholder_id" size="1" class="form-control" tabindex="1">
 											<?php foreach ($stakeholders as $s) { ?>
 												<option <?php if ($s->stakeholder_id == $stakeholder_id) echo "selected"; ?> value="<?= $s->stakeholder_id ?>">
-													<?= $s->name . " | " . getStakeholderRole($s->role); ?></option>
+													<?= $s->name . " | " . $s->rolename; ?></option>
 											<?php  } ?>
 										</select>
 									</div>
@@ -82,7 +82,7 @@
 										</button>
 							</form>
 
-							<form action="<?= base_url('schedule/project-calendars/list/'); ?><?= $project_id; ?>">
+							<form action="<?= base_url('schedule/project-calendars/list/'); ?><?= $_SESSION['project_id']; ?>">
 								<button class="btn btn-lg btn-info pull-left"> <i class="glyphicon glyphicon-chevron-left"></i> <?= $this->lang->line('btn-back') ?></button>
 							</form>
 						</div>
