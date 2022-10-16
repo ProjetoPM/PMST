@@ -14,11 +14,12 @@
                     <label class="m-b-10">
                         <?= $this->lang->line('ws_new_users') ?>
                     </label>
+                    <span id="count-a"></span>
                     <textarea 
-                        oninput="limitText(this, 5000, 'a')" 
-                        placeholder="<?= $this->lang->line('ws_placeholder_example') ?>" 
-                        class="form-control"
                         name="new_users"
+                        oninput="limitText(this, 5e3, 'a')" 
+                        placeholder="<?= $this->lang->line('ws_placeholder_example') ?>" 
+                        class="form-control textarea-autosize"
                         rows="4"
                         required></textarea>
                     <label class="m-t-10"><?= $this->lang->line('access_level') ?></label>

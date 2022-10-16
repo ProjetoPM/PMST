@@ -126,17 +126,16 @@
                                                     <td><span class="texttd"><?= getAcesslevelNameByAcessLevelId($item->access_level) ?></span></td>
                                                     <td style="display: fixed;min-width: 100px;">
 
-                                                <form method="GET" action="<?= base_url() ?><?= "workspace/member/edit/$item->user_id" ?>">
-
-                                                    <button type="submit" class="btn btn-default">
-                                                        <em class="fa fa-pencil"></em>
-                                                        <span class="hidden-xs"></span>
-                                                    </button>
-                                                </form>
+                                                    <form method="GET" action="<?= base_url() ?><?= "workspace/member/edit/$item->user_id" ?>">
+                                                        <button type="submit" class="btn btn-default">
+                                                            <em class="fa fa-pencil"></em>
+                                                            <span class="hidden-xs"></span>
+                                                        </button>
+                                                    </form>
                                                     
                                                     </td>
-                                                    </tr>
-                                                <?php endforeach ?>
+                                                </tr>
+                                            <?php endforeach ?>
                                         </tbody>
                                     </table>
 
@@ -151,9 +150,9 @@
             </section>
         </div>
     </div>
+    <?php $this->load->view('workspace/members/invite_user_modal'); ?>
+    <?php $this->load->view('workspace/members/invite_list_modal'); ?>
 </body>
-<?php $this->load->view('workspace/members/invite_user_modal'); ?>
-<?php $this->load->view('workspace/members/invite_list_modal'); ?>
 
 <script src="<?= base_url() ?>assets/js/jquery-2.1.3.min.js"></script>
 <script src="<?= base_url() ?>assets/js/jquery.dataTables.min.js"></script>

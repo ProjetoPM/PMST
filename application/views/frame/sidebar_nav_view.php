@@ -56,7 +56,7 @@ position:-webkit-sticky
 
          <?php if ($_SESSION['workspace_id'] != null): ?>
 
-            <li class="<?= ($uri1 == 'worskpace') ? 'active' : 'not-active' ?>">
+            <li class="<?= ($uri1 == 'workspace') ? 'active' : '' ?>">
                <a href="<?= base_url('workspace/list'); ?>">
                   <i class="fa fa-thin fa-folder"></i> <span>Workspaces</span>
                </a>
@@ -104,7 +104,7 @@ position:-webkit-sticky
                Desta forma, não será necessário os comentários...
                $this->load->view('.../integration.php')
             -->
-            <li class="<?= ($uri1 === 'project') ? 'active' : 'not-active' ?>">
+            <li class="<?= ($uri1 === 'project') ? 'active' : '' ?>">
                <a href="<?= base_url("project/{$_SESSION['project_id']}") ?>">
                   <i class="fa fa-home fa-2"></i><span><?= $this->lang->line('dashboard') ?></span>
                </a>

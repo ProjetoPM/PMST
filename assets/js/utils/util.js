@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const textAreas = document.getElementsByTagName('textarea');
 
     for (const textarea of textAreas) {
-        grow(textarea);
-
         textarea.addEventListener('click', function () {
             grow(textarea);
         });
@@ -119,8 +117,8 @@ function openFileButton(element, button, textLabel) {
 }
 
 function getProcessesName(processNumber, editPage = false, update = false, newPage = true) {
-    let PATH = editPage ? '../../weekly-report/process-name-ajax' 
-                        : '../weekly-report/process-name-ajax';
+    let PATH = editPage ? '../../weekly-report/process-name-ajax'
+        : '../weekly-report/process-name-ajax';
 
     /**
      * Weekly Report
@@ -143,13 +141,13 @@ function getProcessesName(processNumber, editPage = false, update = false, newPa
         valueProcessGroup = document.getElementById(`add[${processNumber}][process_group]`).value;
         selectProcessName = document.getElementById(`add[${processNumber}][process_name]`);
     }
-    
+
     /**
      * Ajax call.
      */
     $(selectProcessName).empty();
 
-    $.get(PATH, function(data, status) {
+    $.get(PATH, function (data, status) {
         const dataToManipulate = JSON.parse(data);
 
         for (let i = 0; i < dataToManipulate.length; i++) {

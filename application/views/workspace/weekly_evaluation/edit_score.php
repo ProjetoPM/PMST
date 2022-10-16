@@ -81,7 +81,6 @@
                                                                 name="update[<?= $item->weekly_report_process_id ?>][process_group]" 
                                                                 class="form-control" 
                                                                 id="update[<?= $item->weekly_report_process_id ?>][process_group]"  
-                                                                required
                                                                 readonly
                                                             >
                                                                 <option selected value="">
@@ -97,7 +96,6 @@
                                                                 name="update[<?= $item->weekly_report_process_id ?>][process_name]" 
                                                                 class="form-control" 
                                                                 id="update[<?= $item->weekly_report_process_id ?>][process_name]" 
-                                                                required
                                                                 readonly
                                                             >
                                                                 <option selected value="<?= $item->pmbok_process_id ?>">
@@ -115,7 +113,6 @@
                                                                 class="form-control" 
                                                                 name="update[<?= $item->weekly_report_process_id ?>][process_description]" 
                                                                 id="update[<?= $item->weekly_report_process_id ?>][process_description]" 
-                                                                required
                                                                 readonly
                                                             ><?= $item->description ?></textarea>
                                                         </div>                                                        

@@ -69,7 +69,6 @@
                                                                 name="update[<?= $item->weekly_report_process_id ?>][process_group]" 
                                                                 class="form-control" 
                                                                 id="update[<?= $item->weekly_report_process_id ?>][process_group]"  
-                                                                required
                                                                 readonly
                                                             >
                                                                 <option selected value="">
@@ -85,7 +84,6 @@
                                                                 name="update[<?= $item->weekly_report_process_id ?>][process_name]" 
                                                                 class="form-control" 
                                                                 id="update[<?= $item->weekly_report_process_id ?>][process_name]" 
-                                                                required
                                                                 readonly
                                                             >
                                                                 <option selected value="<?= $item->pmbok_process_id ?>">
@@ -103,7 +101,6 @@
                                                                 class="form-control" 
                                                                 name="update[<?= $item->weekly_report_process_id ?>][process_description]" 
                                                                 id="update[<?= $item->weekly_report_process_id ?>][process_description]" 
-                                                                required
                                                                 readonly
                                                             ><?= $item->description ?></textarea>
                                                         </div>                                                        
@@ -170,17 +167,16 @@
                                                 </div>
                                             </div>
                                         <?php endforeach ?>
+                                        <div class="col-md-12 m-b-10">
+                                            <a style="margin-top: 30px;" class="btn btn-lg btn-info pull-left" href='<?= base_url("weekly-evaluation/list/{$_SESSION['workspace_id']}") ?>'>
+                                                <i class="glyphicon glyphicon-chevron-left"></i><?= $this->lang->line('btn-back') ?>
+                                            </a>
+                                            <button type="submit" style="margin-top: 30px;" class="btn btn-lg btn-success pull-right">
+                                                <i class="glyphicon glyphicon-ok m-r-4"></i>
+                                                <?= $this->lang->line('btn-save') ?>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                                
-                                <div class="col-md-12 m-b-10">
-                                    <a style="margin-top: 30px;" class="btn btn-lg btn-info pull-left" href='<?= base_url("weekly-evaluation/list/{$_SESSION['workspace_id']}") ?>'>
-                                        <i class="glyphicon glyphicon-chevron-left"></i><?= $this->lang->line('btn-back') ?>
-                                    </a>
-                                    <button type="submit" style="margin-top: 30px;" class="btn btn-lg btn-success pull-right">
-                                        <i class="glyphicon glyphicon-ok m-r-4"></i>
-                                        <?= $this->lang->line('btn-save') ?>
-                                    </button>
                                 </div>
 							</form>
 						</div>
