@@ -91,7 +91,7 @@
 									<label for="real_agregate_cost"><?= $this->lang->line('real_agregate_cost') ?></label>
 									<a class="btn-sm btn-default" id="av_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_real_agregate_cost_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="real_agregate_cost" name="real_agregate_cost" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" onchange="variation()" value="<?php echo $real_agregate_cost; ?>">
+										<input id="real_agregate_cost" name="real_agregate_cost" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $real_agregate_cost; ?>">
 									</div>
 								</div>
 
@@ -99,39 +99,39 @@
 								Variance Analysis
 								</h3>
 
-								<div class=" col-lg-3 form-group">
+								<!-- <div class=" col-lg-3 form-group">
 									<label for="variation_of_terms"><?= $this->lang->line('variation_of_terms') ?></label>
 									<a class="btn-sm btn-default" id="av_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_variation_of_terms_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="variation_of_terms" name="variation_of_terms" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $variation_of_terms; ?>">
+										<input id="variation_of_terms" name="variation_of_terms" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" disabled value="<?php echo $variation_of_terms; ?>">
 									</div>
-								</div>
+								</div> -->
 
-								<div class=" col-lg-3 form-group">
+								<div class=" col-lg-4 form-group">
 									<label for="variation_of_costs"><?= $this->lang->line('variation_of_costs') ?></label>
 									<a class="btn-sm btn-default" id="av_tp_6" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_variation_of_costs_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="variation_of_costs" name="variation_of_costs" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $variation_of_costs; ?>">
+										<input id="variation_of_costs" name="variation_of_costs" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" disabled value="<?= $cv; ?>">
 									</div>
 								</div>
 
-								<div class=" col-lg-3 form-group">
+								<div class=" col-lg-4 form-group">
 									<label for="deadline_performance_index"><?= $this->lang->line('deadline_performance_index') ?></label>
 									<a class="btn-sm btn-default" id="av_tp_8" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_deadline_performance_index_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="deadline_performance_index" name="deadline_performance_index" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $deadline_performance_index; ?>">
+										<input id="deadline_performance_index" name="deadline_performance_index" type="text" class="form-control input-md" disabled value="<?= format_number_with_percentage($spi); ?>">
 									</div>
 								</div>
 
-								<div class=" col-lg-3 form-group">
+								<div class=" col-lg-4 form-group">
 									<label for="costs_performance_index"><?= $this->lang->line('costs_performance_index') ?></label>
 									<a class="btn-sm btn-default" id="av_tp_9" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_costs_performance_index_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
-										<input id="costs_performance_index" name="costs_performance_index" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $costs_performance_index; ?>">
+										<input id="costs_performance_index" name="costs_performance_index" type="text" class="form-control input-md" disabled value="<?= format_number_with_percentage($cpi); ?>">
 									</div>
 								</div>
 
-								<h3 >
+								<!-- <h3 >
 								Trend Analysis
 								</h3>
 								
@@ -158,15 +158,15 @@
 									<div>
 										<input id="estimate_for_completion" name="estimate_for_completion" readonly=“true” type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" value="<?php echo $estimate_for_completion; ?>">
 									</div>
-								</div>
+								</div> -->
 								
-								<div class=" col-lg-3 form-group">
+								<!-- <div class=" col-lg-3 form-group">
 									<label for="variation_at_the_end"><?= $this->lang->line('variation_at_the_end') ?></label>
 									<a class="btn-sm btn-default" id="av_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('av_variation_at_the_end_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<div>
 										<input id="variation_at_the_end" name="variation_at_the_end" type="number" min="0.00" max="10000.00" step="0.01" class="form-control input-md" readonly=“true” value="<?php echo $variation_at_the_end; ?>">
 									</div>
-								</div>
+								</div> -->
 
 
 

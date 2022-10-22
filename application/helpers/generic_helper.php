@@ -442,3 +442,11 @@ function getStakeholderRole($id){
 		return lang('shr_role_others');
 	}
 }
+
+function format_number_with_percentage($number){
+
+
+	$number = number_format((float)$number, 2, '.', '');
+
+	return $number . "%";
+}

@@ -5,6 +5,7 @@
 			$this->load->database();
 		}
 
+        private $table = "activity";
 		public function insert($activity){
 			return $this->db->insert('activity', $activity);
 		}
@@ -31,10 +32,24 @@
             $query = $this->db->get_where('activity',array('id'=>$id));
             return $query->row_array();
         }
+        
+        public function getPerProject($id){
+            return $this->db->select('activity.project_id, id, project_id, activity_name, agregate_value, planned_value, real_agregate_cost,variation_of_terms, variation_of_costs, variation_at_the_end, estimate_for_completion')
+            ->from($this->table)
+            ->where('activity.id', $id)
+            ->get()->result();
+        }
 
         public function getAll($project_id){
             $query = $this->db->get_where('activity', array('activity.project_id'=>$project_id));
             return $query->result();
+        }
+
+        public function getAllPerProject($project_id){
+            return $this->db->select('activity.project_id, id, activity_name, agregate_value, planned_value, real_agregate_cost,variation_of_terms, variation_of_costs, variation_at_the_end, estimate_for_completion')
+            ->from($this->table)
+            ->where('activity.project_id', $project_id)
+            ->get()->result();
         }
 
         public function getAllMilestone($project_id){

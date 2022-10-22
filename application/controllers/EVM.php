@@ -39,19 +39,36 @@ class EVM extends CI_Controller
 		} else {
 			$this->lang->load('btn', 'portuguese-brazilian');
 		}
+		$data['activities'] = $this->Activity_model->getAllPerProject($project_id);
 
-		$dado['project_id'] = $project_id;
-		$dado['activity'] = $this->Activity_model->getAll($project_id);
+
+		// Cálculo BAC para próxima implementação
+		// $data['activities']['bac'] += $ac->planned_value;
+
+
+		$data['project_id'] = $project_id;
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/schedule/agregate_value/list', $dado);
+		$this->load->view('project/schedule/agregate_value/list', $data);
 	}
 
-	public function edit($project_id)
+	public function edit($id)
 	{
 		$query['activities'] = $this->Activity_model->getAll($_SESSION['project_id']);
-		$query['activity'] = $this->Activity_model->get($project_id);
+		$query['activity'] = $this->Activity_model->get($id);
+
+		$query['activity']['cv'] = $query['activity']['agregate_value'] - $query['activity']['real_agregate_cost'];
+
+		$planned_value_equals_zero = $query['activity']['planned_value'] == 0;
+
+		if($planned_value_equals_zero){
+			$query['activity']['spi'] = 0;
+			$query['activity']['cpi'] = 0;
+		}else{
+			$query['activity']['spi'] =  $query['activity']['agregate_value'] / $query['activity']['planned_value'];
+			$query['activity']['cpi'] =  $query['activity']['agregate_value'] / $query['activity']['real_agregate_cost'];
+		}
 
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/topbar');
@@ -70,19 +87,8 @@ class EVM extends CI_Controller
 		$activity['agregate_value'] = $this->input->post('agregate_value');
 		$activity['planned_value'] = $this->input->post('planned_value');
 		$activity['real_agregate_cost'] = $this->input->post('real_agregate_cost');
-		$activity['budget_at_cumulative_end'] = $this->input->post('budget_at_cumulative_end');
-		$activity['variation_of_terms'] = $this->input->post('variation_of_terms');
-		$activity['variation_of_costs'] = $this->input->post('variation_of_costs');
-		$activity['variation_at_the_end'] = $this->input->post('variation_at_the_end');
-		$activity['deadline_performance_index'] = $this->input->post('deadline_performance_index');
-		$activity['costs_performance_index'] = $this->input->post('costs_performance_index');
-		$activity['estimated_of_completation'] = $this->input->post('estimated_of_completation');
-		$activity['estimate_for_completion'] = $this->input->post('estimate_for_completion');
 
-
-		$activity['project_id'] = $this->input->post('project_id');
-		var_dump($activity['project_id']);
-		exit();
+		$activity['project_id'] = $_SESSION['project_id'];
 
 		$data['activity'] = $activity;
 		$query = $this->Activity_model->update($data['activity'], $project_id);
@@ -90,7 +96,7 @@ class EVM extends CI_Controller
 		if ($query) {
 			insertLogActivity('update', 'earned value management');
 			$this->session->set_flashdata('success', $feedback_success);
-			redirect('schedule/earned-value-management/list/' . $activity['project_id']);
+			redirect('schedule/earned-value-management/list/' . $_SESSION['project_id']);
 		}
 	}
 }
