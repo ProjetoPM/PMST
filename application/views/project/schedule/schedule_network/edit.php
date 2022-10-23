@@ -72,7 +72,7 @@
 									<h6 style="font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;font-size: 13.5px;" class="page-header"><?= $this->lang->line('snd_dependence_type') ?><a class="btn-sm btn-default" id="al_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a></h6>
 								</div>
 
-								<div class="col-lg-2 form-group">
+								<div class="col-lg-3 form-group">
 									<div class="form-check">
 										<input <?php if (strcmp($dependence_type, "Finish-to-Start(FS)") == 0) echo "checked"; ?> class="form-check-input" value="Finish-to-Start(FS)" type="radio" name="dependence_type" id="fs">
 										<label class="form-check-label" for="flexRadioDefault1">
@@ -81,7 +81,7 @@
 									</div>
 								</div>
 
-								<div class="col-lg-2 form-group">
+								<div class="col-lg-3 form-group">
 									<div class="form-check">
 										<input <?php if (strcmp($dependence_type, "Finish-to-Finish(FF)") == 0) echo "checked"; ?> class="form-check-input" value="Finish-to-Finish(FF)" type="radio" name="dependence_type" id="ff">
 										<label class="form-check-label" for="flexRadioDefault2">
@@ -90,7 +90,7 @@
 									</div>
 								</div>
 
-								<div class="col-lg-2 form-group">
+								<div class="col-lg-3 form-group">
 									<div class="form-check">
 										<input <?php if (strcmp($dependence_type, "Start-to-Start(SS)") == 0) echo "checked"; ?> class="form-check-input" value="Start-to-Start(SS)" type="radio" name="dependence_type" id="ss">
 										<label class="form-check-label" for="flexRadioDefault1">
@@ -99,7 +99,7 @@
 									</div>
 								</div>
 
-								<div class="col-lg-2 form-group">
+								<div class="col-lg-3 form-group">
 									<div class="form-check">
 										<input <?php if (strcmp($dependence_type, "Start-to-Finish(SF)") == 0) echo "checked"; ?> class="form-check-input" value="Start-to-Finish(SF)" type="radio" name="dependence_type" id="sf">
 										<label class="form-check-label" for="flexRadioDefault2">
