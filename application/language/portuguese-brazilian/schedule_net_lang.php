@@ -11,6 +11,11 @@ $lang['snd_anticipation'] = 'Antecipação';
 $lang['snd_wait'] = 'Espera';
 
 
+$lang['snd_fs'] = 'Término para início(TI)';
+$lang['snd_ff'] = 'Término para término(TT)';
+$lang['snd_ss'] = 'Início para término(II)';
+$lang['snd_sf'] = 'Início para témino(IT)';
+
 
 //Tooltip
 $lang['snd_predecessor_activity_tp'] = '';
