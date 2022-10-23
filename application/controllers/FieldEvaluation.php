@@ -16,6 +16,8 @@ class FieldEvaluation extends CI_Controller
 		$this->load->model('FieldEvaluation_model');
 		$this->load->model('View_model');
 
+		$array = array();
+		loadLangs($array);
 		$this->lang->load('btn', 'english');
 	}
 
