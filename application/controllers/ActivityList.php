@@ -109,6 +109,13 @@ class ActivityList extends CI_Controller
 		$query['activity'] = $this->Activity_model->get($project_id);
 		$query['milestone_list'] = $this->Activity_model->getAllMilestone($this->input->post('project_id'));
 		$query['phase_list'] = $this->Activity_model->getAllPhase($this->input->post('project_id'));
+
+		var_dump($query['activity']['milestone']);
+
+		var_dump($query['milestone_list']);
+		// exit();
+
+
 		$this->load->view('frame/header_view.php');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
