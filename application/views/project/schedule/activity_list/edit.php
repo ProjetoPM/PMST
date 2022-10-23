@@ -54,10 +54,10 @@
 										<a <?= fieldStatus($view_name, $id, "milestone") ?> data-field="milestone" data-field_name="<?= $this->lang->line('al_milestone') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<select class="form-control" name="milestone" id="al_txt_2" required>
 											<?php foreach ($milestone_list as $m) : ?>
-												<?php if (strcmp($m->milestone, $milestone) === 0) : ?>
-													<option selected value="<?= $m->milestone ?>"><?= $m->milestone ?></option>
+												<?php if (strcmp($m->milestone_id, $milestone) === 0) : ?>
+													<option selected value="<?= $m->milestone_id ?>"><?= $m->milestone ?></option>
 												<?php else : ?>
-													<option value="<?= $m->milestone ?>"><?= $m->milestone ?></option>
+													<option value="<?= $m->milestone_id ?>"><?= $m->milestone ?></option>
 												<?php endif ?>
 											<?php endforeach ?>
 										</select>
