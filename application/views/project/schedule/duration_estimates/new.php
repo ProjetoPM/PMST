@@ -82,14 +82,6 @@
 										</div>
 									</div>
 
-									<!-- <div class=" col-lg-4 form-group">
-										<label for="replanted_duration"><?= $this->lang->line('ade_replanted_duration') ?></label>
-										<a class="btn-sm btn-default" id="ade_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ade_replanted_duration_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-										<div>
-											<input id="replanted_duration" type="number" min="0.00" max="10000.00" step="0.01" name="replanted_duration" class="form-control input-md" value="<?php echo $replanted_duration; ?>">
-										</div>
-									</div> -->
-
 									<div class=" col-lg-4 form-group">
 										<label for="performed_duration"><?= $this->lang->line('ade_performed_duration') ?></label>
 										<a class="btn-sm btn-default" id="ade_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ade_performed_duration_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
@@ -97,16 +89,6 @@
 											<input id="performed_duration" type="number" min="0.00" max="10000.00" step="0.01" name="performed_duration" class="form-control input-md" >
 										</div>
 									</div>
-
-									
-
-									<!-- <div class=" col-lg-4 form-group">
-										<label for="replanted_start_date"><?= $this->lang->line('ade_replanted_start_date') ?></label>
-										<a class="btn-sm btn-default" id="ade_tp_5" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ade_replanted_start_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-										<div>
-											<input id="replanted_start_date" type="date" name="replanted_start_date" class="form-control input-md" value="<?php echo $replanted_start_date; ?>">
-										</div>
-									</div> -->
 
 									<div class=" col-lg-4 form-group">
 										<label for="performed_start_date"><?= $this->lang->line('ade_performed_start_date') ?></label>

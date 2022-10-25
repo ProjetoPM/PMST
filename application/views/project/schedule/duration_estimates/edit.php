@@ -66,14 +66,6 @@
 										</div>
 									</div>
 
-									<div class=" col-lg-4 form-group">
-										<label for="estimated_end_date"><?= $this->lang->line('ade_estimated_end_date') ?></label>
-										<a class="btn-sm btn-default" id="ade_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ade_estimated_end_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
-										<a <?= fieldStatus($view_name, $duration_estimates_id, "estimated_end_date") ?> data-field="estimated_end_date" data-field_name="<?= $this->lang->line('ade_estimated_end_date') ?>" data-item_id="<?= $duration_estimates_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
-										<div>
-											<input id="estimated_end_date" type="date" name="estimated_end_date" class="form-control input-md" value="<?php echo $estimated_end_date; ?>">
-										</div>
-									</div>
 
 									<div class=" col-lg-4 form-group">
 										<label for="estimated_start_date"><?= $this->lang->line('ade_estimated_start_date') ?></label>
@@ -81,6 +73,15 @@
 										<a <?= fieldStatus($view_name, $duration_estimates_id, "estimated_start_date") ?> data-field="estimated_start_date" data-field_name="<?= $this->lang->line('ade_estimated_start_date') ?>" data-item_id="<?= $duration_estimates_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 										<div>
 											<input id="estimated_start_date" type="date" name="estimated_start_date" class="form-control input-md" value="<?php echo $estimated_start_date; ?>">
+										</div>
+									</div>
+									
+									<div class=" col-lg-4 form-group">
+										<label for="estimated_end_date"><?= $this->lang->line('ade_estimated_end_date') ?></label>
+										<a class="btn-sm btn-default" id="ade_tp_7" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('ade_estimated_end_date_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
+										<a <?= fieldStatus($view_name, $duration_estimates_id, "estimated_end_date") ?> data-field="estimated_end_date" data-field_name="<?= $this->lang->line('ade_estimated_end_date') ?>" data-item_id="<?= $duration_estimates_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
+										<div>
+											<input id="estimated_end_date" type="date" name="estimated_end_date" class="form-control input-md" value="<?php echo $estimated_end_date; ?>">
 										</div>
 									</div>
 
