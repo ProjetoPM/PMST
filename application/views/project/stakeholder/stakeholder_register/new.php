@@ -71,12 +71,12 @@
 									<label for="role"><?= $this->lang->line('shr_role') ?></label>
 									<a class="btn-sm btn-default" id="shr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_role_tooltip') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<select name="role" class="form-control" value="">
-										<option value="0" ><?= $this->lang->line('shr_role_client') ?></option>
-										<option value="1" ><?= $this->lang->line('shr_role_team') ?></option>
-										<option value="2" ><?= $this->lang->line('shr_role_provider') ?></option>
-										<option value="3" ><?= $this->lang->line('shr_role_project_manager') ?></option>
-										<option value="4" ><?= $this->lang->line('shr_role_sponsor') ?></option>
-										<option value="5" ><?= $this->lang->line('shr_role_others') ?></option>
+										<option value="1" ><?= $this->lang->line('shr_role_client') ?></option>
+										<option value="2" ><?= $this->lang->line('shr_role_team') ?></option>
+										<option value="3" ><?= $this->lang->line('shr_role_provider') ?></option>
+										<option value="4" ><?= $this->lang->line('shr_role_project_manager') ?></option>
+										<option value="5" ><?= $this->lang->line('shr_role_sponsor') ?></option>
+										<option value="6" ><?= $this->lang->line('shr_role_others') ?></option>
 									</select>
 								</div>
 								<div class="col-lg-4 form-group">

@@ -425,22 +425,23 @@ function diff_date($start_date, $end_date): bool {
 }
 
 function getStakeholderRole($id){
-	if($id == 0){
+	if($id == 1){
 		return lang('shr_role_client');
-	}else if($id == 1){
+	}else if($id == 2){
 		return lang('shr_role_team');
 	}
-	else if($id == 2){
+	else if($id == 3){
 		return lang('shr_role_provider');
 	}
-	else if($id == 3){
+	else if($id == 4){
 		return lang('shr_role_project_manager');
 	}
-	else if($id == 4){
+	else if($id == 5){
 		return lang('shr_role_sponsor');
 	}else{
 		return lang('shr_role_others');
 	}
+
 }
 
 function format_number_with_percentage($number){
