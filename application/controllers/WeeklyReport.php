@@ -71,8 +71,6 @@ class WeeklyReport extends CI_Controller
             }
 
             $data['evaluation'] =  array_values($query['evaluation']);
-            var_dump($data['evaluation'] );
-            // exit();
 
             loadViews('workspace/weekly_report/new', $data);
         } else {
