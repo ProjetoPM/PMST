@@ -55,7 +55,7 @@
 								</div>
 
 								<div class="col-lg-2 form-group">
-									<label>First or Last Activity</label>
+									<label><?= $this->lang->line('snd_first_or_last') ?></label>
 									<input type="checkbox" name="first_or_last" id="">
 								</div>
 

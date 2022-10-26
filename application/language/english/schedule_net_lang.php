@@ -15,6 +15,7 @@ $lang['snd_ff'] = 'Finish-to-Finish(FF)';
 $lang['snd_ss'] = 'Start-to-Start(SS)';
 $lang['snd_sf'] = 'Start-to-Finish(SF)';
 
+$lang['snd_first_or_last'] = 'First Or Last Activity';
 
 
 //Tooltip

@@ -16,6 +16,9 @@ $lang['snd_ff'] = 'Término para término(TT)';
 $lang['snd_ss'] = 'Início para término(II)';
 $lang['snd_sf'] = 'Início para témino(IT)';
 
+$lang['snd_first_or_last'] = 'Primeira ou Última Atividade';
+
+
 
 //Tooltip
 $lang['snd_predecessor_activity_tp'] = '';
