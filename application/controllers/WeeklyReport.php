@@ -16,12 +16,12 @@ class WeeklyReport extends CI_Controller
         array_push($langs, 'weekly_eval', 'weekly_report', 'workspace');
 
         loadLangs($langs);
-        
+
         $this->load->helper('url');
         $this->load->helper('log_activity');
 
         $this->load->library('parser');
-        
+
         $this->load->model('log_model');
         $this->load->model('view_model');
         $this->load->model('Project_model');
@@ -48,12 +48,33 @@ class WeeklyReport extends CI_Controller
     public function new()
     {
         if ($this->Workspace_model->getRole($_SESSION['workspace_id'], $_SESSION['user_id']) == 2) {
-            $dado['pmbok_processes'] = verifyLanguage()
+            $data['pmbok_processes'] = verifyLanguage()
                 ? $this->WeeklyReport_model->getProcessGroupsByLanguage(2)
-                : $dado['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
+                : $data['pmbok_processes'] = $this->WeeklyReport_model->getProcessGroupsByLanguage(1);
 
-            $dado['evaluation'] = $this->WeeklyEvaluation_model->getAll($_SESSION['workspace_id']);
-            loadViews('workspace/weekly_report/new', $dado);
+            $query['evaluation'] = $this->WeeklyEvaluation_model->getAll($_SESSION['workspace_id']);
+            foreach ($query['evaluation'] as $value => $evaluation) {
+
+
+                /**
+                 * Comparing if current date is greater than the submission date.
+                 */
+                $date_evaluation        = $evaluation->deadline;
+                $date_submit            = new DateTime($date_evaluation);
+                $current_date           = new DateTime(date('m/d/Y H:i:s', time()));
+                $teste                  = $current_date->format('m/d/Y H:i:s');
+                $teste2                 = $date_submit->format('m/d/Y H:i:s');
+
+                if (diff_date($teste, $teste2)) {
+                    unset($query['evaluation'][$value]);
+                }
+            }
+
+            $data['evaluation'] =  array_values($query['evaluation']);
+            var_dump($data['evaluation'] );
+            // exit();
+
+            loadViews('workspace/weekly_report/new', $data);
         } else {
             $this->session->set_flashdata('error', 'You are not allowed to access this page');
             redirect('workspace/list');
@@ -79,7 +100,7 @@ class WeeklyReport extends CI_Controller
 
         if ($fileExtension != "jpg" && $fileExtension != "png" && $fileExtension != "pdf" && $fileExtension != "jpeg") {
             return false;
-        } 
+        }
         $filePath = $folder . $fileUniqName . "." . $fileExtension;
         move_uploaded_file($tmpName, $filePath);
         $this->Report_upload_model->saveImage($weekly_report_id, $weekly_report_process_id, $fileName, $filePath);
@@ -108,8 +129,8 @@ class WeeklyReport extends CI_Controller
          * Verifying if the weekly report is already submitted.
          */
         if ($this->WeeklyReport_model->alreadySubmitted($evaluation_id, $user_id)) {
-        	$this->session->set_flashdata('error', 'You\'ve already submitted to this report');
-        	return redirect("weekly-report/list");
+            $this->session->set_flashdata('error', 'You\'ve already submitted to this report');
+            return redirect("weekly-report/list");
         }
 
         /** 
@@ -185,7 +206,7 @@ class WeeklyReport extends CI_Controller
                 }
             }
         }
-        $upload_image_has_errors 
+        $upload_image_has_errors
             ? $this->session->set_flashdata('warning', 'Weekly Report created with some images not uploaded. Please check the images and try again.')
             : $this->session->set_flashdata('success', 'Weekly Report has been successfully created!');
 
@@ -236,7 +257,7 @@ class WeeklyReport extends CI_Controller
         $date_evaluation        = $this->WeeklyEvaluation_model->getDeadline($evaluation_id);
         $date_submit            = new DateTime($date_evaluation);
         $current_date           = new DateTime(date('m/d/Y H:i:s', time()));
-        
+
         // retorna o horário porém da erro no if
         $teste = $current_date->format('m/d/Y H:i:s');
         $teste2 = $date_submit->format('m/d/Y H:i:s');
@@ -352,16 +373,17 @@ class WeeklyReport extends CI_Controller
             }
         }
 
-        $upload_image_has_errors 
+        $upload_image_has_errors
             ? $this->session->set_flashdata('warning', 'Weekly Report changed with some images not uploaded. Please check the images and try again.')
             : $this->session->set_flashdata('success', 'Weekly Report has been successfully changed!');
-        
+
         redirect('weekly-report/list');
     }
 
-    public function delete_images($weekly_report_process_id) {
+    public function delete_images($weekly_report_process_id)
+    {
         $array_path = $this->WeeklyReport_model->get_path_image_by_wr_process_id($weekly_report_process_id);
-        
+
         if ($array_path != null) {
             foreach ($array_path as $path) {
                 if (file_exists($path->path)) {
@@ -371,9 +393,10 @@ class WeeklyReport extends CI_Controller
         }
     }
 
-    public function delete_images_by_wr_id($weekly_report_id) {
+    public function delete_images_by_wr_id($weekly_report_id)
+    {
         $array_path = $this->WeeklyReport_model->get_path_image_by_wr_id($weekly_report_id);
-        
+
         if ($array_path != null) {
             foreach ($array_path as $path) {
                 if (file_exists($path->path)) {
@@ -383,9 +406,10 @@ class WeeklyReport extends CI_Controller
         }
     }
 
-    public function delete_image_by_report_upload_id($report_upload_id) {
+    public function delete_image_by_report_upload_id($report_upload_id)
+    {
         $array_path = $this->WeeklyReport_model->get_path_image_by_report_upload_id($report_upload_id);
-        
+
         if ($array_path != null) {
             foreach ($array_path as $path) {
                 if (file_exists($path->path)) {
