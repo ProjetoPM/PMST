@@ -44,7 +44,7 @@
 							</h1>
 							<form action="<?= base_url() ?>schedule/project-schedule-network-diagram/update/<?php echo $schedule_network_id; ?>" method="post">
 
-								<div class="col-lg-6 form-group">
+								<div class="col-lg-5 form-group">
 									<label><?= $this->lang->line('activity_name') ?></label>
 									<a class="btn-sm btn-default" id="al_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<select name="activity_id" size="1" class="form-control" tabindex="1" required>
@@ -56,7 +56,12 @@
 									</select>
 								</div>
 
-								<div class="col-lg-6 form-group">
+								<div class="col-lg-2 form-group">
+									<label>First or Last Activity</label>
+									<input type="checkbox" name="first_or_last" id="">
+								</div>
+
+								<div class="col-lg-5 form-group">
 									<label><?= $this->lang->line('snd_predecessor_activity') ?></label>
 									<a class="btn-sm btn-default" id="al_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<select name="predecessor_activity_id" size="1" class="form-control" tabindex="1" required>
