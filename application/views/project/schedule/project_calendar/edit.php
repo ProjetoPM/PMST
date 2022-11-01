@@ -35,7 +35,7 @@
 							</h1>
 							<form action="<?= base_url() ?>schedule/project-calendars/update/<?= $project_calendars_id; ?>" method="post">
 
-								<input type="hidden" id="project_id" name="project_id" value="<?= $project_id; ?>">
+								<input type="hidden" id="project_id" name="project_id" value="<?= $_SESSION['project_id']; ?>">
 								<!-- Textarea -->
 									<!-- Aqui, criação da primeira aba -->
 
