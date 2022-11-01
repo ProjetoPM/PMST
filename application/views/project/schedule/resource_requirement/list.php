@@ -41,7 +41,7 @@
 
 							<div class="row">
 								<div class="col-lg-12">
-									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>schedule/resource-requirements/new'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') ?> Resource Requirements</button>
+									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>schedule/resource-requirements/new'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') . ' '?> <?= $this->lang->line('rr_title')  ?></button>
 									<button class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url() ?>schedule/resource/new'"><i class="fa fa-plus-circle"></i> <?= $this->lang->line('btn-new') . $this->lang->line('resource')  ?></button>
 								</div>
 							</div>
