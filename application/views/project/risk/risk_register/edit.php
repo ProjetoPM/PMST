@@ -274,7 +274,7 @@
 								</div>
 
 								<div class=" col-lg-6 form-group">
-									<label for="impact"><?= $this->lang->line('impact') ?></label>
+									<label for="impact"><?= $this->lang->line('rir_impact') ?></label>
 									<span class="rir_22">2000</span><?= $this->lang->line('character') ?>
 									<a class="btn-sm btn-default" id="rir_tp_22" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rir_impact_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<a <?= fieldStatus($view_name, $risk_register_id, "impact") ?> data-field="impact" data-field_name="<?= $this->lang->line('impact') ?>" data-item_id="<?= $risk_register_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
