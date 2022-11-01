@@ -61,11 +61,6 @@ class ProjectCalendars extends CI_Controller
 	//RESOURCE CALENDAR
 	public function list($project_id)
 	{
-		if (strcmp($_SESSION['language'], "US") == 0) {
-			$this->lang->load('btn', 'english');
-		} else {
-			$this->lang->load('btn', 'portuguese-brazilian');
-		}
 		$dado['project_id'] = $project_id;
 		$dado['calendars'] = $this->ProjectCalendars_model->getAllPerProject($project_id);
 		$this->load->view('frame/header_view'); 
@@ -76,11 +71,6 @@ class ProjectCalendars extends CI_Controller
 
 	public function edit($id)
 	{
-		if (strcmp($_SESSION['language'], "US") == 0) {
-			$this->lang->load('btn', 'english');
-		} else {
-			$this->lang->load('btn', 'portuguese-brazilian');
-		}
 		
 		$query['activities'] = $this->Activity_model->getAll($_SESSION['project_id']);
 		$query['stakeholders'] = $this->Stakeholder_model->getAllWithRole($_SESSION['project_id'], getIndexOfLanguage());

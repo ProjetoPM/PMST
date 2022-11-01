@@ -426,20 +426,20 @@ function diff_date($start_date, $end_date): bool {
 
 function getStakeholderRole($id){
 	if($id == 1){
-		return lang('shr_role_client');
+		return 'Cliente';
 	}else if($id == 2){
-		return lang('shr_role_team');
+		return 'Time';
 	}
 	else if($id == 3){
-		return lang('shr_role_provider');
+		return 'Fornecedor';
 	}
 	else if($id == 4){
-		return lang('shr_role_project_manager');
+		return 'Gerente de Projeto';
 	}
 	else if($id == 5){
-		return lang('shr_role_sponsor');
+		return 'Patrocinador';
 	}else{
-		return lang('shr_role_others');
+		return 'Outro';
 	}
 
 }
