@@ -53,7 +53,7 @@
 										<label for="resource_cost_per_unit"><?= $this->lang->line('resource_cost_per_unit') ?></label>
 										<a class="btn-sm btn-default" id="rr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('rr_resource_cost_per_unit_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 										<div>
-											<input id="resource_cost_per_unit" name="resource_cost_per_unit" type="number" min="0.00" max="10000.00" step="10" class="form-control input-md" >
+											<input id="resource_cost_per_unit" name="resource_cost_per_unit" type="number" min="0.00" max="10000.00" class="form-control input-md" >
 										</div>
 									</div>
 
