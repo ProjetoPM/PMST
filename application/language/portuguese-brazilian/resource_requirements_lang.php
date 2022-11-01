@@ -3,6 +3,7 @@
 // Title
 $lang['rr_title'] = 'Requisitos de Recursos';
 //Form
+$lang['rr_resource_requirement'] = 'Requisito de Recurso';
 $lang['activity_name'] = 'Nome da Atividade';
 $lang['rr_resource_description'] = 'Descrição do Recurso';
 $lang['rr_required_amount_of_resource'] = 'Quantidade de Recurso Requerida';

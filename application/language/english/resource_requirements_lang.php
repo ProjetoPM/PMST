@@ -4,7 +4,7 @@
 $lang['rr_title'] = 'Resource Requirements';
 //Form
 $lang['activity_name'] = 'Activity Name';
-
+$lang['rr_resource_requirement'] = 'Resource Requirement';
 
 
 //Tooltip

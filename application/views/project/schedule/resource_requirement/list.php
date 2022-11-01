@@ -29,7 +29,7 @@
 						<div class="panel-body">
 							<h1 class="page-header">
 
-								<?= $this->lang->line('rr_title')  ?>
+								<?= $this->lang->line('rr_resource_requirement')  ?>
 
 
 								<?php $view_name = "resource requirements" ?>
