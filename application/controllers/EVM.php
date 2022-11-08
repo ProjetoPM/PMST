@@ -61,8 +61,9 @@ class EVM extends CI_Controller
 		$query['activity']['cv'] = $query['activity']['agregate_value'] - $query['activity']['real_agregate_cost'];
 
 		$planned_value_equals_zero = $query['activity']['planned_value'] == 0;
+		$real_agregate_cost = $query['activity']['real_agregate_cost'] == 0;
 
-		if($planned_value_equals_zero){
+		if($planned_value_equals_zero || $real_agregate_cost){
 			$query['activity']['spi'] = 0;
 			$query['activity']['cpi'] = 0;
 		}else{
