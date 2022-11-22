@@ -1234,6 +1234,7 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] = "\n";
 			$file["task"] .= "\section{Stakeholder Calendars}\n";
 			$file["task"] .= "\begin{itemize}\n";
+
 			foreach ($allCalendars as $data) {
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " \n";
 
@@ -1779,12 +1780,13 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] .= "\section{Risk Register}\n";
 			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataRIR as $data) {
-				$temp = $this->verificaDados($data->priority);
-				if ($temp == '0') {
-					$temp == "Low";
-				} else if ($temp == '1') {
+				$temp = $data->priority;
+
+				if (strcmp($temp, '0') === 0) {
+					$temp = "Low";
+				} else if (strcmp($temp, '1') === 0) {
 					$temp = "Medium";
-				} else if ($temp == '2') {
+				} else if (strcmp($temp, '2') === 0) {
 					$temp = "High";
 				} else {
 					$temp;

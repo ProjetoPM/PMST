@@ -444,6 +444,16 @@ function getStakeholderRole($id){
 
 }
 
+function getPriority($id){
+	if($id == 1){
+		return 'Low';
+	}else if($id == 2){
+		return 'Medium';
+	}else {
+		return 'High';
+	}
+}
+
 function format_number_with_percentage($number){
 
 
