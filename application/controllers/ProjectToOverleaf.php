@@ -1003,6 +1003,48 @@ class ProjectToOverleaf extends CI_Controller
 		}
 	}
 
+	public function AL_Overleaf($project_id)
+	{
+		$dataAL = $this->Activity_model->getAll($project_id);
+		$file["name_task"] = "ActivityList.tex";
+		if ($dataAL != null) {
+			$file["task"] = "\n";
+			$file["task"] .= "\section{Activity List}\n";
+			$file["task"] .= "\begin{itemize}\n";
+			foreach ($dataAL as $data) {
+				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . "\n";
+				
+				$file["task"] .= "\begin{itemize}\n";
+				
+				$file["task"] .= "\item \\textbf{Project Phase}:\n";
+				$file["task"] .= $this->verificaDados($data->project_phase) . "\n";
+
+				$file["task"] .= "\item \\textbf{Description}:\n";
+				$file["task"] .= $this->verificaDados($data->description) . "\n";
+
+				$file["task"] .= "\item \\textbf{Milestone}:\n";
+				$file["task"] .= $this->verificaDados($data->milestone) . "\n";
+
+				$file["task"] .= "\item \\textbf{Activity Label}:\n";
+				$file["task"] .= $this->verificaDados($data->associated_id) . "\n";
+
+				$file["task"] .= "\item \\textbf{WBS Id}:\n";
+				$file["task"] .= $this->verificaDados($data->wbs_id) . "\n";
+
+				$file["task"] .= "\\end{itemize}\n";
+			}
+			$file["task"] .= "\\end{itemize}\n";
+			$file["task"] .= "\n";
+
+			return $file;
+		} else {
+			$file["task"] = "\n";
+			$file["task"]  .= "% \section{Earned Value Management}\n";
+			$file["task"] .= "% No record found";
+			return $file;
+		}
+	}
+
 	public function EVM_Overleaf($project_id)
 	{
 		$dataEVM = $this->Activity_model->getAll($project_id);
@@ -2237,6 +2279,7 @@ class ProjectToOverleaf extends CI_Controller
 
 			// Schedule
 			$SMP = $this->SMP_Overleaf($project_id);
+			$AL = $this->AL_Overleaf($project_id);
 			$EVM = $this->EVM_Overleaf($project_id);
 			$SND = $this->SND_Overleaf($project_id);
 			$RR = $this->RR_Overleaf($project_id);
@@ -2275,7 +2318,7 @@ class ProjectToOverleaf extends CI_Controller
 
 			// template + array dos documentos
 			$files["template"] = $this->templateOverleaf($project_id);
-			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PMP, $PPR, $DS, $WP, $IR, $LLR, $CR, $CL, $TEP, $FR), "scope" => array($RMP, $SCOMP, $RD, $SSP), "schedule" => array($SMP, $EVM, $SND, $RR, $ADE, $PCA), "cost" => array($CMP, $CE), "quality" => array($QMP, $QR), "resources" => array($REMP, $EVAL), "communications" => ($COMP), "risk" => array($RIMP, $RIR), "procurement" => array($PCMP, $PSW, $CPD), "stakeholder" => array($SHR, $SHEP));
+			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PMP, $PPR, $DS, $WP, $IR, $LLR, $CR, $CL, $TEP, $FR), "scope" => array($RMP, $SCOMP, $RD, $SSP), "schedule" => array($SMP, $AL, $EVM, $SND, $RR, $ADE, $PCA), "cost" => array($CMP, $CE), "quality" => array($QMP, $QR), "resources" => array($REMP, $EVAL), "communications" => ($COMP), "risk" => array($RIMP, $RIR), "procurement" => array($PCMP, $PSW, $CPD), "stakeholder" => array($SHR, $SHEP));
 		}
 
 		// $files["knowledge_areas"] = array("integration" =>array($BC,$outra,$outra), "scope" =>array($outra,$outra));
@@ -2367,6 +2410,7 @@ class ProjectToOverleaf extends CI_Controller
 		// Schedule
 		$file .= "\chapter{Project Schedule Management}\n";
 		$file .= "\include{ScheduleManagementPlan}\n";
+		$file .= "\include{ActivityList}\n";
 		$file .= "\include{EarnedValueManagement}\n";
 		$file .= "\include{ScheduleNetworkDiagram}\n";
 		$file .= "\include{ResourceRequirements}\n";
