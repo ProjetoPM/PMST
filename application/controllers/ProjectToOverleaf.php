@@ -2022,7 +2022,7 @@ class ProjectToOverleaf extends CI_Controller
 	// Stakeholder
 	public function SHR_Overleaf($project_id)
 	{
-		
+
 		$dataSHR = $this->Stakeholder_model->getAll($project_id);
 		$file["name_task"] = "StakeholderRegistration.tex";
 		if ($dataSHR != null) {
@@ -2123,7 +2123,7 @@ class ProjectToOverleaf extends CI_Controller
 				$file["task"] .= "\begin{itemize}\n";
 
 				$file["task"] .= "\item \\textbf{Interest}:\n";
-				$file["task"] .= $this->verificaDados($data["interest"]) . "\n";
+				$file["task"] .= $this->verificaDados($data->interest) . "\n";
 
 				$file["task"] .= "\item \\textbf{Influence}:\n";
 				$file["task"] .= $this->verificaDados($data->influence) . "\n";
