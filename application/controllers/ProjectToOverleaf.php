@@ -12,14 +12,14 @@ class ProjectToOverleaf extends CI_Controller
 		}
 
 		if (strcmp($_SESSION['language'], "US") == 0) {
-            $this->lang->load('overleaf', 'english');
-            $this->lang->load('btn', 'english');
-            $this->lang->load('project-page', 'english');
-        } else {
-            $this->lang->load('overleaf', 'english');
-            $this->lang->load('btn', 'portuguese-brazilian');
-            $this->lang->load('project-page', 'portuguese-brazilian');
-        }
+			$this->lang->load('overleaf', 'english');
+			$this->lang->load('btn', 'english');
+			$this->lang->load('project-page', 'english');
+		} else {
+			$this->lang->load('overleaf', 'english');
+			$this->lang->load('btn', 'portuguese-brazilian');
+			$this->lang->load('project-page', 'portuguese-brazilian');
+		}
 
 
 		// $this->load->helper('url', 'english');
@@ -65,6 +65,8 @@ class ProjectToOverleaf extends CI_Controller
 		$this->load->model('Schedule_model');
 		$this->load->model('Activity_model');
 		$this->load->model('DurationEstimates_model');
+		$this->load->model('Resource_requirements_model');
+		$this->load->model('ProjectCalendars_model');
 
 		// Cost
 		$this->load->model("Cost_model");
@@ -1013,9 +1015,9 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataAL as $data) {
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . "\n";
-				
+
 				$file["task"] .= "\begin{itemize}\n";
-				
+
 				$file["task"] .= "\item \\textbf{Project Phase}:\n";
 				$file["task"] .= $this->verificaDados($data->project_phase) . "\n";
 
@@ -1216,22 +1218,28 @@ class ProjectToOverleaf extends CI_Controller
 		}
 	}
 
-	public function PCA_Overleaf($project_id)
+	public function SC_Overleaf($project_id)
 	{
-		$dataPCA = $this->Activity_model->getAll($project_id);
-		$file["name_task"] = "ProjectCalendars.tex";
-		if ($dataPCA != null) {
+		$activityIds = $this->Activity_model->getAllActivityIdsPerProject($project_id);
+		$allCalendars = array();
+		
+		foreach($activityIds as $activity){
+			$calendars = $this->ProjectCalendars_model->getAllByActivityId($activity->id);
+			foreach ($calendars as $calendar) {
+				array_push($allCalendars, $calendar);
+			}
+		}
+		$file["name_task"] = "StakeholderCalendars.tex";
+		if ($allCalendars != null) {
 			$file["task"] = "\n";
-			$file["task"] .= "\section{ProjectCalendars}\n";
+			$file["task"] .= "\section{Stakeholder Calendars}\n";
 			$file["task"] .= "\begin{itemize}\n";
-			foreach ($dataPCA as $data) {
+			foreach ($allCalendars as $data) {
 				$file["task"] .= "\item \\textbf{Activity Name}: " .  $this->verificaDados($data->activity_name) . " \n";
 
 				$file["task"] .= "\begin{itemize}\n";
 
-				$file["task"] .= "\item \\textbf{Resource Name}: " .  $this->verificaDados($data->resource_name) . "\n";
-				$file["task"] .= "\item \\textbf{Function}: " .  $this->verificaDados($data->function) . "\n";
-				$file["task"] .= "\item \\textbf{Availability Start}: " . $this->verificaDados($data->availability_start) . " | \\textbf{Availability Ends}: " .  $this->verificaDados($data->availability_ends) . "\n";
+				$file["task"] .= "\item \\textbf{Stakeholder}: " .  $this->verificaDados($data->name) . "\n";
 				$file["task"] .= "\item \\textbf{Allocation Start}: " . $this->verificaDados($data->allocation_start) . " | \\textbf{Allocation Ends}: " .  $this->verificaDados($data->allocation_ends) . "\n";
 
 
@@ -2284,7 +2292,7 @@ class ProjectToOverleaf extends CI_Controller
 			$SND = $this->SND_Overleaf($project_id);
 			$RR = $this->RR_Overleaf($project_id);
 			$ADE = $this->ADE_Overleaf($project_id);
-			$PCA = $this->PCA_Overleaf($project_id);
+			$SC = $this->SC_Overleaf($project_id);
 
 			// Cost
 			$CMP = $this->CMP_Overleaf($project_id);
@@ -2318,7 +2326,7 @@ class ProjectToOverleaf extends CI_Controller
 
 			// template + array dos documentos
 			$files["template"] = $this->templateOverleaf($project_id);
-			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PMP, $PPR, $DS, $WP, $IR, $LLR, $CR, $CL, $TEP, $FR), "scope" => array($RMP, $SCOMP, $RD, $SSP), "schedule" => array($SMP, $AL, $EVM, $SND, $RR, $ADE, $PCA), "cost" => array($CMP, $CE), "quality" => array($QMP, $QR), "resources" => array($REMP, $EVAL), "communications" => ($COMP), "risk" => array($RIMP, $RIR), "procurement" => array($PCMP, $PSW, $CPD), "stakeholder" => array($SHR, $SHEP));
+			$files["knowledge_areas"] = array("integration" => array($PCH, $BC, $BMP, $ACL, $PMP, $PPR, $DS, $WP, $IR, $LLR, $CR, $CL, $TEP, $FR), "scope" => array($RMP, $SCOMP, $RD, $SSP), "schedule" => array($SMP, $AL, $EVM, $SND, $RR, $ADE, $SC), "cost" => array($CMP, $CE), "quality" => array($QMP, $QR), "resources" => array($REMP, $EVAL), "communications" => ($COMP), "risk" => array($RIMP, $RIR), "procurement" => array($PCMP, $PSW, $CPD), "stakeholder" => array($SHR, $SHEP));
 		}
 
 		// $files["knowledge_areas"] = array("integration" =>array($BC,$outra,$outra), "scope" =>array($outra,$outra));
@@ -2415,7 +2423,7 @@ class ProjectToOverleaf extends CI_Controller
 		$file .= "\include{ScheduleNetworkDiagram}\n";
 		$file .= "\include{ResourceRequirements}\n";
 		$file .= "\include{ActivityDurationEstimates}\n";
-		$file .= "\include{ProjectCalendars}\n\n";
+		$file .= "\include{StakeholderCalendars}\n\n";
 
 		// Cost
 		$file .= "\chapter{Project Cost Management}\n";

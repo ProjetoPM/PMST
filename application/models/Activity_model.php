@@ -45,6 +45,15 @@
             return $query->result();
         }
 
+        public function getAllActivityIdsPerProject($project_id){
+            return $this->db->select('id')
+            ->from($this->table)
+            ->where('activity.project_id', $project_id)
+            ->get()->result();
+        }
+
+        
+
         public function getAllPerProject($project_id){
             return $this->db->select('activity.project_id, id, activity_name, agregate_value, planned_value, real_agregate_cost,variation_of_terms, variation_of_costs, variation_at_the_end, estimate_for_completion')
             ->from($this->table)
