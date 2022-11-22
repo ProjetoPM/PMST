@@ -2118,6 +2118,8 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] .= "\section{Stakeholder Engagement Plan}\n";
 			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataSHEP as $data) {
+				$file["task"] .= "\item \\textbf{Stakeholder name}:\n";
+				$file["task"] .= $this->verificaDados($data->name) . "\n";
 
 
 				$file["task"] .= "\begin{itemize}\n";
