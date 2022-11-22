@@ -2022,35 +2022,7 @@ class ProjectToOverleaf extends CI_Controller
 	// Stakeholder
 	public function SHR_Overleaf($project_id)
 	{
-
-		// if(strcmp($_SESSION['language'],"US") == 0){
-		// 	$client = 'Client';
-		// 	$team = 'Team';
-		// 	$provider = 'Provider';
-		// 	$project_manager = 'Project Manager';
-		// 	$sponsor = 'Sponsor';
-		// 	$others = 'Others';
-
-		// 	$external = 'External';
-		// 	$internal = 'Internal';
-		// }else{
-		// 	$client = 'Cliente';
-		// 	$team = 'Time';
-		// 	$provider = 'Fornecedor';
-		// 	$project_manager = 'Gerente de Projeto';
-		// 	$sponsor = 'Patrocinador';
-		// 	$others = 'Outros';
-
-		// 	$external = 'Externo';
-		// 	$internal = 'Interno';
-		// }
-
-		// $tempRole = $this->verificaDados($data->role);
-		// }
-		// // $file["task"] .= "\item \\textbf{Main Role in the Project}:\n";
-		// $file["task"] .= $this->verificaDados($tempRole) . "\n";
-
-
+		
 		$dataSHR = $this->Stakeholder_model->getAll($project_id);
 		$file["name_task"] = "StakeholderRegistration.tex";
 		if ($dataSHR != null) {
@@ -2139,7 +2111,7 @@ class ProjectToOverleaf extends CI_Controller
 
 	public function SHEP_Overleaf($project_id)
 	{
-		$dataSHEP = $this->Stakeholder_mp_model->getAll($project_id);
+		$dataSHEP = $this->Stakeholder_model->getAll($project_id);
 		$file["name_task"] = "StakeholderEngagementPlan.tex";
 		if ($dataSHEP != null) {
 			$file["task"] = "\n";
@@ -2147,9 +2119,6 @@ class ProjectToOverleaf extends CI_Controller
 			$file["task"] .= "\begin{itemize}\n";
 			foreach ($dataSHEP as $data) {
 
-
-
-				// $file["task"] .= "\item \\textbf{Stakeholder Name}: " .  $this->verificaDados($data->name) . "\n";
 
 				$file["task"] .= "\begin{itemize}\n";
 
