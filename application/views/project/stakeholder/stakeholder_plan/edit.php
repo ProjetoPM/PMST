@@ -44,7 +44,7 @@
                 <input type="hidden" name="project_id" value="<?php echo $project_id; ?>">
                 <input type="hidden" name="status" value="1">
 
-                <div class="col-lg-4 form-group">
+                <div class="col-lg-12 form-group">
                   <label for="name"><?= $this->lang->line('stake') ?></label>
                   <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('stakeholder_mp-text2_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                   <div>
@@ -84,7 +84,7 @@
                   </div>
                 </div>
 
-                <div class="col-lg-2 form-group">
+                <div class="col-lg-3 form-group">
                   <label for="interest"><?= $this->lang->line('shep_2') ?></label>
                   <a <?= fieldStatus($view_name, $stakeholder_id, "interest") ?> data-field="interest" data-field_name="<?= $this->lang->line('shep_2') ?>" data-item_id="<?= $stakeholder_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                   <select name="interest" class="form-control" id="interest" onchange="avg()">
@@ -96,7 +96,7 @@
                   </select>
                 </div>
 
-                <div class="col-lg-2">
+                <div class="col-lg-3">
                   <label for="power"><?= $this->lang->line('shep_3') ?></label>
                   <a <?= fieldStatus($view_name, $stakeholder_id, "power") ?> data-field="power" data-field_name="<?= $this->lang->line('shep_3') ?>" data-item_id="<?= $stakeholder_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                   <select name="power" class="form-control" id="power" onchange="avg()">
@@ -108,7 +108,7 @@
                   </select>
                 </div>
 
-                <div class="col-lg-2">
+                <div class="col-lg-3">
                   <label for="influence"><?= $this->lang->line('shep_4') ?></label>
                   <a <?= fieldStatus($view_name, $stakeholder_id, "influence") ?> data-field="influence" data-field_name="<?= $this->lang->line('shep_4') ?>" data-item_id="<?= $stakeholder_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                   <select name="influence" class="form-control" id="influence" onchange="avg()">
@@ -120,7 +120,7 @@
                   </select>
                 </div>
 
-                <div class="col-lg-2">
+                <div class="col-lg-3">
                   <label for="impact"><?= $this->lang->line('shep_5') ?></label>
                   <a <?= fieldStatus($view_name, $stakeholder_id, "impact") ?> data-field="impact" data-field_name="<?= $this->lang->line('shep_5') ?>" data-item_id="<?= $stakeholder_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                   <select name="impact" class="form-control" id="impact" onchange="avg()">
@@ -132,11 +132,6 @@
                   </select>
                 </div>
 
-                <div class="col-lg-4 form-group">
-                  <label for="average"><?= $this->lang->line('average') ?></label>
-                  <a <?= fieldStatus($view_name, $stakeholder_id, "average") ?> data-field="average" data-field_name="<?= $this->lang->line('average') ?>" data-item_id="<?= $stakeholder_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
-                  <input name="average" class="form-control" id="average" value="<?php echo $average; ?>" readonly=“true”>
-                </div>
                 <div class="col-lg-12 form-group">
                   <label for="strategy"><?= $this->lang->line('text-1') ?></label>
                   <span class="shep_9">2000</span><?= $this->lang->line('character') ?>
