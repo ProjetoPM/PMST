@@ -41,7 +41,7 @@
 							<div class="row">
 								<div class="col-lg-12">
 
-									<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>integration/project-performance-report/new/<?php echo $project_id ?>'"> <?= $this->lang->line('btn-new') ?> <?= $this->lang->line('ppr_new') ?></button>
+									<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>integration/project-performance-report/new/<?php echo $project_id ?>'"><?= $this->lang->line('ppr_new') ?></button>
 								</div>
 							</div>
 
