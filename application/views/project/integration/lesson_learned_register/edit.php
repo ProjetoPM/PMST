@@ -145,7 +145,7 @@
                                         foreach ($knowledge_area as $ka) {
                                             var_dump($ka->name);
                                             if ($knowledge_area_id == $ka->knowledge_area_id)
-                                                echo "<option value=$ka->knowledge_area_id >Selected</option>";
+                                                echo "<option value=$ka->knowledge_area_id>Selected</option>";
                                             else
                                                 echo "<option value=$teste>$ka->name</option>";
                                         }
