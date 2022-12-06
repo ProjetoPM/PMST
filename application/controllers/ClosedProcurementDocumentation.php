@@ -106,7 +106,7 @@ class ClosedProcurementDocumentation extends CI_Controller
     {
         $closed_procurement_documentation['provider'] = $this->input->post('provider');
         $closed_procurement_documentation['supplier_representative'] = $this->input->post('supplier_representative');
-        $dclosed_procurement_documentation['main_deliveries'] = $this->input->post('main deliveries of this project');
+        $dclosed_procurement_documentation['main_deliveries'] = $this->input->post('main_deliveries');
         $closed_procurement_documentation['closing_date'] = $this->input->post('closing_date');
         $closed_procurement_documentation['comments'] = $this->input->post('comments');
         $closed_procurement_documentation['project_id'] = $this->input->post('project_id');
