@@ -55,7 +55,7 @@
 									<span class="cpd_2">2000</span><?= $this->lang->line('character') ?>
                                     <a class="btn-sm btn-default" id="cpd_tp_2" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('cpd_supplier_representative_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
                                     <div>
-									<input id="cpd_txt_2" type="text" name="supplier_representative" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'cpd_2')" maxlength="2000" oninput="eylem(this, this.value)" required="true" >
+									<input id="cpd_txt_2" type="text" name="supplier_representative" class="form-control input-md" onkeyup = "limite_textarea(this.value, 'cpd_2')" oninput="eylem(this, this.value)" required="true" >
                                     </div>
                                 </div>
 
