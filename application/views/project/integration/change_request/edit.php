@@ -87,15 +87,15 @@
 									<a <?= fieldStatus($view_name, $id, "status") ?> data-field="status" data-field_name="<?= $this->lang->line('cr_status') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
 									<select class="form-control" id="status" name="status">
 
-										<option value="Under Analysis" <?php if ($status == "Under Analysis") echo 'selected'; ?>><?= $this->lang->line('type_situation-analysis') ?></option>
+										<option value="Under Analysis" <?php if ($status == "Under Analysis") echo 'selected'; ?> ><?= $this->lang->line('type_situation_analysis') ?></option>
 
-										<option value="Approved" <?php if ($status == "Approved") echo 'selected'; ?>><?= $this->lang->line('type_situation-approved') ?></option>
+										<option value="Approved" <?php if ($status == "Approved") echo 'selected'; ?>><?= $this->lang->line('type_situation_approved') ?></option>
 
-										<option value="Rejected" <?php if ($status == "Rejected") echo 'selected'; ?>><?= $this->lang->line('type_situation-rejected') ?></option>
+										<option value="Rejected" <?php if ($status == "Rejected") echo 'selected'; ?>><?= $this->lang->line('type_situation_rejected') ?></option>
 
-										<option value="Canceled" <?php if ($status == "Canceled") echo 'selected'; ?>><?= $this->lang->line('type_situation-canceled') ?></option>
+										<option value="Canceled" <?php if ($status == "Canceled") echo 'selected'; ?>><?= $this->lang->line('type_situation_canceled') ?></option>
 
-										<option value="Suspended" <?php if ($status == "Suspended") echo 'selected'; ?>><?= $this->lang->line('type_situation-suspended') ?></option>
+										<option value="Suspended" <?php if ($status == "Suspended") echo 'selected'; ?>><?= $this->lang->line('type_situation_suspended') ?></option>
 									</select>
 								</div>
 

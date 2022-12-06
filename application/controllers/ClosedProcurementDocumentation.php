@@ -121,7 +121,7 @@ class ClosedProcurementDocumentation extends CI_Controller
     }
 
 
-    public function insert($project_id)
+    public function insert()
     {
         $closed_procurement_documentation['provider'] = $this->input->post('provider');
         $closed_procurement_documentation['supplier_representative'] = $this->input->post('supplier_representative');
