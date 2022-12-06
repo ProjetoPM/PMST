@@ -47,12 +47,8 @@
 									<label><?= $this->lang->line('ds_validator_name') ?></label>
 									<a class="btn-sm btn-default" id="ds_tp_1" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('validator_name_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<a <?= fieldStatus($view_name, $id, "validator_name") ?> data-field="validator_name" data-field_name="<?= $this->lang->line('ds_validator_name') ?>" data-item_id="<?= $id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
-									<select name="validator_name" size="1" class="form-control" tabindex="1" required>
-										<?php foreach ($stakeholder as $item) { ?>
-											<option <?php if ($item->stakeholder_id == $validator_name) echo "selected"; ?> value="<?= $item->stakeholder_id; ?>">
-												<?= getStakeholderName($item->stakeholder_id); ?></option>
-										<?php  } ?>
-									</select>
+									<input type="text" disabled class="form-control input-md" value="<?= getStakeholderName($validator_name);?>">
+								
 								</div>
 
 								<div class=" col-lg-6 form-group">
