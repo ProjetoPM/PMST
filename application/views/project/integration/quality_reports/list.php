@@ -76,7 +76,7 @@
 													<td>
 														<div class="row center">
 															<div class="col-sm-3">
-																<form action="<?php echo base_url() ?>integration/quality-reports/edit/<?php echo $qr->work_performance_report_id; ?>" method="post">
+																<form action="<?php echo base_url() ?>integration/quality-reports/edit/<?php echo $qr->quality_reports_id; ?>" method="post">
 																	<input type="hidden" name="project_id" value="<?= $qr->project_id; ?>">
 																	<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
 																</form>
