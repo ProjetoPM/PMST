@@ -144,7 +144,7 @@
 
                                         <option value="<?= $knowledge_area_id ?>"> <?= $knowledge_area_name ?></option>
                                         <?php foreach ($knowledge_area as $ka) { ?>
-                                            <option value=<?= $ka->id ?> > <?= $ka->name ?></option>;
+                                            <option value=<?= $ka->knowledge_area_id ?> > <?= $ka->name ?></option>;
                                         <?php } ?>
                                     </select>
                                 </div>
