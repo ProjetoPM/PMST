@@ -31,13 +31,6 @@ class LessonLearnedRegister extends CI_Controller
 			$this->session->set_flashdata('error3', 'You have no access to this project');
 			redirect('projects/' . $_SESSION['project_id']);
 		}
-
-        
-        // $this->lang->load('btn','portuguese-brazilian');
-        
-
-        // $this->lang->load('manage-cost','portuguese-brazilian');
-
     }
 
     public function new($project_id)
@@ -87,7 +80,6 @@ class LessonLearnedRegister extends CI_Controller
         } else {
             $this->lang->load('btn', 'portuguese-brazilian');
         }
-
         $dado['project_id'] = $project_id;
 
         $dado['lesson_learned_register'] = $this->Lesson_learned_register_model->getAll($project_id);
@@ -106,16 +98,23 @@ class LessonLearnedRegister extends CI_Controller
             $this->lang->load('btn', 'portuguese-brazilian');
         }
         
-        $query['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
-        $query['knowledge_area'] = $this->Project_model->getAllKnowledgeArea();
-        $query['lesson_learned_register'] = $this->Lesson_learned_register_model->get($lesson_learned_register_id);
+        $data['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
+        $data['knowledge_area'] = $this->Project_model->getAllKnowledgeArea();
+        $data['lesson_learned_register'] = $this->Lesson_learned_register_model->get($lesson_learned_register_id);
+        $data['knowledge_area_name'] = '';
+        
+        foreach ($data['knowledge_area'] as $knowledge_area) {
+            if($data['lesson_learned_register']['knowledge_area_id'] == $knowledge_area->knowledge_area_id){
+                $data['knowledge_area_name'] =$knowledge_area->name;
+            }
+        }
 
-        $dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "lesson learned register", $query['lesson_learned_register']['lesson_learned_register_id']);
+        $dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "lesson learned register", $data['lesson_learned_register']['lesson_learned_register_id']);
 
         $this->load->view('frame/header_view.php');
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view.php');
-        $this->load->view('project/integration/lesson_learned_register/edit', $query);
+        $this->load->view('project/integration/lesson_learned_register/edit', $data);
     
     }
 

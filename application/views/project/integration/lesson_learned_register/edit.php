@@ -141,15 +141,11 @@
                                     <label for="knowledge_area"><?= $this->lang->line('llr_knowledge_area') ?></label>
                                     <a <?= fieldStatus($view_name, $lesson_learned_register_id, "knowledge_area") ?> data-field="knowledge_area" data-field_name="<?= $this->lang->line('llr_knowledge_area') ?>" data-item_id="<?= $lesson_learned_register_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
                                     <select name="knowledge_area" size="1" class="form-control" tabindex="1">
-                                        <?php
-                                        foreach ($knowledge_area as $ka) {
-                                            var_dump($ka->name);
-                                            if ($knowledge_area_id == $ka->knowledge_area_id)
-                                                echo "<option value=$ka->knowledge_area_id>Selected</option>";
-                                            else
-                                                echo "<option value=$teste>$ka->name</option>";
-                                        }
-                                        ?>
+
+                                        <option value="<?= $knowledge_area_id ?>"> <?= $knowledge_area_name ?></option>
+                                        <?php foreach ($knowledge_area as $ka) { ?>
+                                            <option value=<?= $ka->id ?> > <?= $ka->name ?></option>;
+                                        <?php } ?>
                                     </select>
                                 </div>
 
