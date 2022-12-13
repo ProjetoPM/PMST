@@ -13,24 +13,24 @@ class LessonLearnedRegister extends CI_Controller
 
         $this->load->helper('url');
         $this->load->helper('log_activity');
-        
+
         $this->load->model('log_model');
         $this->load->model('view_model');
         $this->load->model('Project_model');
         $this->load->model('Stakeholder_model');
         $this->load->model('Lesson_learned_register_model');
 
-        
-        $array = array();
-		array_push($array, 'lesson_learned_register');
-		loadLangs($array);
 
-		$userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
-		
-		if ($userInProject) {
-			$this->session->set_flashdata('error3', 'You have no access to this project');
-			redirect('projects/' . $_SESSION['project_id']);
-		}
+        $array = array();
+        array_push($array, 'lesson_learned_register');
+        loadLangs($array);
+
+        $userInProject = $this->Project_model->userInProject($_SESSION['user_id'], $_SESSION['project_id']);
+
+        if ($userInProject) {
+            $this->session->set_flashdata('error3', 'You have no access to this project');
+            redirect('projects/' . $_SESSION['project_id']);
+        }
     }
 
     public function new($project_id)
@@ -55,8 +55,6 @@ class LessonLearnedRegister extends CI_Controller
             $this->load->view('frame/topbar');
             $this->load->view('frame/sidebar_nav_view', $project_id);
             $this->load->view('project/integration/lesson_learned_register/new', $dado);
-
-            
         } else {
             redirect(base_url());
         }
@@ -97,17 +95,20 @@ class LessonLearnedRegister extends CI_Controller
         } else {
             $this->lang->load('btn', 'portuguese-brazilian');
         }
-        
+
         $data['stakeholder'] = $this->Stakeholder_model->getAll($_SESSION['project_id']);
         $data['knowledge_area'] = $this->Project_model->getAllKnowledgeArea();
         $data['lesson_learned_register'] = $this->Lesson_learned_register_model->get($lesson_learned_register_id);
         $data['knowledge_area_name'] = '';
-        
-        foreach ($data['knowledge_area'] as $knowledge_area) {
-            if($data['lesson_learned_register']['knowledge_area_id'] == $knowledge_area->knowledge_area_id){
-                $data['knowledge_area_name'] =$knowledge_area->name;
+        $knowledge_area_to_remove = 0;
+
+        foreach ($data['knowledge_area'] as $key => $knowledge_area) {
+            if ($data['lesson_learned_register']['knowledge_area_id'] == $knowledge_area->knowledge_area_id) {
+                $data['knowledge_area_name'] = $knowledge_area->name;
+                $knowledge_area_to_remove = $key;
             }
         }
+        unset($data['knowledge_area'][$knowledge_area_to_remove]);
 
         $dado["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "lesson learned register", $data['lesson_learned_register']['lesson_learned_register_id']);
 
@@ -115,7 +116,6 @@ class LessonLearnedRegister extends CI_Controller
         $this->load->view('frame/topbar');
         $this->load->view('frame/sidebar_nav_view.php');
         $this->load->view('project/integration/lesson_learned_register/edit', $data);
-    
     }
 
     public function update($lesson_learned_register_id)
