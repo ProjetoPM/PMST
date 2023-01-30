@@ -227,8 +227,8 @@ $route['integration/change-log/delete/(:num)'] = "ChangeLog/delete/$1";
 
 $route['integration/project-closure/new/(:num)'] = "ProjectClosure/new/$1";
 $route['integration/project-closure/edit/(:num)'] = "ProjectClosure/edit/$1";
-$route['integration/project-closure/insert'] = "projectclosure/insert";
-$route['integration/project-closure/update'] = "projectclosure/update";
+$route['integration/project-closure/insert'] = "ProjectClosure/insert";
+$route['integration/project-closure/update'] = "ProjectClosure/update";
 
 $route['integration/lesson-learned-register/new/(:num)'] = "LessonLearnedRegister/new/$1";
 $route['integration/lesson-learned-register/edit/(:num)'] = "LessonLearnedRegister/edit/$1";
