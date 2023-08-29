@@ -205,7 +205,7 @@ class Project extends CI_Controller
 		if ($this->Project_model->getResearcher($project_id, $user_id)) {
 			$this->session->set_flashdata('error', 'User update!');
 			$this->Project_model->update_role($project_id, $user_id, $data);
-			redirect('projects/');
+			redirect('projects/' .$project_id);
 		}
 
 		//metodo que passa as infos para serem add no banco
