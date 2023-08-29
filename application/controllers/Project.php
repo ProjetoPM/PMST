@@ -219,17 +219,19 @@ class Project extends CI_Controller
 		redirect('projects/');
 	}
 
-	public function edit_researcher_page()
+	public function edit_researcher_page($user_id)
 	{
+		$data['user'] = $this->Project_model->getResearcher($_SESSION['project_id'], $user_id);
+
 		$this->db->where('project_id', $_SESSION['project_id']);
-		$dataproject['project'] = $this->db->get('project')->result();
+		$data['project'] = $this->db->get('project')->result();
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/topbar');
 		$this->load->view('frame/sidebar_nav_view');
-		$this->load->view('project/edit_researcher', $dataproject);
+		$this->load->view('project/edit_researcher', $data);
 	}
 	
-	//metodo para adicionar pesquisador a pesquisa
+	//metodo para atualizar pesquisador
 	public function update_researcher()
 	{	
 		$researcher['role'] = $this->input->post('role');
