@@ -42,7 +42,7 @@
 								<div class="form-group">
 									<label for="email">Member E-mail</label>
 									<div>
-										<input id="email" name="email" type="text" placeholder="E-mail" class="form-control input-md" value="<?= $email ?>" disabled="disabled">
+										<input id="email" name="email" type="text" placeholder="E-mail" class="form-control input-md" value="<?= $user->email ?>" disabled="disabled">
 									</div>
 								</div>
 								<!-- Select Basic -->
