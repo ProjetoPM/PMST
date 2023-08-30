@@ -236,7 +236,7 @@ class Project extends CI_Controller
 	//metodo para atualizar pesquisador
 	public function update_researcher($user_id)
 	{	
-		$researcher['role'] = $this->input->post('role');
+		$researcher['access_level'] = $this->input->post('role');
 		
 		$data = $this->input->post();
 		
