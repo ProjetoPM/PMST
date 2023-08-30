@@ -29,6 +29,7 @@ class Project extends CI_Controller
 		$this->load->helper('log_activity');
 		$this->load->model('Project_model');
 		$this->load->model('Workspace_model');
+		$this->load->model('User_model');
 	}
 	
 	private function ajax_checking()
@@ -221,7 +222,8 @@ class Project extends CI_Controller
 
 	public function edit_researcher_page($user_id)
 	{
-		$data['user'] = $this->Project_model->getResearcher($_SESSION['project_id'], $user_id);
+		$data['user_project'] = $this->Project_model->getResearcher($_SESSION['project_id'], $user_id);
+		$data['user'] = $this->User_model->getResearcher($user_id);
 
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$data['project'] = $this->db->get('project')->result();
