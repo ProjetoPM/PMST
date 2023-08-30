@@ -250,7 +250,7 @@ class Project extends CI_Controller
 			$this->session->set_flashdata('success', 'Benefits Management Plan has been successfully changed!');
 			insertLogActivity('update', 'benefits management plan');
 		}
-		redirect('user/list' . $_SESSION['project_id']);
+		redirect('user/list/' . $_SESSION['project_id']);
 	}
 
 
