@@ -246,8 +246,8 @@ class Project extends CI_Controller
 		
 		$query = $this->Project_model->update_role($data['project_id'], $user_id, $researcher);
 		if ($this->Project_model->getResearcher($project_id, $user_id)) {
-			$this->session->set_flashdata('success', 'Benefits Management Plan has been successfully changed!');
-			insertLogActivity('update', 'benefits management plan');
+			$this->session->set_flashdata('success', 'User Role changed changed!');
+			insertLogActivity('update', 'project');
 		}
 		redirect('user/list/' . $_SESSION['project_id']);
 	}
