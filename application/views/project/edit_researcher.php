@@ -35,7 +35,6 @@
 
 								<?php extract($user); ?>
 								<?php extract($user_project); ?>
-								<?php var_dump($user_project[0]->project_id); ?>
 
 
 							</h1>
