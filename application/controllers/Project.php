@@ -217,7 +217,7 @@ class Project extends CI_Controller
 		}else{
 			$this->session->set_flashdata('error', 'User already a member.');
 		}
-		redirect('projects/');
+		redirect('projects/' . $project_id);
 	}
 
 	public function edit_researcher_page($user_id)
