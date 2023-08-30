@@ -241,10 +241,8 @@ class Project extends CI_Controller
 		$data = $this->input->post();
 		
 		$project_id = $this->input->post('project_id');
-		var_dump($data);
 		var_dump($data['access_level']);
 		var_dump($data['project_id']);
-		var_dump($project_id);
 		$access_level = $this->input->post('access_level');
 		
 		$query = $this->Project_model->update_role($data['project_id'], $user_id, $access_level);
