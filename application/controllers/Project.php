@@ -239,6 +239,7 @@ class Project extends CI_Controller
 		$researcher['role'] = $this->input->post('role');
 		
 		$data = $this->input->post();
+		
 		$project_id   = $data['project_id'];
 		$access_level = $data['access_level'];
 		$user_id      = $this->retornaIdUserByEmail($data['email']);
