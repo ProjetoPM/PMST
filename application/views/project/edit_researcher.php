@@ -35,7 +35,6 @@
 
 								<?php extract($user); ?>
 								<?php extract($user_project); ?>
-								<?php var_dump($user_project); ?>
 
 							</h1>
 							<form method="POST" action='<?= base_url("researcher/update/$user_id"); ?>'>
