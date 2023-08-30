@@ -243,7 +243,7 @@ class Project extends CI_Controller
 		$project_id   = $data['project_id'];
 		$access_level = $data['access_level'];
 		
-		$query = $this->Project_model->update_role($_SESSION['project_id'], $_SESSION['user_id'], $researcher);
+		$query = $this->Project_model->update_role($data['project_id'], $user_id, $researcher);
 		if ($this->Project_model->getResearcher($project_id, $user_id)) {
 			$this->session->set_flashdata('success', 'Benefits Management Plan has been successfully changed!');
 			insertLogActivity('update', 'benefits management plan');
