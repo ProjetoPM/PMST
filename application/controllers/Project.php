@@ -240,7 +240,8 @@ class Project extends CI_Controller
 		
 		$data = $this->input->post();
 		
-		$project_id   = $this->input->post('project_id');
+		$project_id = $this->input->post('project_id');
+		var_dump($data);
 		var_dump($project_id);
 		$access_level = $this->input->post('access_level');
 		

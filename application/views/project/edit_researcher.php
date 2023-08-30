@@ -41,7 +41,7 @@
 							</h1>
 							<form method="POST" action='<?= base_url("researcher/update/$user_id"); ?>'>
 								<input type="hidden" name="status" value="1">
-								<input type="hidden" name="project_id" value=<?php $user_project[0]->project_id ?>>
+								<input type="hidden" name="project_id" value=<?= $user_project[0]->project_id ?>>
 
 								<div class="form-group">
 									<label for="email">Member E-mail</label>
