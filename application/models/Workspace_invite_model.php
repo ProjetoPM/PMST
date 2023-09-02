@@ -67,7 +67,6 @@ class Workspace_invite_model extends CI_Model
 	public function update_new_user($update_user_id, $email) {
 		$data = array(
 			"user_id" => $update_user_id,
-			"email" => $email
 		);
 		$this->db->where("$this->table.email", $email);
 		return $this->db->update($this->table, $data);
