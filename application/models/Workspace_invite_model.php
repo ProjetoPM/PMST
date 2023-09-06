@@ -53,7 +53,6 @@ class Workspace_invite_model extends CI_Model
 		$query = $this->db->select('email')
 			->from($this->table)
 			->where("$this->table.email", $email)
-			->where("$this->table.user_id", null)
 			->get()
 			->result();
 
