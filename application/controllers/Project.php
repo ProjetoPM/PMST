@@ -245,6 +245,7 @@ class Project extends CI_Controller
 	{	
 		$researcher['access_level'] = $this->input->post('role');
 		var_dump($researcher['access_level']);
+		var_dump('teste');
 		exit();
 		$project_id = $this->input->post('project_id');
 
