@@ -96,6 +96,8 @@ class StakeholderRegister extends CI_Controller
 		}
         
         $query['stakeholder'] = $this->Stakeholder_model->get($stakeholder_id);
+       
+
         $query["fields"] = getAllFieldEvaluation($_SESSION['project_id'], "stakeholder register", $query['stakeholder']['stakeholder_id']);
         $this->load->view('frame/header_view');
         $this->load->view('frame/topbar');

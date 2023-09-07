@@ -84,13 +84,14 @@
 									<label for="role"><?= $this->lang->line('shr_role') ?></label>
 									<a class="btn-sm btn-default" id="shr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_role_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<a <?= fieldStatus($view_name, $stakeholder_id, "role") ?> data-field="role" data-field_name="<?= $this->lang->line('shr_role') ?>" data-item_id="<?= $stakeholder_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
-									<select name="role" class="form-control" value="<?php echo $role; ?>">
-										<option value="0" <?php if ($role == 1) echo 'selected'; ?>><?= $this->lang->line('shr_role_client') ?></option>
-										<option value="1" <?php if ($role == 2) echo 'selected'; ?>><?= $this->lang->line('shr_role_team') ?></option>
-										<option value="2" <?php if ($role == 3) echo 'selected'; ?>><?= $this->lang->line('shr_role_provider') ?></option>
-										<option value="3" <?php if ($role == 4) echo 'selected'; ?>><?= $this->lang->line('shr_role_project_manager') ?></option>
-										<option value="4" <?php if ($role == 5) echo 'selected'; ?>><?= $this->lang->line('shr_role_sponsor') ?></option>
-										<option value="5" <?php if ($role == 6) echo 'selected'; ?>><?= $this->lang->line('shr_role_others') ?></option>
+									<select <?php $object = getStakeholderRoleLang($role) ?> name="role" class="form-control" value="<?php echo $role; ?>">
+									<option value="<?php $object->id ?>"><?= $this->lang->line($object->lang) ?></option>
+										<option value="0"><?= $this->lang->line('shr_role_client') ?></option>
+										<option value="1"><?= $this->lang->line('shr_role_team') ?></option>
+										<option value="2"><?= $this->lang->line('shr_role_provider') ?></option>
+										<option value="3"><?= $this->lang->line('shr_role_project_manager') ?></option>
+										<option value="4"><?= $this->lang->line('shr_role_sponsor') ?></option>
+										<option value="5"><?= $this->lang->line('shr_role_others') ?></option>
 									</select>
 								</div>
 

@@ -441,6 +441,18 @@ function getStakeholderRole($id){
 	}else{
 		return 'Outro';
 	}
+}
+
+function getStakeholderRoleLang($id){
+	$langs = array('shr_role_client', 'shr_role_team', 'shr_role_provider', 'shr_role_project_manager', 'shr_role_sponsor', 'shr_role_others');
+	$langId = langs[$id - 1];
+
+	$array = array("id" => $id, "lang" => $langId);
+	$object = (object) $array;
+
+	var_dump($object->id);
+	var_dump($object->lang);
+	return $object;
 
 }
 
