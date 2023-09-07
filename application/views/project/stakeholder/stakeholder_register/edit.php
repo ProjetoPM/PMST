@@ -84,7 +84,8 @@
 									<label for="role"><?= $this->lang->line('shr_role') ?></label>
 									<a class="btn-sm btn-default" id="shr_tp_3" data-toggle="tooltip" data-placement="right" title="<?= $this->lang->line('shr_role_tp') ?>"><i class="glyphicon glyphicon-comment"></i></a>
 									<a <?= fieldStatus($view_name, $stakeholder_id, "role") ?> data-field="role" data-field_name="<?= $this->lang->line('shr_role') ?>" data-item_id="<?= $stakeholder_id ?>" data-view="<?= $view_name ?>" data-toggle="modal" data-placement="left" data-target="#write-evaluation" data-tt="tooltip"><i class="glyphicon glyphicon-list-alt"></i></a>
-									<select <?php $object = getStakeholderRoleLang($role) ?> name="role" class="form-control" value="<?php echo $role; ?>">
+									<select  name="role" class="form-control" value="<?php echo $role; ?>">
+									<?php $object = getStakeholderRoleLang($role) ?>
 									<option value="<?php $object->id ?>"><?= $this->lang->line($object->lang) ?></option>
 										<option value="0"><?= $this->lang->line('shr_role_client') ?></option>
 										<option value="1"><?= $this->lang->line('shr_role_team') ?></option>

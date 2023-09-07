@@ -452,6 +452,7 @@ function getStakeholderRoleLang($id){
 
 	var_dump($object->id);
 	var_dump($object->lang);
+	exit();
 	return $object;
 
 }
