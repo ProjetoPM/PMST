@@ -445,7 +445,7 @@ function getStakeholderRole($id){
 
 function getStakeholderRoleLang($id){
 	$langs = array('shr_role_client', 'shr_role_team', 'shr_role_provider', 'shr_role_project_manager', 'shr_role_sponsor', 'shr_role_others');
-	$langId = langs[$id - 1];
+	$langId = $langs[$id - 1];
 	var_dump($langId);
 
 	$array = array("id" => $id, "lang" => $langId);
