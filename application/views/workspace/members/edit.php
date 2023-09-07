@@ -28,28 +28,28 @@
 
 
                   <div class=" col-lg-8 form-group">
-                    <label for="business_deals">Nome</label>
+                    <label for="name">Nome</label>
                     <div>
                       <input type="text" class="form-control input-md" value = "<?= $user[0]->name; ?>" disabled>
                     </div>
                   </div>
 
                   <div class=" col-lg-4 form-group">
-                      <label for="evaluation">Instituição</label>
+                      <label for="insitution">Instituição</label>
                       <div>
                       <input type="text" class="form-control input-md" value = "<?= $user[0]->institution; ?>" disabled>
                       </div>
                   </div>
 
                   <div class=" col-lg-8 form-group">
-                    <label for="situation_analysis">Email<?= $this->lang->line('bc_situation_analysis') ?> </label>
+                    <label for="email">Email</label>
                     <div>
                     <input type="text" class="form-control input-md" value = "<?= $user[0]->email; ?>" disabled>
                     </div>
                   </div>
 
                   <div class=" col-lg-4 form-group">
-                      <label for="recommendation">Nível de Acesso</label>
+                      <label for="access_level">Nível de Acesso</label>
                       <select name="access_level" class="form-control">
                         <?php foreach($access_levels as $level): ?>
                           <?php if($user[0]->access_level === $level->access_level_id){ ?>

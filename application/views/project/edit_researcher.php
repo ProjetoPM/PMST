@@ -35,6 +35,7 @@
 
 								<?php extract($user); ?>
 								<?php extract($user_project); ?>
+								<?php extract($access_levels); ?>
 
 
 							</h1>
@@ -52,12 +53,16 @@
 								<div class="form-group">
 									<label for="access_level">Access Level</label>
 									<div>
-										<select id="access_level" name="access_level" class="form-control">
-											<option value="0">Staff</option>
-											<option value="1">Professor</option>
-											<option value="2">Project Manager</option>
-											<option value="3">Admin</option>
-										</select>
+										<select name="access_level" class="form-control">
+                        <?php foreach($access_levels as $level): ?>
+                          <?php if($user_project[0]->access_level === $level->access_level_id){ ?>
+                            <option value="">Selected</option>
+                         <?php }else{ ?>
+                          <option value="<?= $level->access_level_id ?>"> <?= $level->access_level_name ?>
+                          </option>
+                         <?php } ?>
+                          <?php endforeach ?>
+                    </select>
 									</div>
 								</div>
 						</div>

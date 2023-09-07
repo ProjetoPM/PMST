@@ -27,9 +27,12 @@ class Project extends CI_Controller
 		
 		$this->load->helper('url');
 		$this->load->helper('log_activity');
+
+		$this->load->model('User_Model');
 		$this->load->model('Project_model');
 		$this->load->model('Workspace_model');
-		$this->load->model('User_Model');
+		$this->load->model('Project_access_level_model');
+
 	}
 	
 	private function ajax_checking()
@@ -224,6 +227,10 @@ class Project extends CI_Controller
 	{
 		$data['user_project'] = $this->Project_model->getResearcher($_SESSION['project_id'], $user_id);
 		$data['user'] = $this->User_Model->getUserById($user_id);
+
+		$language = getIndexOfLanguage();
+		$data['access_levels'] = $this->Project_access_level_model->getAll($language);
+
 
 		$this->db->where('project_id', $_SESSION['project_id']);
 		$data['project'] = $this->db->get('project')->result();
