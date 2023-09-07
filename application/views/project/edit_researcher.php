@@ -55,10 +55,10 @@
 									<div>
 										<select name="access_level" class="form-control">
                         <?php foreach($access_levels as $level): ?>
-                          <?php if($user_project[0]->access_level === $level->access_level_id){ ?>
+                          <?php if($user_project[0]->access_level === $level->project_access_level_id){ ?>
                             <option value="">Selected</option>
                          <?php }else{ ?>
-                          <option value="<?= $level->access_level_id ?>"> <?= $level->access_level_name ?>
+                          <option value="<?= $level->access_level_id ?>"> <?= $level->name ?>
                           </option>
                          <?php } ?>
                           <?php endforeach ?>
