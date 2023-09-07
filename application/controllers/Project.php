@@ -230,6 +230,7 @@ class Project extends CI_Controller
 
 		$language = getIndexOfLanguage();
 		$data['access_levels'] = $this->Project_access_level_model->getAll($language);
+		var_dump($data['access_levels']);
 
 
 		$this->db->where('project_id', $_SESSION['project_id']);
