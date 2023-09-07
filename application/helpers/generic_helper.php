@@ -450,7 +450,8 @@ function getStakeholderRoleLang($id){
 	$array = array("id" => $id, "lang" => $langId);
 	$object = (object) $array;
 
-	var_dump($object->id);
+	var_dump("teste"); 
+	var_dump($object->id); 
 	var_dump($object->lang);
 	exit();
 	return $object;
