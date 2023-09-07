@@ -58,7 +58,7 @@
                           <?php if($user_project[0]->access_level === $level->project_access_level_id){ ?>
                             <option value="">Selected</option>
                          <?php }else{ ?>
-                          <option value="<?= $level->access_level_id ?>"> <?= $level->name ?>
+                          <option value="<?= $level->project_access_level_id ?>"> <?= $level->name ?>
                           </option>
                          <?php } ?>
                           <?php endforeach ?>
