@@ -243,10 +243,7 @@ class Project extends CI_Controller
 	//metodo para atualizar pesquisador
 	public function update_researcher($user_id)
 	{	
-		$researcher['access_level'] = $this->input->post('role');
-		var_dump($researcher['access_level']);
-		var_dump('teste');
-		exit();
+		$researcher['access_level'] = $this->input->post('access_level');
 		$project_id = $this->input->post('project_id');
 
 		
