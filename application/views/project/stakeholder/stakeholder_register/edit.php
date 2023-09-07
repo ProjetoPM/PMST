@@ -87,12 +87,12 @@
 									<select  name="role" class="form-control" value="<?php echo $role; ?>">
 									<?php $object = getStakeholderRoleLang($role) ?>
 									<option value="<?php $object->id ?>"><?= $this->lang->line($object->lang) ?></option>
-										<option value="0"><?= $this->lang->line('shr_role_client') ?></option>
-										<option value="1"><?= $this->lang->line('shr_role_team') ?></option>
-										<option value="2"><?= $this->lang->line('shr_role_provider') ?></option>
-										<option value="3"><?= $this->lang->line('shr_role_project_manager') ?></option>
-										<option value="4"><?= $this->lang->line('shr_role_sponsor') ?></option>
-										<option value="5"><?= $this->lang->line('shr_role_others') ?></option>
+										<option value="1"><?= $this->lang->line('shr_role_client') ?></option>
+										<option value="2"><?= $this->lang->line('shr_role_team') ?></option>
+										<option value="3"><?= $this->lang->line('shr_role_provider') ?></option>
+										<option value="4"><?= $this->lang->line('shr_role_project_manager') ?></option>
+										<option value="5"><?= $this->lang->line('shr_role_sponsor') ?></option>
+										<option value="6"><?= $this->lang->line('shr_role_others') ?></option>
 									</select>
 								</div>
 
