@@ -230,7 +230,6 @@ class Project extends CI_Controller
 
 		$language = getIndexOfLanguage();
 		$data['access_levels'] = $this->Project_access_level_model->getAll($language);
-		var_dump($data['access_levels']);
 
 
 		$this->db->where('project_id', $_SESSION['project_id']);
@@ -245,14 +244,12 @@ class Project extends CI_Controller
 	public function update_researcher($user_id)
 	{	
 		$researcher['access_level'] = $this->input->post('role');
-		
-		$data = $this->input->post();
-		
+		var_dump($researcher['access_level']);
+
 		$project_id = $this->input->post('project_id');
 
-		$access_level = $this->input->post('access_level');
 		
-		$query = $this->Project_model->update_role($data['project_id'], $user_id, $researcher);
+		$query = $this->Project_model->update_role($project_id, $user_id, $researcher);
 		if ($this->Project_model->getResearcher($project_id, $user_id)) {
 			$this->session->set_flashdata('success', 'User Role changed!');
 			insertLogActivity('update', 'project');
