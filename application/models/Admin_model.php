@@ -293,7 +293,7 @@ class Admin_model extends CI_Model {
             $mail->SMTPDebug = 0;  
             $mail->SMTPAuth = true; 
             $mail->SMTPSecure = 'ssl';
-            $mail->Host = "smtp.hostinger.com.br";
+            $mail->Host = "smtp.hostinger.com";
             $mail->Port = "465";
             $mail->Username =  $this->config->item('mail_username');
             $mail->Password = $this->config->item('mail_password');
